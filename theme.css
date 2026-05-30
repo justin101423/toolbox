@@ -1,0 +1,68 @@
+html[data-theme="dark"] {
+  --paper:#1e1e1e;
+  --panel:#333333;
+  --panel-2:#3b3b3b;
+  --card:#282828;
+  --ink:#f0f0f0;
+  --ink-2:#b8b8b8;
+  --ink-3:#9f9f9f;
+  --accent:#df4324;
+  --accent-2:#bf3417;
+  --line:rgba(255,255,255,.18);
+  --line-2:rgba(255,255,255,.36);
+  --ok:#7fd19c;
+  --err:#ff8a80;
+}
+
+.theme-toggle {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border:1px solid var(--line-2);
+  border-radius:9px;
+  background:var(--card);
+  color:var(--ink);
+  font-size:15px;
+  line-height:1;
+  transition:background .15s,border-color .15s,transform .12s;
+}
+
+.theme-toggle:hover {
+  background:var(--panel);
+  border-color:var(--ink);
+}
+
+.theme-toggle:active {
+  transform:scale(.96);
+}
+
+html[data-theme="dark"] .topbar {
+  background:rgba(30,30,30,.86);
+  border-bottom-color:var(--line);
+}
+
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] input[type="text"],
+html[data-theme="dark"] input[type="number"],
+html[data-theme="dark"] input[type="url"],
+html[data-theme="dark"] input[type="date"],
+html[data-theme="dark"] select {
+  background:var(--panel);
+  color:var(--ink);
+  border-color:var(--line-2);
+}
+
+html[data-theme="dark"] .drop:hover,
+html[data-theme="dark"] .drop.over {
+  background:var(--panel);
+}
+
+html[data-theme="dark"] .btn:not(.accent):not(.ghost):hover {
+  background:#111;
+}
+
+html[data-theme="dark"] .qr-wrap {
+  border-color:var(--line-2);
+}
