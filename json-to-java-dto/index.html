@@ -1,0 +1,221 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON → Java DTO 변환기 — 무료 온라인 DTO 클래스 생성 도구 | 도구상자</title>
+<meta name="description" content="JSON을 붙여넣으면 Java DTO 클래스를 자동으로 생성합니다. Lombok @Data 어노테이션 옵션과 중첩 클래스 지원으로 스프링 부트 개발 생산성을 높이세요.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--paper:#F3EEE3;--panel:#EBE4D5;--card:#FBF8F1;--ink:#1b1a1e;--ink-2:#54504a;--ink-3:#867f73;--accent:#df4324;--accent-2:#bf3417;--line:rgba(27,26,30,.14);--line-2:rgba(27,26,30,.30);--ok:#2e7d4f;--err:#c0392b;--r:12px;--r-sm:8px;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;--kr:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;--disp:'Bricolage Grotesque',var(--kr);}
+*{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%}
+body{font-family:var(--kr);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;letter-spacing:-.01em;position:relative;min-height:100vh;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:none;background:none}input,textarea,select{font-family:inherit;font-size:15px}
+input[type=text]{background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:9px 13px;color:var(--ink);width:180px;}
+input[type=text]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(223,67,36,.13)}
+.kick{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(243,238,227,.86);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;padding:14px clamp(16px,4vw,40px);}
+.brand{display:flex;align-items:center;gap:11px;cursor:pointer;user-select:none}.brand .mark{width:34px;height:34px;border-radius:9px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:19px;box-shadow:3px 3px 0 var(--accent);transition:transform .25s ease;}
+.brand:hover .mark{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--accent)}.brand b{font-weight:800;font-size:18px;letter-spacing:-.02em}.brand span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--ink-3);margin-top:1px}
+.topbar .spacer{flex:1}.topbar .badge{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-2);border:1px solid var(--line-2);border-radius:100px;padding:5px 11px}
+.menu-btn{display:none;border:1px solid var(--line-2);border-radius:8px;padding:7px 10px;font-size:13px;font-weight:600}
+.app{display:grid;grid-template-columns:262px 1fr;position:relative;z-index:1}
+.side{border-right:1px solid var(--line);padding:26px 18px 60px;position:sticky;top:63px;align-self:start;height:calc(100vh - 63px);overflow:auto;}
+.side .grp{margin-bottom:24px}.side .grp>.kick{padding:0 10px 8px;display:flex;align-items:center;gap:8px}.side .grp>.kick::before{content:"";width:5px;height:5px;border-radius:2px;background:var(--accent)}
+.navlink{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:9px 10px;border-radius:9px;color:var(--ink-2);font-size:14px;font-weight:500;transition:background .15s,color .15s;}
+.navlink:hover{background:var(--panel);color:var(--ink)}.navlink.active{background:var(--ink);color:var(--paper)}.navlink .ic{font-size:15px;width:18px;text-align:center;opacity:.85}
+.main{padding:clamp(22px,3.5vw,46px) clamp(16px,4vw,52px) 90px;min-width:0}.inner{max-width:900px}
+.content{margin-top:38px}.content>p{font-size:15px;color:var(--ink-2);margin:11px 0;line-height:1.75;max-width:66ch}.content b{color:var(--ink);font-weight:700}
+.sec-label{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--ink-2);margin:30px 0 13px;display:flex;align-items:center;gap:10px}.sec-label::after{content:"";flex:1;height:1px;background:var(--line)}.sec-label:first-of-type{margin-top:6px}
+.crumb{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-3);font-weight:500;border:1px solid var(--line);border-radius:100px;padding:6px 13px;margin-bottom:18px;transition:.15s}.crumb:hover{border-color:var(--ink);color:var(--ink)}
+h2{font-family:var(--disp);font-weight:800;font-size:clamp(24px,4vw,33px);letter-spacing:-.025em;margin-bottom:7px}.lede{color:var(--ink-2);font-size:15px;margin-bottom:24px;max-width:60ch}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+textarea{width:100%;background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;color:var(--ink);transition:border-color .15s,box-shadow .15s;resize:vertical;font-family:var(--mono);font-size:13px;line-height:1.6;}
+textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(223,67,36,.13)}
+.col-label{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin-bottom:7px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:var(--paper);border-radius:var(--r-sm);padding:11px 18px;font-size:14px;font-weight:600;letter-spacing:-.01em;transition:transform .12s,background .15s,opacity .15s;}
+.btn:hover{background:#000}.btn:active{transform:scale(.97)}.btn.accent{background:var(--accent)}.btn.accent:hover{background:var(--accent-2)}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}.btn.ghost:hover{background:var(--panel);border-color:var(--ink)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.note{font-size:13px;color:var(--err);margin-top:8px;font-weight:500;display:none}.note.show{display:block}
+label{font-size:13px;font-weight:600;color:var(--ink-2)}
+footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:13px;color:var(--ink-3)}
+footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}.two-col{grid-template-columns:1fr}}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side">
+    <div class="grp"><div class="kick">이미지 · PDF</div>
+      <a class="navlink" href="/image-converter/"><span class="ic">🖼</span> 이미지 포맷 변환</a>
+      <a class="navlink" href="/image-compressor/"><span class="ic">📉</span> 이미지 압축·리사이즈</a>
+      <a class="navlink" href="/pdf-merge/"><span class="ic">📄</span> PDF 합치기</a>
+      <a class="navlink" href="/image-to-pdf/"><span class="ic">🖼</span> 이미지 → PDF</a>
+      <a class="navlink" href="/pdf-split/"><span class="ic">✂</span> PDF 페이지 분할</a>
+    </div>
+    <div class="grp"><div class="kick">텍스트 · 생성</div>
+      <a class="navlink" href="/word-counter/"><span class="ic">🔤</span> 글자수 세기</a>
+      <a class="navlink" href="/qr-code/"><span class="ic">▦</span> QR코드 생성</a>
+      <a class="navlink" href="/password-generator/"><span class="ic">🔑</span> 비밀번호 생성</a>
+      <a class="navlink" href="/json-formatter/"><span class="ic">{ }</span> JSON 포매터</a>
+    </div>
+    <div class="grp"><div class="kick">색상 · 디자인</div>
+      <a class="navlink" href="/hex-rgb-converter/"><span class="ic">◑</span> HEX ↔ RGB 변환</a>
+      <a class="navlink" href="/color-palette/"><span class="ic">🎨</span> 컬러 팔레트 생성</a>
+    </div>
+    <div class="grp"><div class="kick">생활 · 편의</div>
+      <a class="navlink" href="/dday-calculator/"><span class="ic">📅</span> D-Day · 날짜 계산</a>
+      <a class="navlink" href="/lotto-generator/"><span class="ic">🎱</span> 로또 번호 생성</a>
+    </div>
+    <div class="grp"><div class="kick">직장인 · 생산성</div>
+      <a class="navlink" href="/notepad/"><span class="ic">📝</span> 임시 메모장</a>
+      <a class="navlink" href="/utm-builder/"><span class="ic">🔗</span> UTM 빌더</a>
+    </div>
+    <div class="grp"><div class="kick">개발자 도구</div>
+      <a class="navlink" href="/encoder-decoder/"><span class="ic">⇄</span> 인코더 · 디코더</a>
+      <a class="navlink" href="/jwt-decoder/"><span class="ic">🔓</span> JWT 디코더</a>
+      <a class="navlink" href="/uuid-generator/"><span class="ic">#</span> UUID 생성</a>
+      <a class="navlink" href="/hash-generator/"><span class="ic">🔒</span> Hash 생성</a>
+      <a class="navlink active" href="/json-to-java-dto/"><span class="ic">☕</span> JSON → Java DTO</a>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>JSON → Java DTO</h2>
+      <p class="lede">JSON을 붙여넣으면 Java DTO 클래스를 자동 생성합니다.</p>
+      <div class="box">
+        <div class="btn-row" style="margin-top:0;margin-bottom:14px;flex-wrap:wrap;gap:12px">
+          <div style="display:flex;align-items:center;gap:8px"><label>루트 클래스명</label><input type="text" id="dto-name" value="RootDto" style="width:140px"></div>
+          <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="dto-lombok" checked> Lombok @Data</label>
+          <button class="btn accent" id="dto-run">변환</button>
+          <button class="btn ghost" id="dto-copy">복사</button>
+        </div>
+        <div class="two-col">
+          <div>
+            <div class="col-label">JSON 입력</div>
+            <textarea id="dto-in" rows="16" placeholder='{"id":1,"name":"홍길동","address":{"city":"서울"}}'></textarea>
+          </div>
+          <div>
+            <div class="col-label">Java DTO 출력</div>
+            <textarea id="dto-out" rows="16" readonly placeholder="변환 결과가 여기 표시됩니다"></textarea>
+          </div>
+        </div>
+        <div class="note" id="dto-note"></div>
+      </div>
+      <section class="content">
+        <div class="sec-label">JSON → Java DTO 변환기 안내</div>
+        <p>JSON 객체의 키를 분석해 적절한 Java 타입으로 매핑합니다. 중첩 객체는 <b>static inner class</b>로, 배열은 <b>List&lt;T&gt;</b>로 변환됩니다. <b>Lombok @Data</b> 옵션을 켜면 getter/setter/toString 없이 어노테이션 하나로 대체합니다.</p>
+        <p>camelCase 필드명은 JSON 키를 그대로 사용합니다. snake_case 키는 자동으로 camelCase로 변환됩니다. 생성된 코드는 참고용이므로 실제 프로젝트에 맞게 검토 후 사용하세요.</p>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script>
+(()=>{
+  function toCamel(s){return s.replace(/_([a-z])/g,(_,c)=>c.toUpperCase());}
+  function toPascal(s){const c=toCamel(s);return c.charAt(0).toUpperCase()+c.slice(1);}
+
+  function javaType(val,key,classes){
+    if(val===null)return 'Object';
+    if(typeof val==='boolean')return 'Boolean';
+    if(typeof val==='number')return Number.isInteger(val)?'Integer':'Double';
+    if(typeof val==='string')return 'String';
+    if(Array.isArray(val)){
+      if(val.length===0)return 'List<Object>';
+      const inner=javaType(val[0],key,classes);
+      return `List<${inner}>`;
+    }
+    if(typeof val==='object'){
+      const name=toPascal(key)+'Dto';
+      classes.push({name,obj:val});
+      return name;
+    }
+    return 'Object';
+  }
+
+  function buildClass(name,obj,classes,lombok){
+    const lines=[];
+    if(lombok)lines.push('@Data');
+    lines.push(`public static class ${name} {`);
+    for(const [k,v] of Object.entries(obj)){
+      const field=toCamel(k);
+      const type=javaType(v,k,classes);
+      if(type.startsWith('List'))lines.push(`    private ${type} ${field};`);
+      else lines.push(`    private ${type} ${field};`);
+      if(!lombok){
+        const cap=field.charAt(0).toUpperCase()+field.slice(1);
+        lines.push(`    public ${type} get${cap}(){return ${field};}`);
+        lines.push(`    public void set${cap}(${type} ${field}){this.${field}=${field};}`);
+      }
+    }
+    lines.push('}');
+    return lines.join('\n');
+  }
+
+  document.getElementById('dto-run').onclick=()=>{
+    const note=document.getElementById('dto-note');
+    note.className='note';
+    const rootName=document.getElementById('dto-name').value.trim()||'RootDto';
+    const lombok=document.getElementById('dto-lombok').checked;
+    let json;
+    try{json=JSON.parse(document.getElementById('dto-in').value);}
+    catch(e){note.textContent='✗ JSON 파싱 오류: '+e.message;note.className='note show';return;}
+    if(typeof json!=='object'||Array.isArray(json)||json===null){
+      note.textContent='✗ 최상위 JSON이 객체({})여야 합니다.';note.className='note show';return;
+    }
+
+    const classes=[];
+    const header=[];
+    if(lombok)header.push('import lombok.Data;');
+    header.push('import java.util.List;\n');
+
+    const rootLines=[];
+    if(lombok)rootLines.push('@Data');
+    rootLines.push(`public class ${rootName} {`);
+    for(const [k,v] of Object.entries(json)){
+      const field=toCamel(k);
+      const type=javaType(v,k,classes);
+      rootLines.push(`    private ${type} ${field};`);
+      if(!lombok){
+        const cap=field.charAt(0).toUpperCase()+field.slice(1);
+        rootLines.push(`    public ${type} get${cap}(){return ${field};}`);
+        rootLines.push(`    public void set${cap}(${type} ${field}){this.${field}=${field};}`);
+      }
+    }
+
+    const innerParts=[];
+    while(classes.length){
+      const c=classes.shift();
+      innerParts.push(buildClass(c.name,c.obj,classes,lombok).split('\n').map(l=>'    '+l).join('\n'));
+    }
+    if(innerParts.length)rootLines.push('',innerParts.join('\n\n'));
+    rootLines.push('}');
+
+    document.getElementById('dto-out').value=[...header,...rootLines].join('\n');
+  };
+
+  document.getElementById('dto-copy').onclick=()=>{
+    const v=document.getElementById('dto-out').value;
+    if(v)navigator.clipboard.writeText(v);
+  };
+})();
+</script>
