@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
 <title>PDF 합치기 — 여러 PDF를 하나로 무료 병합 | 도구상자</title>
 <meta name="description" content="여러 PDF 파일을 드래그 앤 드롭으로 업로드해 하나의 PDF로 합칩니다. 모든 처리가 브라우저 안에서 이루어져 파일이 서버로 전송되지 않습니다. 설치 없이 무료로 사용하세요.">
+<link rel="canonical" href="https://dogubox.shop/pdf-merge/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +33,7 @@ a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;b
 .content{margin-top:38px}.content>p{font-size:15px;color:var(--ink-2);margin:11px 0;line-height:1.75;max-width:66ch}.content b{color:var(--ink);font-weight:700}
 .sec-label{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--ink-2);margin:30px 0 13px;display:flex;align-items:center;gap:10px}.sec-label::after{content:"";flex:1;height:1px;background:var(--line)}.sec-label:first-of-type{margin-top:6px}
 .crumb{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-3);font-weight:500;border:1px solid var(--line);border-radius:100px;padding:6px 13px;margin-bottom:18px;transition:.15s}.crumb:hover{border-color:var(--ink);color:var(--ink)}
-h2{font-family:var(--disp);font-weight:800;font-size:clamp(24px,4vw,33px);letter-spacing:-.025em;margin-bottom:7px}.lede{color:var(--ink-2);font-size:15px;margin-bottom:24px;max-width:60ch}
+h1,h2{font-family:var(--disp);font-weight:800;font-size:clamp(24px,4vw,33px);letter-spacing:-.025em;margin-bottom:7px}.lede{color:var(--ink-2);font-size:15px;margin-bottom:24px;max-width:60ch}
 .field{margin-bottom:18px}.field>label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:7px}
 .box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:var(--paper);border-radius:var(--r-sm);padding:11px 18px;font-size:14px;font-weight:600;letter-spacing:-.01em;transition:transform .12s,background .15s,opacity .15s;}
@@ -64,7 +67,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
   <main class="main">
     <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
       <a class="crumb" href="/">← 모든 도구</a>
-      <h2>PDF 합치기</h2>
+      <h1>PDF 합치기</h1>
       <p class="lede">여러 개의 PDF 파일을 순서대로 하나로 합칩니다. 위아래 순서가 그대로 적용돼요.</p>
       <div class="box">
         <div class="drop" id="pm-drop"><div class="big">📄</div><b>PDF 파일들을 끌어다 놓거나 클릭</b><small>여러 개 선택 가능</small></div>
@@ -144,3 +147,4 @@ function hookDrop(drop,input,onFiles){
   };
 })();
 </script>
+</html>

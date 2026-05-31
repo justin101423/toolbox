@@ -166,6 +166,7 @@ toolbox/
 새 도구 `<슬러그>`를 추가할 때 아래를 **모두** 수행합니다:
 
 1. **`/<슬러그>/index.html` 생성** — 기존 도구 페이지와 동일한 패턴(head · 상단바 · 푸터 · 디자인). `/tool-page.css` 참조 패턴 권장. **사이드바는 직접 작성하지 말고** 빈 컨테이너 `<aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>` 만 두고, 본문 끝(`theme.js` 앞)에 `<script src="/sidebar.js"></script>`를 추가합니다.
+   - **★ 표준 문서 구조(SEO)**: 파일 맨 첫 줄 `<!DOCTYPE html>`, 그다음 `<html lang="ko">`로 시작해 맨 끝을 `</html>`로 닫습니다. `<head>`에 `<link rel="canonical" href="https://dogubox.shop/<슬러그>/">`를 넣고, 페이지 **대표 제목은 `<h1>` 한 개**만 둡니다(콘텐츠 섹션 라벨은 `<div class="sec-label">` 유지 — h1/h2로 만들지 않음). h1 스타일은 `tool-page.css`의 `h1,h2{…}` 규칙이 담당합니다.
 2. **외부 라이브러리** — 그 도구에 꼭 필요한 라이브러리만 `<head>`에 추가.
 3. **★ 사이드바 = `sidebar.js` 데이터에 한 줄 추가** — `sidebar.js`의 `CATEGORIES`에서 알맞은 카테고리의 `tools` 배열에 `{ slug, name, icon }` 한 줄만 추가하면 **전 페이지 사이드바와 active 처리가 자동 반영**됩니다. (더 이상 개별 페이지 사이드바를 수정하지 않습니다.) **아이콘은 Lucide 인라인 SVG로 통일**되어 있습니다 — `icon` 값은 `sidebar.js`의 `ICONS` 매핑에 있는 Lucide 아이콘 이름(예: `"crop"`)을 쓰고, 새 아이콘이 필요하면 `ICONS`에 해당 Lucide SVG의 inner path를 추가합니다(`stroke="currentColor"`라 다크모드 자동 대응, 외부 CDN·SRI 불필요).
 4. **허브 카드 추가** — `index.html`의 해당 카테고리 카드 그리드(`.grid`)에 새 카드 추가. 아이콘은 이모지 대신 `<div class="ic" data-icon="<Lucide이름>">`로 두면 `sidebar.js`가 같은 `ICONS` 매핑으로 채웁니다(사이드바와 허브가 단일 아이콘 세트 공유).

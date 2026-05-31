@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
 <title>그라데이션 생성기 — CSS linear·radial 그라데이션 코드 | 도구상자</title>
 <meta name="description" content="여러 색상과 방향·위치를 조절해 CSS 그라데이션을 실시간 미리보기로 만들고 linear-gradient·radial-gradient 코드를 복사하세요. 색 추가·삭제와 위치(%) 조절을 지원합니다. 웹 배경·버튼 디자인에 바로 쓸 수 있으며 브라우저에서만 동작합니다.">
+<link rel="canonical" href="https://dogubox.shop/gradient-generator/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +42,7 @@
   <main class="main">
     <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
       <a class="crumb" href="/">← 모든 도구</a>
-      <h2>그라데이션 생성기</h2>
+      <h1>그라데이션 생성기</h1>
       <p class="lede">색을 추가하고 방향을 조절하며 CSS 그라데이션을 만들어 보세요. 코드를 복사해 바로 사용할 수 있습니다.</p>
 
       <div class="box">
@@ -144,3 +147,4 @@ $('gg-copy').onclick=()=>{navigator.clipboard.writeText($('gg-code').textContent
 function note(msg,kind){const n=$('gg-note');n.textContent=msg;n.className='note show '+(kind||'');if(kind==='ok')setTimeout(()=>{n.className='note';},2000);}
 renderStops();render();
 </script>
+</html>

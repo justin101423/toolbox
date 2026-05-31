@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
 <title>이미지 색상 추출 — 사진에서 대표 색 팔레트 뽑기 무료 도구 | 도구상자</title>
 <meta name="description" content="이미지를 올리면 사진을 분석해 주요 색상 팔레트를 추출하고 각 색의 HEX 코드를 복사할 수 있습니다. 사진 톤에 맞춘 디자인 색 고르기, 무드보드 제작에 유용하며 모든 분석은 브라우저 canvas에서만 처리되어 사진이 서버로 전송되지 않습니다.">
+<link rel="canonical" href="https://dogubox.shop/color-extractor/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +36,7 @@
   <main class="main">
     <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
       <a class="crumb" href="/">← 모든 도구</a>
-      <h2>이미지에서 색 추출</h2>
+      <h1>이미지에서 색 추출</h1>
       <p class="lede">사진을 올리면 그 안의 대표 색을 뽑아 팔레트로 보여줍니다. 색을 클릭하면 HEX 코드가 복사됩니다.</p>
 
       <div class="box">
@@ -131,3 +134,4 @@ function extract(img){
 }
 function note(msg,kind){const n=$('ce-note');n.textContent=msg;n.className='note show '+(kind||'');if(kind==='ok')setTimeout(()=>{n.className='note';},2000);}
 </script>
+</html>

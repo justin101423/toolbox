@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<html lang="ko">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
 <title>HEX ↔ RGB 색상 변환 — 무료 온라인 컬러 코드 변환기 | 도구상자</title>
 <meta name="description" content="HEX 색상 코드와 RGB 값을 양방향으로 즉시 변환합니다. 웹 개발이나 디자인 작업 시 색상 코드를 쉽게 전환할 때 사용하세요. 한쪽을 입력하면 다른 쪽 값이 자동으로 채워집니다.">
+<link rel="canonical" href="https://dogubox.shop/hex-rgb-converter/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +32,7 @@ a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;b
 .content{margin-top:38px}.content>p{font-size:15px;color:var(--ink-2);margin:11px 0;line-height:1.75;max-width:66ch}.content b{color:var(--ink);font-weight:700}
 .sec-label{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--ink-2);margin:30px 0 13px;display:flex;align-items:center;gap:10px}.sec-label::after{content:"";flex:1;height:1px;background:var(--line)}.sec-label:first-of-type{margin-top:6px}
 .crumb{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-3);font-weight:500;border:1px solid var(--line);border-radius:100px;padding:6px 13px;margin-bottom:18px;transition:.15s}.crumb:hover{border-color:var(--ink);color:var(--ink)}
-h2{font-family:var(--disp);font-weight:800;font-size:clamp(24px,4vw,33px);letter-spacing:-.025em;margin-bottom:7px}.lede{color:var(--ink-2);font-size:15px;margin-bottom:24px;max-width:60ch}
+h1,h2{font-family:var(--disp);font-weight:800;font-size:clamp(24px,4vw,33px);letter-spacing:-.025em;margin-bottom:7px}.lede{color:var(--ink-2);font-size:15px;margin-bottom:24px;max-width:60ch}
 .field{margin-bottom:18px}.field>label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:7px}
 .box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
 input[type=text]{width:100%;background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;color:var(--ink);transition:border-color .15s,box-shadow .15s;}
@@ -58,7 +61,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
   <main class="main">
     <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
       <a class="crumb" href="/">← 모든 도구</a>
-      <h2>HEX ↔ RGB 변환</h2>
+      <h1>HEX ↔ RGB 변환</h1>
       <p class="lede">색상 코드를 양방향으로 변환합니다. 한쪽을 입력하면 다른 쪽이 자동으로 채워져요.</p>
       <div class="box">
         <div style="height:74px;border-radius:var(--r-sm);border:1px solid var(--line);margin-bottom:18px" id="hr-prev"></div>
@@ -118,3 +121,4 @@ const $=id=>document.getElementById(id);
   hex.addEventListener('input',fromHex);rgb.addEventListener('input',fromRgb);fromHex();
 })();
 </script>
+</html>
