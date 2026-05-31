@@ -72,6 +72,7 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding-top:24px;font-si
 footer a{color:var(--ink-2)}
 </style>
 <link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
 
 <div class="topbar">
   <a class="brand" href="index.html"><span class="mark">도</span><b>도구상자</b></a>
