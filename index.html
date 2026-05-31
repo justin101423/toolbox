@@ -59,6 +59,20 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(30px,5.4vw,50px);line-height:1.03;letter-spacing:-.025em;margin-bottom:14px}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero p{font-size:16px;color:var(--ink-2);max-width:52ch}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:100px;padding:6px 13px;margin-top:16px}
+.hero-badge svg{width:15px;height:15px;color:var(--accent)}
+.hero-badge b{font-family:var(--mono);color:var(--accent);font-weight:700}
+.search-wrap{position:relative;max-width:480px;margin-top:16px}
+.search-wrap svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-3);pointer-events:none}
+.search-wrap input{width:100%;font-family:var(--kr);font-size:15px;padding:13px 16px 13px 42px;border:1px solid var(--line-2);border-radius:100px;background:var(--card);color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.search-wrap input::placeholder{color:var(--ink-3)}
+.search-wrap input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(223,67,36,.13)}
+.quick-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.quick-links .ql-label{font-size:12.5px;color:var(--ink-3);font-weight:600;margin-right:2px}
+.quick-links .chip{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--ink-2);background:var(--paper);border:1px solid var(--line-2);border-radius:100px;padding:7px 14px;transition:border-color .15s,color .15s}
+.quick-links .chip:hover{border-color:var(--ink);color:var(--ink)}
+.no-result{display:none;color:var(--ink-2);font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-bottom:8px}
+.no-result b{color:var(--ink)}
 
 .sec-label{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--ink-2);margin:30px 0 13px;display:flex;align-items:center;gap:10px}
 .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
@@ -120,7 +134,26 @@ footer a:hover{color:var(--accent)}
         <div class="kick">All-in-one · 무료 · 회원가입 없음</div>
         <h1>필요한 도구,<br><em>여기 다 있어요.</em></h1>
         <p>이미지·PDF 변환과 압축부터 글자수 세기, QR코드, 비밀번호 생성, 컬러 팔레트까지. 모든 처리는 당신의 브라우저 안에서만 일어나요. 파일은 서버로 전송되지 않습니다.</p>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          지금 <b id="tool-count">52</b>개의 무료 온라인 도구 제공 중
+        </div>
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="tool-search" type="search" autocomplete="off" placeholder="도구 검색 — 예: 이미지, qr, 압축, 나이" aria-label="도구 검색">
+        </div>
+        <div class="quick-links">
+          <span class="ql-label">바로가기</span>
+          <a class="chip" href="/image-compressor/">이미지 압축</a>
+          <a class="chip" href="/pdf-merge/">PDF 합치기</a>
+          <a class="chip" href="/qr-code/">QR코드</a>
+          <a class="chip" href="/word-counter/">글자수 세기</a>
+          <a class="chip" href="/age-calculator/">만 나이</a>
+          <a class="chip" href="/color-picker/">컬러 피커</a>
+        </div>
       </div>
+
+      <div class="no-result" id="no-result">‘<b id="nr-q"></b>’에 대한 검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</div>
 
       <div class="sec-label">이미지 · PDF</div>
       <div class="grid">
@@ -245,3 +278,66 @@ footer a:hover{color:var(--accent)}
 
 <script src="/sidebar.js"></script>
 <script src="/theme.js"></script>
+<script>
+/* 히어로 도구 검색 + 자동 도구 개수 (순수 JS, 기존 카드 DOM만 읽음 — 카드 마크업 미수정) */
+(function () {
+  var cards = [].slice.call(document.querySelectorAll('.grid .card'));
+  var grids = [].slice.call(document.querySelectorAll('.grid'));
+  var input = document.getElementById('tool-search');
+  var noResult = document.getElementById('no-result');
+  var nrQ = document.getElementById('nr-q');
+  var countEl = document.getElementById('tool-count');
+  if (countEl) countEl.textContent = cards.length; // 도구 개수 자동 반영(카드 수 기준)
+  if (!input) return;
+
+  // 한글 발음·약칭 등 보조 검색어 (카드 마크업은 건드리지 않고 여기서만 보강)
+  var ALIASES = {
+    'qr-code': '큐알 큐알코드 qrcode',
+    'password-generator': '비번 패스워드 password 암호',
+    'image-compressor': '용량 압축 줄이기',
+    'image-converter': '포맷 변환 jpg png webp',
+    'age-calculator': '만나이 생일 띠',
+    'json-formatter': '제이슨 정렬 포맷',
+    'hex-rgb-converter': '헥스 색상코드 컬러코드',
+    'uuid-generator': '유유아이디 식별자',
+    'csv-json': '엑셀 시트',
+    'timezone-converter': '시차 해외시간 세계시간',
+    'percentage-calculator': '퍼센트 비율',
+    'word-counter': '글자수 단어수 바이트'
+  };
+  function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
+  cards.forEach(function (c) {
+    var slug = (c.getAttribute('href') || '').replace(/\//g, '');
+    var name = (c.querySelector('h3') || {}).textContent || '';
+    var desc = (c.querySelector('p') || {}).textContent || '';
+    c._hay = norm(name + ' ' + desc + ' ' + slug + ' ' + (ALIASES[slug] || ''));
+  });
+  function toggleCats() {
+    grids.forEach(function (g) {
+      var any = [].slice.call(g.querySelectorAll('.card')).some(function (c) { return c.style.display !== 'none'; });
+      g.style.display = any ? '' : 'none';
+      var lbl = g.previousElementSibling;
+      if (lbl && lbl.className.indexOf('sec-label') >= 0) lbl.style.display = any ? '' : 'none';
+    });
+  }
+  function filter() {
+    var q = norm(input.value);
+    if (!q) {
+      cards.forEach(function (c) { c.style.display = ''; });
+      grids.forEach(function (g) {
+        g.style.display = '';
+        var l = g.previousElementSibling;
+        if (l && l.className.indexOf('sec-label') >= 0) l.style.display = '';
+      });
+      noResult.style.display = 'none';
+      return;
+    }
+    var total = 0;
+    cards.forEach(function (c) { var m = c._hay.indexOf(q) >= 0; c.style.display = m ? '' : 'none'; if (m) total++; });
+    toggleCats();
+    if (total === 0) { nrQ.textContent = input.value; noResult.style.display = 'block'; }
+    else noResult.style.display = 'none';
+  }
+  input.addEventListener('input', filter);
+})();
+</script>
