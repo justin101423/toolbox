@@ -1,3 +1,16 @@
+// Clickjacking 방어(프레임버스터): 우리 페이지가 다른 사이트의 iframe 안에
+// 삽입됐을 때만 최상위로 빠져나온다. 우리 문서에서만 실행되므로, 우리 페이지
+// 안에서 AdSense 광고가 만드는 iframe(구글 콘텐츠)에는 영향을 주지 않는다.
+(() => {
+  try {
+    if (window.top !== window.self) {
+      window.top.location = window.self.location;
+    }
+  } catch (_) {
+    // 교차 출처 프레임이라 top 접근/이동이 차단된 경우 — 이미 외부 프레임이므로 무시
+  }
+})();
+
 (() => {
   const STORAGE_KEY = 'theme';
   const root = document.documentElement;
