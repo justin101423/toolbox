@@ -1,13 +1,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
 <title>PDF 합치기 — 여러 PDF를 하나로 무료 병합 | 도구상자</title>
 <meta name="description" content="여러 PDF 파일을 드래그 앤 드롭으로 업로드해 하나의 PDF로 합칩니다. 모든 처리가 브라우저 안에서 이루어져 파일이 서버로 전송되지 않습니다. 설치 없이 무료로 사용하세요.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" integrity="sha384-weMABwrltA6jWR8DDe9Jp5blk+tZQh7ugpCsF3JwSA53WZM9/14PjS5LAJNHNjAI" crossorigin="anonymous"></script>
 <style>
 :root{--paper:#F3EEE3;--panel:#EBE4D5;--card:#FBF8F1;--ink:#1b1a1e;--ink-2:#54504a;--ink-3:#867f73;--accent:#df4324;--accent-2:#bf3417;--line:rgba(27,26,30,.14);--line-2:rgba(27,26,30,.30);--ok:#2e7d4f;--err:#c0392b;--r:12px;--r-sm:8px;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;--kr:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;--disp:'Bricolage Grotesque',var(--kr);}
 *{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%}
@@ -125,9 +126,10 @@ function hookDrop(drop,input,onFiles){
   drop.addEventListener('drop',ev=>{if(ev.dataTransfer.files.length)onFiles([...ev.dataTransfer.files]);});
 }
 (()=>{let files=[];
+  const escH=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function render(){const L=$('pm-list');L.innerHTML='';
     files.forEach((f,i)=>{const d=document.createElement('div');d.className='fileitem';
-      d.innerHTML=`<span class="nm">${i+1}. ${f.name}</span><span class="sz">${fmtBytes(f.size)}</span><span class="x" data-i="${i}">×</span>`;L.appendChild(d);});
+      d.innerHTML=`<span class="nm">${i+1}. ${escH(f.name)}</span><span class="sz">${fmtBytes(f.size)}</span><span class="x" data-i="${i}">×</span>`;L.appendChild(d);});
     L.querySelectorAll('.x').forEach(x=>x.onclick=()=>{files.splice(+x.dataset.i,1);render();});
     $('pm-go').disabled=files.length<2;$('pm-clear').style.display=files.length?'inline-flex':'none';}
   hookDrop($('pm-drop'),$('pm-file'),f=>{files=files.concat(f.filter(x=>x.type==='application/pdf'));render();});
