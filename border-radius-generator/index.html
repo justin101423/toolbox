@@ -1,0 +1,115 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>border-radius 생성기 — CSS 모서리 둥글기 코드 생성 무료 도구 | 도구상자</title>
+<meta name="description" content="네 모서리의 둥글기를 개별 또는 일괄로 조절하며 CSS border-radius를 실시간 미리보기로 만들고 코드를 복사하세요. 버튼·카드·말풍선·물방울 모양까지 손쉽게 디자인할 수 있으며 브라우저에서만 동작합니다.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<style>
+#br-stage{display:grid;place-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:40px 20px;margin-top:4px}
+#br-box{width:170px;height:140px;background:var(--accent);border:2px solid var(--accent-2)}
+.range-row{display:flex;align-items:center;gap:12px}
+.range-row output{font-family:var(--mono);font-size:13px;color:var(--ink-2);min-width:54px;text-align:right}
+.codebox{font-family:var(--mono);font-size:13px;background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:12px 13px;color:var(--ink);white-space:pre-wrap;word-break:break-all;margin-top:4px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>테두리 둥글기(border-radius) 생성기</h2>
+      <p class="lede">전체를 한 번에 조절하거나 네 모서리를 따로 다듬으며 CSS 코드를 만드세요.</p>
+
+      <div class="box">
+        <div id="br-stage"><div id="br-box"></div></div>
+
+        <div class="field" style="margin-top:16px">
+          <label>전체 일괄 조절</label>
+          <div class="range-row"><input type="range" id="br-all" min="0" max="150" value="14"><output id="br-all-v">14px</output></div>
+        </div>
+
+        <div class="field-row">
+          <div class="field"><label>왼쪽 위 (TL)</label><div class="range-row"><input type="range" class="corner" id="br-tl" min="0" max="150" value="14"><output id="br-tl-v">14px</output></div></div>
+          <div class="field"><label>오른쪽 위 (TR)</label><div class="range-row"><input type="range" class="corner" id="br-tr" min="0" max="150" value="14"><output id="br-tr-v">14px</output></div></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>오른쪽 아래 (BR)</label><div class="range-row"><input type="range" class="corner" id="br-br" min="0" max="150" value="14"><output id="br-br-v">14px</output></div></div>
+          <div class="field"><label>왼쪽 아래 (BL)</label><div class="range-row"><input type="range" class="corner" id="br-bl" min="0" max="150" value="14"><output id="br-bl-v">14px</output></div></div>
+        </div>
+
+        <div class="field"><label>CSS 코드</label><div class="codebox" id="br-code"></div></div>
+        <div class="btn-row"><button class="btn accent" type="button" id="br-copy">CSS 복사</button></div>
+        <div class="note" id="br-note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>"전체 일괄 조절" 슬라이더로 네 모서리를 한 번에 둥글게 만들 수 있습니다.</li>
+          <li>모서리마다 다른 곡률이 필요하면 TL·TR·BR·BL 슬라이더를 개별로 조절합니다.</li>
+          <li>위쪽 미리보기에서 모양이 실시간으로 바뀌는 것을 확인합니다.</li>
+          <li>원하는 모양이 되면 "CSS 복사"로 border-radius 코드를 가져가 스타일에 붙여넣습니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>완전한 원·알약 모양:</b> 정사각형 요소에서 전체 값을 충분히 크게(예: 999px) 주면 완벽한 원이 됩니다. 가로로 긴 버튼에 같은 값을 주면 양끝이 둥근 알약(pill) 모양이 되어 태그·칩 디자인에 좋습니다.</li>
+          <li><b>한쪽만 둥근 말풍선:</b> 세 모서리만 둥글리고 한 모서리를 0으로 두면 채팅 말풍선 느낌이 납니다. 발신·수신 메시지에서 둥글지 않은 모서리 위치를 좌우로 바꾸면 방향이 다른 말풍선을 만들 수 있습니다.</li>
+          <li><b>탭·카드 상단만 둥글게:</b> 위쪽 두 모서리(TL·TR)만 둥글리면 탭 버튼이나 카드 헤더처럼 아래가 붙는 요소를 자연스럽게 표현할 수 있습니다. 모달 상단, 바텀시트에도 자주 쓰입니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 값의 순서는 어떻게 되나요?</b><p>border-radius는 왼쪽 위 → 오른쪽 위 → 오른쪽 아래 → 왼쪽 아래(시계 방향) 순서로 적용됩니다. 이 도구도 같은 순서로 코드를 생성하므로, 네 값이 모두 같으면 하나의 값으로 짧게 출력합니다.</p></div>
+          <div class="qa"><b>Q. px 대신 %를 쓰면 어떻게 다른가요?</b><p>px는 고정 곡률, %는 요소 크기에 비례하는 곡률입니다. 50%를 주면 요소 크기에 따라 타원·원이 됩니다. 이 도구는 직관적인 px 단위를 사용하며, 원이 필요하면 큰 px 값으로도 같은 효과를 낼 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 생성된 코드는 어디에 쓰나요?</b><p>복사한 값은 CSS의 border-radius 속성입니다. 원하는 요소 스타일에 붙여넣으면 바로 적용됩니다. 모든 모서리 값이 동일하면 한 줄, 다르면 네 값이 순서대로 출력됩니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const corners=['br-tl','br-tr','br-br','br-bl'];
+function render(){
+  const v=corners.map(id=>parseInt($(id).value,10));
+  corners.forEach(id=>$(id+'-v').textContent=$(id).value+'px');
+  $('br-box').style.borderRadius=v.map(x=>x+'px').join(' ');
+  const allSame=v.every(x=>x===v[0]);
+  $('br-code').textContent='border-radius: '+(allSame?v[0]+'px':v.map(x=>x+'px').join(' '))+';';
+}
+$('br-all').addEventListener('input',()=>{
+  const val=$('br-all').value;$('br-all-v').textContent=val+'px';
+  corners.forEach(id=>$(id).value=val);render();
+});
+corners.forEach(id=>$(id).addEventListener('input',render));
+$('br-copy').onclick=()=>{navigator.clipboard.writeText($('br-code').textContent).then(()=>{const n=$('br-note');n.textContent='CSS 코드를 복사했습니다.';n.className='note show ok';setTimeout(()=>{n.className='note';},2000);});};
+render();
+</script>

@@ -54,7 +54,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 46개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 52개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 ### 이미지 · PDF (15)
 | 슬러그 | 이름 |
@@ -88,12 +88,18 @@ toolbox/
 | password-generator | 비밀번호 생성 |
 | json-formatter | JSON 포매터 |
 
-### 색상 · 디자인 (3)
+### 색상 · 디자인 (9)
 | 슬러그 | 이름 |
 |---|---|
 | hex-rgb-converter | HEX ↔ RGB 변환 |
 | color-palette | 컬러 팔레트 생성 |
 | favicon-generator | 파비콘 생성 |
+| gradient-generator | 그라데이션 생성기 |
+| color-extractor | 이미지에서 색 추출 |
+| contrast-checker | 색상 대비 검사 |
+| color-picker | 컬러 피커·색상 변환 |
+| box-shadow-generator | 그림자(box-shadow) 생성기 |
+| border-radius-generator | 테두리 둥글기 생성기 |
 
 ### 생활 · 편의 (8)
 | 슬러그 | 이름 |

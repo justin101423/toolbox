@@ -48,6 +48,12 @@
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)
 - 컬러 팔레트 생성 (`/color-palette/`)
 - 파비콘 생성 (`/favicon-generator/`)
+- 그라데이션 생성기 (`/gradient-generator/`)
+- 이미지에서 색 추출 (`/color-extractor/`)
+- 색상 대비 검사 (`/contrast-checker/`)
+- 컬러 피커·색상 변환 (`/color-picker/`)
+- 그림자(box-shadow) 생성기 (`/box-shadow-generator/`)
+- 테두리 둥글기 생성기 (`/border-radius-generator/`)
 
 ### 생활 · 편의
 - D-Day · 날짜 계산 (`/dday-calculator/`)

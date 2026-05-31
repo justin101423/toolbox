@@ -47,7 +47,13 @@
     { label: "색상 · 디자인", tools: [
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "◑" },
       { slug: "color-palette",     name: "컬러 팔레트 생성", icon: "🎨" },
-      { slug: "favicon-generator", name: "파비콘 생성",      icon: "★" }
+      { slug: "favicon-generator", name: "파비콘 생성",      icon: "★" },
+      { slug: "gradient-generator", name: "그라데이션 생성기", icon: "🌈" },
+      { slug: "color-extractor",   name: "이미지 색 추출",   icon: "🔍" },
+      { slug: "contrast-checker",  name: "색상 대비 검사",   icon: "👁" },
+      { slug: "color-picker",      name: "컬러 피커·변환",   icon: "🖌" },
+      { slug: "box-shadow-generator", name: "box-shadow 생성기", icon: "🌫" },
+      { slug: "border-radius-generator", name: "border-radius 생성기", icon: "🔲" }
     ]},
     { label: "생활 · 편의", tools: [
       { slug: "dday-calculator", name: "D-Day · 날짜 계산", icon: "📅" },

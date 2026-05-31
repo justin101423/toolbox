@@ -1,0 +1,147 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>그라데이션 생성기 — CSS linear·radial 그라데이션 코드 | 도구상자</title>
+<meta name="description" content="여러 색상과 방향·위치를 조절해 CSS 그라데이션을 실시간 미리보기로 만들고 linear-gradient·radial-gradient 코드를 복사하세요. 색 추가·삭제와 위치(%) 조절을 지원합니다. 웹 배경·버튼 디자인에 바로 쓸 수 있으며 브라우저에서만 동작합니다.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<style>
+#gg-preview{height:200px;border:1px solid var(--line);border-radius:var(--r);margin-top:4px}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:var(--r-sm);overflow:hidden}
+.seg button{padding:8px 15px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:var(--paper)}
+.seg button.active{background:var(--ink);color:var(--paper)}
+.stop-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.stop-row input[type=color]{width:46px;height:38px;padding:3px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);flex-shrink:0}
+.stop-row input[type=number]{width:90px;flex-shrink:0}
+.stop-row .rm{flex-shrink:0;border:1px solid var(--line-2);border-radius:7px;padding:7px 11px;font-size:13px;color:var(--ink-2);background:var(--paper)}
+.range-row{display:flex;align-items:center;gap:12px}
+.range-row output{font-family:var(--mono);font-size:13px;color:var(--ink-2);min-width:54px;text-align:right}
+.codebox{font-family:var(--mono);font-size:13px;background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:12px 13px;color:var(--ink);white-space:pre-wrap;word-break:break-all;margin-top:4px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>그라데이션 생성기</h2>
+      <p class="lede">색을 추가하고 방향을 조절하며 CSS 그라데이션을 만들어 보세요. 코드를 복사해 바로 사용할 수 있습니다.</p>
+
+      <div class="box">
+        <div id="gg-preview"></div>
+
+        <div class="field" style="margin-top:16px">
+          <label>종류</label>
+          <div class="seg" id="gg-type">
+            <button type="button" class="active" data-t="linear">선형 (linear)</button>
+            <button type="button" data-t="radial">원형 (radial)</button>
+          </div>
+        </div>
+
+        <div class="field" id="gg-angle-field">
+          <label>방향 (각도)</label>
+          <div class="range-row"><input type="range" id="gg-angle" min="0" max="360" value="90"><output id="gg-angle-v">90°</output></div>
+        </div>
+
+        <div class="field">
+          <label>색상 정지점</label>
+          <div id="gg-stops"></div>
+          <button class="btn ghost" type="button" id="gg-add" style="margin-top:6px">+ 색 추가</button>
+        </div>
+
+        <div class="field">
+          <label>CSS 코드</label>
+          <div class="codebox" id="gg-code"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn accent" type="button" id="gg-copy">CSS 복사</button>
+        </div>
+        <div class="note" id="gg-note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>"선형" 또는 "원형" 그라데이션 종류를 고릅니다. 선형은 각도로 방향을, 원형은 중심에서 퍼지는 형태입니다.</li>
+          <li>"+ 색 추가"로 정지점을 늘리고, 각 색상과 위치(%)를 조절합니다. 두 개 이상부터 그라데이션이 만들어집니다.</li>
+          <li>위쪽 미리보기에서 결과를 실시간으로 확인합니다.</li>
+          <li>완성되면 "CSS 복사"로 background 속성 코드를 복사해 스타일시트에 붙여넣습니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>은은한 배경엔 비슷한 색조:</b> 명도만 살짝 다른 두 색(예: #F3EEE3 → #E2D9C7)으로 그라데이션을 만들면 눈에 거슬리지 않는 고급스러운 섹션 배경이 됩니다. 각도를 135°로 주면 자연광이 비치는 듯한 느낌을 줍니다.</li>
+          <li><b>버튼·배지 강조:</b> 브랜드 색에서 약간 어두운 색으로 이어지는 선형 그라데이션을 버튼 배경에 쓰면 입체감이 생깁니다. 위치(%)를 조절해 색이 바뀌는 지점을 한쪽으로 몰면 광택 효과도 낼 수 있습니다.</li>
+          <li><b>원형으로 스포트라이트:</b> 원형 그라데이션은 가운데가 밝고 가장자리가 어두운 조명 효과에 적합합니다. 히어로 영역이나 카드 뒤 배경에 깔면 시선을 중앙으로 모을 수 있습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 각도 0°와 90°는 어느 방향인가요?</b><p>CSS 기준 0°는 아래에서 위로, 90°는 왼쪽에서 오른쪽으로 색이 진행됩니다. 180°는 위에서 아래, 45°는 왼쪽 아래에서 오른쪽 위 대각선 방향입니다. 미리보기를 보며 조절하면 직관적으로 맞출 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 색을 3개 이상 넣을 수 있나요?</b><p>네. "+ 색 추가"로 원하는 만큼 정지점을 추가할 수 있고, 각 색의 위치(%)를 지정해 무지개나 다단계 그라데이션도 만들 수 있습니다. 색 옆 삭제 버튼으로 다시 줄일 수도 있습니다.</p></div>
+          <div class="qa"><b>Q. 생성된 코드는 어디에 쓰나요?</b><p>복사한 코드는 CSS의 background 속성 값입니다. 원하는 요소의 스타일에 그대로 붙여넣으면 됩니다. 구형 브라우저 접두사 없이 표준 문법으로 출력되어 최신 브라우저에서 바로 적용됩니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+let type='linear';
+let stops=[{c:'#df4324',p:0},{c:'#1b1a1e',p:100}];
+
+function gradStr(){
+  const list=stops.map(s=>s.c+' '+s.p+'%').join(', ');
+  return type==='linear'?'linear-gradient('+$('gg-angle').value+'deg, '+list+')':'radial-gradient(circle, '+list+')';
+}
+function renderStops(){
+  const wrap=$('gg-stops');wrap.innerHTML='';
+  stops.forEach((s,i)=>{
+    const row=document.createElement('div');row.className='stop-row';
+    const col=document.createElement('input');col.type='color';col.value=s.c;col.oninput=e=>{stops[i].c=e.target.value;render();};
+    const pos=document.createElement('input');pos.type='number';pos.min=0;pos.max=100;pos.value=s.p;pos.oninput=e=>{stops[i].p=Math.max(0,Math.min(100,+e.target.value||0));render();};
+    const unit=document.createElement('span');unit.textContent='%';unit.style.color='var(--ink-3)';unit.style.fontSize='13px';
+    const rm=document.createElement('button');rm.type='button';rm.className='rm';rm.textContent='삭제';rm.onclick=()=>{if(stops.length<=2){note('정지점은 최소 2개 필요합니다.','err');return;}stops.splice(i,1);renderStops();render();};
+    row.append(col,pos,unit,rm);wrap.appendChild(row);
+  });
+}
+function render(){
+  const g=gradStr();
+  $('gg-preview').style.background=g;
+  $('gg-code').textContent='background: '+g+';';
+  $('gg-angle-v').textContent=$('gg-angle').value+'°';
+  $('gg-angle-field').style.display=type==='linear'?'block':'none';
+}
+$('gg-type').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;type=b.dataset.t;document.querySelectorAll('#gg-type button').forEach(x=>x.classList.toggle('active',x===b));render();});
+$('gg-angle').addEventListener('input',render);
+$('gg-add').onclick=()=>{stops.push({c:'#888888',p:50});renderStops();render();};
+$('gg-copy').onclick=()=>{navigator.clipboard.writeText($('gg-code').textContent).then(()=>note('CSS 코드를 복사했습니다.','ok'));};
+function note(msg,kind){const n=$('gg-note');n.textContent=msg;n.className='note show '+(kind||'');if(kind==='ok')setTimeout(()=>{n.className='note';},2000);}
+renderStops();render();
+</script>
