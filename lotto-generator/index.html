@@ -56,46 +56,8 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
 </div>
 
 <div class="app">
-  <aside class="side">
-    <div class="grp"><div class="kick">이미지 · PDF</div>
-      <a class="navlink" href="/image-converter/"><span class="ic">🖼</span> 이미지 포맷 변환</a>
-      <a class="navlink" href="/image-compressor/"><span class="ic">📉</span> 이미지 압축·리사이즈</a>
-      <a class="navlink" href="/image-resizer/"><span class="ic">↔</span> 이미지 크기 조절</a>
-      <a class="navlink" href="/id-photo/"><span class="ic">🪪</span> 증명사진 규격 맞추기</a>
-      <a class="navlink" href="/remove-exif/"><span class="ic">🛡</span> EXIF·위치정보 제거</a>
-      <a class="navlink" href="/pdf-compressor/"><span class="ic">🗜</span> PDF 용량 줄이기</a>
-      <a class="navlink" href="/pdf-merge/"><span class="ic">📄</span> PDF 합치기</a>
-      <a class="navlink" href="/image-to-pdf/"><span class="ic">🖼</span> 이미지 → PDF</a>
-      <a class="navlink" href="/pdf-to-image/"><span class="ic">▧</span> PDF → 이미지</a>
-      <a class="navlink" href="/pdf-split/"><span class="ic">✂</span> PDF 페이지 분할</a>
-    </div>
-    <div class="grp"><div class="kick">텍스트 · 생성</div>
-      <a class="navlink" href="/word-counter/"><span class="ic">🔤</span> 글자수 세기</a>
-      <a class="navlink" href="/clean-text/"><span class="ic">🧹</span> 공백·줄바꿈 정리</a>
-      <a class="navlink" href="/qr-code/"><span class="ic">▦</span> QR코드 생성</a>
-      <a class="navlink" href="/password-generator/"><span class="ic">🔑</span> 비밀번호 생성</a>
-      <a class="navlink" href="/json-formatter/"><span class="ic">{ }</span> JSON 포매터</a>
-    </div>
-    <div class="grp"><div class="kick">색상 · 디자인</div>
-      <a class="navlink" href="/hex-rgb-converter/"><span class="ic">◑</span> HEX ↔ RGB 변환</a>
-      <a class="navlink" href="/color-palette/"><span class="ic">🎨</span> 컬러 팔레트 생성</a>
-      <a class="navlink" href="/favicon-generator/"><span class="ic">★</span> 파비콘 생성</a>
-    </div>
-    <div class="grp"><div class="kick">생활 · 편의</div>
-      <a class="navlink" href="/dday-calculator/"><span class="ic">📅</span> D-Day · 날짜 계산</a>
-      <a class="navlink active" href="/lotto-generator/"><span class="ic">🎱</span> 로또 번호 생성</a>
-    </div>
-    <div class="grp"><div class="kick">직장인 · 생산성</div>
-      <a class="navlink" href="/notepad/"><span class="ic">📝</span> 임시 메모장</a>
-      <a class="navlink" href="/utm-builder/"><span class="ic">🔗</span> UTM 빌더</a>
-    </div>
-    <div class="grp"><div class="kick">개발자 도구</div>
-      <a class="navlink" href="/encoder-decoder/"><span class="ic">⇄</span> 인코더 · 디코더</a>
-      <a class="navlink" href="/jwt-decoder/"><span class="ic">🔓</span> JWT 디코더</a>
-      <a class="navlink" href="/uuid-generator/"><span class="ic">#</span> UUID 생성</a>
-      <a class="navlink" href="/hash-generator/"><span class="ic">🔒</span> Hash 생성</a>
-      <a class="navlink" href="/json-to-java-dto/"><span class="ic">☕</span> JSON → Java DTO</a>
-    </div>
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
   </aside>
   <main class="main">
     <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
@@ -146,6 +108,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
   <span style="font-family:var(--mono);font-size:11px">© 2026</span>
 </footer>
 
+<script src="/sidebar.js"></script>
 <script src="/theme.js"></script>
 
 <script>
