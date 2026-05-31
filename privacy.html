@@ -29,7 +29,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .topbar{position:sticky;top:0;z-index:10;background:rgba(243,238,227,.86);backdrop-filter:saturate(140%) blur(8px);
-  border-bottom:1px solid var(--line);padding:14px clamp(16px,4vw,40px)}
+  border-bottom:1px solid var(--line);padding:14px clamp(16px,4vw,40px);display:flex;align-items:center;gap:16px}
+.topbar .spacer{flex:1}
 .brand{display:inline-flex;align-items:center;gap:11px;color:var(--ink)}
 .brand .mark{width:32px;height:32px;border-radius:9px;background:var(--ink);color:var(--paper);
   display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:18px;box-shadow:3px 3px 0 var(--accent)}
@@ -56,9 +57,12 @@ code{font-family:var(--mono);font-size:13.5px;background:rgba(27,26,30,.06);padd
 footer{border-top:1px solid var(--line);margin-top:50px;padding-top:24px;font-size:13px;color:var(--ink-3)}
 footer a{color:var(--ink-2)}
 </style>
+<link rel="stylesheet" href="/theme.css">
 
 <div class="topbar">
   <a class="brand" href="index.html"><span class="mark">도</span><b>도구상자</b></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
 </div>
 
 <div class="wrap">
@@ -118,3 +122,5 @@ footer a{color:var(--ink-2)}
     <a href="index.html">← 도구상자 홈으로</a> · © 2026 도구상자
   </footer>
 </div>
+
+<script src="/theme.js"></script>
