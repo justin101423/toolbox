@@ -45,6 +45,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}.two-col{grid-template-columns:1fr}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -120,9 +121,28 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="note" id="dto-note"></div>
       </div>
       <section class="content">
-        <div class="sec-label">JSON → Java DTO 변환기 안내</div>
-        <p>JSON 객체의 키를 분석해 적절한 Java 타입으로 매핑합니다. 중첩 객체는 <b>static inner class</b>로, 배열은 <b>List&lt;T&gt;</b>로 변환됩니다. <b>Lombok @Data</b> 옵션을 켜면 getter/setter/toString 없이 어노테이션 하나로 대체합니다.</p>
-        <p>camelCase 필드명은 JSON 키를 그대로 사용합니다. snake_case 키는 자동으로 camelCase로 변환됩니다. 생성된 코드는 참고용이므로 실제 프로젝트에 맞게 검토 후 사용하세요.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>왼쪽 입력창에 변환할 JSON 객체를 붙여넣습니다. 중첩 객체나 배열이 있어도 자동으로 분석됩니다.</li>
+          <li>루트 클래스명을 원하는 이름으로 입력합니다(기본값: Root).</li>
+          <li>Lombok @Data 옵션을 켜면 getter/setter/toString 코드 없이 어노테이션 방식으로 생성됩니다.</li>
+          <li>"변환" 버튼을 누르면 오른쪽에 Java 코드가 생성됩니다.</li>
+          <li>복사 버튼으로 결과를 클립보드에 저장해 IDE에 붙여넣습니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>snake_case 자동 변환:</b> JSON의 snake_case 키(예: user_name)는 Java camelCase(userName)로 자동 변환됩니다. Jackson 사용 시 @JsonProperty("user_name") 어노테이션이 필요하면 변환 후 직접 추가하세요.</li>
+          <li><b>중첩 객체 처리:</b> 중첩 객체는 static inner class로 생성됩니다. 여러 클래스에서 재사용하는 공통 타입이라면 inner class를 별도 파일로 분리하는 것이 좋습니다.</li>
+          <li><b>null 값 주의:</b> JSON에서 null 값이 있는 필드는 타입을 추론할 수 없어 Object 타입으로 생성됩니다. 실제 타입을 알고 있다면 생성 후 수동으로 수정하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 최상위 배열(예: [{...}]) 형태는 어떻게 처리되나요?</b><p>배열 안 첫 번째 객체를 기준으로 필드를 추론합니다. 실제 사용 시에는 List&lt;Root&gt; 타입으로 선언해 받으면 됩니다.</p></div>
+          <div class="qa"><b>Q. 생성된 코드를 바로 Spring Boot 프로젝트에 쓸 수 있나요?</b><p>참고용 코드입니다. 패키지 선언, import 구문, 유효성 검증 어노테이션(@NotNull 등)은 포함되지 않으므로 프로젝트에 맞게 수정 후 사용하세요.</p></div>
+          <div class="qa"><b>Q. 혼합 타입 배열은 어떻게 처리되나요?</b><p>배열의 첫 번째 원소를 기준으로 타입을 추론합니다. 원소 타입이 다른 혼합 배열은 List&lt;Object&gt;로 생성됩니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

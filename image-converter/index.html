@@ -43,6 +43,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -112,9 +113,27 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <img class="preview-img" id="ic-prev">
       </div>
       <section class="content">
-        <div class="sec-label">이미지 포맷 변환이란?</div>
-        <p>이미지 포맷 변환 도구는 PNG, JPG(JPEG), WebP 이미지 형식을 브라우저에서 바로 상호 변환합니다. 웹사이트에 올릴 이미지를 WebP로 최적화하거나, 투명 배경이 필요해 PNG로 바꿀 때 유용합니다. 모든 변환은 브라우저 안에서만 처리되어 파일이 외부 서버로 전송되지 않습니다.</p>
-        <p>JPG 변환 시 품질(0.3~1.0)을 조절해 파일 크기와 화질의 균형을 맞출 수 있습니다. <b>WebP</b>는 동일 화질 대비 JPG보다 약 30% 작은 용량을 제공하므로 웹 최적화에 적합합니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>변환할 이미지(JPG, PNG, WebP)를 드래그 앤 드롭하거나 클릭해 업로드합니다. 여러 파일 동시 선택이 가능합니다.</li>
+          <li>변환할 목표 포맷(JPG, PNG, WebP)을 드롭다운에서 선택합니다.</li>
+          <li>JPG 또는 WebP로 변환 시 품질 슬라이더(0.3~1.0)로 파일 크기와 화질을 조절합니다.</li>
+          <li>"변환 후 다운로드" 버튼을 누르면 새 포맷의 파일이 자동으로 저장됩니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>웹 성능 개선에는 WebP:</b> WebP로 변환하면 동일 화질 대비 JPG보다 평균 25~30% 용량이 줄어 페이지 로딩 속도와 Core Web Vitals(LCP) 점수가 개선됩니다. Chrome, Firefox, Safari 모두 지원합니다.</li>
+          <li><b>투명 배경은 PNG로:</b> 로고, 스티커, UI 아이콘처럼 배경이 없는 이미지는 반드시 PNG로 변환하세요. JPG는 투명도를 지원하지 않아 배경이 흰색으로 채워집니다.</li>
+          <li><b>AI 생성 이미지 경량화:</b> 미드저니, Stable Diffusion 등 AI 도구가 출력하는 PNG는 용량이 크므로, 일반 공유용이라면 JPG 품질 0.8로 변환해 용량을 크게 줄이세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. GIF나 AVIF 포맷도 지원하나요?</b><p>현재 JPG, PNG, WebP 세 가지 형식을 지원합니다. GIF·AVIF 변환은 지원하지 않습니다.</p></div>
+          <div class="qa"><b>Q. 파일명이 변경되나요?</b><p>원본 파일명에 새 확장자가 붙어 저장됩니다. 예를 들어 photo.png를 JPG로 변환하면 photo.jpg로 저장됩니다.</p></div>
+          <div class="qa"><b>Q. WebP 변환 파일을 모든 기기에서 열 수 있나요?</b><p>2020년 이후 Chrome, Firefox, Safari, Edge 모두 WebP를 지원합니다. 구형 IE에서는 표시되지 않을 수 있지만, 현재 IE 사용률은 극히 낮습니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

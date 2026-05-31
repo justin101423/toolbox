@@ -42,6 +42,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -114,9 +115,27 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         </div>
       </div>
       <section class="content">
-        <div class="sec-label">JWT 디코더 안내</div>
-        <p>JWT는 <b>header.payload.signature</b> 세 부분이 점(.)으로 구분된 Base64URL 인코딩 문자열입니다. 이 도구는 헤더와 페이로드를 디코딩해 JSON 형태로 보여줍니다.</p>
-        <p>서명(signature) 검증은 수행하지 않습니다. 토큰의 유효성 확인은 반드시 서버 측 검증 로직을 거쳐야 합니다. 민감한 프로덕션 토큰은 이 도구에 입력하지 마세요 — 모든 처리는 브라우저 내에서만 이루어집니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>JWT 토큰(header.payload.signature 형식)을 입력창에 붙여넣습니다.</li>
+          <li>"디코딩" 버튼을 클릭하면 헤더와 페이로드가 보기 좋은 JSON 형태로 표시됩니다.</li>
+          <li>iss(발급자), exp(만료 시각), sub(주체), role(권한) 등 주요 클레임 값을 확인합니다.</li>
+          <li>필요한 부분을 복사 버튼으로 클립보드에 저장합니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>만료 시각(exp) 확인:</b> exp 클레임은 Unix 타임스탬프(초 단위)로 저장됩니다. 디코딩 결과에서 exp 값을 현재 시각과 비교해 토큰이 아직 유효한지 직접 검토할 수 있습니다.</li>
+          <li><b>API 디버깅:</b> 401 Unauthorized 오류가 발생할 때, 발급된 JWT 페이로드를 디코딩해 권한(role), 사용자 ID, 만료 시각 등을 빠르게 확인해 원인을 파악하세요.</li>
+          <li><b>보안 주의:</b> 프로덕션 환경의 실제 사용자 토큰은 입력하지 마세요. 개발·테스트용 더미 토큰이나 만료된 토큰만 이 도구에서 사용하는 것이 안전합니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 서명(signature) 검증도 되나요?</b><p>아닙니다. 이 도구는 Base64URL 디코딩만 수행합니다. 서명 검증은 서버 측에서 비밀 키나 공개 키를 사용해야 합니다.</p></div>
+          <div class="qa"><b>Q. JWT가 아닌 다른 토큰을 입력하면 어떻게 되나요?</b><p>header.payload.signature 구조(점 두 개로 구분)가 아니면 오류 메시지가 표시됩니다.</p></div>
+          <div class="qa"><b>Q. 토큰이 외부 서버로 전송되나요?</b><p>아닙니다. 디코딩은 전적으로 브라우저 내 JavaScript로 처리됩니다. 입력한 토큰은 서버로 전송되지 않습니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

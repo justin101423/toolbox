@@ -43,6 +43,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -109,9 +110,28 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="qr-wrap" id="qr-out"></div>
       </div>
       <section class="content">
-        <div class="sec-label">QR코드 생성이란?</div>
-        <p>QR코드 생성 도구는 URL, 텍스트, 와이파이 정보 등 원하는 내용을 QR코드 이미지로 변환합니다. 명함·포스터·프레젠테이션에 삽입하거나, SNS 링크를 QR코드로 공유할 때 활용하세요. 생성된 QR코드는 PNG 이미지로 즉시 다운로드할 수 있습니다.</p>
-        <p>모든 생성은 <b>브라우저 안에서만</b> 이루어지며, 입력한 내용이 외부 서버로 전송되지 않습니다. 회원가입 없이 무료로 사용하세요.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>입력창에 QR코드에 담을 URL, 텍스트, 전화번호 등을 입력합니다.</li>
+          <li>입력 즉시 QR코드 미리보기가 실시간으로 표시됩니다.</li>
+          <li>QR코드 크기나 색상 등 옵션을 조정합니다.</li>
+          <li>"PNG 저장" 버튼을 클릭해 고해상도 QR코드 이미지를 다운로드합니다.</li>
+          <li>인쇄물, 프레젠테이션, 명함 등에 삽입해 사용합니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>URL은 최대한 짧게:</b> QR코드에 담기는 데이터가 길수록 패턴이 복잡해져 스캔 거리가 짧아집니다. bit.ly 같은 단축 URL 서비스를 먼저 사용하면 스캔 성공률이 높아집니다.</li>
+          <li><b>인쇄 크기와 여백:</b> 인쇄물에 사용할 때는 최소 2cm×2cm 이상으로 인쇄하고, QR코드 주위에 충분한 흰색 여백("고요 지대")을 확보하세요. 여백이 없으면 스캔 오류가 발생하기 쉽습니다.</li>
+          <li><b>다양한 입력 형식:</b> 전화번호는 tel:+82-10-1234-5678, 이메일은 mailto:example@email.com 형식으로 입력하면 스마트폰이 직접 전화·이메일 앱을 열어줍니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 생성된 QR코드를 어디서든 스캔할 수 있나요?</b><p>대부분의 스마트폰 기본 카메라 앱이 QR코드를 인식합니다. 일부 구형 기기에서는 별도 QR 스캔 앱이 필요할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. QR코드에 담을 수 있는 데이터 용량 제한이 있나요?</b><p>QR코드 버전과 오류 수정 수준에 따라 다르지만, 데이터가 많을수록 패턴이 빽빽해져 스캔 신뢰도가 낮아집니다. URL처럼 짧은 텍스트를 권장합니다.</p></div>
+          <div class="qa"><b>Q. 입력한 내용이 외부로 전송되나요?</b><p>아닙니다. QR코드 생성은 브라우저의 JavaScript 라이브러리를 사용하며, 입력한 내용이 외부 서버로 전송되지 않습니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

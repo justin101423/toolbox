@@ -132,6 +132,7 @@ footer a:hover{color:var(--accent)}
   .side.open{display:block}
   .topbar .badge{display:none}
 }
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -207,11 +208,28 @@ footer a:hover{color:var(--accent)}
         </div>
       </div>
 
-      <!-- SEO 설명 섹션 -->
       <section class="content">
-        <div class="sec-label">글자수 세기 도구란?</div>
-        <p>글자수 세기 도구는 입력한 텍스트의 글자 수, 단어 수, 바이트 수, 줄 수를 실시간으로 계산해 주는 무료 온라인 카운터입니다. 자기소개서 분량 확인, 블로그 포스팅 최적화, SNS 글자 제한 체크에 바로 활용하세요. 모든 계산은 브라우저 안에서만 처리되어 외부 서버로 텍스트가 전송되지 않습니다.</p>
-        <p><b>공백 포함·제외 글자 수</b>를 동시에 볼 수 있어 채용 공고의 "공백 포함 500자 이내" 같은 조건도 한눈에 확인할 수 있습니다. 영어·한국어·일본어 등 다국어 텍스트의 바이트 수 확인에도 유용하며, 별도 설치나 회원가입 없이 바로 사용할 수 있습니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>글자수를 세고 싶은 텍스트를 텍스트 창에 붙여넣거나 직접 입력합니다.</li>
+          <li>공백 포함 글자 수, 공백 제외 글자 수, 단어 수, 바이트 수, 줄 수가 실시간으로 자동 계산됩니다.</li>
+          <li>글자 제한이 있는 경우, 제한 입력란에 목표 글자 수를 넣으면 남은 글자 수가 실시간으로 표시됩니다.</li>
+          <li>분량 조정이 끝나면 텍스트를 복사해 자기소개서, SNS, 블로그에 바로 붙여넣으세요.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>자기소개서 분량 관리:</b> 공채 자기소개서는 "공백 포함 1,000자 이내" 또는 "공백 제외 500자 이내"처럼 기준이 다양합니다. 이 도구는 두 값을 동시에 표시하므로 어떤 조건이든 한눈에 확인할 수 있습니다.</li>
+          <li><b>SNS 글자 제한 체크:</b> X(Twitter) 280자, 인스타그램 캡션 2,200자, 카카오 채널 메시지 1,000자. 작성 전 제한 글자 수를 목표란에 입력해두면 초과 없이 편집할 수 있습니다.</li>
+          <li><b>바이트 수 확인:</b> UTF-8 기준 한글 1자는 3바이트입니다. 데이터베이스 컬럼 크기(VARCHAR 100 등)를 초과하지 않는지 확인하거나, 영문·한글이 섞인 SMS 발송 전 바이트 제한 체크에 활용하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 공백 포함 글자 수와 공백 제외 글자 수의 차이는 뭔가요?</b><p>공백 포함은 띄어쓰기·탭·줄바꿈을 모두 글자로 계산하고, 공백 제외는 그 공백들을 빼고 순수 글자만 셉니다. 취업 공고에서는 둘 중 하나로 기준이 명시되므로 두 값을 모두 확인하세요.</p></div>
+          <div class="qa"><b>Q. 입력한 텍스트가 외부로 전송되나요?</b><p>아닙니다. 모든 계산은 브라우저 안에서만 처리됩니다. 민감한 업무 문서나 개인 정보가 담긴 텍스트도 안심하고 사용하세요.</p></div>
+          <div class="qa"><b>Q. 이모지나 특수문자도 글자 수에 포함되나요?</b><p>네, 이모지 하나는 유니코드 코드 포인트 기준으로 1~2개를 차지합니다. 이 도구는 유니코드 코드 포인트 기준으로 계산하며, 바이트 수는 UTF-8 기준입니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

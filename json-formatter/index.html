@@ -40,6 +40,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -105,9 +106,28 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="note" id="js-note"></div>
       </div>
       <section class="content">
-        <div class="sec-label">JSON 포매터란?</div>
-        <p>JSON 포매터는 압축된 JSON을 들여쓰기로 정렬해 가독성을 높이거나, 반대로 한 줄로 압축해 전송 효율을 높이는 도구입니다. 문법 오류가 있으면 정확한 오류 위치를 안내하므로 API 개발과 디버깅에 유용합니다. 모든 처리는 브라우저 안에서만 이루어집니다.</p>
-        <p>정렬 버튼은 <b>2칸 들여쓰기</b>로 변환하고, 압축 버튼은 공백·줄바꿈을 모두 제거합니다. 결과는 복사 버튼으로 바로 클립보드에 저장할 수 있습니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>왼쪽 텍스트 창에 JSON을 붙여넣습니다. API 응답, 설정 파일, 로그 등 어떤 JSON이든 가능합니다.</li>
+          <li>"정렬" 버튼을 누르면 2칸 들여쓰기로 가독성 좋게 포맷됩니다.</li>
+          <li>"압축" 버튼을 누르면 공백과 줄바꿈이 모두 제거된 한 줄 JSON이 만들어집니다.</li>
+          <li>문법 오류가 있으면 정확한 오류 위치를 알려줍니다. 오류를 수정한 뒤 다시 시도하세요.</li>
+          <li>"복사" 버튼으로 결과를 클립보드에 저장해 바로 사용합니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>API 디버깅:</b> API 응답으로 받은 한 줄짜리 JSON을 "정렬"하면 키-값 구조를 한눈에 파악할 수 있어 디버깅 시간이 크게 줄어듭니다. Postman 없이 빠르게 확인할 때 유용합니다.</li>
+          <li><b>전송 효율화:</b> 서버 요청 바디나 파일 저장 시 "압축"을 사용해 불필요한 공백을 없애세요. 대용량 JSON에서 수십 KB 이상의 트래픽을 줄일 수 있습니다.</li>
+          <li><b>흔한 JSON 오류:</b> 마지막 원소 뒤 쉼표(trailing comma), 키가 쌍따옴표가 아닌 경우, 작은따옴표 사용이 가장 자주 발생하는 문법 오류입니다. 오류 메시지에 줄 번호가 표시되므로 해당 위치를 먼저 확인하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 대용량 JSON 파일도 처리할 수 있나요?</b><p>브라우저에서 처리하므로 수십 MB 이상의 JSON은 느릴 수 있습니다. 일반적인 API 응답(수십 KB~수 MB)은 즉시 처리됩니다.</p></div>
+          <div class="qa"><b>Q. 한글이 포함된 JSON도 정상 처리되나요?</b><p>네. JavaScript의 JSON.parse/stringify는 유니코드를 완벽히 처리하므로 한글, 이모지 등이 포함된 JSON도 문제없습니다.</p></div>
+          <div class="qa"><b>Q. 결과를 파일로 다운로드할 수 있나요?</b><p>현재 다운로드 기능은 없습니다. 복사 버튼으로 클립보드에 저장한 뒤 텍스트 에디터에 붙여넣어 저장하세요.</p></div>
+        </div>
       </section>
     </div>
   </main>

@@ -45,6 +45,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -116,9 +117,28 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <img class="preview-img" id="cp-prev">
       </div>
       <section class="content">
-        <div class="sec-label">이미지 압축·리사이즈란?</div>
-        <p>이미지 압축·리사이즈 도구는 JPG, PNG, WebP 이미지의 용량을 줄이고 최대 가로 폭을 조절합니다. 이메일 첨부 용량 제한을 맞추거나, SNS·웹사이트 업로드 속도를 높이고 싶을 때 활용하세요. 원본 비율을 유지한 채 크기를 줄이며, 모든 처리는 브라우저 안에서만 이루어집니다.</p>
-        <p>품질 슬라이더로 <b>0.2(최소 용량)</b>부터 <b>1.0(최고 화질)</b>까지 조절할 수 있으며, 압축 후 원본 대비 절감률이 실시간으로 표시됩니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>압축할 이미지(JPG, PNG, WebP)를 드래그 앤 드롭하거나 클릭해 업로드합니다. 여러 파일을 한 번에 선택할 수도 있습니다.</li>
+          <li>최대 가로 폭(px)을 설정합니다. 이보다 좁은 이미지는 원본 크기가 그대로 유지됩니다.</li>
+          <li>품질 슬라이더(0.2~1.0)로 파일 크기와 화질의 균형을 조절합니다.</li>
+          <li>"압축 시작" 버튼을 누르면 처리 후 파일이 자동으로 다운로드됩니다.</li>
+          <li>결과 영역에서 원본 대비 절감된 용량과 절감률을 확인합니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>웹 최적화 권장 설정:</b> 블로그·쇼핑몰 상품 이미지는 최대 너비 1200px, 품질 0.75 정도가 적합합니다. 이 설정이면 대부분 300KB 이하로 줄어들고 화질도 충분히 유지됩니다.</li>
+          <li><b>텍스트 포함 이미지 주의:</b> 슬라이드나 인포그래픽처럼 텍스트가 많은 이미지는 품질을 0.85 이상으로 유지해야 글자가 뭉개지지 않습니다. 사진 이미지는 0.65~0.75에서도 육안 차이가 거의 없습니다.</li>
+          <li><b>PNG 투명 배경 주의:</b> 투명 배경 PNG는 압축 시 JPG로 변환되어 배경이 흰색으로 채워집니다. 투명도가 필요하면 이미지 포맷 변환 도구나 이미지 크기 조절 도구에서 PNG 유지 옵션을 사용하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 여러 이미지를 한 번에 압축할 수 있나요?</b><p>네, 여러 파일을 동시에 드래그 앤 드롭하면 한꺼번에 처리합니다. 각 파일은 개별로 다운로드됩니다.</p></div>
+          <div class="qa"><b>Q. 압축 후 화질이 너무 낮아졌는데 어떻게 하나요?</b><p>품질 슬라이더를 높여 재시도하세요. 0.85 이상으로 설정하면 육안으로 원본과 차이를 거의 느끼기 어렵습니다.</p></div>
+          <div class="qa"><b>Q. 파일이 서버로 전송되나요?</b><p>아닙니다. 모든 압축 처리는 브라우저의 canvas API를 사용하며, 이미지가 외부 서버로 전송되지 않습니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

@@ -43,6 +43,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -112,9 +113,28 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         </div>
       </div>
       <section class="content">
-        <div class="sec-label">UTM 파라미터란?</div>
-        <p>UTM(Urchin Tracking Module)은 Google Analytics에서 캠페인 트래픽을 추적하기 위한 URL 파라미터입니다. <b>utm_source</b>(출처)와 <b>utm_medium</b>(채널)은 필수이며, 나머지는 선택 사항입니다.</p>
-        <p>생성된 URL을 광고·이메일·SNS 게시물 링크로 사용하면, GA4 보고서에서 각 채널별 유입과 전환을 정확히 분석할 수 있습니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>"기본 URL" 입력란에 추적하고 싶은 웹페이지 주소를 입력합니다.</li>
+          <li>utm_source(유입 출처, 예: naver)와 utm_medium(채널, 예: cpc)을 필수 입력합니다.</li>
+          <li>utm_campaign(캠페인명), utm_content(광고 소재 구분), utm_term(키워드) 등 선택 파라미터를 추가합니다.</li>
+          <li>하단에 완성된 UTM URL이 자동으로 생성됩니다.</li>
+          <li>복사 버튼으로 URL을 클립보드에 저장해 광고 링크, 이메일, SNS에 사용하세요.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>회사 내 표준 통일:</b> utm_source와 utm_medium을 팀 전체에서 일관성 있게 사용해야 GA4 보고서 데이터가 정확히 묶입니다. 예: 네이버 검색 광고 = source:naver, medium:cpc. 한 번 정한 규칙은 문서로 공유하세요.</li>
+          <li><b>이메일 뉴스레터 추적:</b> utm_medium: email, utm_source: 뉴스레터명, utm_campaign: 발송날짜 형식으로 설정하면 각 발송 건의 클릭률·전환을 날짜별로 비교할 수 있습니다.</li>
+          <li><b>A/B 테스트 소재 구분:</b> utm_content는 동일 캠페인의 배너 2종을 A/B로 구분할 때 사용합니다. GA4 보고서에서 어떤 소재가 더 높은 전환율을 보이는지 직접 비교하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. UTM 파라미터가 검색 엔진 순위(SEO)에 영향을 주나요?</b><p>Google은 검색 색인 시 UTM 파라미터를 무시합니다. SEO에는 영향이 없지만 URL이 길어지므로 공유 시 단축 URL 서비스를 함께 사용하는 것도 좋습니다.</p></div>
+          <div class="qa"><b>Q. utm_source와 utm_medium에 어떤 값을 넣어야 하나요?</b><p>Google 권장 가이드 기준: utm_medium에는 cpc, email, social 같은 채널 유형을, utm_source에는 naver, kakao, newsletter 같은 구체적 출처를 씁니다.</p></div>
+          <div class="qa"><b>Q. GA4에서 UTM 데이터를 어디서 확인하나요?</b><p>GA4 → 보고서 → 획득 → 트래픽 획득에서 소스/매체별로 확인합니다. 캠페인 이름으로 보려면 보고서 → 획득 → 캠페인 섹션을 이용하세요.</p></div>
+        </div>
       </section>
     </div>
   </main>

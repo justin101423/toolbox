@@ -44,6 +44,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -109,9 +110,27 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="note" id="ps-note"></div>
       </div>
       <section class="content">
-        <div class="sec-label">PDF 페이지 분할이란?</div>
-        <p>PDF 페이지 분할 도구는 큰 PDF 파일에서 필요한 페이지만 골라 새 PDF로 저장합니다. 계약서·보고서 중 특정 페이지만 따로 공유하거나, 긴 문서에서 일부만 인쇄할 때 활용하세요. 모든 처리는 브라우저 안에서만 이루어져 파일이 외부 서버로 전송되지 않습니다.</p>
-        <p>페이지 범위는 <b>"1-3, 5, 8-10"</b>처럼 쉼표로 구분해 입력하며, PDF를 업로드하면 전체 페이지 수가 자동으로 표시됩니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>분할할 PDF를 드래그 앤 드롭하거나 클릭해 업로드합니다.</li>
+          <li>업로드 후 표시되는 전체 페이지 수를 확인합니다.</li>
+          <li>추출할 페이지 범위를 입력합니다. 예: "1-3, 5, 8-10" → 1·2·3·5·8·9·10페이지 추출.</li>
+          <li>"분할 후 다운로드" 버튼을 누르면 지정한 페이지만 담긴 새 PDF가 다운로드됩니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>필요한 페이지만 공유:</b> 긴 보고서에서 요약본(1~5페이지)만 따로 공유하거나, 계약서에서 서명 페이지만 추출하는 등 문서의 일부만 전달할 때 편리합니다.</li>
+          <li><b>범위 입력 형식:</b> 연속 범위는 "5-10", 단일 페이지는 "7", 복합 지정은 "1, 3, 5-8, 12"처럼 조합합니다. 순서가 바뀌어 입력해도 내부적으로 오름차순 정렬됩니다.</li>
+          <li><b>포트폴리오·챕터 추출:</b> 이력서에 첨부한 포트폴리오에서 특정 프로젝트 페이지만 추출하거나, 책 스캔 PDF에서 원하는 챕터만 잘라내는 용도로 활용하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 분할 후 원본 파일이 변경되나요?</b><p>아닙니다. 브라우저 메모리에서 읽어 새 PDF를 만들므로 원본 파일은 그대로 유지됩니다.</p></div>
+          <div class="qa"><b>Q. 페이지를 중복 입력하면 어떻게 되나요?</b><p>중복 입력된 페이지는 한 번만 추출됩니다. "1-3, 2, 3"을 입력해도 1·2·3페이지가 각각 한 번씩만 포함됩니다.</p></div>
+          <div class="qa"><b>Q. 홀수·짝수 페이지만 추출할 수 있나요?</b><p>현재 범위 및 개별 지정 방식만 지원합니다. 홀수/짝수 필터 기능은 없으므로 직접 번호를 나열해 입력하세요.</p></div>
+        </div>
       </section>
     </div>
   </main>

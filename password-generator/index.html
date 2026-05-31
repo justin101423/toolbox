@@ -46,6 +46,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -119,9 +120,28 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="note ok" id="pw-note">복사했어요!</div>
       </div>
       <section class="content">
-        <div class="sec-label">비밀번호 생성이란?</div>
-        <p>비밀번호 생성 도구는 대소문자·숫자·특수기호를 조합해 추측하기 어려운 강력한 무작위 비밀번호를 만들어 줍니다. 길이(6~48자)와 포함할 문자 종류를 선택해 사이트별 요구사항에 맞는 비밀번호를 바로 생성하세요. 모든 생성은 브라우저의 <b>crypto.getRandomValues</b> API를 사용하므로 예측 불가능합니다.</p>
-        <p>생성된 비밀번호는 어디에도 저장되거나 전송되지 않습니다. 복사 버튼으로 클립보드에 바로 저장해 사용하세요.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>길이 슬라이더로 비밀번호 자릿수(6~48)를 선택합니다.</li>
+          <li>포함할 문자 유형(대문자, 소문자, 숫자, 특수기호)을 체크합니다. 최소 한 가지 이상 선택해야 합니다.</li>
+          <li>"생성" 버튼을 클릭하면 조건에 맞는 무작위 비밀번호가 만들어집니다.</li>
+          <li>"복사" 버튼으로 생성된 비밀번호를 클립보드에 저장합니다.</li>
+          <li>마음에 들지 않으면 "생성"을 다시 눌러 새 비밀번호를 만드세요.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>강력한 비밀번호 설정:</b> 16자 이상에 대소문자+숫자+특수기호를 모두 조합하면 브루트포스 공격에 매우 강한 비밀번호가 됩니다. 대부분의 보안 전문가는 최소 12~16자를 권장합니다.</li>
+          <li><b>사이트별 다른 비밀번호 사용:</b> 하나의 비밀번호를 여러 사이트에서 재사용하면 한 곳이 유출될 때 모든 계정이 위험해집니다. 1Password·Bitwarden 같은 비밀번호 관리자에 저장하고 사이트마다 다른 비밀번호를 쓰세요.</li>
+          <li><b>특수기호 제한 사이트 대처:</b> 일부 사이트는 특수기호 종류를 제한합니다. 특수기호 옵션을 끄고 자릿수를 20자 이상으로 늘리면 길이로 보안을 보완할 수 있습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 같은 비밀번호가 다시 나올 수 있나요?</b><p>이론적으로 가능하지만 확률이 매우 낮습니다. 16자 대소문자+숫자+기호 조합의 경우 경우의 수가 95^16 ≈ 4.4×10^31로 실질적으로 반복될 일이 없습니다.</p></div>
+          <div class="qa"><b>Q. 생성된 비밀번호가 서버에 저장되나요?</b><p>아닙니다. 브라우저의 crypto.getRandomValues API로 생성되며 페이지를 새로고침하면 사라집니다. 서버로 전송되지 않습니다.</p></div>
+          <div class="qa"><b>Q. 특수기호만 제외하고 싶은데 방법이 있나요?</b><p>특수기호 체크박스를 해제하면 됩니다. 단, 보안을 위해 길이를 충분히 늘리는 것을 권장합니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

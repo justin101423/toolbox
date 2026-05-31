@@ -42,6 +42,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -103,9 +104,27 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="note" id="pl-note">복사했어요!</div>
       </div>
       <section class="content">
-        <div class="sec-label">컬러 팔레트 생성이란?</div>
-        <p>컬러 팔레트 생성 도구는 색상 이론을 바탕으로 조화로운 5가지 색상을 자동으로 만들어 줍니다. 웹사이트·앱·브랜드 디자인의 색상 시스템을 구성하거나, 인테리어·일러스트 색상 조합을 탐색할 때 활용하세요. 버튼 클릭이나 스페이스바로 새 팔레트를 계속 생성할 수 있습니다.</p>
-        <p>마음에 드는 색상 칸을 클릭하면 <b>HEX 코드</b>가 클립보드에 자동 복사됩니다. CSS나 디자인 툴에 바로 붙여넣어 사용하세요.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>페이지를 열면 5가지 색상 팔레트가 자동으로 생성됩니다. 마음에 들지 않으면 "새 팔레트 생성" 버튼을 클릭하거나 스페이스바를 눌러 새로운 조합을 만들어냅니다.</li>
+          <li>마음에 드는 색상 칸을 클릭하면 HEX 코드(예: #df4324)가 클립보드에 자동으로 복사됩니다.</li>
+          <li>복사된 HEX 코드를 CSS, Figma, Sketch, Adobe XD 등의 디자인 툴에 바로 붙여넣어 활용합니다.</li>
+          <li>색상 조합이 마음에 들 때까지 계속 새로운 팔레트를 생성할 수 있습니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>브랜드 색 시스템 구성:</b> 브랜드 주색이 이미 정해져 있다면, 팔레트에서 비슷한 색조를 골라 배경색·보조색·강조색으로 역할을 분배하면 일관성 있는 색 시스템을 빠르게 구성할 수 있습니다.</li>
+          <li><b>명도 활용:</b> 팔레트는 밝은 순서(명도 높음→낮음)로 배열됩니다. 가장 밝은 색은 배경, 중간 색은 UI 요소, 가장 어두운 색은 텍스트나 강조 버튼에 적용하면 자연스럽습니다.</li>
+          <li><b>웹 접근성 확인:</b> WCAG 기준으로 배경과 텍스트의 명도 대비가 4.5:1 이상이어야 가독성이 보장됩니다. 팔레트를 선택한 뒤 별도 대비 체크 도구로 확인하는 것을 권장합니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 팔레트 생성 알고리즘은 어떻게 되나요?</b><p>HSL(색조·채도·명도) 모델 기반으로 무작위 색조를 시작점으로 삼아 약 18~40도씩 회전하며 5가지 색을 만듭니다. 유사색 배열 방식이라 서로 조화로운 조합이 나올 확률이 높습니다.</p></div>
+          <div class="qa"><b>Q. HEX 코드를 복사하면 '#' 기호가 포함되나요?</b><p>네, #df4324처럼 샵(#) 기호를 포함해 복사됩니다. CSS에 바로 붙여넣을 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 생성된 팔레트를 저장하려면 어떻게 하나요?</b><p>현재 별도 저장 기능은 없습니다. 마음에 드는 HEX 코드를 복사해 메모장이나 디자인 툴에 직접 보관하세요. 필요한 색상 코드를 모두 복사해두면 나중에 재현이 가능합니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

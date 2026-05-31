@@ -39,6 +39,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -103,9 +104,27 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="note" id="hr-note"></div>
       </div>
       <section class="content">
-        <div class="sec-label">HEX ↔ RGB 변환이란?</div>
-        <p>HEX ↔ RGB 변환 도구는 웹에서 사용하는 HEX 색상 코드(#RRGGBB)와 RGB 값(0~255, 0~255, 0~255)을 양방향으로 즉시 변환합니다. CSS 작성 중 색상 형식을 바꾸거나, 디자인 툴과 코드 사이 색상 값을 맞출 때 활용하세요. 한쪽 값을 입력하면 색상 미리보기와 함께 다른 쪽이 자동으로 계산됩니다.</p>
-        <p>HEX 입력은 <b>#df4324</b> 또는 <b>df4324</b> 형식 모두 허용하며, RGB는 <b>"223, 67, 36"</b>처럼 쉼표로 구분해 입력하면 됩니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li><b>HEX → RGB:</b> 왼쪽 입력창에 #df4324 또는 df4324 형식으로 HEX 코드를 입력하면 RGB 값과 색상 미리보기가 자동으로 표시됩니다.</li>
+          <li><b>RGB → HEX:</b> 오른쪽 입력창에 "223, 67, 36"처럼 쉼표로 구분된 숫자 세 개를 입력하면 HEX 코드가 자동으로 계산됩니다.</li>
+          <li>색상 미리보기 박스에서 변환 결과 색상을 즉시 확인하세요.</li>
+          <li>필요한 코드를 복사해 CSS나 디자인 툴에 바로 붙여넣습니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>디자인-개발 간 색상 전달:</b> Figma·Adobe XD는 HEX 코드를 주로 사용하고, 개발 코드에서는 rgb() 함수도 많이 씁니다. 두 환경을 오갈 때 이 변환기로 빠르게 맞출 수 있습니다.</li>
+          <li><b>3자리 단축 HEX 지원:</b> #f30처럼 3자리 단축 HEX를 입력하면 내부적으로 #ff3300으로 확장 처리합니다. CSS에서 단축형을 쓴 경우도 문제없습니다.</li>
+          <li><b>rgba() 활용:</b> 투명도가 필요하면 변환된 RGB 값에 알파 값을 추가해 rgba(223, 67, 36, 0.5)처럼 사용하세요. 이 도구에서 RGB 값을 얻고 직접 rgba()를 조합하면 됩니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. HEX 코드 앞에 '#' 없이 입력해도 되나요?</b><p>네, df4324처럼 샵 없이 입력해도 정상 변환됩니다. #df4324 형식도 물론 지원합니다.</p></div>
+          <div class="qa"><b>Q. RGB 값이 0~255 범위를 벗어나면 어떻게 되나요?</b><p>255를 초과하는 값이 있으면 오류 메시지가 표시됩니다. 각 채널(R·G·B)은 0~255 사이 정수여야 합니다.</p></div>
+          <div class="qa"><b>Q. RGBA나 HSLA처럼 투명도가 포함된 형식도 지원하나요?</b><p>현재 6자리 HEX와 RGB(0~255 세 자리)만 지원합니다. 투명도 채널이 필요하면 변환 결과에 알파 값을 직접 추가해 사용하세요.</p></div>
+        </div>
       </section>
     </div>
   </main>

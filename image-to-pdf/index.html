@@ -44,6 +44,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -110,9 +111,26 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="note" id="i2p-note"></div>
       </div>
       <section class="content">
-        <div class="sec-label">이미지 → PDF란?</div>
-        <p>이미지 → PDF 변환 도구는 여러 장의 JPG, PNG, WebP 사진을 하나의 PDF 파일로 묶어줍니다. 스캔한 문서나 사진을 PDF로 제출해야 할 때 편리하게 활용하세요. 추가한 순서가 PDF 페이지 순서가 되며, 모든 처리는 브라우저 안에서만 이루어집니다.</p>
-        <p>각 이미지가 <b>독립적인 PDF 페이지</b>로 변환되며, 원본 이미지 크기를 그대로 반영합니다. 파일 목록에서 × 버튼으로 불필요한 이미지를 제거할 수 있습니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>PDF로 묶을 이미지들을 드래그 앤 드롭하거나 클릭해 업로드합니다. JPG·PNG·WebP 형식을 지원합니다.</li>
+          <li>파일 목록에서 순서를 확인합니다. 이 순서가 PDF 페이지 순서가 되며, ×로 불필요한 파일을 제거할 수 있습니다.</li>
+          <li>"PDF로 변환" 버튼을 누르면 각 이미지가 독립 페이지로 담긴 PDF 파일이 다운로드됩니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>파일명 순서 정렬 활용:</b> 스캔한 문서를 여러 장 찍은 경우, 파일명 앞에 번호를 붙여(001.jpg, 002.jpg) 업로드하면 자동 정렬된 순서대로 PDF가 만들어집니다.</li>
+          <li><b>인쇄용 PDF는 300dpi 이상 권장:</b> 결과 PDF의 해상도는 원본 이미지의 해상도를 따릅니다. 인쇄용으로 사용한다면 이미지를 미리 300dpi 이상으로 스캔하거나 저장한 뒤 변환하세요.</li>
+          <li><b>이미지 방향 통일:</b> 스마트폰으로 찍은 사진은 가로·세로 방향이 섞일 수 있습니다. 업로드 전에 이미지 방향을 맞춰두면 PDF 페이지 방향이 일관성 있게 유지됩니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 변환 후 PDF에서 텍스트 선택이 되나요?</b><p>아닙니다. 이미지를 그대로 PDF 페이지로 붙여넣는 방식이므로, 텍스트 선택·검색이 가능한 PDF를 만들려면 OCR 처리가 별도로 필요합니다.</p></div>
+          <div class="qa"><b>Q. 변환할 수 있는 이미지 수에 제한이 있나요?</b><p>브라우저 메모리 한도 내에서 가능합니다. 고해상도 이미지를 수십 장 이상 한꺼번에 처리하면 브라우저가 느려질 수 있으니 여러 번에 나눠 변환하세요.</p></div>
+          <div class="qa"><b>Q. 파일이 외부 서버로 전송되나요?</b><p>아닙니다. pdf-lib 라이브러리를 사용해 브라우저 안에서만 처리합니다. 이미지가 외부로 전송되지 않습니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

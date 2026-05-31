@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>D-Day · 날짜 계산기 — 남은 날짜·경과 날짜·날짜 더하기 | 도구상자</title>
-<meta name="description" content="특정 날짜까지 남은 D-Day를 계산하거나, 날짜에 일수를 더하고 빼는 날짜 계산기입니다. 기념일·시험·여행 준비에 활용하세요.">
+<meta name="description" content="특정 날짜까지 남은 D-Day를 계산하거나, 날짜에 일수를 더하고 빼는 무료 온라인 날짜 계산기입니다. 시험·기념일·계약 만료일 등 다양한 날짜 카운트다운에 활용하세요.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,6 +43,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}.row2{grid-template-columns:1fr}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -126,9 +127,26 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
       </div>
 
       <section class="content">
-        <div class="sec-label">D-Day 계산기 사용법</div>
-        <p>기준 날짜와 목표 날짜를 선택하면 <b>남은 날짜(D-Day)</b>를 계산합니다. 목표 날짜가 과거이면 경과 일수를 표시합니다. 시험, 여행, 기념일 등 다양한 카운트다운에 활용할 수 있습니다.</p>
-        <p>날짜 더하기/빼기는 시작 날짜에 원하는 일수를 더하거나(양수), 빼서(음수) 결과 날짜를 알려줍니다. 납기일·만료일·계약 종료일 계산에 유용합니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li><b>D-Day 계산:</b> 기준 날짜(기본값 오늘)와 목표 날짜를 선택한 뒤 "계산" 버튼을 누르면 D-몇 또는 D+몇 형태로 결과가 표시됩니다. 목표가 미래면 남은 일수, 과거면 경과 일수를 보여줍니다.</li>
+          <li><b>날짜 더하기/빼기:</b> 시작 날짜와 더하거나 뺄 일수(음수 가능)를 입력하면 결과 날짜를 알려줍니다. 납기일·만료일·계약 종료일 계산에 유용합니다.</li>
+          <li>계산 결과는 화면에 크게 표시되며, 다른 날짜로 바꿔 바로 재계산할 수 있습니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>시험·공모전 준비:</b> 수능, 공무원 시험, 자격증 접수 마감일을 목표 날짜로 설정하면 매일 남은 일수를 바로 확인할 수 있습니다. 오늘이 D-1이라면 내일이 시험 날임을 잊지 마세요.</li>
+          <li><b>경과 일수 확인:</b> 입사일, 계약 체결일, 서비스 오픈일처럼 과거 특정 날짜 이후 며칠이 지났는지(D+숫자)도 바로 계산됩니다. 주년 행사 준비에도 활용해 보세요.</li>
+          <li><b>윤년·연도 경계 자동 처리:</b> 2월 29일이 낀 구간이나 연도를 넘나드는 계산도 정확하게 처리됩니다. 부동산 계약처럼 정확한 날짜 계산이 중요한 경우에도 믿고 사용하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 목표 날짜가 오늘과 같으면 어떻게 표시되나요?</b><p>"D-Day"로 표시되며 "오늘이 바로 그 날입니다!"라는 메시지가 함께 나옵니다.</p></div>
+          <div class="qa"><b>Q. 날짜 더하기에서 음수 일수를 입력하면 어떻게 되나요?</b><p>입력한 일수만큼 시작 날짜에서 빼서 결과 날짜를 계산합니다. 예를 들어 오늘에서 -30을 넣으면 30일 전 날짜가 표시됩니다.</p></div>
+          <div class="qa"><b>Q. 윤년이 포함된 기간도 정확히 계산되나요?</b><p>네. 각 날짜를 밀리초 타임스탬프로 변환해 계산하므로 윤년 2월 29일도 정확히 반영됩니다.</p></div>
+        </div>
       </section>
     </div>
   </main>

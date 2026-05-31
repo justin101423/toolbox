@@ -45,6 +45,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -111,9 +112,27 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="note" id="pm-note"></div>
       </div>
       <section class="content">
-        <div class="sec-label">PDF 합치기란?</div>
-        <p>PDF 합치기 도구는 여러 개의 PDF 파일을 지정한 순서대로 하나의 PDF로 병합합니다. 보고서·계약서·스캔 문서 등을 하나로 묶을 때 편리하며, 파일 목록에서 순서를 조정한 뒤 버튼 한 번으로 다운로드할 수 있습니다. 모든 처리는 브라우저 안에서만 이루어져 파일이 외부 서버로 전송되지 않습니다.</p>
-        <p>파일을 2개 이상 추가하면 병합 버튼이 활성화됩니다. 암호화된 PDF는 처리되지 않을 수 있으며, 목록에서 <b>×</b> 버튼으로 특정 파일을 제거할 수 있습니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>합칠 PDF 파일들을 드래그 앤 드롭하거나 클릭해 업로드합니다. 2개 이상이어야 병합 버튼이 활성화됩니다.</li>
+          <li>파일 목록에서 순서를 확인합니다. 이 순서가 최종 PDF의 페이지 순서가 됩니다.</li>
+          <li>순서를 변경하려면 ×로 파일을 제거하고 올바른 순서로 다시 추가하세요.</li>
+          <li>"병합 후 다운로드" 버튼을 클릭하면 하나로 합쳐진 PDF가 다운로드됩니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>파일명 번호 정렬 활용:</b> 파일명 앞에 번호를 붙여(01_본문.pdf, 02_첨부.pdf) 정렬한 뒤 업로드하면 원하는 순서대로 병합하기 쉽습니다.</li>
+          <li><b>업무 서류 통합:</b> 계약서, 견적서, 첨부 서류처럼 여러 문서를 이메일에 하나씩 첨부하는 번거로움을 없애고 하나의 PDF로 깔끔하게 전달하세요.</li>
+          <li><b>페이지 방향 유지:</b> 각 PDF의 세로·가로 방향이 달라도 원본 방향 그대로 유지됩니다. 단, 원본의 북마크(목차)와 하이퍼링크는 병합 후 유지되지 않을 수 있습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 병합 후 원본 파일의 북마크(목차)가 유지되나요?</b><p>브라우저 기반 pdf-lib는 기본 북마크를 유지하지 않습니다. 목차가 중요한 경우에는 전문 PDF 편집 도구를 사용하세요.</p></div>
+          <div class="qa"><b>Q. 암호화된 PDF도 합칠 수 있나요?</b><p>비밀번호가 걸린 PDF는 브라우저에서 읽을 수 없어 처리되지 않습니다. 병합 전에 암호를 먼저 해제하세요.</p></div>
+          <div class="qa"><b>Q. 합친 PDF를 다시 분할할 수 있나요?</b><p>이 도구는 합치기 전용입니다. 분할이 필요하다면 PDF 페이지 분할 도구를 이용하세요.</p></div>
+        </div>
       </section>
     </div>
   </main>

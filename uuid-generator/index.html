@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UUID 생성기 — UUID v4 무작위 생성 무료 온라인 도구 | 도구상자</title>
-<meta name="description" content="UUID v4를 즉시 생성합니다. 여러 개를 한 번에 생성하거나 대문자로 변환할 수 있으며, 결과를 바로 복사할 수 있습니다.">
+<meta name="description" content="UUID v4 고유 식별자를 브라우저에서 즉시 생성합니다. 1~100개까지 한 번에 생성 가능하며, 데이터베이스 기본 키, 세션 ID, 테스트 데이터 생성에 바로 활용하세요.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +42,7 @@ footer{border-top:1px solid var(--line);padding:30px clamp(16px,4vw,52px);positi
 footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
+.steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
 </style>
 <link rel="stylesheet" href="/theme.css">
 
@@ -108,9 +109,27 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <textarea id="uuid-out" rows="8" readonly></textarea>
       </div>
       <section class="content">
-        <div class="sec-label">UUID란?</div>
-        <p><b>UUID(Universally Unique Identifier)</b>는 128비트 고유 식별자입니다. v4는 암호학적으로 안전한 난수를 사용하므로 충돌 확률이 매우 낮아 데이터베이스 기본키, 세션 ID, 파일명 등 다양한 곳에 사용됩니다.</p>
-        <p>생성은 브라우저의 <b>crypto.randomUUID()</b> API를 사용해 서버 없이 클라이언트 측에서만 처리됩니다. 최대 100개까지 한 번에 생성할 수 있습니다.</p>
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>생성할 UUID 개수(1~100)를 입력합니다.</li>
+          <li>"생성" 버튼을 클릭하면 UUID v4 형식의 고유 식별자가 목록으로 표시됩니다.</li>
+          <li>목록 전체를 한 번에 복사하거나, 개별 UUID를 클릭해 하나씩 복사합니다.</li>
+          <li>데이터베이스 INSERT, 코드 상수, 테스트 데이터 등에 바로 붙여넣어 사용합니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>DB 기본 키로 활용:</b> UUID를 DB 기본 키로 쓸 때는 UUID 그대로(문자형) 저장하거나, 공간 효율을 위해 BINARY(16) 타입으로 저장하는 방법도 있습니다. 분산 환경에서 자동 증가 ID보다 충돌 없이 키를 생성할 수 있습니다.</li>
+          <li><b>테스트 데이터 대량 생성:</b> 한 번에 100개를 뽑아 스프레드시트나 SQL에 붙여넣으면 더미 ID를 빠르게 만들 수 있습니다.</li>
+          <li><b>충돌 가능성:</b> UUID v4는 충돌 확률이 극히 낮지만(1조 개 생성 시 확률 약 10^-18), DB에서는 여전히 UNIQUE 제약 조건을 거는 것이 안전합니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. UUID v4와 v1의 차이는 무엇인가요?</b><p>v1은 타임스탬프+MAC 주소 기반으로 생성 순서가 예측 가능하고 기기 정보가 포함됩니다. v4는 완전 랜덤으로 보안 측면에서 유리합니다. 이 도구는 v4만 생성합니다.</p></div>
+          <div class="qa"><b>Q. 생성된 UUID가 정말 고유한가요?</b><p>crypto.randomUUID()는 122비트 랜덤 정보를 담아 실질적으로 중복이 발생할 일이 없습니다. 엄밀한 보장이 필요하다면 DB UNIQUE 인덱스로 보완하세요.</p></div>
+          <div class="qa"><b>Q. 대소문자 구분이 있나요?</b><p>UUID 표준은 소문자가 기본이지만 대소문자를 구분하지 않습니다. 환경에 따라 toUpperCase()로 변환해도 동일한 값입니다.</p></div>
+        </div>
       </section>
     </div>
   </main>
