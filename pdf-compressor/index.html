@@ -1,0 +1,177 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF 용량 줄이기 — 무료 온라인 PDF 압축 도구 | 도구상자</title>
+<meta name="description" content="PDF 파일을 브라우저에서 이미지 기반으로 다시 저장해 용량을 줄입니다. 파일은 서버로 업로드되지 않으며 품질과 해상도를 직접 조절할 수 있습니다.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side">
+    <div class="grp"><div class="kick">이미지 · PDF</div>
+      <a class="navlink" href="/image-converter/"><span class="ic">🖼</span> 이미지 포맷 변환</a>
+      <a class="navlink" href="/image-compressor/"><span class="ic">📉</span> 이미지 압축·리사이즈</a>
+      <a class="navlink" href="/image-resizer/"><span class="ic">↔</span> 이미지 크기 조절</a>
+      <a class="navlink active" href="/pdf-compressor/"><span class="ic">🗜</span> PDF 용량 줄이기</a>
+      <a class="navlink" href="/pdf-merge/"><span class="ic">📄</span> PDF 합치기</a>
+      <a class="navlink" href="/image-to-pdf/"><span class="ic">🖼</span> 이미지 → PDF</a>
+      <a class="navlink" href="/pdf-to-image/"><span class="ic">▧</span> PDF → 이미지</a>
+      <a class="navlink" href="/pdf-split/"><span class="ic">✂</span> PDF 페이지 분할</a>
+    </div>
+    <div class="grp"><div class="kick">텍스트 · 생성</div>
+      <a class="navlink" href="/word-counter/"><span class="ic">🔤</span> 글자수 세기</a>
+      <a class="navlink" href="/qr-code/"><span class="ic">▦</span> QR코드 생성</a>
+      <a class="navlink" href="/password-generator/"><span class="ic">🔑</span> 비밀번호 생성</a>
+      <a class="navlink" href="/json-formatter/"><span class="ic">{ }</span> JSON 포매터</a>
+    </div>
+    <div class="grp"><div class="kick">색상 · 디자인</div>
+      <a class="navlink" href="/hex-rgb-converter/"><span class="ic">◑</span> HEX ↔ RGB 변환</a>
+      <a class="navlink" href="/color-palette/"><span class="ic">🎨</span> 컬러 팔레트 생성</a>
+      <a class="navlink" href="/favicon-generator/"><span class="ic">★</span> 파비콘 생성</a>
+    </div>
+    <div class="grp"><div class="kick">생활 · 편의</div>
+      <a class="navlink" href="/dday-calculator/"><span class="ic">📅</span> D-Day · 날짜 계산</a>
+      <a class="navlink" href="/lotto-generator/"><span class="ic">🎱</span> 로또 번호 생성</a>
+    </div>
+    <div class="grp"><div class="kick">직장인 · 생산성</div>
+      <a class="navlink" href="/notepad/"><span class="ic">📝</span> 임시 메모장</a>
+      <a class="navlink" href="/utm-builder/"><span class="ic">🔗</span> UTM 빌더</a>
+    </div>
+    <div class="grp"><div class="kick">개발자 도구</div>
+      <a class="navlink" href="/encoder-decoder/"><span class="ic">⇄</span> 인코더 · 디코더</a>
+      <a class="navlink" href="/jwt-decoder/"><span class="ic">🔓</span> JWT 디코더</a>
+      <a class="navlink" href="/uuid-generator/"><span class="ic">#</span> UUID 생성</a>
+      <a class="navlink" href="/hash-generator/"><span class="ic">🔒</span> Hash 생성</a>
+      <a class="navlink" href="/json-to-java-dto/"><span class="ic">☕</span> JSON → Java DTO</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>PDF 용량 줄이기</h2>
+      <p class="lede">PDF 각 페이지를 이미지로 다시 저장해 파일 크기를 줄입니다. 스캔 PDF나 이미지 PDF에 특히 효과적입니다.</p>
+
+      <div class="box">
+        <div class="drop" id="drop"><div class="big">🗜</div><b>PDF 파일을 끌어다 놓거나 클릭</b><small>브라우저에서만 처리 · 서버 업로드 없음</small></div>
+        <input type="file" id="file" accept="application/pdf" hidden>
+        <div class="field-row">
+          <div class="field">
+            <label>해상도</label>
+            <select id="scale" disabled>
+              <option value="1">낮음 · 작은 용량</option>
+              <option value="1.35" selected>보통 · 권장</option>
+              <option value="1.8">높음 · 선명함</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>이미지 품질 <span id="qualityLabel" style="font-family:var(--mono);color:var(--ink-3)">0.72</span></label>
+            <input type="range" id="quality" min="0.35" max="0.95" step="0.05" value="0.72" disabled>
+          </div>
+        </div>
+        <div class="btn-row"><button class="btn accent" id="run" disabled>압축 후 다운로드</button></div>
+        <div class="progress" id="progress"><span></span></div>
+        <div class="note" id="note"></div>
+        <div class="stat-grid" id="stats" style="display:none">
+          <div class="stat"><div class="n" id="pages">-</div><div class="l">페이지</div></div>
+          <div class="stat"><div class="n" id="before">-</div><div class="l">원본 용량</div></div>
+          <div class="stat"><div class="n" id="after">-</div><div class="l">압축 후</div></div>
+          <div class="stat"><div class="n" id="save">-</div><div class="l">절감률</div></div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">PDF 압축 방식 안내</div>
+        <p>이 도구는 PDF 페이지를 브라우저에서 렌더링한 뒤 JPG 이미지로 다시 묶어 새 PDF를 만듭니다. 그래서 스캔본, 이미지가 많은 PDF, 발표자료 PDF는 용량 감소 효과가 크고, 텍스트 위주의 작은 PDF는 오히려 커질 수 있습니다.</p>
+        <p>결과 PDF는 이미지 기반이므로 원본의 텍스트 선택, 링크, 폼 입력, 목차 같은 구조는 유지되지 않을 수 있습니다. 중요한 문서는 원본을 보관한 뒤 사용하세요.</p>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/theme.js"></script>
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const $=id=>document.getElementById(id);
+function fmtBytes(b){if(b<1024)return b+' B';if(b<1048576)return (b/1024).toFixed(1)+' KB';return (b/1048576).toFixed(2)+' MB';}
+function download(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}
+function canvasBlob(canvas,type,quality){return new Promise(resolve=>canvas.toBlob(resolve,type,quality));}
+function hookDrop(drop,input,onFile){
+  drop.onclick=()=>input.click();
+  input.onchange=()=>{if(input.files[0])onFile(input.files[0]);};
+  ['dragenter','dragover'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add('over');}));
+  ['dragleave','drop'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove('over');}));
+  drop.addEventListener('drop',ev=>{if(ev.dataTransfer.files[0])onFile(ev.dataTransfer.files[0]);});
+}
+let file=null,pageCount=0;
+async function setFile(f){
+  if(f.type!=='application/pdf')return;
+  file=f;$('drop').querySelector('b').textContent=f.name;$('before').textContent=fmtBytes(f.size);
+  try{
+    const doc=await pdfjsLib.getDocument({data:new Uint8Array(await f.arrayBuffer())}).promise;
+    pageCount=doc.numPages;$('pages').textContent=pageCount.toLocaleString();$('stats').style.display='grid';
+    ['run','scale','quality'].forEach(id=>$(id).disabled=false);
+    $('note').textContent='준비됐습니다. 압축을 시작하세요.';$('note').className='note show';
+  }catch(e){
+    $('note').textContent='PDF를 읽을 수 없습니다: '+e.message;$('note').className='note show err';
+  }
+}
+hookDrop($('drop'),$('file'),setFile);
+$('quality').oninput=e=>$('qualityLabel').textContent=e.target.value;
+$('run').onclick=async()=>{
+  if(!file)return;
+  const note=$('note'),bar=$('progress'),fill=bar.querySelector('span');
+  note.textContent='PDF를 압축하는 중입니다...';note.className='note show';bar.style.display='block';fill.style.width='0';
+  $('run').disabled=true;
+  try{
+    const src=await pdfjsLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
+    const out=await PDFLib.PDFDocument.create();
+    const scale=parseFloat($('scale').value),quality=parseFloat($('quality').value);
+    for(let i=1;i<=src.numPages;i++){
+      const page=await src.getPage(i);
+      const viewport=page.getViewport({scale});
+      const canvas=document.createElement('canvas');
+      canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);
+      const ctx=canvas.getContext('2d',{alpha:false});
+      ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+      await page.render({canvasContext:ctx,viewport}).promise;
+      const jpgBlob=await canvasBlob(canvas,'image/jpeg',quality);
+      const jpg=await out.embedJpg(await jpgBlob.arrayBuffer());
+      const pdfPage=out.addPage([viewport.width,viewport.height]);
+      pdfPage.drawImage(jpg,{x:0,y:0,width:viewport.width,height:viewport.height});
+      fill.style.width=Math.round(i/src.numPages*100)+'%';
+    }
+    const bytes=await out.save();
+    const blob=new Blob([bytes],{type:'application/pdf'});
+    $('after').textContent=fmtBytes(blob.size);
+    $('save').textContent=Math.round((1-blob.size/file.size)*100)+'%';
+    download(blob,file.name.replace(/\.pdf$/i,'')+'-compressed.pdf');
+    note.textContent='다운로드가 시작됐습니다.';note.className='note show ok';
+  }catch(e){
+    note.textContent='압축 중 오류가 발생했습니다: '+e.message;note.className='note show err';
+  }finally{
+    $('run').disabled=false;
+  }
+};
+</script>
