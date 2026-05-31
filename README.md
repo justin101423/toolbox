@@ -20,6 +20,7 @@
 - 이미지 포맷 변환 (`/image-converter/`)
 - 이미지 압축·리사이즈 (`/image-compressor/`)
 - 이미지 크기 조절 (`/image-resizer/`)
+- 이미지 자르기 (`/image-crop/`)
 - 증명사진 규격 맞추기 (`/id-photo/`)
 - EXIF·위치정보 제거 (`/remove-exif/`)
 - PDF 용량 줄이기 (`/pdf-compressor/`)

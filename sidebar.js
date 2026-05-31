@@ -20,6 +20,7 @@
       { slug: "image-converter",  name: "이미지 포맷 변환",     icon: "🖼" },
       { slug: "image-compressor", name: "이미지 압축·리사이즈", icon: "📉" },
       { slug: "image-resizer",    name: "이미지 크기 조절",     icon: "↔" },
+      { slug: "image-crop",       name: "이미지 자르기",        icon: "⛶" },
       { slug: "id-photo",         name: "증명사진 규격 맞추기", icon: "🪪" },
       { slug: "remove-exif",      name: "EXIF·위치정보 제거",   icon: "🛡" },
       { slug: "pdf-compressor",   name: "PDF 용량 줄이기",      icon: "🗜" },
