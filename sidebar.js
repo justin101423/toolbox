@@ -51,7 +51,13 @@
     ]},
     { label: "생활 · 편의", tools: [
       { slug: "dday-calculator", name: "D-Day · 날짜 계산", icon: "📅" },
-      { slug: "lotto-generator", name: "로또 번호 생성",    icon: "🎱" }
+      { slug: "lotto-generator", name: "로또 번호 생성",    icon: "🎱" },
+      { slug: "age-calculator",  name: "만 나이 계산기",    icon: "🎂" },
+      { slug: "percentage-calculator", name: "퍼센트 계산기", icon: "%" },
+      { slug: "unit-converter",  name: "단위 변환",         icon: "📏" },
+      { slug: "timezone-converter", name: "세계 시간 변환", icon: "🌍" },
+      { slug: "discount-calculator", name: "할인가 계산기", icon: "🏷" },
+      { slug: "random-picker",   name: "랜덤 추첨기",       icon: "🎲" }
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "📝" },

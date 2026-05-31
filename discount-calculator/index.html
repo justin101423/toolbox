@@ -1,0 +1,126 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>할인가 계산기 — 할인율·할인금액·중복할인 계산 무료 도구 | 도구상자</title>
+<meta name="description" content="정가와 할인율을 넣으면 할인 금액과 최종 가격을, 정가와 할인가를 넣으면 할인율을 역산합니다. 20%+10% 같은 중복 할인의 실제 할인율과 최종가도 계산하세요. 쇼핑·세일·쿠폰 비교에 유용하며 브라우저에서만 동작합니다.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<style>
+.calc-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:14px}
+.calc-card .t{font-family:var(--disp);font-weight:700;font-size:14px;color:var(--ink-2);margin-bottom:12px}
+.calc-card .r{margin-top:12px;font-family:var(--mono);font-size:15px;font-weight:700;color:var(--accent);line-height:1.6}
+.calc-card .r small{display:block;color:var(--ink-3);font-weight:500;font-size:12.5px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>할인가 계산기</h2>
+      <p class="lede">할인율로 최종가를 구하거나, 할인가로 할인율을 역산하고, 중복 할인까지 계산합니다.</p>
+
+      <div class="box">
+        <div class="calc-card">
+          <div class="t">① 할인율 → 최종 가격</div>
+          <div class="field-row">
+            <div class="field"><label>정가 (원)</label><input type="number" id="a-price" placeholder="50000"></div>
+            <div class="field"><label>할인율 (%)</label><input type="number" id="a-rate" placeholder="20"></div>
+          </div>
+          <div class="r" id="a-res">-</div>
+        </div>
+
+        <div class="calc-card">
+          <div class="t">② 할인가 → 할인율 역산</div>
+          <div class="field-row">
+            <div class="field"><label>정가 (원)</label><input type="number" id="b-price" placeholder="50000"></div>
+            <div class="field"><label>할인가 (원)</label><input type="number" id="b-sale" placeholder="40000"></div>
+          </div>
+          <div class="r" id="b-res">-</div>
+        </div>
+
+        <div class="calc-card">
+          <div class="t">③ 중복 할인 (순차 적용)</div>
+          <div class="field"><label>정가 (원)</label><input type="number" id="c-price" placeholder="50000"></div>
+          <div class="field"><label>할인율들 (쉼표로 구분, 예: 20, 10, 5)</label><input type="text" id="c-rates" placeholder="20, 10, 5"></div>
+          <div class="r" id="c-res">-</div>
+        </div>
+        <div class="note" id="dc-note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>① 정가와 할인율(%)을 입력하면 할인 금액과 최종 결제 가격이 바로 계산됩니다.</li>
+          <li>② 정가와 실제 할인가를 입력하면 몇 % 할인인지 역으로 계산해 줍니다. 표시 할인율이 맞는지 검증할 때 유용합니다.</li>
+          <li>③ 정가를 넣고 여러 할인율을 쉼표로 구분해 입력하면, 순서대로 적용한 최종가와 합산된 실질 할인율을 보여 줍니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>"20% + 10% 추가 할인"의 진실:</b> 중복 할인은 더해서 30%가 아닙니다. 50,000원에 20% 후 10%를 또 적용하면 36,000원으로 실질 28% 할인입니다. ③번 계산기에 "20, 10"을 넣으면 이 실질 할인율을 정확히 확인할 수 있습니다.</li>
+          <li><b>표시 할인율 검증:</b> "정가 50,000원 → 39,900원, 30% 세일"이 진짜인지 ②번에 넣어 보세요. 실제로는 약 20.2% 할인이라 과장 광고를 가려낼 수 있습니다.</li>
+          <li><b>쿠폰·적립 조합 비교:</b> "즉시 15% 할인"과 "10% 할인 + 5% 적립" 중 무엇이 유리한지 ①·③번으로 최종가를 각각 계산해 비교하면 가장 저렴한 조합을 고를 수 있습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 중복 할인은 왜 단순 합산이 아닌가요?</b><p>두 번째 할인은 이미 한 번 할인된 금액에 적용되기 때문입니다. 20% 할인 후 남은 80%에 다시 10%를 빼면 80%×90%=72%만 남아, 합산 30%가 아니라 실질 28% 할인이 됩니다. 그래서 순차 적용 방식으로 계산합니다.</p></div>
+          <div class="qa"><b>Q. 금액 단위는 꼭 원이어야 하나요?</b><p>단위와 무관하게 동일하게 계산됩니다. 달러·엔 등 다른 통화 금액을 넣어도 비율 계산은 그대로 적용되며, 결과는 천 단위 구분 기호와 함께 표시됩니다.</p></div>
+          <div class="qa"><b>Q. 입력한 가격이 서버로 전송되나요?</b><p>아닙니다. 모든 계산은 브라우저 안에서 즉시 이뤄지며 어떤 금액 정보도 외부로 전송되지 않습니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR');
+const num=el=>{const v=parseFloat($(el).value);return isNaN(v)?null:v;};
+
+function run(){
+  // ①
+  {const p=num('a-price'),r=num('a-rate');
+   if(p!==null&&r!==null){const off=p*r/100;$('a-res').innerHTML='최종가 '+won(p-off)+'원<small>할인 금액 '+won(off)+'원</small>';}else $('a-res').textContent='-';}
+  // ②
+  {const p=num('b-price'),s=num('b-sale');
+   if(p!==null&&s!==null&&p!==0){const rate=(p-s)/p*100;$('b-res').innerHTML='할인율 '+(Math.round(rate*100)/100)+'%<small>할인 금액 '+won(p-s)+'원</small>';}else $('b-res').textContent='-';}
+  // ③
+  {const p=num('c-price');const raw=$('c-rates').value.trim();
+   if(p!==null&&raw){
+     const rates=raw.split(',').map(x=>parseFloat(x.trim())).filter(x=>!isNaN(x));
+     if(rates.length){
+       let cur=p;rates.forEach(r=>{cur=cur*(1-r/100);});
+       const eff=p!==0?(p-cur)/p*100:0;
+       $('c-res').innerHTML='최종가 '+won(cur)+'원<small>'+rates.join('% → ')+'% 순차 적용 · 실질 할인율 '+(Math.round(eff*100)/100)+'%</small>';
+     }else $('c-res').textContent='-';
+   }else $('c-res').textContent='-';}
+}
+document.querySelector('.box').addEventListener('input',run);
+</script>

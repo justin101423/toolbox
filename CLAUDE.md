@@ -54,7 +54,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 40개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 46개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 ### 이미지 · PDF (15)
 | 슬러그 | 이름 |
@@ -95,11 +95,17 @@ toolbox/
 | color-palette | 컬러 팔레트 생성 |
 | favicon-generator | 파비콘 생성 |
 
-### 생활 · 편의 (2)
+### 생활 · 편의 (8)
 | 슬러그 | 이름 |
 |---|---|
 | dday-calculator | D-Day · 날짜 계산 |
 | lotto-generator | 로또 번호 생성 |
+| age-calculator | 만 나이 계산기 |
+| percentage-calculator | 퍼센트 계산기 |
+| unit-converter | 단위 변환 |
+| timezone-converter | 세계 시간 변환 |
+| discount-calculator | 할인가 계산기 |
+| random-picker | 랜덤 추첨기 |
 
 ### 직장인 · 생산성 (2)
 | 슬러그 | 이름 |

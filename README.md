@@ -52,6 +52,12 @@
 ### 생활 · 편의
 - D-Day · 날짜 계산 (`/dday-calculator/`)
 - 로또 번호 생성 (`/lotto-generator/`)
+- 만 나이 계산기 (`/age-calculator/`)
+- 퍼센트 계산기 (`/percentage-calculator/`)
+- 단위 변환 (`/unit-converter/`)
+- 세계 시간 변환 (`/timezone-converter/`)
+- 할인가 계산기 (`/discount-calculator/`)
+- 랜덤 추첨기 (`/random-picker/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
