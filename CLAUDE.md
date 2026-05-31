@@ -54,15 +54,17 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 28개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 34개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
-### 이미지 · PDF (11)
+### 이미지 · PDF (13)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
 | image-compressor | 이미지 압축·리사이즈 |
 | image-resizer | 이미지 크기 조절 |
 | image-crop | 이미지 자르기 |
+| image-rotate | 이미지 회전·뒤집기 |
+| watermark | 이미지 워터마크 넣기 |
 | id-photo | 증명사진 규격 맞추기 |
 | remove-exif | EXIF·위치정보 제거 |
 | pdf-compressor | PDF 용량 줄이기 |
@@ -71,11 +73,13 @@ toolbox/
 | pdf-to-image | PDF → 이미지 |
 | pdf-split | PDF 페이지 분할 |
 
-### 텍스트 · 생성 (5)
+### 텍스트 · 생성 (7)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
 | clean-text | 공백·줄바꿈 정리 |
+| remove-duplicate-lines | 중복 줄 제거 |
+| case-converter | 대소문자·표기 변환 |
 | qr-code | QR코드 생성 |
 | password-generator | 비밀번호 생성 |
 | json-formatter | JSON 포매터 |
@@ -99,7 +103,7 @@ toolbox/
 | notepad | 임시 메모장 |
 | utm-builder | UTM 빌더 |
 
-### 개발자 도구 (5)
+### 개발자 도구 (7)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
@@ -107,6 +111,8 @@ toolbox/
 | uuid-generator | UUID 생성 |
 | hash-generator | Hash 생성 |
 | json-to-java-dto | JSON → Java DTO |
+| csv-json | CSV ↔ JSON 변환 |
+| timestamp | 타임스탬프 변환 |
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 

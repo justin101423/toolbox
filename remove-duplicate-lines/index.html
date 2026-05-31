@@ -1,0 +1,146 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>중복 줄 제거 — 중복된 줄 삭제·정렬 무료 온라인 도구 | 도구상자</title>
+<meta name="description" content="텍스트에서 중복된 줄을 한 번에 제거하세요. 대소문자 무시, 앞뒤 공백 무시, 가나다 정렬, 빈 줄 제거 옵션을 지원합니다. 이메일 목록·키워드·로그 정리에 유용하며 브라우저에서만 처리됩니다.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<style>
+.opt-grid{display:grid;grid-template-columns:1fr;gap:9px}
+@media(min-width:500px){.opt-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>중복 줄 제거</h2>
+      <p class="lede">여러 줄 텍스트에서 같은 줄을 찾아 한 번만 남깁니다. 옵션을 바꾸면 결과가 실시간으로 갱신됩니다.</p>
+
+      <div class="box">
+        <div class="field">
+          <label>옵션</label>
+          <div class="opt-grid">
+            <label class="chk"><input type="checkbox" id="dl-case"> 대소문자 무시</label>
+            <label class="chk"><input type="checkbox" id="dl-trim" checked> 줄 앞뒤 공백 무시</label>
+            <label class="chk"><input type="checkbox" id="dl-blank" checked> 빈 줄 제거</label>
+            <label class="chk"><input type="checkbox" id="dl-sort"> 결과 가나다순 정렬</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>입력 텍스트</label>
+          <textarea id="dl-in" placeholder="중복을 제거할 텍스트를 한 줄에 하나씩 붙여넣으세요..." style="min-height:150px;resize:vertical"></textarea>
+        </div>
+
+        <div class="field" style="margin-top:6px">
+          <label>결과</label>
+          <textarea id="dl-out" readonly style="min-height:150px;resize:vertical;background:var(--paper)"></textarea>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat"><div class="n" id="dl-orig">0</div><div class="l">원본 줄 수</div></div>
+          <div class="stat"><div class="n" id="dl-res">0</div><div class="l">결과 줄 수</div></div>
+          <div class="stat"><div class="n" id="dl-removed">0</div><div class="l">제거된 줄 수</div></div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn accent" type="button" id="dl-copy">결과 복사</button>
+          <button class="btn ghost" type="button" id="dl-clear">초기화</button>
+        </div>
+        <div class="note" id="dl-note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>중복을 제거할 텍스트를 한 줄에 한 항목씩 입력창에 붙여넣습니다.</li>
+          <li>필요한 옵션을 켭니다. "대소문자 무시"는 Apple과 apple을 같은 줄로 보고, "줄 앞뒤 공백 무시"는 들여쓰기·끝 공백만 다른 줄을 동일하게 취급합니다.</li>
+          <li>"빈 줄 제거"로 사이의 공백 줄을 정리하고, 필요하면 "결과 가나다순 정렬"로 줄을 정돈합니다.</li>
+          <li>원본·결과·제거된 줄 수를 확인한 뒤 "결과 복사"로 정리된 목록을 가져갑니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>이메일·연락처 목록 정리:</b> 여러 곳에서 모은 수신자 목록에는 같은 주소가 중복되기 쉽습니다. "대소문자 무시"를 켜면 User@site.com과 user@site.com을 하나로 합쳐, 같은 사람에게 중복 발송하는 실수를 막을 수 있습니다.</li>
+          <li><b>키워드·태그 중복 제거:</b> 블로그 태그나 검색 키워드를 모을 때 중복을 빼고 가나다순으로 정렬하면 관리가 쉬워집니다. 정렬 옵션과 함께 쓰면 정돈된 키워드 사전을 빠르게 만들 수 있습니다.</li>
+          <li><b>로그·데이터에서 고유 항목 추출:</b> 접속 IP나 주문번호처럼 반복되는 값이 섞인 목록에서 고유한 값만 골라낼 때 유용합니다. 원본·결과 줄 수 비교로 실제 고유 항목이 몇 개인지 즉시 파악할 수 있습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 중복된 줄 중 어떤 것이 남나요?</b><p>처음 나타난 줄이 원래 형태 그대로 유지되고, 이후의 중복은 제거됩니다. "줄 앞뒤 공백 무시"를 켰더라도 출력에는 먼저 등장한 줄의 원본(공백 포함)이 그대로 보존됩니다.</p></div>
+          <div class="qa"><b>Q. 줄 중간의 공백도 무시되나요?</b><p>"줄 앞뒤 공백 무시"는 줄의 맨 앞과 맨 뒤 공백만 기준으로 비교합니다. 단어 사이의 공백 개수가 다른 줄은 서로 다른 줄로 취급되므로, 필요하면 먼저 '공백·줄바꿈 정리' 도구로 정돈한 뒤 사용하세요.</p></div>
+          <div class="qa"><b>Q. 입력한 내용이 서버로 전송되나요?</b><p>아닙니다. 모든 비교·제거 작업은 브라우저 안에서만 실행됩니다. 고객 명단이나 내부 데이터처럼 민감한 목록도 외부로 전송되지 않으니 안심하고 사용할 수 있습니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+
+function process(){
+  const raw=$('dl-in').value;
+  let lines=raw.split(/\r\n|\r|\n/);
+  const origCount=raw===''?0:lines.length;
+  if($('dl-blank').checked) lines=lines.filter(l=>l.trim()!=='');
+  const seen=new Set(), out=[];
+  for(const l of lines){
+    let key=l;
+    if($('dl-trim').checked) key=key.trim();
+    if($('dl-case').checked) key=key.toLowerCase();
+    if(!seen.has(key)){seen.add(key);out.push(l);}
+  }
+  let result=out;
+  if($('dl-sort').checked) result=[...out].sort((a,b)=>a.localeCompare(b,'ko'));
+  $('dl-out').value=result.join('\n');
+  $('dl-orig').textContent=origCount.toLocaleString();
+  $('dl-res').textContent=result.length.toLocaleString();
+  $('dl-removed').textContent=Math.max(0,origCount-result.length).toLocaleString();
+}
+
+$('dl-in').addEventListener('input',process);
+['dl-case','dl-trim','dl-blank','dl-sort'].forEach(id=>$(id).addEventListener('change',process));
+
+$('dl-copy').onclick=()=>{
+  const v=$('dl-out').value;
+  if(!v)return;
+  navigator.clipboard.writeText(v).then(()=>{
+    const n=$('dl-note');n.textContent='결과를 클립보드에 복사했습니다.';n.className='note show ok';
+    setTimeout(()=>{n.className='note';},2000);
+  });
+};
+
+$('dl-clear').onclick=()=>{
+  $('dl-in').value='';$('dl-out').value='';
+  $('dl-orig').textContent='0';$('dl-res').textContent='0';$('dl-removed').textContent='0';
+  $('dl-note').className='note';
+};
+</script>

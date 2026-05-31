@@ -21,6 +21,8 @@
       { slug: "image-compressor", name: "이미지 압축·리사이즈", icon: "📉" },
       { slug: "image-resizer",    name: "이미지 크기 조절",     icon: "↔" },
       { slug: "image-crop",       name: "이미지 자르기",        icon: "⛶" },
+      { slug: "image-rotate",     name: "이미지 회전·뒤집기",   icon: "🔄" },
+      { slug: "watermark",        name: "이미지 워터마크",      icon: "💧" },
       { slug: "id-photo",         name: "증명사진 규격 맞추기", icon: "🪪" },
       { slug: "remove-exif",      name: "EXIF·위치정보 제거",   icon: "🛡" },
       { slug: "pdf-compressor",   name: "PDF 용량 줄이기",      icon: "🗜" },
@@ -32,6 +34,8 @@
     { label: "텍스트 · 생성", tools: [
       { slug: "word-counter",       name: "글자수 세기",        icon: "🔤" },
       { slug: "clean-text",         name: "공백·줄바꿈 정리",   icon: "🧹" },
+      { slug: "remove-duplicate-lines", name: "중복 줄 제거",   icon: "🗑" },
+      { slug: "case-converter",     name: "대소문자 변환",      icon: "Aa" },
       { slug: "qr-code",            name: "QR코드 생성",        icon: "▦" },
       { slug: "password-generator", name: "비밀번호 생성",      icon: "🔑" },
       { slug: "json-formatter",     name: "JSON 포매터",        icon: "{ }" }
@@ -54,7 +58,9 @@
       { slug: "jwt-decoder",      name: "JWT 디코더",      icon: "🔓" },
       { slug: "uuid-generator",   name: "UUID 생성",       icon: "#" },
       { slug: "hash-generator",   name: "Hash 생성",       icon: "🔒" },
-      { slug: "json-to-java-dto", name: "JSON → Java DTO", icon: "☕" }
+      { slug: "json-to-java-dto", name: "JSON → Java DTO", icon: "☕" },
+      { slug: "csv-json",         name: "CSV ↔ JSON 변환", icon: "🔀" },
+      { slug: "timestamp",        name: "타임스탬프 변환", icon: "🕐" }
     ]}
   ];
 

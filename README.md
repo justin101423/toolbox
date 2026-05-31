@@ -21,6 +21,8 @@
 - 이미지 압축·리사이즈 (`/image-compressor/`)
 - 이미지 크기 조절 (`/image-resizer/`)
 - 이미지 자르기 (`/image-crop/`)
+- 이미지 회전·뒤집기 (`/image-rotate/`)
+- 이미지 워터마크 넣기 (`/watermark/`)
 - 증명사진 규격 맞추기 (`/id-photo/`)
 - EXIF·위치정보 제거 (`/remove-exif/`)
 - PDF 용량 줄이기 (`/pdf-compressor/`)
@@ -32,6 +34,8 @@
 ### 텍스트 · 생성
 - 글자수 세기 (`/word-counter/`)
 - 공백·줄바꿈 정리 (`/clean-text/`)
+- 중복 줄 제거 (`/remove-duplicate-lines/`)
+- 대소문자·표기 변환 (`/case-converter/`)
 - QR코드 생성 (`/qr-code/`)
 - 비밀번호 생성 (`/password-generator/`)
 - JSON 포매터 (`/json-formatter/`)
@@ -55,6 +59,8 @@
 - UUID 생성 (`/uuid-generator/`)
 - Hash 생성 (`/hash-generator/`)
 - JSON → Java DTO (`/json-to-java-dto/`)
+- CSV ↔ JSON 변환 (`/csv-json/`)
+- 타임스탬프 변환 (`/timestamp/`)
 
 ## 기술 스택
 

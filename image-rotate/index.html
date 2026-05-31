@@ -1,0 +1,183 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이미지 회전·뒤집기 — 사진 90도 회전·좌우 반전 무료 도구 | 도구상자</title>
+<meta name="description" content="사진을 90°·180°·270°로 회전하거나 좌우·상하로 뒤집어 다운로드하세요. 거꾸로 찍힌 사진, 셀카 좌우 반전 보정에 좋습니다. 브라우저 canvas에서만 처리되어 원본 형식과 화질을 그대로 유지합니다.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<style>
+.rot-preview{margin-top:4px;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px;overflow:auto}
+#rot-canvas{max-width:100%;height:auto;display:inline-block}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>이미지 회전·뒤집기</h2>
+      <p class="lede">사진을 원하는 각도로 돌리거나 거울처럼 뒤집어 저장하세요. 회전·반전을 거듭해도 원본 픽셀을 그대로 사용합니다.</p>
+
+      <div class="box">
+        <div class="drop" id="rot-drop">
+          <div class="big">🔄</div>
+          <b>이미지를 선택</b>하거나 여기로 드래그하세요
+          <small>JPG · PNG · WebP 등 · 사진은 서버로 전송되지 않습니다</small>
+          <input type="file" id="rot-file" accept="image/*" hidden>
+        </div>
+
+        <div id="rot-stage" style="display:none">
+          <div class="field">
+            <label>회전 / 뒤집기</label>
+            <div class="btn-row">
+              <button class="btn ghost" type="button" id="rot-left">↺ 왼쪽 90°</button>
+              <button class="btn ghost" type="button" id="rot-right">↻ 오른쪽 90°</button>
+              <button class="btn ghost" type="button" id="rot-180">180° 뒤집기</button>
+              <button class="btn ghost" type="button" id="rot-fliph">⇆ 좌우 반전</button>
+              <button class="btn ghost" type="button" id="rot-flipv">⇅ 상하 반전</button>
+            </div>
+          </div>
+
+          <div class="rot-preview"><canvas id="rot-canvas"></canvas></div>
+
+          <div class="stat-grid">
+            <div class="stat"><div class="n" id="rot-size">0 × 0</div><div class="l">출력 크기(px)</div></div>
+            <div class="stat"><div class="n" id="rot-state">0°</div><div class="l">현재 회전</div></div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn accent" type="button" id="rot-do">다운로드</button>
+            <button class="btn ghost" type="button" id="rot-orig">변형 초기화</button>
+            <button class="btn ghost" type="button" id="rot-reset">다른 이미지</button>
+          </div>
+          <div class="note" id="rot-note"></div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>회전하거나 뒤집을 이미지를 업로드 영역에 끌어다 놓거나 클릭해 선택합니다.</li>
+          <li>"왼쪽/오른쪽 90°", "180° 뒤집기" 버튼으로 방향을 맞춥니다. 누를 때마다 미리보기가 즉시 갱신됩니다.</li>
+          <li>거울상이 필요하면 "좌우 반전" 또는 "상하 반전"을 적용합니다. 회전과 반전은 자유롭게 조합할 수 있습니다.</li>
+          <li>원하는 모습이 되면 "다운로드"를 눌러 저장합니다. 처음 상태로 되돌리려면 "변형 초기화"를 누릅니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>세로로 찍혔는데 가로로 표시되는 사진:</b> 일부 기기에서 촬영한 사진은 회전 정보(EXIF Orientation)가 무시되어 옆으로 누워 보일 수 있습니다. "오른쪽 90°" 또는 "왼쪽 90°"로 바로 세우면 어느 환경에서나 똑바로 보이는 이미지로 고정됩니다.</li>
+          <li><b>셀카·거울 사진의 좌우 반전:</b> 전면 카메라로 찍은 사진은 글자가 거꾸로 보이는 경우가 있습니다. "좌우 반전"을 적용하면 글자와 방향이 자연스럽게 바로잡혀 SNS 업로드나 인쇄에 적합해집니다.</li>
+          <li><b>스캔 문서 방향 교정:</b> 거꾸로 스캔된 문서나 영수증은 "180° 뒤집기" 한 번으로 정방향이 됩니다. 회전 후에도 원본 해상도를 유지하므로 글자 선명도가 떨어지지 않습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 회전을 여러 번 하면 화질이 나빠지나요?</b><p>아닙니다. 매번 원본 이미지를 기준으로 현재까지의 회전·반전을 한 번에 다시 그리므로, 90°씩 여러 번 돌려도 누적 손실이 생기지 않습니다. 저장 형식도 원본을 따릅니다.</p></div>
+          <div class="qa"><b>Q. 45°처럼 임의 각도로도 돌릴 수 있나요?</b><p>이 도구는 화질 손실과 여백 없이 깔끔하게 처리되는 90° 단위 회전과 상하·좌우 반전을 제공합니다. 사진 방향을 바로잡는 대부분의 상황은 이 조합으로 해결됩니다.</p></div>
+          <div class="qa"><b>Q. 회전 정보가 사진에 함께 저장되나요?</b><p>회전·반전 결과가 픽셀 자체에 적용되어 저장되므로, EXIF 회전 태그에 의존하지 않습니다. 따라서 뷰어나 기기가 달라도 항상 같은 방향으로 표시됩니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+let img=null, rot=0, flipH=false, flipV=false, srcType='image/png', srcName='image';
+const drop=$('rot-drop'), fileInput=$('rot-file');
+
+drop.addEventListener('click',()=>fileInput.click());
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('over');});
+drop.addEventListener('dragleave',()=>drop.classList.remove('over'));
+drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('over');const f=e.dataTransfer.files&&e.dataTransfer.files[0];if(f)loadFile(f);});
+fileInput.addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(f)loadFile(f);});
+
+function loadFile(file){
+  if(!file.type.startsWith('image/')){note('이미지 파일만 올릴 수 있습니다.','err');return;}
+  srcType=(file.type==='image/jpeg'||file.type==='image/png'||file.type==='image/webp')?file.type:'image/png';
+  srcName=(file.name||'image').replace(/\.[^.]+$/,'');
+  const reader=new FileReader();
+  reader.onload=e=>{
+    img=new Image();
+    img.onload=()=>{rot=0;flipH=false;flipV=false;drop.style.display='none';$('rot-stage').style.display='block';render();};
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function render(){
+  if(!img)return;
+  const c=$('rot-canvas'), ctx=c.getContext('2d');
+  const sw=img.naturalWidth, sh=img.naturalHeight;
+  const swap=(rot===90||rot===270);
+  c.width=swap?sh:sw;
+  c.height=swap?sw:sh;
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.save();
+  ctx.translate(c.width/2,c.height/2);
+  ctx.rotate(rot*Math.PI/180);
+  ctx.scale(flipH?-1:1, flipV?-1:1);
+  ctx.drawImage(img,-sw/2,-sh/2,sw,sh);
+  ctx.restore();
+  $('rot-size').textContent=c.width+' × '+c.height;
+  $('rot-state').textContent=rot+'°'+(flipH?' ⇆':'')+(flipV?' ⇅':'');
+}
+
+$('rot-left').onclick=()=>{rot=(rot+270)%360;render();};
+$('rot-right').onclick=()=>{rot=(rot+90)%360;render();};
+$('rot-180').onclick=()=>{rot=(rot+180)%360;render();};
+$('rot-fliph').onclick=()=>{flipH=!flipH;render();};
+$('rot-flipv').onclick=()=>{flipV=!flipV;render();};
+$('rot-orig').onclick=()=>{rot=0;flipH=false;flipV=false;render();};
+
+$('rot-do').onclick=()=>{
+  const c=$('rot-canvas');
+  const quality=srcType==='image/jpeg'?0.92:undefined;
+  c.toBlob(blob=>{
+    if(!blob){note('이미지 생성에 실패했습니다.','err');return;}
+    const ext=srcType==='image/jpeg'?'jpg':srcType==='image/webp'?'webp':'png';
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=srcName+'-rotated.'+ext;
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+    note('변형된 이미지를 다운로드했습니다.','ok');
+  },srcType,quality);
+};
+
+$('rot-reset').onclick=()=>{
+  img=null;rot=0;flipH=false;flipV=false;
+  $('rot-stage').style.display='none';drop.style.display='block';
+  fileInput.value='';$('rot-note').className='note';
+};
+
+function note(msg,kind){
+  const n=$('rot-note');
+  n.textContent=msg;n.className='note show '+(kind||'');
+  if(kind==='ok')setTimeout(()=>{n.className='note';},2500);
+}
+</script>

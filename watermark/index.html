@@ -1,0 +1,286 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이미지 워터마크 — 사진에 텍스트·로고 워터마크 넣기 무료 도구 | 도구상자</title>
+<meta name="description" content="사진에 텍스트나 로고 워터마크를 넣어 무단 도용을 방지하세요. 문구·글자 크기·색상·투명도·위치(모서리/중앙/타일 반복)를 자유롭게 조절합니다. 모든 합성은 브라우저 canvas에서만 처리되어 이미지가 서버로 전송되지 않습니다.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<style>
+.wm-preview{margin-top:4px;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px;overflow:auto}
+#wm-canvas{max-width:100%;height:auto;display:inline-block}
+.wm-types{display:flex;gap:18px;flex-wrap:wrap}
+.wm-types label{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.range-row{display:flex;align-items:center;gap:12px}
+.range-row output{font-family:var(--mono);font-size:13px;color:var(--ink-2);min-width:48px;text-align:right}
+.wm-inline{display:flex;gap:10px;align-items:center}
+.wm-inline input[type=color]{width:46px;height:40px;padding:3px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>이미지 워터마크 넣기</h2>
+      <p class="lede">사진에 텍스트나 로고를 얹어 출처를 표시하고 무단 사용을 막으세요. 위치·투명도를 조절하며 실시간 미리보기로 확인할 수 있습니다.</p>
+
+      <div class="box">
+        <div class="drop" id="wm-drop">
+          <div class="big">💧</div>
+          <b>워터마크를 넣을 이미지</b>를 선택하거나 드래그하세요
+          <small>JPG · PNG · WebP 등 · 사진은 서버로 전송되지 않습니다</small>
+          <input type="file" id="wm-file" accept="image/*" hidden>
+        </div>
+
+        <div id="wm-stage" style="display:none">
+          <div class="field">
+            <label>워터마크 종류</label>
+            <div class="wm-types">
+              <label><input type="radio" name="wm-type" value="text" checked> 텍스트</label>
+              <label><input type="radio" name="wm-type" value="logo"> 로고 이미지</label>
+            </div>
+          </div>
+
+          <div id="wm-text-opts">
+            <div class="field">
+              <label>문구</label>
+              <input type="text" id="wm-text" value="© 도구상자" placeholder="워터마크로 넣을 문구">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>글자 크기 (이미지 너비 대비 %)</label>
+                <div class="range-row"><input type="range" id="wm-fontsize" min="2" max="20" value="6"><output id="wm-fontsize-v">6%</output></div>
+              </div>
+              <div class="field">
+                <label>색상</label>
+                <div class="wm-inline"><input type="color" id="wm-color" value="#ffffff"><span class="hint">밝은 사진엔 어두운 색, 어두운 사진엔 밝은 색이 잘 보입니다.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="wm-logo-opts" style="display:none">
+            <div class="field">
+              <label>로고 이미지 (PNG 투명 배경 권장)</label>
+              <input type="file" id="wm-logo-file" accept="image/*">
+            </div>
+            <div class="field">
+              <label>로고 크기 (이미지 너비 대비 %)</label>
+              <div class="range-row"><input type="range" id="wm-logosize" min="5" max="60" value="22"><output id="wm-logosize-v">22%</output></div>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>위치</label>
+              <select id="wm-pos">
+                <option value="br">우하단</option>
+                <option value="bl">좌하단</option>
+                <option value="tr">우상단</option>
+                <option value="tl">좌상단</option>
+                <option value="center">중앙</option>
+                <option value="tile">타일(반복)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>투명도</label>
+              <div class="range-row"><input type="range" id="wm-opacity" min="5" max="100" value="50"><output id="wm-opacity-v">50%</output></div>
+            </div>
+          </div>
+
+          <div class="wm-preview"><canvas id="wm-canvas"></canvas></div>
+
+          <div class="btn-row">
+            <button class="btn accent" type="button" id="wm-do">다운로드</button>
+            <button class="btn ghost" type="button" id="wm-reset">다른 이미지</button>
+          </div>
+          <div class="note" id="wm-note"></div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>워터마크를 넣을 사진을 업로드 영역에 끌어다 놓거나 클릭해 선택합니다.</li>
+          <li>"텍스트" 또는 "로고 이미지" 중 워터마크 종류를 고릅니다. 텍스트는 문구·크기·색상을, 로고는 이미지 파일과 크기를 지정합니다.</li>
+          <li>위치(우하단·중앙·타일 등)와 투명도를 조절하면 아래 미리보기에 즉시 반영됩니다.</li>
+          <li>마음에 들면 "다운로드"를 눌러 워터마크가 새겨진 이미지를 저장합니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>도용 방지엔 타일(반복):</b> 사진 전체에 워터마크를 비스듬히 반복해 깔면, 일부를 잘라내도 출처 표시가 남아 무단 사용을 효과적으로 막을 수 있습니다. 투명도를 30~50%로 낮추면 사진을 가리지 않으면서도 표시가 유지됩니다.</li>
+          <li><b>판매용 사진엔 중앙 배치:</b> 스톡 이미지나 포트폴리오 미리보기처럼 결제 전 견본을 보여줄 때는 중앙에 크게 넣으면 무단 캡처를 억제할 수 있습니다. 구매 후에는 원본을 따로 전달하면 됩니다.</li>
+          <li><b>브랜드 로고는 모서리에:</b> 블로그·SNS용 이미지라면 우하단에 로고를 작게 넣는 것이 깔끔합니다. 투명 배경 PNG 로고를 사용하면 사진과 자연스럽게 어우러집니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 워터마크 위치나 글자가 사진 크기에 따라 달라지나요?</b><p>글자·로고 크기를 이미지 너비 대비 비율(%)로 지정하므로, 작은 사진이든 고해상도 사진이든 비슷한 비중으로 일관되게 표시됩니다. 큰 이미지에서도 워터마크가 너무 작아지지 않습니다.</p></div>
+          <div class="qa"><b>Q. 로고는 어떤 형식이 좋나요?</b><p>배경이 투명한 PNG 로고를 권장합니다. 배경이 있는 로고도 넣을 수 있지만, 투명 PNG를 사용하면 사진 위에 로고만 자연스럽게 올라가 더 깔끔합니다.</p></div>
+          <div class="qa"><b>Q. 원본 사진이나 로고가 서버에 올라가나요?</b><p>아닙니다. 사진과 로고를 합성하는 모든 과정은 브라우저 canvas에서만 이뤄지며, 어떤 파일도 외부로 전송되지 않습니다. 작업이 끝나면 결과 이미지만 기기에 저장됩니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+let baseImg=null, logoImg=null, srcType='image/png', srcName='image';
+const drop=$('wm-drop'), fileInput=$('wm-file');
+
+drop.addEventListener('click',()=>fileInput.click());
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('over');});
+drop.addEventListener('dragleave',()=>drop.classList.remove('over'));
+drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('over');const f=e.dataTransfer.files&&e.dataTransfer.files[0];if(f)loadBase(f);});
+fileInput.addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(f)loadBase(f);});
+
+function loadBase(file){
+  if(!file.type.startsWith('image/')){note('이미지 파일만 올릴 수 있습니다.','err');return;}
+  srcType=(file.type==='image/jpeg'||file.type==='image/png'||file.type==='image/webp')?file.type:'image/png';
+  srcName=(file.name||'image').replace(/\.[^.]+$/,'');
+  const reader=new FileReader();
+  reader.onload=e=>{
+    baseImg=new Image();
+    baseImg.onload=()=>{drop.style.display='none';$('wm-stage').style.display='block';render();};
+    baseImg.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+$('wm-logo-file').addEventListener('change',e=>{
+  const f=e.target.files&&e.target.files[0];
+  if(!f)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{logoImg=new Image();logoImg.onload=render;logoImg.src=ev.target.result;};
+  reader.readAsDataURL(f);
+});
+
+function wmType(){return document.querySelector('input[name="wm-type"]:checked').value;}
+
+document.querySelectorAll('input[name="wm-type"]').forEach(r=>r.addEventListener('change',()=>{
+  const t=wmType();
+  $('wm-text-opts').style.display=t==='text'?'block':'none';
+  $('wm-logo-opts').style.display=t==='logo'?'block':'none';
+  render();
+}));
+
+['wm-text','wm-color','wm-pos'].forEach(id=>$(id).addEventListener('input',render));
+[['wm-fontsize','wm-fontsize-v','%'],['wm-logosize','wm-logosize-v','%'],['wm-opacity','wm-opacity-v','%']].forEach(([id,out,suf])=>{
+  $(id).addEventListener('input',()=>{$(out).textContent=$(id).value+suf;render();});
+});
+
+function placeXY(W,H,w,h,pos,margin){
+  switch(pos){
+    case 'tl': return [margin,margin];
+    case 'tr': return [W-w-margin,margin];
+    case 'bl': return [margin,H-h-margin];
+    case 'br': return [W-w-margin,H-h-margin];
+    case 'center': return [(W-w)/2,(H-h)/2];
+  }
+  return [0,0];
+}
+
+function drawTile(ctx,W,H,draw,stepX,stepY){
+  ctx.save();
+  ctx.translate(W/2,H/2);
+  ctx.rotate(-Math.PI/9);
+  ctx.translate(-W/2,-H/2);
+  for(let y=-H*0.5;y<H*1.5;y+=stepY){
+    for(let x=-W*0.5;x<W*1.5;x+=stepX){ draw(x,y); }
+  }
+  ctx.restore();
+}
+
+function render(){
+  if(!baseImg)return;
+  const c=$('wm-canvas'), ctx=c.getContext('2d');
+  const W=baseImg.naturalWidth, H=baseImg.naturalHeight;
+  c.width=W;c.height=H;
+  ctx.clearRect(0,0,W,H);
+  ctx.drawImage(baseImg,0,0);
+  ctx.globalAlpha=parseInt($('wm-opacity').value,10)/100;
+  const pos=$('wm-pos').value, margin=Math.round(W*0.03);
+
+  if(wmType()==='text'){
+    const text=$('wm-text').value||'';
+    if(text){
+      const fs=Math.max(8,Math.round(W*(parseInt($('wm-fontsize').value,10)/100)));
+      ctx.font='bold '+fs+'px Pretendard, sans-serif';
+      ctx.fillStyle=$('wm-color').value;
+      if(pos==='tile'){
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        const tw=ctx.measureText(text).width;
+        drawTile(ctx,W,H,(x,y)=>ctx.fillText(text,x,y),tw+fs*2,fs*3);
+      }else{
+        const tw=ctx.measureText(text).width, th=fs;
+        let [x,y]=placeXY(W,H,tw,th,pos,margin);
+        ctx.textAlign='left';ctx.textBaseline='top';
+        ctx.fillText(text,x,y);
+      }
+    }
+  }else if(logoImg){
+    const lw=Math.round(W*(parseInt($('wm-logosize').value,10)/100));
+    const lh=Math.round(lw*(logoImg.naturalHeight/logoImg.naturalWidth));
+    if(pos==='tile'){
+      drawTile(ctx,W,H,(x,y)=>ctx.drawImage(logoImg,x,y,lw,lh),lw+lw*0.6,lh+lh*0.8);
+    }else{
+      let [x,y]=placeXY(W,H,lw,lh,pos,margin);
+      ctx.drawImage(logoImg,x,y,lw,lh);
+    }
+  }
+  ctx.globalAlpha=1;
+}
+
+$('wm-do').onclick=()=>{
+  if(!baseImg)return;
+  if(wmType()==='logo'&&!logoImg){note('로고 이미지를 먼저 선택하세요.','err');return;}
+  const quality=srcType==='image/jpeg'?0.92:undefined;
+  $('wm-canvas').toBlob(blob=>{
+    if(!blob){note('이미지 생성에 실패했습니다.','err');return;}
+    const ext=srcType==='image/jpeg'?'jpg':srcType==='image/webp'?'webp':'png';
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=srcName+'-watermark.'+ext;
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+    note('워터마크 이미지를 다운로드했습니다.','ok');
+  },srcType,quality);
+};
+
+$('wm-reset').onclick=()=>{
+  baseImg=null;logoImg=null;
+  $('wm-stage').style.display='none';drop.style.display='block';
+  fileInput.value='';$('wm-logo-file').value='';$('wm-note').className='note';
+};
+
+function note(msg,kind){
+  const n=$('wm-note');
+  n.textContent=msg;n.className='note show '+(kind||'');
+  if(kind==='ok')setTimeout(()=>{n.className='note';},2500);
+}
+</script>
