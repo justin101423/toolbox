@@ -22,9 +22,8 @@
   function preferredTheme() {
     const stored = getStoredTheme();
     if (stored === 'dark' || stored === 'light') return stored;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
+    // 저장된 사용자 선택이 없으면 항상 라이트 모드로 시작 (OS 설정은 따르지 않음)
+    return 'light';
   }
 
   function applyTheme(theme) {
