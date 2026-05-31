@@ -1,0 +1,280 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>증명사진 규격 맞추기 — 여권·이력서·비자 사진 무료 온라인 제작 | 도구상자</title>
+<meta name="description" content="여권(3.5×4.5cm), 이력서 증명사진(3×4cm), 미국 비자(2×2inch) 등 한국 증명사진 규격에 맞는 사진을 브라우저에서 즉시 제작합니다. 300DPI 기준 JPG 저장. 파일은 서버로 전송되지 않습니다.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<style>
+.crop-wrap{border-radius:var(--r-sm);border:1px solid var(--line);background:repeating-conic-gradient(var(--panel) 0% 25%,var(--paper) 0% 50%) 0 0/16px 16px;margin:14px 0;line-height:0;overflow:hidden}
+#cropCanvas{display:block;width:100%;cursor:grab;touch-action:none;-webkit-user-select:none;user-select:none}
+#cropCanvas.dragging{cursor:grabbing}
+.size-badge{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin:-6px 0 14px}
+.drag-hint{font-size:12.5px;color:var(--ink-3);margin-top:-6px;margin-bottom:14px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <div class="badge">설치 없이 · 브라우저에서 바로</div>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side">
+    <div class="grp"><div class="kick">이미지 · PDF</div>
+      <a class="navlink" href="/image-converter/"><span class="ic">🖼</span> 이미지 포맷 변환</a>
+      <a class="navlink" href="/image-compressor/"><span class="ic">📉</span> 이미지 압축·리사이즈</a>
+      <a class="navlink" href="/image-resizer/"><span class="ic">↔</span> 이미지 크기 조절</a>
+      <a class="navlink active" href="/id-photo/"><span class="ic">🪪</span> 증명사진 규격 맞추기</a>
+      <a class="navlink" href="/pdf-compressor/"><span class="ic">🗜</span> PDF 용량 줄이기</a>
+      <a class="navlink" href="/pdf-merge/"><span class="ic">📄</span> PDF 합치기</a>
+      <a class="navlink" href="/image-to-pdf/"><span class="ic">🖼</span> 이미지 → PDF</a>
+      <a class="navlink" href="/pdf-to-image/"><span class="ic">▧</span> PDF → 이미지</a>
+      <a class="navlink" href="/pdf-split/"><span class="ic">✂</span> PDF 페이지 분할</a>
+    </div>
+    <div class="grp"><div class="kick">텍스트 · 생성</div>
+      <a class="navlink" href="/word-counter/"><span class="ic">🔤</span> 글자수 세기</a>
+      <a class="navlink" href="/qr-code/"><span class="ic">▦</span> QR코드 생성</a>
+      <a class="navlink" href="/password-generator/"><span class="ic">🔑</span> 비밀번호 생성</a>
+      <a class="navlink" href="/json-formatter/"><span class="ic">{ }</span> JSON 포매터</a>
+    </div>
+    <div class="grp"><div class="kick">색상 · 디자인</div>
+      <a class="navlink" href="/hex-rgb-converter/"><span class="ic">◑</span> HEX ↔ RGB 변환</a>
+      <a class="navlink" href="/color-palette/"><span class="ic">🎨</span> 컬러 팔레트 생성</a>
+      <a class="navlink" href="/favicon-generator/"><span class="ic">★</span> 파비콘 생성</a>
+    </div>
+    <div class="grp"><div class="kick">생활 · 편의</div>
+      <a class="navlink" href="/dday-calculator/"><span class="ic">📅</span> D-Day · 날짜 계산</a>
+      <a class="navlink" href="/lotto-generator/"><span class="ic">🎱</span> 로또 번호 생성</a>
+    </div>
+    <div class="grp"><div class="kick">직장인 · 생산성</div>
+      <a class="navlink" href="/notepad/"><span class="ic">📝</span> 임시 메모장</a>
+      <a class="navlink" href="/utm-builder/"><span class="ic">🔗</span> UTM 빌더</a>
+    </div>
+    <div class="grp"><div class="kick">개발자 도구</div>
+      <a class="navlink" href="/encoder-decoder/"><span class="ic">⇄</span> 인코더 · 디코더</a>
+      <a class="navlink" href="/jwt-decoder/"><span class="ic">🔓</span> JWT 디코더</a>
+      <a class="navlink" href="/uuid-generator/"><span class="ic">#</span> UUID 생성</a>
+      <a class="navlink" href="/hash-generator/"><span class="ic">🔒</span> Hash 생성</a>
+      <a class="navlink" href="/json-to-java-dto/"><span class="ic">☕</span> JSON → Java DTO</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h2>증명사진 규격 맞추기</h2>
+      <p class="lede">여권·이력서·비자 등 규격에 맞게 사진을 잘라 저장합니다. 300DPI 기준 정확한 픽셀로 출력되며, 파일은 서버로 전송되지 않습니다.</p>
+
+      <div class="box">
+        <div class="drop" id="drop"><div class="big">🪪</div><b>사진을 끌어다 놓거나 클릭</b><small>JPG · PNG · WebP · 서버 전송 없음</small></div>
+        <input type="file" id="file" accept="image/*" hidden>
+
+        <div id="cropSection" style="display:none">
+          <div class="field" style="margin-top:18px;margin-bottom:4px">
+            <label>규격 선택</label>
+            <select id="preset">
+              <option value="0">여권 사진 — 3.5 × 4.5 cm (413 × 531 px)</option>
+              <option value="1">일반 증명사진 (이력서 등) — 3 × 4 cm (354 × 472 px)</option>
+              <option value="2">반명함판 — 3 × 4 cm (354 × 472 px)</option>
+              <option value="3">명함판 — 5 × 7 cm (591 × 827 px)</option>
+              <option value="4">비자 사진 (미국) — 2×2 inch / 5.08 × 5.08 cm (600 × 600 px)</option>
+            </select>
+          </div>
+          <div class="size-badge" id="sizeBadge"></div>
+
+          <div class="crop-wrap"><canvas id="cropCanvas"></canvas></div>
+          <p class="drag-hint">밝은 영역이 잘리는 부분입니다. 캔버스를 드래그해 얼굴 위치를 조절하세요.</p>
+
+          <div class="btn-row">
+            <button class="btn accent" id="run">다운로드 (JPG)</button>
+          </div>
+          <div class="note" id="note"></div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>증명사진으로 쓸 사진을 드래그 앤 드롭하거나 클릭해 업로드합니다. JPG·PNG·WebP 형식을 지원합니다.</li>
+          <li>드롭다운에서 제출할 기관·목적에 맞는 규격을 선택합니다. 여권, 이력서, 비자 등 5가지 규격을 지원합니다.</li>
+          <li>밝게 표시된 사각형이 잘리는 영역입니다. 캔버스를 드래그해 얼굴이 중앙에 오도록 위치를 조절하세요.</li>
+          <li>"다운로드 (JPG)" 버튼을 클릭하면 300DPI 기준 정확한 픽셀 크기의 JPG 파일이 저장됩니다.</li>
+          <li>파일명에 규격 코드와 픽셀 크기가 자동으로 붙습니다(예: photo-passport-413x531.jpg).</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>배경색 확인:</b> 여권·비자·이력서 증명사진은 흰색 또는 밝은 단색 배경이 필수입니다. 이 도구는 배경을 제거하거나 바꾸는 기능이 없으므로, 흰 벽 앞에서 촬영한 사진을 사용하거나 remove.bg 같은 AI 배경 제거 서비스로 배경을 정리한 뒤 업로드하세요.</li>
+          <li><b>안경·표정 기준:</b> 2025년 기준 한국 여권 사진은 안경 착용 불가, 정면 응시, 입을 다문 자연스러운 표정이 원칙입니다. 미국 DS-160 비자 사진도 유사한 기준을 따릅니다. 규격별 최신 공식 요건을 사전에 확인하고 사진을 준비하세요.</li>
+          <li><b>고해상도 원본 권장:</b> 300DPI 출력을 위해서는 원본 이미지 해상도가 충분히 높아야 합니다. 스마트폰 카메라(800만 화소 이상)로 촬영한 사진은 문제없지만, 화면 캡처나 소셜 미디어에서 저장한 저해상도 이미지는 인쇄 시 화질이 저하될 수 있습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 출력된 JPG를 인쇄하면 정확한 규격 크기가 되나요?</b><p>이 도구는 300DPI 기준으로 픽셀 수를 계산합니다. 예를 들어 여권 사진(413×531px)을 300DPI 설정 프린터로 인쇄하면 정확히 3.5×4.5cm가 됩니다. 편의점 포토 프린터나 인쇄 주문 시 "원본 크기" 또는 "300DPI" 설정을 선택하세요.</p></div>
+          <div class="qa"><b>Q. 배경을 흰색으로 바꾸거나 제거할 수 있나요?</b><p>현재 이 도구는 크롭(잘라내기) 기능만 제공합니다. 배경 제거가 필요하다면 remove.bg 같은 AI 배경 제거 서비스를 먼저 이용한 뒤 흰 배경으로 합성한 이미지를 이 도구에 업로드하세요.</p></div>
+          <div class="qa"><b>Q. 파일이 서버로 전송되나요?</b><p>아닙니다. 모든 이미지 처리는 브라우저의 Canvas API로만 진행됩니다. 업로드한 사진은 외부 서버로 전송되지 않으므로 개인 사진도 안심하고 사용할 수 있습니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const PRESETS=[
+  {key:'passport',    label:'여권 사진',              cm:'3.5×4.5cm', w:413, h:531},
+  {key:'id-standard', label:'일반 증명사진 (이력서)', cm:'3×4cm',    w:354, h:472},
+  {key:'half-card',   label:'반명함판',               cm:'3×4cm',    w:354, h:472},
+  {key:'card-size',   label:'명함판',                 cm:'5×7cm',    w:591, h:827},
+  {key:'us-visa',     label:'비자 사진 (미국)',        cm:'5.08×5.08cm', w:600, h:600},
+];
+let img=null,blobUrl=null,baseName='photo';
+let cropX=0,cropY=0,cropW=0,cropH=0;
+let drag=null;
+
+function getPreset(){return PRESETS[+$('preset').value];}
+
+function calcCrop(){
+  if(!img)return;
+  const p=getPreset();
+  const ar=p.w/p.h;
+  if(img.naturalWidth/img.naturalHeight>ar){
+    cropH=img.naturalHeight;
+    cropW=Math.min(Math.round(cropH*ar),img.naturalWidth);
+  }else{
+    cropW=img.naturalWidth;
+    cropH=Math.min(Math.round(cropW/ar),img.naturalHeight);
+  }
+  cropW=Math.max(1,cropW);cropH=Math.max(1,cropH);
+  cropX=Math.round((img.naturalWidth-cropW)/2);
+  cropY=Math.round((img.naturalHeight-cropH)/2);
+}
+
+function draw(){
+  const cv=$('cropCanvas'),wrap=cv.parentElement;
+  const dw=wrap.clientWidth||400;
+  cv.width=dw;
+  cv.height=Math.round(dw*img.naturalHeight/img.naturalWidth);
+  const ctx=cv.getContext('2d');
+  const sx=dw/img.naturalWidth,sy=cv.height/img.naturalHeight;
+
+  ctx.drawImage(img,0,0,cv.width,cv.height);
+  ctx.fillStyle='rgba(0,0,0,.55)';
+  ctx.fillRect(0,0,cv.width,cv.height);
+
+  const cx=Math.round(cropX*sx),cy=Math.round(cropY*sy);
+  const cw=Math.max(1,Math.round(cropW*sx)),ch=Math.max(1,Math.round(cropH*sy));
+  ctx.drawImage(img,cropX,cropY,cropW,cropH,cx,cy,cw,ch);
+
+  ctx.strokeStyle='rgba(255,255,255,.9)';ctx.lineWidth=2;
+  ctx.strokeRect(cx+1,cy+1,cw-2,ch-2);
+
+  ctx.strokeStyle='rgba(255,255,255,.22)';ctx.lineWidth=1;
+  for(let i=1;i<3;i++){
+    ctx.beginPath();ctx.moveTo(cx+cw*i/3,cy);ctx.lineTo(cx+cw*i/3,cy+ch);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(cx,cy+ch*i/3);ctx.lineTo(cx+cw,cy+ch*i/3);ctx.stroke();
+  }
+}
+
+function getImgPt(e){
+  const cv=$('cropCanvas'),rect=cv.getBoundingClientRect();
+  const cl=e.touches?e.touches[0].clientX:e.clientX;
+  const ct=e.touches?e.touches[0].clientY:e.clientY;
+  return{x:(cl-rect.left)*img.naturalWidth/rect.width,y:(ct-rect.top)*img.naturalHeight/rect.height};
+}
+
+$('cropCanvas').addEventListener('mousedown',e=>{
+  if(!img)return;
+  e.preventDefault();
+  const p=getImgPt(e);
+  drag={sx:p.x,sy:p.y,cx0:cropX,cy0:cropY};
+  $('cropCanvas').classList.add('dragging');
+});
+$('cropCanvas').addEventListener('touchstart',e=>{
+  if(!img)return;
+  e.preventDefault();
+  const p=getImgPt(e);
+  drag={sx:p.x,sy:p.y,cx0:cropX,cy0:cropY};
+},{passive:false});
+
+document.addEventListener('mousemove',e=>{
+  if(!drag||!img)return;
+  const p=getImgPt(e);
+  cropX=Math.max(0,Math.min(img.naturalWidth-cropW,drag.cx0+(p.x-drag.sx)));
+  cropY=Math.max(0,Math.min(img.naturalHeight-cropH,drag.cy0+(p.y-drag.sy)));
+  draw();
+});
+document.addEventListener('touchmove',e=>{
+  if(!drag||!img)return;
+  e.preventDefault();
+  const p=getImgPt(e);
+  cropX=Math.max(0,Math.min(img.naturalWidth-cropW,drag.cx0+(p.x-drag.sx)));
+  cropY=Math.max(0,Math.min(img.naturalHeight-cropH,drag.cy0+(p.y-drag.sy)));
+  draw();
+},{passive:false});
+
+['mouseup','touchend'].forEach(ev=>document.addEventListener(ev,()=>{
+  drag=null;$('cropCanvas').classList.remove('dragging');
+}));
+
+$('preset').onchange=()=>{if(!img)return;calcCrop();updateBadge();draw();};
+window.addEventListener('resize',()=>{if(img)draw();});
+
+function updateBadge(){
+  const p=getPreset();
+  $('sizeBadge').textContent=`출력: ${p.w} × ${p.h} px · ${p.cm} · 300 DPI`;
+}
+
+async function setFile(file){
+  if(!file.type.startsWith('image/'))return;
+  if(blobUrl)URL.revokeObjectURL(blobUrl);
+  baseName=file.name.replace(/\.[^.]+$/,'')||'photo';
+  blobUrl=URL.createObjectURL(file);
+  img=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=blobUrl;});
+  $('drop').querySelector('b').textContent=file.name;
+  $('cropSection').style.display='block';
+  requestAnimationFrame(()=>{calcCrop();updateBadge();draw();});
+}
+
+const drop=$('drop'),fi=$('file');
+drop.onclick=()=>fi.click();
+fi.onchange=()=>{if(fi.files[0])setFile(fi.files[0]);};
+['dragenter','dragover'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove('over');}));
+drop.addEventListener('drop',ev=>{ev.preventDefault();drop.classList.remove('over');if(ev.dataTransfer.files[0])setFile(ev.dataTransfer.files[0]);});
+
+$('run').onclick=()=>{
+  if(!img)return;
+  const p=getPreset();
+  const cv=document.createElement('canvas');
+  cv.width=p.w;cv.height=p.h;
+  const ctx=cv.getContext('2d');
+  ctx.fillStyle='#ffffff';ctx.fillRect(0,0,p.w,p.h);
+  ctx.drawImage(img,cropX,cropY,cropW,cropH,0,0,p.w,p.h);
+  cv.toBlob(blob=>{
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=`${baseName}-${p.key}-${p.w}x${p.h}.jpg`;
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+    $('note').textContent=`다운로드 시작: ${p.label} · ${p.w}×${p.h}px`;
+    $('note').className='note show ok';
+  },'image/jpeg',0.95);
+};
+</script>
