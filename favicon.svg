@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="도구상자">
+  <rect x="10" y="6" width="84" height="84" rx="20" fill="#df4324"/>
+  <rect x="6" y="10" width="84" height="84" rx="20" fill="#1b1a1e"/>
+  <text x="48" y="52" font-family="'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif" font-size="58" font-weight="800" fill="#F3EEE3" text-anchor="middle" dominant-baseline="central">도</text>
+</svg>
