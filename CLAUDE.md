@@ -54,9 +54,9 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 34개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 40개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
-### 이미지 · PDF (13)
+### 이미지 · PDF (15)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -65,6 +65,8 @@ toolbox/
 | image-crop | 이미지 자르기 |
 | image-rotate | 이미지 회전·뒤집기 |
 | watermark | 이미지 워터마크 넣기 |
+| image-filter | 흑백·세피아 필터 |
+| image-merge | 이미지 합치기·콜라주 |
 | id-photo | 증명사진 규격 맞추기 |
 | remove-exif | EXIF·위치정보 제거 |
 | pdf-compressor | PDF 용량 줄이기 |
@@ -73,13 +75,15 @@ toolbox/
 | pdf-to-image | PDF → 이미지 |
 | pdf-split | PDF 페이지 분할 |
 
-### 텍스트 · 생성 (7)
+### 텍스트 · 생성 (9)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
 | clean-text | 공백·줄바꿈 정리 |
 | remove-duplicate-lines | 중복 줄 제거 |
 | case-converter | 대소문자·표기 변환 |
+| sort-lines | 텍스트 줄 정렬 |
+| line-numbers | 줄 번호 매기기 |
 | qr-code | QR코드 생성 |
 | password-generator | 비밀번호 생성 |
 | json-formatter | JSON 포매터 |
@@ -103,7 +107,7 @@ toolbox/
 | notepad | 임시 메모장 |
 | utm-builder | UTM 빌더 |
 
-### 개발자 도구 (7)
+### 개발자 도구 (9)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
@@ -113,6 +117,8 @@ toolbox/
 | json-to-java-dto | JSON → Java DTO |
 | csv-json | CSV ↔ JSON 변환 |
 | timestamp | 타임스탬프 변환 |
+| base-converter | 진법 변환 |
+| regex-tester | 정규식 테스터 |
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 

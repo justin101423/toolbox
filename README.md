@@ -23,6 +23,8 @@
 - 이미지 자르기 (`/image-crop/`)
 - 이미지 회전·뒤집기 (`/image-rotate/`)
 - 이미지 워터마크 넣기 (`/watermark/`)
+- 흑백·세피아 필터 (`/image-filter/`)
+- 이미지 합치기·콜라주 (`/image-merge/`)
 - 증명사진 규격 맞추기 (`/id-photo/`)
 - EXIF·위치정보 제거 (`/remove-exif/`)
 - PDF 용량 줄이기 (`/pdf-compressor/`)
@@ -36,6 +38,8 @@
 - 공백·줄바꿈 정리 (`/clean-text/`)
 - 중복 줄 제거 (`/remove-duplicate-lines/`)
 - 대소문자·표기 변환 (`/case-converter/`)
+- 텍스트 줄 정렬 (`/sort-lines/`)
+- 줄 번호 매기기 (`/line-numbers/`)
 - QR코드 생성 (`/qr-code/`)
 - 비밀번호 생성 (`/password-generator/`)
 - JSON 포매터 (`/json-formatter/`)
@@ -61,6 +65,8 @@
 - JSON → Java DTO (`/json-to-java-dto/`)
 - CSV ↔ JSON 변환 (`/csv-json/`)
 - 타임스탬프 변환 (`/timestamp/`)
+- 진법 변환 (`/base-converter/`)
+- 정규식 테스터 (`/regex-tester/`)
 
 ## 기술 스택
 
