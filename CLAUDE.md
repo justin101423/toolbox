@@ -54,9 +54,9 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 64개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 69개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
-### 이미지 · PDF (16)
+### 이미지 · PDF (17)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -75,6 +75,7 @@ toolbox/
 | pdf-to-image | PDF → 이미지 |
 | pdf-split | PDF 페이지 분할 |
 | gif-maker | 이미지로 GIF 만들기 |
+| heic-to-jpg | HEIC → JPG 변환 |
 
 ### 텍스트 · 생성 (15)
 | 슬러그 | 이름 |
@@ -108,7 +109,7 @@ toolbox/
 | box-shadow-generator | 그림자(box-shadow) 생성기 |
 | border-radius-generator | 테두리 둥글기 생성기 |
 
-### 생활 · 편의 (10)
+### 생활 · 편의 (14)
 | 슬러그 | 이름 |
 |---|---|
 | dday-calculator | D-Day · 날짜 계산 |
@@ -121,6 +122,10 @@ toolbox/
 | random-picker | 랜덤 추첨기 |
 | spinner-wheel | 돌림판 추첨 (룰렛) |
 | zodiac-finder | 띠·별자리 찾기 |
+| pyeong-converter | 평 ↔ ㎡ 변환 |
+| bmi-calculator | BMI 계산기 |
+| ladder-game | 사다리타기 |
+| lunar-solar-converter | 음력 ↔ 양력 변환 |
 
 ### 직장인 · 생산성 (2)
 | 슬러그 | 이름 |

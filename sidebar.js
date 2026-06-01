@@ -32,7 +32,8 @@
       { slug: "image-to-pdf",     name: "이미지 → PDF",         icon: "file-image" },
       { slug: "pdf-to-image",     name: "PDF → 이미지",         icon: "images" },
       { slug: "pdf-split",        name: "PDF 페이지 분할",      icon: "scissors" },
-      { slug: "gif-maker",        name: "이미지로 GIF 만들기",  icon: "film" }
+      { slug: "gif-maker",        name: "이미지로 GIF 만들기",  icon: "film" },
+      { slug: "heic-to-jpg",      name: "HEIC → JPG 변환",      icon: "image-down" }
     ]},
     { label: "텍스트 · 생성", tools: [
       { slug: "word-counter",       name: "글자수 세기",        icon: "type" },
@@ -72,7 +73,11 @@
       { slug: "discount-calculator", name: "할인가 계산기", icon: "tag" },
       { slug: "random-picker",   name: "랜덤 추첨기",       icon: "dices" },
       { slug: "spinner-wheel",   name: "돌림판 추첨",       icon: "pie-chart" },
-      { slug: "zodiac-finder",   name: "띠·별자리 찾기",    icon: "sparkles" }
+      { slug: "zodiac-finder",   name: "띠·별자리 찾기",    icon: "sparkles" },
+      { slug: "pyeong-converter", name: "평 ↔ ㎡ 변환",     icon: "house" },
+      { slug: "bmi-calculator",  name: "BMI 계산기",        icon: "scale" },
+      { slug: "ladder-game",     name: "사다리타기",        icon: "ladder" },
+      { slug: "lunar-solar-converter", name: "음력 ↔ 양력", icon: "moon" }
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
@@ -165,7 +170,12 @@
     "shield-check": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" />',
     "sparkles": '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" />',
     "wand-sparkles": '<path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" />',
-    "book-open": '<path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />'
+    "book-open": '<path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />',
+    "house": '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />',
+    "scale": '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="M7 21h10" /> <path d="M12 3v18" /> <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />',
+    "ladder": '<path d="M8 3v18" /> <path d="M16 3v18" /> <path d="M8 7h8" /> <path d="M8 12h8" /> <path d="M8 17h8" />',
+    "image-down": '<path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /> <circle cx="9" cy="9" r="2" /> <path d="M19 16v6" /> <path d="m22 19-3 3-3-3" />',
+    "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

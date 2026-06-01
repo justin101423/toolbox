@@ -33,6 +33,7 @@
 - PDF → 이미지 (`/pdf-to-image/`)
 - PDF 페이지 분할 (`/pdf-split/`)
 - 이미지로 GIF 만들기 (`/gif-maker/`)
+- HEIC → JPG 변환 (`/heic-to-jpg/`)
 
 ### 텍스트 · 생성
 - 글자수 세기 (`/word-counter/`)
@@ -73,6 +74,10 @@
 - 랜덤 추첨기 (`/random-picker/`)
 - 돌림판 추첨 (룰렛) (`/spinner-wheel/`)
 - 띠·별자리 찾기 (`/zodiac-finder/`)
+- 평 ↔ ㎡ 변환 (`/pyeong-converter/`)
+- BMI 계산기 (`/bmi-calculator/`)
+- 사다리타기 (`/ladder-game/`)
+- 음력 ↔ 양력 변환 (`/lunar-solar-converter/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
