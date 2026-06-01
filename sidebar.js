@@ -218,9 +218,42 @@
     host.innerHTML = html;
   }
 
+  // ------------------------------------------------------------------
+  // 사이드바 스크롤 위치 유지 (도구가 많아 사이드바가 길어짐)
+  // 실제 스크롤 컨테이너는 #sidebar(.side, overflow:auto) 자신이다.
+  // 페이지 이동 시에도 사용자가 보던 스크롤 위치를 그대로 유지한다.
+  // sessionStorage(탭 단위, 비민감) 사용. 모바일(.side가 static·overflow 없음)에선
+  // 내부 스크롤이 없어 저장값이 0으로 덮이지 않도록 overflow가 있을 때만 저장한다.
+  // ------------------------------------------------------------------
+  var SCROLL_KEY = "dgb-sidebar-scroll";
+
+  function saveScroll(el) {
+    try {
+      if (el.scrollHeight > el.clientHeight) // 실제 스크롤되는 경우(데스크톱)만 저장
+        sessionStorage.setItem(SCROLL_KEY, String(el.scrollTop));
+    } catch (e) {}
+  }
+  function restoreScroll(el) {
+    try {
+      var v = sessionStorage.getItem(SCROLL_KEY);
+      if (v !== null) el.scrollTop = parseInt(v, 10) || 0;
+    } catch (e) {}
+  }
+
   function boot() {
     render();
     applyIcons();
+    var host = document.getElementById("sidebar");
+    if (!host) return;
+    restoreScroll(host); // DOM·아이콘 생성 직후 동기 복원(페인트 전 → 튐 최소화)
+    var ticking = false;
+    host.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { saveScroll(host); ticking = false; });
+    });
+    // 이동/탭 전환 직전 한 번 더 확정 저장(스크롤 이벤트 누락 대비)
+    window.addEventListener("pagehide", function () { saveScroll(host); });
   }
 
   if (document.readyState === "loading") {
