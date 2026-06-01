@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>비밀번호 강도 검사기 — 보안 점수·등급·개선 팁 무료 | 도구상자</title>
+<meta name="description" content="입력한 비밀번호의 강도를 길이·문자 종류·반복·연속 패턴 기준으로 평가해 점수와 등급(약함·보통·강함), 개선 팁을 보여주는 무료 검사기. 비밀번호는 브라우저에서만 계산되며 외부로 전송되지 않습니다.">
+<link rel="canonical" href="https://dogubox.shop/password-strength/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="비밀번호 강도 검사기 — 보안 점수·등급·개선 팁 무료 | 도구상자">
+<meta property="og:description" content="입력한 비밀번호의 강도를 길이·문자 종류·반복·연속 패턴 기준으로 평가해 점수와 등급(약함·보통·강함), 개선 팁을 보여주는 무료 검사기. 비밀번호는 브라우저에서만 계산되며 외부로 전송되지 않습니다.">
+<meta property="og:url" content="https://dogubox.shop/password-strength/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="비밀번호 강도 검사기 — 보안 점수·등급·개선 팁 무료 | 도구상자">
+<meta name="twitter:description" content="비밀번호 강도를 점수·등급·개선 팁으로 평가하는 무료 검사기. 비밀번호는 브라우저에서만 계산되며 전송되지 않습니다.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "비밀번호 강도 검사기",
+  "description": "입력한 비밀번호의 강도를 길이·문자 종류·반복·연속 패턴 기준으로 평가해 점수와 등급(약함·보통·강함), 개선 팁을 보여주는 무료 검사기. 비밀번호는 브라우저에서만 계산되며 외부로 전송되지 않습니다.",
+  "url": "https://dogubox.shop/password-strength/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 입력한 비밀번호가 어딘가로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "전송되지 않습니다. 강도 평가는 전적으로 브라우저 안의 자바스크립트로 계산되며, 입력한 비밀번호는 서버로 보내지도, 저장되지도 않습니다. 그래도 실제로 사용 중인 비밀번호를 그대로 넣기보다는, 비슷한 길이와 구성의 예시로 확인해 보는 습관을 권장합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 비밀번호 생성 도구와 무엇이 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이 도구는 이미 가지고 있는 비밀번호가 얼마나 튼튼한지 '평가'합니다. 무작위로 새 비밀번호를 '만들어' 주는 비밀번호 생성 도구와는 역할이 다릅니다. 새 비밀번호가 필요하면 생성 도구로 만든 뒤, 이 검사기로 강도를 확인하는 식으로 함께 쓰면 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 점수가 높으면 안전이 보장되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "점수는 길이와 문자 구성, 반복·연속 패턴 같은 구조적 요소를 기준으로 한 참고 지표입니다. 점수가 높아도 이미 유출된 적 있는 비밀번호이거나 여러 사이트에서 재사용한다면 안전하지 않습니다. 사이트마다 다른 비밀번호를 쓰고, 가능하면 2단계 인증을 함께 사용하세요."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "비밀번호 강도 검사기",
+      "item": "https://dogubox.shop/password-strength/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.pw-row{display:flex;gap:8px}
+.pw-row input{flex:1}
+.pw-meter{height:12px;background:var(--panel);border-radius:100px;overflow:hidden;margin-top:16px}
+.pw-meter span{display:block;height:100%;width:0;transition:width .25s,background .25s}
+.pw-grade{font-family:var(--disp);font-weight:800;font-size:20px;margin-top:12px}
+.pw-checks{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:14px}
+.pw-checks div{font-size:13.5px;color:var(--ink-3);display:flex;align-items:center;gap:7px}
+.pw-checks div.on{color:var(--ok);font-weight:600}
+.pw-tips{margin-top:6px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>비밀번호 강도 검사기</h1>
+      <p class="lede">비밀번호를 입력하면 강도를 점수·등급으로 평가하고 개선 팁을 알려 드립니다. 입력값은 브라우저 안에서만 계산됩니다.</p>
+
+      <div class="box">
+        <div class="field" style="margin-bottom:0">
+          <label for="pw-in">검사할 비밀번호</label>
+          <div class="pw-row">
+            <input type="password" id="pw-in" autocomplete="off" spellcheck="false" placeholder="비밀번호 입력 (전송되지 않음)">
+            <button class="btn ghost" id="pw-toggle" type="button">표시</button>
+          </div>
+          <div class="hint">🔒 입력한 비밀번호는 서버로 전송·저장되지 않고 이 브라우저에서만 분석됩니다.</div>
+        </div>
+
+        <div class="pw-meter"><span id="pw-bar"></span></div>
+        <div class="pw-grade" id="pw-grade">—</div>
+
+        <div class="pw-checks" id="pw-checks">
+          <div data-k="len">8자 이상</div>
+          <div data-k="len12">12자 이상</div>
+          <div data-k="lower">소문자 포함</div>
+          <div data-k="upper">대문자 포함</div>
+          <div data-k="digit">숫자 포함</div>
+          <div data-k="symbol">특수문자 포함</div>
+          <div data-k="norep">반복 문자 없음</div>
+          <div data-k="noseq">연속 패턴 없음</div>
+        </div>
+
+        <ul class="tips-list pw-tips" id="pw-tips" style="display:none"></ul>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>검사할 비밀번호를 입력합니다. 실제 비밀번호 대신 같은 길이·구성의 예시를 넣어 봐도 됩니다.</li>
+          <li>입력과 동시에 강도 막대와 점수·등급(약함·보통·강함·매우 강함)이 갱신됩니다.</li>
+          <li>아래 체크 항목에서 충족한 조건과 부족한 조건을 한눈에 확인합니다.</li>
+          <li>부족한 부분은 개선 팁을 참고해 보완하세요. "표시" 버튼으로 입력값을 보거나 가릴 수 있습니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>길이가 가장 강력합니다:</b> 같은 문자 종류라도 길수록 추측·대입 공격에 훨씬 강합니다. 기억하기 쉬우면서 강한 비밀번호를 원한다면 서로 관련 없는 단어 서너 개를 이어 붙인 긴 문구(패스프레이즈)가 좋은 선택입니다.</li>
+          <li><b>예측 가능한 패턴은 피하세요:</b> 'qwer', '1234', 'abcd'처럼 키보드·알파벳·숫자가 순서대로 이어지거나 같은 글자가 반복되면 점수가 낮아집니다. 이런 패턴은 자동 공격 도구가 가장 먼저 시도하는 조합입니다.</li>
+          <li><b>사이트마다 다르게:</b> 강한 비밀번호라도 여러 곳에서 재사용하면 한 곳만 유출돼도 모든 계정이 위험해집니다. 사이트별로 다른 비밀번호를 쓰고, 관리가 어렵다면 비밀번호 관리자와 2단계 인증을 함께 사용하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 입력한 비밀번호가 어딘가로 전송되나요?</b><p>전송되지 않습니다. 강도 평가는 전적으로 브라우저 안의 자바스크립트로 계산되며, 입력한 비밀번호는 서버로 보내지도, 저장되지도 않습니다. 그래도 실제로 사용 중인 비밀번호를 그대로 넣기보다는, 비슷한 길이와 구성의 예시로 확인해 보는 습관을 권장합니다.</p></div>
+          <div class="qa"><b>Q. 비밀번호 생성 도구와 무엇이 다른가요?</b><p>이 도구는 이미 가지고 있는 비밀번호가 얼마나 튼튼한지 '평가'합니다. 무작위로 새 비밀번호를 '만들어' 주는 비밀번호 생성 도구와는 역할이 다릅니다. 새 비밀번호가 필요하면 생성 도구로 만든 뒤, 이 검사기로 강도를 확인하는 식으로 함께 쓰면 좋습니다.</p></div>
+          <div class="qa"><b>Q. 점수가 높으면 안전이 보장되나요?</b><p>점수는 길이와 문자 구성, 반복·연속 패턴 같은 구조적 요소를 기준으로 한 참고 지표입니다. 점수가 높아도 이미 유출된 적 있는 비밀번호이거나 여러 사이트에서 재사용한다면 안전하지 않습니다. 사이트마다 다른 비밀번호를 쓰고, 가능하면 2단계 인증을 함께 사용하세요.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const SEQ="abcdefghijklmnopqrstuvwxyz0123456789qwertyuiopasdfghjklzxcvbnm";
+function hasSequence(p){
+  const low=p.toLowerCase();
+  for(let i=0;i<low.length-2;i++){
+    const tri=low.substr(i,3);
+    if(SEQ.includes(tri))return true;
+    if(SEQ.includes(tri.split('').reverse().join('')))return true;
+  }
+  return false;
+}
+function hasRepeat(p){return /(.)\1\1/.test(p);}
+
+function evaluate(p){
+  const c={
+    len:p.length>=8, len12:p.length>=12,
+    lower:/[a-z]/.test(p), upper:/[A-Z]/.test(p),
+    digit:/[0-9]/.test(p), symbol:/[^A-Za-z0-9]/.test(p),
+    norep:p.length>0&&!hasRepeat(p), noseq:p.length>0&&!hasSequence(p)
+  };
+  let score=0;
+  if(!p)return {score:0,grade:'—',c:c};
+  score+=Math.min(p.length,20)/20*40;            // 길이 최대 40
+  const variety=['lower','upper','digit','symbol'].filter(k=>c[k]).length;
+  score+=variety*12;                              // 종류 최대 48
+  if(c.len12)score+=12;                           // 길이 보너스
+  if(!c.norep)score-=15;
+  if(!c.noseq)score-=12;
+  score=Math.max(0,Math.min(100,Math.round(score)));
+  let grade,color;
+  if(p.length<6){grade='너무 짧음';color='#c0392b';score=Math.min(score,15);}
+  else if(score<40){grade='약함';color='#c0392b';}
+  else if(score<70){grade='보통';color='#b7791f';}
+  else if(score<90){grade='강함';color='#2e7d4f';}
+  else{grade='매우 강함';color='#2e7d4f';}
+  return {score,grade,color,c};
+}
+
+function tips(c,p){
+  const t=[];
+  if(!c.len)t.push('최소 8자 이상으로 늘리세요. 길이가 길수록 안전합니다.');
+  else if(!c.len12)t.push('12자 이상이면 훨씬 안전합니다.');
+  if(!c.lower||!c.upper)t.push('대문자와 소문자를 섞으세요.');
+  if(!c.digit)t.push('숫자를 추가하세요.');
+  if(!c.symbol)t.push('!,@,# 같은 특수문자를 추가하세요.');
+  if(p&&!c.norep)t.push('같은 글자를 3번 이상 반복하지 마세요.');
+  if(p&&!c.noseq)t.push('"123","abc","qwer" 같은 연속 패턴을 피하세요.');
+  return t;
+}
+
+function update(){
+  const p=$('pw-in').value;
+  const r=evaluate(p);
+  $('pw-bar').style.width=r.score+'%';
+  $('pw-bar').style.background=r.color||'var(--accent)';
+  $('pw-grade').textContent=p?(r.grade+' · '+r.score+'점'):'—';
+  $('pw-grade').style.color=r.color||'var(--ink)';
+  document.querySelectorAll('#pw-checks div').forEach(d=>{
+    d.classList.toggle('on',!!r.c[d.dataset.k]);
+    const mark=r.c[d.dataset.k]?'✓ ':'· ';
+    d.textContent=mark+d.textContent.replace(/^[✓·]\s/,'');
+  });
+  const tp=tips(r.c,p);
+  const ul=$('pw-tips');
+  if(p&&tp.length){ul.style.display='flex';ul.innerHTML=tp.map(x=>'<li>'+x+'</li>').join('');}
+  else ul.style.display='none';
+}
+$('pw-in').addEventListener('input',update);
+$('pw-toggle').onclick=()=>{
+  const i=$('pw-in');
+  if(i.type==='password'){i.type='text';$('pw-toggle').textContent='숨김';}
+  else{i.type='password';$('pw-toggle').textContent='표시';}
+};
+update();
+</script>
+</html>

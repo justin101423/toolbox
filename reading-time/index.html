@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>읽는 시간 계산기 — 글자·단어 수와 묵독·낭독 예상 시간 무료 | 도구상자</title>
+<meta name="description" content="텍스트를 붙여넣으면 글자 수·단어 수와 함께 묵독·낭독 예상 시간을 계산하는 무료 도구. 읽기 속도(분당 글자·단어)를 조절할 수 있으며 브라우저에서만 처리되어 글이 전송되지 않습니다.">
+<link rel="canonical" href="https://dogubox.shop/reading-time/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="읽는 시간 계산기 — 글자·단어 수와 묵독·낭독 예상 시간 무료 | 도구상자">
+<meta property="og:description" content="텍스트를 붙여넣으면 글자 수·단어 수와 함께 묵독·낭독 예상 시간을 계산하는 무료 도구. 읽기 속도(분당 글자·단어)를 조절할 수 있으며 브라우저에서만 처리되어 글이 전송되지 않습니다.">
+<meta property="og:url" content="https://dogubox.shop/reading-time/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="읽는 시간 계산기 — 글자·단어 수와 묵독·낭독 예상 시간 무료 | 도구상자">
+<meta name="twitter:description" content="텍스트의 글자·단어 수와 묵독·낭독 예상 시간을 계산하는 무료 도구. 읽기 속도를 조절할 수 있고 브라우저에서만 처리됩니다.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "읽는 시간 계산기",
+  "description": "텍스트를 붙여넣으면 글자 수·단어 수와 함께 묵독·낭독 예상 시간을 계산하는 무료 도구. 읽기 속도(분당 글자·단어)를 조절할 수 있으며 브라우저에서만 처리되어 글이 전송되지 않습니다.",
+  "url": "https://dogubox.shop/reading-time/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 읽는 시간은 어떻게 계산되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "한국어 모드는 글자 수를 분당 읽는 글자 수로 나눠 시간을 구하고, 영어 모드는 단어 수를 분당 읽는 단어 수로 나눕니다. 한글은 글자 단위, 영문은 단어 단위로 읽는 속도가 다르기 때문입니다. 기본 속도는 일반적인 평균값이며, 글의 난이도나 개인차에 맞게 속도를 직접 조절할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 묵독과 낭독 시간이 왜 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "묵독은 눈으로만 읽는 것이라 빠르고, 낭독은 소리 내어 또박또박 발음하므로 더 느립니다. 그래서 같은 글이라도 낭독 예상 시간이 더 길게 나옵니다. 발표 대본이나 영상 내레이션처럼 소리 내어 읽는 분량을 가늠할 때는 낭독 시간을 참고하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 입력한 글이 저장되거나 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 글자·단어 수 집계와 시간 계산은 모두 브라우저 안에서 이뤄지며, 붙여 넣은 글은 서버로 전송되거나 저장되지 않습니다. 미공개 원고나 대본처럼 외부에 알려지면 안 되는 글도 안심하고 분량을 확인할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "읽는 시간 계산기",
+      "item": "https://dogubox.shop/reading-time/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>읽는 시간 계산기</h1>
+      <p class="lede">텍스트를 붙여넣으면 글자·단어 수와 묵독·낭독 예상 시간을 계산합니다. 읽기 속도는 직접 조절할 수 있습니다.</p>
+
+      <div class="box">
+        <div class="field">
+          <label for="rt-in">텍스트 입력</label>
+          <textarea id="rt-in" placeholder="시간을 재고 싶은 글을 붙여넣으세요..." style="min-height:160px;resize:vertical"></textarea>
+        </div>
+
+        <div class="field-row">
+          <div class="field" style="margin-bottom:0">
+            <label for="rt-lang">기준</label>
+            <select id="rt-lang">
+              <option value="ko">한국어 (분당 글자 수)</option>
+              <option value="en">영어 (분당 단어 수)</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label for="rt-silent" id="rt-silent-label">묵독 속도 (자/분)</label>
+            <input type="number" id="rt-silent" value="500" min="50" step="10">
+          </div>
+        </div>
+        <div class="field" style="margin-top:14px;margin-bottom:0">
+          <label for="rt-aloud" id="rt-aloud-label">낭독 속도 (자/분)</label>
+          <input type="number" id="rt-aloud" value="320" min="50" step="10">
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat"><div class="n" id="rt-charsp">0</div><div class="l">글자 (공백 포함)</div></div>
+          <div class="stat"><div class="n" id="rt-chars">0</div><div class="l">글자 (공백 제외)</div></div>
+          <div class="stat"><div class="n" id="rt-words">0</div><div class="l">단어</div></div>
+        </div>
+        <div class="stat-grid" style="margin-top:1px">
+          <div class="stat"><div class="n" id="rt-silent-t">0초</div><div class="l">묵독 예상 시간</div></div>
+          <div class="stat"><div class="n" id="rt-aloud-t">0초</div><div class="l">낭독 예상 시간</div></div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>시간을 재고 싶은 글을 입력창에 붙여넣습니다.</li>
+          <li>글의 언어에 맞게 기준(한국어=글자, 영어=단어)을 선택합니다.</li>
+          <li>묵독·낭독 속도를 글의 난이도나 본인 속도에 맞게 조절합니다.</li>
+          <li>글자·단어 수와 묵독·낭독 예상 시간이 실시간으로 표시됩니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>발표·영상 대본 분량 맞추기:</b> "3분 스피치"나 정해진 길이의 내레이션을 준비할 때 낭독 시간을 보며 글을 늘리거나 줄이세요. 낭독 속도를 본인이 실제로 읽는 속도로 맞춰 두면 리허설 없이도 분량을 가늠할 수 있습니다.</li>
+          <li><b>블로그 "읽는 데 N분" 표기:</b> 글 상단에 예상 독서 시간을 적어 두면 독자가 분량을 미리 알 수 있습니다. 한국어 블로그라면 분당 500자 안팎이 일반적이니 묵독 시간을 그대로 활용하면 됩니다.</li>
+          <li><b>난이도에 맞춘 속도 조절:</b> 전문 용어가 많거나 숫자·표가 섞인 글은 천천히 읽게 되므로 속도를 낮추세요. 반대로 가벼운 글은 속도를 높이면 더 현실적인 예상 시간이 나옵니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 읽는 시간은 어떻게 계산되나요?</b><p>한국어 모드는 글자 수를 분당 읽는 글자 수로 나눠 시간을 구하고, 영어 모드는 단어 수를 분당 읽는 단어 수로 나눕니다. 한글은 글자 단위, 영문은 단어 단위로 읽는 속도가 다르기 때문입니다. 기본 속도는 일반적인 평균값이며, 글의 난이도나 개인차에 맞게 속도를 직접 조절할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 묵독과 낭독 시간이 왜 다른가요?</b><p>묵독은 눈으로만 읽는 것이라 빠르고, 낭독은 소리 내어 또박또박 발음하므로 더 느립니다. 그래서 같은 글이라도 낭독 예상 시간이 더 길게 나옵니다. 발표 대본이나 영상 내레이션처럼 소리 내어 읽는 분량을 가늠할 때는 낭독 시간을 참고하세요.</p></div>
+          <div class="qa"><b>Q. 입력한 글이 저장되거나 전송되나요?</b><p>아니요. 글자·단어 수 집계와 시간 계산은 모두 브라우저 안에서 이뤄지며, 붙여 넣은 글은 서버로 전송되거나 저장되지 않습니다. 미공개 원고나 대본처럼 외부에 알려지면 안 되는 글도 안심하고 분량을 확인할 수 있습니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+function fmt(sec){
+  sec=Math.max(0,Math.round(sec));
+  if(sec<60)return sec+'초';
+  const m=Math.floor(sec/60),s=sec%60;
+  return s?(m+'분 '+s+'초'):(m+'분');
+}
+function setLabels(){
+  const ko=$('rt-lang').value==='ko';
+  $('rt-silent-label').textContent=ko?'묵독 속도 (자/분)':'묵독 속도 (단어/분)';
+  $('rt-aloud-label').textContent=ko?'낭독 속도 (자/분)':'낭독 속도 (단어/분)';
+}
+function applyDefaults(){
+  if($('rt-lang').value==='ko'){$('rt-silent').value=500;$('rt-aloud').value=320;}
+  else{$('rt-silent').value=230;$('rt-aloud').value=150;}
+}
+function calc(){
+  setLabels();
+  const t=$('rt-in').value;
+  const charsp=[...t].length;
+  const chars=[...t.replace(/\s/g,'')].length;
+  const words=t.trim()?t.trim().split(/\s+/).length:0;
+  $('rt-charsp').textContent=charsp.toLocaleString();
+  $('rt-chars').textContent=chars.toLocaleString();
+  $('rt-words').textContent=words.toLocaleString();
+  const ko=$('rt-lang').value==='ko';
+  const unit=ko?charsp:words;
+  const sv=Math.max(50,parseFloat($('rt-silent').value)||1);
+  const av=Math.max(50,parseFloat($('rt-aloud').value)||1);
+  $('rt-silent-t').textContent=fmt(unit/sv*60);
+  $('rt-aloud-t').textContent=fmt(unit/av*60);
+}
+$('rt-in').addEventListener('input',calc);
+['rt-silent','rt-aloud'].forEach(id=>$(id).addEventListener('input',calc));
+$('rt-lang').addEventListener('change',()=>{applyDefaults();calc();});
+calc();
+</script>
+</html>

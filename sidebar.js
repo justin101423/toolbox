@@ -45,7 +45,11 @@
       { slug: "password-generator", name: "비밀번호 생성",      icon: "key-round" },
       { slug: "json-formatter",     name: "JSON 포매터",        icon: "braces" },
       { slug: "qr-reader",          name: "QR코드 읽기",        icon: "scan-line" },
-      { slug: "barcode-generator",  name: "바코드 생성기",      icon: "barcode" }
+      { slug: "barcode-generator",  name: "바코드 생성기",      icon: "barcode" },
+      { slug: "lorem-ipsum",        name: "로렘 입숨 생성",     icon: "pilcrow" },
+      { slug: "password-strength",  name: "비밀번호 강도 검사", icon: "shield-check" },
+      { slug: "fancy-text",         name: "꾸미기 글자 변환",   icon: "wand-sparkles" },
+      { slug: "reading-time",       name: "읽는 시간 계산",     icon: "book-open" }
     ]},
     { label: "색상 · 디자인", tools: [
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
@@ -67,7 +71,8 @@
       { slug: "timezone-converter", name: "세계 시간 변환", icon: "globe" },
       { slug: "discount-calculator", name: "할인가 계산기", icon: "tag" },
       { slug: "random-picker",   name: "랜덤 추첨기",       icon: "dices" },
-      { slug: "spinner-wheel",   name: "돌림판 추첨",       icon: "pie-chart" }
+      { slug: "spinner-wheel",   name: "돌림판 추첨",       icon: "pie-chart" },
+      { slug: "zodiac-finder",   name: "띠·별자리 찾기",    icon: "sparkles" }
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
@@ -84,7 +89,8 @@
       { slug: "base-converter",   name: "진법 변환",       icon: "binary" },
       { slug: "regex-tester",     name: "정규식 테스터",   icon: "regex" },
       { slug: "markdown-preview", name: "마크다운 변환",   icon: "file-text" },
-      { slug: "json-yaml",        name: "JSON ↔ YAML",     icon: "arrow-left-right" }
+      { slug: "json-yaml",        name: "JSON ↔ YAML",     icon: "arrow-left-right" },
+      { slug: "table-converter",  name: "표 변환기",        icon: "table-2" }
     ]}
   ];
 
@@ -153,7 +159,13 @@
     "film": '<rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M7 3v18" /> <path d="M3 7.5h4" /> <path d="M3 12h18" /> <path d="M3 16.5h4" /> <path d="M17 3v18" /> <path d="M17 7.5h4" /> <path d="M17 16.5h4" />',
     "file-text": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M16 13H8" /> <path d="M16 17H8" /> <path d="M10 9H8" />',
     "arrow-left-right": '<path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" />',
-    "pie-chart": '<path d="M21.21 15.89A10 10 0 1 1 8 2.83" /> <path d="M22 12A10 10 0 0 0 12 2v10z" />'
+    "pie-chart": '<path d="M21.21 15.89A10 10 0 1 1 8 2.83" /> <path d="M22 12A10 10 0 0 0 12 2v10z" />',
+    "pilcrow": '<path d="M13 4v16" /> <path d="M17 4v16" /> <path d="M19 4H9.5a4.5 4.5 0 0 0 0 9H13" />',
+    "table-2": '<path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />',
+    "shield-check": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" />',
+    "sparkles": '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z" /> <path d="M20 3v4" /> <path d="M22 5h-4" /> <path d="M4 17v2" /> <path d="M5 18H3" />',
+    "wand-sparkles": '<path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" />',
+    "book-open": '<path d="M12 7v14" /> <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

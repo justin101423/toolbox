@@ -54,7 +54,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 58개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 64개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 ### 이미지 · PDF (16)
 | 슬러그 | 이름 |
@@ -76,7 +76,7 @@ toolbox/
 | pdf-split | PDF 페이지 분할 |
 | gif-maker | 이미지로 GIF 만들기 |
 
-### 텍스트 · 생성 (11)
+### 텍스트 · 생성 (15)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -90,6 +90,10 @@ toolbox/
 | json-formatter | JSON 포매터 |
 | qr-reader | QR코드 읽기 |
 | barcode-generator | 바코드 생성기 |
+| lorem-ipsum | 로렘 입숨 생성기 |
+| password-strength | 비밀번호 강도 검사기 |
+| fancy-text | 유니코드 꾸미기 글자 변환 |
+| reading-time | 읽는 시간 계산기 |
 
 ### 색상 · 디자인 (9)
 | 슬러그 | 이름 |
@@ -104,7 +108,7 @@ toolbox/
 | box-shadow-generator | 그림자(box-shadow) 생성기 |
 | border-radius-generator | 테두리 둥글기 생성기 |
 
-### 생활 · 편의 (8)
+### 생활 · 편의 (10)
 | 슬러그 | 이름 |
 |---|---|
 | dday-calculator | D-Day · 날짜 계산 |
@@ -116,6 +120,7 @@ toolbox/
 | discount-calculator | 할인가 계산기 |
 | random-picker | 랜덤 추첨기 |
 | spinner-wheel | 돌림판 추첨 (룰렛) |
+| zodiac-finder | 띠·별자리 찾기 |
 
 ### 직장인 · 생산성 (2)
 | 슬러그 | 이름 |
@@ -123,7 +128,7 @@ toolbox/
 | notepad | 임시 메모장 |
 | utm-builder | UTM 빌더 |
 
-### 개발자 도구 (9)
+### 개발자 도구 (12)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
@@ -137,6 +142,7 @@ toolbox/
 | regex-tester | 정규식 테스터 |
 | markdown-preview | 마크다운 → HTML 변환 |
 | json-yaml | JSON ↔ YAML 변환 |
+| table-converter | 표 변환기 |
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 

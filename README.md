@@ -46,6 +46,10 @@
 - JSON 포매터 (`/json-formatter/`)
 - QR코드 읽기 (`/qr-reader/`)
 - 바코드 생성기 (`/barcode-generator/`)
+- 로렘 입숨 생성기 (`/lorem-ipsum/`)
+- 비밀번호 강도 검사기 (`/password-strength/`)
+- 유니코드 꾸미기 글자 변환 (`/fancy-text/`)
+- 읽는 시간 계산기 (`/reading-time/`)
 
 ### 색상 · 디자인
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)
@@ -68,6 +72,7 @@
 - 할인가 계산기 (`/discount-calculator/`)
 - 랜덤 추첨기 (`/random-picker/`)
 - 돌림판 추첨 (룰렛) (`/spinner-wheel/`)
+- 띠·별자리 찾기 (`/zodiac-finder/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
@@ -85,6 +90,7 @@
 - 정규식 테스터 (`/regex-tester/`)
 - 마크다운 → HTML 변환 (`/markdown-preview/`)
 - JSON ↔ YAML 변환 (`/json-yaml/`)
+- 표 변환기 (`/table-converter/`)
 
 ## 기술 스택
 
