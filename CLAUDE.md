@@ -54,9 +54,9 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 52개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 58개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
-### 이미지 · PDF (15)
+### 이미지 · PDF (16)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -74,8 +74,9 @@ toolbox/
 | image-to-pdf | 이미지 → PDF |
 | pdf-to-image | PDF → 이미지 |
 | pdf-split | PDF 페이지 분할 |
+| gif-maker | 이미지로 GIF 만들기 |
 
-### 텍스트 · 생성 (9)
+### 텍스트 · 생성 (11)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -87,6 +88,8 @@ toolbox/
 | qr-code | QR코드 생성 |
 | password-generator | 비밀번호 생성 |
 | json-formatter | JSON 포매터 |
+| qr-reader | QR코드 읽기 |
+| barcode-generator | 바코드 생성기 |
 
 ### 색상 · 디자인 (9)
 | 슬러그 | 이름 |
@@ -112,6 +115,7 @@ toolbox/
 | timezone-converter | 세계 시간 변환 |
 | discount-calculator | 할인가 계산기 |
 | random-picker | 랜덤 추첨기 |
+| spinner-wheel | 돌림판 추첨 (룰렛) |
 
 ### 직장인 · 생산성 (2)
 | 슬러그 | 이름 |
@@ -131,6 +135,8 @@ toolbox/
 | timestamp | 타임스탬프 변환 |
 | base-converter | 진법 변환 |
 | regex-tester | 정규식 테스터 |
+| markdown-preview | 마크다운 → HTML 변환 |
+| json-yaml | JSON ↔ YAML 변환 |
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 

@@ -32,6 +32,7 @@
 - 이미지 → PDF (`/image-to-pdf/`)
 - PDF → 이미지 (`/pdf-to-image/`)
 - PDF 페이지 분할 (`/pdf-split/`)
+- 이미지로 GIF 만들기 (`/gif-maker/`)
 
 ### 텍스트 · 생성
 - 글자수 세기 (`/word-counter/`)
@@ -43,6 +44,8 @@
 - QR코드 생성 (`/qr-code/`)
 - 비밀번호 생성 (`/password-generator/`)
 - JSON 포매터 (`/json-formatter/`)
+- QR코드 읽기 (`/qr-reader/`)
+- 바코드 생성기 (`/barcode-generator/`)
 
 ### 색상 · 디자인
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)
@@ -64,6 +67,7 @@
 - 세계 시간 변환 (`/timezone-converter/`)
 - 할인가 계산기 (`/discount-calculator/`)
 - 랜덤 추첨기 (`/random-picker/`)
+- 돌림판 추첨 (룰렛) (`/spinner-wheel/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
@@ -79,6 +83,8 @@
 - 타임스탬프 변환 (`/timestamp/`)
 - 진법 변환 (`/base-converter/`)
 - 정규식 테스터 (`/regex-tester/`)
+- 마크다운 → HTML 변환 (`/markdown-preview/`)
+- JSON ↔ YAML 변환 (`/json-yaml/`)
 
 ## 기술 스택
 

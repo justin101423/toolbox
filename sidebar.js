@@ -31,7 +31,8 @@
       { slug: "pdf-merge",        name: "PDF 합치기",           icon: "files" },
       { slug: "image-to-pdf",     name: "이미지 → PDF",         icon: "file-image" },
       { slug: "pdf-to-image",     name: "PDF → 이미지",         icon: "images" },
-      { slug: "pdf-split",        name: "PDF 페이지 분할",      icon: "scissors" }
+      { slug: "pdf-split",        name: "PDF 페이지 분할",      icon: "scissors" },
+      { slug: "gif-maker",        name: "이미지로 GIF 만들기",  icon: "film" }
     ]},
     { label: "텍스트 · 생성", tools: [
       { slug: "word-counter",       name: "글자수 세기",        icon: "type" },
@@ -42,7 +43,9 @@
       { slug: "line-numbers",       name: "줄 번호 매기기",     icon: "list-ordered" },
       { slug: "qr-code",            name: "QR코드 생성",        icon: "qr-code" },
       { slug: "password-generator", name: "비밀번호 생성",      icon: "key-round" },
-      { slug: "json-formatter",     name: "JSON 포매터",        icon: "braces" }
+      { slug: "json-formatter",     name: "JSON 포매터",        icon: "braces" },
+      { slug: "qr-reader",          name: "QR코드 읽기",        icon: "scan-line" },
+      { slug: "barcode-generator",  name: "바코드 생성기",      icon: "barcode" }
     ]},
     { label: "색상 · 디자인", tools: [
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
@@ -63,7 +66,8 @@
       { slug: "unit-converter",  name: "단위 변환",         icon: "ruler" },
       { slug: "timezone-converter", name: "세계 시간 변환", icon: "globe" },
       { slug: "discount-calculator", name: "할인가 계산기", icon: "tag" },
-      { slug: "random-picker",   name: "랜덤 추첨기",       icon: "dices" }
+      { slug: "random-picker",   name: "랜덤 추첨기",       icon: "dices" },
+      { slug: "spinner-wheel",   name: "돌림판 추첨",       icon: "pie-chart" }
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
@@ -78,7 +82,9 @@
       { slug: "csv-json",         name: "CSV ↔ JSON 변환", icon: "table" },
       { slug: "timestamp",        name: "타임스탬프 변환", icon: "clock" },
       { slug: "base-converter",   name: "진법 변환",       icon: "binary" },
-      { slug: "regex-tester",     name: "정규식 테스터",   icon: "regex" }
+      { slug: "regex-tester",     name: "정규식 테스터",   icon: "regex" },
+      { slug: "markdown-preview", name: "마크다운 변환",   icon: "file-text" },
+      { slug: "json-yaml",        name: "JSON ↔ YAML",     icon: "arrow-left-right" }
     ]}
   ];
 
@@ -141,7 +147,13 @@
     "table": '<path d="M12 3v18" /> <rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M3 9h18" /> <path d="M3 15h18" />',
     "clock": '<circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" />',
     "binary": '<rect x="14" y="14" width="4" height="6" rx="2" /> <rect x="6" y="4" width="4" height="6" rx="2" /> <path d="M6 20h4" /> <path d="M14 10h4" /> <path d="M6 14h2v6" /> <path d="M14 4h2v6" />',
-    "regex": '<path d="M17 3v10" /> <path d="m12.67 5.5 8.66 5" /> <path d="m12.67 10.5 8.66-5" /> <path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z" />'
+    "regex": '<path d="M17 3v10" /> <path d="m12.67 5.5 8.66 5" /> <path d="m12.67 10.5 8.66-5" /> <path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z" />',
+    "scan-line": '<path d="M3 7V5a2 2 0 0 1 2-2h2" /> <path d="M17 3h2a2 2 0 0 1 2 2v2" /> <path d="M21 17v2a2 2 0 0 1-2 2h-2" /> <path d="M7 21H5a2 2 0 0 1-2-2v-2" /> <path d="M7 12h10" />',
+    "barcode": '<path d="M3 5v14" /> <path d="M8 5v14" /> <path d="M12 5v14" /> <path d="M17 5v14" /> <path d="M21 5v14" />',
+    "film": '<rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M7 3v18" /> <path d="M3 7.5h4" /> <path d="M3 12h18" /> <path d="M3 16.5h4" /> <path d="M17 3v18" /> <path d="M17 7.5h4" /> <path d="M17 16.5h4" />',
+    "file-text": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M16 13H8" /> <path d="M16 17H8" /> <path d="M10 9H8" />',
+    "arrow-left-right": '<path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" />',
+    "pie-chart": '<path d="M21.21 15.89A10 10 0 1 1 8 2.83" /> <path d="M22 12A10 10 0 0 0 12 2v10z" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

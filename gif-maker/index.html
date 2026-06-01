@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>이미지로 GIF 만들기 — 사진 여러 장 움직이는 GIF 생성·다운로드 | 도구상자</title>
+<meta name="description" content="여러 장의 이미지를 올려 순서와 재생 속도를 정하면 움직이는 GIF로 만들어 내려받는 무료 도구. 설치 없이 브라우저에서 GIF를 생성하며 사진은 서버로 전송되지 않습니다.">
+<link rel="canonical" href="https://dogubox.shop/gif-maker/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="이미지로 GIF 만들기 — 사진 여러 장 움직이는 GIF 생성·다운로드 | 도구상자">
+<meta property="og:description" content="여러 장의 이미지를 올려 순서와 재생 속도를 정하면 움직이는 GIF로 만들어 내려받는 무료 도구. 설치 없이 브라우저에서 GIF를 생성하며 사진은 서버로 전송되지 않습니다.">
+<meta property="og:url" content="https://dogubox.shop/gif-maker/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="이미지로 GIF 만들기 — 사진 여러 장 움직이는 GIF 생성·다운로드 | 도구상자">
+<meta name="twitter:description" content="여러 장의 이미지를 올려 순서와 재생 속도를 정하면 움직이는 GIF로 만들어 내려받는 무료 도구. 사진은 서버로 전송되지 않습니다.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "이미지로 GIF 만들기",
+  "description": "여러 장의 이미지를 올려 순서와 재생 속도를 정하면 움직이는 GIF로 만들어 내려받는 무료 도구. 설치 없이 브라우저에서 GIF를 생성하며 사진은 서버로 전송되지 않습니다.",
+  "url": "https://dogubox.shop/gif-maker/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 만든 GIF가 서버에 올라가나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 이미지 합성과 GIF 인코딩은 모두 브라우저 안에서 처리되며, 추가한 사진과 완성된 GIF는 외부 서버로 전송되지 않습니다. 가족 사진이나 비공개 자료로 움짤을 만들 때도 자료가 기기 밖으로 나가지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이미지 크기가 제각각이어도 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "됩니다. 모든 프레임은 첫 번째 이미지를 기준으로 한 동일한 크기의 화면에 맞춰지며, 비율이 다른 이미지는 흰 여백을 두고 가운데에 들어갑니다. 결과를 더 깔끔하게 만들고 싶다면 비슷한 비율의 사진을 사용하거나 미리 같은 크기로 잘라서 올리는 것이 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 프레임이 많으면 왜 느리고 용량이 커지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GIF는 프레임마다 이미지를 통째로 담는 구조여서 장수가 늘수록 인코딩 시간과 파일 크기가 함께 커집니다. 모든 계산을 기기에서 처리하므로 사진이 많거나 해상도가 높으면 시간이 걸립니다. 용량을 줄이려면 최대 너비를 낮추거나 프레임 수를 줄여 보세요."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "이미지로 GIF 만들기",
+      "item": "https://dogubox.shop/gif-maker/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js" integrity="sha384-4RMW82CWFobXY+HRHXe5go/V5acBhiIVGCT+2k7TEoxi7AiWKw8WoWb9qMU+FAFu" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.frame-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:14px}
+.frame{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:8px;text-align:center}
+.frame img{max-width:100%;height:64px;object-fit:contain;border-radius:4px;background:#fff}
+.frame .idx{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:4px}
+.frame .fbtns{display:flex;justify-content:center;gap:4px;margin-top:5px}
+.frame .fbtns button{font-size:12px;line-height:1;padding:3px 7px;border:1px solid var(--line-2);border-radius:5px;color:var(--ink-2)}
+.frame .fbtns button:hover{border-color:var(--ink);color:var(--ink)}
+#gm-result{max-width:100%;border:1px solid var(--line);border-radius:var(--r-sm);margin-top:8px;background:#fff;display:none}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>이미지로 GIF 만들기</h1>
+      <p class="lede">사진 여러 장을 올려 순서와 속도를 정하면 움직이는 GIF로 만들어 드립니다. 모든 작업은 브라우저 안에서 처리됩니다.</p>
+
+      <div class="box">
+        <div class="drop" id="gm-drop">
+          <div class="big">🎞️</div>
+          <div><b>이미지 선택</b> 또는 여기로 드래그 (여러 장)</div>
+          <small>추가한 순서대로 프레임이 됩니다 · PNG · JPG · WebP</small>
+        </div>
+        <input type="file" id="gm-file" accept="image/*" multiple hidden>
+
+        <div class="frame-grid" id="gm-list"></div>
+
+        <div class="field-row" style="margin-top:18px">
+          <div class="field" style="margin-bottom:0">
+            <label for="gm-delay">프레임당 시간 (ms)</label>
+            <input type="number" id="gm-delay" value="500" min="20" step="10">
+            <div class="hint">작을수록 빠르게 재생됩니다. 500 = 0.5초.</div>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label for="gm-maxw">최대 너비 (px)</label>
+            <select id="gm-maxw">
+              <option value="320">320</option>
+              <option value="480" selected>480</option>
+              <option value="640">640</option>
+              <option value="0">원본 크기</option>
+            </select>
+            <div class="hint">작을수록 용량·생성 시간이 줄어듭니다.</div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn accent" id="gm-make">GIF 만들기</button>
+          <button class="btn ghost" id="gm-clear">전체 지우기</button>
+        </div>
+        <div class="progress" id="gm-progress"><span></span></div>
+        <div class="note" id="gm-note"></div>
+
+        <img id="gm-result" alt="생성된 GIF 미리보기">
+        <div class="btn-row" id="gm-dl-row" style="display:none">
+          <a class="btn accent" id="gm-download" download="animation.gif">GIF 다운로드</a>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>GIF로 만들 이미지들을 "이미지 선택" 영역에 올리거나 드래그합니다. 추가한 순서가 프레임 순서가 됩니다.</li>
+          <li>각 프레임의 ◀ ▶ 버튼으로 순서를 바꾸거나 ✕로 빼낼 수 있습니다.</li>
+          <li>프레임당 시간(ms)으로 재생 속도를, 최대 너비로 GIF 크기를 조정합니다.</li>
+          <li>"GIF 만들기"를 누르면 진행률이 표시되고, 완성되면 미리보기와 "GIF 다운로드" 버튼이 나타납니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>연속 사진으로 움짤:</b> 버스트(연사)로 찍은 사진이나 한 장면을 조금씩 바꾼 이미지를 넣으면 자연스러운 움직임이 만들어집니다. 프레임당 시간을 100~200ms로 짧게 주면 부드럽게 이어집니다.</li>
+          <li><b>제품·전후 비교 GIF:</b> 보정 전/후, 조립 단계 사진을 2~4장만 넣고 프레임당 시간을 길게(800~1200ms) 주면, 천천히 번갈아 보이는 비교용 GIF를 만들 수 있습니다. 상세페이지나 발표 자료에 쓰기 좋습니다.</li>
+          <li><b>용량 관리:</b> 메신저나 게시판은 GIF 용량 제한이 있는 경우가 많습니다. 최대 너비를 320~480으로 낮추고 프레임 수를 줄이면 파일이 가벼워집니다. 사진 해상도가 높을수록 생성에 시간이 더 걸립니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 만든 GIF가 서버에 올라가나요?</b><p>아니요. 이미지 합성과 GIF 인코딩은 모두 브라우저 안에서 처리되며, 추가한 사진과 완성된 GIF는 외부 서버로 전송되지 않습니다. 가족 사진이나 비공개 자료로 움짤을 만들 때도 자료가 기기 밖으로 나가지 않습니다.</p></div>
+          <div class="qa"><b>Q. 이미지 크기가 제각각이어도 되나요?</b><p>됩니다. 모든 프레임은 첫 번째 이미지를 기준으로 한 동일한 크기의 화면에 맞춰지며, 비율이 다른 이미지는 흰 여백을 두고 가운데에 들어갑니다. 결과를 더 깔끔하게 만들고 싶다면 비슷한 비율의 사진을 사용하거나 미리 같은 크기로 잘라서 올리는 것이 좋습니다.</p></div>
+          <div class="qa"><b>Q. 프레임이 많으면 왜 느리고 용량이 커지나요?</b><p>GIF는 프레임마다 이미지를 통째로 담는 구조여서 장수가 늘수록 인코딩 시간과 파일 크기가 함께 커집니다. 모든 계산을 기기에서 처리하므로 사진이 많거나 해상도가 높으면 시간이 걸립니다. 용량을 줄이려면 최대 너비를 낮추거나 프레임 수를 줄여 보세요.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+// gif.js worker: CDN 파일을 fetch → SHA-384 무결성 검증 → same-origin Blob URL (정적·CDN 환경 안정화)
+const WORKER_URL='https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js';
+const WORKER_SRI='uL0SwIQSos1DfQU2KzlDbPuSz7Jwo+hmNPIhe86VJ+MWwyj0DvjngnAgWrkNi9eQ';
+let workerUrlCache=null;
+let frames=[]; // {url,img}
+
+function note(msg,kind){const n=$('gm-note');n.textContent=msg||'';n.className='note'+(msg?' show':'')+(kind?' '+kind:'');}
+
+async function getWorkerUrl(){
+  if(workerUrlCache)return workerUrlCache;
+  const buf=await (await fetch(WORKER_URL)).arrayBuffer();
+  const digest=await crypto.subtle.digest('SHA-384',buf);
+  const b64=btoa(String.fromCharCode.apply(null,new Uint8Array(digest)));
+  if(b64!==WORKER_SRI)throw new Error('GIF 워커 무결성 검증에 실패했습니다.');
+  workerUrlCache=URL.createObjectURL(new Blob([buf],{type:'application/javascript'}));
+  return workerUrlCache;
+}
+
+function renderList(){
+  const wrap=$('gm-list');
+  wrap.innerHTML='';
+  frames.forEach((f,i)=>{
+    const d=document.createElement('div');
+    d.className='frame';
+    d.innerHTML='<img src="'+f.url+'" alt=""><div class="idx">'+(i+1)+'</div>'+
+      '<div class="fbtns"><button data-a="up" data-i="'+i+'">◀</button>'+
+      '<button data-a="del" data-i="'+i+'">✕</button>'+
+      '<button data-a="down" data-i="'+i+'">▶</button></div>';
+    wrap.appendChild(d);
+  });
+}
+$('gm-list').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  const i=+b.dataset.i, a=b.dataset.a;
+  if(a==='del'){URL.revokeObjectURL(frames[i].url);frames.splice(i,1);}
+  else if(a==='up'&&i>0){[frames[i-1],frames[i]]=[frames[i],frames[i-1]];}
+  else if(a==='down'&&i<frames.length-1){[frames[i+1],frames[i]]=[frames[i],frames[i+1]];}
+  renderList();
+});
+
+function addFiles(list){
+  const imgs=[...list].filter(f=>/^image\//.test(f.type));
+  if(!imgs.length){note('이미지 파일을 선택하세요.','err');return;}
+  let loaded=0;
+  imgs.forEach(file=>{
+    const url=URL.createObjectURL(file);
+    const img=new Image();
+    img.onload=()=>{frames.push({url,img});loaded++;if(loaded===imgs.length){renderList();note(frames.length+'개 프레임 준비됨.','ok');}};
+    img.onerror=()=>{loaded++;};
+    img.src=url;
+  });
+}
+const drop=$('gm-drop'),fileInput=$('gm-file');
+drop.onclick=()=>fileInput.click();
+fileInput.onchange=e=>{addFiles(e.target.files);fileInput.value='';};
+['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+drop.addEventListener('drop',e=>{if(e.dataTransfer.files.length)addFiles(e.dataTransfer.files);});
+
+$('gm-clear').onclick=()=>{
+  frames.forEach(f=>URL.revokeObjectURL(f.url));
+  frames=[];renderList();
+  $('gm-result').style.display='none';$('gm-dl-row').style.display='none';note('');
+};
+
+$('gm-make').onclick=async()=>{
+  if(frames.length<2){note('이미지를 2장 이상 추가하세요.','err');return;}
+  const delay=Math.max(20,parseInt($('gm-delay').value)||500);
+  const maxW=parseInt($('gm-maxw').value)||0;
+  const f0=frames[0].img;
+  let tw=f0.naturalWidth,th=f0.naturalHeight;
+  if(maxW&&tw>maxW){th=Math.round(th*maxW/tw);tw=maxW;}
+  $('gm-make').disabled=true;
+  $('gm-progress').style.display='block';
+  $('gm-progress').firstElementChild.style.width='0%';
+  note('GIF 생성 중...','');
+  try{
+    const wurl=await getWorkerUrl();
+    const gif=new GIF({workers:2,quality:10,workerScript:wurl,width:tw,height:th,background:'#ffffff'});
+    frames.forEach(fr=>{
+      const cv=document.createElement('canvas');cv.width=tw;cv.height=th;
+      const ctx=cv.getContext('2d');
+      ctx.fillStyle='#ffffff';ctx.fillRect(0,0,tw,th);
+      const s=Math.min(tw/fr.img.naturalWidth,th/fr.img.naturalHeight);
+      const dw=fr.img.naturalWidth*s,dh=fr.img.naturalHeight*s;
+      ctx.drawImage(fr.img,(tw-dw)/2,(th-dh)/2,dw,dh);
+      gif.addFrame(cv,{delay:delay});
+    });
+    gif.on('progress',p=>{$('gm-progress').firstElementChild.style.width=Math.round(p*100)+'%';});
+    gif.on('finished',blob=>{
+      const url=URL.createObjectURL(blob);
+      $('gm-result').src=url;$('gm-result').style.display='block';
+      $('gm-download').href=url;$('gm-dl-row').style.display='flex';
+      $('gm-progress').style.display='none';
+      $('gm-make').disabled=false;
+      note('완성! 아래에서 미리보고 다운로드하세요. ('+Math.round(blob.size/1024)+' KB)','ok');
+    });
+    gif.render();
+  }catch(e){
+    $('gm-make').disabled=false;$('gm-progress').style.display='none';
+    note('GIF 생성에 실패했습니다: '+(e.message||e),'err');
+  }
+};
+</script>
+</html>
