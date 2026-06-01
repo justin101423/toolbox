@@ -109,7 +109,8 @@
   원저자 Xuebin Qin 외, https://github.com/xuebinqin/U-2-Net . ONNX 파일 출처: danielgatis/rembg(MIT) 릴리스.
   런타임: onnxruntime-web (MIT). 모든 처리는 브라우저 내에서 수행되며 이미지는 외부로 전송되지 않음(모델도 동일 출처 자체 호스팅).
 -->
-<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/ort.webgpu.min.js" integrity="sha384-/tsMe803n88h9cNDnqByBHNVgqEP5mXc4EkCnDuMYvbxsppJzvS6i3ub8BbOxUxO" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.23.0/dist/ort.min.js" integrity="sha384-zseeEJSUuXKdh2gw5G+KEr5s1FDoyIEYdvwGVYSWIbRJ6bICA7qM9GN9/+pmc4TO" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@bunnio/rembg-web@1.0.2/dist/index.umd.min.js" integrity="sha384-QgjVwsqZRNYXq41zRjrjhdLhsbnZHj9f3OsWjczyWjOfOEu42npT/PLCN3uuD4ks" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/tool-page.css">
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -207,15 +208,18 @@
 <script src="/theme.js"></script>
 <script>
 const $=id=>document.getElementById(id);
-let session=null, srcImg=null, outUrl=null, usedEP='';
-const MEAN=[0.485,0.456,0.406], STD=[0.229,0.224,0.225], SZ=320;
+let srcFile=null, outUrl=null, session=null;
 
 if(typeof ort!=='undefined'){
-  ort.env.wasm.wasmPaths='https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/';
-  ort.env.wasm.numThreads=1; // GitHub Pages는 교차출처 격리가 없어 스레드 미사용(단일 스레드 SIMD)
+  ort.env.wasm.wasmPaths='https://cdn.jsdelivr.net/npm/onnxruntime-web@1.23.0/dist/';
+  ort.env.wasm.numThreads=1;
+}
+// 모델: 동일 출처 자체호스팅 u2netp.onnx (외부 요청·이미지 전송 없음)
+if(typeof RembgWeb!=='undefined' && RembgWeb.rembgConfig && RembgWeb.rembgConfig.setCustomModelPath){
+  try{ RembgWeb.rembgConfig.setCustomModelPath('u2netp', new URL('u2netp.onnx', location.href).href); }catch(e){}
 }
 function note(m,k){const n=$('rb-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
-function setProg(p){const b=$('rb-progress');b.style.display=p==null?'none':'block';if(p!=null)b.firstElementChild.style.width=Math.round(p*100)+'%';}
+function busy(on){const b=$('rb-progress');b.style.display=on?'block':'none';b.firstElementChild.style.width=on?'100%':'0';}
 
 const drop=$('rb-drop'), fileInput=$('rb-file');
 drop.onclick=()=>fileInput.click();
@@ -226,123 +230,50 @@ drop.addEventListener('drop',e=>{if(e.dataTransfer.files[0])loadImg(e.dataTransf
 
 function loadImg(file){
   if(!/^image\//.test(file.type)){note('이미지 파일을 선택하세요.','err');return;}
-  const img=new Image();
-  img.onload=()=>{
-    srcImg=img;
-    $('rb-orig').src=img.src;
-    $('rb-result').style.display='grid';
-    $('rb-out').removeAttribute('src');
-    $('rb-dlrow').style.display='none';
-    $('rb-run').disabled=false; $('rb-clear').disabled=false;
-    note('"배경 제거"를 눌러 처리하세요.','');
-  };
-  img.onerror=()=>note('이미지를 불러오지 못했습니다.','err');
-  img.src=URL.createObjectURL(file);
+  srcFile=file;
+  $('rb-orig').src=URL.createObjectURL(file);
+  $('rb-result').style.display='grid';
+  $('rb-out').removeAttribute('src');
+  $('rb-dlrow').style.display='none';
+  $('rb-run').disabled=false; $('rb-clear').disabled=false;
+  note('"배경 제거"를 눌러 처리하세요.','');
 }
 
-async function loadModel(){
+async function getSession(){
   if(session)return session;
-  note('AI 모델 내려받는 중... (최초 1회, 약 4.4MB)','');
-  setProg(0);
-  const resp=await fetch('u2netp.onnx');
-  if(!resp.ok)throw new Error('모델 파일을 불러오지 못했습니다.');
-  const total=+resp.headers.get('content-length')||4574861;
-  const reader=resp.body.getReader();
-  const chunks=[]; let received=0;
-  while(true){
-    const {done,value}=await reader.read();
-    if(done)break;
-    chunks.push(value); received+=value.length;
-    setProg(Math.min(0.99,received/total));
-  }
-  const buf=new Uint8Array(received); let off=0;
-  for(const c of chunks){buf.set(c,off);off+=c.length;}
-  setProg(1);
-  note('모델 초기화 중...','');
-  try{
-    session=await ort.InferenceSession.create(buf.buffer,{executionProviders:['webgpu','wasm']});
-    usedEP='webgpu/wasm';
-  }catch(e){
-    session=await ort.InferenceSession.create(buf.buffer,{executionProviders:['wasm']});
-    usedEP='wasm';
-  }
+  note('AI 모델 준비 중... (최초 1회 약 4.4MB 다운로드·초기화)','');
+  // WebGL 백엔드 우선 — U²-Net은 wasm·WebGPU에서 MaxPool ceil_mode 미지원
+  session=await RembgWeb.newSession('u2netp', undefined, {preferWebGL:true});
   return session;
 }
-
-function preprocess(img){
-  const c=document.createElement('canvas');c.width=SZ;c.height=SZ;
-  const ctx=c.getContext('2d',{willReadFrequently:true});
-  ctx.drawImage(img,0,0,SZ,SZ);
-  const d=ctx.getImageData(0,0,SZ,SZ).data;
-  let mx=0;
-  for(let i=0;i<SZ*SZ;i++){mx=Math.max(mx,d[i*4],d[i*4+1],d[i*4+2]);}
-  if(mx===0)mx=1;
-  const f=new Float32Array(3*SZ*SZ), plane=SZ*SZ;
-  for(let i=0;i<plane;i++){
-    f[i]        =(d[i*4]/mx   - MEAN[0])/STD[0];
-    f[plane+i]  =(d[i*4+1]/mx - MEAN[1])/STD[1];
-    f[2*plane+i]=(d[i*4+2]/mx - MEAN[2])/STD[2];
-  }
-  return new ort.Tensor('float32',f,[1,3,SZ,SZ]);
-}
-function maskToCanvas(arr){
-  let mi=Infinity,ma=-Infinity;
-  for(let i=0;i<arr.length;i++){if(arr[i]<mi)mi=arr[i];if(arr[i]>ma)ma=arr[i];}
-  const range=(ma-mi)||1;
-  const c=document.createElement('canvas');c.width=SZ;c.height=SZ;
-  const ctx=c.getContext('2d');const id=ctx.createImageData(SZ,SZ);
-  for(let i=0;i<SZ*SZ;i++){
-    const v=Math.round((arr[i]-mi)/range*255);
-    id.data[i*4]=id.data[i*4+1]=id.data[i*4+2]=v; id.data[i*4+3]=255;
-  }
-  ctx.putImageData(id,0,0);
-  return c;
-}
 async function removeBg(){
-  if(!srcImg)return;
-  $('rb-run').disabled=true;
+  if(!srcFile)return;
+  if(typeof RembgWeb==='undefined'){note('배경 제거 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.','err');return;}
+  $('rb-run').disabled=true; busy(true);
   try{
-    const sess=await loadModel();
-    note('배경 분석 중...','');
-    const input=preprocess(srcImg);
-    const feeds={}; feeds[sess.inputNames[0]]=input;
-    const out=await sess.run(feeds);
-    const mask=out[sess.outputNames[0]].data; // [1,1,320,320] min-max 정규화 대상
-    const maskCv=maskToCanvas(mask);
-    // 마스크를 원본 크기로 리사이즈 → 알파 합성
-    const W=srcImg.naturalWidth, H=srcImg.naturalHeight;
-    const full=document.createElement('canvas');full.width=W;full.height=H;
-    const fctx=full.getContext('2d',{willReadFrequently:true});
-    fctx.drawImage(srcImg,0,0,W,H);
-    const id=fctx.getImageData(0,0,W,H);
-    const mctx=document.createElement('canvas'); mctx.width=W;mctx.height=H;
-    const mc=mctx.getContext('2d',{willReadFrequently:true});
-    mc.drawImage(maskCv,0,0,W,H); // 부드럽게 확대
-    const md=mc.getImageData(0,0,W,H).data;
-    for(let i=0;i<W*H;i++){ id.data[i*4+3]=md[i*4]; }
-    fctx.putImageData(id,0,0);
-    full.toBlob(b=>{
-      if(outUrl)URL.revokeObjectURL(outUrl);
-      outUrl=URL.createObjectURL(b);
-      $('rb-out').src=outUrl;
-      $('rb-download').href=outUrl;
-      $('rb-dlrow').style.display='flex';
-      $('rb-ep').textContent='처리 방식: '+usedEP.toUpperCase()+' · 결과 용량 '+Math.round(b.size/1024)+'KB';
-      setProg(null);
-      note('완료! 결과를 확인하고 투명 PNG로 저장하세요. (이미지에 따라 가장자리 편차가 있을 수 있습니다)','ok');
-      $('rb-run').disabled=false;
-    },'image/png');
+    const sess=await getSession();
+    note('배경 분석 중... (기기 성능에 따라 수 초 걸릴 수 있습니다)','');
+    const blob=await RembgWeb.remove(srcFile,{session:sess});
+    if(outUrl)URL.revokeObjectURL(outUrl);
+    outUrl=URL.createObjectURL(blob);
+    $('rb-out').src=outUrl;
+    $('rb-download').href=outUrl;
+    $('rb-dlrow').style.display='flex';
+    $('rb-ep').textContent='결과 용량 '+Math.round(blob.size/1024)+'KB';
+    busy(false);
+    note('완료! 결과를 확인하고 투명 PNG로 저장하세요. (이미지에 따라 가장자리 편차가 있을 수 있습니다)','ok');
   }catch(e){
-    setProg(null);$('rb-run').disabled=false;
+    busy(false);
     note('처리에 실패했습니다: '+(e&&e.message?e.message:e),'err');
   }
+  $('rb-run').disabled=false;
 }
 $('rb-run').onclick=removeBg;
 $('rb-clear').onclick=()=>{
-  srcImg=null; if(outUrl){URL.revokeObjectURL(outUrl);outUrl=null;}
+  srcFile=null; if(outUrl){URL.revokeObjectURL(outUrl);outUrl=null;}
   $('rb-result').style.display='none';$('rb-dlrow').style.display='none';
   $('rb-run').disabled=true;$('rb-clear').disabled=true;$('rb-ep').textContent='';note('');
 };
-if(typeof ort==='undefined')note('추론 런타임을 불러오지 못했습니다. 새로고침 후 다시 시도하세요.','err');
+if(typeof RembgWeb==='undefined')note('배경 제거 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.','err');
 </script>
 </html>
