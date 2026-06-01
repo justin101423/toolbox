@@ -83,7 +83,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .navlink .ic{font-size:15px;width:18px;text-align:center;opacity:.85}
 
 .main{padding:clamp(22px,3.5vw,46px) clamp(16px,4vw,52px) 90px;min-width:0}
-.inner{max-width:860px}
+.inner{max-width:1320px}
+/* 카드 그리드 영역만 넓게(.inner). 상단 히어로/검색·소개/FAQ 등 읽기 영역은 기존 860px 폭 유지 */
+.hero,.no-result,.content{max-width:860px}
 
 .hero{margin-bottom:38px;animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
 .hero .kick{margin-bottom:14px}
