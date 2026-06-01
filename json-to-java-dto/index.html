@@ -22,6 +22,82 @@
 <meta name="twitter:image" content="https://dogubox.shop/og-image.png">
 <meta name="twitter:title" content="JSON → Java DTO 변환기 — 무료 온라인 DTO 클래스 생성 도구 | 도구상자">
 <meta name="twitter:description" content="JSON을 붙여넣으면 Java DTO 클래스를 자동으로 생성합니다. Lombok @Data 어노테이션 옵션과 중첩 클래스 지원으로 스프링 부트 개발 생산성을 높이세요.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JSON → Java DTO",
+  "description": "JSON을 붙여넣으면 Java DTO 클래스를 자동으로 생성합니다. Lombok @Data 어노테이션 옵션과 중첩 클래스 지원으로 스프링 부트 개발 생산성을 높이세요.",
+  "url": "https://dogubox.shop/json-to-java-dto/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 최상위 배열(예: [{...}]) 형태는 어떻게 처리되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "배열 안 첫 번째 객체를 기준으로 필드를 추론합니다. 실제 사용 시에는 List<Root> 타입으로 선언해 받으면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 생성된 코드를 바로 Spring Boot 프로젝트에 쓸 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "참고용 코드입니다. 패키지 선언, import 구문, 유효성 검증 어노테이션(@NotNull 등)은 포함되지 않으므로 프로젝트에 맞게 수정 후 사용하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 혼합 타입 배열은 어떻게 처리되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "배열의 첫 번째 원소를 기준으로 타입을 추론합니다. 원소 타입이 다른 혼합 배열은 List<Object>로 생성됩니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JSON → Java DTO",
+      "item": "https://dogubox.shop/json-to-java-dto/"
+    }
+  ]
+}
+</script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

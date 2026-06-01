@@ -22,6 +22,82 @@
 <meta name="twitter:image" content="https://dogubox.shop/og-image.png">
 <meta name="twitter:title" content="UUID 생성기 — UUID v4 무작위 생성 무료 온라인 도구 | 도구상자">
 <meta name="twitter:description" content="UUID v4 고유 식별자를 브라우저에서 즉시 생성합니다. 1~100개까지 한 번에 생성 가능하며, 데이터베이스 기본 키, 세션 ID, 테스트 데이터 생성에 바로 활용하세요.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "UUID 생성기",
+  "description": "UUID v4 고유 식별자를 브라우저에서 즉시 생성합니다. 1~100개까지 한 번에 생성 가능하며, 데이터베이스 기본 키, 세션 ID, 테스트 데이터 생성에 바로 활용하세요.",
+  "url": "https://dogubox.shop/uuid-generator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. UUID v4와 v1의 차이는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "v1은 타임스탬프+MAC 주소 기반으로 생성 순서가 예측 가능하고 기기 정보가 포함됩니다. v4는 완전 랜덤으로 보안 측면에서 유리합니다. 이 도구는 v4만 생성합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 생성된 UUID가 정말 고유한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "crypto.randomUUID()는 122비트 랜덤 정보를 담아 실질적으로 중복이 발생할 일이 없습니다. 엄밀한 보장이 필요하다면 DB UNIQUE 인덱스로 보완하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 대소문자 구분이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UUID 표준은 소문자가 기본이지만 대소문자를 구분하지 않습니다. 환경에 따라 toUpperCase()로 변환해도 동일한 값입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "UUID 생성기",
+      "item": "https://dogubox.shop/uuid-generator/"
+    }
+  ]
+}
+</script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

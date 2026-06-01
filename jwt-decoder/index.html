@@ -22,6 +22,82 @@
 <meta name="twitter:image" content="https://dogubox.shop/og-image.png">
 <meta name="twitter:title" content="JWT 디코더 — JSON Web Token 파싱·분석 무료 온라인 도구 | 도구상자">
 <meta name="twitter:description" content="JWT(JSON Web Token)를 붙여넣으면 헤더와 페이로드를 즉시 파싱해 보여줍니다. 서명 검증 없이 토큰 내용을 빠르게 확인할 수 있습니다.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JWT 디코더",
+  "description": "JWT(JSON Web Token)를 붙여넣으면 헤더와 페이로드를 즉시 파싱해 보여줍니다. 서명 검증 없이 토큰 내용을 빠르게 확인할 수 있습니다.",
+  "url": "https://dogubox.shop/jwt-decoder/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 서명(signature) 검증도 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아닙니다. 이 도구는 Base64URL 디코딩만 수행합니다. 서명 검증은 서버 측에서 비밀 키나 공개 키를 사용해야 합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. JWT가 아닌 다른 토큰을 입력하면 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "header.payload.signature 구조(점 두 개로 구분)가 아니면 오류 메시지가 표시됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 토큰이 만료됐는지 여기서 알 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "디코딩된 payload의 exp 값(만료 시각, Unix 타임스탬프)을 보면 됩니다. 이 도구는 내용만 해석해 보여주므로, 실제 만료 여부는 exp를 현재 시각과 비교하거나 타임스탬프 변환 도구로 확인하세요."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JWT 디코더",
+      "item": "https://dogubox.shop/jwt-decoder/"
+    }
+  ]
+}
+</script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

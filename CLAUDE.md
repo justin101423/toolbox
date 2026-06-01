@@ -172,9 +172,10 @@ toolbox/
 4. **허브 카드 추가** — `index.html`의 해당 카테고리 카드 그리드(`.grid`)에 새 카드 추가. 아이콘은 이모지 대신 `<div class="ic" data-icon="<Lucide이름>">`로 두면 `sidebar.js`가 같은 `ICONS` 매핑으로 채웁니다(사이드바와 허브가 단일 아이콘 세트 공유).
 5. **`sitemap.xml`** — `<url><loc>https://dogubox.shop/<슬러그>/</loc><lastmod>오늘 날짜</lastmod></url>` 추가.
 6. **콘텐츠 섹션** — 사용법(3~5단계) / 활용 팁(2~3개, 도구별 고유) / FAQ(3개). 한국어, 도구별 고유 내용, 합계 약 250~400단어. 고유 `<title>`·`<meta description>`.
-7. **다크모드/모바일 반응형 확인** — `theme.css`/`theme.js` 연동, 좁은 화면에서 사이드바 토글 동작 확인.
-8. **★ 문서 갱신** — 이 CLAUDE.md의 도구 목록(4번 섹션)에 새 도구를 추가하고, `README.md`의 도구 목록도 갱신.
-9. **커밋·푸시** — 작업 완료 후 「자동 커밋·푸시 규칙」에 따라 Claude Code가 직접 `add`→`commit`→`push`(`main`). push 직전 보호 파일/AdSense 스크립트 자가 점검, 이상 시 중단·보고.
+7. **★ JSON-LD 구조화 데이터(SEO)** — `<head>`에 `<script type="application/ld+json">` 블록으로 **SoftwareApplication + FAQPage + BreadcrumbList**(홈 > 도구명) 3개를 추가합니다(화면 표시 없음, 검색 리치 스니펫용). 모든 값은 그 페이지의 **실제 내용과 일치**해야 합니다 — `name`=h1 도구명, `description`=meta description, `url`=canonical, `applicationCategory`=카테고리에 맞는 값(이미지·PDF→`MultimediaApplication`, 텍스트/생활·편의→`UtilityApplication`, 색상·디자인→`DesignApplication`, 직장인·생산성→`BusinessApplication`, 개발자→`DeveloperApplication`), `operatingSystem`="Web", `inLanguage`="ko", `offers`(price 0, KRW), `provider`(도구상자, https://dogubox.shop/). **FAQPage의 질문·답변은 페이지 본문 FAQ와 글자 단위로 동일**해야 합니다(페이지에 없는 FAQ를 넣으면 구글 정책 위반). 허브(`index.html`)는 `WebSite`(검색이 클라이언트 필터라 `SearchAction`은 넣지 않음)만 둡니다. 구글 Rich Results Test로 검증.
+8. **다크모드/모바일 반응형 확인** — `theme.css`/`theme.js` 연동, 좁은 화면에서 사이드바 토글 동작 확인.
+9. **★ 문서 갱신** — 이 CLAUDE.md의 도구 목록(4번 섹션)에 새 도구를 추가하고, `README.md`의 도구 목록도 갱신.
+10. **커밋·푸시** — 작업 완료 후 「자동 커밋·푸시 규칙」에 따라 Claude Code가 직접 `add`→`commit`→`push`(`main`). push 직전 보호 파일/AdSense 스크립트 자가 점검, 이상 시 중단·보고.
 
 > 검증 팁: `sidebar.js`가 그리는 사이드바 링크 수 == 실제 도구 폴더 수 == 허브 카드 수 == `sitemap.xml`의 도구 URL 수 가 모두 일치하는지 확인합니다. (사이드바는 `sidebar.js` 한 곳에서 그리므로 페이지별 누락은 발생하지 않지만, 데이터·카드·sitemap 간 불일치는 확인 대상입니다.)
 
