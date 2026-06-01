@@ -33,7 +33,8 @@
       { slug: "pdf-to-image",     name: "PDF → 이미지",         icon: "images" },
       { slug: "pdf-split",        name: "PDF 페이지 분할",      icon: "scissors" },
       { slug: "gif-maker",        name: "이미지로 GIF 만들기",  icon: "film" },
-      { slug: "heic-to-jpg",      name: "HEIC → JPG 변환",      icon: "image-down" }
+      { slug: "heic-to-jpg",      name: "HEIC → JPG 변환",      icon: "image-down" },
+      { slug: "remove-background", name: "이미지 배경 제거",     icon: "eraser" }
     ]},
     { label: "텍스트 · 생성", tools: [
       { slug: "word-counter",       name: "글자수 세기",        icon: "type" },
@@ -175,7 +176,8 @@
     "scale": '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="M7 21h10" /> <path d="M12 3v18" /> <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />',
     "ladder": '<path d="M8 3v18" /> <path d="M16 3v18" /> <path d="M8 7h8" /> <path d="M8 12h8" /> <path d="M8 17h8" />',
     "image-down": '<path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /> <circle cx="9" cy="9" r="2" /> <path d="M19 16v6" /> <path d="m22 19-3 3-3-3" />',
-    "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />'
+    "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />',
+    "eraser": '<path d="M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21" /> <path d="m5.082 11.09 8.828 8.828" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

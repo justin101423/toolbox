@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>이미지 배경 제거(누끼) — 업로드 없이 브라우저에서 투명 PNG로 | 도구상자</title>
+<meta name="description" content="사진의 배경을 제거해 투명 PNG로 만드는 무료 누끼 도구. 이미지가 서버로 전송되지 않고 100% 브라우저 안에서 AI로 처리됩니다. 또렷한 피사체·단순 배경에서 가장 잘 동작합니다.">
+<link rel="canonical" href="https://dogubox.shop/remove-background/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="이미지 배경 제거(누끼) — 업로드 없이 브라우저에서 투명 PNG로 | 도구상자">
+<meta property="og:description" content="사진의 배경을 제거해 투명 PNG로 만드는 무료 누끼 도구. 이미지가 서버로 전송되지 않고 100% 브라우저 안에서 AI로 처리됩니다.">
+<meta property="og:url" content="https://dogubox.shop/remove-background/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="이미지 배경 제거(누끼) — 업로드 없이 브라우저에서 투명 PNG로 | 도구상자">
+<meta name="twitter:description" content="사진의 배경을 제거해 투명 PNG로 만드는 무료 누끼 도구. 100% 브라우저 안에서 처리되어 이미지가 서버로 전송되지 않습니다.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "이미지 배경 제거(누끼)",
+  "description": "사진의 배경을 제거해 투명 PNG로 만드는 무료 누끼 도구. 이미지가 서버로 전송되지 않고 100% 브라우저 안에서 AI로 처리됩니다. 또렷한 피사체·단순 배경에서 가장 잘 동작합니다.",
+  "url": "https://dogubox.shop/remove-background/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 어떤 사진이 잘 제거되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "피사체의 윤곽이 또렷하고 배경이 단순할수록 결과가 좋습니다. 단색·흐린 배경 앞의 인물, 제품, 물건 사진이 가장 잘 떨어집니다. 반대로 머리카락이 흩날리거나, 배경과 색·명암이 비슷하거나, 유리·반투명·그물망처럼 경계가 모호한 경우에는 가장자리가 거칠게 남을 수 있습니다. 결과는 이미지에 따라 편차가 있는 기본 누끼 수준으로 봐 주세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 사진이 서버로 올라가나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 배경 제거 AI 모델과 추론이 모두 사용자의 브라우저 안에서 실행되며, 사진은 외부 서버로 전송되거나 저장되지 않습니다. 모델 파일도 이 사이트에서 함께 제공되어 외부로 어떤 요청도 보내지 않습니다. 인물 사진이나 민감한 이미지도 기기 밖으로 나가지 않으므로 안심하고 사용할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 처음에 왜 시간이 좀 걸리나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "처음 한 번은 약 4.4MB의 AI 모델을 내려받고 초기화하는 과정이 있어 잠시 기다려야 합니다. 이후에는 모델이 메모리에 올라가 있어 같은 방문에서는 빠르게 처리됩니다. 처리 속도는 기기 성능과 사진 크기에 따라 수 초가 걸릴 수 있으며, WebGPU를 지원하는 브라우저에서는 더 빠릅니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "이미지 배경 제거(누끼)",
+      "item": "https://dogubox.shop/remove-background/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<!--
+  배경 제거 AI 모델: U^2-Net (u2netp 경량 모델), 라이선스 Apache-2.0.
+  원저자 Xuebin Qin 외, https://github.com/xuebinqin/U-2-Net . ONNX 파일 출처: danielgatis/rembg(MIT) 릴리스.
+  런타임: onnxruntime-web (MIT). 모든 처리는 브라우저 내에서 수행되며 이미지는 외부로 전송되지 않음(모델도 동일 출처 자체 호스팅).
+-->
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/ort.webgpu.min.js" integrity="sha384-/tsMe803n88h9cNDnqByBHNVgqEP5mXc4EkCnDuMYvbxsppJzvS6i3ub8BbOxUxO" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.rb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media(max-width:560px){.rb-grid{grid-template-columns:1fr}}
+.rb-pane{text-align:center}
+.rb-pane .lbl{font-size:12px;color:var(--ink-3);font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.rb-pane img{max-width:100%;max-height:300px;border:1px solid var(--line);border-radius:var(--r-sm)}
+.rb-checker img{background-image:linear-gradient(45deg,#cfcfcf 25%,transparent 25%),linear-gradient(-45deg,#cfcfcf 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#cfcfcf 75%),linear-gradient(-45deg,transparent 75%,#cfcfcf 75%);background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0}
+.rb-ep{font-size:12px;color:var(--ink-3);margin-top:8px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>이미지 배경 제거 (누끼)</h1>
+      <p class="lede">사진의 배경을 지워 투명 PNG로 만듭니다. 이미지는 서버로 전송되지 않고 브라우저 안에서 AI로 처리됩니다. 또렷한 피사체·단순 배경에서 가장 잘 동작하는 <b>기본 누끼</b> 도구입니다.</p>
+
+      <div class="box">
+        <div class="drop" id="rb-drop">
+          <div class="big">🪄</div>
+          <div><b>이미지 선택</b> 또는 여기로 드래그</div>
+          <small>JPG · PNG · WebP · 업로드 없이 브라우저에서 처리</small>
+        </div>
+        <input type="file" id="rb-file" accept="image/*" hidden>
+
+        <div class="btn-row">
+          <button class="btn accent" id="rb-run" disabled>배경 제거</button>
+          <button class="btn ghost" id="rb-clear" disabled>지우기</button>
+        </div>
+        <div class="progress" id="rb-progress"><span></span></div>
+        <div class="note" id="rb-note"></div>
+
+        <div class="rb-grid" id="rb-result" style="display:none">
+          <div class="rb-pane"><div class="lbl">원본</div><img id="rb-orig" alt="원본 이미지"></div>
+          <div class="rb-pane rb-checker"><div class="lbl">배경 제거 결과</div><img id="rb-out" alt="배경 제거 결과"></div>
+        </div>
+        <div class="btn-row" id="rb-dlrow" style="display:none">
+          <a class="btn accent" id="rb-download" download="removed-background.png">투명 PNG 다운로드</a>
+        </div>
+        <div class="rb-ep" id="rb-ep"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>배경을 지울 이미지를 선택하거나 드래그합니다.</li>
+          <li>"배경 제거"를 누릅니다. 처음 한 번은 AI 모델(약 4.4MB)을 내려받느라 잠시 걸립니다.</li>
+          <li>처리가 끝나면 원본과 배경이 제거된 결과를 나란히 보여 줍니다.</li>
+          <li>"투명 PNG 다운로드"로 배경이 투명하게 빠진 이미지를 저장하세요.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>잘 되는 사진 고르기:</b> 피사체가 또렷하고 배경이 단순할수록 깔끔하게 떨어집니다. 단색 배경 앞의 인물·제품 사진이 가장 좋고, 머리카락이 날리거나 배경과 색이 비슷하면 가장자리가 거칠 수 있습니다. 촬영 단계에서 배경을 단순하게 하면 결과가 크게 좋아집니다.</li>
+          <li><b>투명 PNG 활용:</b> 결과는 배경이 비치는 투명 PNG라 상세페이지·프로필·스티커·프레젠테이션에 바로 올려 다른 배경과 합성할 수 있습니다. 흰 배경이 필요하면 이미지 편집 도구에서 아래에 흰색 레이어를 깔면 됩니다.</li>
+          <li><b>속도 높이기:</b> 같은 방문에서 여러 장을 처리하면 모델이 메모리에 남아 두 번째부터 빨라집니다. 최신 크롬·엣지 등 WebGPU를 지원하는 브라우저에서는 더 빠르게 동작하고, 지원하지 않으면 자동으로 호환 모드(WebAssembly)로 처리합니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 어떤 사진이 잘 제거되나요?</b><p>피사체의 윤곽이 또렷하고 배경이 단순할수록 결과가 좋습니다. 단색·흐린 배경 앞의 인물, 제품, 물건 사진이 가장 잘 떨어집니다. 반대로 머리카락이 흩날리거나, 배경과 색·명암이 비슷하거나, 유리·반투명·그물망처럼 경계가 모호한 경우에는 가장자리가 거칠게 남을 수 있습니다. 결과는 이미지에 따라 편차가 있는 기본 누끼 수준으로 봐 주세요.</p></div>
+          <div class="qa"><b>Q. 사진이 서버로 올라가나요?</b><p>아니요. 배경 제거 AI 모델과 추론이 모두 사용자의 브라우저 안에서 실행되며, 사진은 외부 서버로 전송되거나 저장되지 않습니다. 모델 파일도 이 사이트에서 함께 제공되어 외부로 어떤 요청도 보내지 않습니다. 인물 사진이나 민감한 이미지도 기기 밖으로 나가지 않으므로 안심하고 사용할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 처음에 왜 시간이 좀 걸리나요?</b><p>처음 한 번은 약 4.4MB의 AI 모델을 내려받고 초기화하는 과정이 있어 잠시 기다려야 합니다. 이후에는 모델이 메모리에 올라가 있어 같은 방문에서는 빠르게 처리됩니다. 처리 속도는 기기 성능과 사진 크기에 따라 수 초가 걸릴 수 있으며, WebGPU를 지원하는 브라우저에서는 더 빠릅니다.</p></div>
+        </div>
+
+        <div class="sec-label">모델·라이선스</div>
+        <p>배경 제거에는 <b>U²-Net</b>의 경량 모델 <b>u2netp</b>를 사용합니다(저작권자 Xuebin Qin 외, 라이선스 <b>Apache License 2.0</b>). ONNX 모델 파일은 danielgatis/rembg(MIT) 릴리스에서 가져와 이 사이트에서 직접 제공하며, 추론 런타임은 <b>ONNX Runtime Web</b>(MIT)입니다. 모든 처리는 브라우저 안에서 이뤄지고 이미지는 외부로 전송되지 않습니다.</p>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+let session=null, srcImg=null, outUrl=null, usedEP='';
+const MEAN=[0.485,0.456,0.406], STD=[0.229,0.224,0.225], SZ=320;
+
+if(typeof ort!=='undefined'){
+  ort.env.wasm.wasmPaths='https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/';
+  ort.env.wasm.numThreads=1; // GitHub Pages는 교차출처 격리가 없어 스레드 미사용(단일 스레드 SIMD)
+}
+function note(m,k){const n=$('rb-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
+function setProg(p){const b=$('rb-progress');b.style.display=p==null?'none':'block';if(p!=null)b.firstElementChild.style.width=Math.round(p*100)+'%';}
+
+const drop=$('rb-drop'), fileInput=$('rb-file');
+drop.onclick=()=>fileInput.click();
+fileInput.onchange=e=>{if(e.target.files[0])loadImg(e.target.files[0]);};
+['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+drop.addEventListener('drop',e=>{if(e.dataTransfer.files[0])loadImg(e.dataTransfer.files[0]);});
+
+function loadImg(file){
+  if(!/^image\//.test(file.type)){note('이미지 파일을 선택하세요.','err');return;}
+  const img=new Image();
+  img.onload=()=>{
+    srcImg=img;
+    $('rb-orig').src=img.src;
+    $('rb-result').style.display='grid';
+    $('rb-out').removeAttribute('src');
+    $('rb-dlrow').style.display='none';
+    $('rb-run').disabled=false; $('rb-clear').disabled=false;
+    note('"배경 제거"를 눌러 처리하세요.','');
+  };
+  img.onerror=()=>note('이미지를 불러오지 못했습니다.','err');
+  img.src=URL.createObjectURL(file);
+}
+
+async function loadModel(){
+  if(session)return session;
+  note('AI 모델 내려받는 중... (최초 1회, 약 4.4MB)','');
+  setProg(0);
+  const resp=await fetch('u2netp.onnx');
+  if(!resp.ok)throw new Error('모델 파일을 불러오지 못했습니다.');
+  const total=+resp.headers.get('content-length')||4574861;
+  const reader=resp.body.getReader();
+  const chunks=[]; let received=0;
+  while(true){
+    const {done,value}=await reader.read();
+    if(done)break;
+    chunks.push(value); received+=value.length;
+    setProg(Math.min(0.99,received/total));
+  }
+  const buf=new Uint8Array(received); let off=0;
+  for(const c of chunks){buf.set(c,off);off+=c.length;}
+  setProg(1);
+  note('모델 초기화 중...','');
+  try{
+    session=await ort.InferenceSession.create(buf.buffer,{executionProviders:['webgpu','wasm']});
+    usedEP='webgpu/wasm';
+  }catch(e){
+    session=await ort.InferenceSession.create(buf.buffer,{executionProviders:['wasm']});
+    usedEP='wasm';
+  }
+  return session;
+}
+
+function preprocess(img){
+  const c=document.createElement('canvas');c.width=SZ;c.height=SZ;
+  const ctx=c.getContext('2d',{willReadFrequently:true});
+  ctx.drawImage(img,0,0,SZ,SZ);
+  const d=ctx.getImageData(0,0,SZ,SZ).data;
+  let mx=0;
+  for(let i=0;i<SZ*SZ;i++){mx=Math.max(mx,d[i*4],d[i*4+1],d[i*4+2]);}
+  if(mx===0)mx=1;
+  const f=new Float32Array(3*SZ*SZ), plane=SZ*SZ;
+  for(let i=0;i<plane;i++){
+    f[i]        =(d[i*4]/mx   - MEAN[0])/STD[0];
+    f[plane+i]  =(d[i*4+1]/mx - MEAN[1])/STD[1];
+    f[2*plane+i]=(d[i*4+2]/mx - MEAN[2])/STD[2];
+  }
+  return new ort.Tensor('float32',f,[1,3,SZ,SZ]);
+}
+function maskToCanvas(arr){
+  let mi=Infinity,ma=-Infinity;
+  for(let i=0;i<arr.length;i++){if(arr[i]<mi)mi=arr[i];if(arr[i]>ma)ma=arr[i];}
+  const range=(ma-mi)||1;
+  const c=document.createElement('canvas');c.width=SZ;c.height=SZ;
+  const ctx=c.getContext('2d');const id=ctx.createImageData(SZ,SZ);
+  for(let i=0;i<SZ*SZ;i++){
+    const v=Math.round((arr[i]-mi)/range*255);
+    id.data[i*4]=id.data[i*4+1]=id.data[i*4+2]=v; id.data[i*4+3]=255;
+  }
+  ctx.putImageData(id,0,0);
+  return c;
+}
+async function removeBg(){
+  if(!srcImg)return;
+  $('rb-run').disabled=true;
+  try{
+    const sess=await loadModel();
+    note('배경 분석 중...','');
+    const input=preprocess(srcImg);
+    const feeds={}; feeds[sess.inputNames[0]]=input;
+    const out=await sess.run(feeds);
+    const mask=out[sess.outputNames[0]].data; // [1,1,320,320] min-max 정규화 대상
+    const maskCv=maskToCanvas(mask);
+    // 마스크를 원본 크기로 리사이즈 → 알파 합성
+    const W=srcImg.naturalWidth, H=srcImg.naturalHeight;
+    const full=document.createElement('canvas');full.width=W;full.height=H;
+    const fctx=full.getContext('2d',{willReadFrequently:true});
+    fctx.drawImage(srcImg,0,0,W,H);
+    const id=fctx.getImageData(0,0,W,H);
+    const mctx=document.createElement('canvas'); mctx.width=W;mctx.height=H;
+    const mc=mctx.getContext('2d',{willReadFrequently:true});
+    mc.drawImage(maskCv,0,0,W,H); // 부드럽게 확대
+    const md=mc.getImageData(0,0,W,H).data;
+    for(let i=0;i<W*H;i++){ id.data[i*4+3]=md[i*4]; }
+    fctx.putImageData(id,0,0);
+    full.toBlob(b=>{
+      if(outUrl)URL.revokeObjectURL(outUrl);
+      outUrl=URL.createObjectURL(b);
+      $('rb-out').src=outUrl;
+      $('rb-download').href=outUrl;
+      $('rb-dlrow').style.display='flex';
+      $('rb-ep').textContent='처리 방식: '+usedEP.toUpperCase()+' · 결과 용량 '+Math.round(b.size/1024)+'KB';
+      setProg(null);
+      note('완료! 결과를 확인하고 투명 PNG로 저장하세요. (이미지에 따라 가장자리 편차가 있을 수 있습니다)','ok');
+      $('rb-run').disabled=false;
+    },'image/png');
+  }catch(e){
+    setProg(null);$('rb-run').disabled=false;
+    note('처리에 실패했습니다: '+(e&&e.message?e.message:e),'err');
+  }
+}
+$('rb-run').onclick=removeBg;
+$('rb-clear').onclick=()=>{
+  srcImg=null; if(outUrl){URL.revokeObjectURL(outUrl);outUrl=null;}
+  $('rb-result').style.display='none';$('rb-dlrow').style.display='none';
+  $('rb-run').disabled=true;$('rb-clear').disabled=true;$('rb-ep').textContent='';note('');
+};
+if(typeof ort==='undefined')note('추론 런타임을 불러오지 못했습니다. 새로고침 후 다시 시도하세요.','err');
+</script>
+</html>
