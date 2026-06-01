@@ -34,7 +34,6 @@
 - PDF 페이지 분할 (`/pdf-split/`)
 - 이미지로 GIF 만들기 (`/gif-maker/`)
 - HEIC → JPG 변환 (`/heic-to-jpg/`)
-- 이미지 배경 제거(누끼) (`/remove-background/`)
 
 ### 텍스트 · 생성
 - 글자수 세기 (`/word-counter/`)
