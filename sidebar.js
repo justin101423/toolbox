@@ -33,7 +33,11 @@
       { slug: "pdf-to-image",     name: "PDF → 이미지",         icon: "images" },
       { slug: "pdf-split",        name: "PDF 페이지 분할",      icon: "scissors" },
       { slug: "gif-maker",        name: "이미지로 GIF 만들기",  icon: "film" },
-      { slug: "heic-to-jpg",      name: "HEIC → JPG 변환",      icon: "image-down" }
+      { slug: "heic-to-jpg",      name: "HEIC → JPG 변환",      icon: "image-down" },
+      { slug: "image-ocr",        name: "이미지 OCR·글자 추출", icon: "scan-text" },
+      { slug: "pdf-organize",     name: "PDF 회전·페이지 정리", icon: "file-cog" },
+      { slug: "image-blur",       name: "이미지 모자이크·블러", icon: "eye-off" },
+      { slug: "meme-generator",   name: "밈·짤 생성기",         icon: "sticker" }
     ]},
     { label: "텍스트 · 생성", tools: [
       { slug: "word-counter",       name: "글자수 세기",        icon: "type" },
@@ -51,7 +55,8 @@
       { slug: "password-strength",  name: "비밀번호 강도 검사", icon: "shield-check" },
       { slug: "fancy-text",         name: "꾸미기 글자 변환",   icon: "wand-sparkles" },
       { slug: "reading-time",       name: "읽는 시간 계산",     icon: "book-open" },
-      { slug: "text-diff",          name: "텍스트 비교(diff)",  icon: "diff" }
+      { slug: "text-diff",          name: "텍스트 비교(diff)",  icon: "diff" },
+      { slug: "special-characters", name: "특수문자·이모지",    icon: "smile" }
     ]},
     { label: "색상 · 디자인", tools: [
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
@@ -84,7 +89,8 @@
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
       { slug: "utm-builder", name: "UTM 빌더",    icon: "link" },
-      { slug: "signature-maker", name: "서명 만들기", icon: "pen-tool" }
+      { slug: "signature-maker", name: "서명 만들기", icon: "pen-tool" },
+      { slug: "device-test", name: "마이크·웹캠 테스트", icon: "video" }
     ]},
     { label: "개발자 도구", tools: [
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
@@ -181,7 +187,13 @@
     "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />',
     "keyboard": '<path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" />',
     "pen-tool": '<path d="m12 19 7-7 3 3-7 7-3-3z" /> <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /> <path d="m2 2 7.586 7.586" /> <circle cx="11" cy="11" r="2" />',
-    "diff": '<path d="M12 3v14" /> <path d="M5 10h14" /> <path d="M5 21h14" />'
+    "diff": '<path d="M12 3v14" /> <path d="M5 10h14" /> <path d="M5 21h14" />',
+    "scan-text": '<path d="M3 7V5a2 2 0 0 1 2-2h2" /> <path d="M17 3h2a2 2 0 0 1 2 2v2" /> <path d="M21 17v2a2 2 0 0 1-2 2h-2" /> <path d="M7 21H5a2 2 0 0 1-2-2v-2" /> <path d="M7 8h8" /> <path d="M7 12h10" /> <path d="M7 16h6" />',
+    "smile": '<circle cx="12" cy="12" r="10" /> <path d="M8 14s1.5 2 4 2 4-2 4-2" /> <line x1="9" x2="9.01" y1="9" y2="9" /> <line x1="15" x2="15.01" y1="9" y2="9" />',
+    "video": '<path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /> <rect x="2" y="6" width="14" height="12" rx="2" />',
+    "file-cog": '<path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="m3.2 12.9-.9-.4" /> <path d="m3.2 15.1-.9.4" /> <path d="M4.677 21.5a2 2 0 0 0 1.313.5H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v2.5" /> <path d="m4.9 11.2-.4-.9" /> <path d="m4.9 16.8-.4.9" /> <path d="m7.5 10.3-.4.9" /> <path d="m7.5 17.7-.4-.9" /> <path d="m9.7 12.5-.9.4" /> <path d="m9.7 15.5-.9-.4" /> <circle cx="6" cy="14" r="3" />',
+    "eye-off": '<path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" /> <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" /> <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" /> <path d="m2 2 20 20" />',
+    "sticker": '<path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z" /> <path d="M14 3v4a2 2 0 0 0 2 2h4" /> <path d="M8 13h.01" /> <path d="M16 13h.01" /> <path d="M10 16s.8 1 2 1c1.3 0 2-1 2-1" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

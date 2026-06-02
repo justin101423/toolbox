@@ -54,9 +54,9 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 72개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 78개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
-### 이미지 · PDF (17)
+### 이미지 · PDF (21)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -76,8 +76,12 @@ toolbox/
 | pdf-split | PDF 페이지 분할 |
 | gif-maker | 이미지로 GIF 만들기 |
 | heic-to-jpg | HEIC → JPG 변환 |
+| image-ocr | 이미지 OCR·글자 추출 |
+| pdf-organize | PDF 회전·페이지 정리 |
+| image-blur | 이미지 모자이크·블러 |
+| meme-generator | 밈·짤 생성기 |
 
-### 텍스트 · 생성 (16)
+### 텍스트 · 생성 (17)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -96,6 +100,7 @@ toolbox/
 | fancy-text | 유니코드 꾸미기 글자 변환 |
 | reading-time | 읽는 시간 계산기 |
 | text-diff | 텍스트 비교(diff) |
+| special-characters | 특수문자·이모지 복사 |
 
 ### 색상 · 디자인 (9)
 | 슬러그 | 이름 |
@@ -129,12 +134,13 @@ toolbox/
 | lunar-solar-converter | 음력 ↔ 양력 변환 |
 | typing-speed | 타자 속도 측정 |
 
-### 직장인 · 생산성 (3)
+### 직장인 · 생산성 (4)
 | 슬러그 | 이름 |
 |---|---|
 | notepad | 임시 메모장 |
 | utm-builder | UTM 빌더 |
 | signature-maker | 서명 만들기 (전자서명) |
+| device-test | 마이크·웹캠 테스트 |
 
 ### 개발자 도구 (12)
 | 슬러그 | 이름 |

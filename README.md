@@ -34,6 +34,10 @@
 - PDF 페이지 분할 (`/pdf-split/`)
 - 이미지로 GIF 만들기 (`/gif-maker/`)
 - HEIC → JPG 변환 (`/heic-to-jpg/`)
+- 이미지 OCR·글자 추출 (`/image-ocr/`)
+- PDF 회전·페이지 정리 (`/pdf-organize/`)
+- 이미지 모자이크·블러 (`/image-blur/`)
+- 밈·짤 생성기 (`/meme-generator/`)
 
 ### 텍스트 · 생성
 - 글자수 세기 (`/word-counter/`)
@@ -52,6 +56,7 @@
 - 유니코드 꾸미기 글자 변환 (`/fancy-text/`)
 - 읽는 시간 계산기 (`/reading-time/`)
 - 텍스트 비교 (diff) (`/text-diff/`)
+- 특수문자·이모지 복사 (`/special-characters/`)
 
 ### 색상 · 디자인
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)
@@ -85,6 +90,7 @@
 - 임시 메모장 (`/notepad/`)
 - UTM 빌더 (`/utm-builder/`)
 - 서명 만들기 (전자서명) (`/signature-maker/`)
+- 마이크·웹캠 테스트 (`/device-test/`)
 
 ### 개발자 도구
 - 인코더 · 디코더 (`/encoder-decoder/`)
