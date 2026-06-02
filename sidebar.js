@@ -50,7 +50,8 @@
       { slug: "lorem-ipsum",        name: "로렘 입숨 생성",     icon: "pilcrow" },
       { slug: "password-strength",  name: "비밀번호 강도 검사", icon: "shield-check" },
       { slug: "fancy-text",         name: "꾸미기 글자 변환",   icon: "wand-sparkles" },
-      { slug: "reading-time",       name: "읽는 시간 계산",     icon: "book-open" }
+      { slug: "reading-time",       name: "읽는 시간 계산",     icon: "book-open" },
+      { slug: "text-diff",          name: "텍스트 비교(diff)",  icon: "diff" }
     ]},
     { label: "색상 · 디자인", tools: [
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
@@ -179,7 +180,8 @@
     "image-down": '<path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /> <circle cx="9" cy="9" r="2" /> <path d="M19 16v6" /> <path d="m22 19-3 3-3-3" />',
     "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />',
     "keyboard": '<path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" />',
-    "pen-tool": '<path d="m12 19 7-7 3 3-7 7-3-3z" /> <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /> <path d="m2 2 7.586 7.586" /> <circle cx="11" cy="11" r="2" />'
+    "pen-tool": '<path d="m12 19 7-7 3 3-7 7-3-3z" /> <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /> <path d="m2 2 7.586 7.586" /> <circle cx="11" cy="11" r="2" />',
+    "diff": '<path d="M12 3v14" /> <path d="M5 10h14" /> <path d="M5 21h14" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

@@ -51,6 +51,7 @@
 - 비밀번호 강도 검사기 (`/password-strength/`)
 - 유니코드 꾸미기 글자 변환 (`/fancy-text/`)
 - 읽는 시간 계산기 (`/reading-time/`)
+- 텍스트 비교 (diff) (`/text-diff/`)
 
 ### 색상 · 디자인
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)

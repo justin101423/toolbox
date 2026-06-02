@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>텍스트 비교 (diff) — 두 글·코드의 차이를 색으로 표시 | 도구상자</title>
+<meta name="description" content="두 텍스트의 차이를 추가(초록)·삭제(빨강)로 표시하는 무료 diff 도구. 줄·단어·문자 단위, 인라인/나란히 보기, 공백·대소문자 무시 옵션 지원. 모든 비교는 브라우저에서 이뤄지며 입력 내용은 전송·저장되지 않습니다.">
+<link rel="canonical" href="https://dogubox.shop/text-diff/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="텍스트 비교 (diff) — 두 글·코드의 차이를 색으로 표시 | 도구상자">
+<meta property="og:description" content="두 텍스트의 차이를 추가(초록)·삭제(빨강)로 표시하는 무료 diff 도구. 줄·단어·문자 단위, 인라인/나란히 보기 지원. 입력 내용은 전송·저장되지 않습니다.">
+<meta property="og:url" content="https://dogubox.shop/text-diff/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="텍스트 비교 (diff) — 두 글·코드의 차이를 색으로 표시 | 도구상자">
+<meta name="twitter:description" content="두 텍스트의 차이를 색으로 표시하는 무료 diff 도구. 입력 내용은 전송·저장되지 않습니다.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "텍스트 비교 (diff)",
+  "description": "두 텍스트의 차이를 추가(초록)·삭제(빨강)로 표시하는 무료 diff 도구. 줄·단어·문자 단위, 인라인/나란히 보기, 공백·대소문자 무시 옵션 지원. 모든 비교는 브라우저에서 이뤄지며 입력 내용은 전송·저장되지 않습니다.",
+  "url": "https://dogubox.shop/text-diff/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 색깔은 각각 무엇을 뜻하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "추가된 부분은 초록색, 삭제되었거나 원본에만 있는 부분은 빨간색, 양쪽이 같은 부분은 기본 색으로 표시됩니다. 「인라인」 보기는 변화를 한 화면에 모아 보여 주고, 「나란히」 보기는 왼쪽에 원본, 오른쪽에 비교본을 줄을 맞춰 나란히 보여 줍니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 어떤 경우에 쓰면 좋나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "코드나 설정 파일의 두 버전 비교, 로그 파일의 변경점 찾기, 글의 초고와 수정본 비교, 번역·계약서 문구의 달라진 부분 확인 등에 두루 쓸 수 있습니다. 줄 단위는 전체 구조 비교에, 단어·문자 단위는 한 문장 안의 미세한 차이를 찾을 때 편리합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 붙여넣은 내용이 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 입력한 두 텍스트의 비교는 모두 사용자의 브라우저 안에서 이뤄지며, 내용은 어떤 서버로도 전송되거나 저장되지 않습니다. 민감한 코드나 문서도 외부 유출 걱정 없이 비교할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "텍스트 비교 (diff)",
+      "item": "https://dogubox.shop/text-diff/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<!-- jsdiff 5.2.0 (BSD-3-Clause, https://github.com/kpdecker/jsdiff) — 텍스트 차이 계산. 실측 SHA-384 SRI. -->
+<script src="https://cdn.jsdelivr.net/npm/diff@5.2.0/dist/diff.min.js" integrity="sha384-lJJVaUgxmk/PVfQnAsGN1QuJZrE+n6bg2EMu33yVZOJ2av/3UzTHbmnPCI7ENJYa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.diff-inputs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.diff-inputs textarea{width:100%;min-height:170px;font-family:var(--mono);font-size:13.5px;line-height:1.6;padding:11px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);resize:vertical;white-space:pre;overflow:auto}
+.diff-inputs textarea:focus{outline:none;border-color:var(--ink)}
+.diff-inputs label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:7px}
+.diff-opts{display:flex;gap:18px 22px;flex-wrap:wrap;align-items:center;margin:16px 0 4px}
+.diff-opts .grp{display:flex;align-items:center;gap:8px}
+.diff-opts .lbl{font-size:13px;color:var(--ink-3);font-weight:600}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:var(--r-sm);overflow:hidden}
+.seg button{padding:7px 13px;font-size:13px;font-weight:600;color:var(--ink-2);background:transparent;transition:background .15s,color .15s}
+.seg button.active{background:var(--ink);color:var(--paper)}
+.seg button:disabled{opacity:.38;cursor:not-allowed}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--ink-2);font-weight:600;cursor:pointer}
+.chk input{width:16px;height:16px;accent-color:var(--accent)}
+.diff-summary{font-size:13.5px;color:var(--ink-2);margin:18px 0 10px;font-weight:600}
+.diff-summary .add{color:#2e7d4f}
+.diff-summary .del{color:#df4324}
+.diff-out{font-family:var(--mono);font-size:13px;line-height:1.6;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper);max-height:540px;overflow:auto}
+.dl{display:flex;white-space:pre-wrap;word-break:break-word}
+.dl .sgn{flex:0 0 24px;text-align:center;color:var(--ink-3);user-select:none;padding:1px 0}
+.dl .txt{flex:1;padding:1px 10px 1px 4px}
+.dl.add{background:rgba(46,125,79,.16)}
+.dl.del{background:rgba(223,67,36,.15)}
+.dl.add .sgn{color:#2e7d4f}
+.dl.del .sgn{color:#df4324}
+.diff-inline{font-family:var(--mono);font-size:13.5px;line-height:1.75;white-space:pre-wrap;word-break:break-word;padding:14px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper);max-height:540px;overflow:auto}
+.diff-inline ins{background:rgba(46,125,79,.22);text-decoration:none;border-radius:2px}
+.diff-inline del{background:rgba(223,67,36,.22);text-decoration:line-through;border-radius:2px}
+.diff-cols{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper);max-height:540px;overflow:auto;font-family:var(--mono);font-size:13px;line-height:1.6}
+.diff-cols .dl{white-space:pre-wrap;word-break:break-word;padding:1px 8px}
+.diff-cols .dc-left{border-right:1px solid var(--line)}
+.dl.blank{background:var(--panel)}
+.diff-empty{padding:24px;text-align:center;color:var(--ink-3);font-size:14px}
+@media(max-width:640px){.diff-inputs{grid-template-columns:1fr}}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>텍스트 비교 (diff)</h1>
+      <p class="lede">두 텍스트를 붙여넣으면 달라진 부분을 <b>추가(초록)·삭제(빨강)</b>로 표시해 드립니다. 코드·로그·문서 버전 비교에 좋고, 입력 내용은 브라우저 안에서만 처리되어 전송·저장되지 않습니다.</p>
+
+      <div class="box">
+        <div class="diff-inputs">
+          <div>
+            <label for="ta-old">원본</label>
+            <textarea id="ta-old" spellcheck="false" placeholder="원본 텍스트를 붙여넣으세요"></textarea>
+          </div>
+          <div>
+            <label for="ta-new">비교본</label>
+            <textarea id="ta-new" spellcheck="false" placeholder="비교할 텍스트를 붙여넣으세요"></textarea>
+          </div>
+        </div>
+
+        <div class="diff-opts">
+          <div class="grp">
+            <span class="lbl">단위</span>
+            <div class="seg" id="seg-unit" role="group" aria-label="비교 단위">
+              <button type="button" data-unit="line" class="active">줄</button>
+              <button type="button" data-unit="word">단어</button>
+              <button type="button" data-unit="char">문자</button>
+            </div>
+          </div>
+          <div class="grp">
+            <span class="lbl">보기</span>
+            <div class="seg" id="seg-view" role="group" aria-label="보기 방식">
+              <button type="button" data-view="inline" class="active">인라인</button>
+              <button type="button" data-view="side">나란히</button>
+            </div>
+          </div>
+          <label class="chk"><input type="checkbox" id="opt-ws"> 공백 무시</label>
+          <label class="chk"><input type="checkbox" id="opt-case"> 대소문자 무시</label>
+        </div>
+
+        <div class="diff-summary" id="diff-summary"></div>
+        <div id="diff-result"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>왼쪽 <b>원본</b>과 오른쪽 <b>비교본</b> 칸에 비교할 두 텍스트를 붙여넣습니다.</li>
+          <li>비교 단위(줄·단어·문자)와 보기 방식(인라인·나란히)을 고릅니다. 입력·설정을 바꾸면 결과가 즉시 갱신됩니다.</li>
+          <li>들여쓰기나 대소문자 차이를 무시하려면 <b>공백 무시</b>·<b>대소문자 무시</b>를 켭니다.</li>
+          <li>아래 결과에서 초록(추가)·빨강(삭제) 색으로 달라진 부분과 추가/삭제 줄 수 요약을 확인합니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>단위를 바꿔 가며 보세요:</b> 줄 단위로 전체 구조의 변화를 먼저 본 뒤, 미세하게 바뀐 줄은 단어·문자 단위로 다시 보면 정확히 어느 글자가 달라졌는지까지 짚어 줍니다.</li>
+          <li><b>공백·대소문자 무시 활용:</b> 들여쓰기나 줄 끝 공백, 대소문자만 다른 경우에는 옵션을 켜서 의미 있는 변경만 추려 볼 수 있어 코드 리뷰에 유용합니다.</li>
+          <li><b>나란히 보기로 공유:</b> 변경 이력을 동료에게 전달할 때 나란히 보기로 화면을 캡처하면 원본과 수정본을 한눈에 보여 줄 수 있습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 색깔은 각각 무엇을 뜻하나요?</b><p>추가된 부분은 초록색, 삭제되었거나 원본에만 있는 부분은 빨간색, 양쪽이 같은 부분은 기본 색으로 표시됩니다. 「인라인」 보기는 변화를 한 화면에 모아 보여 주고, 「나란히」 보기는 왼쪽에 원본, 오른쪽에 비교본을 줄을 맞춰 나란히 보여 줍니다.</p></div>
+          <div class="qa"><b>Q. 어떤 경우에 쓰면 좋나요?</b><p>코드나 설정 파일의 두 버전 비교, 로그 파일의 변경점 찾기, 글의 초고와 수정본 비교, 번역·계약서 문구의 달라진 부분 확인 등에 두루 쓸 수 있습니다. 줄 단위는 전체 구조 비교에, 단어·문자 단위는 한 문장 안의 미세한 차이를 찾을 때 편리합니다.</p></div>
+          <div class="qa"><b>Q. 붙여넣은 내용이 서버로 전송되나요?</b><p>아니요. 입력한 두 텍스트의 비교는 모두 사용자의 브라우저 안에서 이뤄지며, 내용은 어떤 서버로도 전송되거나 저장되지 않습니다. 민감한 코드나 문서도 외부 유출 걱정 없이 비교할 수 있습니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var taOld=$('ta-old'), taNew=$('ta-new');
+  var summary=$('diff-summary'), result=$('diff-result');
+  var unit='line', view='inline';
+
+  // 데모용 초기 예시
+  taOld.value="도구상자는 무료 온라인 도구 모음입니다.\n모든 처리는 서버에서 이뤄집니다.\n빠르고 간편합니다.";
+  taNew.value="도구상자는 무료 온라인 도구 모음입니다.\n모든 처리는 브라우저에서 이뤄집니다.\n빠르고 안전하고 간편합니다.";
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  // 줄 배열로: jsdiff value는 보통 끝에 \n 이 붙으므로 마지막 빈 항목 제거
+  function splitLines(v){ var a=v.split('\n'); if(a.length>1 && a[a.length-1]==='') a.pop(); return a; }
+  function opts(){
+    var o={};
+    if($('opt-ws').checked) o.ignoreWhitespace=true;
+    if($('opt-case').checked) o.ignoreCase=true;
+    return o;
+  }
+
+  function renderLineInline(parts){
+    var add=0, del=0, html='';
+    for(var i=0;i<parts.length;i++){
+      var p=parts[i];
+      var cls=p.added?'add':(p.removed?'del':'eq');
+      var sgn=p.added?'+':(p.removed?'-':' ');
+      var lines=splitLines(p.value);
+      if(p.added) add+=lines.length; else if(p.removed) del+=lines.length;
+      for(var j=0;j<lines.length;j++){
+        html+='<div class="dl '+cls+'"><span class="sgn">'+sgn+'</span><span class="txt">'+esc(lines[j])+'</span></div>';
+      }
+    }
+    setSummary(add,del,'줄');
+    result.innerHTML='<div class="diff-out">'+html+'</div>';
+  }
+
+  function renderPartInline(parts){
+    var add=0, del=0, html='';
+    for(var i=0;i<parts.length;i++){
+      var p=parts[i], t=esc(p.value);
+      if(p.added){ html+='<ins>'+t+'</ins>'; add+=p.value.length; }
+      else if(p.removed){ html+='<del>'+t+'</del>'; del+=p.value.length; }
+      else html+='<span>'+t+'</span>';
+    }
+    setSummary(add,del,'자');
+    result.innerHTML='<div class="diff-inline">'+html+'</div>';
+  }
+
+  function renderSide(parts){
+    var rows=[]; // {l,lc,r,rc}
+    function push(l,lc,r,rc){ rows.push({l:l,lc:lc,r:r,rc:rc}); }
+    var add=0, del=0;
+    for(var i=0;i<parts.length;i++){
+      var p=parts[i];
+      if(!p.added && !p.removed){
+        var eq=splitLines(p.value);
+        for(var e=0;e<eq.length;e++) push(eq[e],'eq',eq[e],'eq');
+      } else if(p.removed){
+        var rem=splitLines(p.value);
+        if(i+1<parts.length && parts[i+1].added){
+          var addl=splitLines(parts[i+1].value); i++;
+          var mx=Math.max(rem.length,addl.length);
+          for(var k=0;k<mx;k++){
+            var lh=k<rem.length, rh=k<addl.length;
+            push(lh?rem[k]:'', lh?'del':'blank', rh?addl[k]:'', rh?'add':'blank');
+            if(lh) del++; if(rh) add++;
+          }
+        } else {
+          for(var d=0;d<rem.length;d++){ push(rem[d],'del','','blank'); del++; }
+        }
+      } else if(p.added){
+        var ad=splitLines(p.value);
+        for(var a=0;a<ad.length;a++){ push('','blank',ad[a],'add'); add++; }
+      }
+    }
+    var html='';
+    for(var r=0;r<rows.length;r++){
+      var row=rows[r];
+      html+='<div class="dl dc-left '+row.lc+'"><span class="txt">'+esc(row.l)+'</span></div>';
+      html+='<div class="dl '+row.rc+'"><span class="txt">'+esc(row.r)+'</span></div>';
+    }
+    setSummary(add,del,'줄');
+    result.innerHTML='<div class="diff-cols">'+html+'</div>';
+  }
+
+  function setSummary(add,del,unitWord){
+    summary.innerHTML='<span class="add">+ 추가 '+add+unitWord+'</span> &nbsp;·&nbsp; <span class="del">− 삭제 '+del+unitWord+'</span>';
+  }
+
+  function run(){
+    if(typeof Diff==='undefined'){
+      result.innerHTML='<div class="diff-empty">비교 라이브러리를 불러오지 못했습니다. 네트워크 상태를 확인하고 새로고침해 주세요.</div>';
+      return;
+    }
+    var o=taOld.value, n=taNew.value;
+    if(o==='' && n===''){
+      summary.innerHTML='';
+      result.innerHTML='<div class="diff-empty">두 칸에 비교할 텍스트를 입력하세요.</div>';
+      return;
+    }
+    var op=opts();
+    if(view==='side'){ // 나란히는 항상 줄 기준 정렬
+      renderSide(Diff.diffLines(o,n,op));
+    } else if(unit==='line'){
+      renderLineInline(Diff.diffLines(o,n,op));
+    } else if(unit==='word'){
+      renderPartInline(Diff.diffWords(o,n,op));
+    } else {
+      renderPartInline(Diff.diffChars(o,n,op));
+    }
+  }
+
+  // 나란히 보기는 줄 단위에서만 의미가 있어, 단어/문자일 때 비활성화
+  function syncViewAvailability(){
+    var sideBtn=document.querySelector('#seg-view button[data-view="side"]');
+    var lineOnly=(unit!=='line');
+    sideBtn.disabled=lineOnly;
+    if(lineOnly && view==='side'){
+      view='inline';
+      var btns=document.querySelectorAll('#seg-view button');
+      for(var i=0;i<btns.length;i++) btns[i].classList.toggle('active',btns[i].dataset.view==='inline');
+    }
+  }
+
+  $('seg-unit').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-unit]'); if(!b) return;
+    unit=b.dataset.unit;
+    var btns=this.querySelectorAll('button');
+    for(var i=0;i<btns.length;i++) btns[i].classList.toggle('active',btns[i]===b);
+    syncViewAvailability(); run();
+  });
+  $('seg-view').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-view]'); if(!b || b.disabled) return;
+    view=b.dataset.view;
+    var btns=this.querySelectorAll('button');
+    for(var i=0;i<btns.length;i++) btns[i].classList.toggle('active',btns[i]===b);
+    run();
+  });
+
+  var deb=null;
+  function onInput(){ clearTimeout(deb); deb=setTimeout(run,220); }
+  taOld.addEventListener('input',onInput);
+  taNew.addEventListener('input',onInput);
+  $('opt-ws').addEventListener('change',run);
+  $('opt-case').addEventListener('change',run);
+
+  syncViewAvailability();
+  run();
+})();
+</script>
+</html>
