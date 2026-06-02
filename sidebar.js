@@ -253,9 +253,9 @@
       var st = document.createElement("style");
       st.id = "dgb-icon-style";
       st.textContent = ".navlink .ic svg{width:18px;height:18px;display:block}.card .ic svg{width:22px;height:22px;display:block}" +
-        ".dgb-fav-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;padding:6px;margin-right:2px;border-radius:8px;color:inherit;-webkit-tap-highlight-color:transparent}" +
-        ".dgb-fav-btn svg{width:22px;height:22px;display:block}" +
-        ".dgb-fav-btn:hover{background:rgba(127,127,127,.14)}" +
+        ".dgb-fav-btn,.dgb-wb-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;padding:6px;margin-right:2px;border-radius:8px;color:inherit;-webkit-tap-highlight-color:transparent}" +
+        ".dgb-fav-btn svg,.dgb-wb-btn svg{width:22px;height:22px;display:block}" +
+        ".dgb-fav-btn:hover,.dgb-wb-btn:hover{background:rgba(127,127,127,.14)}" +
         ".quick-links .ql-hint{font-size:12px;color:var(--ink-3);width:100%;margin-top:2px}";
       (document.head || document.documentElement).appendChild(st);
     }
@@ -395,6 +395,62 @@
     } catch (e) {}
   }
 
+  // ------------------------------------------------------------------
+  // 작업대(workbench) / embed 모드
+  //  - embed 모드: 도구 URL에 ?embed=1 이 있으면 사이드바·상단바·푸터·크럼·
+  //    콘텐츠 설명을 숨겨 도구 UI만 보이게 하고, 애드센스 광고 출력을 차단한다.
+  //    (작업대의 분할 패널 iframe에서 사용. 100개 도구 페이지는 직접 수정하지 않음)
+  //  - 작업대 버튼: 도구·허브 등 일반 페이지 topbar(다크모드 토글 옆)에 주입.
+  //  전부 try/catch로 감싸 실패해도 기존 기능이 깨지지 않는다.
+  // ------------------------------------------------------------------
+  function isEmbed() {
+    try { return /[?&]embed=1(?:&|$)/.test(location.search); } catch (e) { return false; }
+  }
+  function applyEmbed() {
+    try { if (document.body) document.body.classList.add("dgb-embed"); } catch (e) {}
+    // 광고 차단: 푸시 큐 무력화 + 아직 실행 안 된 애드센스 스크립트 제거(베스트에포트)
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push = function () {};
+      var s = document.querySelector('script[src*="adsbygoogle"]');
+      if (s && s.parentNode) s.parentNode.removeChild(s);
+    } catch (e) {}
+    // 광고 출력/크롬 숨김 CSS 주입(시각적 확실 차단). tool-page.css는 건드리지 않음.
+    try {
+      if (!document.getElementById("dgb-embed-style")) {
+        var st = document.createElement("style");
+        st.id = "dgb-embed-style";
+        st.textContent =
+          "body.dgb-embed .topbar,body.dgb-embed footer,body.dgb-embed .side,body.dgb-embed #sidebar,body.dgb-embed .crumb,body.dgb-embed .content{display:none!important}" +
+          "body.dgb-embed .app{display:block!important}" +
+          "body.dgb-embed .main{padding:0!important}" +
+          "body.dgb-embed .inner{margin:0!important;max-width:none!important;padding:14px!important;animation:none!important}" +
+          "ins.adsbygoogle,.adsbygoogle,.google-auto-placed,ins[data-ad-client],iframe[id^=\"aswift_\"],iframe[name^=\"aswift_\"]{display:none!important;height:0!important;width:0!important}";
+        (document.head || document.documentElement).appendChild(st);
+      }
+    } catch (e) {}
+  }
+
+  // 작업대 진입 버튼 주입 (일반 페이지 전용; embed·작업대 자신에는 주입 안 함)
+  function injectWorkbenchButton() {
+    try {
+      if (currentSlug() === "workbench") return;
+      var bar = document.querySelector(".topbar");
+      if (!bar || document.getElementById("dgb-wb-btn")) return;
+      var toggle = document.getElementById("darkModeToggle");
+      var btn = document.createElement("button");
+      btn.id = "dgb-wb-btn";
+      btn.type = "button";
+      btn.className = "dgb-wb-btn";
+      btn.setAttribute("aria-label", "작업대");
+      btn.setAttribute("title", "작업대 — 도구 여러 개를 한 화면에");
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>';
+      btn.addEventListener("click", function () { try { location.href = "/workbench/"; } catch (e) {} });
+      if (toggle && toggle.parentNode) toggle.parentNode.insertBefore(btn, toggle);
+      else bar.appendChild(btn);
+    } catch (e) {}
+  }
+
   function render() {
     var host = document.getElementById("sidebar");
     if (!host) return;
@@ -437,8 +493,10 @@
   }
 
   function boot() {
+    if (isEmbed()) { try { applyEmbed(); } catch (e) {} return; }  // 패널 iframe: 크롬·광고 숨김 후 종료
     render();
     applyIcons();
+    try { injectWorkbenchButton(); } catch (e) {} // topbar 작업대 버튼
     try { injectStarButton(); } catch (e) {}   // 도구 페이지 topbar 별 버튼
     try { renderFavShortcuts(); } catch (e) {}  // 허브 #fav-shortcuts 채우기
     var host = document.getElementById("sidebar");
@@ -453,6 +511,16 @@
     // 이동/탭 전환 직전 한 번 더 확정 저장(스크롤 이벤트 누락 대비)
     window.addEventListener("pagehide", function () { saveScroll(host); });
   }
+
+  // 작업대 페이지(및 기타)가 도구 데이터를 재사용할 수 있게 최소 API를 노출(단일 출처).
+  try {
+    window.dgbToolbox = {
+      CATEGORIES: CATEGORIES,
+      getFavs: getFavs,
+      findTool: findTool,
+      iconHtml: iconHtml
+    };
+  } catch (e) {}
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);

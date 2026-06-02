@@ -45,12 +45,17 @@ toolbox/
 ├── tool-page.css       # 공통 스타일시트 (최신 도구 페이지가 참조)
 ├── theme.css           # 다크모드 스타일
 ├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어)
-├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처)
+├── sidebar.js          # ★ 공통 사이드바 + 전체 도구 데이터(단일 출처) + 즐겨찾기(★) + embed 모드 + 작업대 버튼
+├── workbench/index.html # ★ 작업대(workbench): 도구 2~3개를 분할 패널(iframe)로 동시 사용 — 도구 아님(개수 제외)
 └── <슬러그>/index.html  # 각 도구 = 독립 페이지(독립 URL, SEO 목적)
 ```
 
 - 각 도구는 `/<슬러그>/index.html` 형태의 독립 페이지입니다. 독립 URL을 가져 SEO에 유리합니다(예: `https://dogubox.shop/word-counter/`).
 - 빌드 도구·번들러·패키지 매니저가 없습니다. 순수 HTML/CSS/JS이며 푸시 즉시 반영됩니다.
+- **공통 UX 기능(도구 아님, 개수 정합성과 무관)**:
+  - **즐겨찾기(★)**: `sidebar.js`가 도구 페이지 topbar에 별 버튼을 주입(localStorage `dgb-favorites`에 슬러그 배열만 저장, 이름·아이콘은 `CATEGORIES`에서 조회). 사이드바 최상단 `⭐ 즐겨찾기` 그룹 + 허브 `#fav-shortcuts` 바로가기에 반영.
+  - **작업대(`/workbench/`)**: 도구 2~3개를 한 화면 분할 패널에서 동시에 사용. 각 패널은 `/<슬러그>/?embed=1` iframe으로 도구를 재사용(도구 페이지 리팩터·수정 없음). 구성은 `?tools=슬러그,슬러그` URL로 공유·복원. 픽커/즐겨찾기 데이터는 `window.dgbToolbox`로 `CATEGORIES`를 재사용(단일 출처). **작업대는 도구가 아니므로** `CATEGORIES`·허브 카드·도구 개수(100)에 넣지 않는다(sitemap엔 `privacy.html`처럼 페이지로만 포함).
+  - **embed 모드(`?embed=1`)**: `sidebar.js`가 상단바·사이드바·푸터·크럼·콘텐츠 설명을 숨겨 도구 UI만 노출하고, **애드센스 광고 출력을 차단**(push 큐 무력화 + 스크립트 제거 시도 + 출력 CSS 숨김). 일반(비embed) 페이지 광고는 그대로 유지. 100개 도구 페이지는 직접 수정하지 않음.
 
 ## 4. 현재 존재하는 모든 도구 목록
 

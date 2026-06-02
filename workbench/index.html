@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>작업대 — 도구 여러 개를 한 화면에 (분할 작업) | 도구상자</title>
+<meta name="description" content="도구상자의 도구 2~3개를 한 화면 분할 패널에서 동시에 사용하는 작업대. 구성은 URL로 공유·북마크할 수 있고, 모든 처리는 브라우저 안에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/workbench/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="작업대 — 도구 여러 개를 한 화면에 | 도구상자">
+<meta property="og:description" content="도구 2~3개를 한 화면 분할 패널에서 동시에 사용하는 작업대. 구성은 URL로 공유할 수 있습니다.">
+<meta property="og:url" content="https://dogubox.shop/workbench/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="작업대 — 도구 여러 개를 한 화면에 | 도구상자">
+<meta name="twitter:description" content="도구 2~3개를 한 화면에서 동시에 쓰는 작업대.">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.wb-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0 12px}
+.wb-seg{display:inline-flex;border:1px solid var(--line-2);border-radius:var(--r-sm);overflow:hidden}
+.wb-seg button{padding:8px 16px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:transparent}
+.wb-seg button.active{background:var(--ink);color:var(--paper)}
+.wb-hint{font-size:12.5px;color:var(--ink-3)}
+.wb-tabs{display:none;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.wb-tabs button{flex:1;min-width:90px;padding:9px 8px;font-size:13px;font-weight:600;color:var(--ink-2);background:var(--paper);border:1px solid var(--line-2);border-radius:var(--r-sm);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wb-tabs button.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.wb-panels{display:flex;gap:12px;min-height:560px}
+.wb-panel{flex:1 1 0;min-width:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--card)}
+.wb-phead{display:flex;align-items:center;gap:6px;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--panel)}
+.wb-phead .nm{flex:1;min-width:0;font-size:13px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wb-phead button{padding:5px 9px;font-size:12px;border:1px solid var(--line-2);border-radius:6px;background:var(--card);color:var(--ink-2);cursor:pointer}
+.wb-phead button:hover{border-color:var(--ink);color:var(--ink)}
+.wb-body{flex:1;position:relative;background:var(--paper)}
+.wb-body iframe{width:100%;height:100%;border:0;display:block}
+.wb-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink-3);font-size:14px}
+.wb-empty button{padding:11px 18px;font-size:14px;font-weight:600;border:1px dashed var(--line-2);border-radius:var(--r-sm);background:transparent;color:var(--ink-2);cursor:pointer}
+.wb-empty button:hover{border-color:var(--ink);color:var(--ink)}
+/* 픽커 모달 */
+.wb-modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-start;justify-content:center;z-index:120;padding:40px 14px}
+.wb-modal.open{display:flex}
+.wb-modal-in{background:var(--card);border:1px solid var(--line);border-radius:var(--r);width:100%;max-width:580px;max-height:82vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.25)}
+.wb-modal-head{padding:14px 14px 12px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center}
+.wb-search{flex:1;font-size:14px;padding:10px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.wb-search:focus{outline:none;border-color:var(--ink)}
+.wb-close{flex:0 0 auto;width:36px;height:36px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink-2);cursor:pointer;font-size:18px}
+.wb-list{overflow:auto;padding:8px 8px 14px}
+.wb-grp .wb-kick{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--ink-3);text-transform:uppercase;padding:12px 8px 6px}
+.wb-item{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:9px 10px;border:0;border-radius:var(--r-sm);background:transparent;color:var(--ink);cursor:pointer;font-size:14px}
+.wb-item:hover{background:var(--panel)}
+.wb-item .ic{flex:0 0 auto;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;color:var(--ink-2)}
+.wb-item .ic svg{width:18px;height:18px;display:block}
+.wb-empty-search{padding:24px;text-align:center;color:var(--ink-3);font-size:14px}
+@media(max-width:780px){
+  .wb-tabs{display:flex}
+  .wb-panels{display:block;min-height:0}
+  .wb-panel{display:none;height:72vh;margin-bottom:0}
+  .wb-panel.active{display:flex}
+}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>작업대</h1>
+      <p class="lede">도구 2~3개를 한 화면에 나란히 놓고 동시에 사용하세요. 각 패널은 해당 도구 페이지를 그대로 띄웁니다. 현재 구성은 주소(URL)에 저장돼 공유·북마크할 수 있습니다.</p>
+
+      <div class="wb-controls">
+        <span class="wb-hint">분할</span>
+        <div class="wb-seg" id="splitSeg">
+          <button type="button" data-n="2">2분할</button>
+          <button type="button" data-n="3">3분할</button>
+        </div>
+        <span class="wb-hint" id="shareHint">패널에서 도구를 고르면 주소가 자동 갱신됩니다 (복사해서 공유)</span>
+      </div>
+
+      <div class="wb-tabs" id="tabs"></div>
+      <div class="wb-panels" id="panels"></div>
+
+      <div id="fallback" style="display:none;color:#df4324;font-size:14px;margin-top:10px"></div>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<!-- 픽커 모달 -->
+<div class="wb-modal" id="modal">
+  <div class="wb-modal-in">
+    <div class="wb-modal-head">
+      <input type="text" class="wb-search" id="search" placeholder="도구 검색 — 예: 이미지, qr, 압축" autocomplete="off">
+      <button type="button" class="wb-close" id="closeModal" aria-label="닫기">×</button>
+    </div>
+    <div class="wb-list" id="list"></div>
+  </div>
+</div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var WB=null;
+  try{ WB=window.dgbToolbox; }catch(e){}
+  if(!WB || !WB.CATEGORIES){ try{ $('fallback').style.display='block'; $('fallback').textContent='도구 데이터를 불러오지 못했습니다. 새로고침 후 다시 시도해 주세요.'; }catch(e){} return; }
+
+  var state={ count:2, tools:[null,null], active:0, pickFor:0 };
+
+  function validSlug(s){ try{ return !!WB.findTool(s); }catch(e){ return false; } }
+  function toolName(s){ var t=WB.findTool(s); return t?t.name:s; }
+
+  function parseURL(){
+    try{
+      var m=/[?&]tools=([^&]*)/.exec(location.search);
+      if(!m) return;
+      var arr=decodeURIComponent(m[1]).split(',').map(function(x){return x.trim();});
+      var valid=[];
+      for(var i=0;i<arr.length && valid.length<3;i++){ if(arr[i] && validSlug(arr[i])) valid.push(arr[i]); else if(arr[i]==='') valid.push(null); }
+      // 길이 결정: 유효 항목 기준(2~3)
+      var cnt=Math.min(3,Math.max(2,arr.length));
+      state.count=cnt;
+      state.tools=[]; for(var j=0;j<cnt;j++){ var v=arr[j]; state.tools.push(v&&validSlug(v)?v:null); }
+    }catch(e){}
+  }
+  function updateURL(){
+    try{
+      var qs=state.tools.map(function(s){return s||'';}).join(',');
+      var url=location.pathname+'?tools='+encodeURIComponent(qs);
+      history.replaceState(null,'',url);
+    }catch(e){}
+  }
+
+  function setCount(n){
+    n=n===3?3:2;
+    if(n>state.count){ while(state.tools.length<n) state.tools.push(null); }
+    else { state.tools=state.tools.slice(0,n); if(state.active>=n) state.active=0; }
+    state.count=n;
+    render(); updateURL();
+  }
+
+  function render(){
+    // 분할 세그 active
+    var segBtns=$('splitSeg').querySelectorAll('button');
+    for(var i=0;i<segBtns.length;i++) segBtns[i].classList.toggle('active', +segBtns[i].dataset.n===state.count);
+    // 탭(모바일)
+    var tabsHtml='';
+    for(var t=0;t<state.count;t++){ var nm=state.tools[t]?esc(toolName(state.tools[t])):'패널 '+(t+1); tabsHtml+='<button type="button" data-t="'+t+'"'+(t===state.active?' class="active"':'')+'>'+nm+'</button>'; }
+    $('tabs').innerHTML=tabsHtml;
+    // 패널
+    var html='';
+    for(var p=0;p<state.count;p++){
+      var slug=state.tools[p], cls='wb-panel'+(p===state.active?' active':'');
+      var head='<div class="wb-phead"><span class="nm">'+(slug?esc(toolName(slug)):'패널 '+(p+1))+'</span>'+
+        '<button type="button" data-act="pick" data-i="'+p+'">'+(slug?'교체':'도구 선택')+'</button>'+
+        (slug?'<button type="button" data-act="clear" data-i="'+p+'">비우기</button>':'')+'</div>';
+      var body;
+      if(slug){ body='<div class="wb-body"><iframe src="/'+encodeURIComponent(slug)+'/?embed=1" loading="lazy" title="'+esc(toolName(slug))+'"></iframe></div>'; }
+      else { body='<div class="wb-body"><div class="wb-empty"><div>이 패널은 비어 있습니다</div><button type="button" data-act="pick" data-i="'+p+'">＋ 도구 선택</button></div></div>'; }
+      html+='<div class="'+cls+'">'+head+body+'</div>';
+    }
+    $('panels').innerHTML=html;
+  }
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  /* 픽커 모달 */
+  function openPicker(i){ state.pickFor=i; $('search').value=''; buildList(''); $('modal').classList.add('open'); setTimeout(function(){ try{$('search').focus();}catch(e){} },50); }
+  function closePicker(){ $('modal').classList.remove('open'); }
+  function buildList(q){
+    q=(q||'').trim().toLowerCase();
+    var html='';
+    function matches(t){ return !q || t.name.toLowerCase().indexOf(q)>=0 || t.slug.toLowerCase().indexOf(q)>=0; }
+    function itemHtml(t){ var ic=''; try{ ic=WB.iconHtml(t.icon); }catch(e){ ic=''; } return '<button type="button" class="wb-item" data-slug="'+t.slug+'"><span class="ic">'+ic+'</span><span>'+esc(t.name)+'</span></button>'; }
+    // 즐겨찾기 그룹
+    try{
+      var favs=WB.getFavs(), favItems='';
+      for(var f=0;f<favs.length;f++){ var ft=WB.findTool(favs[f]); if(ft&&matches(ft)) favItems+=itemHtml(ft); }
+      if(favItems) html+='<div class="wb-grp"><div class="wb-kick">⭐ 즐겨찾기</div>'+favItems+'</div>';
+    }catch(e){}
+    // 카테고리
+    var cats=WB.CATEGORIES;
+    for(var c=0;c<cats.length;c++){
+      var items='';
+      for(var j=0;j<cats[c].tools.length;j++){ var tt=cats[c].tools[j]; if(matches(tt)) items+=itemHtml(tt); }
+      if(items) html+='<div class="wb-grp"><div class="wb-kick">'+esc(cats[c].label)+'</div>'+items+'</div>';
+    }
+    $('list').innerHTML=html||'<div class="wb-empty-search">검색 결과가 없습니다.</div>';
+  }
+
+  /* 이벤트 */
+  $('splitSeg').addEventListener('click',function(e){ var b=e.target.closest('button[data-n]'); if(b) setCount(+b.dataset.n); });
+  $('tabs').addEventListener('click',function(e){ var b=e.target.closest('button[data-t]'); if(!b) return; state.active=+b.dataset.t; render(); });
+  $('panels').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-act]'); if(!b) return;
+    var i=+b.dataset.i;
+    if(b.dataset.act==='pick') openPicker(i);
+    else if(b.dataset.act==='clear'){ state.tools[i]=null; render(); updateURL(); }
+  });
+  $('list').addEventListener('click',function(e){ var b=e.target.closest('button[data-slug]'); if(!b) return; state.tools[state.pickFor]=b.dataset.slug; state.active=state.pickFor; closePicker(); render(); updateURL(); });
+  $('search').addEventListener('input',function(){ buildList(this.value); });
+  $('closeModal').addEventListener('click',closePicker);
+  $('modal').addEventListener('click',function(e){ if(e.target===this) closePicker(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closePicker(); });
+
+  parseURL();
+  render();
+  updateURL();
+})();
+</script>
+</html>
