@@ -78,6 +78,7 @@
 - BMI 계산기 (`/bmi-calculator/`)
 - 사다리타기 (`/ladder-game/`)
 - 음력 ↔ 양력 변환 (`/lunar-solar-converter/`)
+- 타자 속도 측정 (`/typing-speed/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
