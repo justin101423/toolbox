@@ -54,9 +54,9 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 89개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 95개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
-### 이미지 · PDF (22)
+### 이미지 · PDF (25)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -81,6 +81,9 @@ toolbox/
 | image-blur | 이미지 모자이크·블러 |
 | meme-generator | 밈·짤 생성기 |
 | pdf-to-text | PDF → 텍스트 추출 |
+| image-adjust | 이미지 밝기·대비·채도 조절 |
+| image-base64 | 이미지 ↔ Base64 |
+| pdf-watermark | PDF 워터마크 |
 
 ### 텍스트 · 생성 (21)
 | 슬러그 | 이름 |
@@ -107,7 +110,7 @@ toolbox/
 | tts | 텍스트 → 음성 (TTS) |
 | romanizer | 한글 → 로마자 변환 |
 
-### 색상 · 디자인 (10)
+### 색상 · 디자인 (12)
 | 슬러그 | 이름 |
 |---|---|
 | hex-rgb-converter | HEX ↔ RGB 변환 |
@@ -120,8 +123,10 @@ toolbox/
 | box-shadow-generator | 그림자(box-shadow) 생성기 |
 | border-radius-generator | 테두리 둥글기 생성기 |
 | css-unit-converter | CSS 단위 변환 (px↔rem↔em) |
+| color-blindness | 색맹·색약 시뮬레이터 |
+| cubic-bezier | cubic-bezier 이징 생성기 |
 
-### 생활 · 편의 (15)
+### 생활 · 편의 (16)
 | 슬러그 | 이름 |
 |---|---|
 | dday-calculator | D-Day · 날짜 계산 |
@@ -139,6 +144,7 @@ toolbox/
 | ladder-game | 사다리타기 |
 | lunar-solar-converter | 음력 ↔ 양력 변환 |
 | typing-speed | 타자 속도 측정 |
+| calculator | 계산기 (일반·공학용) |
 
 ### 직장인 · 생산성 (4)
 | 슬러그 | 이름 |

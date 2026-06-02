@@ -39,6 +39,9 @@
 - 이미지 모자이크·블러 (`/image-blur/`)
 - 밈·짤 생성기 (`/meme-generator/`)
 - PDF → 텍스트 추출 (`/pdf-to-text/`)
+- 이미지 밝기·대비·채도 조절 (`/image-adjust/`)
+- 이미지 ↔ Base64 (`/image-base64/`)
+- PDF 워터마크 (`/pdf-watermark/`)
 
 ### 텍스트 · 생성
 - 글자수 세기 (`/word-counter/`)
@@ -74,6 +77,8 @@
 - 그림자(box-shadow) 생성기 (`/box-shadow-generator/`)
 - 테두리 둥글기 생성기 (`/border-radius-generator/`)
 - CSS 단위 변환 (px↔rem↔em) (`/css-unit-converter/`)
+- 색맹·색약 시뮬레이터 (`/color-blindness/`)
+- cubic-bezier 이징 생성기 (`/cubic-bezier/`)
 
 ### 생활 · 편의
 - D-Day · 날짜 계산 (`/dday-calculator/`)
@@ -91,6 +96,7 @@
 - 사다리타기 (`/ladder-game/`)
 - 음력 ↔ 양력 변환 (`/lunar-solar-converter/`)
 - 타자 속도 측정 (`/typing-speed/`)
+- 계산기 (일반·공학용) (`/calculator/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)

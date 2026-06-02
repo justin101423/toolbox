@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>이미지 ↔ Base64 변환 — data URI 인코딩·디코딩 | 도구상자</title>
+<meta name="description" content="이미지를 Base64 data URI로 변환하거나, Base64 문자열을 이미지로 되돌려 미리보기·저장하는 무료 도구. CSS·HTML 인라인 삽입에 유용합니다. 모든 변환은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/image-base64/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="이미지 ↔ Base64 변환 — data URI 인코딩·디코딩 | 도구상자">
+<meta property="og:description" content="이미지를 Base64 data URI로 변환하거나 Base64를 이미지로 되돌리는 무료 도구. 모든 변환은 브라우저에서 이뤄집니다.">
+<meta property="og:url" content="https://dogubox.shop/image-base64/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="이미지 ↔ Base64 변환 — data URI 인코딩·디코딩 | 도구상자">
+<meta name="twitter:description" content="이미지를 Base64로, Base64를 이미지로 변환하는 무료 도구.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "이미지 ↔ Base64 변환",
+  "description": "이미지를 Base64 data URI로 변환하거나, Base64 문자열을 이미지로 되돌려 미리보기·저장하는 무료 도구. CSS·HTML 인라인 삽입에 유용합니다. 모든 변환은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/image-base64/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 이미지를 Base64로 만들면 어디에 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 data URI는 이미지를 별도 파일 없이 코드 안에 글자로 직접 넣을 수 있게 해 줍니다. CSS의 background-image나 HTML의 img src에 그대로 붙이면 외부 파일 요청 없이 작은 아이콘·로고를 표시할 수 있어, 요청 수를 줄이거나 단일 파일로 배포할 때 유용합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 변환하면 파일 크기가 커지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Base64로 인코딩하면 원본보다 약 33% 정도 용량이 커집니다. 그래서 작은 아이콘이나 로고에는 적합하지만, 큰 사진을 Base64로 넣으면 코드가 지나치게 길어지고 느려질 수 있습니다. 큰 이미지는 일반 파일로 두는 편이 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이미지나 입력한 문자열이 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 인코딩과 디코딩 모두 사용자의 브라우저 안에서 이뤄지며, 이미지나 Base64 문자열은 서버로 전송되거나 저장되지 않습니다. 민감한 이미지도 안심하고 변환할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "이미지 ↔ Base64 변환", "item": "https://dogubox.shop/image-base64/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.b64-seg{display:inline-flex;border:1px solid var(--line-2);border-radius:var(--r-sm);overflow:hidden;margin-bottom:16px}
+.b64-seg button{padding:9px 16px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:transparent}
+.b64-seg button.active{background:var(--ink);color:var(--paper)}
+.b64-drop{border:2px dashed var(--line-2);border-radius:var(--r-sm);padding:30px 16px;text-align:center;color:var(--ink-3);cursor:pointer}
+.b64-drop:hover,.b64-drop.over{border-color:var(--ink);background:var(--panel)}
+.b64-out{width:100%;min-height:160px;margin-top:14px;font-family:var(--mono);font-size:12px;line-height:1.5;padding:12px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);resize:vertical;word-break:break-all;white-space:pre-wrap}
+.b64-prev{text-align:center;margin-top:14px}
+.b64-prev img{max-width:100%;max-height:300px;border:1px solid var(--line);border-radius:var(--r-sm)}
+.b64-info{font-size:13px;color:var(--ink-3);margin-top:10px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>이미지 ↔ Base64 변환</h1>
+      <p class="lede">이미지를 Base64 data URI로 인코딩하거나, Base64 문자열을 이미지로 되돌립니다. CSS·HTML 인라인 삽입에 유용하며, 변환은 브라우저 안에서만 이뤄집니다.</p>
+
+      <div class="box">
+        <div class="b64-seg" id="seg">
+          <button type="button" data-m="enc" class="active">이미지 → Base64</button>
+          <button type="button" data-m="dec">Base64 → 이미지</button>
+        </div>
+
+        <div id="panel-enc">
+          <div class="b64-drop" id="drop">
+            <div style="font-size:15px;font-weight:600;color:var(--ink-2)">이미지를 끌어다 놓거나 클릭해서 선택</div>
+            <div style="font-size:13px;margin-top:6px">작은 아이콘·로고에 권장</div>
+          </div>
+          <input type="file" id="file" accept="image/*" hidden>
+          <div class="b64-info" id="encInfo"></div>
+          <textarea class="b64-out" id="encOut" readonly placeholder="data URI(base64)가 여기에 표시됩니다." style="display:none"></textarea>
+          <div class="btn-row" id="encBtns" style="display:none">
+            <button type="button" class="btn" id="copyData">data URI 복사</button>
+            <button type="button" class="btn ghost" id="copyCss">CSS background 복사</button>
+          </div>
+        </div>
+
+        <div id="panel-dec" style="display:none">
+          <textarea class="b64-out" id="decIn" placeholder="data:image/...;base64,... 또는 base64 문자열을 붙여넣으세요"></textarea>
+          <div class="b64-info" id="decInfo"></div>
+          <div class="b64-prev" id="decPrev"></div>
+          <div class="btn-row" id="decBtns" style="display:none"><button type="button" class="btn accent" id="dl">이미지 저장</button></div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li><b>이미지 → Base64</b>: 이미지를 선택하면 data URI 문자열이 만들어집니다. <b>복사</b>해 코드에 붙여넣습니다.</li>
+          <li><b>Base64 → 이미지</b>: data URI나 Base64 문자열을 붙여넣으면 미리보기가 뜨고 이미지로 저장할 수 있습니다.</li>
+          <li>탭으로 두 방향을 오갈 수 있습니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>작은 이미지에만:</b> 16~64px 아이콘이나 로고처럼 작은 이미지에 쓰면 외부 파일 요청을 줄일 수 있습니다. 큰 사진은 코드가 길어져 비효율적입니다.</li>
+          <li><b>CSS에 바로:</b> 'CSS background 복사'를 누르면 background-image 구문이 함께 복사되어 스타일시트에 즉시 붙여넣을 수 있습니다.</li>
+          <li><b>SVG도 가능:</b> 단순한 SVG 아이콘도 Base64로 만들어 두면 단일 HTML 파일 안에서 외부 의존 없이 표시할 수 있습니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 이미지를 Base64로 만들면 어디에 쓰나요?</b><p>Base64 data URI는 이미지를 별도 파일 없이 코드 안에 글자로 직접 넣을 수 있게 해 줍니다. CSS의 background-image나 HTML의 img src에 그대로 붙이면 외부 파일 요청 없이 작은 아이콘·로고를 표시할 수 있어, 요청 수를 줄이거나 단일 파일로 배포할 때 유용합니다.</p></div>
+          <div class="qa"><b>Q. 변환하면 파일 크기가 커지나요?</b><p>네. Base64로 인코딩하면 원본보다 약 33% 정도 용량이 커집니다. 그래서 작은 아이콘이나 로고에는 적합하지만, 큰 사진을 Base64로 넣으면 코드가 지나치게 길어지고 느려질 수 있습니다. 큰 이미지는 일반 파일로 두는 편이 좋습니다.</p></div>
+          <div class="qa"><b>Q. 이미지나 입력한 문자열이 서버로 전송되나요?</b><p>아니요. 인코딩과 디코딩 모두 사용자의 브라우저 안에서 이뤄지며, 이미지나 Base64 문자열은 서버로 전송되거나 저장되지 않습니다. 민감한 이미지도 안심하고 변환할 수 있습니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var dataURI='';
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1300);}
+  function fmtSize(n){ return n<1024? n+' B' : n<1048576? (n/1024).toFixed(1)+' KB' : (n/1048576).toFixed(2)+' MB'; }
+
+  // 인코딩
+  function encode(f){
+    if(!f || !/^image\//.test(f.type)){ toast('이미지 파일을 선택하세요'); return; }
+    var r=new FileReader();
+    r.onload=function(){ dataURI=r.result; $('encOut').value=dataURI; $('encOut').style.display='block'; $('encBtns').style.display='flex';
+      $('encInfo').textContent='형식 '+f.type+' · 원본 '+fmtSize(f.size)+' · Base64 약 '+fmtSize(Math.round(dataURI.length))+' (문자 '+dataURI.length.toLocaleString()+'자)'; };
+    r.readAsDataURL(f);
+  }
+  $('drop').addEventListener('click',function(){ $('file').click(); });
+  $('file').addEventListener('change',function(e){ if(e.target.files[0]) encode(e.target.files[0]); });
+  ['dragover','dragenter'].forEach(function(ev){ $('drop').addEventListener(ev,function(e){ e.preventDefault(); this.classList.add('over'); }); });
+  ['dragleave','drop'].forEach(function(ev){ $('drop').addEventListener(ev,function(e){ e.preventDefault(); this.classList.remove('over'); }); });
+  $('drop').addEventListener('drop',function(e){ if(e.dataTransfer.files[0]) encode(e.dataTransfer.files[0]); });
+  $('copyData').addEventListener('click',function(){ if(!dataURI) return; navigator.clipboard.writeText(dataURI).then(function(){toast('복사되었습니다');}); });
+  $('copyCss').addEventListener('click',function(){ if(!dataURI) return; navigator.clipboard.writeText("background-image: url('"+dataURI+"');").then(function(){toast('복사되었습니다');}); });
+
+  // 디코딩
+  function decode(){
+    var v=$('decIn').value.trim();
+    var prev=$('decPrev'); prev.innerHTML=''; $('decBtns').style.display='none'; $('decInfo').textContent='';
+    if(!v) return;
+    var uri=/^data:image\//.test(v)? v : 'data:image/png;base64,'+v.replace(/\s+/g,'');
+    var img=new Image();
+    img.onload=function(){ prev.innerHTML=''; prev.appendChild(img); $('decBtns').style.display='flex'; $('decInfo').textContent='유효한 이미지 · '+img.naturalWidth+'×'+img.naturalHeight+'px'; window._decURI=uri; };
+    img.onerror=function(){ $('decInfo').textContent='유효한 이미지 데이터가 아닙니다. data URI 또는 올바른 Base64인지 확인하세요.'; };
+    img.style.maxWidth='100%'; img.alt='디코딩된 이미지';
+    img.src=uri;
+  }
+  $('decIn').addEventListener('input',decode);
+  $('dl').addEventListener('click',function(){ if(!window._decURI) return; var a=document.createElement('a'); a.href=window._decURI; a.download='image.png'; document.body.appendChild(a); a.click(); document.body.removeChild(a); });
+
+  // 탭
+  $('seg').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-m]'); if(!b) return;
+    var m=b.dataset.m; var btns=this.querySelectorAll('button'); for(var i=0;i<btns.length;i++) btns[i].classList.toggle('active',btns[i]===b);
+    $('panel-enc').style.display=m==='enc'?'block':'none';
+    $('panel-dec').style.display=m==='dec'?'block':'none';
+  });
+})();
+</script>
+</html>

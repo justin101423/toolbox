@@ -38,7 +38,10 @@
       { slug: "pdf-organize",     name: "PDF 회전·페이지 정리", icon: "file-cog" },
       { slug: "image-blur",       name: "이미지 모자이크·블러", icon: "eye-off" },
       { slug: "meme-generator",   name: "밈·짤 생성기",         icon: "sticker" },
-      { slug: "pdf-to-text",      name: "PDF → 텍스트 추출",    icon: "file-search" }
+      { slug: "pdf-to-text",      name: "PDF → 텍스트 추출",    icon: "file-search" },
+      { slug: "image-adjust",     name: "밝기·대비·채도 조절",  icon: "sliders-horizontal" },
+      { slug: "image-base64",     name: "이미지 ↔ Base64",      icon: "image-up" },
+      { slug: "pdf-watermark",    name: "PDF 워터마크",         icon: "copyright" }
     ]},
     { label: "텍스트 · 생성", tools: [
       { slug: "word-counter",       name: "글자수 세기",        icon: "type" },
@@ -73,7 +76,9 @@
       { slug: "color-picker",      name: "컬러 피커·변환",   icon: "pipette" },
       { slug: "box-shadow-generator", name: "box-shadow 생성기", icon: "box" },
       { slug: "border-radius-generator", name: "border-radius 생성기", icon: "squircle" },
-      { slug: "css-unit-converter", name: "CSS 단위 변환", icon: "ruler-dimension-line" }
+      { slug: "css-unit-converter", name: "CSS 단위 변환", icon: "ruler-dimension-line" },
+      { slug: "color-blindness", name: "색맹 시뮬레이터", icon: "glasses" },
+      { slug: "cubic-bezier",    name: "cubic-bezier 생성기", icon: "spline" }
     ]},
     { label: "생활 · 편의", tools: [
       { slug: "dday-calculator", name: "D-Day · 날짜 계산", icon: "calendar-days" },
@@ -90,7 +95,8 @@
       { slug: "bmi-calculator",  name: "BMI 계산기",        icon: "scale" },
       { slug: "ladder-game",     name: "사다리타기",        icon: "ladder" },
       { slug: "lunar-solar-converter", name: "음력 ↔ 양력", icon: "moon" },
-      { slug: "typing-speed",    name: "타자 속도 측정",    icon: "keyboard" }
+      { slug: "typing-speed",    name: "타자 속도 측정",    icon: "keyboard" },
+      { slug: "calculator",      name: "계산기(공학용)",    icon: "calculator" }
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
@@ -215,7 +221,13 @@
     "volume-2": '<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" />',
     "spell-check": '<path d="m6 16 6-12 6 12" /> <path d="M8 12h8" /> <path d="m16 20 2 2 4-4" />',
     "code-xml": '<path d="m18 16 4-4-4-4" /> <path d="m6 8-4 4 4 4" /> <path d="m14.5 4-5 16" />',
-    "database": '<ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" />'
+    "database": '<ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" />',
+    "sliders-horizontal": '<line x1="21" x2="14" y1="4" y2="4" /> <line x1="10" x2="3" y1="4" y2="4" /> <line x1="21" x2="12" y1="12" y2="12" /> <line x1="8" x2="3" y1="12" y2="12" /> <line x1="21" x2="16" y1="20" y2="20" /> <line x1="12" x2="3" y1="20" y2="20" /> <line x1="14" x2="14" y1="2" y2="6" /> <line x1="8" x2="8" y1="10" y2="14" /> <line x1="16" x2="16" y1="18" y2="22" />',
+    "image-up": '<path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10l-3.1-3.1a2 2 0 0 0-2.814.014L6 21" /> <path d="m14 19.5 3-3 3 3" /> <path d="M17 22v-5.5" /> <circle cx="9" cy="9" r="2" />',
+    "copyright": '<circle cx="12" cy="12" r="10" /> <path d="M14.83 14.83a4 4 0 1 1 0-5.66" />',
+    "glasses": '<circle cx="6" cy="15" r="4" /> <circle cx="18" cy="15" r="4" /> <path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2" /> <path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2" /> <path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2" />',
+    "spline": '<circle cx="19" cy="5" r="2" /> <circle cx="5" cy="19" r="2" /> <path d="M5 17A12 12 0 0 1 17 5" />',
+    "calculator": '<rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 
