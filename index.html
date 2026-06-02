@@ -175,7 +175,8 @@ footer a:hover{color:var(--accent)}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           <input id="tool-search" type="search" autocomplete="off" placeholder="도구 검색 — 예: 이미지, qr, 압축, 나이" aria-label="도구 검색">
         </div>
-        <div class="quick-links">
+        <div class="quick-links" id="fav-shortcuts">
+          <!-- sidebar.js가 즐겨찾기로 채웁니다. 아래는 JS 비활성/실패 시 폴백 -->
           <span class="ql-label">바로가기</span>
           <a class="chip" href="/image-compressor/">이미지 압축</a>
           <a class="chip" href="/pdf-merge/">PDF 합치기</a>

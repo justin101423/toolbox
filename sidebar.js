@@ -237,7 +237,8 @@
     "alarm-clock": '<circle cx="12" cy="13" r="8" /> <path d="M12 9v4l2 2" /> <path d="M5 3 2 6" /> <path d="m22 6-3-3" /> <path d="M6.38 18.7 4 21" /> <path d="M17.64 18.67 20 21" />',
     "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />',
     "shirt": '<path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />',
-    "banknote": '<rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" />'
+    "banknote": '<rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" />',
+    "star": '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 
@@ -251,7 +252,11 @@
     if (!document.getElementById("dgb-icon-style")) {
       var st = document.createElement("style");
       st.id = "dgb-icon-style";
-      st.textContent = ".navlink .ic svg{width:18px;height:18px;display:block}.card .ic svg{width:22px;height:22px;display:block}";
+      st.textContent = ".navlink .ic svg{width:18px;height:18px;display:block}.card .ic svg{width:22px;height:22px;display:block}" +
+        ".dgb-fav-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;padding:6px;margin-right:2px;border-radius:8px;color:inherit;-webkit-tap-highlight-color:transparent}" +
+        ".dgb-fav-btn svg{width:22px;height:22px;display:block}" +
+        ".dgb-fav-btn:hover{background:rgba(127,127,127,.14)}" +
+        ".quick-links .ql-hint{font-size:12px;color:var(--ink-3);width:100%;margin-top:2px}";
       (document.head || document.documentElement).appendChild(st);
     }
     var els = document.querySelectorAll("[data-icon]");
@@ -271,11 +276,130 @@
     return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
+  // ------------------------------------------------------------------
+  // 즐겨찾기(★) — localStorage("dgb-favorites")에 슬러그 배열만 저장한다.
+  // 이름·아이콘은 CATEGORIES에서 조회하므로 데이터 중복이 없다.
+  // 관련 코드는 모두 try/catch로 감싸 실패해도 기본 사이드바 렌더가
+  // 깨지지 않게 한다(우아한 폴백).
+  // ------------------------------------------------------------------
+  var FAV_KEY = "dgb-favorites";
+
+  function getFavs() {
+    try {
+      var v = JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
+      return Array.isArray(v) ? v.filter(function (s) { return typeof s === "string"; }) : [];
+    } catch (e) { return []; }
+  }
+  function setFavs(arr) {
+    try { localStorage.setItem(FAV_KEY, JSON.stringify(arr)); } catch (e) {}
+  }
+  function isFav(slug) { return getFavs().indexOf(slug) >= 0; }
+  function toggleFav(slug) {
+    var favs = getFavs(), i = favs.indexOf(slug);
+    if (i >= 0) favs.splice(i, 1); else favs.push(slug);
+    setFavs(favs);
+    return i < 0; // 새로 추가됐으면 true
+  }
+  // 슬러그로 CATEGORIES에서 도구 {slug,name,icon} 조회 (단일 출처)
+  function findTool(slug) {
+    if (!slug) return null;
+    for (var i = 0; i < CATEGORIES.length; i++) {
+      var tools = CATEGORIES[i].tools;
+      for (var j = 0; j < tools.length; j++) if (tools[j].slug === slug) return tools[j];
+    }
+    return null;
+  }
+
+  // 즐겨찾기 별 SVG (채움=골드, 비움=현재 글자색). 라이트/다크 모두 잘 보임.
+  function starSvg(fav) {
+    var f = fav ? "#f5b301" : "none", s = fav ? "#f5b301" : "currentColor";
+    return '<svg viewBox="0 0 24 24" fill="' + f + '" stroke="' + s + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + ICONS.star + "</svg>";
+  }
+  function updateStarBtn(btn, fav) {
+    btn.innerHTML = starSvg(fav);
+    btn.setAttribute("aria-pressed", fav ? "true" : "false");
+    btn.setAttribute("aria-label", fav ? "즐겨찾기 해제" : "즐겨찾기 추가");
+    btn.setAttribute("title", fav ? "즐겨찾기 해제" : "즐겨찾기 추가");
+  }
+
+  // 도구 페이지의 .topbar(#darkModeToggle 옆)에 별 버튼을 주입한다.
+  // 현재 슬러그가 CATEGORIES에 있는 도구일 때만 주입(허브/기타 페이지 제외).
+  function injectStarButton() {
+    try {
+      var slug = currentSlug();
+      if (!findTool(slug)) return;                 // 도구 페이지가 아니면 주입 안 함
+      var bar = document.querySelector(".topbar");
+      if (!bar || document.getElementById("dgb-fav-btn")) return;
+      var toggle = document.getElementById("darkModeToggle");
+      var btn = document.createElement("button");
+      btn.id = "dgb-fav-btn";
+      btn.type = "button";
+      btn.className = "dgb-fav-btn";
+      updateStarBtn(btn, isFav(slug));
+      btn.addEventListener("click", function () {
+        try {
+          var nowFav = toggleFav(slug);
+          updateStarBtn(btn, nowFav);
+          var host = document.getElementById("sidebar");
+          var sc = host ? host.scrollTop : 0;
+          render(); applyIcons();                  // 사이드바 즐겨찾기 그룹 즉시 갱신
+          if (host) host.scrollTop = sc;           // 스크롤 위치 보존
+        } catch (e) {}
+      });
+      if (toggle && toggle.parentNode) toggle.parentNode.insertBefore(btn, toggle);
+      else bar.appendChild(btn);
+    } catch (e) {}
+  }
+
+  // 사이드바 최상단 "⭐ 즐겨찾기" 그룹 HTML (즐겨찾기 0개면 빈 문자열).
+  // 즐겨찾기한 도구는 원래 카테고리에도 그대로 남는다(복제 표시).
+  function favGroupHtml(active) {
+    try {
+      var favs = getFavs();
+      if (!favs.length) return "";
+      var items = "";
+      for (var i = 0; i < favs.length; i++) {
+        var t = findTool(favs[i]); if (!t) continue;
+        var cls = "navlink" + (t.slug === active ? " active" : "");
+        items += '<a class="' + cls + '" href="/' + t.slug + '/">' +
+                 '<span class="ic">' + iconHtml(t.icon) + "</span> " + esc(t.name) + "</a>";
+      }
+      if (!items) return "";
+      return '<div class="grp"><div class="kick">⭐ 즐겨찾기</div>' + items + "</div>";
+    } catch (e) { return ""; }
+  }
+
+  // 허브의 바로가기 칩 영역(#fav-shortcuts)을 즐겨찾기로 채운다.
+  // 비었으면 안내 문구 + 기본 바로가기로 폴백. (도구 페이지엔 이 컨테이너가 없음)
+  function defaultShortcuts() {
+    var defs = [["image-compressor","이미지 압축"],["pdf-merge","PDF 합치기"],["qr-code","QR코드"],["word-counter","글자수 세기"],["age-calculator","만 나이"],["color-picker","컬러 피커"]];
+    var h = '<span class="ql-label">바로가기</span>';
+    for (var i = 0; i < defs.length; i++) h += '<a class="chip" href="/' + defs[i][0] + '/">' + esc(defs[i][1]) + "</a>";
+    h += '<span class="ql-hint">도구 페이지에서 ★를 눌러 즐겨찾기에 추가하세요</span>';
+    return h;
+  }
+  function renderFavShortcuts() {
+    try {
+      var box = document.getElementById("fav-shortcuts");
+      if (!box) return;
+      var favs = getFavs(), html = "", count = 0;
+      if (favs.length) {
+        html = '<span class="ql-label">⭐ 즐겨찾기</span>';
+        for (var i = 0; i < favs.length; i++) {
+          var t = findTool(favs[i]); if (!t) continue;
+          html += '<a class="chip" href="/' + t.slug + '/">' + esc(t.name) + "</a>";
+          count++;
+        }
+      }
+      box.innerHTML = count ? html : defaultShortcuts();
+    } catch (e) {}
+  }
+
   function render() {
     var host = document.getElementById("sidebar");
     if (!host) return;
     var active = currentSlug();
-    var html = "";
+    var html = favGroupHtml(active);   // 최상단 즐겨찾기 그룹(없으면 "")
     for (var i = 0; i < CATEGORIES.length; i++) {
       var cat = CATEGORIES[i];
       html += '<div class="grp"><div class="kick">' + esc(cat.label) + "</div>";
@@ -315,6 +439,8 @@
   function boot() {
     render();
     applyIcons();
+    try { injectStarButton(); } catch (e) {}   // 도구 페이지 topbar 별 버튼
+    try { renderFavShortcuts(); } catch (e) {}  // 허브 #fav-shortcuts 채우기
     var host = document.getElementById("sidebar");
     if (!host) return;
     restoreScroll(host); // DOM·아이콘 생성 직후 동기 복원(페인트 전 → 튐 최소화)
