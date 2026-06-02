@@ -249,6 +249,7 @@ $('transparent').onchange=()=>{$('bgField').style.display=$('transparent').check
 $('bgColor').oninput=renderPreview;
 $('run').onclick=async()=>{
   if(!img)return;
+  if(typeof JSZip==='undefined'){const n=$('note');n.textContent='압축(ZIP) 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';n.className='note show';return;}
   const note=$('note');note.textContent='아이콘을 생성하는 중입니다...';note.className='note show';
   const zip=new JSZip();
   const pngs={};

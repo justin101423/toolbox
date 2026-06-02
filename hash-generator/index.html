@@ -226,7 +226,7 @@ function copyHash(id){
 
   document.getElementById('hash-run').onclick=async()=>{
     const v=document.getElementById('hash-in').value;
-    document.getElementById('h-md5').textContent=md5(v);
+    document.getElementById('h-md5').textContent=(typeof md5!=='undefined')?md5(v):'MD5 라이브러리 로드 실패 (새로고침)';
     document.getElementById('h-sha1').textContent=await shaHex('SHA-1',v);
     document.getElementById('h-sha256').textContent=await shaHex('SHA-256',v);
     document.getElementById('h-sha512').textContent=await shaHex('SHA-512',v);

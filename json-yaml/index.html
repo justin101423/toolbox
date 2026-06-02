@@ -212,6 +212,7 @@ function convert(){
   setLabels();
   const src=$('jy-in').value;
   if(!src.trim()){$('jy-out').value='';note('');return;}
+  if(typeof jsyaml==='undefined'){note('YAML 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.','err');return;}
   try{
     let out;
     if(dir()==='j2y'){

@@ -220,6 +220,7 @@ function hookDrop(drop,input,onFiles){
 }
 (()=>{let file=null,pages=0;
   hookDrop($('ps-drop'),$('ps-file'),async f=>{file=f[0];const note=$('ps-note');note.className='note';
+    if(typeof PDFLib==='undefined'){note.textContent='PDF 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';note.className='note show err';return;}
     try{const {PDFDocument}=PDFLib;const doc=await PDFDocument.load(new Uint8Array(await file.arrayBuffer()),{ignoreEncryption:true});
       pages=doc.getPageCount();$('ps-info').textContent=file.name+' · 총 '+pages+'쪽';
       $('ps-range').disabled=false;$('ps-go').disabled=false;$('ps-drop').querySelector('b').textContent=file.name;}

@@ -231,6 +231,7 @@ $('cj-dir').addEventListener('click',e=>{
 function convert(){
   const input=$('cj-in').value.trim();
   if(!input){note('변환할 내용을 입력하세요.','err');return;}
+  if(typeof Papa==='undefined'){note('CSV 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.','err');return;}
   try{
     if(dir==='c2j'){
       const res=Papa.parse(input,{header:$('cj-header').checked,delimiter:delim(),skipEmptyLines:true});

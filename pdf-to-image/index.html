@@ -196,7 +196,7 @@
 <script src="/sidebar.js"></script>
 <script src="/theme.js"></script>
 <script>
-pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+if(window.pdfjsLib)pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 const $=id=>document.getElementById(id);
 function download(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}
 function canvasBlob(canvas,type,quality){return new Promise(resolve=>canvas.toBlob(resolve,type,quality));}
@@ -222,6 +222,7 @@ function parseRange(str,max){
 let file=null,pdf=null;
 async function setFile(f){
   if(f.type!=='application/pdf')return;
+  if(typeof pdfjsLib==='undefined'){$('note').textContent='PDF 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';$('note').className='note show err';return;}
   file=f;$('drop').querySelector('b').textContent=f.name;$('preview').innerHTML='';
   try{
     pdf=await pdfjsLib.getDocument({data:new Uint8Array(await f.arrayBuffer())}).promise;
@@ -261,6 +262,7 @@ $('run').onclick=async()=>{
       const card=document.createElement('div');card.className='preview-card';card.appendChild(img);card.insertAdjacentHTML('beforeend',`<div>${base}-${pad(pages[0])}.${ext}</div>`);preview.appendChild(card);
       download(blob,`${base}-${pad(pages[0])}.${ext}`);
     }else{
+      if(typeof JSZip==='undefined'){$('note').textContent='압축(ZIP) 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';$('note').className='note show err';bar.style.display='none';$('run').disabled=false;return;}
       const zip=new JSZip();
       for(let i=0;i<pages.length;i++){
         const pageNo=pages[i];

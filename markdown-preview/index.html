@@ -212,10 +212,11 @@
 const $=id=>document.getElementById(id);
 const SAMPLE='# 마크다운 미리보기\n\n**도구상자**의 마크다운 변환기입니다.\n\n- 실시간 미리보기\n- 안전한 HTML 정제\n- `코드` 강조\n\n> 인용문도 지원합니다.\n\n| 항목 | 설명 |\n|---|---|\n| 변환 | 마크다운 → HTML |\n| 보안 | XSS 정제 |';
 
-marked.setOptions({gfm:true,breaks:true});
+if(typeof marked!=='undefined')marked.setOptions({gfm:true,breaks:true});
 
 function render(){
   const md=$('md-in').value;
+  if(typeof marked==='undefined'||typeof DOMPurify==='undefined'){$('md-preview').textContent='마크다운 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';$('md-html').value='';return;}
   const raw=marked.parse(md||'');
   const clean=DOMPurify.sanitize(raw);
   $('md-preview').innerHTML=clean;

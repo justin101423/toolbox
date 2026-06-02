@@ -228,6 +228,7 @@ function render(){
     note('','');
     return;
   }
+  if(typeof JsBarcode==='undefined'){note('바코드 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.','err');return;}
   let ok=true;
   try{
     JsBarcode(cv,val,{

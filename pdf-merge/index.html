@@ -232,6 +232,7 @@ function hookDrop(drop,input,onFiles){
   $('pm-clear').onclick=()=>{files=[];render();};
   $('pm-go').onclick=async()=>{
     const note=$('pm-note');note.className='note';
+    if(typeof PDFLib==='undefined'){note.textContent='PDF 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';note.className='note show err';return;}
     try{const {PDFDocument}=PDFLib;const out=await PDFDocument.create();
       for(const f of files){const bytes=await f.arrayBuffer();const src=await PDFDocument.load(bytes,{ignoreEncryption:true});
         const pages=await out.copyPages(src,src.getPageIndices());pages.forEach(p=>out.addPage(p));}

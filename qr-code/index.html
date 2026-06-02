@@ -213,6 +213,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
 const $=id=>document.getElementById(id);
 (()=>{let qr=null;
   $('qr-go').onclick=()=>{const v=$('qr-in').value.trim();if(!v)return;
+    if(typeof QRCode==='undefined'){$('qr-out').textContent='QR 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';return;}
     $('qr-out').innerHTML='';qr=new QRCode($('qr-out'),{text:v,width:200,height:200,correctLevel:QRCode.CorrectLevel.M});
     setTimeout(()=>$('qr-dl').style.display='inline-flex',150);};
   $('qr-in').addEventListener('keydown',e=>{if(e.key==='Enter')$('qr-go').click();});

@@ -194,7 +194,7 @@
 <script src="/sidebar.js"></script>
 <script src="/theme.js"></script>
 <script>
-pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+if(window.pdfjsLib)pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 const $=id=>document.getElementById(id);
 function fmtBytes(b){if(b<1024)return b+' B';if(b<1048576)return (b/1024).toFixed(1)+' KB';return (b/1048576).toFixed(2)+' MB';}
 function download(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}
@@ -209,6 +209,7 @@ function hookDrop(drop,input,onFile){
 let file=null,pageCount=0;
 async function setFile(f){
   if(f.type!=='application/pdf')return;
+  if(typeof pdfjsLib==='undefined'){$('note').textContent='PDF 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';$('note').className='note show err';return;}
   file=f;$('drop').querySelector('b').textContent=f.name;$('before').textContent=fmtBytes(f.size);
   try{
     const doc=await pdfjsLib.getDocument({data:new Uint8Array(await f.arrayBuffer())}).promise;
@@ -223,6 +224,7 @@ hookDrop($('drop'),$('file'),setFile);
 $('quality').oninput=e=>$('qualityLabel').textContent=e.target.value;
 $('run').onclick=async()=>{
   if(!file)return;
+  if(typeof PDFLib==='undefined'||typeof pdfjsLib==='undefined'){$('note').textContent='PDF 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';$('note').className='note show err';return;}
   const note=$('note'),bar=$('progress'),fill=bar.querySelector('span');
   note.textContent='PDF를 압축하는 중입니다...';note.className='note show';bar.style.display='block';fill.style.width='0';
   $('run').disabled=true;

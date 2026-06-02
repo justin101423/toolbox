@@ -241,6 +241,7 @@ function loadFile(file){
 }
 
 function initCropper(url){
+  if(typeof Cropper==='undefined'){note('이미지 자르기 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.','err');return;}
   const img=$('crop-img');
   if(cropper){cropper.destroy();cropper=null;}
   img.src=url;

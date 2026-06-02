@@ -288,6 +288,7 @@ $('gm-make').onclick=async()=>{
   const f0=frames[0].img;
   let tw=f0.naturalWidth,th=f0.naturalHeight;
   if(maxW&&tw>maxW){th=Math.round(th*maxW/tw);tw=maxW;}
+  if(typeof GIF==='undefined'){note('GIF 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.','err');return;}
   $('gm-make').disabled=true;
   $('gm-progress').style.display='block';
   $('gm-progress').firstElementChild.style.width='0%';
