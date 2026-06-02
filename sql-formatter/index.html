@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>SQL 포매터 — SQL 쿼리 정렬·들여쓰기 (방언 선택) | 도구상자</title>
+<meta name="description" content="복잡한 SQL 쿼리를 보기 좋게 정렬·들여쓰기하는 무료 SQL 포매터. MySQL·PostgreSQL·SQL Server 등 방언 선택과 키워드 대소문자 옵션을 지원합니다. 모든 처리는 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/sql-formatter/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="SQL 포매터 — SQL 쿼리 정렬·들여쓰기 (방언 선택) | 도구상자">
+<meta property="og:description" content="복잡한 SQL 쿼리를 보기 좋게 정렬·들여쓰기하는 무료 SQL 포매터. 방언·키워드 대소문자 옵션 지원. 모든 처리는 브라우저에서 이뤄집니다.">
+<meta property="og:url" content="https://dogubox.shop/sql-formatter/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="SQL 포매터 — SQL 쿼리 정렬·들여쓰기 (방언 선택) | 도구상자">
+<meta name="twitter:description" content="SQL 쿼리를 보기 좋게 정렬·들여쓰기하는 무료 SQL 포매터. 브라우저에서 처리됩니다.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SQL 포매터",
+  "description": "복잡한 SQL 쿼리를 보기 좋게 정렬·들여쓰기하는 무료 SQL 포매터. MySQL·PostgreSQL·SQL Server 등 방언 선택과 키워드 대소문자 옵션을 지원합니다. 모든 처리는 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/sql-formatter/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 방언(dialect)은 왜 고르나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "데이터베이스마다 고유한 키워드와 문법이 조금씩 다릅니다. MySQL, PostgreSQL, SQL Server, Oracle 등 사용하는 데이터베이스에 맞는 방언을 고르면 백틱·대괄호 같은 식별자 표기나 특수 함수가 더 정확하게 정렬됩니다. 잘 모르겠으면 '표준 SQL'을 사용하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 쿼리의 동작이 바뀌지는 않나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 포매터는 줄바꿈·들여쓰기·키워드 대소문자 같은 '모양'만 정리할 뿐, 쿼리의 의미나 실행 결과는 바꾸지 않습니다. 다만 문법 오류가 있는 쿼리는 정렬이 어색하게 나올 수 있으니, 정렬 결과가 이상하면 원본 문법을 먼저 확인하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 입력한 SQL이 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. SQL 정렬은 모두 사용자의 브라우저 안에서 이뤄지며, 입력한 쿼리는 서버로 전송되거나 저장되지 않습니다. 테이블·컬럼명이 드러나는 업무용 쿼리도 안심하고 정리할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "SQL 포매터", "item": "https://dogubox.shop/sql-formatter/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<!-- sql-formatter 15.4.9 (MIT) — SQL 정렬. 실측 SHA-384 SRI. -->
+<script src="https://cdn.jsdelivr.net/npm/sql-formatter@15.4.9/dist/sql-formatter.min.js" integrity="sha384-Q4EablF1W+T4s73qo/YG6DbKal6WfaMPMQgbwhJquo299yrBF7MbEQ1DmJGFx6i5" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.sf-opts{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px}
+.sf-opts .field{margin-bottom:0}
+.sf-opts label{display:block;font-size:12.5px;color:var(--ink-3);font-weight:600;margin-bottom:5px}
+.sf-opts select{font-size:14px;padding:9px 11px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.sf-io textarea{width:100%;min-height:220px;font-family:var(--mono);font-size:13px;line-height:1.6;padding:12px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);resize:vertical;white-space:pre;overflow:auto}
+.sf-io textarea:focus{outline:none;border-color:var(--ink)}
+.sf-bar{display:flex;justify-content:space-between;align-items:center;margin:14px 0 8px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.sf-err{color:#df4324;font-size:13px;margin-top:8px;min-height:18px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>SQL 포매터</h1>
+      <p class="lede">한 줄로 길게 늘어진 SQL을 보기 좋게 정렬·들여쓰기해 드립니다. 데이터베이스 방언과 키워드 대소문자를 골라 보세요. 모든 처리는 브라우저 안에서 이뤄집니다.</p>
+
+      <div class="box">
+        <div class="sf-opts">
+          <div class="field"><label for="lang">방언</label>
+            <select id="lang">
+              <option value="sql">표준 SQL</option>
+              <option value="mysql">MySQL</option>
+              <option value="mariadb">MariaDB</option>
+              <option value="postgresql">PostgreSQL</option>
+              <option value="sqlite">SQLite</option>
+              <option value="transactsql">SQL Server (T-SQL)</option>
+              <option value="plsql">Oracle (PL/SQL)</option>
+              <option value="bigquery">BigQuery</option>
+              <option value="snowflake">Snowflake</option>
+              <option value="redshift">Redshift</option>
+              <option value="spark">Spark</option>
+            </select>
+          </div>
+          <div class="field"><label for="kw">키워드</label>
+            <select id="kw">
+              <option value="upper">대문자 (SELECT)</option>
+              <option value="lower">소문자 (select)</option>
+              <option value="preserve">원본 유지</option>
+            </select>
+          </div>
+          <div class="field"><label for="tab">들여쓰기</label>
+            <select id="tab"><option value="2">공백 2칸</option><option value="4">공백 4칸</option></select>
+          </div>
+          <button type="button" class="btn accent" id="run">정렬하기</button>
+        </div>
+
+        <div class="sf-io">
+          <div><div class="sf-bar"><span>SQL 입력</span></div><textarea id="src" spellcheck="false"></textarea><div class="sf-err" id="err"></div></div>
+          <div><div class="sf-bar"><span>정렬 결과</span><button type="button" id="copyBtn" style="padding:6px 12px;font-size:13px;border:1px solid var(--line-2);border-radius:99px;background:var(--paper);color:var(--ink-2);cursor:pointer">복사</button></div><textarea id="out" spellcheck="false" readonly></textarea></div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>정렬할 SQL 쿼리를 입력합니다.</li>
+          <li>사용하는 데이터베이스 방언과 키워드 대소문자, 들여쓰기를 고릅니다.</li>
+          <li><b>정렬하기</b>를 누르면 보기 좋게 정렬된 결과가 나타납니다. <b>복사</b>로 가져갑니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>리뷰·공유 전에:</b> 길게 한 줄로 작성된 쿼리를 정렬하면 JOIN·WHERE 조건이 한눈에 들어와 코드 리뷰나 공유가 쉬워집니다.</li>
+          <li><b>키워드 대문자 관례:</b> SELECT·FROM·WHERE 같은 키워드를 대문자로 통일하면 식별자(테이블·컬럼명)와 구분되어 가독성이 올라갑니다. 팀 컨벤션에 맞춰 선택하세요.</li>
+          <li><b>방언을 맞추면 정확:</b> 백틱(MySQL), 대괄호(SQL Server) 같은 식별자 표기는 방언을 맞춰야 어긋나지 않습니다. 결과가 어색하면 방언을 바꿔 보세요.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 방언(dialect)은 왜 고르나요?</b><p>데이터베이스마다 고유한 키워드와 문법이 조금씩 다릅니다. MySQL, PostgreSQL, SQL Server, Oracle 등 사용하는 데이터베이스에 맞는 방언을 고르면 백틱·대괄호 같은 식별자 표기나 특수 함수가 더 정확하게 정렬됩니다. 잘 모르겠으면 '표준 SQL'을 사용하세요.</p></div>
+          <div class="qa"><b>Q. 쿼리의 동작이 바뀌지는 않나요?</b><p>아니요. 포매터는 줄바꿈·들여쓰기·키워드 대소문자 같은 '모양'만 정리할 뿐, 쿼리의 의미나 실행 결과는 바꾸지 않습니다. 다만 문법 오류가 있는 쿼리는 정렬이 어색하게 나올 수 있으니, 정렬 결과가 이상하면 원본 문법을 먼저 확인하세요.</p></div>
+          <div class="qa"><b>Q. 입력한 SQL이 서버로 전송되나요?</b><p>아니요. SQL 정렬은 모두 사용자의 브라우저 안에서 이뤄지며, 입력한 쿼리는 서버로 전송되거나 저장되지 않습니다. 테이블·컬럼명이 드러나는 업무용 쿼리도 안심하고 정리할 수 있습니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  function run(){
+    var raw=$('src').value.trim(); $('err').textContent='';
+    if(!raw){ $('out').value=''; return; }
+    if(typeof sqlFormatter==='undefined'){ $('err').textContent='SQL 포매터 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.'; return; }
+    try{
+      $('out').value=sqlFormatter.format(raw,{ language:$('lang').value, keywordCase:$('kw').value, tabWidth:parseInt($('tab').value,10) });
+    }catch(e){ $('err').textContent='정렬 중 오류: '+e.message; }
+  }
+  ['lang','kw','tab'].forEach(function(id){ $(id).addEventListener('change',run); });
+  $('src').addEventListener('input',run);
+  $('run').addEventListener('click',run);
+  $('copyBtn').addEventListener('click',function(){ var v=$('out').value; if(!v) return; navigator.clipboard.writeText(v).then(function(){ toast('복사되었습니다'); },function(){ $('out').select(); document.execCommand('copy'); toast('복사되었습니다'); }); });
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1300);}
+  $('src').value="select u.id, u.name, count(o.id) as cnt from users u left join orders o on o.user_id = u.id where u.active = 1 group by u.id, u.name having count(o.id) > 3 order by cnt desc limit 10;";
+  run();
+})();
+</script>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>텍스트 찾기·바꾸기 — 여러 곳 한 번에 치환 (정규식 지원) | 도구상자</title>
+<meta name="description" content="긴 텍스트에서 특정 단어·문구를 한 번에 찾아 바꾸는 무료 도구. 전체 치환, 대소문자 무시, 정규식 옵션과 치환 횟수 표시를 지원합니다. 모든 처리는 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/text-replace/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="텍스트 찾기·바꾸기 — 여러 곳 한 번에 치환 (정규식 지원) | 도구상자">
+<meta property="og:description" content="긴 텍스트에서 특정 단어·문구를 한 번에 찾아 바꾸는 무료 도구. 정규식·대소문자 무시·치환 횟수 표시. 모든 처리는 브라우저에서 이뤄집니다.">
+<meta property="og:url" content="https://dogubox.shop/text-replace/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="텍스트 찾기·바꾸기 — 여러 곳 한 번에 치환 (정규식 지원) | 도구상자">
+<meta name="twitter:description" content="긴 텍스트에서 특정 문구를 한 번에 찾아 바꾸는 무료 도구. 브라우저에서 처리됩니다.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "텍스트 찾기·바꾸기",
+  "description": "긴 텍스트에서 특정 단어·문구를 한 번에 찾아 바꾸는 무료 도구. 전체 치환, 대소문자 무시, 정규식 옵션과 치환 횟수 표시를 지원합니다. 모든 처리는 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/text-replace/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 정규식(정규표현식)은 어떻게 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "정규식 옵션을 켜면 찾을 내용에 패턴을 쓸 수 있습니다. 예를 들어 \\d+는 연속된 숫자, \\s+는 연속된 공백을 뜻합니다. 바꿀 내용에서는 $1, $2로 괄호로 묶은 그룹을 다시 쓸 수 있습니다. 옵션을 끄면 입력한 글자 그대로(특수문자 포함)를 찾아 바꿉니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 바꿀 내용을 비워 두면 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "바꿀 내용을 비워 두고 실행하면 찾은 부분이 모두 삭제됩니다. 불필요한 단어나 기호, 머리말 등을 한꺼번에 지울 때 유용합니다. 실행 후 표시되는 치환 횟수로 몇 군데가 바뀌었는지 확인할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 입력한 텍스트가 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 찾기·바꾸기 처리는 모두 사용자의 브라우저 안에서 이뤄지며, 입력한 텍스트는 서버로 전송되거나 저장되지 않습니다. 개인 메모나 업무 문서도 안심하고 처리할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "텍스트 찾기·바꾸기", "item": "https://dogubox.shop/text-replace/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.tr-area{width:100%;min-height:150px;font-size:14px;line-height:1.6;padding:12px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);resize:vertical}
+.tr-area:focus{outline:none;border-color:var(--ink)}
+.tr-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.tr-row input{width:100%;font-family:var(--mono);font-size:14px;padding:10px 12px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.tr-row input:focus{outline:none;border-color:var(--ink)}
+.tr-opts{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--ink-2);font-weight:600;cursor:pointer}
+.chk input{width:16px;height:16px;accent-color:var(--accent)}
+.tr-count{font-size:13.5px;color:var(--ink-2);font-weight:600;margin:14px 0 8px;min-height:18px}
+.tr-count b{color:var(--accent)}
+.tr-err{color:#df4324}
+@media(max-width:560px){.tr-row{grid-template-columns:1fr}}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>텍스트 찾기·바꾸기</h1>
+      <p class="lede">긴 글에서 특정 단어나 문구를 한 번에 찾아 바꿉니다. 정규식·대소문자 무시 옵션과 치환 횟수 표시를 지원하며, 모든 처리는 브라우저 안에서 이뤄집니다.</p>
+
+      <div class="box">
+        <div class="field" style="margin-bottom:0"><label for="src">원본 텍스트</label><textarea class="tr-area" id="src" spellcheck="false" placeholder="여기에 텍스트를 붙여넣으세요"></textarea></div>
+        <div class="tr-row">
+          <input id="find" placeholder="찾을 내용">
+          <input id="repl" placeholder="바꿀 내용 (비우면 삭제)">
+        </div>
+        <div class="tr-opts">
+          <label class="chk"><input type="checkbox" id="ci"> 대소문자 무시</label>
+          <label class="chk"><input type="checkbox" id="re"> 정규식 사용</label>
+          <button type="button" class="btn accent" id="run">바꾸기</button>
+        </div>
+        <div class="tr-count" id="count"></div>
+        <div class="field" style="margin-bottom:0"><label for="out">결과</label><textarea class="tr-area" id="out" spellcheck="false" readonly></textarea></div>
+        <div class="btn-row"><button type="button" class="btn" id="copyBtn">결과 복사</button></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>원본 텍스트를 붙여넣습니다.</li>
+          <li>찾을 내용과 바꿀 내용을 입력합니다(바꿀 내용을 비우면 삭제됩니다).</li>
+          <li>필요하면 대소문자 무시·정규식 옵션을 켜고 <b>바꾸기</b>를 누릅니다.</li>
+          <li>치환된 횟수를 확인하고 결과를 <b>복사</b>합니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>일괄 정리에 유용:</b> 엑셀·메일에서 복사한 글의 반복되는 머리말, 불필요한 기호, 잘못 쓴 용어를 한 번에 통일하거나 지울 수 있습니다.</li>
+          <li><b>정규식으로 패턴 처리:</b> 정규식을 켜면 숫자(\d+), 공백(\s+), 줄 시작(^) 같은 패턴을 다룰 수 있어, 단순 단어 교체로는 어려운 작업도 가능합니다.</li>
+          <li><b>원본은 보존됩니다:</b> 원본 칸은 그대로 두고 결과만 따로 만들어 주므로, 옵션을 바꿔 가며 여러 번 시도해도 안전합니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 정규식(정규표현식)은 어떻게 쓰나요?</b><p>정규식 옵션을 켜면 찾을 내용에 패턴을 쓸 수 있습니다. 예를 들어 \d+는 연속된 숫자, \s+는 연속된 공백을 뜻합니다. 바꿀 내용에서는 $1, $2로 괄호로 묶은 그룹을 다시 쓸 수 있습니다. 옵션을 끄면 입력한 글자 그대로(특수문자 포함)를 찾아 바꿉니다.</p></div>
+          <div class="qa"><b>Q. 바꿀 내용을 비워 두면 어떻게 되나요?</b><p>바꿀 내용을 비워 두고 실행하면 찾은 부분이 모두 삭제됩니다. 불필요한 단어나 기호, 머리말 등을 한꺼번에 지울 때 유용합니다. 실행 후 표시되는 치환 횟수로 몇 군데가 바뀌었는지 확인할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 입력한 텍스트가 서버로 전송되나요?</b><p>아니요. 찾기·바꾸기 처리는 모두 사용자의 브라우저 안에서 이뤄지며, 입력한 텍스트는 서버로 전송되거나 저장되지 않습니다. 개인 메모나 업무 문서도 안심하고 처리할 수 있습니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  function esc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+  function run(){
+    var src=$('src').value, find=$('find').value, repl=$('repl').value;
+    var cnt=$('count');
+    if(find===''){ $('out').value=src; cnt.className='tr-count'; cnt.textContent=''; return; }
+    var flags='g'+($('ci').checked?'i':'');
+    var useRe=$('re').checked, re;
+    try{ re=useRe? new RegExp(find,flags) : new RegExp(esc(find),flags); }
+    catch(e){ cnt.className='tr-count tr-err'; cnt.textContent='정규식 오류: '+e.message; return; }
+    // 정규식 모드가 아니면 바꿀 내용의 $를 리터럴로 처리
+    var rep=useRe? repl : repl.replace(/\$/g,'$$$$');
+    var n=0; var out=src.replace(re,function(){ n++; return rep; });
+    $('out').value=out;
+    cnt.className='tr-count'; cnt.innerHTML= n>0? ('<b>'+n+'</b>군데를 바꿨습니다.') : '찾은 내용이 없습니다.';
+  }
+  ['src','find','repl'].forEach(function(id){ $(id).addEventListener('input',run); });
+  ['ci','re'].forEach(function(id){ $(id).addEventListener('change',run); });
+  $('run').addEventListener('click',run);
+  $('copyBtn').addEventListener('click',function(){ var v=$('out').value; if(!v) return; navigator.clipboard.writeText(v).then(function(){ toast('복사되었습니다'); },function(){ $('out').select(); document.execCommand('copy'); toast('복사되었습니다'); }); });
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1300);}
+  $('src').value="도구상자는 무료 온라인 도구 모음입니다. 도구상자에 오신 것을 환영합니다.";
+  $('find').value="도구상자"; $('repl').value="dogubox";
+  run();
+})();
+</script>
+</html>

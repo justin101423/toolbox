@@ -37,7 +37,8 @@
       { slug: "image-ocr",        name: "이미지 OCR·글자 추출", icon: "scan-text" },
       { slug: "pdf-organize",     name: "PDF 회전·페이지 정리", icon: "file-cog" },
       { slug: "image-blur",       name: "이미지 모자이크·블러", icon: "eye-off" },
-      { slug: "meme-generator",   name: "밈·짤 생성기",         icon: "sticker" }
+      { slug: "meme-generator",   name: "밈·짤 생성기",         icon: "sticker" },
+      { slug: "pdf-to-text",      name: "PDF → 텍스트 추출",    icon: "file-search" }
     ]},
     { label: "텍스트 · 생성", tools: [
       { slug: "word-counter",       name: "글자수 세기",        icon: "type" },
@@ -57,7 +58,10 @@
       { slug: "reading-time",       name: "읽는 시간 계산",     icon: "book-open" },
       { slug: "text-diff",          name: "텍스트 비교(diff)",  icon: "diff" },
       { slug: "special-characters", name: "특수문자·이모지",    icon: "smile" },
-      { slug: "keyboard-typo",      name: "한/영 오타 변환",    icon: "languages" }
+      { slug: "keyboard-typo",      name: "한/영 오타 변환",    icon: "languages" },
+      { slug: "text-replace",       name: "텍스트 찾기·바꾸기", icon: "replace" },
+      { slug: "tts",                name: "텍스트 → 음성(TTS)", icon: "volume-2" },
+      { slug: "romanizer",          name: "한글 → 로마자",      icon: "spell-check" }
     ]},
     { label: "색상 · 디자인", tools: [
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
@@ -109,7 +113,9 @@
       { slug: "table-converter",  name: "표 변환기",        icon: "table-2" },
       { slug: "cron-parser",      name: "cron 표현식 변환", icon: "calendar-clock" },
       { slug: "json-to-types",    name: "JSON → 타입 변환", icon: "file-json" },
-      { slug: "http-status-codes", name: "HTTP 상태 코드",  icon: "server" }
+      { slug: "http-status-codes", name: "HTTP 상태 코드",  icon: "server" },
+      { slug: "json-xml",         name: "JSON ↔ XML 변환", icon: "code-xml" },
+      { slug: "sql-formatter",    name: "SQL 포매터",      icon: "database" }
     ]}
   ];
 
@@ -203,7 +209,13 @@
     "calendar-clock": '<path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" /> <path d="M16 2v4" /> <path d="M8 2v4" /> <path d="M3 10h5" /> <path d="M17.5 17.5 16 16.3V14" /> <circle cx="16" cy="16" r="6" />',
     "file-json": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1" /> <path d="M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1" />',
     "ruler-dimension-line": '<path d="M10 15v-3" /> <path d="M14 15v-3" /> <path d="M18 15v-3" /> <path d="M2 8V4" /> <path d="M22 6H2" /> <path d="M22 8V4" /> <path d="M6 15v-3" /> <rect x="2" y="12" width="20" height="8" rx="2" />',
-    "server": '<rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" />'
+    "server": '<rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" />',
+    "file-search": '<path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3" /> <path d="m9 18-1.5-1.5" /> <circle cx="5" cy="14" r="3" />',
+    "replace": '<path d="M14 4a2 2 0 0 1 2-2" /> <path d="M16 10a2 2 0 0 1-2-2" /> <path d="M20 2a2 2 0 0 1 2 2" /> <path d="M22 8a2 2 0 0 1-2 2" /> <path d="m3 7 3 3 3-3" /> <path d="M6 10V5a3 3 0 0 1 3-3h1" /> <rect x="2" y="14" width="8" height="8" rx="2" />',
+    "volume-2": '<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" />',
+    "spell-check": '<path d="m6 16 6-12 6 12" /> <path d="M8 12h8" /> <path d="m16 20 2 2 4-4" />',
+    "code-xml": '<path d="m18 16 4-4-4-4" /> <path d="m6 8-4 4 4 4" /> <path d="m14.5 4-5 16" />',
+    "database": '<ellipse cx="12" cy="5" rx="9" ry="3" /> <path d="M3 5V19A9 3 0 0 0 21 19V5" /> <path d="M3 12A9 3 0 0 0 21 12" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

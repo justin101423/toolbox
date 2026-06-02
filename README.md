@@ -38,6 +38,7 @@
 - PDF 회전·페이지 정리 (`/pdf-organize/`)
 - 이미지 모자이크·블러 (`/image-blur/`)
 - 밈·짤 생성기 (`/meme-generator/`)
+- PDF → 텍스트 추출 (`/pdf-to-text/`)
 
 ### 텍스트 · 생성
 - 글자수 세기 (`/word-counter/`)
@@ -58,6 +59,9 @@
 - 텍스트 비교 (diff) (`/text-diff/`)
 - 특수문자·이모지 복사 (`/special-characters/`)
 - 한/영 키보드 오타 변환 (`/keyboard-typo/`)
+- 텍스트 찾기·바꾸기 (`/text-replace/`)
+- 텍스트 → 음성 (TTS) (`/tts/`)
+- 한글 → 로마자 변환 (`/romanizer/`)
 
 ### 색상 · 디자인
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)
@@ -110,6 +114,8 @@
 - cron 표현식 변환·설명 (`/cron-parser/`)
 - JSON → 타입 변환 (TS/Python/Go) (`/json-to-types/`)
 - HTTP 상태 코드 치트시트 (`/http-status-codes/`)
+- JSON ↔ XML 변환 (`/json-xml/`)
+- SQL 포매터 (`/sql-formatter/`)
 
 ## 기술 스택
 

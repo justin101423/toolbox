@@ -54,9 +54,9 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 83개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 89개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
-### 이미지 · PDF (21)
+### 이미지 · PDF (22)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -80,8 +80,9 @@ toolbox/
 | pdf-organize | PDF 회전·페이지 정리 |
 | image-blur | 이미지 모자이크·블러 |
 | meme-generator | 밈·짤 생성기 |
+| pdf-to-text | PDF → 텍스트 추출 |
 
-### 텍스트 · 생성 (18)
+### 텍스트 · 생성 (21)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -102,6 +103,9 @@ toolbox/
 | text-diff | 텍스트 비교(diff) |
 | special-characters | 특수문자·이모지 복사 |
 | keyboard-typo | 한/영 키보드 오타 변환 |
+| text-replace | 텍스트 찾기·바꾸기 |
+| tts | 텍스트 → 음성 (TTS) |
+| romanizer | 한글 → 로마자 변환 |
 
 ### 색상 · 디자인 (10)
 | 슬러그 | 이름 |
@@ -144,7 +148,7 @@ toolbox/
 | signature-maker | 서명 만들기 (전자서명) |
 | device-test | 마이크·웹캠 테스트 |
 
-### 개발자 도구 (15)
+### 개발자 도구 (17)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
@@ -162,6 +166,8 @@ toolbox/
 | cron-parser | cron 표현식 변환·설명 |
 | json-to-types | JSON → 타입 변환 (TS/Python/Go) |
 | http-status-codes | HTTP 상태 코드 치트시트 |
+| json-xml | JSON ↔ XML 변환 |
+| sql-formatter | SQL 포매터 |
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 
