@@ -85,8 +85,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
-<!-- tesseract.js 5.1.1 (Apache-2.0) — 브라우저 OCR 엔진. 실측 SHA-384 SRI. 엔진/언어데이터는 실행 시 CDN에서 로드. -->
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js" integrity="sha384-GJqSu7vueQ9qN0E9yLPb3Wtpd7OrgK8KmYzC8T1IysG1bcvxvIO4qtYR/D3A991F" crossorigin="anonymous"></script>
+<!-- tesseract.js 5.1.1 (Apache-2.0) — 브라우저 OCR 엔진. 초기 로딩 최적화를 위해 사용자가 OCR을 시작할 때 동적 주입한다(아래 ensureTesseract: src·실측 SHA-384 SRI·crossorigin 동일 유지). 엔진/언어데이터는 실행 시 CDN에서 로드. -->
 <link rel="stylesheet" href="/tool-page.css">
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -217,11 +216,31 @@
     'recognizing text':'글자 인식 중…'
   };
 
+  // Tesseract.js 지연 로드: 사용자가 OCR을 시작할 때 1회만 동적 주입(중복 방지).
+  // 기존 head 동기 로드와 동일한 src·SRI·crossorigin을 유지한다.
+  var tessPromise=null;
+  function ensureTesseract(){
+    if(typeof Tesseract!=='undefined') return Promise.resolve(true);
+    if(tessPromise) return tessPromise;
+    tessPromise=new Promise(function(resolve,reject){
+      var s=document.createElement('script');
+      s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+      s.integrity='sha384-GJqSu7vueQ9qN0E9yLPb3Wtpd7OrgK8KmYzC8T1IysG1bcvxvIO4qtYR/D3A991F';
+      s.crossOrigin='anonymous';
+      s.onload=function(){ if(typeof Tesseract!=='undefined') resolve(true); else reject(new Error('undef')); };
+      s.onerror=function(){ reject(new Error('load')); };
+      (document.head||document.documentElement).appendChild(s);
+    });
+    return tessPromise;
+  }
+
   async function run(){
     if(busy || !file) return;
-    if(typeof Tesseract==='undefined'){ toast('OCR 엔진을 불러오지 못했습니다'); return; }
     busy=true; $('runBtn').disabled=true;
     $('bar').style.display='block'; $('barFill').style.width='0%';
+    $('status').textContent='인식 엔진 불러오는 중…';
+    try{ await ensureTesseract(); }
+    catch(e){ tessPromise=null; $('status').textContent='OCR 엔진을 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.'; toast('OCR 엔진을 불러오지 못했습니다'); $('bar').style.display='none'; busy=false; $('runBtn').disabled=false; return; }
     $('status').textContent='준비 중…';
     var lang=$('lang').value, worker=null;
     try{
