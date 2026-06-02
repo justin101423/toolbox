@@ -65,6 +65,7 @@
 - 텍스트 찾기·바꾸기 (`/text-replace/`)
 - 텍스트 → 음성 (TTS) (`/tts/`)
 - 한글 → 로마자 변환 (`/romanizer/`)
+- 숫자 → 한글 금액 변환 (`/number-to-korean/`)
 
 ### 색상 · 디자인
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)
@@ -97,12 +98,16 @@
 - 음력 ↔ 양력 변환 (`/lunar-solar-converter/`)
 - 타자 속도 측정 (`/typing-speed/`)
 - 계산기 (일반·공학용) (`/calculator/`)
+- 스톱워치·타이머 (`/stopwatch-timer/`)
+- 학점·GPA 계산기 (`/gpa-calculator/`)
+- 옷·신발 사이즈 변환 (`/size-converter/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
 - UTM 빌더 (`/utm-builder/`)
 - 서명 만들기 (전자서명) (`/signature-maker/`)
 - 마이크·웹캠 테스트 (`/device-test/`)
+- 포모도로 타이머 (`/pomodoro/`)
 
 ### 개발자 도구
 - 인코더 · 디코더 (`/encoder-decoder/`)

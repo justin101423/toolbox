@@ -64,7 +64,8 @@
       { slug: "keyboard-typo",      name: "한/영 오타 변환",    icon: "languages" },
       { slug: "text-replace",       name: "텍스트 찾기·바꾸기", icon: "replace" },
       { slug: "tts",                name: "텍스트 → 음성(TTS)", icon: "volume-2" },
-      { slug: "romanizer",          name: "한글 → 로마자",      icon: "spell-check" }
+      { slug: "romanizer",          name: "한글 → 로마자",      icon: "spell-check" },
+      { slug: "number-to-korean",   name: "숫자 → 한글 금액",   icon: "banknote" }
     ]},
     { label: "색상 · 디자인", tools: [
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
@@ -96,13 +97,17 @@
       { slug: "ladder-game",     name: "사다리타기",        icon: "ladder" },
       { slug: "lunar-solar-converter", name: "음력 ↔ 양력", icon: "moon" },
       { slug: "typing-speed",    name: "타자 속도 측정",    icon: "keyboard" },
-      { slug: "calculator",      name: "계산기(공학용)",    icon: "calculator" }
+      { slug: "calculator",      name: "계산기(공학용)",    icon: "calculator" },
+      { slug: "stopwatch-timer", name: "스톱워치·타이머",   icon: "timer" },
+      { slug: "gpa-calculator",  name: "학점·GPA 계산기",   icon: "graduation-cap" },
+      { slug: "size-converter",  name: "옷·신발 사이즈 변환", icon: "shirt" }
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
       { slug: "utm-builder", name: "UTM 빌더",    icon: "link" },
       { slug: "signature-maker", name: "서명 만들기", icon: "pen-tool" },
-      { slug: "device-test", name: "마이크·웹캠 테스트", icon: "video" }
+      { slug: "device-test", name: "마이크·웹캠 테스트", icon: "video" },
+      { slug: "pomodoro",    name: "포모도로 타이머", icon: "alarm-clock" }
     ]},
     { label: "개발자 도구", tools: [
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
@@ -227,7 +232,12 @@
     "copyright": '<circle cx="12" cy="12" r="10" /> <path d="M14.83 14.83a4 4 0 1 1 0-5.66" />',
     "glasses": '<circle cx="6" cy="15" r="4" /> <circle cx="18" cy="15" r="4" /> <path d="M14 15a2 2 0 0 0-2-2 2 2 0 0 0-2 2" /> <path d="M2.5 13 5 7c.7-1.3 1.4-2 3-2" /> <path d="M21.5 13 19 7c-.7-1.3-1.5-2-3-2" />',
     "spline": '<circle cx="19" cy="5" r="2" /> <circle cx="5" cy="19" r="2" /> <path d="M5 17A12 12 0 0 1 17 5" />',
-    "calculator": '<rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" />'
+    "calculator": '<rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" />',
+    "timer": '<line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" />',
+    "alarm-clock": '<circle cx="12" cy="13" r="8" /> <path d="M12 9v4l2 2" /> <path d="M5 3 2 6" /> <path d="m22 6-3-3" /> <path d="M6.38 18.7 4 21" /> <path d="M17.64 18.67 20 21" />',
+    "graduation-cap": '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />',
+    "shirt": '<path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />',
+    "banknote": '<rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

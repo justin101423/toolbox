@@ -54,7 +54,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 95개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 100개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 ### 이미지 · PDF (25)
 | 슬러그 | 이름 |
@@ -85,7 +85,7 @@ toolbox/
 | image-base64 | 이미지 ↔ Base64 |
 | pdf-watermark | PDF 워터마크 |
 
-### 텍스트 · 생성 (21)
+### 텍스트 · 생성 (22)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -105,6 +105,7 @@ toolbox/
 | reading-time | 읽는 시간 계산기 |
 | text-diff | 텍스트 비교(diff) |
 | special-characters | 특수문자·이모지 복사 |
+| number-to-korean | 숫자 → 한글 금액 변환 |
 | keyboard-typo | 한/영 키보드 오타 변환 |
 | text-replace | 텍스트 찾기·바꾸기 |
 | tts | 텍스트 → 음성 (TTS) |
@@ -126,7 +127,7 @@ toolbox/
 | color-blindness | 색맹·색약 시뮬레이터 |
 | cubic-bezier | cubic-bezier 이징 생성기 |
 
-### 생활 · 편의 (16)
+### 생활 · 편의 (19)
 | 슬러그 | 이름 |
 |---|---|
 | dday-calculator | D-Day · 날짜 계산 |
@@ -145,14 +146,18 @@ toolbox/
 | lunar-solar-converter | 음력 ↔ 양력 변환 |
 | typing-speed | 타자 속도 측정 |
 | calculator | 계산기 (일반·공학용) |
+| stopwatch-timer | 스톱워치·타이머 |
+| gpa-calculator | 학점·GPA 계산기 |
+| size-converter | 옷·신발 사이즈 변환 |
 
-### 직장인 · 생산성 (4)
+### 직장인 · 생산성 (5)
 | 슬러그 | 이름 |
 |---|---|
 | notepad | 임시 메모장 |
 | utm-builder | UTM 빌더 |
 | signature-maker | 서명 만들기 (전자서명) |
 | device-test | 마이크·웹캠 테스트 |
+| pomodoro | 포모도로 타이머 |
 
 ### 개발자 도구 (17)
 | 슬러그 | 이름 |
