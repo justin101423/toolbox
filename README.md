@@ -57,6 +57,7 @@
 - 읽는 시간 계산기 (`/reading-time/`)
 - 텍스트 비교 (diff) (`/text-diff/`)
 - 특수문자·이모지 복사 (`/special-characters/`)
+- 한/영 키보드 오타 변환 (`/keyboard-typo/`)
 
 ### 색상 · 디자인
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)
@@ -68,6 +69,7 @@
 - 컬러 피커·색상 변환 (`/color-picker/`)
 - 그림자(box-shadow) 생성기 (`/box-shadow-generator/`)
 - 테두리 둥글기 생성기 (`/border-radius-generator/`)
+- CSS 단위 변환 (px↔rem↔em) (`/css-unit-converter/`)
 
 ### 생활 · 편의
 - D-Day · 날짜 계산 (`/dday-calculator/`)
@@ -105,6 +107,9 @@
 - 마크다운 → HTML 변환 (`/markdown-preview/`)
 - JSON ↔ YAML 변환 (`/json-yaml/`)
 - 표 변환기 (`/table-converter/`)
+- cron 표현식 변환·설명 (`/cron-parser/`)
+- JSON → 타입 변환 (TS/Python/Go) (`/json-to-types/`)
+- HTTP 상태 코드 치트시트 (`/http-status-codes/`)
 
 ## 기술 스택
 

@@ -56,7 +56,8 @@
       { slug: "fancy-text",         name: "꾸미기 글자 변환",   icon: "wand-sparkles" },
       { slug: "reading-time",       name: "읽는 시간 계산",     icon: "book-open" },
       { slug: "text-diff",          name: "텍스트 비교(diff)",  icon: "diff" },
-      { slug: "special-characters", name: "특수문자·이모지",    icon: "smile" }
+      { slug: "special-characters", name: "특수문자·이모지",    icon: "smile" },
+      { slug: "keyboard-typo",      name: "한/영 오타 변환",    icon: "languages" }
     ]},
     { label: "색상 · 디자인", tools: [
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
@@ -67,7 +68,8 @@
       { slug: "contrast-checker",  name: "색상 대비 검사",   icon: "eye" },
       { slug: "color-picker",      name: "컬러 피커·변환",   icon: "pipette" },
       { slug: "box-shadow-generator", name: "box-shadow 생성기", icon: "box" },
-      { slug: "border-radius-generator", name: "border-radius 생성기", icon: "squircle" }
+      { slug: "border-radius-generator", name: "border-radius 생성기", icon: "squircle" },
+      { slug: "css-unit-converter", name: "CSS 단위 변환", icon: "ruler-dimension-line" }
     ]},
     { label: "생활 · 편의", tools: [
       { slug: "dday-calculator", name: "D-Day · 날짜 계산", icon: "calendar-days" },
@@ -104,7 +106,10 @@
       { slug: "regex-tester",     name: "정규식 테스터",   icon: "regex" },
       { slug: "markdown-preview", name: "마크다운 변환",   icon: "file-text" },
       { slug: "json-yaml",        name: "JSON ↔ YAML",     icon: "arrow-left-right" },
-      { slug: "table-converter",  name: "표 변환기",        icon: "table-2" }
+      { slug: "table-converter",  name: "표 변환기",        icon: "table-2" },
+      { slug: "cron-parser",      name: "cron 표현식 변환", icon: "calendar-clock" },
+      { slug: "json-to-types",    name: "JSON → 타입 변환", icon: "file-json" },
+      { slug: "http-status-codes", name: "HTTP 상태 코드",  icon: "server" }
     ]}
   ];
 
@@ -193,7 +198,12 @@
     "video": '<path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /> <rect x="2" y="6" width="14" height="12" rx="2" />',
     "file-cog": '<path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="m3.2 12.9-.9-.4" /> <path d="m3.2 15.1-.9.4" /> <path d="M4.677 21.5a2 2 0 0 0 1.313.5H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v2.5" /> <path d="m4.9 11.2-.4-.9" /> <path d="m4.9 16.8-.4.9" /> <path d="m7.5 10.3-.4.9" /> <path d="m7.5 17.7-.4-.9" /> <path d="m9.7 12.5-.9.4" /> <path d="m9.7 15.5-.9-.4" /> <circle cx="6" cy="14" r="3" />',
     "eye-off": '<path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" /> <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" /> <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" /> <path d="m2 2 20 20" />',
-    "sticker": '<path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z" /> <path d="M14 3v4a2 2 0 0 0 2 2h4" /> <path d="M8 13h.01" /> <path d="M16 13h.01" /> <path d="M10 16s.8 1 2 1c1.3 0 2-1 2-1" />'
+    "sticker": '<path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z" /> <path d="M14 3v4a2 2 0 0 0 2 2h4" /> <path d="M8 13h.01" /> <path d="M16 13h.01" /> <path d="M10 16s.8 1 2 1c1.3 0 2-1 2-1" />',
+    "languages": '<path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" />',
+    "calendar-clock": '<path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" /> <path d="M16 2v4" /> <path d="M8 2v4" /> <path d="M3 10h5" /> <path d="M17.5 17.5 16 16.3V14" /> <circle cx="16" cy="16" r="6" />',
+    "file-json": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1" /> <path d="M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1" />',
+    "ruler-dimension-line": '<path d="M10 15v-3" /> <path d="M14 15v-3" /> <path d="M18 15v-3" /> <path d="M2 8V4" /> <path d="M22 6H2" /> <path d="M22 8V4" /> <path d="M6 15v-3" /> <rect x="2" y="12" width="20" height="8" rx="2" />',
+    "server": '<rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

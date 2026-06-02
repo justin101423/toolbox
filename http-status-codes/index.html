@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>HTTP 상태 코드 치트시트 — 1xx~5xx 한국어 설명·검색 | 도구상자</title>
+<meta name="description" content="HTTP 상태 코드(1xx~5xx)를 한국어 설명과 함께 빠르게 찾아보는 무료 치트시트. 코드·이름·의미로 검색하고 분류별로 필터링할 수 있습니다. 모든 동작은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/http-status-codes/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="HTTP 상태 코드 치트시트 — 1xx~5xx 한국어 설명·검색 | 도구상자">
+<meta property="og:description" content="HTTP 상태 코드를 한국어 설명과 함께 검색·필터링하는 무료 치트시트. 모든 동작은 브라우저에서 이뤄집니다.">
+<meta property="og:url" content="https://dogubox.shop/http-status-codes/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="HTTP 상태 코드 치트시트 — 1xx~5xx 한국어 설명·검색 | 도구상자">
+<meta name="twitter:description" content="HTTP 상태 코드를 한국어 설명과 함께 검색·필터링하는 무료 치트시트.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HTTP 상태 코드 치트시트",
+  "description": "HTTP 상태 코드(1xx~5xx)를 한국어 설명과 함께 빠르게 찾아보는 무료 치트시트. 코드·이름·의미로 검색하고 분류별로 필터링할 수 있습니다. 모든 동작은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/http-status-codes/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 상태 코드 앞자리 숫자는 무엇을 뜻하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "첫 자리로 응답의 종류를 구분합니다. 1xx는 정보(처리 중), 2xx는 성공, 3xx는 리다이렉션(추가 동작 필요), 4xx는 클라이언트 오류(요청이 잘못됨), 5xx는 서버 오류(서버가 요청을 처리하지 못함)를 뜻합니다. 분류 버튼으로 각 그룹만 모아 볼 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 401과 403은 어떻게 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401 Unauthorized는 인증이 안 된 상태로, 로그인이나 올바른 인증 정보가 필요하다는 뜻입니다. 403 Forbidden은 인증은 됐지만 해당 자원에 접근할 권한이 없다는 뜻입니다. 간단히 말해 401은 '누구인지 모르겠다', 403은 '누구인지 알지만 허용되지 않는다'입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 여기 없는 코드나 비표준 코드도 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이 치트시트는 표준(RFC) 및 널리 쓰이는 주요 상태 코드를 담고 있습니다. 일부 서버나 CDN은 자체적인 비표준 코드(예: 일부 4xx·5xx 확장)를 쓰기도 하는데, 그런 코드는 해당 서비스 문서를 확인해야 합니다. 표준 코드의 의미를 빠르게 떠올리는 용도로 활용하세요."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "HTTP 상태 코드 치트시트", "item": "https://dogubox.shop/http-status-codes/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.hs-search{width:100%;font-size:15px;padding:12px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);margin-bottom:12px}
+.hs-search:focus{outline:none;border-color:var(--ink)}
+.hs-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.hs-filters button{font-size:13px;font-weight:600;color:var(--ink-2);background:var(--paper);border:1px solid var(--line-2);border-radius:99px;padding:7px 13px;cursor:pointer}
+.hs-filters button.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.hs-list{display:flex;flex-direction:column;gap:8px}
+.hs-item{display:flex;gap:14px;align-items:baseline;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 15px;cursor:pointer;transition:border-color .15s}
+.hs-item:hover{border-color:var(--ink)}
+.hs-code{font-family:var(--mono);font-weight:700;font-size:18px;flex:0 0 auto;width:46px}
+.hs-c1{color:#5b8def}.hs-c2{color:#2e7d4f}.hs-c3{color:#b7791f}.hs-c4{color:#df8a24}.hs-c5{color:#df4324}
+.hs-body .name{font-weight:700;font-size:14.5px;color:var(--ink)}
+.hs-body .desc{font-size:13.5px;color:var(--ink-2);line-height:1.55;margin-top:3px}
+.hs-empty{color:var(--ink-3);text-align:center;padding:20px;font-size:14px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>HTTP 상태 코드 치트시트</h1>
+      <p class="lede">HTTP 상태 코드를 한국어 설명과 함께 빠르게 찾아보세요. 코드·이름·의미로 검색하고 분류별로 거를 수 있습니다. 코드를 클릭하면 복사됩니다.</p>
+
+      <div class="box">
+        <input type="text" class="hs-search" id="search" placeholder="코드나 키워드로 검색 (예: 404, not found, 인증)">
+        <div class="hs-filters" id="filters">
+          <button type="button" data-c="all" class="active">전체</button>
+          <button type="button" data-c="1">1xx 정보</button>
+          <button type="button" data-c="2">2xx 성공</button>
+          <button type="button" data-c="3">3xx 리다이렉션</button>
+          <button type="button" data-c="4">4xx 클라이언트 오류</button>
+          <button type="button" data-c="5">5xx 서버 오류</button>
+        </div>
+        <div class="hs-list" id="list"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>검색창에 코드(예: 404)나 키워드(예: 인증, timeout)를 입력해 원하는 상태 코드를 찾습니다.</li>
+          <li>분류 버튼(1xx~5xx)으로 특정 그룹만 모아 볼 수 있습니다.</li>
+          <li>코드 항목을 클릭하면 코드 번호가 클립보드에 복사됩니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>API 디버깅에:</b> 응답 코드를 받았을 때 의미가 헷갈리면 바로 검색해 확인하세요. 4xx는 요청 쪽, 5xx는 서버 쪽 문제라는 큰 줄기를 기억하면 원인 파악이 빨라집니다.</li>
+          <li><b>올바른 코드 설계:</b> API를 만들 때 성공은 200/201, 잘못된 입력은 400, 인증 필요는 401, 권한 없음은 403, 없는 자원은 404처럼 의미에 맞는 코드를 돌려주면 사용하는 쪽이 동작을 예측하기 쉽습니다.</li>
+          <li><b>429와 503 구분:</b> 요청이 너무 많아 막힌 것은 429(Too Many Requests), 서버가 일시적으로 불가한 것은 503(Service Unavailable)입니다. 재시도 전략을 다르게 가져가야 합니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 상태 코드 앞자리 숫자는 무엇을 뜻하나요?</b><p>첫 자리로 응답의 종류를 구분합니다. 1xx는 정보(처리 중), 2xx는 성공, 3xx는 리다이렉션(추가 동작 필요), 4xx는 클라이언트 오류(요청이 잘못됨), 5xx는 서버 오류(서버가 요청을 처리하지 못함)를 뜻합니다. 분류 버튼으로 각 그룹만 모아 볼 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 401과 403은 어떻게 다른가요?</b><p>401 Unauthorized는 인증이 안 된 상태로, 로그인이나 올바른 인증 정보가 필요하다는 뜻입니다. 403 Forbidden은 인증은 됐지만 해당 자원에 접근할 권한이 없다는 뜻입니다. 간단히 말해 401은 '누구인지 모르겠다', 403은 '누구인지 알지만 허용되지 않는다'입니다.</p></div>
+          <div class="qa"><b>Q. 여기 없는 코드나 비표준 코드도 있나요?</b><p>이 치트시트는 표준(RFC) 및 널리 쓰이는 주요 상태 코드를 담고 있습니다. 일부 서버나 CDN은 자체적인 비표준 코드(예: 일부 4xx·5xx 확장)를 쓰기도 하는데, 그런 코드는 해당 서비스 문서를 확인해야 합니다. 표준 코드의 의미를 빠르게 떠올리는 용도로 활용하세요.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var CODES=[
+    [100,"Continue","요청의 첫 부분을 받았으며 계속 진행하라는 임시 응답입니다."],
+    [101,"Switching Protocols","클라이언트의 요청에 따라 프로토콜을 전환합니다(예: WebSocket)."],
+    [103,"Early Hints","본 응답 전에 일부 리소스를 미리 로드하도록 힌트를 줍니다."],
+    [200,"OK","요청이 성공했습니다. 가장 일반적인 성공 응답입니다."],
+    [201,"Created","요청이 성공했고 새 자원이 생성되었습니다(주로 POST 후)."],
+    [202,"Accepted","요청은 접수됐지만 처리가 아직 완료되지 않았습니다(비동기)."],
+    [204,"No Content","요청은 성공했지만 돌려줄 본문이 없습니다(예: 삭제 후)."],
+    [206,"Partial Content","요청한 일부 범위만 응답합니다(이어받기·스트리밍)."],
+    [301,"Moved Permanently","자원이 새 URL로 영구 이동했습니다. 링크를 갱신해야 합니다."],
+    [302,"Found","자원이 임시로 다른 URL에 있습니다. 원래 주소를 유지합니다."],
+    [303,"See Other","다른 URL을 GET으로 다시 요청하라는 의미입니다(POST 후 리다이렉트)."],
+    [304,"Not Modified","캐시된 내용이 그대로 유효하니 다시 받을 필요가 없습니다."],
+    [307,"Temporary Redirect","임시 이동이며, 메서드(POST 등)를 그대로 유지해 재요청합니다."],
+    [308,"Permanent Redirect","영구 이동이며, 메서드를 그대로 유지해 재요청합니다."],
+    [400,"Bad Request","요청 구문이 잘못되어 서버가 이해할 수 없습니다."],
+    [401,"Unauthorized","인증이 필요합니다. 로그인 또는 올바른 인증 정보가 있어야 합니다."],
+    [403,"Forbidden","인증은 됐지만 이 자원에 접근할 권한이 없습니다."],
+    [404,"Not Found","요청한 자원을 찾을 수 없습니다. 경로나 주소를 확인하세요."],
+    [405,"Method Not Allowed","해당 자원에서 허용되지 않는 HTTP 메서드입니다."],
+    [406,"Not Acceptable","클라이언트가 받아들일 수 있는 형식으로 응답할 수 없습니다."],
+    [408,"Request Timeout","요청을 기다리다 시간이 초과됐습니다."],
+    [409,"Conflict","현재 자원 상태와 충돌해 요청을 처리할 수 없습니다."],
+    [410,"Gone","자원이 영구적으로 삭제되어 더 이상 제공되지 않습니다."],
+    [413,"Payload Too Large","요청 본문이 서버가 허용하는 크기를 초과했습니다."],
+    [414,"URI Too Long","요청 URI가 너무 길어 처리할 수 없습니다."],
+    [415,"Unsupported Media Type","지원하지 않는 미디어 타입(Content-Type)입니다."],
+    [418,"I'm a teapot","찻주전자는 커피를 내릴 수 없다는 농담용 코드입니다(RFC 2324)."],
+    [422,"Unprocessable Entity","구문은 맞지만 의미상(검증 등) 처리할 수 없습니다."],
+    [429,"Too Many Requests","짧은 시간에 요청이 너무 많습니다(요청 제한). 잠시 후 재시도하세요."],
+    [431,"Request Header Fields Too Large","요청 헤더가 너무 커서 처리할 수 없습니다."],
+    [451,"Unavailable For Legal Reasons","법적 사유로 자원을 제공할 수 없습니다."],
+    [500,"Internal Server Error","서버 내부 오류로 요청을 처리하지 못했습니다."],
+    [501,"Not Implemented","서버가 해당 기능(메서드 등)을 지원하지 않습니다."],
+    [502,"Bad Gateway","게이트웨이·프록시가 상위 서버로부터 잘못된 응답을 받았습니다."],
+    [503,"Service Unavailable","서버가 과부하·점검 등으로 일시적으로 처리할 수 없습니다."],
+    [504,"Gateway Timeout","게이트웨이·프록시가 상위 서버 응답을 제때 받지 못했습니다."],
+    [505,"HTTP Version Not Supported","요청한 HTTP 버전을 서버가 지원하지 않습니다."],
+    [507,"Insufficient Storage","서버 저장 공간이 부족해 요청을 처리할 수 없습니다."],
+    [511,"Network Authentication Required","네트워크 접근을 위해 인증이 필요합니다(예: 와이파이 포털)."]
+  ];
+  var cat='all';
+  function render(){
+    var q=$('search').value.trim().toLowerCase();
+    var list=$('list'), html='';
+    for(var i=0;i<CODES.length;i++){
+      var c=CODES[i], code=c[0], name=c[1], desc=c[2], cls=String(code)[0];
+      if(cat!=='all' && cls!==cat) continue;
+      if(q){ var hay=(code+' '+name+' '+desc).toLowerCase(); if(hay.indexOf(q)<0) continue; }
+      html+='<div class="hs-item" data-code="'+code+'"><div class="hs-code hs-c'+cls+'">'+code+'</div><div class="hs-body"><div class="name">'+name+'</div><div class="desc">'+desc+'</div></div></div>';
+    }
+    list.innerHTML=html||'<div class="hs-empty">검색 결과가 없습니다.</div>';
+  }
+  $('search').addEventListener('input',render);
+  $('filters').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-c]'); if(!b) return;
+    cat=b.dataset.c;
+    var btns=this.querySelectorAll('button'); for(var i=0;i<btns.length;i++) btns[i].classList.toggle('active',btns[i]===b);
+    render();
+  });
+  $('list').addEventListener('click',function(e){
+    var it=e.target.closest('.hs-item'); if(!it) return;
+    var code=it.dataset.code;
+    navigator.clipboard.writeText(code).then(function(){ toast(code+' 복사됨'); },function(){});
+  });
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1300);}
+  render();
+})();
+</script>
+</html>

@@ -54,7 +54,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 78개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 83개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 ### 이미지 · PDF (21)
 | 슬러그 | 이름 |
@@ -81,7 +81,7 @@ toolbox/
 | image-blur | 이미지 모자이크·블러 |
 | meme-generator | 밈·짤 생성기 |
 
-### 텍스트 · 생성 (17)
+### 텍스트 · 생성 (18)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -101,8 +101,9 @@ toolbox/
 | reading-time | 읽는 시간 계산기 |
 | text-diff | 텍스트 비교(diff) |
 | special-characters | 특수문자·이모지 복사 |
+| keyboard-typo | 한/영 키보드 오타 변환 |
 
-### 색상 · 디자인 (9)
+### 색상 · 디자인 (10)
 | 슬러그 | 이름 |
 |---|---|
 | hex-rgb-converter | HEX ↔ RGB 변환 |
@@ -114,6 +115,7 @@ toolbox/
 | color-picker | 컬러 피커·색상 변환 |
 | box-shadow-generator | 그림자(box-shadow) 생성기 |
 | border-radius-generator | 테두리 둥글기 생성기 |
+| css-unit-converter | CSS 단위 변환 (px↔rem↔em) |
 
 ### 생활 · 편의 (15)
 | 슬러그 | 이름 |
@@ -142,7 +144,7 @@ toolbox/
 | signature-maker | 서명 만들기 (전자서명) |
 | device-test | 마이크·웹캠 테스트 |
 
-### 개발자 도구 (12)
+### 개발자 도구 (15)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
@@ -157,6 +159,9 @@ toolbox/
 | markdown-preview | 마크다운 → HTML 변환 |
 | json-yaml | JSON ↔ YAML 변환 |
 | table-converter | 표 변환기 |
+| cron-parser | cron 표현식 변환·설명 |
+| json-to-types | JSON → 타입 변환 (TS/Python/Go) |
+| http-status-codes | HTTP 상태 코드 치트시트 |
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 
