@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>서명 만들기 — 마우스·터치로 전자서명 그려 투명 PNG 저장 | 도구상자</title>
+<meta name="description" content="마우스나 터치로 서명을 그려 투명 배경 PNG로 저장하는 무료 전자서명 도구. 펜 색·굵기 선택, 이름으로 원형 전자도장 생성 지원. 가입·업로드 없이 모든 처리가 브라우저 안에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/signature-maker/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="서명 만들기 — 마우스·터치로 전자서명 그려 투명 PNG 저장 | 도구상자">
+<meta property="og:description" content="마우스나 터치로 서명을 그려 투명 배경 PNG로 저장하는 무료 전자서명 도구. 펜 색·굵기 선택, 원형 전자도장 생성 지원. 가입·업로드 없이 브라우저에서 처리됩니다.">
+<meta property="og:url" content="https://dogubox.shop/signature-maker/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="서명 만들기 — 마우스·터치로 전자서명 그려 투명 PNG 저장 | 도구상자">
+<meta name="twitter:description" content="마우스·터치로 서명을 그려 투명 배경 PNG로 저장하는 무료 전자서명 도구. 입력 내용은 전송되지 않습니다.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "서명 만들기",
+  "description": "마우스나 터치로 서명을 그려 투명 배경 PNG로 저장하는 무료 전자서명 도구. 펜 색·굵기 선택, 이름으로 원형 전자도장 생성 지원. 가입·업로드 없이 모든 처리가 브라우저 안에서 이뤄집니다.",
+  "url": "https://dogubox.shop/signature-maker/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 만든 서명 이미지는 어디에 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "배경이 투명한 PNG로 저장되기 때문에 워드·한글·PDF 문서나 사진 위에 겹쳐 넣어도 흰 사각형 없이 서명만 깔끔하게 올라갑니다. 비대면 계약서, 각종 동의서, 사내 결재 문서의 서명란을 채울 때 캡처한 종이 서명 대신 사용하기 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 그린 서명이나 입력한 이름이 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 서명 그리기, 전자도장 생성, PNG 저장까지 모든 과정이 사용자의 브라우저 안에서만 처리됩니다. 그린 그림이나 입력한 이름은 어떤 서버로도 전송되거나 저장되지 않으므로 민감한 서명을 안심하고 만들 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이렇게 만든 전자서명도 법적 효력이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "전자문서와 전자서명은 일반적으로 법적으로 인정될 수 있지만, 효력이 인정되는 요건은 문서의 종류, 당사자 간 합의, 국가·기관의 규정에 따라 달라집니다. 이 도구는 서명 이미지를 만들어 줄 뿐 법적 효력을 보장하지 않으므로, 중요한 계약에서는 관련 규정을 확인하거나 전문가와 상담하시기 바랍니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "서명 만들기",
+      "item": "https://dogubox.shop/signature-maker/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.sig-seg{display:inline-flex;border:1px solid var(--line-2);border-radius:var(--r-sm);overflow:hidden;margin-bottom:16px}
+.sig-seg button{padding:9px 18px;font-size:14px;font-weight:600;color:var(--ink-2);background:transparent;transition:background .15s,color .15s}
+.sig-seg button.active{background:var(--ink);color:var(--paper)}
+.sig-tools{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.sig-group{display:flex;align-items:center;gap:8px}
+.sig-group .lbl{font-size:13px;color:var(--ink-3);font-weight:600}
+.swatch{width:24px;height:24px;border-radius:50%;border:2px solid var(--line-2);cursor:pointer;padding:0}
+.swatch.active{box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--ink)}
+.wbtn{width:36px;height:30px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.wbtn.active{border-color:var(--ink);background:var(--panel)}
+.wbtn i{display:block;background:var(--ink);border-radius:99px}
+input[type=color].sig-color{width:30px;height:30px;border:1px solid var(--line-2);border-radius:6px;background:none;cursor:pointer;padding:2px}
+.checker{border:1px solid var(--line-2);border-radius:var(--r-sm);overflow:hidden;
+  background-color:var(--paper);
+  background-image:linear-gradient(45deg,var(--panel) 25%,transparent 25%),linear-gradient(-45deg,var(--panel) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,var(--panel) 75%),linear-gradient(-45deg,transparent 75%,var(--panel) 75%);
+  background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0}
+canvas.sig-pad{display:block;width:100%;height:240px;touch-action:none;cursor:crosshair}
+.stamp-area{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
+.stamp-canvas-wrap{flex:0 0 auto}
+#stamp-canvas{display:block;width:160px;height:160px}
+.stamp-fields{flex:1 1 220px;min-width:220px}
+.muted{font-size:12.5px;color:var(--ink-3);margin-top:8px;line-height:1.55}
+.disclaimer{font-size:12.5px;color:var(--ink-3);background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 14px;margin-top:16px;line-height:1.6}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>서명 만들기</h1>
+      <p class="lede">마우스나 터치로 서명을 그려 <b>배경이 투명한 PNG</b>로 저장합니다. 문서 위에 겹쳐 넣기 좋고, 가입·업로드 없이 모든 처리가 브라우저 안에서 이뤄집니다.</p>
+
+      <div class="box">
+        <div class="sig-seg" id="sig-tabs" role="group" aria-label="모드 선택">
+          <button type="button" data-tab="draw" class="active">✍️ 서명 그리기</button>
+          <button type="button" data-tab="stamp">🔴 전자도장</button>
+        </div>
+
+        <!-- 서명 그리기 -->
+        <div id="panel-draw">
+          <div class="sig-tools">
+            <div class="sig-group">
+              <span class="lbl">펜 색</span>
+              <button type="button" class="swatch active" data-color="#1b1b1b" style="background:#1b1b1b" aria-label="검정"></button>
+              <button type="button" class="swatch" data-color="#1f57d6" style="background:#1f57d6" aria-label="파랑"></button>
+              <button type="button" class="swatch" data-color="#d11f2a" style="background:#d11f2a" aria-label="빨강"></button>
+              <input type="color" class="sig-color" id="sig-color" value="#1b1b1b" aria-label="사용자 지정 색">
+            </div>
+            <div class="sig-group">
+              <span class="lbl">굵기</span>
+              <button type="button" class="wbtn" data-w="2" aria-label="가늘게"><i style="width:14px;height:2px"></i></button>
+              <button type="button" class="wbtn active" data-w="3.5" aria-label="보통"><i style="width:14px;height:4px"></i></button>
+              <button type="button" class="wbtn" data-w="6" aria-label="굵게"><i style="width:14px;height:7px"></i></button>
+            </div>
+          </div>
+
+          <div class="checker">
+            <canvas id="sig-canvas" class="sig-pad"></canvas>
+          </div>
+          <p class="muted">바탕의 격자무늬는 투명한 부분을 표시한 것으로, 저장되는 PNG에는 포함되지 않습니다.</p>
+
+          <div class="btn-row" style="margin-top:14px">
+            <button type="button" class="btn ghost" id="sig-undo">되돌리기</button>
+            <button type="button" class="btn ghost" id="sig-clear">지우기</button>
+            <button type="button" class="btn accent" id="sig-download">투명 PNG 다운로드</button>
+          </div>
+        </div>
+
+        <!-- 전자도장 -->
+        <div id="panel-stamp" style="display:none">
+          <div class="stamp-area">
+            <div class="stamp-canvas-wrap checker">
+              <canvas id="stamp-canvas"></canvas>
+            </div>
+            <div class="stamp-fields">
+              <div class="field" style="margin-bottom:14px">
+                <label for="stamp-name">이름 (최대 4자)</label>
+                <input type="text" id="stamp-name" maxlength="6" placeholder="예: 홍길동" value="홍길동">
+              </div>
+              <div class="sig-group" style="margin-bottom:14px">
+                <span class="lbl">도장 색</span>
+                <button type="button" class="swatch active" data-scolor="#d11f2a" style="background:#d11f2a" aria-label="빨강"></button>
+                <button type="button" class="swatch" data-scolor="#1b1b1b" style="background:#1b1b1b" aria-label="검정"></button>
+                <button type="button" class="swatch" data-scolor="#1f57d6" style="background:#1f57d6" aria-label="파랑"></button>
+                <input type="color" class="sig-color" id="stamp-color" value="#d11f2a" aria-label="사용자 지정 색">
+              </div>
+              <button type="button" class="btn accent" id="stamp-download">투명 PNG 다운로드</button>
+              <p class="muted">이름 길이에 맞춰 글자가 원 안에 배치됩니다. 인감·관인 등 법적 효력이 있는 도장을 대체하지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="disclaimer">이 도구는 서명·도장 <b>이미지</b>를 만들어 줄 뿐 법적 효력을 보장하지 않습니다. 전자서명의 효력 인정 요건은 문서 종류와 관련 규정에 따라 다르므로, 중요한 계약은 규정을 확인하거나 전문가와 상담하세요.</div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li><b>서명 그리기</b> 탭에서 펜 색과 굵기를 고릅니다.</li>
+          <li>마우스(또는 손가락·터치펜)로 서명란에 서명을 그립니다. 마음에 들지 않으면 <b>되돌리기</b>·<b>지우기</b>로 다시 그립니다.</li>
+          <li><b>투명 PNG 다운로드</b>를 누르면 배경이 비치는 PNG 파일로 저장됩니다.</li>
+          <li>저장한 이미지를 워드·한글·PDF 등 문서의 서명란 위에 끼워 넣습니다.</li>
+          <li>필요하면 <b>전자도장</b> 탭에서 이름을 입력해 원형 도장 이미지도 만들 수 있습니다.</li>
+        </ol>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>투명 배경이라 겹쳐 쓰기 편합니다:</b> 흰 배경이 없으므로 문서나 사진 위에 올려도 네모난 흰 박스가 생기지 않습니다. 워드·한글에서는 "그림 삽입" 후 텍스트 배치를 '글 앞으로'로 두면 서명란 위에 자연스럽게 얹을 수 있습니다.</li>
+          <li><b>큰 화면에서 또박또박:</b> 좁은 화면보다 화면이 클수록, 그리고 마우스보다 트랙패드·태블릿펜·스마트폰 터치가 부드러운 곡선을 그리기 쉽습니다. 천천히 한 번에 이어 그리면 더 깔끔합니다.</li>
+          <li><b>작게 넣을 거면 약간 굵게:</b> 문서에서 서명을 작게 축소해 넣을 예정이라면 펜을 조금 굵게 그려야 줄어든 뒤에도 또렷하게 보입니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 만든 서명 이미지는 어디에 쓰나요?</b><p>배경이 투명한 PNG로 저장되기 때문에 워드·한글·PDF 문서나 사진 위에 겹쳐 넣어도 흰 사각형 없이 서명만 깔끔하게 올라갑니다. 비대면 계약서, 각종 동의서, 사내 결재 문서의 서명란을 채울 때 캡처한 종이 서명 대신 사용하기 좋습니다.</p></div>
+          <div class="qa"><b>Q. 그린 서명이나 입력한 이름이 서버로 전송되나요?</b><p>아니요. 서명 그리기, 전자도장 생성, PNG 저장까지 모든 과정이 사용자의 브라우저 안에서만 처리됩니다. 그린 그림이나 입력한 이름은 어떤 서버로도 전송되거나 저장되지 않으므로 민감한 서명을 안심하고 만들 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 이렇게 만든 전자서명도 법적 효력이 있나요?</b><p>전자문서와 전자서명은 일반적으로 법적으로 인정될 수 있지만, 효력이 인정되는 요건은 문서의 종류, 당사자 간 합의, 국가·기관의 규정에 따라 달라집니다. 이 도구는 서명 이미지를 만들어 줄 뿐 법적 효력을 보장하지 않으므로, 중요한 계약에서는 관련 규정을 확인하거나 전문가와 상담하시기 바랍니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var dpr=Math.max(1, window.devicePixelRatio||1);
+
+  /* ---------- 탭 전환 ---------- */
+  var tabs=$('sig-tabs');
+  tabs.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-tab]'); if(!b) return;
+    var t=b.dataset.tab;
+    var btns=tabs.querySelectorAll('button');
+    for(var i=0;i<btns.length;i++) btns[i].classList.toggle('active',btns[i]===b);
+    $('panel-draw').style.display = t==='draw'?'block':'none';
+    $('panel-stamp').style.display = t==='stamp'?'block':'none';
+    if(t==='draw') fit(); else drawStamp();
+  });
+
+  /* ================= 서명 그리기 ================= */
+  var cv=$('sig-canvas'), ctx=cv.getContext('2d');
+  var penColor='#1b1b1b', penWidth=3.5;
+  var drawing=false, pts=[], undoStack=[], hasInk=false;
+
+  function applyStroke(){ ctx.lineCap='round'; ctx.lineJoin='round'; ctx.strokeStyle=penColor; ctx.lineWidth=penWidth; }
+  function cssW(){ return cv.width/dpr; }
+  function cssH(){ return cv.height/dpr; }
+
+  function clearRaw(){ ctx.save(); ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,cv.width,cv.height); ctx.restore(); }
+
+  function fit(){
+    var rect=cv.getBoundingClientRect();
+    if(rect.width===0) return; // 숨겨져 있으면 보류
+    var snap=hasInk?cv.toDataURL():null;
+    var pw=rect.width, ph=rect.height;
+    cv.width=Math.round(pw*dpr);
+    cv.height=Math.round(ph*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    applyStroke();
+    if(snap){ var img=new Image(); img.onload=function(){ ctx.drawImage(img,0,0,pw,ph); }; img.src=snap; }
+  }
+
+  function pos(e){ var r=cv.getBoundingClientRect(); return {x:e.clientX-r.left, y:e.clientY-r.top}; }
+
+  function start(e){
+    e.preventDefault();
+    undoStack.push(cv.toDataURL());
+    if(undoStack.length>25) undoStack.shift();
+    drawing=true; pts=[pos(e)];
+    try{ cv.setPointerCapture(e.pointerId); }catch(_){}
+  }
+  function move(e){
+    if(!drawing) return; e.preventDefault();
+    pts.push(pos(e));
+    var n=pts.length;
+    applyStroke();
+    if(n<3){
+      if(n===2){ ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y); ctx.lineTo(pts[1].x,pts[1].y); ctx.stroke(); hasInk=true; }
+      return;
+    }
+    var p0=pts[n-3], p1=pts[n-2], p2=pts[n-1];
+    var m1={x:(p0.x+p1.x)/2,y:(p0.y+p1.y)/2};
+    var m2={x:(p1.x+p2.x)/2,y:(p1.y+p2.y)/2};
+    ctx.beginPath(); ctx.moveTo(m1.x,m1.y);
+    ctx.quadraticCurveTo(p1.x,p1.y,m2.x,m2.y); ctx.stroke();
+    hasInk=true;
+  }
+  function end(){
+    if(!drawing) return; drawing=false;
+    if(pts.length>0 && pts.length<2){ // 점 한 번 찍기
+      applyStroke(); ctx.beginPath();
+      ctx.arc(pts[0].x,pts[0].y,penWidth/2,0,Math.PI*2);
+      ctx.fillStyle=penColor; ctx.fill(); hasInk=true;
+    }
+    pts=[];
+  }
+  cv.addEventListener('pointerdown',start);
+  cv.addEventListener('pointermove',move);
+  window.addEventListener('pointerup',end);
+  cv.addEventListener('pointercancel',end);
+
+  // 빈 캔버스 판별(알파값 검사)
+  function isEmpty(canvas){
+    var c=canvas.getContext('2d');
+    var d=c.getImageData(0,0,canvas.width,canvas.height).data;
+    for(var i=3;i<d.length;i+=4){ if(d[i]!==0) return false; }
+    return true;
+  }
+  function download(canvas,name){
+    var a=document.createElement('a');
+    a.href=canvas.toDataURL('image/png'); a.download=name;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }
+
+  // 펜 색 스와치
+  var colorSwatches=document.querySelectorAll('#panel-draw .swatch[data-color]');
+  for(var i=0;i<colorSwatches.length;i++){
+    colorSwatches[i].addEventListener('click',function(){
+      penColor=this.dataset.color; $('sig-color').value=penColor;
+      for(var j=0;j<colorSwatches.length;j++) colorSwatches[j].classList.toggle('active',colorSwatches[j]===this);
+    });
+  }
+  $('sig-color').addEventListener('input',function(){
+    penColor=this.value;
+    for(var j=0;j<colorSwatches.length;j++) colorSwatches[j].classList.remove('active');
+  });
+  // 굵기
+  var wBtns=document.querySelectorAll('#panel-draw .wbtn');
+  for(var k=0;k<wBtns.length;k++){
+    wBtns[k].addEventListener('click',function(){
+      penWidth=parseFloat(this.dataset.w);
+      for(var j=0;j<wBtns.length;j++) wBtns[j].classList.toggle('active',wBtns[j]===this);
+    });
+  }
+  // 되돌리기 / 지우기 / 다운로드
+  $('sig-undo').addEventListener('click',function(){
+    if(!undoStack.length) return;
+    var data=undoStack.pop();
+    var img=new Image();
+    img.onload=function(){ clearRaw(); ctx.drawImage(img,0,0,cssW(),cssH()); hasInk=!isEmpty(cv); };
+    img.src=data;
+  });
+  $('sig-clear').addEventListener('click',function(){ clearRaw(); undoStack=[]; hasInk=false; });
+  $('sig-download').addEventListener('click',function(){
+    if(isEmpty(cv)){ alert('먼저 서명을 그려 주세요.'); return; }
+    download(cv,'signature.png');
+  });
+
+  // 리사이즈 시 비율 유지(디바운스)
+  var rt=null;
+  window.addEventListener('resize',function(){
+    if($('panel-draw').style.display==='none') return;
+    clearTimeout(rt); rt=setTimeout(fit,200);
+  });
+
+  /* ================= 전자도장 ================= */
+  var sc=$('stamp-canvas'), sx=sc.getContext('2d');
+  var SS=260, stampColor='#d11f2a';
+  sc.width=SS*dpr; sc.height=SS*dpr; sx.setTransform(dpr,0,0,dpr,0,0);
+
+  function drawStamp(){
+    sx.clearRect(0,0,SS,SS);
+    var raw=($('stamp-name').value||'').replace(/\s+/g,'');
+    var chars=Array.prototype.slice.call(raw).slice(0,4);
+    var c=SS/2, R=SS*0.44;
+    sx.strokeStyle=stampColor; sx.fillStyle=stampColor;
+    sx.lineWidth=SS*0.05;
+    sx.beginPath(); sx.arc(c,c,R,0,Math.PI*2); sx.stroke();
+    if(!chars.length) return;
+    sx.textAlign='center'; sx.textBaseline='middle';
+    var ff="'Pretendard',system-ui,sans-serif";
+    function put(ch,x,y,size){ sx.font='700 '+size+"px "+ff; sx.fillText(ch,x,y); }
+    var n=chars.length, q=R*0.5;
+    if(n===1){ put(chars[0],c,c,R*1.05); }
+    else if(n===2){ put(chars[0],c,c-q*0.62,R*0.82); put(chars[1],c,c+q*0.62,R*0.82); }
+    else if(n===3){ put(chars[0],c,c-q*0.7,R*0.66); put(chars[1],c-q*0.62,c+q*0.5,R*0.66); put(chars[2],c+q*0.62,c+q*0.5,R*0.66); }
+    else { var s=R*0.62; put(chars[0],c-q,c-q,s); put(chars[1],c+q,c-q,s); put(chars[2],c-q,c+q,s); put(chars[3],c+q,c+q,s); }
+  }
+
+  $('stamp-name').addEventListener('input',drawStamp);
+  var sColorSw=document.querySelectorAll('#panel-stamp .swatch[data-scolor]');
+  for(var m=0;m<sColorSw.length;m++){
+    sColorSw[m].addEventListener('click',function(){
+      stampColor=this.dataset.scolor; $('stamp-color').value=stampColor;
+      for(var j=0;j<sColorSw.length;j++) sColorSw[j].classList.toggle('active',sColorSw[j]===this);
+      drawStamp();
+    });
+  }
+  $('stamp-color').addEventListener('input',function(){
+    stampColor=this.value;
+    for(var j=0;j<sColorSw.length;j++) sColorSw[j].classList.remove('active');
+    drawStamp();
+  });
+  $('stamp-download').addEventListener('click',function(){ download(sc,'stamp.png'); });
+
+  /* ---------- 초기화 ---------- */
+  fit();
+  drawStamp();
+  // 폰트 로드 후 도장 다시 그리기(정확한 글꼴 반영)
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(drawStamp); }
+})();
+</script>
+</html>

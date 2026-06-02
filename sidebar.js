@@ -82,7 +82,8 @@
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
-      { slug: "utm-builder", name: "UTM 빌더",    icon: "link" }
+      { slug: "utm-builder", name: "UTM 빌더",    icon: "link" },
+      { slug: "signature-maker", name: "서명 만들기", icon: "pen-tool" }
     ]},
     { label: "개발자 도구", tools: [
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
@@ -177,7 +178,8 @@
     "ladder": '<path d="M8 3v18" /> <path d="M16 3v18" /> <path d="M8 7h8" /> <path d="M8 12h8" /> <path d="M8 17h8" />',
     "image-down": '<path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /> <circle cx="9" cy="9" r="2" /> <path d="M19 16v6" /> <path d="m22 19-3 3-3-3" />',
     "moon": '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />',
-    "keyboard": '<path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" />'
+    "keyboard": '<path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" />',
+    "pen-tool": '<path d="m12 19 7-7 3 3-7 7-3-3z" /> <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /> <path d="m2 2 7.586 7.586" /> <circle cx="11" cy="11" r="2" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 
