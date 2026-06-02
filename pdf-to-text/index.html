@@ -86,7 +86,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
 <!-- pdf.js 3.11.174 (Apache-2.0) — PDF 텍스트 레이어 추출. pdf-to-image와 동일한 검증된 SRI 재사용. -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e" crossorigin="anonymous"></script>
+<!-- pdf.js 3.11.174 (Apache-2.0) — 초기 로딩 최적화를 위해 추출 실행 시 동적 주입(ensurePdfjs: src·실측 SHA-384 SRI·crossorigin 동일 유지, workerSrc는 로더 onload에서 설정). -->
 <link rel="stylesheet" href="/tool-page.css">
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -170,13 +170,28 @@
 (function(){
   "use strict";
   var $=function(id){return document.getElementById(id);};
-  if(window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  var pdfjsPromise=null;
+  function ensurePdfjs(){
+    if(typeof pdfjsLib!=='undefined') return Promise.resolve(true);
+    if(pdfjsPromise) return pdfjsPromise;
+    pdfjsPromise=new Promise(function(resolve,reject){
+      var s=document.createElement('script');
+      s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+      s.integrity='sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e';
+      s.crossOrigin='anonymous';
+      s.onload=function(){ if(typeof pdfjsLib!=='undefined'){ try{ pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; }catch(e){} resolve(true); } else reject(new Error('undef')); };
+      s.onerror=function(){ reject(new Error('load')); };
+      (document.head||document.documentElement).appendChild(s);
+    });
+    return pdfjsPromise;
+  }
   function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1400);}
 
-  function extract(f){
+  async function extract(f){
     if(!f || (!/pdf$/i.test(f.name) && f.type!=='application/pdf')){ $('status').textContent='PDF 파일을 선택하세요.'; return; }
-    if(typeof pdfjsLib==='undefined'){ $('status').textContent='PDF 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.'; return; }
-    $('bar').style.display='block'; $('barFill').style.width='0%'; $('status').textContent='PDF 여는 중…'; $('out').style.display='none'; $('outBtns').style.display='none';
+    $('bar').style.display='block'; $('barFill').style.width='0%'; $('status').textContent='PDF 엔진 불러오는 중…'; $('out').style.display='none'; $('outBtns').style.display='none';
+    try{ await ensurePdfjs(); }catch(e){ pdfjsPromise=null; $('status').textContent='PDF 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.'; return; }
+    $('status').textContent='PDF 여는 중…';
     f.arrayBuffer().then(function(buf){ return pdfjsLib.getDocument({data:new Uint8Array(buf)}).promise; }).then(function(pdf){
       var n=pdf.numPages, all='', i=0;
       function step(){
