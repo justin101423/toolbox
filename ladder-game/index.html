@@ -209,6 +209,7 @@ const cv=$('lad-canvas'), ctx=cv.getContext('2d');
 let cols=0, ROWS=0, rungs=[], names=[], results=[], W=600, H=360;
 const padX=44, padTop=46, padBot=46;
 function note(m,k){const n=$('lad-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 function parseList(el){return el.value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);}
 function rint(n){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%n;}
 function colX(i){return padX+i*(W-2*padX)/(cols-1);}
@@ -293,7 +294,7 @@ $('lad-chips').addEventListener('click',e=>{
   const b=e.target.closest('.lad-chip');if(!b||!cols)return;
   const i=+b.dataset.i;drawBase();drawPath(i,'#df4324');
   const {end}=pathOf(i);
-  $('lad-out').innerHTML=names[i]+' → <b>'+results[end]+'</b>';
+  $('lad-out').innerHTML=esc(names[i])+' → <b>'+esc(results[end])+'</b>';
 });
 $('lad-build').onclick=build;
 $('lad-all').onclick=()=>{
@@ -301,7 +302,7 @@ $('lad-all').onclick=()=>{
   drawBase();
   const palette=['#df4324','#2e7d4f','#2b6cb0','#b7791f','#6b46c1','#0f766e','#9d174d','#4d7c0f'];
   let html='';
-  for(let i=0;i<cols;i++){drawPath(i,palette[i%palette.length]);const {end}=pathOf(i);html+=names[i]+' → <b>'+results[end]+'</b><br>';}
+  for(let i=0;i<cols;i++){drawPath(i,palette[i%palette.length]);const {end}=pathOf(i);html+=esc(names[i])+' → <b>'+esc(results[end])+'</b><br>';}
   $('lad-out').innerHTML=html;
 };
 window.addEventListener('resize',()=>{if(cols){resize();drawBase();}});
