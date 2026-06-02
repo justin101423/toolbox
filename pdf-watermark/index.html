@@ -86,7 +86,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
 <!-- pdf-lib 1.17.1 (MIT) — PDF 편집. pdf-merge와 동일한 검증된 SRI 재사용. -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" integrity="sha384-weMABwrltA6jWR8DDe9Jp5blk+tZQh7ugpCsF3JwSA53WZM9/14PjS5LAJNHNjAI" crossorigin="anonymous"></script>
+<!-- pdf-lib 1.17.1 (MIT) — 초기 로딩 최적화를 위해 워터마크 실행 시 동적 주입(ensurePDFLib: src·실측 SHA-384 SRI·crossorigin 동일 유지). -->
 <link rel="stylesheet" href="/tool-page.css">
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -222,9 +222,27 @@ input[type=color].wm-color{width:34px;height:34px;border:1px solid var(--line-2)
     return cv.toDataURL('image/png');
   }
 
+  var pdfLibPromise=null;
+  function ensurePDFLib(){
+    if(typeof PDFLib!=='undefined') return Promise.resolve(true);
+    if(pdfLibPromise) return pdfLibPromise;
+    pdfLibPromise=new Promise(function(resolve,reject){
+      var s=document.createElement('script');
+      s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js';
+      s.integrity='sha384-weMABwrltA6jWR8DDe9Jp5blk+tZQh7ugpCsF3JwSA53WZM9/14PjS5LAJNHNjAI';
+      s.crossOrigin='anonymous';
+      s.onload=function(){ if(typeof PDFLib!=='undefined') resolve(true); else reject(new Error('undef')); };
+      s.onerror=function(){ reject(new Error('load')); };
+      (document.head||document.documentElement).appendChild(s);
+    });
+    return pdfLibPromise;
+  }
+
   async function apply(){
     if(!pdfBytes){ return; }
-    if(typeof PDFLib==='undefined'){ $('status').textContent='PDF 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.'; return; }
+    $('status').textContent='PDF 엔진 불러오는 중…';
+    try{ await ensurePDFLib(); }
+    catch(e){ pdfLibPromise=null; $('status').textContent='PDF 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.'; return; }
     $('status').textContent='워터마크 적용 중…';
     try{
       var doc=await PDFLib.PDFDocument.load(pdfBytes,{ignoreEncryption:true});
