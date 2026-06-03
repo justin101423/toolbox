@@ -128,6 +128,9 @@
 - JSON ↔ XML 변환 (`/json-xml/`)
 - SQL 포매터 (`/sql-formatter/`)
 
+### 악기
+- 드럼 패드 (`/drum-pad/`)
+
 ## 기술 스택
 
 - **순수 정적 웹사이트** — HTML / CSS / JavaScript만 사용 (빌드 도구·프레임워크 없음)
