@@ -90,20 +90,38 @@
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
 <style>
-.dp-hint{font-size:13px;color:var(--ink-3);text-align:center;min-height:18px;margin-bottom:14px}
-.dp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.pad{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;aspect-ratio:1/1;background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);color:var(--ink);cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform .05s ease,background .1s,border-color .1s,box-shadow .1s}
-.pad:hover{border-color:var(--ink)}
-.pad:active{transform:translateY(1px)}
-.pad.hit{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 0 4px rgba(223,67,36,.18);transform:translateY(1px) scale(.98)}
-.pad.hit .pad-key{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.45);color:#fff}
-.pad.listening{border-color:var(--accent);box-shadow:0 0 0 3px rgba(223,67,36,.2)}
-.pad-name{font-size:15px;font-weight:700;letter-spacing:-.01em}
-.pad-key{font-family:var(--mono);font-size:12px;font-weight:700;min-width:26px;text-align:center;padding:3px 8px;border:1px solid var(--line-2);border-radius:6px;background:var(--panel);color:var(--ink-2);text-transform:uppercase;line-height:1.4;transition:border-color .12s,color .12s}
-.pad-key:hover{border-color:var(--accent);color:var(--accent)}
-.dp-toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:16px}
+.dp-hint{font-size:13px;color:var(--ink-3);text-align:center;min-height:18px;margin-bottom:8px}
+.kit-wrap{margin-top:2px}
+/* 인라인 SVG 드럼 세트 — 색은 모두 theme 변수로 칠해 다크모드 자동 대응, viewBox로 반응형 */
+.kit{display:block;width:100%;height:auto;max-width:720px;margin:0 auto;overflow:visible;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.stands{pointer-events:none}
+.stands line{stroke:var(--line-2);stroke-width:3;stroke-linecap:round}
+.stands .foot{stroke-width:2.5}
+.drum{cursor:pointer;transform-box:fill-box;transform-origin:center;transition:transform .09s ease}
+.drum .shell{fill:var(--card);stroke:var(--line-2);stroke-width:2.5;transition:fill .1s,stroke .1s}
+.drum .head{fill:var(--panel);stroke:var(--line-2);stroke-width:2;transition:fill .1s,stroke .1s}
+.drum .hoop{fill:none;stroke:var(--line);stroke-width:2.5}
+.drum .lugring{fill:none;stroke:var(--ink-3);stroke-width:5;opacity:.35;stroke-dasharray:1.5 15;stroke-linecap:round;pointer-events:none;transition:stroke .1s,opacity .1s}
+.cymbal .disc{fill:var(--panel);stroke:var(--line-2);stroke-width:2;transition:fill .1s,stroke .1s}
+.cymbal .groove{fill:none;stroke:var(--line);stroke-width:1.5}
+.cymbal .bell{fill:var(--card);stroke:var(--line-2);stroke-width:1.5;transition:fill .1s,stroke .1s}
+.drum .halo{fill:none;stroke:var(--accent);stroke-width:0;opacity:0;pointer-events:none;transition:stroke-width .12s,opacity .12s}
+.drum:hover .shell,.drum:hover .disc,.drum:hover .bell{stroke:var(--ink)}
+.drum.hit{transform:scale(.94)}
+.drum.hit .shell,.drum.hit .head,.drum.hit .disc,.drum.hit .bell{fill:var(--accent);stroke:var(--accent)}
+.drum.hit .hoop,.drum.hit .groove{stroke:rgba(255,255,255,.55)}
+.drum.hit .lugring{stroke:rgba(255,255,255,.7);opacity:.8}
+.drum.hit .halo{stroke-width:7;opacity:.28}
+.drum-label{fill:var(--ink-3);font-family:var(--kr);font-size:13px;font-weight:600;text-anchor:middle;pointer-events:none}
+.keybadge{cursor:pointer}
+.keybadge rect{fill:var(--paper);stroke:var(--line-2);stroke-width:1.5;transition:stroke .12s,stroke-width .12s}
+.keybadge:hover rect{stroke:var(--accent)}
+.keybadge.listening rect{stroke:var(--accent);stroke-width:2.5}
+.keytext{fill:var(--ink-2);font-family:var(--mono);font-size:13px;font-weight:700;text-anchor:middle;dominant-baseline:central;text-transform:uppercase;pointer-events:none}
+.keybadge.listening .keytext{fill:var(--accent)}
+.dp-toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:18px}
 .dp-status{font-size:13px;color:var(--ink-3);min-height:18px;flex:1}
-@media(max-width:560px){.dp-grid{grid-template-columns:repeat(2,1fr);gap:10px}.pad-name{font-size:14px}}
+@media(max-width:560px){.drum-label{font-size:12px}}
 </style>
 
 <div class="topbar">
@@ -123,8 +141,106 @@
       <p class="lede">화면 패드를 클릭·터치하거나 키보드로 드럼을 연주하는 온라인 드럼 머신입니다. 킥·스네어·하이햇 등 8개 패드를 합성음으로 즉시 소리 내며, 음원 파일 없이 브라우저 안에서 동작합니다.</p>
 
       <div class="box">
-        <div class="dp-hint" id="dpHint">패드를 클릭하거나 키(A·S·D·F·J·K·L·;)를 눌러 연주하세요. 첫 입력에서 소리가 켜집니다.</div>
-        <div class="dp-grid" id="pads" role="group" aria-label="드럼 패드"></div>
+        <div class="dp-hint" id="dpHint">드럼이나 심벌을 클릭하거나 키(A·S·D·F·J·K·L·;)를 눌러 연주하세요. 첫 입력에서 소리가 켜집니다.</div>
+        <div class="kit-wrap">
+          <svg id="kit" class="kit" viewBox="0 0 760 470" role="group" aria-label="드럼 세트">
+            <g class="stands" aria-hidden="true">
+              <line x1="178" y1="120" x2="245" y2="330"/>
+              <line x1="598" y1="120" x2="538" y2="330"/>
+              <line x1="92" y1="238" x2="92" y2="420"/>
+              <line class="foot" x1="92" y1="420" x2="66" y2="442"/>
+              <line class="foot" x1="92" y1="420" x2="118" y2="442"/>
+              <line x1="470" y1="150" x2="432" y2="236"/>
+              <line x1="330" y1="200" x2="362" y2="252"/>
+              <line class="foot" x1="165" y1="402" x2="138" y2="448"/>
+              <line class="foot" x1="165" y1="402" x2="192" y2="448"/>
+              <line class="foot" x1="165" y1="402" x2="165" y2="452"/>
+            </g>
+
+            <!-- 킥 (베이스 드럼) -->
+            <g class="drum kick" data-pad="kick" role="button" aria-label="킥 (베이스 드럼)">
+              <circle class="halo" cx="415" cy="330" r="123"/>
+              <circle class="shell" cx="415" cy="330" r="115"/>
+              <circle class="hoop" cx="415" cy="330" r="106"/>
+              <circle class="head" cx="415" cy="330" r="96"/>
+              <circle class="lugring" cx="415" cy="330" r="101"/>
+              <g class="keybadge" data-rebind="kick"><rect x="395" y="316" width="40" height="28" rx="7"/><text class="keytext" data-key-for="kick" x="415" y="330">A</text></g>
+              <text class="drum-label" x="415" y="466">킥</text>
+            </g>
+
+            <!-- 탐 -->
+            <g class="drum tom" data-pad="tom" role="button" aria-label="탐">
+              <circle class="halo" cx="330" cy="150" r="59"/>
+              <circle class="shell" cx="330" cy="150" r="52"/>
+              <circle class="hoop" cx="330" cy="150" r="46"/>
+              <circle class="head" cx="330" cy="150" r="41"/>
+              <circle class="lugring" cx="330" cy="150" r="44"/>
+              <g class="keybadge" data-rebind="tom"><rect x="312" y="136" width="36" height="26" rx="6"/><text class="keytext" data-key-for="tom" x="330" y="149">K</text></g>
+              <text class="drum-label" x="330" y="92">탐</text>
+            </g>
+
+            <!-- 스네어 -->
+            <g class="drum snare" data-pad="snare" role="button" aria-label="스네어">
+              <circle class="halo" cx="165" cy="350" r="61"/>
+              <circle class="shell" cx="165" cy="350" r="54"/>
+              <circle class="hoop" cx="165" cy="350" r="48"/>
+              <circle class="head" cx="165" cy="350" r="43"/>
+              <circle class="lugring" cx="165" cy="350" r="46"/>
+              <g class="keybadge" data-rebind="snare"><rect x="147" y="336" width="36" height="26" rx="6"/><text class="keytext" data-key-for="snare" x="165" y="349">S</text></g>
+              <text class="drum-label" x="165" y="426">스네어</text>
+            </g>
+
+            <!-- 클랩 (보조 퍼커션 패드) -->
+            <g class="drum clap" data-pad="clap" role="button" aria-label="클랩">
+              <rect class="halo" x="576" y="282" width="120" height="112" rx="24"/>
+              <rect class="shell" x="583" y="289" width="106" height="98" rx="19"/>
+              <rect class="head" x="598" y="304" width="76" height="68" rx="12"/>
+              <g class="keybadge" data-rebind="clap"><rect x="618" y="324" width="36" height="26" rx="6"/><text class="keytext" data-key-for="clap" x="636" y="337">J</text></g>
+              <text class="drum-label" x="636" y="408">클랩</text>
+            </g>
+
+            <!-- 카우벨 -->
+            <g class="drum perc" data-pad="perc" role="button" aria-label="카우벨">
+              <path class="halo" d="M450 90 H490 L502 158 H438 Z"/>
+              <path class="shell" d="M456 97 H484 L494 151 H446 Z"/>
+              <path class="hoop" d="M461 104 H479 L487 145 H453 Z"/>
+              <g class="keybadge" data-rebind="perc"><rect x="452" y="160" width="36" height="26" rx="6"/><text class="keytext" data-key-for="perc" x="470" y="173">;</text></g>
+              <text class="drum-label" x="470" y="206">카우벨</text>
+            </g>
+
+            <!-- 크래시 심벌 -->
+            <g class="drum cymbal crash" data-pad="crash" role="button" aria-label="크래시 심벌">
+              <ellipse class="halo" cx="175" cy="112" rx="101" ry="33"/>
+              <ellipse class="disc" cx="175" cy="112" rx="92" ry="24"/>
+              <ellipse class="groove" cx="175" cy="112" rx="64" ry="16"/>
+              <ellipse class="groove" cx="175" cy="112" rx="38" ry="9"/>
+              <ellipse class="bell" cx="175" cy="112" rx="13" ry="5"/>
+              <g class="keybadge" data-rebind="crash"><rect x="157" y="134" width="36" height="26" rx="6"/><text class="keytext" data-key-for="crash" x="175" y="147">L</text></g>
+              <text class="drum-label" x="175" y="182">크래시</text>
+            </g>
+
+            <!-- 오픈 하이햇 심벌 -->
+            <g class="drum cymbal openhat" data-pad="openhat" role="button" aria-label="오픈 하이햇 심벌">
+              <ellipse class="halo" cx="600" cy="112" rx="97" ry="33"/>
+              <ellipse class="disc" cx="600" cy="112" rx="88" ry="24"/>
+              <ellipse class="groove" cx="600" cy="112" rx="61" ry="15"/>
+              <ellipse class="groove" cx="600" cy="112" rx="36" ry="9"/>
+              <ellipse class="bell" cx="600" cy="112" rx="13" ry="5"/>
+              <g class="keybadge" data-rebind="openhat"><rect x="582" y="134" width="36" height="26" rx="6"/><text class="keytext" data-key-for="openhat" x="600" y="147">F</text></g>
+              <text class="drum-label" x="600" y="182">오픈햇</text>
+            </g>
+
+            <!-- 클로즈드 하이햇 -->
+            <g class="drum cymbal hihat" data-pad="hihat" role="button" aria-label="클로즈드 하이햇">
+              <ellipse class="halo" cx="92" cy="230" rx="78" ry="30"/>
+              <ellipse class="disc" cx="92" cy="238" rx="66" ry="15"/>
+              <ellipse class="disc" cx="92" cy="221" rx="66" ry="15"/>
+              <ellipse class="groove" cx="92" cy="221" rx="40" ry="9"/>
+              <g class="keybadge" data-rebind="hihat"><rect x="74" y="252" width="36" height="26" rx="6"/><text class="keytext" data-key-for="hihat" x="92" y="265">D</text></g>
+              <text class="drum-label" x="92" y="296">클로즈드햇</text>
+            </g>
+          </svg>
+        </div>
         <div class="dp-toolbar">
           <div class="dp-status" id="dpStatus" aria-live="polite"></div>
           <button type="button" class="btn ghost" id="resetKeys">기본값으로 초기화</button>
@@ -172,7 +288,7 @@
   "use strict";
   try{
     var $=function(id){return document.getElementById(id);};
-    var padsEl=$('pads'), statusEl=$('dpStatus'), hintEl=$('dpHint');
+    var kitEl=$('kit'), statusEl=$('dpStatus'), hintEl=$('dpHint');
 
     // 패드 정의: 기본 키는 왼손 A·S·D·F, 오른손 J·K·L·;
     var PADS=[
@@ -221,23 +337,22 @@
       return null;
     }
 
+    // SVG 드럼 세트는 정적으로 그려져 있고, render()는 각 키 배지의 라벨·재지정 상태만 갱신한다.
     function render(){
-      var html='';
+      if(!kitEl) return;
       PADS.forEach(function(p){
         var listening=(listeningPad===p.id);
         var k=keyMap[p.id]||'';
-        var label=listening?'…':keyLabel(k);
-        html+='<button type="button" class="pad'+(listening?' listening':'')+'" data-pad="'+p.id+'" aria-label="'+p.name+(k?(' (키 '+keyLabel(k)+')'):'')+'">'
-          +'<span class="pad-name">'+p.name+'</span>'
-          +'<span class="pad-key" data-rebind="'+p.id+'" title="클릭해 키 재지정">'+label+'</span>'
-          +'</button>';
+        var t=kitEl.querySelector('.keytext[data-key-for="'+p.id+'"]');
+        if(t) t.textContent=listening?'…':keyLabel(k);
+        var b=kitEl.querySelector('.keybadge[data-rebind="'+p.id+'"]');
+        if(b){ if(listening) b.classList.add('listening'); else b.classList.remove('listening'); }
       });
-      if(padsEl) padsEl.innerHTML=html;
     }
 
     function flash(id){
-      if(!padsEl) return;
-      var el=padsEl.querySelector('.pad[data-pad="'+id+'"]');
+      if(!kitEl) return;
+      var el=kitEl.querySelector('.drum[data-pad="'+id+'"]');
       if(!el) return;
       el.classList.add('hit');
       setTimeout(function(){ el.classList.remove('hit'); },130);
@@ -359,17 +474,17 @@
     }
 
     // ---- 입력 이벤트 ---------------------------------------------------
-    if(padsEl){
+    if(kitEl){
       // pointerdown: 마우스·터치·펜 통합 처리(터치 지연 없이 즉시 트리거)
-      padsEl.addEventListener('pointerdown', function(e){
-        if(e.target.closest('.pad-key')) return; // 키 배지는 클릭(재지정)으로 처리
-        var padEl=e.target.closest('.pad');
-        if(padEl){ e.preventDefault(); var p=padById(padEl.getAttribute('data-pad')); if(p) hitPad(p); }
+      kitEl.addEventListener('pointerdown', function(e){
+        if(e.target.closest('.keybadge')) return; // 키 배지는 클릭(재지정)으로 처리
+        var g=e.target.closest('.drum');
+        if(g){ e.preventDefault(); var p=padById(g.getAttribute('data-pad')); if(p) hitPad(p); }
       });
       // 키 배지 클릭 → 재지정 모드 진입(소리는 내지 않음)
-      padsEl.addEventListener('click', function(e){
-        var keyEl=e.target.closest('.pad-key');
-        if(keyEl){ e.stopPropagation(); startListening(padById(keyEl.getAttribute('data-rebind'))); }
+      kitEl.addEventListener('click', function(e){
+        var b=e.target.closest('.keybadge');
+        if(b){ e.stopPropagation(); startListening(padById(b.getAttribute('data-rebind'))); }
       });
     }
 
