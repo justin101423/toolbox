@@ -138,6 +138,9 @@
 - 핸드팬 (`/handpan/`)
 - 메트로놈 (`/metronome/`)
 - 튜너(조율기) (`/tuner/`)
+- 하프 (`/harp/`)
+- 가야금 (`/gayageum/`)
+- 테레민 (`/theremin/`)
 
 ## 기술 스택
 
