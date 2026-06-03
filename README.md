@@ -143,6 +143,7 @@
 - 테레민 (`/theremin/`)
 - 녹음기 (`/recorder/`)
 - 신디사이저 (`/synth/`)
+- 스텝 시퀀서 (`/sequencer/`)
 
 ## 기술 스택
 
