@@ -133,6 +133,9 @@
 - 피아노 (`/piano/`)
 - 기타 (`/guitar/`)
 - 런치패드 (`/launchpad/`)
+- 실로폰 (`/xylophone/`)
+- 칼림바 (`/kalimba/`)
+- 핸드팬 (`/handpan/`)
 
 ## 기술 스택
 

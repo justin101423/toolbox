@@ -113,7 +113,10 @@
       { slug: "drum-pad", name: "드럼 패드", icon: "drum" },
       { slug: "piano",    name: "피아노",    icon: "piano" },
       { slug: "guitar",   name: "기타",      icon: "guitar" },
-      { slug: "launchpad", name: "런치패드", icon: "grid-3x3" }
+      { slug: "launchpad", name: "런치패드", icon: "grid-3x3" },
+      { slug: "xylophone", name: "실로폰",   icon: "xylophone" },
+      { slug: "kalimba",   name: "칼림바",   icon: "kalimba" },
+      { slug: "handpan",   name: "핸드팬",   icon: "handpan" }
     ]},
     { label: "개발자 도구", tools: [
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
@@ -248,7 +251,10 @@
     "drum": '<path d="m2 2 8 8" /> <path d="m22 2-8 8" /> <ellipse cx="12" cy="9" rx="10" ry="5" /> <path d="M7 13.4v7.9" /> <path d="M12 14v8" /> <path d="M17 13.4v7.9" /> <path d="M2 9v8a10 5 0 0 0 20 0V9" />',
     "piano": '<path d="M18.5 8c-1.4 0-2.6-.8-3.2-2A6.87 6.87 0 0 0 2 9v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-8.5C22 9.6 20.4 8 18.5 8" /> <path d="M2 14h20" /> <path d="M6 14v4" /> <path d="M10 14v4" /> <path d="M14 14v4" /> <path d="M18 14v4" />',
     "guitar": '<path d="m11.9 12.1 4.514-4.514" /> <path d="M20.1 2.3a1 1 0 0 0-1.4 0l-1.114 1.114A2 2 0 0 0 17 4.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 17.828 7h1.344a2 2 0 0 0 1.414-.586L21.7 5.3a1 1 0 0 0 0-1.4z" /> <path d="m6 16 2 2" /> <path d="M8.23 9.85A3 3 0 0 1 11 8a5 5 0 0 1 5 5 3 3 0 0 1-1.85 2.77l-.92.38A2 2 0 0 0 12 18a4 4 0 0 1-4 4 6 6 0 0 1-6-6 4 4 0 0 1 4-4 2 2 0 0 0 1.85-1.23z" />',
-    "grid-3x3": '<rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M3 9h18" /> <path d="M3 15h18" /> <path d="M9 3v18" /> <path d="M15 3v18" />'
+    "grid-3x3": '<rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M3 9h18" /> <path d="M3 15h18" /> <path d="M9 3v18" /> <path d="M15 3v18" />',
+    "xylophone": '<rect x="3" y="10" width="3" height="10" rx="1" /> <rect x="8" y="7" width="3" height="13" rx="1" /> <rect x="13" y="5" width="3" height="15" rx="1" /> <rect x="18" y="3" width="3" height="17" rx="1" />',
+    "kalimba": '<rect x="4" y="3" width="16" height="18" rx="3" /> <path d="M8 9v8" /> <path d="M12 7v10" /> <path d="M16 9v8" /> <circle cx="12" cy="13" r="1.6" />',
+    "handpan": '<circle cx="12" cy="12" r="9" /> <circle cx="12" cy="12" r="1.6" /> <circle cx="12" cy="6.6" r="1" /> <circle cx="16.4" cy="9.8" r="1" /> <circle cx="15" cy="15.4" r="1" /> <circle cx="9" cy="15.4" r="1" /> <circle cx="7.6" cy="9.8" r="1" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 
