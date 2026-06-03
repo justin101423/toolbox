@@ -141,6 +141,7 @@
 - 하프 (`/harp/`)
 - 가야금 (`/gayageum/`)
 - 테레민 (`/theremin/`)
+- 녹음기 (`/recorder/`)
 
 ## 기술 스택
 
