@@ -109,6 +109,15 @@
 .oct-label{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink-2);min-width:74px;text-align:center}
 .pno-status{font-size:13px;color:var(--ink-3);min-height:18px;margin-top:10px;text-align:center}
 .btn.sm{padding:8px 12px;font-size:13px}
+.oct-seg{display:inline-flex;border:1px solid var(--line-2);border-radius:8px;overflow:hidden}
+.oct-seg button{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink-2);padding:7px 12px;background:var(--card);border:none;border-left:1px solid var(--line-2);cursor:pointer}
+.oct-seg button:first-child{border-left:none}
+.oct-seg button.active{background:var(--ink);color:var(--paper)}
+.oct-seg-label{font-size:12.5px;color:var(--ink-3);font-weight:600}
+.oct-ctrl{flex-wrap:wrap}
+/* 멀티 옥타브일 때 컴퓨터 키보드가 담당하는 '창' 강조. 1옥타브 모드엔 .win 미적용 → 기존과 동일 */
+.wkey.win{box-shadow:inset 0 3px 0 var(--accent-2)}
+.bkey.win{box-shadow:inset 0 3px 0 var(--accent)}
 @media(max-width:560px){.kb{min-width:440px}.kb-inner{height:188px}}
 </style>
 
@@ -126,7 +135,7 @@
     <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
       <a class="crumb" href="/">← 모든 도구</a>
       <h1>피아노</h1>
-      <p class="lede">화면 건반을 클릭·터치하거나 키보드로 치는 온라인 피아노입니다. 약 1.5옥타브 건반과 옥타브 이동으로 음역을 넓힐 수 있고, 여러 건반을 동시에 눌러 화음도 낼 수 있습니다. 음원 파일 없이 브라우저 안에서 합성음으로 동작합니다.</p>
+      <p class="lede">화면 건반을 클릭·터치하거나 키보드로 치는 온라인 피아노입니다. 약 1.5옥타브 건반을 기본으로, 옥타브 수(1~3개) 선택과 옥타브 이동으로 음역을 넓힐 수 있고, 여러 건반을 동시에 눌러 화음도 낼 수 있습니다. 음원 파일 없이 브라우저 안에서 합성음으로 동작합니다.</p>
 
       <div class="box">
         <div class="pno-hint" id="pnoHint">건반을 클릭하거나 키(흰 건반 A·S·D·F·G·H·J·K·L·;, 검은 건반 W·E·T·Y·U·O·P)를 눌러 연주하세요. 첫 입력에서 소리가 켜집니다.</div>
@@ -137,6 +146,12 @@
         </div>
         <div class="pno-toolbar">
           <div class="oct-ctrl">
+            <span class="oct-seg-label">옥타브 수</span>
+            <div class="oct-seg" id="octSeg" role="group" aria-label="옥타브 수">
+              <button type="button" data-oct="1">1</button>
+              <button type="button" data-oct="2">2</button>
+              <button type="button" data-oct="3">3</button>
+            </div>
             <button type="button" class="btn ghost sm" id="octDown" aria-label="옥타브 내림">옥타브 ▼</button>
             <span class="oct-label" id="octLabel">옥타브 4</span>
             <button type="button" class="btn ghost sm" id="octUp" aria-label="옥타브 올림">옥타브 ▲</button>
@@ -152,6 +167,7 @@
           <li>화면 건반을 클릭하거나 손가락으로 탭하면 소리가 납니다. 첫 입력에서 오디오가 켜집니다.</li>
           <li>키보드로도 칠 수 있습니다. 흰 건반은 <b>A·S·D·F·G·H·J·K·L·;</b>, 검은 건반은 윗줄 <b>W·E·T·Y·U·O·P</b> 입니다.</li>
           <li>옥타브 이동 버튼(<b>▲·▼</b>)으로 더 높거나 낮은 음역을 연주할 수 있습니다.</li>
+          <li><b>옥타브 수</b>(1·2·3)를 골라 건반을 더 넓게 펼칠 수 있습니다. 컴퓨터 키보드는 강조 표시된 한 옥타브 창을 연주하며, ▲·▼로 그 창을 옮깁니다.</li>
           <li>건반의 키 라벨을 클릭한 뒤 원하는 키를 누르면 키를 바꿀 수 있고(Esc 취소), 바뀐 배치는 자동 저장됩니다. <b>기본값으로 초기화</b>로 되돌릴 수 있습니다.</li>
         </ol>
         <div class="sec-label">활용 팁</div>
@@ -190,6 +206,7 @@
   try{
     var $=function(id){return document.getElementById(id);};
     var kbEl=$('kb'), statusEl=$('pnoStatus'), hintEl=$('pnoHint'), octLabel=$('octLabel');
+    var kbBox=kbEl?kbEl.parentNode:null, octSeg=$('octSeg');
 
     var NAMES=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 
@@ -217,28 +234,32 @@
       { id:'b6', off:15, def:'p', after:8 }
     ];
     var ALL=WHITE.concat(BLACK);
-    var NWHITE=WHITE.length;
 
-    var baseOctave=4;         // 옥타브 이동 기준(피아노 고유)
+    var WHITE_PC=[0,2,4,5,7,9,11];   // 한 옥타브 안 흰 건반 반음 위치
+    // 키맵 슬롯(=컴퓨터 키보드 '창', 1.5옥타브 17키)을 off로 조회. ALL은 그대로 유지(저장 키 호환).
+    var slotByOff={}; ALL.forEach(function(s){ slotByOff[s.off]=s; });
+
+    var baseOctave=4;          // 보이는 건반의 가장 낮은 C 옥타브(피아노 고유)
     var OCT_MIN=1, OCT_MAX=7;
+    var octaves=1;             // 옥타브 수(1·2·3). 기본 1 = 기존과 완전히 동일
+    var winShift=0;            // 키보드 창 위치(보이는 범위 안 0..octaves-1). 1옥타브 모드는 항상 0
+    try{ var ov=parseInt(localStorage.getItem('dgb-piano-octaves'),10); if(ov===1||ov===2||ov===3) octaves=ov; }catch(e){}
+    function saveOctaves(){ try{ localStorage.setItem('dgb-piano-octaves', String(octaves)); }catch(e){} }
+    function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
 
     function setStatus(m){ if(statusEl) statusEl.textContent=m||''; }
-    function keyById(id){ for(var i=0;i<ALL.length;i++) if(ALL[i].id===id) return ALL[i]; return null; }
-    // off(반음)+현재 옥타브 → Tone 음이름(예: "C4", "C#5")
-    function noteOf(k){
-      var name=NAMES[((k.off%12)+12)%12];
-      var oct=baseOctave+Math.floor(k.off/12);
-      return name+oct;
-    }
+    // off(반음) → Tone 음이름. winShift=0이면 기존 noteOf와 완전히 동일.
+    function noteOf(k){ return NAMES[((k.off%12)+12)%12] + (baseOctave + winShift + Math.floor(k.off/12)); }
+    function noteAt(off){ return NAMES[((off%12)+12)%12] + (baseOctave + Math.floor(off/12)); }
 
-    // 키맵 엔진(공통): 키↔건반 바인딩·localStorage·재바인드만 담당. 소리·음정·옥타브·렌더는 페이지 몫.
+    // 키맵 엔진(공통): 키↔건반 바인딩·localStorage·재바인드만. 컴퓨터 키보드는 1.5옥타브 '창'(17키)을 담당.
     // 저장 키(dgb-piano-keys)·형태 그대로 유지 → 기존에 저장한 키 매핑 보존.
     var km=DGBInstrument.createKeyMap({
       storageKey:'dgb-piano-keys',
       items:ALL,
       on:{
         change: render,
-        trigger: function(k){ hitKey(k); },
+        trigger: function(k){ hitSlot(k); },
         listenStart: function(){ setStatus('이 건반에 사용할 키를 누르세요. (Esc 취소)'); },
         listenCancel: function(){ setStatus('키 재지정을 취소했습니다.'); },
         bind: function(id, ch){ setStatus('건반 키를 '+km.label(ch)+'(으)로 바꿨어요.'); },
@@ -246,41 +267,42 @@
       }
     });
 
-    // 건반 DOM 1회 생성. 키 라벨(.kcap)·눌림 상태만 이후 갱신한다.
-    function buildKeyboard(){
-      if(!kbEl) return;
-      var html='';
-      WHITE.forEach(function(k){
-        html+='<button type="button" class="wkey" data-key-id="'+k.id+'" aria-label="흰 건반">'
-          +'<span class="kcap" data-rebind="'+k.id+'">'+km.label(k.def)+'</span></button>';
-      });
-      BLACK.forEach(function(k){
-        var left=((k.after+1)*(100/NWHITE)-3.2);
-        html+='<button type="button" class="bkey" data-key-id="'+k.id+'" style="left:'+left.toFixed(2)+'%" aria-label="검은 건반">'
-          +'<span class="kcap" data-rebind="'+k.id+'">'+km.label(k.def)+'</span></button>';
-      });
-      kbEl.innerHTML=html;
-    }
-
+    // N옥타브 건반(흰7+검은5/옥타브)을 동적 생성. 창(키보드 담당 구간)엔 키 라벨 + (멀티일 때) 강조.
+    // octaves=1·winShift=0이면 흰10·검은7(off 0~16) = 기존 1.5옥타브 건반과 동일.
     function render(){
       if(!kbEl) return;
-      ALL.forEach(function(k){
-        var listening=km.isListening(k.id);
-        var ch=km.getKey(k.id);
-        var cap=kbEl.querySelector('.kcap[data-rebind="'+k.id+'"]');
-        if(cap){ cap.textContent=listening?'…':km.label(ch); if(listening) cap.classList.add('listening'); else cap.classList.remove('listening'); }
+      var maxOff=16+(octaves-1)*12, whites=[], blacks=[], off, pc;
+      for(off=0; off<=maxOff; off++){ pc=((off%12)+12)%12; if(WHITE_PC.indexOf(pc)>=0) whites.push(off); else blacks.push(off); }
+      var NW=whites.length, winStart=winShift*12, multi=(octaves>1);
+      function capHtml(slot){
+        if(!slot) return '';
+        var listening=km.isListening(slot.id);
+        return '<span class="kcap'+(listening?' listening':'')+'" data-rebind="'+slot.id+'">'+(listening?'…':km.label(km.getKey(slot.id)))+'</span>';
+      }
+      var html='';
+      whites.forEach(function(o){
+        var inWin=(o>=winStart && o<=winStart+16), slot=inWin?slotByOff[o-winStart]:null;
+        html+='<button type="button" class="wkey'+(inWin&&multi?' win':'')+'" data-off="'+o+'" data-note="'+noteAt(o)+'" aria-label="'+noteAt(o)+'">'+capHtml(slot)+'</button>';
       });
-      if(octLabel) octLabel.textContent='옥타브 '+baseOctave;
+      blacks.forEach(function(o){
+        var bi=whites.indexOf(o-1), left=((bi+1)*(100/NW)-(32/NW)), w=(64/NW);
+        var inWin=(o>=winStart && o<=winStart+16), slot=inWin?slotByOff[o-winStart]:null;
+        html+='<button type="button" class="bkey'+(inWin&&multi?' win':'')+'" data-off="'+o+'" data-note="'+noteAt(o)+'" style="left:'+left.toFixed(3)+'%;width:'+w.toFixed(3)+'%" aria-label="'+noteAt(o)+'">'+capHtml(slot)+'</button>';
+      });
+      kbEl.innerHTML=html;
+      // 멀티 옥타브는 폭을 넓혀 키 탭 영역 확보(넘치면 .kb-wrap이 가로 스크롤). 1옥타브는 CSS 기본값(=기존).
+      if(multi){ if(kbBox){ kbBox.style.minWidth=(NW*44)+'px'; kbBox.style.maxWidth=(NW*62)+'px'; } }
+      else { if(kbBox){ kbBox.style.minWidth=''; kbBox.style.maxWidth=''; } }
+      if(octLabel) octLabel.textContent='옥타브 '+(baseOctave+winShift);
+      var segs=octSeg?octSeg.querySelectorAll('button'):[];
+      for(var i=0;i<segs.length;i++){ segs[i].classList.toggle('active', parseInt(segs[i].getAttribute('data-oct'),10)===octaves); }
     }
 
-    function flash(id){
-      if(!kbEl) return;
-      DGBInstrument.flash(kbEl.querySelector('[data-key-id="'+id+'"]'), 'down', 130);
-    }
+    function flashOff(off){ DGBInstrument.flash(kbEl.querySelector('[data-off="'+off+'"]'), 'down', 130); }
+    function playNoteStr(note){ var poly=audio.instrument(); try{ if(poly) poly.triggerAttackRelease(note, '8n'); }catch(e){} }
 
-    // 피아노 고유: PolySynth 합성음. Tone 로딩·활성화는 공통 모듈이 담당.
+    // 피아노 고유: PolySynth 합성음(공통 엔진이 1회 빌드). 소리는 기존과 동일.
     function buildSynth(){
-      // PolySynth: 여러 음 동시 재생(다성·코드)
       var p=new Tone.PolySynth(Tone.Synth, {
         oscillator:{ type:'triangle' },
         envelope:{ attack:0.005, decay:0.3, sustain:0.18, release:1.1 }
@@ -296,28 +318,23 @@
       onError: function(){ setStatus('오디오를 시작하지 못했습니다. 네트워크를 확인하고 새로고침해 주세요.'); }
     });
 
-    function playNote(k){
-      var poly=audio.instrument();
-      try{ if(poly) poly.triggerAttackRelease(noteOf(k), '8n'); }catch(e){}
-    }
-    function hitKey(k){
-      flash(k.id);
-      if(audio.isStarted()){ playNote(k); return; }
-      audio.activate().then(function(ok){ if(ok) playNote(k); });
-    }
+    function hitNote(off, note){ flashOff(off); if(audio.isStarted()){ playNoteStr(note); } else audio.activate().then(function(ok){ if(ok) playNoteStr(note); }); }
+    function hitSlot(slot){ hitNote(winShift*12+slot.off, noteOf(slot)); }  // 컴퓨터 키보드 → 창 슬롯
 
-    // ---- 옥타브 이동 (피아노 고유) ------------------------------------
-    function setOctave(o){
-      baseOctave=Math.max(OCT_MIN, Math.min(OCT_MAX, o));
+    // ---- 옥타브 수 / 이동 (피아노 고유) ------------------------------
+    function setOctaves(n){ if(n!==1&&n!==2&&n!==3) return; octaves=n; winShift=clamp(winShift,0,octaves-1); saveOctaves(); render(); }
+    function octStep(d){
+      if(octaves===1){ baseOctave=clamp(baseOctave+d, OCT_MIN, OCT_MAX); }  // 기존: 전체 옥타브 이동
+      else { winShift=clamp(winShift+d, 0, octaves-1); }                    // 멀티: 창을 범위 안에서 이동
       render();
     }
 
-    // 입력(클릭·터치). 키보드 트리거·재바인드는 키맵 엔진(공통)이 처리한다.
+    // 입력(클릭·터치): 보이는 건반 전체에서 동작. 키보드 트리거·재바인드는 키맵 엔진(공통)이 처리한다.
     if(kbEl){
       kbEl.addEventListener('pointerdown', function(e){
         if(e.target.closest('.kcap')) return;        // 키 라벨은 클릭(재지정)으로 처리
-        var keyEl=e.target.closest('[data-key-id]');
-        if(keyEl){ e.preventDefault(); var k=keyById(keyEl.getAttribute('data-key-id')); if(k) hitKey(k); }
+        var keyEl=e.target.closest('[data-off]');
+        if(keyEl){ e.preventDefault(); hitNote(keyEl.getAttribute('data-off'), keyEl.getAttribute('data-note')); }
       });
       kbEl.addEventListener('click', function(e){
         var cap=e.target.closest('.kcap');
@@ -325,12 +342,12 @@
       });
     }
 
+    if(octSeg) octSeg.addEventListener('click', function(e){ var b=e.target.closest('[data-oct]'); if(b) setOctaves(parseInt(b.getAttribute('data-oct'),10)); });
     var ou=$('octUp'), od=$('octDown'), rb=$('resetKeys');
-    if(ou) ou.addEventListener('click', function(){ setOctave(baseOctave+1); });
-    if(od) od.addEventListener('click', function(){ setOctave(baseOctave-1); });
+    if(ou) ou.addEventListener('click', function(){ octStep(1); });
+    if(od) od.addEventListener('click', function(){ octStep(-1); });
     if(rb) rb.addEventListener('click', function(){ km.reset(); });
 
-    buildKeyboard();
     render();
   }catch(e){ /* 피아노 초기화 실패 시에도 페이지 기본 동작은 유지 */ }
 })();
