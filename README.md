@@ -142,6 +142,7 @@
 - 가야금 (`/gayageum/`)
 - 테레민 (`/theremin/`)
 - 녹음기 (`/recorder/`)
+- 신디사이저 (`/synth/`)
 
 ## 기술 스택
 

@@ -122,7 +122,8 @@
       { slug: "harp",      name: "하프",      icon: "harp" },
       { slug: "gayageum",  name: "가야금",    icon: "gayageum" },
       { slug: "theremin",  name: "테레민",    icon: "theremin" },
-      { slug: "recorder",  name: "녹음기",    icon: "mic" }
+      { slug: "recorder",  name: "녹음기",    icon: "mic" },
+      { slug: "synth",     name: "신디사이저", icon: "sliders" }
     ]},
     { label: "개발자 도구", tools: [
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
@@ -266,7 +267,8 @@
     "harp": '<path d="M6 3v18" /> <path d="M6 3c7 1 11 7 12 16" /> <path d="M5 21h14" /> <path d="M9 7v13" /> <path d="M12 10v10" /> <path d="M15 14v6" />',
     "gayageum": '<rect x="2" y="7" width="20" height="10" rx="2" /> <path d="M2 10h20" /> <path d="M2 12h20" /> <path d="M2 14h20" /> <path d="M8 7v10" /> <path d="M14 7v10" />',
     "theremin": '<rect x="5" y="13" width="11" height="6" rx="1.5" /> <path d="M13 13V4" /> <circle cx="13" cy="3.4" r="1" /> <path d="M18 7c1.5 1.5 1.5 8 0 9.5" /> <path d="M20.5 5c2.5 2.5 2.5 11 0 13.5" />',
-    "mic": '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /> <path d="M19 10v2a7 7 0 0 1-14 0v-2" /> <line x1="12" x2="12" y1="19" y2="22" />'
+    "mic": '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /> <path d="M19 10v2a7 7 0 0 1-14 0v-2" /> <line x1="12" x2="12" y1="19" y2="22" />',
+    "sliders": '<line x1="4" x2="4" y1="21" y2="14" /> <line x1="4" x2="4" y1="10" y2="3" /> <line x1="12" x2="12" y1="21" y2="12" /> <line x1="12" x2="12" y1="8" y2="3" /> <line x1="20" x2="20" y1="21" y2="16" /> <line x1="20" x2="20" y1="12" y2="3" /> <line x1="2" x2="6" y1="14" y2="14" /> <line x1="10" x2="14" y1="8" y2="8" /> <line x1="18" x2="22" y1="16" y2="16" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 
