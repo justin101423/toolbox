@@ -85,7 +85,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
-<!-- Tone.js 14.7.77 (MIT) — 브라우저 합성음 엔진. 초기 로딩 최적화를 위해 사용자가 첫 패드를 누를 때 동적 주입한다(아래 ensureTone: src·실측 SHA-384 SRI·crossorigin 동일 유지). 음원 파일 없이 실행 시 합성으로 소리를 만든다. -->
+<!-- Tone.js(MIT) 합성음 엔진은 음원 파일 없이 소리를 만든다. 지연 로드·SRI·첫 동작 Tone.start()는 공통 모듈 /instrument-audio.js(DGBInstrument)가 담당한다(Tone src·SHA-384 SRI는 그 한 곳에서 관리). -->
 <link rel="stylesheet" href="/tool-page.css">
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -281,9 +281,11 @@
 
 <script src="/sidebar.js"></script>
 <script src="/theme.js"></script>
+<script src="/instrument-audio.js"></script>
 <script>
-/* 드럼 패드 — Tone.js 합성음. 오디오·키맵·로더 코드는 모두 try/catch로 감싸
-   실패해도 사이드바·다크모드 등 페이지 기본 동작은 깨지지 않게 한다. */
+/* 드럼 패드 — Tone.js 합성음. 공통 로직(Tone 로더·오디오 활성화·키맵·피드백)은
+   /instrument-audio.js(DGBInstrument)로 분리했고, 여기엔 드럼 고유 부분(합성음·SVG 배선)만 둔다.
+   전체를 try/catch로 감싸 실패해도 사이드바·다크모드 등 페이지 기본 동작은 깨지지 않게 한다. */
 (function(){
   "use strict";
   try{
@@ -302,49 +304,32 @@
       { id:'perc',    name:'카우벨',   sound:'perc',    def:';' }
     ];
 
-    var KEYS_STORE='dgb-drumpad-keys';
-    var keyMap={};          // { padId: key }
-    var listeningPad=null;  // 재지정 대기 중인 패드 id
-
     function setStatus(msg){ if(statusEl) statusEl.textContent=msg||''; }
     function padById(id){ for(var i=0;i<PADS.length;i++) if(PADS[i].id===id) return PADS[i]; return null; }
-    function defaultKeys(){ var m={}; PADS.forEach(function(p){ m[p.id]=p.def; }); return m; }
 
-    function loadKeys(){
-      var m=defaultKeys();
-      try{
-        var raw=JSON.parse(localStorage.getItem(KEYS_STORE)||'null');
-        if(raw && typeof raw==='object'){
-          PADS.forEach(function(p){
-            var v=raw[p.id];
-            if(typeof v==='string' && v.length===1) m[p.id]=v.toLowerCase();
-            else if(v==='') m[p.id]=''; // 사용자가 비워둔 경우 허용
-          });
-        }
-      }catch(e){}
-      keyMap=m;
-    }
-    function saveKeys(){ try{ localStorage.setItem(KEYS_STORE, JSON.stringify(keyMap)); }catch(e){} }
-
-    function keyLabel(k){
-      if(!k) return '—';
-      if(k===' ') return 'Space';
-      return k.toUpperCase();
-    }
-    function padForKey(k){
-      if(!k) return null;
-      for(var i=0;i<PADS.length;i++){ if(keyMap[PADS[i].id]===k) return PADS[i]; }
-      return null;
-    }
+    // 키맵 엔진(공통): 키↔패드 바인딩·localStorage·재바인드만 담당. 소리·배지 렌더는 페이지 몫.
+    // 저장 키(dgb-drumpad-keys)·형태 그대로 유지 → 기존에 저장한 키 매핑 보존.
+    var km=DGBInstrument.createKeyMap({
+      storageKey:'dgb-drumpad-keys',
+      items:PADS,
+      on:{
+        change: render,
+        trigger: function(pad){ hitPad(pad); },
+        listenStart: function(id){ var p=padById(id); setStatus('「'+(p?p.name:'')+'」에 사용할 키를 누르세요. (Esc 취소)'); },
+        listenCancel: function(){ setStatus('키 재지정을 취소했습니다.'); },
+        bind: function(id, key){ var p=padById(id); setStatus('「'+(p?p.name:'')+'」 키를 '+km.label(key)+'(으)로 바꿨어요.'); },
+        reset: function(){ setStatus('키 배치를 기본값으로 되돌렸어요.'); }
+      }
+    });
 
     // SVG 드럼 세트는 정적으로 그려져 있고, render()는 각 키 배지의 라벨·재지정 상태만 갱신한다.
     function render(){
       if(!kitEl) return;
       PADS.forEach(function(p){
-        var listening=(listeningPad===p.id);
-        var k=keyMap[p.id]||'';
+        var listening=km.isListening(p.id);
+        var k=km.getKey(p.id);
         var t=kitEl.querySelector('.keytext[data-key-for="'+p.id+'"]');
-        if(t) t.textContent=listening?'…':keyLabel(k);
+        if(t) t.textContent=listening?'…':km.label(k);
         var b=kitEl.querySelector('.keybadge[data-rebind="'+p.id+'"]');
         if(b){ if(listening) b.classList.add('listening'); else b.classList.remove('listening'); }
       });
@@ -352,31 +337,10 @@
 
     function flash(id){
       if(!kitEl) return;
-      var el=kitEl.querySelector('.drum[data-pad="'+id+'"]');
-      if(!el) return;
-      el.classList.add('hit');
-      setTimeout(function(){ el.classList.remove('hit'); },130);
+      DGBInstrument.flash(kitEl.querySelector('.drum[data-pad="'+id+'"]'), 'hit', 130);
     }
 
-    // ---- 오디오 엔진 (Tone.js 지연 로드) -------------------------------
-    var tonePromise=null;
-    function ensureTone(){
-      if(typeof Tone!=='undefined') return Promise.resolve(true);
-      if(tonePromise) return tonePromise;
-      tonePromise=new Promise(function(resolve,reject){
-        var s=document.createElement('script');
-        s.src='https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.js';
-        s.integrity='sha384-OIQZlttB2MRaZyoi526rVHiNUGYEq4MAMxDbTkwghmmqxs556T5g5LY926GH7NYM';
-        s.crossOrigin='anonymous';
-        s.onload=function(){ if(typeof Tone!=='undefined') resolve(true); else reject(new Error('undef')); };
-        s.onerror=function(){ reject(new Error('load')); };
-        (document.head||document.documentElement).appendChild(s);
-      });
-      return tonePromise;
-    }
-
-    var synths=null, audioStarted=false, activatePromise=null;
-
+    // 드럼 고유: 합성음(킥·스네어·하이햇 등). Tone 로딩·활성화는 공통 모듈이 담당.
     function buildSynths(){
       var T=Tone;
       var master=new T.Gain(0.9).toDestination();
@@ -421,59 +385,25 @@
       };
     }
 
-    function activateAudio(){
-      if(audioStarted) return Promise.resolve(true);
-      if(activatePromise) return activatePromise;
-      setStatus('오디오 켜는 중…');
-      activatePromise=ensureTone().then(function(){
-        return Tone.start();
-      }).then(function(){
-        if(!synths) synths=buildSynths();
-        audioStarted=true;
-        if(hintEl) hintEl.style.display='none';
-        setStatus('준비됐어요 — 패드를 누르거나 키를 눌러 연주하세요.');
-        return true;
-      }).catch(function(e){
-        activatePromise=null;
-        setStatus('오디오를 시작하지 못했습니다. 네트워크를 확인하고 새로고침해 주세요.');
-        return false;
-      });
-      return activatePromise;
-    }
+    // 오디오 엔진(공통): 첫 동작에서 Tone 로드 → start → buildSynths() 1회.
+    var audio=DGBInstrument.createAudioEngine({
+      build: buildSynths,
+      onActivating: function(){ setStatus('오디오 켜는 중…'); },
+      onReady: function(){ if(hintEl) hintEl.style.display='none'; setStatus('준비됐어요 — 패드를 누르거나 키를 눌러 연주하세요.'); },
+      onError: function(){ setStatus('오디오를 시작하지 못했습니다. 네트워크를 확인하고 새로고침해 주세요.'); }
+    });
 
     function playSound(pad){
+      var synths=audio.instrument();
       try{ if(synths && synths[pad.sound]) synths[pad.sound](); }catch(e){}
     }
     function hitPad(pad){
       flash(pad.id);
-      if(audioStarted){ playSound(pad); return; }
-      activateAudio().then(function(ok){ if(ok) playSound(pad); });
+      if(audio.isStarted()){ playSound(pad); return; }
+      audio.activate().then(function(ok){ if(ok) playSound(pad); });
     }
 
-    // ---- 키 재지정 -----------------------------------------------------
-    function startListening(pad){
-      if(!pad) return;
-      listeningPad=pad.id;
-      setStatus('「'+pad.name+'」에 사용할 키를 누르세요. (Esc 취소)');
-      render();
-    }
-    function cancelListening(){
-      listeningPad=null;
-      setStatus('키 재지정을 취소했습니다.');
-      render();
-    }
-    function bindKey(padId, key){
-      // 다른 패드가 같은 키를 쓰면 충돌 방지를 위해 그 패드의 키를 비운다.
-      PADS.forEach(function(p){ if(p.id!==padId && keyMap[p.id]===key) keyMap[p.id]=''; });
-      keyMap[padId]=key;
-      listeningPad=null;
-      saveKeys();
-      render();
-      var p=padById(padId);
-      setStatus('「'+(p?p.name:'')+'」 키를 '+keyLabel(key)+'(으)로 바꿨어요.');
-    }
-
-    // ---- 입력 이벤트 ---------------------------------------------------
+    // 입력(클릭·터치). 키보드 트리거·재바인드는 키맵 엔진(공통)이 처리한다.
     if(kitEl){
       // pointerdown: 마우스·터치·펜 통합 처리(터치 지연 없이 즉시 트리거)
       kitEl.addEventListener('pointerdown', function(e){
@@ -484,34 +414,13 @@
       // 키 배지 클릭 → 재지정 모드 진입(소리는 내지 않음)
       kitEl.addEventListener('click', function(e){
         var b=e.target.closest('.keybadge');
-        if(b){ e.stopPropagation(); startListening(padById(b.getAttribute('data-rebind'))); }
+        if(b){ e.stopPropagation(); km.startListening(b.getAttribute('data-rebind')); }
       });
     }
 
-    document.addEventListener('keydown', function(e){
-      try{
-        if(e.metaKey||e.ctrlKey||e.altKey) return;
-        var key=(e.key||'').toLowerCase();
-        if(listeningPad){
-          e.preventDefault();
-          if(e.key==='Escape'){ cancelListening(); return; }
-          if(key.length!==1) return;       // 글자·숫자·기호 등 단일 키만 배정
-          bindKey(listeningPad, key);
-          return;
-        }
-        if(e.repeat) return;               // 키 꾹 누름 연사 방지
-        var pad=padForKey(key);
-        if(pad){ e.preventDefault(); hitPad(pad); }
-      }catch(err){}
-    });
-
     var resetBtn=$('resetKeys');
-    if(resetBtn) resetBtn.addEventListener('click', function(){
-      keyMap=defaultKeys(); listeningPad=null; saveKeys(); render();
-      setStatus('키 배치를 기본값으로 되돌렸어요.');
-    });
+    if(resetBtn) resetBtn.addEventListener('click', function(){ km.reset(); });
 
-    loadKeys();
     render();
   }catch(e){ /* 드럼 패드 초기화 실패 시에도 페이지 기본 동작은 유지 */ }
 })();

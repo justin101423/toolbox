@@ -46,6 +46,7 @@ toolbox/
 ├── theme.css           # 다크모드 스타일
 ├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어)
 ├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처)
+├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
 └── <슬러그>/index.html  # 각 도구 = 독립 페이지(독립 URL, SEO 목적)
 ```
 
