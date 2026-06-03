@@ -136,6 +136,8 @@
 - 실로폰 (`/xylophone/`)
 - 칼림바 (`/kalimba/`)
 - 핸드팬 (`/handpan/`)
+- 메트로놈 (`/metronome/`)
+- 튜너(조율기) (`/tuner/`)
 
 ## 기술 스택
 

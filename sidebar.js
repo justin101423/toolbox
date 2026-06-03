@@ -116,7 +116,9 @@
       { slug: "launchpad", name: "런치패드", icon: "grid-3x3" },
       { slug: "xylophone", name: "실로폰",   icon: "xylophone" },
       { slug: "kalimba",   name: "칼림바",   icon: "kalimba" },
-      { slug: "handpan",   name: "핸드팬",   icon: "handpan" }
+      { slug: "handpan",   name: "핸드팬",   icon: "handpan" },
+      { slug: "metronome", name: "메트로놈", icon: "metronome" },
+      { slug: "tuner",     name: "튜너(조율기)", icon: "tuner" }
     ]},
     { label: "개발자 도구", tools: [
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
@@ -254,7 +256,9 @@
     "grid-3x3": '<rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M3 9h18" /> <path d="M3 15h18" /> <path d="M9 3v18" /> <path d="M15 3v18" />',
     "xylophone": '<rect x="3" y="10" width="3" height="10" rx="1" /> <rect x="8" y="7" width="3" height="13" rx="1" /> <rect x="13" y="5" width="3" height="15" rx="1" /> <rect x="18" y="3" width="3" height="17" rx="1" />',
     "kalimba": '<rect x="4" y="3" width="16" height="18" rx="3" /> <path d="M8 9v8" /> <path d="M12 7v10" /> <path d="M16 9v8" /> <circle cx="12" cy="13" r="1.6" />',
-    "handpan": '<circle cx="12" cy="12" r="9" /> <circle cx="12" cy="12" r="1.6" /> <circle cx="12" cy="6.6" r="1" /> <circle cx="16.4" cy="9.8" r="1" /> <circle cx="15" cy="15.4" r="1" /> <circle cx="9" cy="15.4" r="1" /> <circle cx="7.6" cy="9.8" r="1" />'
+    "handpan": '<circle cx="12" cy="12" r="9" /> <circle cx="12" cy="12" r="1.6" /> <circle cx="12" cy="6.6" r="1" /> <circle cx="16.4" cy="9.8" r="1" /> <circle cx="15" cy="15.4" r="1" /> <circle cx="9" cy="15.4" r="1" /> <circle cx="7.6" cy="9.8" r="1" />',
+    "metronome": '<path d="M9 3h6l4 18H5z" /> <path d="M12 19V7" /> <rect x="10.4" y="8.6" width="3.2" height="2.6" rx=".6" /> <path d="M7 16h10" />',
+    "tuner": '<path d="M4 17a8 8 0 0 1 16 0" /> <path d="M12 17l3.4-5.2" /> <circle cx="12" cy="17" r="1.4" /> <path d="M3 20.5h18" />'
   };
   var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
 

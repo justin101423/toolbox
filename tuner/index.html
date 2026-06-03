@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>튜너 — 마이크 크로마틱 조율기 (기타·우쿨렐레 기준음) | 도구상자</title>
+<meta name="description" content="마이크로 음정을 감지해 음이름·주파수·센트 편차를 보여 주는 무료 온라인 크로마틱 튜너. 기준 A=440Hz, ±5센트 맞음 표시. 마이크가 없으면 기타·베이스·우쿨렐레 등 조율 프리셋 기준음 모드로 폴백. 마이크 소리는 브라우저 안에서만 처리됩니다.">
+<link rel="canonical" href="https://dogubox.shop/tuner/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="튜너 — 마이크 크로마틱 조율기 (기타·우쿨렐레 기준음) | 도구상자">
+<meta property="og:description" content="마이크로 음정을 감지하는 무료 온라인 크로마틱 튜너. 마이크가 없으면 조율 프리셋 기준음 모드로 폴백. 마이크 소리는 브라우저 안에서만 처리됩니다.">
+<meta property="og:url" content="https://dogubox.shop/tuner/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="튜너 — 마이크 크로마틱 조율기 | 도구상자">
+<meta name="twitter:description" content="마이크로 음정을 감지하는 무료 온라인 크로마틱 튜너. 마이크 소리는 브라우저 안에서만 처리됩니다.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "튜너",
+  "description": "마이크로 음정을 감지해 음이름·주파수·센트 편차를 보여 주는 무료 온라인 크로마틱 튜너. 기준 A=440Hz, ±5센트 맞음 표시. 마이크가 없으면 기타·베이스·우쿨렐레 등 조율 프리셋 기준음 모드로 폴백. 마이크 소리는 브라우저 안에서만 처리됩니다.",
+  "url": "https://dogubox.shop/tuner/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 마이크 권한을 거부했어요. 못 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 마이크를 허용하면 실시간으로 음정을 감지해 조율할 수 있지만, 거부하거나 마이크가 없어도 「기준음」 모드로 조율 프리셋(기타·베이스·우쿨렐레 등)의 기준음을 듣고 귀로 맞출 수 있습니다. 마이크 소리는 브라우저 안에서만 분석되며 서버로 전송되지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 센트(cents)가 뭔가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "센트는 반음을 100등분한 아주 작은 음정 단위입니다. 감지된 음이 목표 음보다 얼마나 높은지(샵, +)·낮은지(플랫, −)를 센트로 보여 주며, ±5센트 이내로 들어오면 초록색으로 「맞음」이 표시됩니다. 바늘이 가운데(0)에 오도록 줄을 조이거나 풀면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 마이크 소리가 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 음정 감지는 모두 브라우저 안의 Web Audio로 처리되며, 마이크 입력은 외부로 전송·저장되지 않습니다. 페이지를 닫거나 「마이크 정지」를 누르면 마이크 사용이 즉시 중단됩니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "튜너", "item": "https://dogubox.shop/tuner/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<!-- Tone.js(MIT)는 기준음 재생에만 쓴다(음원 파일 없이 합성). 지연 로드·SRI·Tone.start()는 공통 모듈 /instrument-audio.js(DGBInstrument)가 담당. 마이크 음정 감지는 네이티브 Web Audio(AnalyserNode + 자기상관)로 브라우저 안에서만 처리(서버 전송 없음). -->
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.tn-card{background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);padding:22px 18px;text-align:center;transition:border-color .15s,box-shadow .15s}
+.tn-card.in-tune{border-color:var(--ok);box-shadow:0 0 0 3px rgba(46,125,79,.16)}
+.tn-note{font-family:var(--disp);font-weight:800;font-size:58px;line-height:1;letter-spacing:-.03em;min-height:58px}
+.tn-sub{font-family:var(--mono);font-size:13px;color:var(--ink-3);margin-top:6px;min-height:18px}
+.tn-state{font-size:14px;font-weight:700;margin-top:8px;min-height:20px;color:var(--ink-2)}
+.tn-card.in-tune .tn-state{color:var(--ok)}
+.gauge{position:relative;height:46px;margin:18px auto 4px;max-width:420px;border:1px solid var(--line-2);border-radius:10px;background:var(--paper);overflow:hidden}
+.gauge .center{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--ok);transform:translateX(-50%);opacity:.6}
+.gauge .ticks{position:absolute;inset:0;display:flex;justify-content:space-between;padding:0 8px;align-items:center;pointer-events:none}
+.gauge .ticks span{font-family:var(--mono);font-size:10px;color:var(--ink-3)}
+.gauge .needle{position:absolute;top:6px;bottom:6px;left:50%;width:4px;border-radius:3px;background:var(--accent);transform:translateX(-50%);transition:left .08s linear}
+.tn-card.in-tune .gauge .needle{background:var(--ok)}
+.mic-row{display:flex;justify-content:center;margin-top:16px}
+.mic-status{font-size:13px;color:var(--ink-3);text-align:center;margin-top:10px;min-height:18px}
+.ref-presets{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin:6px 0 14px}
+.ref-presets select{max-width:240px}
+.ref-notes{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.ref-note{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:10px;padding:12px 16px;min-width:54px;cursor:pointer;transition:background .1s,border-color .1s,transform .05s}
+.ref-note:hover{border-color:var(--ink)}
+.ref-note.on{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(1px)}
+.sub-label{font-family:var(--disp);font-weight:700;font-size:13px;color:var(--ink-2);text-align:center;margin:22px 0 12px;display:flex;align-items:center;gap:10px}
+.sub-label::before,.sub-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.btn.big{padding:13px 26px;font-size:15px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>튜너</h1>
+      <p class="lede">마이크로 음정을 감지하는 크로마틱 튜너입니다. 악기 소리를 내면 음이름·주파수·센트 편차를 실시간으로 보여 주고, ±5센트 이내면 「맞음」으로 표시합니다. 마이크를 못 쓰면 기타·우쿨렐레 등 조율 프리셋의 기준음을 듣고 귀로 맞출 수 있습니다. 마이크 소리는 브라우저 안에서만 처리됩니다.</p>
+
+      <div class="box">
+        <div class="tn-card" id="tnCard">
+          <div class="tn-note" id="noteName">—</div>
+          <div class="tn-sub" id="subInfo"></div>
+          <div class="tn-state" id="tuneState">마이크를 시작하면 음정이 표시됩니다.</div>
+          <div class="gauge">
+            <div class="center"></div>
+            <div class="ticks"><span>♭ -50</span><span>0</span><span>+50 ♯</span></div>
+            <div class="needle" id="needle"></div>
+          </div>
+        </div>
+        <div class="mic-row"><button type="button" class="btn accent big" id="micBtn">마이크 시작</button></div>
+        <div class="mic-status" id="micStatus">기준 음높이 A=440Hz · 마이크 소리는 서버로 전송되지 않습니다.</div>
+
+        <div class="sub-label">기준음 (마이크 없이 귀로 조율)</div>
+        <div class="ref-presets">
+          <label for="presetSel" style="font-size:13px;color:var(--ink-3)">프리셋</label>
+          <select id="presetSel" aria-label="조율 프리셋"></select>
+        </div>
+        <div class="ref-notes" id="refNotes"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li><b>마이크 시작</b>을 눌러 마이크를 허용하면, 악기 소리를 내는 동안 감지된 음이름·주파수·센트 편차가 표시됩니다.</li>
+          <li>바늘이 가운데(0센트)에 오도록 음을 맞추세요. ±5센트 이내면 초록색으로 「맞음」이 뜹니다.</li>
+          <li>마이크를 못 쓰면 아래 <b>기준음</b>에서 프리셋을 고르고 줄(음) 버튼을 눌러 기준음을 듣고 귀로 맞춥니다.</li>
+          <li>마지막에 고른 프리셋은 자동 저장됩니다. 기준 음높이는 A=440Hz입니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>한 음씩:</b> 한 번에 한 줄(음)만 소리 내야 정확히 감지됩니다. 여러 음이 섞이면 바늘이 흔들립니다.</li>
+          <li><b>조용한 곳:</b> 주변 소음이 적을수록 감지가 안정적입니다. 너무 작은 소리는 무시되도록 돼 있어요.</li>
+          <li><b>귀 조율:</b> 마이크가 없을 땐 기준음을 반복 재생하며 줄 소리와 높이를 맞춰 보세요.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 마이크 권한을 거부했어요. 못 쓰나요?</b><p>아니요. 마이크를 허용하면 실시간으로 음정을 감지해 조율할 수 있지만, 거부하거나 마이크가 없어도 「기준음」 모드로 조율 프리셋(기타·베이스·우쿨렐레 등)의 기준음을 듣고 귀로 맞출 수 있습니다. 마이크 소리는 브라우저 안에서만 분석되며 서버로 전송되지 않습니다.</p></div>
+          <div class="qa"><b>Q. 센트(cents)가 뭔가요?</b><p>센트는 반음을 100등분한 아주 작은 음정 단위입니다. 감지된 음이 목표 음보다 얼마나 높은지(샵, +)·낮은지(플랫, −)를 센트로 보여 주며, ±5센트 이내로 들어오면 초록색으로 「맞음」이 표시됩니다. 바늘이 가운데(0)에 오도록 줄을 조이거나 풀면 됩니다.</p></div>
+          <div class="qa"><b>Q. 마이크 소리가 서버로 전송되나요?</b><p>아니요. 음정 감지는 모두 브라우저 안의 Web Audio로 처리되며, 마이크 입력은 외부로 전송·저장되지 않습니다. 페이지를 닫거나 「마이크 정지」를 누르면 마이크 사용이 즉시 중단됩니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/#about">소개</a><a href="/#faq">자주 묻는 질문</a><a href="/#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/instrument-audio.js"></script>
+<script>
+/* 튜너 — 마이크 음정 감지는 네이티브 Web Audio(AnalyserNode + 자기상관)로 100% 클라이언트(서버 전송 없음).
+   기준음 재생만 공통 모듈 /instrument-audio.js(DGBInstrument)의 Tone 로더(createAudioEngine=ensureTone+Tone.start) 재사용.
+   전체 try/catch로 페이지 안전(마이크 거부·미지원 시 폴백). */
+(function(){
+  "use strict";
+  try{
+    var $=function(id){return document.getElementById(id);};
+    var NOTE_STRINGS=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+    var A4=440;
+    function noteFromPitch(f){ return Math.round(12*(Math.log(f/A4)/Math.LN2)+69); }
+    function freqFromNote(n){ return A4*Math.pow(2,(n-69)/12); }
+    function centsOff(f,n){ return Math.floor(1200*(Math.log(f/freqFromNote(n))/Math.LN2)); }
+    function noteName(n){ return NOTE_STRINGS[((n%12)+12)%12]+(Math.floor(n/12)-1); }
+
+    // ---- 마이크 튜너(네이티브 Web Audio) ----
+    var micCtx=null, analyser=null, micStream=null, rafId=null, running=false, buf=null;
+    var card=$('tnCard');
+
+    function setMicUI(on){ var b=$('micBtn'); if(b){ b.textContent=on?'마이크 정지':'마이크 시작'; } }
+    function showNoSignal(){
+      $('noteName').textContent='—'; $('subInfo').textContent=''; $('needle').style.left='50%';
+      if(card) card.classList.remove('in-tune'); $('tuneState').textContent='소리를 들려주세요';
+    }
+    function showPitch(f){
+      var n=noteFromPitch(f); if(!isFinite(n)) return;
+      var cents=centsOff(f,n);
+      $('noteName').textContent=noteName(n);
+      $('subInfo').textContent=f.toFixed(1)+' Hz · '+(cents>0?'+':'')+cents+' cents';
+      var pos=Math.max(-50,Math.min(50,cents));
+      $('needle').style.left=(50+pos)+'%';
+      var inTune=Math.abs(cents)<=5;
+      if(card) card.classList.toggle('in-tune', inTune);
+      $('tuneState').textContent=inTune?'맞음 ✓':(cents>0?'높아요 (♯) — 살짝 풀기':'낮아요 (♭) — 살짝 조이기');
+    }
+
+    function autoCorrelate(b, rate){
+      var SIZE=b.length, sum=0, i, j;
+      for(i=0;i<SIZE;i++){ sum+=b[i]*b[i]; }
+      var rms=Math.sqrt(sum/SIZE);
+      if(rms<0.01) return -1;                 // 노이즈 게이트(무음에서 바늘 안 튀게)
+      var r1=0, r2=SIZE-1, thres=0.2;
+      for(i=0;i<SIZE/2;i++){ if(Math.abs(b[i])<thres){ r1=i; break; } }
+      for(i=1;i<SIZE/2;i++){ if(Math.abs(b[SIZE-i])<thres){ r2=SIZE-i; break; } }
+      var b2=b.slice(r1,r2), SIZE2=b2.length, c=new Array(SIZE2);
+      for(i=0;i<SIZE2;i++) c[i]=0;
+      for(i=0;i<SIZE2;i++){ for(j=0;j<SIZE2-i;j++){ c[i]+=b2[j]*b2[j+i]; } }
+      var d=0; while(d<SIZE2-1 && c[d]>c[d+1]) d++;
+      var maxval=-1, maxpos=-1;
+      for(i=d;i<SIZE2;i++){ if(c[i]>maxval){ maxval=c[i]; maxpos=i; } }
+      var T0=maxpos; if(T0<=0) return -1;
+      var x1=c[T0-1]||0, x2=c[T0]||0, x3=c[T0+1]||0;
+      var a=(x1+x3-2*x2)/2, bb=(x3-x1)/2;
+      if(a) T0=T0-bb/(2*a);
+      return rate/T0;
+    }
+
+    function loop(){
+      if(!running||!analyser) return;
+      analyser.getFloatTimeDomainData(buf);
+      var f=autoCorrelate(buf, micCtx.sampleRate);
+      if(f>0 && f<2000){ showPitch(f); } else { showNoSignal(); }
+      rafId=requestAnimationFrame(loop);
+    }
+    function startMic(){
+      if(running){ stopMic(); return; }
+      if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){ $('micStatus').textContent='이 브라우저에서는 마이크를 쓸 수 없습니다. 아래 기준음 모드로 조율하세요.'; return; }
+      $('micStatus').textContent='마이크 권한을 확인하는 중…';
+      navigator.mediaDevices.getUserMedia({ audio:{ echoCancellation:false, noiseSuppression:false, autoGainControl:false } }).then(function(stream){
+        micStream=stream;
+        var AC=window.AudioContext||window.webkitAudioContext;
+        micCtx=new AC();
+        var src=micCtx.createMediaStreamSource(stream);
+        analyser=micCtx.createAnalyser(); analyser.fftSize=2048;
+        buf=new Float32Array(analyser.fftSize);
+        src.connect(analyser);
+        running=true; setMicUI(true);
+        $('micStatus').textContent='마이크 작동 중 · 소리는 브라우저 안에서만 분석됩니다(서버 전송 없음).';
+        showNoSignal(); loop();
+      }).catch(function(err){
+        var msg='마이크를 사용할 수 없습니다. 아래 기준음 모드로 조율하세요.';
+        if(err && (err.name==='NotAllowedError'||err.name==='SecurityError')) msg='마이크 권한이 거부됐습니다. 브라우저의 사이트 권한에서 허용하거나, 아래 기준음 모드로 조율하세요.';
+        else if(err && err.name==='NotFoundError') msg='연결된 마이크를 찾지 못했습니다. 아래 기준음 모드로 조율하세요.';
+        $('micStatus').textContent=msg; setMicUI(false);
+      });
+    }
+    function stopMic(){
+      running=false;
+      if(rafId){ cancelAnimationFrame(rafId); rafId=null; }
+      if(micStream){ try{ micStream.getTracks().forEach(function(t){ t.stop(); }); }catch(e){} micStream=null; }
+      if(micCtx){ try{ micCtx.close(); }catch(e){} micCtx=null; }
+      analyser=null; setMicUI(false); showNoSignal();
+      $('tuneState').textContent='마이크를 시작하면 음정이 표시됩니다.';
+      $('micStatus').textContent='마이크를 정지했습니다. 기준 음높이 A=440Hz.';
+    }
+    $('micBtn').addEventListener('click', startMic);
+    window.addEventListener('pagehide', function(){ if(running) stopMic(); });
+
+    // ---- 기준음(Tone 합성, 공통 로더 재사용) ----
+    var PRESETS={
+      guitar:{ label:'기타 (E A D G B E)', notes:['E2','A2','D3','G3','B3','E4'] },
+      bass:{ label:'베이스 (E A D G)', notes:['E1','A1','D2','G2'] },
+      ukulele:{ label:'우쿨렐레 (G C E A)', notes:['G4','C4','E4','A4'] },
+      violin:{ label:'바이올린 (G D A E)', notes:['G3','D4','A4','E5'] },
+      chromatic:{ label:'크로마틱 (C4–B4)', notes:['C4','C#4','D4','D#4','E4','F4','F#4','G4','G#4','A4','A#4','B4'] }
+    };
+    var presetKey='guitar';
+    try{ var sv=JSON.parse(localStorage.getItem('dgb-tuner')||'null'); if(sv&&PRESETS[sv.preset]) presetKey=sv.preset; }catch(e){}
+    function savePreset(){ try{ localStorage.setItem('dgb-tuner', JSON.stringify({preset:presetKey})); }catch(e){} }
+
+    function buildRef(){ var s=new Tone.PolySynth(Tone.Synth, { oscillator:{type:'triangle'}, envelope:{attack:0.01, decay:0.2, sustain:0.5, release:0.8} }).toDestination(); s.volume.value=-8; return s; }
+    var audio=DGBInstrument.createAudioEngine({ build: buildRef });
+
+    function playRef(note, btn){
+      function go(){ var s=audio.instrument(); if(s){ try{ s.triggerAttackRelease(note, 1.6); }catch(e){} } }
+      if(audio.isStarted()) go(); else audio.activate().then(function(ok){ if(ok) go(); });
+      if(btn){ btn.classList.add('on'); setTimeout(function(){ btn.classList.remove('on'); }, 350); }
+    }
+    function renderPresetOptions(){
+      var sel=$('presetSel'); if(!sel) return;
+      var h=''; for(var k in PRESETS){ if(PRESETS.hasOwnProperty(k)) h+='<option value="'+k+'"'+(k===presetKey?' selected':'')+'>'+PRESETS[k].label+'</option>'; }
+      sel.innerHTML=h;
+    }
+    function renderRefNotes(){
+      var host=$('refNotes'); if(!host) return;
+      var notes=PRESETS[presetKey].notes, h='';
+      for(var i=0;i<notes.length;i++) h+='<button type="button" class="ref-note" data-note="'+notes[i]+'">'+notes[i]+'</button>';
+      host.innerHTML=h;
+    }
+    $('presetSel').addEventListener('change', function(e){ if(PRESETS[e.target.value]){ presetKey=e.target.value; savePreset(); renderRefNotes(); } });
+    $('refNotes').addEventListener('click', function(e){ var b=e.target.closest('[data-note]'); if(b) playRef(b.getAttribute('data-note'), b); });
+
+    // 초기화
+    showNoSignal(); $('tuneState').textContent='마이크를 시작하면 음정이 표시됩니다.';
+    renderPresetOptions(); renderRefNotes();
+  }catch(e){ /* 초기화 실패 시에도 페이지 기본 동작 유지 */ }
+})();
+</script>
+</html>
