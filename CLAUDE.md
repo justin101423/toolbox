@@ -57,6 +57,11 @@ toolbox/
 
 > **총 115개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
+> **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
+> - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
+> - **카테고리 안 도구 순서**: 비슷한 기능끼리 묶고(예: 이미지편집 → 이미지변환·유틸 → PDF, 텍스트편집 → 변환 → 생성기, 계산 → 변환 → 날짜·시간 → 추첨·재미 등), 더 자주 쓰는 핵심 도구를 그 그룹 앞쪽에 둡니다.
+> - 새 도구를 추가할 때는 같은 카테고리의 알맞은 그룹 위치에 끼워 넣고, 위 4곳(sidebar·허브·이 표·README)의 순서를 동일하게 맞춥니다.
+
 ### 이미지 · PDF (25)
 | 슬러그 | 이름 |
 |---|---|
@@ -65,140 +70,140 @@ toolbox/
 | image-resizer | 이미지 크기 조절 |
 | image-crop | 이미지 자르기 |
 | image-rotate | 이미지 회전·뒤집기 |
-| watermark | 이미지 워터마크 넣기 |
+| image-adjust | 이미지 밝기·대비·채도 조절 |
 | image-filter | 흑백·세피아 필터 |
+| watermark | 이미지 워터마크 넣기 |
+| image-blur | 이미지 모자이크·블러 |
 | image-merge | 이미지 합치기·콜라주 |
+| meme-generator | 밈·짤 생성기 |
 | id-photo | 증명사진 규격 맞추기 |
 | remove-exif | EXIF·위치정보 제거 |
-| pdf-compressor | PDF 용량 줄이기 |
+| heic-to-jpg | HEIC → JPG 변환 |
+| image-base64 | 이미지 ↔ Base64 |
+| image-ocr | 이미지 OCR·글자 추출 |
+| gif-maker | 이미지로 GIF 만들기 |
 | pdf-merge | PDF 합치기 |
+| pdf-split | PDF 페이지 분할 |
+| pdf-organize | PDF 회전·페이지 정리 |
+| pdf-compressor | PDF 용량 줄이기 |
+| pdf-watermark | PDF 워터마크 |
 | image-to-pdf | 이미지 → PDF |
 | pdf-to-image | PDF → 이미지 |
-| pdf-split | PDF 페이지 분할 |
-| gif-maker | 이미지로 GIF 만들기 |
-| heic-to-jpg | HEIC → JPG 변환 |
-| image-ocr | 이미지 OCR·글자 추출 |
-| pdf-organize | PDF 회전·페이지 정리 |
-| image-blur | 이미지 모자이크·블러 |
-| meme-generator | 밈·짤 생성기 |
 | pdf-to-text | PDF → 텍스트 추출 |
-| image-adjust | 이미지 밝기·대비·채도 조절 |
-| image-base64 | 이미지 ↔ Base64 |
-| pdf-watermark | PDF 워터마크 |
 
 ### 텍스트 · 생성 (22)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
 | clean-text | 공백·줄바꿈 정리 |
+| text-replace | 텍스트 찾기·바꾸기 |
 | remove-duplicate-lines | 중복 줄 제거 |
-| case-converter | 대소문자·표기 변환 |
 | sort-lines | 텍스트 줄 정렬 |
 | line-numbers | 줄 번호 매기기 |
+| case-converter | 대소문자·표기 변환 |
+| text-diff | 텍스트 비교(diff) |
+| reading-time | 읽는 시간 계산기 |
+| fancy-text | 유니코드 꾸미기 글자 변환 |
+| special-characters | 특수문자·이모지 복사 |
+| romanizer | 한글 → 로마자 변환 |
+| keyboard-typo | 한/영 키보드 오타 변환 |
+| number-to-korean | 숫자 → 한글 금액 변환 |
+| tts | 텍스트 → 음성 (TTS) |
 | qr-code | QR코드 생성 |
-| password-generator | 비밀번호 생성 |
-| json-formatter | JSON 포매터 |
 | qr-reader | QR코드 읽기 |
 | barcode-generator | 바코드 생성기 |
-| lorem-ipsum | 로렘 입숨 생성기 |
+| password-generator | 비밀번호 생성 |
 | password-strength | 비밀번호 강도 검사기 |
-| fancy-text | 유니코드 꾸미기 글자 변환 |
-| reading-time | 읽는 시간 계산기 |
-| text-diff | 텍스트 비교(diff) |
-| special-characters | 특수문자·이모지 복사 |
-| number-to-korean | 숫자 → 한글 금액 변환 |
-| keyboard-typo | 한/영 키보드 오타 변환 |
-| text-replace | 텍스트 찾기·바꾸기 |
-| tts | 텍스트 → 음성 (TTS) |
-| romanizer | 한글 → 로마자 변환 |
-
-### 색상 · 디자인 (12)
-| 슬러그 | 이름 |
-|---|---|
-| hex-rgb-converter | HEX ↔ RGB 변환 |
-| color-palette | 컬러 팔레트 생성 |
-| favicon-generator | 파비콘 생성 |
-| gradient-generator | 그라데이션 생성기 |
-| color-extractor | 이미지에서 색 추출 |
-| contrast-checker | 색상 대비 검사 |
-| color-picker | 컬러 피커·색상 변환 |
-| box-shadow-generator | 그림자(box-shadow) 생성기 |
-| border-radius-generator | 테두리 둥글기 생성기 |
-| css-unit-converter | CSS 단위 변환 (px↔rem↔em) |
-| color-blindness | 색맹·색약 시뮬레이터 |
-| cubic-bezier | cubic-bezier 이징 생성기 |
+| lorem-ipsum | 로렘 입숨 생성기 |
+| json-formatter | JSON 포매터 |
 
 ### 생활 · 편의 (19)
 | 슬러그 | 이름 |
 |---|---|
-| dday-calculator | D-Day · 날짜 계산 |
-| lotto-generator | 로또 번호 생성 |
-| age-calculator | 만 나이 계산기 |
+| calculator | 계산기 (일반·공학용) |
 | percentage-calculator | 퍼센트 계산기 |
-| unit-converter | 단위 변환 |
-| timezone-converter | 세계 시간 변환 |
 | discount-calculator | 할인가 계산기 |
+| unit-converter | 단위 변환 |
+| pyeong-converter | 평 ↔ ㎡ 변환 |
+| size-converter | 옷·신발 사이즈 변환 |
+| age-calculator | 만 나이 계산기 |
+| dday-calculator | D-Day · 날짜 계산 |
+| lunar-solar-converter | 음력 ↔ 양력 변환 |
+| timezone-converter | 세계 시간 변환 |
+| stopwatch-timer | 스톱워치·타이머 |
+| bmi-calculator | BMI 계산기 |
+| gpa-calculator | 학점·GPA 계산기 |
+| typing-speed | 타자 속도 측정 |
+| zodiac-finder | 띠·별자리 찾기 |
 | random-picker | 랜덤 추첨기 |
 | spinner-wheel | 돌림판 추첨 (룰렛) |
-| zodiac-finder | 띠·별자리 찾기 |
-| pyeong-converter | 평 ↔ ㎡ 변환 |
-| bmi-calculator | BMI 계산기 |
 | ladder-game | 사다리타기 |
-| lunar-solar-converter | 음력 ↔ 양력 변환 |
-| typing-speed | 타자 속도 측정 |
-| calculator | 계산기 (일반·공학용) |
-| stopwatch-timer | 스톱워치·타이머 |
-| gpa-calculator | 학점·GPA 계산기 |
-| size-converter | 옷·신발 사이즈 변환 |
+| lotto-generator | 로또 번호 생성 |
 
 ### 직장인 · 생산성 (5)
 | 슬러그 | 이름 |
 |---|---|
 | notepad | 임시 메모장 |
-| utm-builder | UTM 빌더 |
-| signature-maker | 서명 만들기 (전자서명) |
-| device-test | 마이크·웹캠 테스트 |
 | pomodoro | 포모도로 타이머 |
+| signature-maker | 서명 만들기 (전자서명) |
+| utm-builder | UTM 빌더 |
+| device-test | 마이크·웹캠 테스트 |
+
+### 색상 · 디자인 (12)
+| 슬러그 | 이름 |
+|---|---|
+| color-picker | 컬러 피커·색상 변환 |
+| hex-rgb-converter | HEX ↔ RGB 변환 |
+| color-palette | 컬러 팔레트 생성 |
+| color-extractor | 이미지에서 색 추출 |
+| gradient-generator | 그라데이션 생성기 |
+| box-shadow-generator | 그림자(box-shadow) 생성기 |
+| border-radius-generator | 테두리 둥글기 생성기 |
+| cubic-bezier | cubic-bezier 이징 생성기 |
+| css-unit-converter | CSS 단위 변환 (px↔rem↔em) |
+| contrast-checker | 색상 대비 검사 |
+| color-blindness | 색맹·색약 시뮬레이터 |
+| favicon-generator | 파비콘 생성 |
 
 ### 개발자 도구 (17)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
+| hash-generator | Hash 생성 |
 | jwt-decoder | JWT 디코더 |
 | uuid-generator | UUID 생성 |
-| hash-generator | Hash 생성 |
-| json-to-java-dto | JSON → Java DTO |
-| csv-json | CSV ↔ JSON 변환 |
-| timestamp | 타임스탬프 변환 |
 | base-converter | 진법 변환 |
-| regex-tester | 정규식 테스터 |
-| markdown-preview | 마크다운 → HTML 변환 |
-| json-yaml | JSON ↔ YAML 변환 |
-| table-converter | 표 변환기 |
+| timestamp | 타임스탬프 변환 |
 | cron-parser | cron 표현식 변환·설명 |
-| json-to-types | JSON → 타입 변환 (TS/Python/Go) |
-| http-status-codes | HTTP 상태 코드 치트시트 |
+| regex-tester | 정규식 테스터 |
+| json-yaml | JSON ↔ YAML 변환 |
 | json-xml | JSON ↔ XML 변환 |
+| csv-json | CSV ↔ JSON 변환 |
+| json-to-types | JSON → 타입 변환 (TS/Python/Go) |
+| json-to-java-dto | JSON → Java DTO |
+| table-converter | 표 변환기 |
 | sql-formatter | SQL 포매터 |
+| markdown-preview | 마크다운 → HTML 변환 |
+| http-status-codes | HTTP 상태 코드 치트시트 |
 
-### 악기 (9)
+### 악기 (15)
 | 슬러그 | 이름 |
 |---|---|
-| drum-pad | 드럼 패드 |
 | piano | 피아노 |
-| guitar | 기타 |
-| launchpad | 런치패드 |
+| synth | 신디사이저 |
 | xylophone | 실로폰 |
 | kalimba | 칼림바 |
 | handpan | 핸드팬 |
+| harp | 하프 |
+| guitar | 기타 |
+| gayageum | 가야금 |
+| drum-pad | 드럼 패드 |
+| launchpad | 런치패드 |
+| sequencer | 스텝 시퀀서 |
+| theremin | 테레민 |
 | metronome | 메트로놈 |
 | tuner | 튜너(조율기) |
-| harp | 하프 |
-| gayageum | 가야금 |
-| theremin | 테레민 |
 | recorder | 녹음기 |
-| synth | 신디사이저 |
-| sequencer | 스텝 시퀀서 |
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 
