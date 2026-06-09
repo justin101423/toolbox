@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "특수기호 체크박스를 해제하면 됩니다. 단, 보안을 위해 길이를 충분히 늘리는 것을 권장합니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 비밀번호는 복잡한 게 좋나요, 긴 게 좋나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "길이가 더 중요합니다. 특수문자를 섞은 8자리보다 평범한 문자로 된 16자리가 훨씬 깨기 어렵습니다. 길이가 한 자 늘 때마다 가능한 경우의 수가 기하급수적으로 커지기 때문입니다. 길이를 우선 확보하고 그다음 문자 종류를 더하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 무작위로 만든 비밀번호는 어떻게 기억하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "사이트마다 다른 무작위 비밀번호를 모두 외울 수는 없습니다. 비밀번호 관리자(브라우저 내장 기능 포함)에 저장하고, 그 관리자의 마스터 비밀번호 하나만 강하게 외우는 방식을 권합니다. 중요 계정에는 2단계 인증도 함께 켜세요."
+      }
     }
   ]
 }
@@ -144,6 +160,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
 .steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
+.content a.inlink{color:var(--accent);font-weight:600;border-bottom:1px solid rgba(223,67,36,.35)}.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:4px}.rel-card{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;transition:border-color .15s,transform .15s}.rel-card:hover{border-color:var(--ink);transform:translateY(-2px)}.rel-card b{display:block;font-size:14px;color:var(--ink);font-weight:700;margin-bottom:3px;letter-spacing:-.01em;line-height:1.35}.rel-card span{font-size:12.5px;color:var(--ink-3);line-height:1.45}
 </style>
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -191,6 +208,10 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>마음에 들지 않으면 "생성"을 다시 눌러 새 비밀번호를 만드세요.</li>
         </ol>
 
+        <div class="sec-label">왜 '복잡함'보다 '길이'가 중요할까</div>
+        <p>비밀번호의 강도는 공격자가 시도해야 하는 <b>가능한 경우의 수</b>로 정해집니다. 그리고 이 경우의 수는 문자 종류를 늘릴 때보다 <b>길이를 늘릴 때</b> 훨씬 빠르게 커집니다. 그래서 특수문자를 욱여넣은 <span class="mono-out">P@ss1!</span> 같은 짧은 비밀번호보다, 길이가 긴 비밀번호가 압도적으로 안전합니다. 중요 계정은 최소 12자, 가능하면 16자 이상을 권합니다.</p>
+        <p>외워야 하는 비밀번호라면 서로 관련 없는 단어를 이어 붙인 <b>패스프레이즈</b>(예: 노을-우산-고래-연필)가 길면서도 기억하기 쉽습니다. 자주 쓰지 않는 계정이라면 이 생성기로 무작위 비밀번호를 만들어 관리자에 저장하는 편이 낫습니다. 더 깊은 원리는 <a class="inlink" href="/guide/strong-password/">안전한 비밀번호 만들기 가이드</a>에서 정리했습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>강력한 비밀번호 설정:</b> 16자 이상에 대소문자+숫자+특수기호를 모두 조합하면 브루트포스 공격에 매우 강한 비밀번호가 됩니다. 대부분의 보안 전문가는 최소 12~16자를 권장합니다.</li>
@@ -203,6 +224,14 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. 같은 비밀번호가 다시 나올 수 있나요?</b><p>이론적으로 가능하지만 확률이 매우 낮습니다. 16자 대소문자+숫자+기호 조합의 경우 경우의 수가 95^16 ≈ 4.4×10^31로 실질적으로 반복될 일이 없습니다.</p></div>
           <div class="qa"><b>Q. 만든 비밀번호는 얼마나 안전한가요?</b><p>브라우저의 암호학적 난수 생성기(crypto.getRandomValues)로 예측하기 어렵게 만듭니다. 길이를 12자 이상으로 하고 문자 종류를 많이 섞을수록 강해지며, 사이트마다 다른 비밀번호를 쓰는 것이 가장 안전합니다.</p></div>
           <div class="qa"><b>Q. 특수기호만 제외하고 싶은데 방법이 있나요?</b><p>특수기호 체크박스를 해제하면 됩니다. 단, 보안을 위해 길이를 충분히 늘리는 것을 권장합니다.</p></div>
+          <div class="qa"><b>Q. 비밀번호는 복잡한 게 좋나요, 긴 게 좋나요?</b><p>길이가 더 중요합니다. 특수문자를 섞은 8자리보다 평범한 문자로 된 16자리가 훨씬 깨기 어렵습니다. 길이가 한 자 늘 때마다 가능한 경우의 수가 기하급수적으로 커지기 때문입니다. 길이를 우선 확보하고 그다음 문자 종류를 더하세요.</p></div>
+          <div class="qa"><b>Q. 무작위로 만든 비밀번호는 어떻게 기억하나요?</b><p>사이트마다 다른 무작위 비밀번호를 모두 외울 수는 없습니다. 비밀번호 관리자(브라우저 내장 기능 포함)에 저장하고, 그 관리자의 마스터 비밀번호 하나만 강하게 외우는 방식을 권합니다. 중요 계정에는 2단계 인증도 함께 켜세요.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/strong-password/"><b>안전한 비밀번호 만들기 가이드</b><span>길이·패스프레이즈·재사용의 위험과 현실적 관리법</span></a>
+          <a class="rel-card" href="/password-strength/"><b>비밀번호 강도 검사</b><span>정한 비밀번호의 점수·등급·약점을 즉시 확인</span></a>
         </div>
       </section>
     </div>

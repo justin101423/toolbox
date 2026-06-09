@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "네. URL·텍스트뿐 아니라 와이파이 접속 정보, 연락처, 전화번호 등 어떤 문자열이든 QR로 만들 수 있습니다. 와이파이는 정해진 형식(WIFI:S:이름;T:WPA;P:비밀번호;;)으로 입력하면 스캔 시 바로 연결됩니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 직접 만든 QR코드는 시간이 지나면 만료되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아닙니다. 이 도구가 만드는 정적 QR코드는 입력한 내용을 코드 자체에 담기 때문에 만료나 스캔 횟수 제한이 없습니다. 한 번 인쇄하면 영구히 동작합니다. 다만 코드가 가리키는 URL 페이지 자체가 사라지면 연결은 끊깁니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. QR코드 가운데에 로고를 넣어도 인식되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "오류 복원 기능 덕분에 가운데 일부를 가려도 인식되는 경우가 많지만, 로고가 너무 크면 스캔이 실패합니다. 넣더라도 전체 면적의 20~30%를 넘기지 말고, 인쇄 전 여러 기기에서 반드시 스캔 테스트를 하세요."
+      }
     }
   ]
 }
@@ -141,6 +157,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
 .steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
+.content a.inlink{color:var(--accent);font-weight:600;border-bottom:1px solid rgba(223,67,36,.35)}.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:4px}.rel-card{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;transition:border-color .15s,transform .15s}.rel-card:hover{border-color:var(--ink);transform:translateY(-2px)}.rel-card b{display:block;font-size:14px;color:var(--ink);font-weight:700;margin-bottom:3px;letter-spacing:-.01em;line-height:1.35}.rel-card span{font-size:12.5px;color:var(--ink-3);line-height:1.45}
 </style>
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -181,11 +198,17 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>인쇄물, 프레젠테이션, 명함 등에 삽입해 사용합니다.</li>
         </ol>
 
+        <div class="sec-label">정적 QR과 동적 QR, 무엇을 쓸까</div>
+        <p>이 도구가 만드는 것은 입력한 주소를 코드에 그대로 담는 <b>정적 QR코드</b>입니다. 한 번 만들면 영구히 무료로 쓸 수 있고 스캔 횟수 제한도 없습니다. 반면 일부 업체가 파는 <b>동적 QR코드</b>는 코드는 그대로 두고 연결 링크만 나중에 바꿀 수 있다는 장점이 있지만, 보통 월 구독료가 붙고 업체 서비스가 중단되면 코드가 죽을 위험이 있습니다.</p>
+        <p>메뉴판이나 명함처럼 연결 주소가 거의 바뀌지 않는 용도라면 정적 QR로 충분합니다. 링크가 바뀌지 않도록, QR이 가리키는 페이지를 고정 주소로 만들어 두는 것이 핵심입니다. 인쇄·활용 시 주의점은 <a class="inlink" href="/guide/make-qr-code/">QR코드 만들기 가이드</a>에서 더 자세히 다룹니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>URL은 최대한 짧게:</b> QR코드에 담기는 데이터가 길수록 패턴이 복잡해져 스캔 거리가 짧아집니다. bit.ly 같은 단축 URL 서비스를 먼저 사용하면 스캔 성공률이 높아집니다.</li>
           <li><b>인쇄 크기와 여백:</b> 인쇄물에 사용할 때는 최소 2cm×2cm 이상으로 인쇄하고, QR코드 주위에 충분한 흰색 여백("고요 지대")을 확보하세요. 여백이 없으면 스캔 오류가 발생하기 쉽습니다.</li>
           <li><b>다양한 입력 형식:</b> 전화번호는 tel:+82-10-1234-5678, 이메일은 mailto:example@email.com 형식으로 입력하면 스마트폰이 직접 전화·이메일 앱을 열어줍니다.</li>
+          <li><b>색 대비를 지키세요:</b> 어두운 코드 + 밝은 배경이 기본입니다. 색을 넣더라도 충분히 대비가 나야 하며, 코드를 밝게·배경을 어둡게 반전하면 인식하지 못하는 기기가 많습니다.</li>
+          <li><b>인쇄 전 실물 테스트:</b> 화면에서 잘 찍혀도 인쇄하면 크기·대비 때문에 안 되는 경우가 있습니다. 실제 인쇄물 크기로 출력해 아이폰·안드로이드 양쪽에서 스캔해 보세요.</li>
         </ul>
 
         <div class="sec-label">자주 묻는 질문</div>
@@ -193,6 +216,14 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. 생성된 QR코드를 어디서든 스캔할 수 있나요?</b><p>대부분의 스마트폰 기본 카메라 앱이 QR코드를 인식합니다. 일부 구형 기기에서는 별도 QR 스캔 앱이 필요할 수 있습니다.</p></div>
           <div class="qa"><b>Q. QR코드에 담을 수 있는 데이터 용량 제한이 있나요?</b><p>QR코드 버전과 오류 수정 수준에 따라 다르지만, 데이터가 많을수록 패턴이 빽빽해져 스캔 신뢰도가 낮아집니다. URL처럼 짧은 텍스트를 권장합니다.</p></div>
           <div class="qa"><b>Q. 와이파이나 연락처 정보도 QR로 만들 수 있나요?</b><p>네. URL·텍스트뿐 아니라 와이파이 접속 정보, 연락처, 전화번호 등 어떤 문자열이든 QR로 만들 수 있습니다. 와이파이는 정해진 형식(WIFI:S:이름;T:WPA;P:비밀번호;;)으로 입력하면 스캔 시 바로 연결됩니다.</p></div>
+          <div class="qa"><b>Q. 직접 만든 QR코드는 시간이 지나면 만료되나요?</b><p>아닙니다. 이 도구가 만드는 정적 QR코드는 입력한 내용을 코드 자체에 담기 때문에 만료나 스캔 횟수 제한이 없습니다. 한 번 인쇄하면 영구히 동작합니다. 다만 코드가 가리키는 URL 페이지 자체가 사라지면 연결은 끊깁니다.</p></div>
+          <div class="qa"><b>Q. QR코드 가운데에 로고를 넣어도 인식되나요?</b><p>오류 복원 기능 덕분에 가운데 일부를 가려도 인식되는 경우가 많지만, 로고가 너무 크면 스캔이 실패합니다. 넣더라도 전체 면적의 20~30%를 넘기지 말고, 인쇄 전 여러 기기에서 반드시 스캔 테스트를 하세요.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/make-qr-code/"><b>QR코드 만들기 가이드</b><span>인쇄 크기·여백·대비와 메뉴판·명함 활용 사례</span></a>
+          <a class="rel-card" href="/qr-reader/"><b>QR코드 읽기</b><span>이미지·카메라로 QR 내용을 확인하는 도구</span></a>
         </div>
       </section>
     </div>

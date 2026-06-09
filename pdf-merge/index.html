@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "이 도구는 합치기 전용입니다. 분할이 필요하다면 PDF 페이지 분할 도구를 이용하세요."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 합칠 파일이 외부 서버로 업로드되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아닙니다. 병합은 pdf-lib를 통해 브라우저 안에서 처리되어 파일이 서버로 전송되거나 저장되지 않습니다. 계약서·증빙서류처럼 민감한 문서도 외부에 남지 않고 안전하게 합칠 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 합칠 수 있는 파일 개수나 용량에 제한이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "도구 자체에는 개수 제한이 없습니다. 다만 브라우저 메모리로 처리하므로 매우 큰 파일을 한꺼번에 많이 합치면 기기 사양에 따라 느려질 수 있습니다. 그럴 때는 몇 개씩 나눠 합친 뒤 마지막에 한 번 더 합치면 안정적입니다."
+      }
     }
   ]
 }
@@ -143,6 +159,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}}
 .steps-list,.tips-list{margin:14px 0 4px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}.steps-list li,.tips-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px;line-height:1.6}.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}.qa b{display:block;font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}.qa p{font-size:14px;color:var(--ink-2);line-height:1.65}
+.content a.inlink{color:var(--accent);font-weight:600;border-bottom:1px solid rgba(223,67,36,.35)}.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:4px}.rel-card{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;transition:border-color .15s,transform .15s}.rel-card:hover{border-color:var(--ink);transform:translateY(-2px)}.rel-card b{display:block;font-size:14px;color:var(--ink);font-weight:700;margin-bottom:3px;letter-spacing:-.01em;line-height:1.35}.rel-card span{font-size:12.5px;color:var(--ink-3);line-height:1.45}
 </style>
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -182,6 +199,10 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>"병합 후 다운로드" 버튼을 클릭하면 하나로 합쳐진 PDF가 다운로드됩니다.</li>
         </ol>
 
+        <div class="sec-label">브라우저에서 합치면 무엇이 좋을까</div>
+        <p>계약서·통장 사본·주민등록등본 같은 문서를 아무 변환 사이트에나 올리는 건 위험합니다. 파일이 그 회사 서버에 저장·보관될 수 있기 때문입니다. 이 도구는 모든 병합을 <b>이용자의 브라우저 안에서</b> 수행해 파일이 인터넷으로 전송되지 않습니다. 인터넷 연결을 잠시 끊어도 동작하는 이유가 그래서입니다.</p>
+        <p>합치기 외에 특정 페이지만 빼내거나, 순서를 바꾸거나, 용량을 줄이는 작업도 같은 방식으로 안전하게 할 수 있습니다. 전체 흐름은 <a class="inlink" href="/guide/merge-split-pdf/">PDF 합치기·나누기·용량 줄이기 가이드</a>에서 정리했습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>파일명 번호 정렬 활용:</b> 파일명 앞에 번호를 붙여(01_본문.pdf, 02_첨부.pdf) 정렬한 뒤 업로드하면 원하는 순서대로 병합하기 쉽습니다.</li>
@@ -194,6 +215,14 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. 병합 후 원본 파일의 북마크(목차)가 유지되나요?</b><p>브라우저 기반 pdf-lib는 기본 북마크를 유지하지 않습니다. 목차가 중요한 경우에는 전문 PDF 편집 도구를 사용하세요.</p></div>
           <div class="qa"><b>Q. 암호화된 PDF도 합칠 수 있나요?</b><p>비밀번호가 걸린 PDF는 브라우저에서 읽을 수 없어 처리되지 않습니다. 병합 전에 암호를 먼저 해제하세요.</p></div>
           <div class="qa"><b>Q. 합친 PDF를 다시 분할할 수 있나요?</b><p>이 도구는 합치기 전용입니다. 분할이 필요하다면 PDF 페이지 분할 도구를 이용하세요.</p></div>
+          <div class="qa"><b>Q. 합칠 파일이 외부 서버로 업로드되나요?</b><p>아닙니다. 병합은 pdf-lib를 통해 브라우저 안에서 처리되어 파일이 서버로 전송되거나 저장되지 않습니다. 계약서·증빙서류처럼 민감한 문서도 외부에 남지 않고 안전하게 합칠 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 합칠 수 있는 파일 개수나 용량에 제한이 있나요?</b><p>도구 자체에는 개수 제한이 없습니다. 다만 브라우저 메모리로 처리하므로 매우 큰 파일을 한꺼번에 많이 합치면 기기 사양에 따라 느려질 수 있습니다. 그럴 때는 몇 개씩 나눠 합친 뒤 마지막에 한 번 더 합치면 안정적입니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/merge-split-pdf/"><b>PDF 합치기·나누기·용량 줄이기</b><span>합치기·분할·압축을 안전하게 하는 전체 흐름</span></a>
+          <a class="rel-card" href="/pdf-split/"><b>PDF 페이지 분할</b><span>원하는 페이지·범위만 새 PDF로 추출</span></a>
         </div>
       </section>
     </div>
