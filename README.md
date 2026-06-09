@@ -163,6 +163,8 @@
 - 헷갈리는 단위 변환 총정리 (`/guide/unit-conversion/`)
 - 퍼센트 계산법 총정리 (`/guide/percentage-calculation/`)
 - JSON이란? 문법·오류 다루기 (`/guide/json-basics/`)
+- 음력 ↔ 양력 변환 (`/guide/lunar-solar-conversion/`)
+- D-Day 계산법 (`/guide/dday-calculation/`)
 
 ## 기술 스택
 
