@@ -159,6 +159,8 @@
 - 해킹 안 당하는 비밀번호 만드는 법 (`/guide/strong-password/`)
 - 증명사진 규격 총정리 — 여권·이력서·비자 (`/guide/id-photo-size/`)
 - 사진 위치정보(EXIF) 지우는 법 (`/guide/remove-photo-location/`)
+- 평 ↔ ㎡ 변환과 평수 계산법 (`/guide/pyeong-conversion/`)
+- 헷갈리는 단위 변환 총정리 (`/guide/unit-conversion/`)
 
 ## 기술 스택
 
