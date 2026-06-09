@@ -332,6 +332,16 @@ footer a:hover{color:var(--accent)}
         <a class="card" href="/recorder/"><div class="ic" data-icon="mic">🎙</div><h3>녹음기</h3><p>마이크로 녹음해 저장</p></a>
       </div>
 
+      <div class="sec-label">활용 가이드</div>
+      <div class="grid guide-cards">
+        <a class="card" href="/guide/self-intro-character-count/"><div class="ic" data-icon="type">🔤</div><h3>자기소개서 글자 수 맞추기</h3><p>공백 포함·제외 차이와 분량 조절법</p></a>
+        <a class="card" href="/guide/heic-to-jpg-guide/"><div class="ic" data-icon="image-down">📥</div><h3>아이폰 HEIC → JPG 변환</h3><p>안 열리는 아이폰 사진 바꾸는 법</p></a>
+        <a class="card" href="/guide/reduce-image-size/"><div class="ic" data-icon="shrink">📉</div><h3>이미지 용량 줄이기</h3><p>화질 안 깨지게 압축하는 순서</p></a>
+        <a class="card" href="/guide/merge-split-pdf/"><div class="ic" data-icon="files">📄</div><h3>PDF 합치기·나누기</h3><p>설치 없이 안전하게 PDF 다루기</p></a>
+        <a class="card" href="/guide/make-qr-code/"><div class="ic" data-icon="qr-code">▦</div><h3>QR코드 만들기</h3><p>인쇄·메뉴판까지 제대로 쓰는 법</p></a>
+        <a class="card" href="/guide/strong-password/"><div class="ic" data-icon="key-round">🔑</div><h3>안전한 비밀번호 만들기</h3><p>해킹 안 당하는 비밀번호의 원칙</p></a>
+      </div>
+
       <section class="content" id="about">
         <div class="sec-label">도구상자 소개</div>
         <p>도구상자는 일상과 업무에서 자주 쓰지만 매번 찾기는 번거로운 작은 도구들을 한곳에 모은 무료 웹사이트입니다. 이미지·PDF 변환과 압축, 글자수 세기, QR코드·비밀번호 생성, 컬러 팔레트, 날짜 계산, 개발자용 인코더까지 스무 가지가 넘는 도구를 회원가입이나 설치 없이 바로 사용할 수 있습니다.</p>
@@ -373,7 +383,7 @@ footer a:hover{color:var(--accent)}
 <footer>
   <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
   <div class="spacer"></div>
-  <a href="#about">소개</a><a href="#faq">자주 묻는 질문</a><a href="#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <a href="/guide/">가이드</a><a href="#about">소개</a><a href="#faq">자주 묻는 질문</a><a href="#contact">문의</a><a href="/privacy.html">개인정보처리방침</a>
   <span style="font-family:var(--mono);font-size:11px">© 2026</span>
 </footer>
 
@@ -388,7 +398,12 @@ footer a:hover{color:var(--accent)}
   var noResult = document.getElementById('no-result');
   var nrQ = document.getElementById('nr-q');
   var countEl = document.getElementById('tool-count');
-  if (countEl) countEl.textContent = cards.length; // 도구 개수 자동 반영(카드 수 기준)
+  // 도구 개수 = 가이드 카드(.guide-cards) 제외한 실제 도구 카드 수
+  var toolCardCount = cards.filter(function (c) {
+    var g = c.parentNode;
+    return !(g && g.className && g.className.indexOf('guide-cards') >= 0);
+  }).length;
+  if (countEl) countEl.textContent = toolCardCount; // 도구 개수 자동 반영(가이드 제외)
   if (!input) return;
 
   // 한글 발음·약칭 등 보조 검색어 (카드 마크업은 건드리지 않고 여기서만 보강)

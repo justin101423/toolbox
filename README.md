@@ -147,6 +147,17 @@
 - 튜너(조율기) (`/tuner/`)
 - 녹음기 (`/recorder/`)
 
+## 가이드 (블로그)
+
+> 도구 활용법을 다루는 읽을거리 콘텐츠입니다. 도구 개수에는 포함하지 않습니다. 허브: `/guide/`
+
+- 자기소개서 글자 수 맞추는 법 (`/guide/self-intro-character-count/`)
+- 아이폰 HEIC 사진을 JPG로 바꾸는 법 (`/guide/heic-to-jpg-guide/`)
+- 이미지 용량 줄이기 — 화질 안 깨지게 (`/guide/reduce-image-size/`)
+- PDF 합치기·나누기·용량 줄이기 (`/guide/merge-split-pdf/`)
+- QR코드 만들기 — 인쇄·메뉴판까지 (`/guide/make-qr-code/`)
+- 해킹 안 당하는 비밀번호 만드는 법 (`/guide/strong-password/`)
+
 ## 기술 스택
 
 - **순수 정적 웹사이트** — HTML / CSS / JavaScript만 사용 (빌드 도구·프레임워크 없음)

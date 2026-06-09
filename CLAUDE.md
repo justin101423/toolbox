@@ -43,6 +43,9 @@ toolbox/
 ├── sitemap.xml         # 사이트맵 — 도구 추가 시 URL 추가 필요
 ├── CNAME               # 커스텀 도메인 dogubox.shop (수정 주의)
 ├── tool-page.css       # 공통 스타일시트 (최신 도구 페이지가 참조)
+├── guide.css           # 가이드(블로그) 전용 스타일 (tool-page.css 위에 얹어 사용 — 아티클 프로즈·표·도구 CTA·허브 그리드)
+├── guide/index.html    # ★ 가이드 허브(블로그 글 목록) — SEO/AdSense용 읽을거리 콘텐츠
+├── guide/<슬러그>/index.html # 각 가이드 글 = 독립 페이지(독립 URL)
 ├── theme.css           # 다크모드 스타일
 ├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어)
 ├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처)
@@ -204,6 +207,18 @@ toolbox/
 | metronome | 메트로놈 |
 | tuner | 튜너(조율기) |
 | recorder | 녹음기 |
+
+## 4-1. 가이드(블로그) 섹션 — `/guide/`
+
+> **목적**: 순수 유틸리티만 있는 사이트는 AdSense·검색에서 "가치 없는 콘텐츠(thin content)"로 평가받기 쉽습니다. 이를 보완하려고 **읽을거리형 editorial 콘텐츠**(도구 활용 가이드)를 `/guide/` 하위에 둡니다. 도구 개수(115)에는 포함하지 않습니다.
+
+- **허브**: `/guide/index.html` — 글 목록(`.guide-grid` 카드). canonical `https://dogubox.shop/guide/`. JSON-LD는 `CollectionPage` + `BreadcrumbList`.
+- **각 글**: `/guide/<슬러그>/index.html` — `tool-page.css` + **`guide.css`** + `theme.css` 참조. 본문은 `<article class="inner">` 안에 `<h1>` 1개 + `<section class="content">`(h2 소제목·표·`.callout`·`.tool-cta`·`.toc`·FAQ·관련 글). JSON-LD는 **Article + FAQPage + BreadcrumbList**(홈>가이드>글). FAQPage 질문·답변은 본문 FAQ와 글자 단위로 동일해야 함.
+- **도구로 연결**: 글마다 관련 도구로 가는 `.tool-cta` 카드(아이콘은 `data-icon`로 두면 `sidebar.js`가 채움)와 본문 내부 링크(`a.inlink`)를 넣습니다.
+- **사이드바 노출**: `sidebar.js`의 `render()`가 즐겨찾기 그룹 다음에 **"가이드 · 사용법"** 링크(book-open 아이콘)를 자동 삽입 → 전 페이지(도구·허브)에서 노출. `/guide` 경로에서 active. (개별 페이지 수정 불필요)
+- **허브(홈) 노출**: `index.html`에 "활용 가이드" 섹션(`.grid.guide-cards`)으로 6개 카드. **이 그리드는 도구 개수 카운트에서 제외**됩니다(홈 스크립트가 `.guide-cards` 부모를 가진 카드를 제외하고 셈). 푸터에도 `/guide/` 링크.
+- **현재 글(6)**: `self-intro-character-count`(자기소개서 글자 수), `heic-to-jpg-guide`(HEIC→JPG), `reduce-image-size`(이미지 용량 줄이기), `merge-split-pdf`(PDF 합치기·분할), `make-qr-code`(QR코드 만들기), `strong-password`(안전한 비밀번호).
+- **새 글 추가 시**: ① `/guide/<슬러그>/index.html` 생성(위 패턴) → ② `guide/index.html` 허브에 카드 1개 추가 → ③ `sitemap.xml`에 URL 추가 → ④ 필요하면 홈 "활용 가이드" 카드 갱신 → ⑤ 이 목록 갱신. (사이드바 "가이드" 링크는 단일 진입점이라 글마다 수정 불필요.)
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 

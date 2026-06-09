@@ -432,6 +432,10 @@
     if (!host) return;
     var active = currentSlug();
     var html = favGroupHtml(active);   // 최상단 즐겨찾기 그룹(없으면 "")
+    // 가이드(블로그) 링크 — 도구가 아니라 별도 섹션. /guide/ 하위 어디서든 active.
+    var onGuide = location.pathname.indexOf("/guide") === 0;
+    html += '<div class="grp"><a class="navlink' + (onGuide ? " active" : "") + '" href="/guide/">' +
+            '<span class="ic">' + iconHtml("book-open") + "</span> 가이드 · 사용법</a></div>";
     for (var i = 0; i < CATEGORIES.length; i++) {
       var cat = CATEGORIES[i];
       html += '<div class="grp"><div class="kick">' + esc(cat.label) + "</div>";
