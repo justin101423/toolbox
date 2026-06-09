@@ -157,6 +157,8 @@
 - PDF 합치기·나누기·용량 줄이기 (`/guide/merge-split-pdf/`)
 - QR코드 만들기 — 인쇄·메뉴판까지 (`/guide/make-qr-code/`)
 - 해킹 안 당하는 비밀번호 만드는 법 (`/guide/strong-password/`)
+- 증명사진 규격 총정리 — 여권·이력서·비자 (`/guide/id-photo-size/`)
+- 사진 위치정보(EXIF) 지우는 법 (`/guide/remove-photo-location/`)
 
 ## 기술 스택
 
