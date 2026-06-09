@@ -161,6 +161,8 @@
 - 사진 위치정보(EXIF) 지우는 법 (`/guide/remove-photo-location/`)
 - 평 ↔ ㎡ 변환과 평수 계산법 (`/guide/pyeong-conversion/`)
 - 헷갈리는 단위 변환 총정리 (`/guide/unit-conversion/`)
+- 퍼센트 계산법 총정리 (`/guide/percentage-calculation/`)
+- JSON이란? 문법·오류 다루기 (`/guide/json-basics/`)
 
 ## 기술 스택
 
