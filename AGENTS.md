@@ -1,6 +1,6 @@
-# CLAUDE.md — 도구상자 프로젝트 지침
+# AGENTS.md — 도구상자 프로젝트 지침
 
-> 이 문서는 Claude Code가 매 세션 자동으로 읽고 따르는 지침서입니다. 작업 전 반드시 숙지하고, 이 문서와 실제 코드가 달라지게 되는 작업을 했다면 **같은 작업 안에서 이 문서도 갱신**하세요(→ "이 문서를 최신으로 유지하는 규칙" 참고).
+> 이 문서는 Codex가 매 세션 자동으로 읽고 따르는 지침서입니다. 작업 전 반드시 숙지하고, 이 문서와 실제 코드가 달라지게 되는 작업을 했다면 **같은 작업 안에서 이 문서도 갱신**하세요(→ "이 문서를 최신으로 유지하는 규칙" 참고).
 
 ## 1. 프로젝트 한 줄 요약
 
@@ -16,11 +16,11 @@
 1. **클라이언트 사이드 전용**: 모든 기능은 서버 없이 브라우저 JavaScript로만 구현합니다. 백엔드·DB가 필요한 기능(예: URL 단축, 서버 저장형 공유, 회원 기능, 서버 측 파일 변환 등)은 추가하지 않습니다. 사용자가 업로드/입력한 파일·텍스트는 서버로 전송하지 않고 브라우저 안에서만 처리합니다(개인정보 보호 + 정적 호스팅 제약).
 2. **AdSense 스크립트 보존**: 모든 페이지 `<head>`의 Google AdSense 스크립트(`client=ca-pub-6448118773813567`)는 절대 제거하지 않습니다.
 3. **민감 파일 보호**: `CNAME`, `ads.txt`, `robots.txt`, `privacy.html`은 함부로 수정/삭제하지 않습니다(각각 도메인·광고·크롤링·정책에 직결). 변경이 꼭 필요하면 이유를 명확히 하고 사용자에게 확인합니다.
-4. **자동 커밋·푸시**: 작업을 마치면 Claude Code가 직접 `git add` → `commit` → `push`(브랜치 `main`)까지 수행합니다. 단, push 직전 보호 파일/스크립트 자가 점검을 반드시 거치며, 이상이 감지되면 push를 중단하고 보고합니다. 자세한 절차는 아래 **「자동 커밋·푸시 규칙」** 섹션을 따릅니다.
+4. **자동 커밋·푸시**: 작업을 마치면 Codex가 직접 `git add` → `commit` → `push`(브랜치 `main`)까지 수행합니다. 단, push 직전 보호 파일/스크립트 자가 점검을 반드시 거치며, 이상이 감지되면 push를 중단하고 보고합니다. 자세한 절차는 아래 **「자동 커밋·푸시 규칙」** 섹션을 따릅니다.
 
 ## 자동 커밋·푸시 규칙
 
-- 작업(도구 추가, 콘텐츠 수정 등)을 마치면 Claude Code가 직접 `git add` → `commit` → `push`까지 수행한다. (브랜치는 `main`)
+- 작업(도구 추가, 콘텐츠 수정 등)을 마치면 Codex가 직접 `git add` → `commit` → `push`까지 수행한다. (브랜치는 `main`)
 - 단, push 하기 **직전**에 반드시 아래 보호 파일들이 삭제되거나 의도치 않게 변경되지 않았는지 **자가 점검**한다:
   - `CNAME` (도메인 연결 — 삭제 시 dogubox.shop 끊김)
   - `ads.txt` (AdSense 소유권)
@@ -262,12 +262,12 @@ toolbox/
 6. **콘텐츠 섹션** — 사용법(3~5단계) / 활용 팁(2~3개, 도구별 고유) / FAQ(3개). 한국어, 도구별 고유 내용, 합계 약 250~400단어. 고유 `<title>`·`<meta description>`.
 7. **★ JSON-LD 구조화 데이터(SEO)** — `<head>`에 `<script type="application/ld+json">` 블록으로 **SoftwareApplication + FAQPage + BreadcrumbList**(홈 > 도구명) 3개를 추가합니다(화면 표시 없음, 검색 리치 스니펫용). 모든 값은 그 페이지의 **실제 내용과 일치**해야 합니다 — `name`=h1 도구명, `description`=meta description, `url`=canonical, `applicationCategory`=카테고리에 맞는 값(이미지·PDF→`MultimediaApplication`, 텍스트/생활·편의→`UtilityApplication`, 색상·디자인→`DesignApplication`, 직장인·생산성→`BusinessApplication`, 개발자→`DeveloperApplication`), `operatingSystem`="Web", `inLanguage`="ko", `offers`(price 0, KRW), `provider`(도구상자, https://dogubox.shop/). **FAQPage의 질문·답변은 페이지 본문 FAQ와 글자 단위로 동일**해야 합니다(페이지에 없는 FAQ를 넣으면 구글 정책 위반). 허브(`index.html`)는 `WebSite`(검색이 클라이언트 필터라 `SearchAction`은 넣지 않음)만 둡니다. 구글 Rich Results Test로 검증.
 8. **다크모드/모바일 반응형 확인** — `theme.css`/`theme.js` 연동, 좁은 화면에서 사이드바 토글 동작 확인.
-9. **★ 문서 갱신** — 이 CLAUDE.md의 도구 목록(4번 섹션)에 새 도구를 추가하고, `README.md`의 도구 목록도 갱신.
-10. **커밋·푸시** — 작업 완료 후 「자동 커밋·푸시 규칙」에 따라 Claude Code가 직접 `add`→`commit`→`push`(`main`). push 직전 보호 파일/AdSense 스크립트 자가 점검, 이상 시 중단·보고.
+9. **★ 문서 갱신** — 이 AGENTS.md의 도구 목록(4번 섹션)에 새 도구를 추가하고, `README.md`의 도구 목록도 갱신.
+10. **커밋·푸시** — 작업 완료 후 「자동 커밋·푸시 규칙」에 따라 Codex가 직접 `add`→`commit`→`push`(`main`). push 직전 보호 파일/AdSense 스크립트 자가 점검, 이상 시 중단·보고.
 
 > 검증 팁: `sidebar.js`가 그리는 사이드바 링크 수 == 실제 도구 폴더 수 == 허브 카드 수 == `sitemap.xml`의 도구 URL 수 가 모두 일치하는지 확인합니다. (사이드바는 `sidebar.js` 한 곳에서 그리므로 페이지별 누락은 발생하지 않지만, 데이터·카드·sitemap 간 불일치는 확인 대상입니다.)
 
-## 7. 이 문서(CLAUDE.md)를 최신으로 유지하는 규칙
+## 7. 이 문서(AGENTS.md)를 최신으로 유지하는 규칙
 
 **이 문서는 항상 실제 코드 상태와 일치해야 합니다.** 다음을 반드시 지킵니다:
 

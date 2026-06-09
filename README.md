@@ -165,6 +165,8 @@
 - JSON이란? 문법·오류 다루기 (`/guide/json-basics/`)
 - 음력 ↔ 양력 변환 (`/guide/lunar-solar-conversion/`)
 - D-Day 계산법 (`/guide/dday-calculation/`)
+- 색상 코드 이해하기 — HEX·RGB·HSL (`/guide/hex-rgb-color-codes/`)
+- 마크다운 문법 입문 (`/guide/markdown-syntax/`)
 
 ## 기술 스택
 
