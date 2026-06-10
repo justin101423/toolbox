@@ -193,6 +193,8 @@
 - 텍스트 비교(diff) 활용법 — 차이를 한눈에 (`/guide/text-comparison/`)
 - 한글 로마자 표기법 — 여권 영문 이름 정하기 (`/guide/korean-romanization/`)
 - 파비콘이란? — 규격·형식과 적용 방법 (`/guide/what-is-favicon/`)
+- TTS(텍스트 음성 변환) 활용법 (`/guide/text-to-speech/`)
+- 바코드 종류 총정리 — EAN·CODE128 (`/guide/barcode-types/`)
 
 ## 기술 스택
 
