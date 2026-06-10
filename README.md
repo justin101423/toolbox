@@ -171,6 +171,8 @@
 - 만 나이 계산법 — 세는 나이·연 나이 차이까지 (`/guide/age-calculation/`)
 - 정규식 입문 — 기초 문법과 자주 쓰는 패턴 (`/guide/regex-basics/`)
 - 유닉스 타임스탬프란? — 10자리·13자리와 변환법 (`/guide/timestamp-conversion/`)
+- CSV란? — 엑셀과의 차이, 깨짐 해결과 JSON 변환 (`/guide/csv-json-conversion/`)
+- 옷·신발 사이즈 표 총정리 — 한국·미국·유럽 (`/guide/size-conversion/`)
 
 ## 기술 스택
 

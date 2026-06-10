@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: CSV란? — 엑셀과의 차이, JSON 변환까지 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>CSV란? — 엑셀과의 차이, 깨짐 해결과 JSON 변환까지 | 도구상자</title>
+<meta name="description" content="CSV 파일은 엑셀 파일과 무엇이 다를까요? CSV의 구조, 엑셀에서 열 때 한글이 깨지는 이유와 해결법, 개발에 쓰는 JSON으로 변환하는 방법까지 한 번에 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/csv-json-conversion/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="CSV란? — 엑셀과의 차이, 깨짐 해결과 JSON 변환까지">
+<meta property="og:description" content="CSV 구조, 한글 깨짐(인코딩) 해결법, JSON 변환 방법 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/csv-json-conversion/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="CSV란? — 엑셀 차이와 JSON 변환">
+<meta name="twitter:description" content="CSV 구조·한글 깨짐·JSON 변환 정리.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CSV란? — 엑셀과의 차이, 깨짐 해결과 JSON 변환까지",
+  "description": "CSV 파일은 엑셀 파일과 무엇이 다를까요? CSV의 구조, 엑셀에서 열 때 한글이 깨지는 이유와 해결법, 개발에 쓰는 JSON으로 변환하는 방법까지 한 번에 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "mainEntityOfPage": "https://dogubox.shop/guide/csv-json-conversion/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "CSV와 엑셀 파일(xlsx)은 뭐가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSV는 값을 쉼표로 구분해 나열한 순수 텍스트 파일이고, xlsx는 서식·수식·여러 시트까지 담는 엑셀 전용 형식입니다. CSV는 메모장으로도 열리고 거의 모든 프로그램이 읽을 수 있어 데이터 교환용으로 쓰이지만, 글꼴·색·수식 같은 정보는 저장되지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CSV를 엑셀에서 열면 한글이 깨지는 이유는 뭔가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "인코딩 차이 때문입니다. 많은 CSV가 UTF-8로 저장되는데 한국어 엑셀은 기본적으로 EUC-KR(CP949)로 해석해 한글이 깨져 보입니다. 엑셀에서 '데이터 → 텍스트/CSV 가져오기'로 열면서 원본 파일 인코딩을 UTF-8로 지정하거나, 파일을 'UTF-8(BOM)' 형식으로 다시 저장하면 해결됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CSV를 JSON으로 바꾸면 뭐가 좋은가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "웹 개발·API에서 표준처럼 쓰이는 형식이 JSON이기 때문입니다. 엑셀로 정리한 표를 웹 서비스나 코드에 넣으려면 JSON 배열로 바꾸는 경우가 많습니다. CSV의 첫 줄(헤더)이 JSON의 키가 되고 각 행이 객체 하나가 됩니다. 변환 도구를 쓰면 복사·붙여넣기만으로 양방향 변환이 됩니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "CSV란?", "item": "https://dogubox.shop/guide/csv-json-conversion/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>CSV란? — 엑셀과의 차이, 깨짐 해결과 JSON 변환</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.10</span></div>
+
+      <section class="content">
+        <p>데이터를 내려받으면 자주 만나는 확장자가 <code>.csv</code>입니다. 엑셀로 열리니 엑셀 파일 같지만, 열어 보면 서식이 다 사라져 있고 어떨 땐 한글이 와장창 깨져 있습니다. CSV가 무엇인지 한 번 이해해 두면 이런 문제의 원인과 해결법이 분명해집니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">CSV의 정체 — 쉼표로 구분한 텍스트</a></li>
+            <li><a href="#diff">엑셀 파일(xlsx)과의 차이</a></li>
+            <li><a href="#broken">한글 깨짐 — 인코딩 문제 해결</a></li>
+            <li><a href="#json">CSV ↔ JSON 변환</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">CSV의 정체 — 쉼표로 구분한 텍스트</h2>
+        <p>CSV(Comma-Separated Values)는 이름 그대로 <b>값을 쉼표로 구분해 나열한 텍스트 파일</b>입니다. 메모장으로 열면 이렇게 생겼습니다.</p>
+        <pre><code>이름,나이,도시
+김철수,29,서울
+이영희,34,부산</code></pre>
+        <p>첫 줄은 보통 열 이름(헤더)이고, 그 아래 한 줄이 표의 한 행입니다. 값 안에 쉼표가 들어가면 <code>"서울, 강남"</code>처럼 따옴표로 감쌉니다. 구조가 단순해서 엑셀·구글 시트·데이터베이스·프로그래밍 언어 등 <b>거의 모든 도구가 읽고 쓸 수 있는 공용어</b> 역할을 합니다.</p>
+
+        <h2 id="diff">엑셀 파일(xlsx)과의 차이</h2>
+        <table>
+          <thead><tr><th></th><th>CSV</th><th>엑셀(xlsx)</th></tr></thead>
+          <tbody>
+            <tr><td>본질</td><td>순수 텍스트</td><td>엑셀 전용 형식</td></tr>
+            <tr><td>서식(색·글꼴·테두리)</td><td>저장 안 됨</td><td>저장됨</td></tr>
+            <tr><td>수식·차트·여러 시트</td><td>저장 안 됨</td><td>저장됨</td></tr>
+            <tr><td>호환성</td><td>거의 모든 프로그램</td><td>엑셀·호환 프로그램</td></tr>
+            <tr><td>용량</td><td>작음</td><td>상대적으로 큼</td></tr>
+          </tbody>
+        </table>
+        <div class="callout"><b>요약:</b> 보기 좋게 꾸민 문서는 xlsx, 데이터를 주고받는 용도는 CSV입니다. CSV로 저장하면 서식·수식이 사라지는 건 오류가 아니라 형식의 특성입니다.</div>
+
+        <h2 id="broken">한글 깨짐 — 인코딩 문제 해결</h2>
+        <p>CSV를 엑셀에서 열었을 때 <code>ë¬¸ìž</code>처럼 깨지는 이유는 <b>인코딩 차이</b>입니다. 요즘 데이터는 대부분 UTF-8로 저장되는데, 한국어 엑셀은 더블클릭으로 열 때 EUC-KR(CP949)로 해석하기 때문입니다. 해결법은 두 가지입니다.</p>
+        <ul>
+          <li><b>엑셀에서 가져오기:</b> 더블클릭 대신 <b>데이터 → 텍스트/CSV 가져오기</b>로 열고, 파일 원본(인코딩)을 <b>UTF-8</b>로 지정합니다.</li>
+          <li><b>파일을 다시 저장:</b> 메모장에서 열어 "다른 이름으로 저장 → 인코딩: <b>UTF-8(BOM)</b>"으로 저장하면 더블클릭으로도 정상 표시됩니다.</li>
+        </ul>
+
+        <h2 id="json">CSV ↔ JSON 변환</h2>
+        <p>웹 서비스·API·코드에서는 표 데이터를 <a class="inlink" href="/guide/json-basics/">JSON</a> 형식으로 다루는 경우가 많습니다. 위 CSV를 JSON으로 바꾸면 이렇게 됩니다.</p>
+        <pre><code>[
+  { "이름": "김철수", "나이": "29", "도시": "서울" },
+  { "이름": "이영희", "나이": "34", "도시": "부산" }
+]</code></pre>
+        <p>헤더가 키(key)가 되고 한 행이 객체 하나가 되는 규칙입니다. 손으로 바꾸면 따옴표·쉼표 실수가 나기 쉬우니, 변환 도구에 붙여넣어 양방향으로 바꾸는 것이 안전합니다. 엑셀 표를 복사해 붙여넣어도 됩니다(탭 구분 자동 인식).</p>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="table"></span>
+          <span class="tc-tx"><b>CSV ↔ JSON 변환</b><span>붙여넣기만 하면 양방향 즉시 변환</span></span>
+          <a class="tc-go" href="/csv-json/">변환하기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. CSV와 엑셀 파일(xlsx)은 뭐가 다른가요?</b><p>CSV는 값을 쉼표로 구분해 나열한 순수 텍스트 파일이고, xlsx는 서식·수식·여러 시트까지 담는 엑셀 전용 형식입니다. CSV는 메모장으로도 열리고 거의 모든 프로그램이 읽을 수 있어 데이터 교환용으로 쓰이지만, 글꼴·색·수식 같은 정보는 저장되지 않습니다.</p></div>
+          <div class="qa"><b>Q. CSV를 엑셀에서 열면 한글이 깨지는 이유는 뭔가요?</b><p>인코딩 차이 때문입니다. 많은 CSV가 UTF-8로 저장되는데 한국어 엑셀은 기본적으로 EUC-KR(CP949)로 해석해 한글이 깨져 보입니다. 엑셀에서 '데이터 → 텍스트/CSV 가져오기'로 열면서 원본 파일 인코딩을 UTF-8로 지정하거나, 파일을 'UTF-8(BOM)' 형식으로 다시 저장하면 해결됩니다.</p></div>
+          <div class="qa"><b>Q. CSV를 JSON으로 바꾸면 뭐가 좋은가요?</b><p>웹 개발·API에서 표준처럼 쓰이는 형식이 JSON이기 때문입니다. 엑셀로 정리한 표를 웹 서비스나 코드에 넣으려면 JSON 배열로 바꾸는 경우가 많습니다. CSV의 첫 줄(헤더)이 JSON의 키가 되고 각 행이 객체 하나가 됩니다. 변환 도구를 쓰면 복사·붙여넣기만으로 양방향 변환이 됩니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/json-basics/"><b>JSON이란? 문법·오류 다루기</b><span>JSON 기초가 처음이라면 여기부터</span></a>
+          <a class="rel-card" href="/table-converter/"><b>표 변환기</b><span>마크다운·HTML 표로도 변환</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>
