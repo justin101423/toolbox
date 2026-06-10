@@ -199,6 +199,8 @@
 - 로렘 입숨이란? — 유래와 올바른 활용법 (`/guide/what-is-lorem-ipsum/`)
 - 화상 면접·회의 전 점검 체크리스트 (`/guide/video-call-check/`)
 - 공정한 추첨 방법 — 추첨·사다리·돌림판 (`/guide/fair-random-draw/`)
+- 배색 기초 — 색 조합 규칙과 60-30-10 법칙 (`/guide/color-scheme-basics/`)
+- 밈·짤 만들기 — 글자 넣기 요령과 주의점 (`/guide/make-meme/`)
 
 ## 기술 스택
 
