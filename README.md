@@ -181,6 +181,8 @@
 - 움짤(GIF) 만들기 — 만드는 법과 용량 팁 (`/guide/make-gif/`)
 - 사진 속 글자 추출하기(OCR) — 인식률 높이는 법 (`/guide/extract-text-from-image/`)
 - 띠 계산법과 별자리 날짜표 (`/guide/zodiac-animal/`)
+- 사진 워터마크 넣는 법 — 위치·투명도 요령 (`/guide/add-watermark/`)
+- JWT란? — 구조와 디코딩, 보안 주의점 (`/guide/what-is-jwt/`)
 
 ## 기술 스택
 
