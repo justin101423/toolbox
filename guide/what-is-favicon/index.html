@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 파비콘이란? — 규격·형식과 적용 방법 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>파비콘이란? — 필요한 크기·형식과 사이트에 적용하는 법 | 도구상자</title>
+<meta name="description" content="브라우저 탭의 작은 아이콘, 파비콘의 모든 것. 왜 필요한지, 16·32·180·512px 등 필요한 크기와 ICO·PNG·SVG 형식 차이, HTML에 적용하는 코드까지 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/what-is-favicon/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="파비콘이란? — 필요한 크기·형식과 사이트에 적용하는 법">
+<meta property="og:description" content="파비콘의 역할, 크기·형식별 용도, HTML 적용 코드 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/what-is-favicon/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="파비콘이란?">
+<meta name="twitter:description" content="규격·형식과 적용 방법 정리.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "파비콘이란? — 필요한 크기·형식과 사이트에 적용하는 법",
+  "description": "브라우저 탭의 작은 아이콘, 파비콘의 모든 것. 왜 필요한지, 16·32·180·512px 등 필요한 크기와 ICO·PNG·SVG 형식 차이, HTML에 적용하는 코드까지 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "mainEntityOfPage": "https://dogubox.shop/guide/what-is-favicon/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "파비콘이 무엇이고 왜 필요한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "파비콘(favicon, favorite icon)은 브라우저 탭·북마크·검색 결과·홈 화면 바로가기에 표시되는 사이트의 작은 아이콘입니다. 탭을 여러 개 열어 두면 제목은 가려지고 파비콘만 남기 때문에, 사용자가 내 사이트를 다시 찾는 시각적 표식이 됩니다. 구글 모바일 검색 결과에도 표시되어 브랜드 인지와 신뢰감에 영향을 줍니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "파비콘은 어떤 크기로 몇 개나 만들어야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "실무 기본 세트는 4가지입니다. 16×16·32×32(브라우저 탭·북마크용 PNG 또는 ICO), 180×180(아이폰 홈 화면용 apple-touch-icon), 192×192와 512×512(안드로이드·PWA 매니페스트용)입니다. 원본을 512px 이상 정사각형으로 만들어 두고 각 크기로 줄여 내보내면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ICO와 PNG, SVG 중 뭘 써야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "현대 브라우저는 PNG와 SVG를 모두 지원하므로 PNG가 무난한 기본값입니다. SVG는 어떤 크기에서도 선명하고 다크모드 대응까지 가능하지만 일부 구형 환경에서 무시됩니다. ICO는 여러 크기를 한 파일에 담는 전통 형식으로, 오래된 브라우저까지 호환하려면 favicon.ico를 루트에 함께 두는 것이 안전합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "파비콘이란?", "item": "https://dogubox.shop/guide/what-is-favicon/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>파비콘이란? — 규격·형식과 적용 방법</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.10</span></div>
+
+      <section class="content">
+        <p>탭을 열 개쯤 열어 두면 사이트 제목은 다 가려지고 작은 아이콘만 남습니다. 그 아이콘이 파비콘입니다. 작아 보여도 브랜드를 다시 찾게 하는 표식이고, 검색 결과에도 노출됩니다. 어떤 크기·형식으로 만들고 어떻게 적용하는지 정리합니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">파비콘이 하는 일</a></li>
+            <li><a href="#sizes">필요한 크기 — 기본 4종 세트</a></li>
+            <li><a href="#format">ICO vs PNG vs SVG</a></li>
+            <li><a href="#apply">HTML에 적용하기 + 디자인 팁</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">파비콘이 하는 일</h2>
+        <ul>
+          <li><b>브라우저 탭·북마크:</b> 수많은 탭 사이에서 내 사이트를 즉시 식별하게 합니다.</li>
+          <li><b>검색 결과:</b> 구글 모바일 검색에는 사이트 이름 옆에 파비콘이 표시됩니다 — 없으면 기본 지구본 아이콘이 나와 밋밋해 보입니다.</li>
+          <li><b>홈 화면 바로가기:</b> 휴대폰 홈 화면에 추가될 때 앱 아이콘처럼 쓰입니다.</li>
+          <li><b>신뢰감:</b> 파비콘이 없는 사이트는 미완성처럼 보이기 쉽습니다.</li>
+        </ul>
+
+        <h2 id="sizes">필요한 크기 — 기본 4종 세트</h2>
+        <table>
+          <thead><tr><th>크기</th><th>용도</th><th>지정 방법</th></tr></thead>
+          <tbody>
+            <tr><td>16×16, 32×32</td><td>브라우저 탭·북마크</td><td><code>rel="icon"</code></td></tr>
+            <tr><td>180×180</td><td>아이폰 홈 화면</td><td><code>rel="apple-touch-icon"</code></td></tr>
+            <tr><td>192×192</td><td>안드로이드 홈 화면</td><td>웹 매니페스트</td></tr>
+            <tr><td>512×512</td><td>PWA 설치·스플래시</td><td>웹 매니페스트</td></tr>
+          </tbody>
+        </table>
+        <p><b>512px 이상의 정사각형 원본</b> 하나를 만들어 두고 각 크기로 줄여 내보내는 것이 정석입니다. 생성 도구를 쓰면 한 번에 전 크기 세트가 나옵니다.</p>
+
+        <h2 id="format">ICO vs PNG vs SVG</h2>
+        <table>
+          <thead><tr><th></th><th>ICO</th><th>PNG</th><th>SVG</th></tr></thead>
+          <tbody>
+            <tr><td>호환성</td><td>구형까지 모두</td><td>현대 브라우저 전부</td><td>현대 브라우저 대부분</td></tr>
+            <tr><td>특징</td><td>여러 크기 한 파일</td><td>가장 무난한 기본값</td><td>벡터라 항상 선명, 다크모드 대응 가능</td></tr>
+            <tr><td>추천</td><td>루트에 favicon.ico 병행</td><td>기본 선택</td><td>로고가 단순한 도형·글자일 때</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="apply">HTML에 적용하기 + 디자인 팁</h2>
+        <p><code>&lt;head&gt;</code>에 다음과 같이 선언합니다.</p>
+        <pre><code>&lt;link rel="icon" href="/favicon.svg" type="image/svg+xml"&gt;
+&lt;link rel="icon" href="/favicon-32.png" sizes="32x32"&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code></pre>
+        <ul>
+          <li><b>단순하게:</b> 16px에서는 글자 두 자, 도형 하나 정도만 살아남습니다. 로고 전체보다 이니셜·심볼만 쓰세요.</li>
+          <li><b>여백 적게:</b> 캔버스를 꽉 채워야 작게 줄어도 잘 보입니다.</li>
+          <li><b>대비 확보:</b> 밝은 탭·어두운 탭 양쪽에서 보이는지 확인하세요. 배경 원/사각형을 깔면 안전합니다.</li>
+          <li><b>캐시 주의:</b> 파비콘을 바꿔도 브라우저가 옛것을 한참 보여줄 수 있습니다 — 강력 새로고침이나 파일명 변경으로 갱신됩니다.</li>
+        </ul>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="app-window"></span>
+          <span class="tc-tx"><b>파비콘 생성</b><span>이미지·텍스트로 전 크기 파비콘 세트를 한 번에</span></span>
+          <a class="tc-go" href="/favicon-generator/">만들기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 파비콘이 무엇이고 왜 필요한가요?</b><p>파비콘(favicon, favorite icon)은 브라우저 탭·북마크·검색 결과·홈 화면 바로가기에 표시되는 사이트의 작은 아이콘입니다. 탭을 여러 개 열어 두면 제목은 가려지고 파비콘만 남기 때문에, 사용자가 내 사이트를 다시 찾는 시각적 표식이 됩니다. 구글 모바일 검색 결과에도 표시되어 브랜드 인지와 신뢰감에 영향을 줍니다.</p></div>
+          <div class="qa"><b>Q. 파비콘은 어떤 크기로 몇 개나 만들어야 하나요?</b><p>실무 기본 세트는 4가지입니다. 16×16·32×32(브라우저 탭·북마크용 PNG 또는 ICO), 180×180(아이폰 홈 화면용 apple-touch-icon), 192×192와 512×512(안드로이드·PWA 매니페스트용)입니다. 원본을 512px 이상 정사각형으로 만들어 두고 각 크기로 줄여 내보내면 됩니다.</p></div>
+          <div class="qa"><b>Q. ICO와 PNG, SVG 중 뭘 써야 하나요?</b><p>현대 브라우저는 PNG와 SVG를 모두 지원하므로 PNG가 무난한 기본값입니다. SVG는 어떤 크기에서도 선명하고 다크모드 대응까지 가능하지만 일부 구형 환경에서 무시됩니다. ICO는 여러 크기를 한 파일에 담는 전통 형식으로, 오래된 브라우저까지 호환하려면 favicon.ico를 루트에 함께 두는 것이 안전합니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/hex-rgb-color-codes/"><b>색상 코드 이해하기</b><span>브랜드 색 정확히 지정하기</span></a>
+          <a class="rel-card" href="/image-resizer/"><b>이미지 크기 조절</b><span>원본을 정사각형으로 다듬기</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

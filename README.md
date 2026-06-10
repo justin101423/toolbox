@@ -191,6 +191,8 @@
 - cron 표현식 읽는 법 — 5칸 구조와 예시 모음 (`/guide/cron-expression/`)
 - 색상 대비와 웹 접근성 — WCAG 4.5:1 기준 (`/guide/color-contrast-accessibility/`)
 - 텍스트 비교(diff) 활용법 — 차이를 한눈에 (`/guide/text-comparison/`)
+- 한글 로마자 표기법 — 여권 영문 이름 정하기 (`/guide/korean-romanization/`)
+- 파비콘이란? — 규격·형식과 적용 방법 (`/guide/what-is-favicon/`)
 
 ## 기술 스택
 
