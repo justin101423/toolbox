@@ -197,6 +197,8 @@
 - 바코드 종류 총정리 — EAN·CODE128 (`/guide/barcode-types/`)
 - 타자 속도 올리는 법 — 평균 타수와 연습 루틴 (`/guide/typing-speed-tips/`)
 - 로렘 입숨이란? — 유래와 올바른 활용법 (`/guide/what-is-lorem-ipsum/`)
+- 화상 면접·회의 전 점검 체크리스트 (`/guide/video-call-check/`)
+- 공정한 추첨 방법 — 추첨·사다리·돌림판 (`/guide/fair-random-draw/`)
 
 ## 기술 스택
 
