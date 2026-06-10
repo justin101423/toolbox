@@ -167,6 +167,8 @@
 - D-Day 계산법 (`/guide/dday-calculation/`)
 - 색상 코드 이해하기 — HEX·RGB·HSL (`/guide/hex-rgb-color-codes/`)
 - 마크다운 문법 입문 (`/guide/markdown-syntax/`)
+- BMI 계산법 — 공식·정상 범위와 한계 (`/guide/bmi-calculation/`)
+- 만 나이 계산법 — 세는 나이·연 나이 차이까지 (`/guide/age-calculation/`)
 
 ## 기술 스택
 

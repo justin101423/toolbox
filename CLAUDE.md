@@ -217,7 +217,7 @@ toolbox/
 - **도구로 연결**: 글마다 관련 도구로 가는 `.tool-cta` 카드(아이콘은 `data-icon`로 두면 `sidebar.js`가 채움)와 본문 내부 링크(`a.inlink`)를 넣습니다.
 - **사이드바 노출**: `sidebar.js`의 `render()`가 즐겨찾기 그룹 다음에 **"가이드 · 사용법"** 링크(book-open 아이콘)를 자동 삽입 → 전 페이지(도구·허브)에서 노출. `/guide` 경로에서 active. (개별 페이지 수정 불필요)
 - **허브(홈) 노출**: `index.html`에 "활용 가이드" 섹션(`.grid.guide-cards`)으로 6개 카드. **이 그리드는 도구 개수 카운트에서 제외**됩니다(홈 스크립트가 `.guide-cards` 부모를 가진 카드를 제외하고 셈). 푸터에도 `/guide/` 링크.
-- **현재 글(16)**: `self-intro-character-count`(자기소개서 글자 수), `heic-to-jpg-guide`(HEIC→JPG), `reduce-image-size`(이미지 용량 줄이기), `merge-split-pdf`(PDF 합치기·분할), `make-qr-code`(QR코드 만들기), `strong-password`(안전한 비밀번호), `id-photo-size`(증명사진 규격), `remove-photo-location`(사진 EXIF 위치정보 제거), `pyeong-conversion`(평↔㎡ 변환), `unit-conversion`(단위 변환), `percentage-calculation`(퍼센트 계산법), `json-basics`(JSON 입문), `lunar-solar-conversion`(음력↔양력), `dday-calculation`(D-Day 계산), `hex-rgb-color-codes`(색상 코드 HEX·RGB·HSL), `markdown-syntax`(마크다운 문법).
+- **현재 글(18)**: `self-intro-character-count`(자기소개서 글자 수), `heic-to-jpg-guide`(HEIC→JPG), `reduce-image-size`(이미지 용량 줄이기), `merge-split-pdf`(PDF 합치기·분할), `make-qr-code`(QR코드 만들기), `strong-password`(안전한 비밀번호), `id-photo-size`(증명사진 규격), `remove-photo-location`(사진 EXIF 위치정보 제거), `pyeong-conversion`(평↔㎡ 변환), `unit-conversion`(단위 변환), `percentage-calculation`(퍼센트 계산법), `json-basics`(JSON 입문), `lunar-solar-conversion`(음력↔양력), `dday-calculation`(D-Day 계산), `hex-rgb-color-codes`(색상 코드 HEX·RGB·HSL), `markdown-syntax`(마크다운 문법), `bmi-calculation`(BMI 계산법), `age-calculation`(만 나이 계산법).
 - **새 글 추가 시**: ① `/guide/<슬러그>/index.html` 생성(위 패턴) → ② `guide/index.html` 허브에 카드 1개 추가 → ③ `sitemap.xml`에 URL 추가 → ④ 필요하면 홈 "활용 가이드" 카드 갱신 → ⑤ 이 목록 갱신. (사이드바 "가이드" 링크는 단일 진입점이라 글마다 수정 불필요.)
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
