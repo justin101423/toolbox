@@ -179,6 +179,8 @@
 - 로또 1등 확률 — 등수별 확률표와 흔한 오해 (`/guide/lotto-probability/`)
 - 시차 계산법 — 주요 도시 시차표와 서머타임 (`/guide/timezone-difference/`)
 - 움짤(GIF) 만들기 — 만드는 법과 용량 팁 (`/guide/make-gif/`)
+- 사진 속 글자 추출하기(OCR) — 인식률 높이는 법 (`/guide/extract-text-from-image/`)
+- 띠 계산법과 별자리 날짜표 (`/guide/zodiac-animal/`)
 
 ## 기술 스택
 
