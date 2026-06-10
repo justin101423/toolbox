@@ -173,6 +173,8 @@
 - 유닉스 타임스탬프란? — 10자리·13자리와 변환법 (`/guide/timestamp-conversion/`)
 - CSV란? — 엑셀과의 차이, 깨짐 해결과 JSON 변환 (`/guide/csv-json-conversion/`)
 - 옷·신발 사이즈 표 총정리 — 한국·미국·유럽 (`/guide/size-conversion/`)
+- Base64란? — 인코딩 원리와 URL 인코딩 차이 (`/guide/base64-encoding/`)
+- 할인율 계산법 — 할인가 공식과 이중 할인 (`/guide/discount-calculation/`)
 
 ## 기술 스택
 
