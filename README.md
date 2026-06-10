@@ -195,6 +195,8 @@
 - 파비콘이란? — 규격·형식과 적용 방법 (`/guide/what-is-favicon/`)
 - TTS(텍스트 음성 변환) 활용법 (`/guide/text-to-speech/`)
 - 바코드 종류 총정리 — EAN·CODE128 (`/guide/barcode-types/`)
+- 타자 속도 올리는 법 — 평균 타수와 연습 루틴 (`/guide/typing-speed-tips/`)
+- 로렘 입숨이란? — 유래와 올바른 활용법 (`/guide/what-is-lorem-ipsum/`)
 
 ## 기술 스택
 
