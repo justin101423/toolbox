@@ -177,6 +177,8 @@
 - 할인율 계산법 — 할인가 공식과 이중 할인 (`/guide/discount-calculation/`)
 - 학점(GPA) 계산법 — 공식과 4.5 ↔ 4.0 변환 (`/guide/gpa-calculation/`)
 - 로또 1등 확률 — 등수별 확률표와 흔한 오해 (`/guide/lotto-probability/`)
+- 시차 계산법 — 주요 도시 시차표와 서머타임 (`/guide/timezone-difference/`)
+- 움짤(GIF) 만들기 — 만드는 법과 용량 팁 (`/guide/make-gif/`)
 
 ## 기술 스택
 
