@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 로또 1등 확률 — 등수별 확률과 흔한 오해 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>로또 1등 확률은 얼마나 될까? — 등수별 확률표와 흔한 오해 | 도구상자</title>
+<meta name="description" content="로또 6/45 1등 확률은 814만 5,060분의 1. 어떻게 나온 숫자인지, 2~5등 확률은 얼마인지, 자동·수동과 지난 회차 번호에 대한 흔한 오해까지 수학으로 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/lotto-probability/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="로또 1등 확률은 얼마나 될까? — 등수별 확률표와 흔한 오해">
+<meta property="og:description" content="1등 1/8,145,060의 계산 원리, 등수별 확률표, 자동·수동 오해 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/lotto-probability/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="로또 1등 확률은 얼마나 될까?">
+<meta name="twitter:description" content="등수별 확률과 흔한 오해 정리.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "로또 1등 확률은 얼마나 될까? — 등수별 확률표와 흔한 오해",
+  "description": "로또 6/45 1등 확률은 814만 5,060분의 1. 어떻게 나온 숫자인지, 2~5등 확률은 얼마인지, 자동·수동과 지난 회차 번호에 대한 흔한 오해까지 수학으로 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "mainEntityOfPage": "https://dogubox.shop/guide/lotto-probability/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "로또 1등 확률은 정확히 얼마인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "8,145,060분의 1입니다. 45개 번호에서 6개를 뽑는 조합의 수가 8,145,060가지(45C6)이고, 그중 당첨 조합은 하나뿐이기 때문입니다. 한 게임(1,000원)을 살 때마다 이 확률이 독립적으로 적용됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "자동과 수동 중 어느 쪽이 더 잘 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "확률은 완전히 같습니다. 추첨기는 어떤 번호 조합이든 똑같은 확률로 뽑기 때문에, 생일 조합이든 자동 발급이든 1등 확률은 모두 1/8,145,060입니다. 다만 많은 사람이 고르는 번호(생일 범위인 1~31 등)로 당첨되면 1등을 나눠 가질 가능성이 높아져, 당첨금 기대치 측면에서는 무작위에 가까운 조합이 아주 약간 유리할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "지난주에 나온 번호는 피해야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "피할 필요가 없습니다. 매 회차 추첨은 서로 독립이라 지난 결과가 다음 결과에 어떤 영향도 주지 않습니다. 지난주 1등 번호 6개가 이번 주에 또 나올 확률도 다른 모든 조합과 똑같이 1/8,145,060입니다. '한동안 안 나온 번호가 나올 때가 됐다'는 생각은 도박사의 오류라고 불리는 대표적인 착각입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "로또 확률", "item": "https://dogubox.shop/guide/lotto-probability/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>로또 1등 확률 — 등수별 확률표와 흔한 오해</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.10</span></div>
+
+      <section class="content">
+        <p>"로또 1등 확률은 벼락 맞을 확률보다 낮다"는 말, 실제 숫자로는 얼마나 될까요? 814만 5,060분의 1이라는 값이 어떻게 나오는지, 2등부터 5등까지는 얼마나 현실적인지, 그리고 번호 고르기에 대한 흔한 오해를 수학적으로 정리합니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#first">1/8,145,060은 어떻게 나오나</a></li>
+            <li><a href="#table">등수별 확률표</a></li>
+            <li><a href="#myth">흔한 오해 — 자동·수동, 지난 번호</a></li>
+            <li><a href="#sense">확률을 체감하는 법</a></li>
+          </ol>
+        </div>
+
+        <h2 id="first">1/8,145,060은 어떻게 나오나</h2>
+        <p>로또 6/45는 1~45 중 6개를 맞히는 게임입니다. 45개에서 6개를 고르는 경우의 수(조합)는:</p>
+        <div class="callout"><b>₄₅C₆ = (45×44×43×42×41×40) ÷ (6×5×4×3×2×1) = 8,145,060</b></div>
+        <p>이 8백만여 가지 조합 중 당첨 조합은 단 하나이므로, 한 게임의 1등 확률이 <b>1/8,145,060</b>입니다. 매주 5게임씩 사도 1등을 기대하려면 평균적으로 약 3만 년이 걸리는 확률입니다.</p>
+
+        <h2 id="table">등수별 확률표</h2>
+        <table>
+          <thead><tr><th>등수</th><th>조건</th><th>확률(약)</th></tr></thead>
+          <tbody>
+            <tr><td><b>1등</b></td><td>6개 일치</td><td>1 / 8,145,060</td></tr>
+            <tr><td>2등</td><td>5개 + 보너스 일치</td><td>1 / 1,357,510</td></tr>
+            <tr><td>3등</td><td>5개 일치</td><td>1 / 35,724</td></tr>
+            <tr><td>4등</td><td>4개 일치</td><td>1 / 733</td></tr>
+            <tr><td>5등</td><td>3개 일치</td><td>1 / 45</td></tr>
+          </tbody>
+        </table>
+        <p>5등(5,000원)은 45게임에 한 번꼴로 비교적 흔하지만, 등수가 하나 올라갈 때마다 확률이 수십~수백 배씩 나빠집니다. 참고로 판매액 중 당첨금으로 돌아가는 비율은 절반 수준이라, 사는 순간 기대값은 구매액보다 낮습니다.</p>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="ticket"></span>
+          <span class="tc-tx"><b>로또 번호 생성</b><span>완전 무작위 조합을 클릭 한 번으로</span></span>
+          <a class="tc-go" href="/lotto-generator/">번호 뽑기 →</a>
+        </div>
+
+        <h2 id="myth">흔한 오해 — 자동·수동, 지난 번호</h2>
+        <ul>
+          <li><b>"수동이 자동보다 잘 맞는다?"</b> — 아닙니다. 어떤 조합이든 확률은 동일합니다. 다만 생일 위주(1~31) 조합은 고르는 사람이 많아 <b>당첨 시 나눠 가질 가능성</b>이 커집니다. 확률이 아니라 '당첨금 분배'의 문제입니다.</li>
+          <li><b>"지난주 번호는 또 안 나온다?"</b> — 매 추첨은 독립이라 지난 결과의 영향이 없습니다. 지난주 1등 조합이 이번 주 또 나올 확률도 똑같이 1/8,145,060입니다. '나올 때가 된 번호'는 없으며, 이런 착각을 <b>도박사의 오류</b>라고 부릅니다.</li>
+          <li><b>"1·2·3·4·5·6 같은 연속 번호는 절대 안 나온다?"</b> — 다른 어떤 조합과도 같은 확률입니다. 어색해 보이는 것은 사람의 직관일 뿐입니다.</li>
+        </ul>
+
+        <h2 id="sense">확률을 체감하는 법</h2>
+        <p>1/8,145,060이 감이 안 온다면: 동전을 던져 <b>23번 연속 앞면</b>이 나올 확률(약 1/8,388,608)과 비슷합니다. 또는 서울 인구의 80%쯤 되는 사람 중에서 특정 한 명을 무작위로 뽑는 것과 같습니다. 로또는 투자보다는 1,000원짜리 즐거움으로, 정해 둔 금액 안에서 즐기는 것이 합리적입니다.</p>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 로또 1등 확률은 정확히 얼마인가요?</b><p>8,145,060분의 1입니다. 45개 번호에서 6개를 뽑는 조합의 수가 8,145,060가지(45C6)이고, 그중 당첨 조합은 하나뿐이기 때문입니다. 한 게임(1,000원)을 살 때마다 이 확률이 독립적으로 적용됩니다.</p></div>
+          <div class="qa"><b>Q. 자동과 수동 중 어느 쪽이 더 잘 되나요?</b><p>확률은 완전히 같습니다. 추첨기는 어떤 번호 조합이든 똑같은 확률로 뽑기 때문에, 생일 조합이든 자동 발급이든 1등 확률은 모두 1/8,145,060입니다. 다만 많은 사람이 고르는 번호(생일 범위인 1~31 등)로 당첨되면 1등을 나눠 가질 가능성이 높아져, 당첨금 기대치 측면에서는 무작위에 가까운 조합이 아주 약간 유리할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 지난주에 나온 번호는 피해야 하나요?</b><p>피할 필요가 없습니다. 매 회차 추첨은 서로 독립이라 지난 결과가 다음 결과에 어떤 영향도 주지 않습니다. 지난주 1등 번호 6개가 이번 주에 또 나올 확률도 다른 모든 조합과 똑같이 1/8,145,060입니다. '한동안 안 나온 번호가 나올 때가 됐다'는 생각은 도박사의 오류라고 불리는 대표적인 착각입니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/percentage-calculation/"><b>퍼센트 계산법 총정리</b><span>확률·비율 계산의 기초</span></a>
+          <a class="rel-card" href="/random-picker/"><b>랜덤 추첨기</b><span>이름·항목 무작위 뽑기</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

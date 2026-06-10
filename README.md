@@ -175,6 +175,8 @@
 - 옷·신발 사이즈 표 총정리 — 한국·미국·유럽 (`/guide/size-conversion/`)
 - Base64란? — 인코딩 원리와 URL 인코딩 차이 (`/guide/base64-encoding/`)
 - 할인율 계산법 — 할인가 공식과 이중 할인 (`/guide/discount-calculation/`)
+- 학점(GPA) 계산법 — 공식과 4.5 ↔ 4.0 변환 (`/guide/gpa-calculation/`)
+- 로또 1등 확률 — 등수별 확률표와 흔한 오해 (`/guide/lotto-probability/`)
 
 ## 기술 스택
 
