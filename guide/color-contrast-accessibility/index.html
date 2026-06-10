@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 색상 대비와 웹 접근성 — WCAG 4.5:1의 의미 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>색상 대비와 웹 접근성 — WCAG 4.5:1 기준 쉽게 이해하기 | 도구상자</title>
+<meta name="description" content="회색 글씨가 안 읽히는 데는 기준이 있습니다. 명도 대비율(1:1~21:1)의 의미, WCAG AA·AAA 기준(4.5:1, 3:1), 디자인에서 자주 실패하는 사례와 검사 방법을 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/color-contrast-accessibility/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="색상 대비와 웹 접근성 — WCAG 4.5:1 기준 쉽게 이해하기">
+<meta property="og:description" content="대비율의 의미, AA·AAA 기준, 흔한 실패 사례와 검사법 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/color-contrast-accessibility/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="색상 대비와 웹 접근성">
+<meta name="twitter:description" content="WCAG 대비 기준 쉽게 이해하기.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "색상 대비와 웹 접근성 — WCAG 4.5:1 기준 쉽게 이해하기",
+  "description": "회색 글씨가 안 읽히는 데는 기준이 있습니다. 명도 대비율(1:1~21:1)의 의미, WCAG AA·AAA 기준(4.5:1, 3:1), 디자인에서 자주 실패하는 사례와 검사 방법을 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "mainEntityOfPage": "https://dogubox.shop/guide/color-contrast-accessibility/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "색상 대비율 4.5:1은 무슨 뜻인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "글자색과 배경색의 밝기(상대 휘도) 차이를 비율로 나타낸 값입니다. 흰 배경에 흰 글자는 1:1(전혀 안 보임), 흰 배경에 검은 글자는 21:1(최대 대비)입니다. 국제 웹 접근성 지침(WCAG)의 AA 등급은 일반 크기 텍스트에 4.5:1 이상을 요구하며, 이 정도면 저시력 사용자와 밝은 야외 환경에서도 글자를 읽을 수 있는 수준입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AA와 AAA 등급은 뭐가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WCAG의 두 준수 수준입니다. AA는 일반 텍스트 4.5:1, 큰 텍스트(18pt 또는 14pt 굵게 이상) 3:1을 요구하는 실무 표준이고, AAA는 일반 7:1, 큰 텍스트 4.5:1로 더 엄격한 권장 수준입니다. 대부분의 서비스·공공 사이트는 AA를 목표로 하며, 본문이 길거나 고령 사용자가 많은 서비스라면 AAA에 가깝게 설계하는 것이 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "회색 글씨를 쓰면 안 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "회색 자체가 문제가 아니라 너무 연한 회색이 문제입니다. 흰 배경(#FFFFFF) 기준으로 #767676 정도까지는 4.5:1을 만족하지만, 디자인에서 흔히 쓰는 #AAAAAA(약 2.3:1)나 #CCCCCC는 기준에 크게 미달합니다. 보조 텍스트라도 #767676보다 진하게 쓰고, placeholder처럼 연한 글자에 필수 정보를 담지 않는 것이 안전합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "색상 대비와 웹 접근성", "item": "https://dogubox.shop/guide/color-contrast-accessibility/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>색상 대비와 웹 접근성 — 4.5:1의 의미</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.10</span></div>
+
+      <section class="content">
+        <p>예쁘게 뽑은 연회색 본문이 정작 사용자에게는 "흐려서 안 읽히는 글자"일 수 있습니다. 가독성은 감각이 아니라 수치로 검증할 수 있습니다 — 그 수치가 <b>명도 대비율</b>입니다. 기준의 의미와 자주 실패하는 지점을 정리합니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#ratio">대비율이란 — 1:1부터 21:1까지</a></li>
+            <li><a href="#wcag">WCAG 기준 — AA와 AAA</a></li>
+            <li><a href="#fail">자주 실패하는 디자인 5가지</a></li>
+            <li><a href="#check">검사하고 고치는 법</a></li>
+          </ol>
+        </div>
+
+        <h2 id="ratio">대비율이란 — 1:1부터 21:1까지</h2>
+        <p>대비율은 <b>글자색과 배경색의 밝기(상대 휘도) 차이</b>를 비율로 나타낸 값입니다.</p>
+        <ul>
+          <li><b>1:1</b> — 같은 색. 전혀 구분 안 됨.</li>
+          <li><b>21:1</b> — 흰 배경 + 검은 글자. 최대 대비.</li>
+          <li>흰 배경 기준: <code>#767676</code> ≈ 4.5:1, <code>#AAAAAA</code> ≈ 2.3:1, <code>#CCCCCC</code> ≈ 1.6:1</li>
+        </ul>
+        <p>시력이 좋은 사람의 모니터에서는 2:1도 읽히지만, 저시력·고령 사용자, 밝은 야외의 휴대폰 화면, 저가형 디스플레이에서는 4.5:1 아래부터 급격히 읽기 어려워집니다.</p>
+
+        <h2 id="wcag">WCAG 기준 — AA와 AAA</h2>
+        <p>국제 웹 접근성 지침(WCAG)은 두 수준의 기준을 둡니다.</p>
+        <table>
+          <thead><tr><th>등급</th><th>일반 텍스트</th><th>큰 텍스트*</th><th>성격</th></tr></thead>
+          <tbody>
+            <tr><td><b>AA</b></td><td><b>4.5:1 이상</b></td><td>3:1 이상</td><td>실무 표준 (대부분의 서비스 목표)</td></tr>
+            <tr><td>AAA</td><td>7:1 이상</td><td>4.5:1 이상</td><td>더 엄격한 권장 수준</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px;color:var(--ink-3)">* 큰 텍스트 = 약 18pt(24px) 이상, 또는 14pt(약 18.7px) 굵게 이상</p>
+        <p>아이콘·버튼 테두리 같은 <b>UI 구성요소</b>도 배경과 3:1 이상이 요구됩니다. 공공기관 웹사이트는 한국형 웹 콘텐츠 접근성 지침(KWCAG)에 따라 이 기준이 사실상 의무입니다.</p>
+
+        <h2 id="fail">자주 실패하는 디자인 5가지</h2>
+        <ul>
+          <li><b>연회색 본문:</b> <code>#AAAAAA</code> 본문(2.3:1)은 가장 흔한 미달 사례. 보조 텍스트도 <code>#767676</code>보다 진하게.</li>
+          <li><b>placeholder에 필수 정보:</b> 입력창 안내 글자는 대비가 낮은 데다 입력 시 사라집니다. 라벨을 따로 두세요.</li>
+          <li><b>흰 글자 + 파스텔 배경:</b> 연한 민트·노랑 위의 흰 글자는 대부분 3:1 미만입니다.</li>
+          <li><b>사진 위 글자:</b> 배경 사진의 밝은 영역과 겹치면 부분적으로 안 읽힙니다. 반투명 오버레이를 깔아 대비를 확보하세요.</li>
+          <li><b>색만으로 상태 구분:</b> 빨강/초록만으로 오류·성공을 표시하면 색각 이상 사용자가 구분하지 못합니다. 아이콘·문구를 함께 쓰세요.</li>
+        </ul>
+
+        <h2 id="check">검사하고 고치는 법</h2>
+        <p>글자색과 배경색의 HEX 값을 검사 도구에 넣으면 대비율과 AA·AAA 통과 여부가 바로 나옵니다. 미달이라면 글자색을 어둡게(또는 배경을 밝게) 한 단계씩 조정해 4.5:1을 넘기면 됩니다. 브랜드 색을 포기할 필요는 없습니다 — 큰 제목·장식에는 브랜드 색을 쓰고, 본문은 진한 무채색으로 두는 식의 역할 분담이 일반적입니다.</p>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="eye"></span>
+          <span class="tc-tx"><b>색상 대비 검사</b><span>두 색의 대비율과 WCAG 통과 여부를 즉시 확인</span></span>
+          <a class="tc-go" href="/contrast-checker/">검사하기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 색상 대비율 4.5:1은 무슨 뜻인가요?</b><p>글자색과 배경색의 밝기(상대 휘도) 차이를 비율로 나타낸 값입니다. 흰 배경에 흰 글자는 1:1(전혀 안 보임), 흰 배경에 검은 글자는 21:1(최대 대비)입니다. 국제 웹 접근성 지침(WCAG)의 AA 등급은 일반 크기 텍스트에 4.5:1 이상을 요구하며, 이 정도면 저시력 사용자와 밝은 야외 환경에서도 글자를 읽을 수 있는 수준입니다.</p></div>
+          <div class="qa"><b>Q. AA와 AAA 등급은 뭐가 다른가요?</b><p>WCAG의 두 준수 수준입니다. AA는 일반 텍스트 4.5:1, 큰 텍스트(18pt 또는 14pt 굵게 이상) 3:1을 요구하는 실무 표준이고, AAA는 일반 7:1, 큰 텍스트 4.5:1로 더 엄격한 권장 수준입니다. 대부분의 서비스·공공 사이트는 AA를 목표로 하며, 본문이 길거나 고령 사용자가 많은 서비스라면 AAA에 가깝게 설계하는 것이 좋습니다.</p></div>
+          <div class="qa"><b>Q. 회색 글씨를 쓰면 안 되나요?</b><p>회색 자체가 문제가 아니라 너무 연한 회색이 문제입니다. 흰 배경(#FFFFFF) 기준으로 #767676 정도까지는 4.5:1을 만족하지만, 디자인에서 흔히 쓰는 #AAAAAA(약 2.3:1)나 #CCCCCC는 기준에 크게 미달합니다. 보조 텍스트라도 #767676보다 진하게 쓰고, placeholder처럼 연한 글자에 필수 정보를 담지 않는 것이 안전합니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/hex-rgb-color-codes/"><b>색상 코드 이해하기</b><span>HEX·RGB 값 읽는 법부터</span></a>
+          <a class="rel-card" href="/color-blindness/"><b>색맹·색약 시뮬레이터</b><span>색각 이상 사용자의 화면 미리 보기</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

@@ -189,6 +189,8 @@
 - 2진수·16진수 변환법 — 진법의 원리부터 (`/guide/number-base-conversion/`)
 - 전자서명 만들기 — 효력과 깔끔하게 넣는 법 (`/guide/electronic-signature/`)
 - cron 표현식 읽는 법 — 5칸 구조와 예시 모음 (`/guide/cron-expression/`)
+- 색상 대비와 웹 접근성 — WCAG 4.5:1 기준 (`/guide/color-contrast-accessibility/`)
+- 텍스트 비교(diff) 활용법 — 차이를 한눈에 (`/guide/text-comparison/`)
 
 ## 기술 스택
 
