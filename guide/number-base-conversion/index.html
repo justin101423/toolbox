@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 2진수·16진수 변환법 — 진법의 원리부터 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>2진수·16진수 변환법 — 진법의 원리와 손으로 바꾸는 법 | 도구상자</title>
+<meta name="description" content="2진수 1101이 왜 13일까요? 진법의 원리(자릿값), 10진수 ↔ 2진수 변환을 손으로 하는 법, 16진수가 색상 코드와 컴퓨터에 쓰이는 이유까지 예시로 쉽게 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/number-base-conversion/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="2진수·16진수 변환법 — 진법의 원리와 손으로 바꾸는 법">
+<meta property="og:description" content="자릿값 원리, 10↔2진수 손 변환, 16진수의 쓰임새 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/number-base-conversion/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="2진수·16진수 변환법">
+<meta name="twitter:description" content="진법 원리와 변환법 정리.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "2진수·16진수 변환법 — 진법의 원리와 손으로 바꾸는 법",
+  "description": "2진수 1101이 왜 13일까요? 진법의 원리(자릿값), 10진수 ↔ 2진수 변환을 손으로 하는 법, 16진수가 색상 코드와 컴퓨터에 쓰이는 이유까지 예시로 쉽게 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "mainEntityOfPage": "https://dogubox.shop/guide/number-base-conversion/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "2진수를 10진수로 어떻게 바꾸나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "각 자리에 자릿값(오른쪽부터 1, 2, 4, 8, 16…)을 곱해 더합니다. 예를 들어 2진수 1101은 1×8 + 1×4 + 0×2 + 1×1 = 13입니다. 반대로 10진수를 2진수로 바꿀 때는 2로 계속 나누면서 나머지를 기록한 뒤 아래에서 위로 읽으면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "컴퓨터는 왜 2진수를 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "전기 신호의 켜짐(1)과 꺼짐(0) 두 상태로 모든 정보를 표현하는 것이 가장 안정적이기 때문입니다. 이 한 자리를 비트(bit)라고 하고, 8비트를 묶어 1바이트라고 부릅니다. 1바이트로는 2의 8제곱, 즉 256가지 값(0~255)을 표현할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "색상 코드에는 왜 16진수를 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "16진수 한 자리가 정확히 2진수 4자리(4비트)에 대응해서, 길고 읽기 힘든 2진수를 짧고 깔끔하게 줄여 주기 때문입니다. 색상의 빨강·초록·파랑 값은 각각 0~255(1바이트)인데, 16진수로는 딱 두 자리(00~FF)로 표현됩니다. 그래서 #FF6600처럼 여섯 자리면 색 하나가 완성됩니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "진법 변환", "item": "https://dogubox.shop/guide/number-base-conversion/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>2진수·16진수 변환법 — 진법의 원리부터</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.10</span></div>
+
+      <section class="content">
+        <p>컴퓨터 수업의 2진수, 색상 코드의 <code>#FF6600</code>, 개발 문서의 <code>0x1A</code> — 모두 진법 이야기입니다. 원리는 하나뿐입니다: <b>한 자리가 몇 가지 숫자를 쓸 수 있는가</b>. 자릿값 개념만 잡으면 어떤 진법이든 손으로 바꿀 수 있습니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">진법이란 — 자릿값의 원리</a></li>
+            <li><a href="#bin2dec">2진수 → 10진수: 자릿값 곱해 더하기</a></li>
+            <li><a href="#dec2bin">10진수 → 2진수: 2로 나누기</a></li>
+            <li><a href="#hex">16진수 — 색상 코드에 쓰이는 이유</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">진법이란 — 자릿값의 원리</h2>
+        <p>우리가 쓰는 10진수는 한 자리에 0~9 열 가지 숫자를 쓰고, 자리가 하나 올라갈 때마다 값이 <b>10배</b>가 됩니다(1, 10, 100…). 진법은 이 "배수"를 바꾼 것뿐입니다.</p>
+        <ul>
+          <li><b>2진수:</b> 숫자 0·1만 사용, 자릿값은 1, 2, 4, 8, 16…</li>
+          <li><b>16진수:</b> 숫자 0~9에 A(10)~F(15)까지 사용, 자릿값은 1, 16, 256…</li>
+        </ul>
+        <p>컴퓨터가 2진수를 쓰는 이유는 전기 신호의 켜짐/꺼짐 두 상태로 모든 것을 표현하기 때문입니다. 이 한 자리가 <b>비트(bit)</b>, 8개 묶음이 <b>바이트(byte)</b>입니다.</p>
+
+        <h2 id="bin2dec">2진수 → 10진수: 자릿값 곱해 더하기</h2>
+        <p>각 자리에 자릿값을 곱해 더하면 끝입니다. 2진수 <code>1101</code>을 바꿔 보면:</p>
+        <table>
+          <thead><tr><th>자리</th><th>1</th><th>1</th><th>0</th><th>1</th></tr></thead>
+          <tbody>
+            <tr><td>자릿값</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+            <tr><td>계산</td><td>8</td><td>4</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+        <p>8 + 4 + 0 + 1 = <b>13</b>. 즉 2진수 1101 = 10진수 13입니다.</p>
+
+        <h2 id="dec2bin">10진수 → 2진수: 2로 나누기</h2>
+        <p>반대 방향은 <b>2로 계속 나누며 나머지를 기록</b>합니다. 13을 바꿔 보면:</p>
+        <ul>
+          <li>13 ÷ 2 = 6 … 나머지 <b>1</b></li>
+          <li>6 ÷ 2 = 3 … 나머지 <b>0</b></li>
+          <li>3 ÷ 2 = 1 … 나머지 <b>1</b></li>
+          <li>1 ÷ 2 = 0 … 나머지 <b>1</b></li>
+        </ul>
+        <p>나머지를 <b>아래에서 위로</b> 읽으면 <code>1101</code>. 검산은 위의 자릿값 덧셈으로 하면 됩니다.</p>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="binary"></span>
+          <span class="tc-tx"><b>진법 변환</b><span>2·8·10·16진수를 즉시 양방향 변환</span></span>
+          <a class="tc-go" href="/base-converter/">변환하기 →</a>
+        </div>
+
+        <h2 id="hex">16진수 — 색상 코드에 쓰이는 이유</h2>
+        <p>16진수 한 자리는 정확히 <b>2진수 4자리(4비트)</b>와 대응합니다. 그래서 길고 읽기 힘든 2진수를 짧게 줄이는 용도로 컴퓨터 분야 전반에 쓰입니다.</p>
+        <ul>
+          <li>2진수 <code>1111 1111</code> = 16진수 <code>FF</code> = 10진수 255</li>
+          <li>코드에서는 <code>0x</code>를 앞에 붙여 16진수임을 표시합니다(예: <code>0x1A</code> = 26).</li>
+        </ul>
+        <p>대표적인 예가 <a class="inlink" href="/guide/hex-rgb-color-codes/">색상 코드</a>입니다. 빨강·초록·파랑 값은 각각 0~255(1바이트)인데 16진수로는 두 자리(00~FF)면 충분해서, <code>#FF6600</code> 여섯 자리로 색 하나(빨강 255, 초록 102, 파랑 0 — 주황색)가 완성됩니다.</p>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 2진수를 10진수로 어떻게 바꾸나요?</b><p>각 자리에 자릿값(오른쪽부터 1, 2, 4, 8, 16…)을 곱해 더합니다. 예를 들어 2진수 1101은 1×8 + 1×4 + 0×2 + 1×1 = 13입니다. 반대로 10진수를 2진수로 바꿀 때는 2로 계속 나누면서 나머지를 기록한 뒤 아래에서 위로 읽으면 됩니다.</p></div>
+          <div class="qa"><b>Q. 컴퓨터는 왜 2진수를 쓰나요?</b><p>전기 신호의 켜짐(1)과 꺼짐(0) 두 상태로 모든 정보를 표현하는 것이 가장 안정적이기 때문입니다. 이 한 자리를 비트(bit)라고 하고, 8비트를 묶어 1바이트라고 부릅니다. 1바이트로는 2의 8제곱, 즉 256가지 값(0~255)을 표현할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 색상 코드에는 왜 16진수를 쓰나요?</b><p>16진수 한 자리가 정확히 2진수 4자리(4비트)에 대응해서, 길고 읽기 힘든 2진수를 짧고 깔끔하게 줄여 주기 때문입니다. 색상의 빨강·초록·파랑 값은 각각 0~255(1바이트)인데, 16진수로는 딱 두 자리(00~FF)로 표현됩니다. 그래서 #FF6600처럼 여섯 자리면 색 하나가 완성됩니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/hex-rgb-color-codes/"><b>색상 코드 이해하기</b><span>HEX 색상 코드 = 16진수 응용</span></a>
+          <a class="rel-card" href="/guide/base64-encoding/"><b>Base64란?</b><span>비트를 문자로 바꾸는 또 다른 방법</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

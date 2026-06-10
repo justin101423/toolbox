@@ -185,6 +185,8 @@
 - JWT란? — 구조와 디코딩, 보안 주의점 (`/guide/what-is-jwt/`)
 - 포모도로 공부법 — 25분 집중의 원리와 실천법 (`/guide/pomodoro-technique/`)
 - 해시(SHA-256)란? — 암호화와의 차이와 쓰임새 (`/guide/what-is-hash/`)
+- UTM 파라미터란? — 5가지 태그와 작성 규칙 (`/guide/utm-parameters/`)
+- 2진수·16진수 변환법 — 진법의 원리부터 (`/guide/number-base-conversion/`)
 
 ## 기술 스택
 
