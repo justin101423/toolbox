@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 유닉스 타임스탬프란? — 10자리·13자리와 날짜 변환 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>유닉스 타임스탬프란? — 10자리·13자리 차이와 날짜 변환법 | 도구상자</title>
+<meta name="description" content="1781049600 같은 숫자가 왜 날짜일까요? 유닉스 타임스탬프의 원리(1970년 기준 초), 10자리·13자리 차이, 한국 시간(KST) 변환과 엑셀 변환 공식까지 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/timestamp-conversion/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="유닉스 타임스탬프란? — 10자리·13자리 차이와 날짜 변환법">
+<meta property="og:description" content="유닉스 타임스탬프 원리, 초/밀리초 차이, KST·엑셀 변환 공식 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/timestamp-conversion/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="유닉스 타임스탬프란?">
+<meta name="twitter:description" content="타임스탬프 원리와 변환법 정리.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "유닉스 타임스탬프란? — 10자리·13자리 차이와 날짜 변환법",
+  "description": "1781049600 같은 숫자가 왜 날짜일까요? 유닉스 타임스탬프의 원리(1970년 기준 초), 10자리·13자리 차이, 한국 시간(KST) 변환과 엑셀 변환 공식까지 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "mainEntityOfPage": "https://dogubox.shop/guide/timestamp-conversion/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "유닉스 타임스탬프란 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1970년 1월 1일 0시(UTC)부터 지금까지 흐른 시간을 초 단위 숫자 하나로 나타낸 것입니다. 시간대·언어와 무관하게 전 세계 어디서나 같은 값이라 서버 로그, 데이터베이스, API에서 시각을 기록하는 표준처럼 쓰입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "10자리와 13자리 타임스탬프는 뭐가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "10자리는 초 단위, 13자리는 밀리초(1/1000초) 단위입니다. 같은 시각이라면 13자리 값이 10자리 값의 1000배입니다. JavaScript의 Date.now()는 13자리(밀리초)를, 유닉스 date 명령과 많은 서버 로그는 10자리(초)를 사용합니다. 변환 도구에 넣을 때 자릿수가 안 맞으면 1970년이나 먼 미래로 표시되니 1000을 곱하거나 나눠 맞춰 주세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "타임스탬프를 한국 시간으로 바꾸면 왜 9시간 차이가 나나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "타임스탬프 자체는 UTC(협정 세계시) 기준이고, 한국 표준시(KST)는 UTC보다 9시간 빠르기 때문입니다. 예를 들어 타임스탬프가 UTC로 0시를 가리키면 한국 시간으로는 같은 날 오전 9시입니다. 변환 도구가 어느 시간대로 보여주는지(UTC인지 내 지역 시간인지)를 먼저 확인하면 헷갈리지 않습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "유닉스 타임스탬프", "item": "https://dogubox.shop/guide/timestamp-conversion/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>유닉스 타임스탬프란? — 10자리·13자리와 변환법</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.10</span></div>
+
+      <section class="content">
+        <p>서버 로그나 API 응답을 열어 보면 <code>1781049600</code> 같은 정체불명의 숫자가 시각 자리에 들어 있습니다. 이것이 유닉스 타임스탬프(Unix timestamp)입니다. 원리를 한 번 이해해 두면 로그 분석, API 디버깅, 엑셀 정리가 훨씬 수월해집니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">타임스탬프의 원리 — 1970년 1월 1일</a></li>
+            <li><a href="#digits">10자리 vs 13자리 — 초와 밀리초</a></li>
+            <li><a href="#kst">UTC와 한국 시간(KST)의 9시간</a></li>
+            <li><a href="#practical">엑셀·코드에서 변환하기</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">타임스탬프의 원리 — 1970년 1월 1일</h2>
+        <p>유닉스 타임스탬프는 <b>1970년 1월 1일 0시 0분 0초(UTC)</b>를 기준점(에포크, epoch)으로 삼아, 거기서부터 <b>몇 초가 흘렀는지</b>를 나타내는 숫자입니다.</p>
+        <ul>
+          <li><code>0</code> → 1970-01-01 00:00:00 UTC</li>
+          <li><code>1000000000</code> → 2001-09-09 (10억 초)</li>
+          <li><code>1781049600</code> → 2026-06-10 00:00:00 UTC</li>
+        </ul>
+        <p>숫자 하나면 시간대·날짜 형식·언어와 무관하게 같은 순간을 가리킬 수 있어, 컴퓨터끼리 시각을 주고받는 표준처럼 쓰입니다.</p>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="clock"></span>
+          <span class="tc-tx"><b>타임스탬프 변환</b><span>타임스탬프 ↔ 날짜를 양방향으로 즉시 변환</span></span>
+          <a class="tc-go" href="/timestamp/">변환하기 →</a>
+        </div>
+
+        <h2 id="digits">10자리 vs 13자리 — 초와 밀리초</h2>
+        <p>같은 시각인데 자릿수가 다른 두 값을 만나게 됩니다.</p>
+        <table>
+          <thead><tr><th>자릿수</th><th>단위</th><th>주로 쓰는 곳</th><th>예시</th></tr></thead>
+          <tbody>
+            <tr><td><b>10자리</b></td><td>초(s)</td><td>유닉스/리눅스, 서버 로그, DB</td><td><code>1781049600</code></td></tr>
+            <tr><td><b>13자리</b></td><td>밀리초(ms)</td><td>JavaScript(<code>Date.now()</code>), Java</td><td><code>1781049600000</code></td></tr>
+          </tbody>
+        </table>
+        <div class="callout"><b>변환 결과가 1970년 근처나 5만 년 뒤로 나온다면</b> 단위가 어긋난 것입니다. 13자리를 초로 해석했거나 그 반대입니다. 1000을 곱하거나 나눠 자릿수를 맞춰 보세요.</div>
+
+        <h2 id="kst">UTC와 한국 시간(KST)의 9시간</h2>
+        <p>타임스탬프는 항상 <b>UTC(협정 세계시) 기준</b>입니다. 한국 표준시(KST)는 UTC+9, 즉 UTC보다 9시간 빠릅니다. 타임스탬프 <code>1781049600</code>은 UTC로 6월 10일 0시이지만, 한국 시간으로는 <b>6월 10일 오전 9시</b>입니다. 해외 서비스 로그를 볼 때 "기록이 9시간 어긋난다"는 혼란의 대부분이 여기서 옵니다. 도구가 UTC를 보여주는지, 내 지역 시간을 보여주는지부터 확인하세요.</p>
+
+        <h2 id="practical">엑셀·코드에서 변환하기</h2>
+        <ul>
+          <li><b>엑셀/구글 시트:</b> <code>=A1/86400 + DATE(1970,1,1) + 9/24</code> — 초 단위 타임스탬프를 한국 시간 날짜로. (하루 = 86,400초, <code>9/24</code>가 KST 보정)</li>
+          <li><b>JavaScript:</b> <code>new Date(1781049600 * 1000)</code> — 초 단위면 1000을 곱해 밀리초로.</li>
+          <li><b>Python:</b> <code>datetime.fromtimestamp(1781049600)</code> — 실행 환경의 시간대로 변환됩니다.</li>
+        </ul>
+        <p>한두 개만 빠르게 확인할 때는 <a class="inlink" href="/timestamp/">타임스탬프 변환기</a>에 붙여넣는 것이 가장 빠릅니다. 현재 시각의 타임스탬프도 바로 복사할 수 있습니다.</p>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 유닉스 타임스탬프란 무엇인가요?</b><p>1970년 1월 1일 0시(UTC)부터 지금까지 흐른 시간을 초 단위 숫자 하나로 나타낸 것입니다. 시간대·언어와 무관하게 전 세계 어디서나 같은 값이라 서버 로그, 데이터베이스, API에서 시각을 기록하는 표준처럼 쓰입니다.</p></div>
+          <div class="qa"><b>Q. 10자리와 13자리 타임스탬프는 뭐가 다른가요?</b><p>10자리는 초 단위, 13자리는 밀리초(1/1000초) 단위입니다. 같은 시각이라면 13자리 값이 10자리 값의 1000배입니다. JavaScript의 Date.now()는 13자리(밀리초)를, 유닉스 date 명령과 많은 서버 로그는 10자리(초)를 사용합니다. 변환 도구에 넣을 때 자릿수가 안 맞으면 1970년이나 먼 미래로 표시되니 1000을 곱하거나 나눠 맞춰 주세요.</p></div>
+          <div class="qa"><b>Q. 타임스탬프를 한국 시간으로 바꾸면 왜 9시간 차이가 나나요?</b><p>타임스탬프 자체는 UTC(협정 세계시) 기준이고, 한국 표준시(KST)는 UTC보다 9시간 빠르기 때문입니다. 예를 들어 타임스탬프가 UTC로 0시를 가리키면 한국 시간으로는 같은 날 오전 9시입니다. 변환 도구가 어느 시간대로 보여주는지(UTC인지 내 지역 시간인지)를 먼저 확인하면 헷갈리지 않습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/regex-basics/"><b>정규식 입문</b><span>로그에서 원하는 값만 뽑아내기</span></a>
+          <a class="rel-card" href="/timezone-converter/"><b>세계 시간 변환</b><span>도시별 시차를 한눈에 비교</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

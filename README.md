@@ -169,6 +169,8 @@
 - 마크다운 문법 입문 (`/guide/markdown-syntax/`)
 - BMI 계산법 — 공식·정상 범위와 한계 (`/guide/bmi-calculation/`)
 - 만 나이 계산법 — 세는 나이·연 나이 차이까지 (`/guide/age-calculation/`)
+- 정규식 입문 — 기초 문법과 자주 쓰는 패턴 (`/guide/regex-basics/`)
+- 유닉스 타임스탬프란? — 10자리·13자리와 변환법 (`/guide/timestamp-conversion/`)
 
 ## 기술 스택
 
