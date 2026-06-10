@@ -187,6 +187,8 @@
 - 해시(SHA-256)란? — 암호화와의 차이와 쓰임새 (`/guide/what-is-hash/`)
 - UTM 파라미터란? — 5가지 태그와 작성 규칙 (`/guide/utm-parameters/`)
 - 2진수·16진수 변환법 — 진법의 원리부터 (`/guide/number-base-conversion/`)
+- 전자서명 만들기 — 효력과 깔끔하게 넣는 법 (`/guide/electronic-signature/`)
+- cron 표현식 읽는 법 — 5칸 구조와 예시 모음 (`/guide/cron-expression/`)
 
 ## 기술 스택
 
