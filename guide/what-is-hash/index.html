@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 해시(SHA-256)란? — 암호화와의 차이와 쓰임새 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>해시(SHA-256)란? — 암호화와의 차이, 어디에 쓰이나 | 도구상자</title>
+<meta name="description" content="SHA-256 같은 해시 함수는 무엇이고 암호화와 뭐가 다를까요? 해시의 3가지 성질, 파일 무결성 검증과 비밀번호 저장에 쓰이는 이유, MD5를 더 이상 쓰지 않는 이유까지 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/what-is-hash/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="해시(SHA-256)란? — 암호화와의 차이, 어디에 쓰이나">
+<meta property="og:description" content="해시의 성질, 무결성 검증·비밀번호 저장 원리, MD5의 한계 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/what-is-hash/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="해시(SHA-256)란?">
+<meta name="twitter:description" content="해시와 암호화의 차이 정리.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "해시(SHA-256)란? — 암호화와의 차이, 어디에 쓰이나",
+  "description": "SHA-256 같은 해시 함수는 무엇이고 암호화와 뭐가 다를까요? 해시의 3가지 성질, 파일 무결성 검증과 비밀번호 저장에 쓰이는 이유, MD5를 더 이상 쓰지 않는 이유까지 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10",
+  "mainEntityOfPage": "https://dogubox.shop/guide/what-is-hash/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "해시와 암호화는 뭐가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "암호화는 키가 있으면 원문으로 되돌릴 수 있는 양방향 변환이고, 해시는 원문으로 되돌릴 수 없는 일방향 변환입니다. 그래서 다시 읽어야 하는 데이터(메시지·파일)는 암호화하고, 원문을 알 필요 없이 일치 여부만 확인하면 되는 것(비밀번호)은 해시를 사용합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "사이트는 왜 비밀번호를 해시로 저장하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "서버가 해킹당해도 원래 비밀번호를 알 수 없게 하기 위해서입니다. 가입 시 비밀번호의 해시값만 저장해 두고, 로그인할 때 입력값을 같은 방식으로 해시해 저장된 값과 비교합니다. 해시는 역산이 불가능해 유출되어도 원문 복원이 어렵습니다. 실제 서비스는 SHA-256 단독보다 bcrypt처럼 일부러 느리게 설계된 비밀번호 전용 해시에 솔트(salt)를 더해 사용합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "MD5나 SHA-1은 왜 쓰지 말라고 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "서로 다른 두 입력이 같은 해시값을 갖게 만드는 충돌 공격이 실제로 가능해졌기 때문입니다. 위조 파일을 정상 파일처럼 꾸밀 수 있어 보안 용도로는 폐기됐습니다. 현재는 SHA-256 이상(SHA-2·SHA-3 계열)을 쓰는 것이 표준이며, MD5는 보안과 무관한 단순 중복 확인 정도에만 제한적으로 쓰입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "해시(SHA-256)란?", "item": "https://dogubox.shop/guide/what-is-hash/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>해시(SHA-256)란? — 암호화와의 차이와 쓰임새</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.10</span></div>
+
+      <section class="content">
+        <p>다운로드 페이지의 "SHA-256 체크섬", 유출 사고 기사의 "비밀번호는 해시로 저장되어 있었다" — 해시는 보안 이야기마다 등장하지만 암호화와 자주 혼동됩니다. 둘은 목적이 다른 별개의 기술입니다. 해시의 성질과 실제 쓰임새를 정리합니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">해시 함수란 — 디지털 지문</a></li>
+            <li><a href="#props">해시의 세 가지 성질</a></li>
+            <li><a href="#use">어디에 쓰이나 — 무결성·비밀번호</a></li>
+            <li><a href="#algo">MD5는 그만 — 알고리즘 선택</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">해시 함수란 — 디지털 지문</h2>
+        <p>해시 함수는 어떤 길이의 입력이든 <b>고정 길이의 값(해시값)</b>으로 바꾸는 함수입니다. 예를 들어 SHA-256은 무엇을 넣든 64자리 16진수를 내놓습니다.</p>
+        <ul>
+          <li><code>hello</code> → <code>2cf24dba5fb0a30e...</code> (64자)</li>
+          <li>10GB 동영상 → 역시 64자</li>
+        </ul>
+        <p>같은 입력은 항상 같은 해시값이 나오므로, 해시값은 데이터의 <b>지문</b> 역할을 합니다. 지문만 비교하면 내용 전체를 비교한 것과 같습니다.</p>
+
+        <h2 id="props">해시의 세 가지 성질</h2>
+        <ul>
+          <li><b>일방향:</b> 해시값에서 원문을 역산할 수 없습니다. 이 점이 <a class="inlink" href="/guide/base64-encoding/">인코딩(Base64)</a>·암호화와 결정적으로 다릅니다.</li>
+          <li><b>눈사태 효과:</b> 입력이 한 글자만 달라져도 해시값 전체가 완전히 달라집니다. <code>hello</code>와 <code>Hello</code>의 해시는 전혀 닮지 않았습니다.</li>
+          <li><b>충돌 회피:</b> 서로 다른 입력이 같은 해시값을 갖는 일(충돌)이 사실상 일어나지 않도록 설계됩니다.</li>
+        </ul>
+        <table>
+          <thead><tr><th></th><th>인코딩(Base64)</th><th>암호화(AES)</th><th>해시(SHA-256)</th></tr></thead>
+          <tbody>
+            <tr><td>되돌리기</td><td>누구나 가능</td><td>키가 있으면 가능</td><td><b>불가능</b></td></tr>
+            <tr><td>목적</td><td>표현 변환</td><td>내용 숨기기</td><td>지문·검증</td></tr>
+            <tr><td>키 필요</td><td>없음</td><td>있음</td><td>없음</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="use">어디에 쓰이나 — 무결성·비밀번호</h2>
+        <ul>
+          <li><b>파일 무결성(체크섬):</b> 배포처가 공개한 SHA-256 값과 내가 받은 파일의 해시값이 일치하면, 다운로드 중 손상되거나 변조되지 않았다는 뜻입니다.</li>
+          <li><b>비밀번호 저장:</b> 서비스는 비밀번호 원문 대신 해시값을 저장합니다. 로그인 때 입력값을 해시해 비교하면 되고, 유출돼도 원문이 드러나지 않습니다. 실제로는 솔트(salt)를 더하고 bcrypt처럼 일부러 느린 전용 해시를 씁니다.</li>
+          <li><b>중복 탐지·전자서명:</b> 같은 파일인지 빠르게 비교하거나, 문서가 서명 후 변경되지 않았음을 증명하는 데도 해시가 들어갑니다.</li>
+        </ul>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="hash"></span>
+          <span class="tc-tx"><b>Hash 생성</b><span>텍스트·파일의 SHA-256 등 해시값을 즉시 계산</span></span>
+          <a class="tc-go" href="/hash-generator/">생성하기 →</a>
+        </div>
+
+        <h2 id="algo">MD5는 그만 — 알고리즘 선택</h2>
+        <p>한때 표준이던 <b>MD5와 SHA-1은 충돌 공격이 실제로 가능</b>해져 보안 용도로는 폐기됐습니다. 서로 다른 두 파일이 같은 해시값을 갖도록 만들 수 있다는 뜻이라, 위조 검증에 쓸 수 없습니다.</p>
+        <div class="callout"><b>권장:</b> 무결성 검증·서명 등 보안이 걸린 곳에는 <b>SHA-256 이상</b>(SHA-2·SHA-3 계열)을 쓰세요. MD5는 보안과 무관한 간단한 중복 확인 정도에만 제한적으로 사용합니다. 비밀번호 저장에는 SHA-256 단독이 아니라 bcrypt·Argon2 같은 전용 알고리즘이 표준입니다.</div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 해시와 암호화는 뭐가 다른가요?</b><p>암호화는 키가 있으면 원문으로 되돌릴 수 있는 양방향 변환이고, 해시는 원문으로 되돌릴 수 없는 일방향 변환입니다. 그래서 다시 읽어야 하는 데이터(메시지·파일)는 암호화하고, 원문을 알 필요 없이 일치 여부만 확인하면 되는 것(비밀번호)은 해시를 사용합니다.</p></div>
+          <div class="qa"><b>Q. 사이트는 왜 비밀번호를 해시로 저장하나요?</b><p>서버가 해킹당해도 원래 비밀번호를 알 수 없게 하기 위해서입니다. 가입 시 비밀번호의 해시값만 저장해 두고, 로그인할 때 입력값을 같은 방식으로 해시해 저장된 값과 비교합니다. 해시는 역산이 불가능해 유출되어도 원문 복원이 어렵습니다. 실제 서비스는 SHA-256 단독보다 bcrypt처럼 일부러 느리게 설계된 비밀번호 전용 해시에 솔트(salt)를 더해 사용합니다.</p></div>
+          <div class="qa"><b>Q. MD5나 SHA-1은 왜 쓰지 말라고 하나요?</b><p>서로 다른 두 입력이 같은 해시값을 갖게 만드는 충돌 공격이 실제로 가능해졌기 때문입니다. 위조 파일을 정상 파일처럼 꾸밀 수 있어 보안 용도로는 폐기됐습니다. 현재는 SHA-256 이상(SHA-2·SHA-3 계열)을 쓰는 것이 표준이며, MD5는 보안과 무관한 단순 중복 확인 정도에만 제한적으로 쓰입니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/strong-password/"><b>안전한 비밀번호 만들기</b><span>해시로도 못 지키는 약한 비밀번호</span></a>
+          <a class="rel-card" href="/guide/base64-encoding/"><b>Base64란?</b><span>인코딩과 해시의 차이 이해하기</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

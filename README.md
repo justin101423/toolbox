@@ -183,6 +183,8 @@
 - 띠 계산법과 별자리 날짜표 (`/guide/zodiac-animal/`)
 - 사진 워터마크 넣는 법 — 위치·투명도 요령 (`/guide/add-watermark/`)
 - JWT란? — 구조와 디코딩, 보안 주의점 (`/guide/what-is-jwt/`)
+- 포모도로 공부법 — 25분 집중의 원리와 실천법 (`/guide/pomodoro-technique/`)
+- 해시(SHA-256)란? — 암호화와의 차이와 쓰임새 (`/guide/what-is-hash/`)
 
 ## 기술 스택
 
