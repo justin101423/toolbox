@@ -205,6 +205,8 @@
 - 마크다운 표 만들기 — 문법·정렬과 엑셀에서 옮기는 법 (`/guide/markdown-table/`)
 - CSS 그라데이션 만들기 — linear·radial 문법과 배색 (`/guide/css-gradient/`)
 - 자연스러운 그림자 만들기 — box-shadow 값 5개의 의미 (`/guide/css-box-shadow/`)
+- 내 비밀번호는 안전할까 — 강도의 원리와 흔한 착각 (`/guide/password-strength-check/`)
+- 순공시간 재기 — 스톱워치·타이머 공부 활용법 (`/guide/study-timer/`)
 
 ## 기술 스택
 
