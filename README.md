@@ -243,6 +243,8 @@
 - 손가락 드럼 입문 — 키보드 드럼 (`/guide/finger-drumming/`)
 - 칼림바 입문 — 실패 없는 첫 악기 (`/guide/kalimba-basics/`)
 - 런치패드 입문 — 루프 쌓기 (`/guide/launchpad-loops/`)
+- 신디사이저 기초 — 파형·필터·ADSR (`/guide/synth-basics/`)
+- 테레민이란? — 만지지 않는 악기 (`/guide/what-is-theremin/`)
 
 ## 기술 스택
 
