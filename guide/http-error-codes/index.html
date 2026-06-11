@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 404, 500, 403… 에러 코드의 의미 — 방문자와 운영자가 할 일 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>404, 500, 403… 에러 코드의 의미 — 방문자와 운영자가 할 일 | 도구상자</title>
+<meta name="description" content="사이트에서 만나는 404·403·500·502·503 에러는 각각 무슨 뜻일까요? 첫 자리 숫자로 책임 소재를 읽는 법, 에러별 의미와 방문자가 해 볼 수 있는 조치, 사이트 운영자의 점검 포인트를 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/http-error-codes/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="404, 500, 403… 에러 코드의 의미 — 방문자와 운영자가 할 일">
+<meta property="og:description" content="첫 자리 숫자로 읽는 에러의 책임 소재와 에러별 대처법.">
+<meta property="og:url" content="https://dogubox.shop/guide/http-error-codes/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="404, 500 에러의 의미">
+<meta name="twitter:description" content="에러 코드 읽는 법과 대처.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "404, 500, 403… 에러 코드의 의미 — 방문자와 운영자가 할 일",
+  "description": "사이트에서 만나는 404·403·500·502·503 에러는 각각 무슨 뜻일까요? 첫 자리 숫자로 책임 소재를 읽는 법, 에러별 의미와 방문자가 해 볼 수 있는 조치, 사이트 운영자의 점검 포인트를 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "mainEntityOfPage": "https://dogubox.shop/guide/http-error-codes/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "404와 500의 차이는 뭔가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "책임 소재가 다릅니다. 404(Not Found)는 요청한 주소에 페이지가 없다는 뜻으로, 주소 오타나 삭제·이동된 페이지가 원인입니다. 500(Internal Server Error)은 주소는 맞지만 서버 내부에서 오류가 났다는 뜻입니다. 첫 자리가 4면 요청 쪽 문제, 5면 서버 쪽 문제라고 기억하면 대부분의 에러를 읽을 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "502, 503 에러는 기다리면 해결되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "대부분 그렇습니다. 502(Bad Gateway)는 중간 서버가 뒤쪽 서버로부터 정상 응답을 받지 못한 상태, 503(Service Unavailable)은 서버가 과부하나 점검으로 일시적으로 요청을 받을 수 없는 상태입니다. 둘 다 서버 쪽의 일시적 문제인 경우가 많아 몇 분 뒤 새로고침하면 해결되는 일이 흔합니다. 계속되면 서비스 공지나 상태 페이지를 확인하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "내 블로그·사이트에서 404가 자주 나면 SEO에 나쁜가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "404 자체는 자연스러운 현상이고 페널티 대상이 아닙니다. 문제는 사이트 안의 링크나 외부에서 들어오는 링크가 404로 이어질 때입니다. 방문자와 검색엔진 모두 막다른 길을 만나게 되죠. 페이지 주소를 바꾸거나 삭제했다면 새 주소로 301 리다이렉트를 걸고, 서치 콘솔의 색인 보고서에서 404가 나는 URL을 주기적으로 점검하는 것이 좋습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "404, 500 에러 코드의 의미", "item": "https://dogubox.shop/guide/http-error-codes/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>404, 500, 403… 에러 코드의 의미 — 방문자와 운영자가 할 일</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.11</span></div>
+
+      <section class="content">
+        <p>"404 Not Found", "500 Internal Server Error" — 인터넷을 쓰다 보면 누구나 만나는 화면입니다. 숫자가 뜻하는 바를 알면 "내 잘못인지, 사이트 잘못인지, 기다리면 되는지"를 바로 판단할 수 있습니다. 자주 만나는 에러 코드의 의미와 대처를 정리합니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#first-digit">첫 자리 숫자가 책임 소재를 말해 준다</a></li>
+            <li><a href="#common">자주 만나는 에러 6가지</a></li>
+            <li><a href="#visitor">방문자가 해 볼 수 있는 것</a></li>
+            <li><a href="#owner">운영자라면 — 점검 포인트</a></li>
+          </ol>
+        </div>
+
+        <h2 id="first-digit">첫 자리 숫자가 책임 소재를 말해 준다</h2>
+        <p>HTTP 상태 코드는 세 자리 숫자이고, <b>첫 자리</b>가 큰 분류입니다.</p>
+        <ul>
+          <li><b>2xx (성공)</b> — 정상 처리. 에러 화면에선 볼 일이 없습니다.</li>
+          <li><b>3xx (리다이렉트)</b> — 페이지가 다른 주소로 이동했다는 안내. 브라우저가 알아서 따라갑니다.</li>
+          <li><b>4xx (요청 쪽 문제)</b> — 주소가 틀렸거나, 권한이 없거나, 요청 자체가 잘못된 경우.</li>
+          <li><b>5xx (서버 쪽 문제)</b> — 요청은 맞는데 서버가 처리하지 못한 경우. 방문자 잘못이 아닙니다.</li>
+        </ul>
+        <div class="callout"><b>한 줄 요약:</b> 4로 시작하면 "주소·권한을 확인", 5로 시작하면 "사이트 문제 — 잠시 후 다시".</div>
+
+        <h2 id="common">자주 만나는 에러 6가지</h2>
+        <ul>
+          <li><b>400 Bad Request</b> — 요청 형식이 잘못됨. 주소에 이상한 문자가 끼었거나 쿠키가 손상된 경우가 많습니다.</li>
+          <li><b>401 Unauthorized</b> — 로그인이 필요합니다. "누구인지 모르겠다"는 뜻입니다.</li>
+          <li><b>403 Forbidden</b> — 로그인했더라도 볼 권한이 없습니다. "누구인지 알지만 허용 안 됨"입니다.</li>
+          <li><b>404 Not Found</b> — 그 주소에 페이지가 없습니다. 오타, 삭제·이동된 페이지가 원인입니다.</li>
+          <li><b>500 Internal Server Error</b> — 서버 내부 오류. 사이트 코드의 버그인 경우가 대부분입니다.</li>
+          <li><b>502/503</b> — 중간 서버가 응답을 못 받았거나(502), 서버가 과부하·점검 중(503). 보통 일시적입니다.</li>
+        </ul>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="server"></span>
+          <span class="tc-tx"><b>HTTP 상태 코드 치트시트</b><span>전체 코드의 의미를 분류별로 한눈에</span></span>
+          <a class="tc-go" href="/http-status-codes/">찾아보기 →</a>
+        </div>
+
+        <h2 id="visitor">방문자가 해 볼 수 있는 것</h2>
+        <ol style="padding-left:20px">
+          <li><b>새로고침</b> — 일시적 오류(특히 5xx)는 이걸로 끝나는 경우가 많습니다.</li>
+          <li><b>주소 확인</b> — 404라면 주소 오타부터. 검색으로 페이지를 다시 찾는 것도 방법입니다.</li>
+          <li><b>로그인·캐시</b> — 401·403은 다시 로그인, 400은 쿠키·캐시 삭제가 통하는 경우가 있습니다.</li>
+          <li><b>기다리기</b> — 502·503은 사이트가 복구 중이라는 신호입니다. 몇 분 뒤 다시 시도하세요.</li>
+        </ol>
+
+        <h2 id="owner">운영자라면 — 점검 포인트</h2>
+        <ul>
+          <li><b>404 관리:</b> 페이지 주소를 바꾸면 301 리다이렉트를 걸고, 서치 콘솔에서 404 나는 URL을 주기적으로 확인하세요. 깨진 내부 링크는 방문자와 검색엔진 모두에게 막다른 길입니다.</li>
+          <li><b>500 추적:</b> 서버 에러 로그에 원인이 남습니다. 재현 조건(특정 페이지·특정 입력)을 찾는 것이 첫걸음입니다.</li>
+          <li><b>503 활용:</b> 점검 시간에는 의도적으로 503과 Retry-After 헤더를 내보내는 것이 검색엔진에 "곧 돌아온다"는 올바른 신호가 됩니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 404와 500의 차이는 뭔가요?</b><p>책임 소재가 다릅니다. 404(Not Found)는 요청한 주소에 페이지가 없다는 뜻으로, 주소 오타나 삭제·이동된 페이지가 원인입니다. 500(Internal Server Error)은 주소는 맞지만 서버 내부에서 오류가 났다는 뜻입니다. 첫 자리가 4면 요청 쪽 문제, 5면 서버 쪽 문제라고 기억하면 대부분의 에러를 읽을 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 502, 503 에러는 기다리면 해결되나요?</b><p>대부분 그렇습니다. 502(Bad Gateway)는 중간 서버가 뒤쪽 서버로부터 정상 응답을 받지 못한 상태, 503(Service Unavailable)은 서버가 과부하나 점검으로 일시적으로 요청을 받을 수 없는 상태입니다. 둘 다 서버 쪽의 일시적 문제인 경우가 많아 몇 분 뒤 새로고침하면 해결되는 일이 흔합니다. 계속되면 서비스 공지나 상태 페이지를 확인하세요.</p></div>
+          <div class="qa"><b>Q. 내 블로그·사이트에서 404가 자주 나면 SEO에 나쁜가요?</b><p>404 자체는 자연스러운 현상이고 페널티 대상이 아닙니다. 문제는 사이트 안의 링크나 외부에서 들어오는 링크가 404로 이어질 때입니다. 방문자와 검색엔진 모두 막다른 길을 만나게 되죠. 페이지 주소를 바꾸거나 삭제했다면 새 주소로 301 리다이렉트를 걸고, 서치 콘솔의 색인 보고서에서 404가 나는 URL을 주기적으로 점검하는 것이 좋습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/broken-text-encoding/"><b>글자 깨짐(인코딩) 해결</b><span>â€™ ãƒ†가 보인다면</span></a>
+          <a class="rel-card" href="/guide/what-is-jwt/"><b>JWT 토큰이란?</b><span>로그인 상태가 유지되는 원리</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

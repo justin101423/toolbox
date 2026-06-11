@@ -207,6 +207,8 @@
 - 자연스러운 그림자 만들기 — box-shadow 값 5개의 의미 (`/guide/css-box-shadow/`)
 - 내 비밀번호는 안전할까 — 강도의 원리와 흔한 착각 (`/guide/password-strength-check/`)
 - 순공시간 재기 — 스톱워치·타이머 공부 활용법 (`/guide/study-timer/`)
+- 404, 500 에러 코드의 의미 — 방문자와 운영자가 할 일 (`/guide/http-error-codes/`)
+- 글자 깨짐(인코딩)의 원인과 해결 (`/guide/broken-text-encoding/`)
 
 ## 기술 스택
 
