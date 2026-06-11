@@ -249,6 +249,8 @@
 - 가야금 이야기 — 12줄·안족·농현 (`/guide/gayageum-basics/`)
 - 실로폰 음악놀이 — 아이와 함께 도레미 (`/guide/xylophone-play/`)
 - 핸드팬이란? — 두드리면 명상이 되는 악기 (`/guide/handpan-relax/`)
+- 깃허브 README 잘 쓰는 법 (`/guide/write-readme/`)
+- API 응답에서 타입 만들기 (`/guide/json-to-types-guide/`)
 
 ## 기술 스택
 
