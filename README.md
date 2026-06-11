@@ -215,6 +215,8 @@
 - UUID란? — 중복 없는 ID의 원리 (`/guide/what-is-uuid/`)
 - JSON vs YAML — 문법 차이와 변환 주의점 (`/guide/json-vs-yaml/`)
 - 사진·화면 속 QR코드 읽는 법 (`/guide/read-qr-code/`)
+- 화면·사진 속 색상 코드 알아내는 법 (`/guide/find-color-code/`)
+- dkssud가 '안녕'인 이유 — 한/영 오타 (`/guide/korean-english-typo/`)
 
 ## 기술 스택
 
