@@ -233,6 +233,8 @@
 - 브라우저로 음성 녹음하기 (`/guide/voice-recording/`)
 - 사진 속 개인정보 가리기 — 모자이크·블러 (`/guide/blur-personal-info/`)
 - 사진이 옆으로 누울 때 — 회전 문제 해결 (`/guide/photo-rotation-fix/`)
+- JPG·PNG·WebP — 이미지 형식 고르기 (`/guide/image-formats/`)
+- PDF 페이지 삭제·순서 바꾸기 (`/guide/organize-pdf-pages/`)
 
 ## 기술 스택
 

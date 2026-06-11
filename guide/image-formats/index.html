@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: JPG·PNG·WebP — 사진 저장 형식, 뭘 골라야 할까 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>JPG·PNG·WebP — 사진 저장 형식, 뭘 골라야 할까 | 도구상자</title>
+<meta name="description" content="사진은 JPG, 스크린샷·로고는 PNG, 웹용은 WebP — 한 줄 결론과 그 이유를 정리했습니다. 손실·무손실 압축의 차이, 투명 배경 지원, 상황별 선택표와 변환할 때 주의점까지 담았습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/image-formats/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="JPG·PNG·WebP — 사진 저장 형식, 뭘 골라야 할까">
+<meta property="og:description" content="손실·무손실·투명도 — 상황별 형식 선택표와 변환 주의점.">
+<meta property="og:url" content="https://dogubox.shop/guide/image-formats/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="JPG·PNG·WebP 선택 기준">
+<meta name="twitter:description" content="이미지 형식 고르는 법.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "JPG·PNG·WebP — 사진 저장 형식, 뭘 골라야 할까",
+  "description": "사진은 JPG, 스크린샷·로고는 PNG, 웹용은 WebP — 한 줄 결론과 그 이유를 정리했습니다. 손실·무손실 압축의 차이, 투명 배경 지원, 상황별 선택표와 변환할 때 주의점까지 담았습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "mainEntityOfPage": "https://dogubox.shop/guide/image-formats/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "스크린샷·글자 이미지는 왜 PNG가 좋나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JPG의 손실 압축은 색이 부드럽게 변하는 사진에 최적화돼 있어, 글자처럼 또렷한 경계가 있는 이미지에서는 경계 주변에 지저분한 얼룩(압축 노이즈)이 생깁니다. PNG는 무손실이라 글자·선·UI가 찍힌 스크린샷, 로고, 도표를 원본 그대로 보존합니다. 반대로 풍경·인물 사진을 PNG로 저장하면 화질 이득 없이 용량만 몇 배가 되니, 사진은 JPG·스크린샷은 PNG로 구분하면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "JPG를 PNG로 바꾸면 화질이 좋아지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "좋아지지 않습니다. JPG로 저장할 때 이미 버려진 정보는 되돌릴 수 없어서, PNG로 변환해도 화질은 그대로인데 용량만 커집니다. 형식 변환은 화질 복원이 아니라 용도(투명 배경, 호환성, 용량)를 맞추는 작업이라고 이해하면 됩니다. 화질이 중요한 작업이라면 처음부터 원본을 무손실 형식으로 보관하는 것이 유일한 방법입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "WebP가 좋다는데 왜 다들 JPG·PNG를 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "호환성 때문입니다. WebP는 같은 화질에서 JPG·PNG보다 용량이 작고 투명 배경도 지원해 웹사이트용으로 우수하지만, 일부 옛 프로그램·기기나 업로드를 막는 사이트가 아직 있습니다. 블로그·웹페이지에 올릴 이미지는 WebP로, 어디서나 열려야 하는 제출·공유용 파일은 JPG나 PNG로 구분하는 것이 실용적인 기준입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "이미지 형식 고르기", "item": "https://dogubox.shop/guide/image-formats/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>JPG·PNG·WebP — 사진 저장 형식, 뭘 골라야 할까</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.11</span></div>
+
+      <section class="content">
+        <p>저장할 때마다 만나는 선택지 — JPG, PNG, WebP. 아무거나 골라도 되는 것 같지만, 형식을 잘못 고르면 용량이 몇 배가 되거나 글자가 지저분해지거나 투명 배경이 사라집니다. 한 줄 결론부터: <b>사진은 JPG, 스크린샷·로고는 PNG, 웹 업로드는 WebP</b>입니다. 이유를 알아봅니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#three">세 형식의 성격</a></li>
+            <li><a href="#table">상황별 선택표</a></li>
+            <li><a href="#caution">변환할 때 주의점</a></li>
+            <li><a href="#how">형식 바꾸기 3단계</a></li>
+          </ol>
+        </div>
+
+        <h2 id="three">세 형식의 성격</h2>
+        <ul>
+          <li><b>JPG — 사진 전문</b> · 손실 압축. 색이 부드럽게 변하는 사진을 작은 용량으로 잘 담습니다. 대신 글자·선의 경계에 얼룩이 생기고, 투명 배경이 없습니다.</li>
+          <li><b>PNG — 또렷함 전문</b> · 무손실. 스크린샷·로고·도표를 원본 그대로 보존하고 <b>투명 배경</b>을 지원합니다. 대신 사진을 담으면 용량이 큽니다.</li>
+          <li><b>WebP — 웹 전문</b> · 손실·무손실 모두 지원. 같은 화질에서 JPG·PNG보다 용량이 작고 투명도도 됩니다. 다만 일부 옛 프로그램·사이트와의 호환이 약점입니다.</li>
+        </ul>
+
+        <h2 id="table">상황별 선택표</h2>
+        <ul>
+          <li><b>인물·풍경·음식 사진 공유</b> → JPG</li>
+          <li><b>스크린샷, 글자 있는 이미지, 도표</b> → PNG</li>
+          <li><b>투명 배경 로고·스티커</b> → PNG (또는 WebP)</li>
+          <li><b>블로그·웹사이트 게시용</b> → WebP (용량 절감 = 로딩 속도)</li>
+          <li><b>어디서나 열려야 하는 제출용</b> → JPG 또는 PNG (호환성 우선)</li>
+          <li><b>아이폰에서 온 HEIC</b> → 받는 쪽을 위해 JPG로 변환</li>
+        </ul>
+
+        <h2 id="caution">변환할 때 주의점</h2>
+        <ul>
+          <li><b>화질은 돌아오지 않습니다</b> — JPG에서 버려진 정보는 PNG로 바꿔도 복원되지 않습니다. 용량만 커질 뿐입니다.</li>
+          <li><b>투명 배경 주의</b> — PNG의 투명 영역을 JPG로 바꾸면 흰색(또는 검정)으로 채워집니다. 투명이 필요하면 PNG·WebP를 유지하세요.</li>
+          <li><b>반복 저장 금지</b> — JPG를 열어 다시 JPG로 저장할 때마다 손실이 누적됩니다. 편집 중간 저장은 PNG로, 마지막에만 JPG로.</li>
+        </ul>
+        <div class="callout"><b>기억법:</b> 형식 변환은 화질 개선이 아니라 <b>용도 맞추기</b>입니다 — 투명·호환·용량 중 무엇이 필요한지로 고르세요.</div>
+
+        <h2 id="how">형식 바꾸기 3단계</h2>
+        <ol class="steps-list" style="list-style:decimal;padding-left:20px">
+          <li>이미지를 포맷 변환 도구에 올립니다.</li>
+          <li>목적에 맞는 출력 형식(JPG/PNG/WebP)을 고릅니다 — JPG는 품질도 조절할 수 있습니다.</li>
+          <li>변환 결과를 내려받고, 투명 배경·화질이 의도대로인지 확인합니다.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="image"></span>
+          <span class="tc-tx"><b>이미지 포맷 변환</b><span>JPG ↔ PNG ↔ WebP — 브라우저 안에서 바로</span></span>
+          <a class="tc-go" href="/image-converter/">변환하기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 스크린샷·글자 이미지는 왜 PNG가 좋나요?</b><p>JPG의 손실 압축은 색이 부드럽게 변하는 사진에 최적화돼 있어, 글자처럼 또렷한 경계가 있는 이미지에서는 경계 주변에 지저분한 얼룩(압축 노이즈)이 생깁니다. PNG는 무손실이라 글자·선·UI가 찍힌 스크린샷, 로고, 도표를 원본 그대로 보존합니다. 반대로 풍경·인물 사진을 PNG로 저장하면 화질 이득 없이 용량만 몇 배가 되니, 사진은 JPG·스크린샷은 PNG로 구분하면 됩니다.</p></div>
+          <div class="qa"><b>Q. JPG를 PNG로 바꾸면 화질이 좋아지나요?</b><p>좋아지지 않습니다. JPG로 저장할 때 이미 버려진 정보는 되돌릴 수 없어서, PNG로 변환해도 화질은 그대로인데 용량만 커집니다. 형식 변환은 화질 복원이 아니라 용도(투명 배경, 호환성, 용량)를 맞추는 작업이라고 이해하면 됩니다. 화질이 중요한 작업이라면 처음부터 원본을 무손실 형식으로 보관하는 것이 유일한 방법입니다.</p></div>
+          <div class="qa"><b>Q. WebP가 좋다는데 왜 다들 JPG·PNG를 쓰나요?</b><p>호환성 때문입니다. WebP는 같은 화질에서 JPG·PNG보다 용량이 작고 투명 배경도 지원해 웹사이트용으로 우수하지만, 일부 옛 프로그램·기기나 업로드를 막는 사이트가 아직 있습니다. 블로그·웹페이지에 올릴 이미지는 WebP로, 어디서나 열려야 하는 제출·공유용 파일은 JPG나 PNG로 구분하는 것이 실용적인 기준입니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/heic-to-jpg-guide/"><b>HEIC → JPG 변환</b><span>아이폰 사진이 안 열릴 때</span></a>
+          <a class="rel-card" href="/guide/reduce-image-size/"><b>이미지 용량 줄이기</b><span>형식 다음은 용량</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>
