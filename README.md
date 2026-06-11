@@ -235,6 +235,8 @@
 - 사진이 옆으로 누울 때 — 회전 문제 해결 (`/guide/photo-rotation-fix/`)
 - JPG·PNG·WebP — 이미지 형식 고르기 (`/guide/image-formats/`)
 - PDF 페이지 삭제·순서 바꾸기 (`/guide/organize-pdf-pages/`)
+- PDF에 대외비 워터마크 넣기 (`/guide/watermark-pdf/`)
+- 흑백·세피아 필터 활용법 (`/guide/bw-sepia-filter/`)
 
 ## 기술 스택
 
