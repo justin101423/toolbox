@@ -237,6 +237,8 @@
 - PDF 페이지 삭제·순서 바꾸기 (`/guide/organize-pdf-pages/`)
 - PDF에 대외비 워터마크 넣기 (`/guide/watermark-pdf/`)
 - 흑백·세피아 필터 활용법 (`/guide/bw-sepia-filter/`)
+- 브라우저 메모장 활용법과 주의점 (`/guide/browser-notepad/`)
+- 이미지를 코드 안에 — Base64 데이터 URI (`/guide/image-data-uri/`)
 
 ## 기술 스택
 
