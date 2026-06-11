@@ -231,6 +231,8 @@
 - 설치 없이 브라우저로 악기 연주 — 15종 둘러보기 (`/guide/browser-instruments/`)
 - 사진 비율 맞춰 자르기 — 프로필·썸네일 규격 (`/guide/crop-aspect-ratio/`)
 - 브라우저로 음성 녹음하기 (`/guide/voice-recording/`)
+- 사진 속 개인정보 가리기 — 모자이크·블러 (`/guide/blur-personal-info/`)
+- 사진이 옆으로 누울 때 — 회전 문제 해결 (`/guide/photo-rotation-fix/`)
 
 ## 기술 스택
 

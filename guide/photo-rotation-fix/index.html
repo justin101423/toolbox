@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 사진이 자꾸 옆으로 누워요 — 회전 문제의 원인과 해결 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>사진이 자꾸 옆으로 누워요 — 회전 문제의 원인과 해결 | 도구상자</title>
+<meta name="description" content="폰에서는 똑바른 사진이 PC나 웹사이트에 올리면 옆으로 눕는 이유 — EXIF 방향 태그 때문입니다. 왜 이런 일이 생기는지, 어디서 자주 문제가 되는지, 픽셀 자체를 회전해 확실하게 해결하는 법을 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/photo-rotation-fix/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="사진이 자꾸 옆으로 누워요 — 회전 문제의 원인과 해결">
+<meta property="og:description" content="EXIF 방향 태그가 만드는 회전 문제와 확실한 해결법.">
+<meta property="og:url" content="https://dogubox.shop/guide/photo-rotation-fix/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="사진 회전 문제 해결">
+<meta name="twitter:description" content="옆으로 눕는 사진의 원인.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "사진이 자꾸 옆으로 누워요 — 회전 문제의 원인과 해결",
+  "description": "폰에서는 똑바른 사진이 PC나 웹사이트에 올리면 옆으로 눕는 이유 — EXIF 방향 태그 때문입니다. 왜 이런 일이 생기는지, 어디서 자주 문제가 되는지, 픽셀 자체를 회전해 확실하게 해결하는 법을 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "mainEntityOfPage": "https://dogubox.shop/guide/photo-rotation-fix/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "폰에서는 똑바른데 PC·웹에 올리면 왜 눕나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "스마트폰 카메라는 센서가 찍은 방향 그대로 픽셀을 저장하고, '이 사진은 90도 돌려 보세요'라는 방향 태그(EXIF Orientation)를 함께 기록합니다. 폰 갤러리는 이 태그를 읽어 돌려 보여 주지만, 태그를 무시하는 일부 프로그램·웹사이트·옛 뷰어에서는 저장된 픽셀 방향 그대로, 즉 누운 채로 표시됩니다. 사진이 망가진 게 아니라 보는 쪽이 태그를 안 읽은 것입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "확실하게 고치는 방법은 뭔가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "태그에 의존하지 않도록 픽셀 자체를 회전해 다시 저장하는 것입니다. 이미지 회전 도구에 사진을 올려 올바른 방향으로 90도 단위 회전 후 저장하면, 회전 결과가 픽셀에 적용되어 어떤 뷰어·웹사이트에서도 같은 방향으로 보입니다. 업로드 전 미리보기에서 누워 보이는 사진은 이렇게 한 번 구워서 올리는 것이 가장 확실합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "여러 번 회전하면 화질이 나빠지지 않나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "90도 단위 회전은 픽셀을 재배열만 하는 작업이라 이론적으로 손실이 없습니다. 도구상자의 회전 도구는 매번 원본 기준으로 다시 그리는 방식이라 여러 번 돌려도 누적 손실이 생기지 않습니다. 다만 45도 같은 임의 각도 회전은 픽셀을 다시 계산해야 해서 약간의 흐려짐이 생길 수 있으니, 방향 교정은 90도 단위로 하는 것이 좋습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "사진 회전 문제 해결", "item": "https://dogubox.shop/guide/photo-rotation-fix/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>사진이 자꾸 옆으로 누워요 — 회전 문제의 원인과 해결</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.11</span></div>
+
+      <section class="content">
+        <p>폰 갤러리에서는 분명 똑바른 사진인데, 게시판에 올리거나 PC로 옮기면 옆으로 누워 있습니다. 다시 돌려 저장해도 또 눕기도 하죠. 사진이 망가진 게 아니라 <b>"방향 메모"를 읽는 쪽의 문제</b>입니다. 원리를 알면 한 번에 해결됩니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#why">원인 — EXIF 방향 태그</a></li>
+            <li><a href="#where">어디서 문제가 되나</a></li>
+            <li><a href="#fix">확실한 해결 — 픽셀째 회전</a></li>
+            <li><a href="#tips">함께 알아 두면 좋은 것</a></li>
+          </ol>
+        </div>
+
+        <h2 id="why">원인 — EXIF 방향 태그</h2>
+        <p>스마트폰을 세로로 들고 찍어도, 카메라 센서는 <b>가로 방향 그대로</b> 픽셀을 저장합니다. 대신 파일에 "이 사진은 90° 돌려서 보세요"라는 <b>방향 태그(EXIF Orientation)</b>를 메모해 둡니다.</p>
+        <ul>
+          <li><b>태그를 읽는 프로그램</b>(폰 갤러리, 최신 뷰어) — 돌려서 보여 주므로 똑바릅니다.</li>
+          <li><b>태그를 무시하는 프로그램</b>(일부 웹사이트·게시판, 옛 뷰어, 일부 업무 시스템) — 저장된 픽셀 그대로, 즉 <b>누운 채로</b> 보여 줍니다.</li>
+        </ul>
+        <div class="callout"><b>한 줄 정리:</b> 같은 파일이 어디서는 똑바르고 어디서는 눕는다면 범인은 EXIF 방향 태그입니다.</div>
+
+        <h2 id="where">어디서 문제가 되나</h2>
+        <ul>
+          <li>게시판·쇼핑몰 후기 등 <b>웹 업로드</b> 미리보기</li>
+          <li>회사 <b>업무 시스템·전자결재</b> 첨부</li>
+          <li>메일로 받은 사진을 <b>옛 프로그램</b>으로 열 때</li>
+          <li>문서(한글·워드)에 삽입할 때 — 프로그램·버전에 따라 다르게 처리됩니다.</li>
+        </ul>
+
+        <h2 id="fix">확실한 해결 — 픽셀째 회전</h2>
+        <p>해결법은 태그에 의존하지 않게 만드는 것, 즉 <b>픽셀 자체를 올바른 방향으로 회전해 다시 저장</b>하는 것입니다.</p>
+        <ol class="steps-list" style="list-style:decimal;padding-left:20px">
+          <li>누워 보이는 사진을 회전 도구에 올립니다.</li>
+          <li>90° 단위로 돌려 올바른 방향을 만듭니다 (필요하면 좌우 반전도).</li>
+          <li>저장합니다 — 회전 결과가 픽셀에 적용되므로 <b>어떤 뷰어·웹사이트에서도 같은 방향</b>으로 보입니다.</li>
+          <li>문제가 됐던 곳에 다시 올려 확인합니다.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="rotate-cw"></span>
+          <span class="tc-tx"><b>이미지 회전·뒤집기</b><span>90° 무손실 회전 — 태그 의존 없이 픽셀에 적용</span></span>
+          <a class="tc-go" href="/image-rotate/">바로잡기 →</a>
+        </div>
+
+        <h2 id="tips">함께 알아 두면 좋은 것</h2>
+        <ul>
+          <li><b>90° 회전은 무손실</b> — 픽셀을 재배열만 하므로 여러 번 돌려도 화질이 나빠지지 않습니다.</li>
+          <li><b>EXIF 제거와의 관계</b> — EXIF를 통째로 지우면 방향 태그도 사라집니다. 태그만 믿고 똑바로 보이던 사진이라면 제거 전에 픽셀째 회전을 먼저 해 두세요.</li>
+          <li><b>스캔 문서도 동일</b> — 누워 스캔된 서류는 제출 전에 회전해 PDF로 묶으면 받는 쪽이 편합니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 폰에서는 똑바른데 PC·웹에 올리면 왜 눕나요?</b><p>스마트폰 카메라는 센서가 찍은 방향 그대로 픽셀을 저장하고, '이 사진은 90도 돌려 보세요'라는 방향 태그(EXIF Orientation)를 함께 기록합니다. 폰 갤러리는 이 태그를 읽어 돌려 보여 주지만, 태그를 무시하는 일부 프로그램·웹사이트·옛 뷰어에서는 저장된 픽셀 방향 그대로, 즉 누운 채로 표시됩니다. 사진이 망가진 게 아니라 보는 쪽이 태그를 안 읽은 것입니다.</p></div>
+          <div class="qa"><b>Q. 확실하게 고치는 방법은 뭔가요?</b><p>태그에 의존하지 않도록 픽셀 자체를 회전해 다시 저장하는 것입니다. 이미지 회전 도구에 사진을 올려 올바른 방향으로 90도 단위 회전 후 저장하면, 회전 결과가 픽셀에 적용되어 어떤 뷰어·웹사이트에서도 같은 방향으로 보입니다. 업로드 전 미리보기에서 누워 보이는 사진은 이렇게 한 번 구워서 올리는 것이 가장 확실합니다.</p></div>
+          <div class="qa"><b>Q. 여러 번 회전하면 화질이 나빠지지 않나요?</b><p>90도 단위 회전은 픽셀을 재배열만 하는 작업이라 이론적으로 손실이 없습니다. 도구상자의 회전 도구는 매번 원본 기준으로 다시 그리는 방식이라 여러 번 돌려도 누적 손실이 생기지 않습니다. 다만 45도 같은 임의 각도 회전은 픽셀을 다시 계산해야 해서 약간의 흐려짐이 생길 수 있으니, 방향 교정은 90도 단위로 하는 것이 좋습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/remove-photo-location/"><b>사진 위치정보 제거</b><span>EXIF의 또 다른 얼굴</span></a>
+          <a class="rel-card" href="/guide/crop-aspect-ratio/"><b>사진 비율 맞춰 자르기</b><span>방향 다음은 비율</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>
