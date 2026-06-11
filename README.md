@@ -253,6 +253,8 @@
 - API 응답에서 타입 만들기 (`/guide/json-to-types-guide/`)
 - camelCase·snake_case — 개발 표기법 정리 (`/guide/naming-conventions/`)
 - LF·CRLF 줄바꿈 문제 정리 (`/guide/line-endings/`)
+- %와 %p의 차이 — 금리 뉴스 읽기 (`/guide/percent-vs-percentpoint/`)
+- XML이란? — 아직 살아 있는 이유 (`/guide/what-is-xml/`)
 
 ## 기술 스택
 
