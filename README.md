@@ -221,6 +221,8 @@
 - 특수문자 빠르게 입력하는 법 (`/guide/type-special-characters/`)
 - PDF 용량 줄이는 법 — 원인과 용도별 설정 (`/guide/compress-pdf/`)
 - 사진 보정 기초 — 밝기·대비·채도 (`/guide/photo-adjust-basics/`)
+- 사진을 PDF로 만들어 제출하기 (`/guide/photos-to-pdf/`)
+- 여러 사진 한 장으로 — 콜라주 요령 (`/guide/photo-collage/`)
 
 ## 기술 스택
 
