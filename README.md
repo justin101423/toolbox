@@ -241,6 +241,8 @@
 - 이미지를 코드 안에 — Base64 데이터 URI (`/guide/image-data-uri/`)
 - 복붙해 쓰는 정규식 패턴 모음 (`/guide/regex-patterns/`)
 - 손가락 드럼 입문 — 키보드 드럼 (`/guide/finger-drumming/`)
+- 칼림바 입문 — 실패 없는 첫 악기 (`/guide/kalimba-basics/`)
+- 런치패드 입문 — 루프 쌓기 (`/guide/launchpad-loops/`)
 
 ## 기술 스택
 
