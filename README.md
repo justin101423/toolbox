@@ -223,6 +223,8 @@
 - 사진 보정 기초 — 밝기·대비·채도 (`/guide/photo-adjust-basics/`)
 - 사진을 PDF로 만들어 제출하기 (`/guide/photos-to-pdf/`)
 - 여러 사진 한 장으로 — 콜라주 요령 (`/guide/photo-collage/`)
+- 복붙한 목록 1분 정리 — 중복 제거·정렬 (`/guide/clean-text-list/`)
+- 비트 만들기 입문 — 스텝 시퀀서 패턴 (`/guide/make-beat/`)
 
 ## 기술 스택
 
