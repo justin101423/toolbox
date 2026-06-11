@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: PDF 용량 줄이는 법 — 왜 큰지, 어디까지 줄여도 되는지 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>PDF 용량 줄이는 법 — 왜 큰지, 어디까지 줄여도 되는지 | 도구상자</title>
+<meta name="description" content="이메일 첨부 한도에 걸린 PDF, 어떻게 줄일까요? PDF 용량이 커지는 진짜 원인(스캔본·사진·폰트), 압축의 원리와 화질 트레이드오프, 제출·인쇄 등 용도별 적정 설정과 압축 단계를 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/compress-pdf/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="PDF 용량 줄이는 법 — 왜 큰지, 어디까지 줄여도 되는지">
+<meta property="og:description" content="용량이 커지는 원인, 압축 원리, 용도별 적정 설정 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/compress-pdf/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="PDF 용량 줄이는 법">
+<meta name="twitter:description" content="원인과 압축 요령.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PDF 용량 줄이는 법 — 왜 큰지, 어디까지 줄여도 되는지",
+  "description": "이메일 첨부 한도에 걸린 PDF, 어떻게 줄일까요? PDF 용량이 커지는 진짜 원인(스캔본·사진·폰트), 압축의 원리와 화질 트레이드오프, 제출·인쇄 등 용도별 적정 설정과 압축 단계를 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "mainEntityOfPage": "https://dogubox.shop/guide/compress-pdf/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "PDF 용량은 왜 이렇게 큰가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "대부분 이미지 때문입니다. 스캔한 문서는 페이지 전체가 한 장의 큰 사진이고, 발표 자료나 포트폴리오에는 고해상도 이미지가 여러 장 들어갑니다. 여기에 포함된 글꼴 파일까지 더해져 용량이 커집니다. 글자만 있는 PDF는 수백 KB에 그치지만 스캔본·이미지 위주 PDF는 수십 MB까지 커지는 이유입니다. 그래서 PDF 압축의 핵심도 이미지를 다시 압축하는 것입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "어느 정도까지 줄여도 읽는 데 지장이 없나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "용도에 따라 다릅니다. 화면으로만 볼 문서(이메일 회람·온라인 제출)는 해상도를 중간 이하로 낮춰도 읽기에 충분하고, 용량은 크게 줄어듭니다. 인쇄할 문서는 해상도를 너무 낮추면 글자 가장자리가 흐려질 수 있어 중간 이상을 권장합니다. 압축 후에는 글자가 많은 페이지와 사진이 있는 페이지를 확대해 보며 품질을 확인한 뒤 보내는 것이 안전합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "압축했는데 용량이 오히려 늘어났어요. 왜죠?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "원본이 이미 강하게 압축돼 있는 경우입니다. 이미 최적화된 PDF를 다시 렌더링하면 더 줄일 여지가 없어 오히려 커질 수 있습니다. 이때는 해상도·품질 설정을 더 낮춰 시도하거나, 원본을 그대로 쓰는 것이 낫습니다. 또 글자 위주의 가벼운 PDF는 압축 효과 자체가 작으니, 용량의 원인이 이미지인 문서에서 압축이 가장 효과적입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "PDF 용량 줄이는 법", "item": "https://dogubox.shop/guide/compress-pdf/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>PDF 용량 줄이는 법 — 왜 큰지, 어디까지 줄여도 되는지</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.11</span></div>
+
+      <section class="content">
+        <p>"첨부 파일은 10MB까지" — 제출 직전에 만나는 가장 난감한 안내문입니다. 스캔한 계약서, 이미지가 많은 포트폴리오는 쉽게 수십 MB를 넘기죠. PDF가 왜 커지는지 알면, 화질을 지키면서 줄이는 요령도 보입니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#why">PDF가 커지는 진짜 원인</a></li>
+            <li><a href="#how">압축의 원리 — 무엇을 포기하나</a></li>
+            <li><a href="#settings">용도별 적정 설정</a></li>
+            <li><a href="#steps">압축 3단계와 확인 포인트</a></li>
+          </ol>
+        </div>
+
+        <h2 id="why">PDF가 커지는 진짜 원인</h2>
+        <ul>
+          <li><b>스캔본</b> — 페이지 전체가 한 장의 큰 사진입니다. 10페이지 스캔이면 사진 10장인 셈이라 가장 빨리 커집니다.</li>
+          <li><b>고해상도 이미지</b> — 발표 자료·포트폴리오에 카메라 원본 사진을 그대로 넣으면 페이지당 수 MB씩 쌓입니다.</li>
+          <li><b>포함된 글꼴</b> — 디자인 폰트가 통째로 들어가면 수 MB가 추가되기도 합니다.</li>
+        </ul>
+        <div class="callout"><b>한 줄 진단:</b> 글자뿐인데 큰 PDF는 드뭅니다. 용량의 범인은 거의 항상 이미지이고, 압축도 이미지를 다시 압축하는 것이 핵심입니다.</div>
+
+        <h2 id="how">압축의 원리 — 무엇을 포기하나</h2>
+        <p>PDF 압축은 내부 이미지를 <b>더 낮은 해상도·품질로 다시 저장</b>하는 작업입니다. 따라서 트레이드오프가 있습니다.</p>
+        <ul>
+          <li><b>해상도(DPI)를 낮추면</b> — 용량이 크게 줄지만, 확대하거나 인쇄할 때 픽셀이 보일 수 있습니다.</li>
+          <li><b>품질(압축률)을 낮추면</b> — 사진의 미세한 질감이 뭉개질 수 있지만 화면으로 읽기에는 대개 충분합니다.</li>
+          <li>화면 보기용 문서라면 둘 다 과감히 낮춰도 체감 차이가 작습니다 — 모니터는 인쇄보다 훨씬 낮은 해상도로 보여 주기 때문입니다.</li>
+        </ul>
+
+        <h2 id="settings">용도별 적정 설정</h2>
+        <ul>
+          <li><b>이메일 회람·온라인 제출(화면용):</b> 해상도 낮음~중간, 품질 중간 — 용량 최우선.</li>
+          <li><b>입사지원·과제 제출(읽기 중요):</b> 해상도 중간, 품질 중간~높음 — 글자 선명도 확보.</li>
+          <li><b>인쇄 예정:</b> 해상도 중간 이상 유지 — 너무 낮추면 인쇄물에서 글자 가장자리가 흐려집니다.</li>
+        </ul>
+
+        <h2 id="steps">압축 3단계와 확인 포인트</h2>
+        <ol class="steps-list" style="list-style:decimal;padding-left:20px">
+          <li>PDF를 압축 도구에 올리고 용도에 맞는 해상도·품질을 고릅니다.</li>
+          <li>압축 결과의 용량을 확인합니다 — 목표(예: 10MB 이하)에 맞을 때까지 설정을 조절합니다.</li>
+          <li>저장 전 <b>글자 페이지와 사진 페이지를 확대해</b> 품질을 확인합니다. 읽는 데 지장이 없으면 완료입니다.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="file-archive"></span>
+          <span class="tc-tx"><b>PDF 용량 줄이기</b><span>브라우저 안에서만 처리 — 업로드 없음</span></span>
+          <a class="tc-go" href="/pdf-compressor/">압축하기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. PDF 용량은 왜 이렇게 큰가요?</b><p>대부분 이미지 때문입니다. 스캔한 문서는 페이지 전체가 한 장의 큰 사진이고, 발표 자료나 포트폴리오에는 고해상도 이미지가 여러 장 들어갑니다. 여기에 포함된 글꼴 파일까지 더해져 용량이 커집니다. 글자만 있는 PDF는 수백 KB에 그치지만 스캔본·이미지 위주 PDF는 수십 MB까지 커지는 이유입니다. 그래서 PDF 압축의 핵심도 이미지를 다시 압축하는 것입니다.</p></div>
+          <div class="qa"><b>Q. 어느 정도까지 줄여도 읽는 데 지장이 없나요?</b><p>용도에 따라 다릅니다. 화면으로만 볼 문서(이메일 회람·온라인 제출)는 해상도를 중간 이하로 낮춰도 읽기에 충분하고, 용량은 크게 줄어듭니다. 인쇄할 문서는 해상도를 너무 낮추면 글자 가장자리가 흐려질 수 있어 중간 이상을 권장합니다. 압축 후에는 글자가 많은 페이지와 사진이 있는 페이지를 확대해 보며 품질을 확인한 뒤 보내는 것이 안전합니다.</p></div>
+          <div class="qa"><b>Q. 압축했는데 용량이 오히려 늘어났어요. 왜죠?</b><p>원본이 이미 강하게 압축돼 있는 경우입니다. 이미 최적화된 PDF를 다시 렌더링하면 더 줄일 여지가 없어 오히려 커질 수 있습니다. 이때는 해상도·품질 설정을 더 낮춰 시도하거나, 원본을 그대로 쓰는 것이 낫습니다. 또 글자 위주의 가벼운 PDF는 압축 효과 자체가 작으니, 용량의 원인이 이미지인 문서에서 압축이 가장 효과적입니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/merge-split-pdf/"><b>PDF 합치기·나누기</b><span>압축 전 페이지 정리</span></a>
+          <a class="rel-card" href="/guide/reduce-image-size/"><b>이미지 용량 줄이기</b><span>같은 원리, 사진 버전</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

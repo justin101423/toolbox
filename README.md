@@ -219,6 +219,8 @@
 - dkssud가 '안녕'인 이유 — 한/영 오타 (`/guide/korean-english-typo/`)
 - 계약서 금액 한글 표기법 — 일금 일백만원정 (`/guide/korean-money-notation/`)
 - 특수문자 빠르게 입력하는 법 (`/guide/type-special-characters/`)
+- PDF 용량 줄이는 법 — 원인과 용도별 설정 (`/guide/compress-pdf/`)
+- 사진 보정 기초 — 밝기·대비·채도 (`/guide/photo-adjust-basics/`)
 
 ## 기술 스택
 
