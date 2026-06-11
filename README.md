@@ -251,6 +251,8 @@
 - 핸드팬이란? — 두드리면 명상이 되는 악기 (`/guide/handpan-relax/`)
 - 깃허브 README 잘 쓰는 법 (`/guide/write-readme/`)
 - API 응답에서 타입 만들기 (`/guide/json-to-types-guide/`)
+- camelCase·snake_case — 개발 표기법 정리 (`/guide/naming-conventions/`)
+- LF·CRLF 줄바꿈 문제 정리 (`/guide/line-endings/`)
 
 ## 기술 스택
 
