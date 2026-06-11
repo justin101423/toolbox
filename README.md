@@ -229,6 +229,8 @@
 - 닉네임 꾸미기 글자의 정체 — 유니코드 (`/guide/fancy-nickname/`)
 - PDF에서 글자·이미지 꺼내기 (`/guide/extract-from-pdf/`)
 - 설치 없이 브라우저로 악기 연주 — 15종 둘러보기 (`/guide/browser-instruments/`)
+- 사진 비율 맞춰 자르기 — 프로필·썸네일 규격 (`/guide/crop-aspect-ratio/`)
+- 브라우저로 음성 녹음하기 (`/guide/voice-recording/`)
 
 ## 기술 스택
 
