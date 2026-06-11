@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 찾기·바꾸기로 문서 일괄 수정 — 반복 작업 1분 컷 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>찾기·바꾸기로 문서 일괄 수정 — 반복 작업 1분 컷 | 도구상자</title>
+<meta name="description" content="회사명 변경, 용어 통일, 연도 갱신 — 문서 전체에서 같은 수정을 반복하고 있다면 찾기·바꾸기가 답입니다. 안전하게 일괄 치환하는 순서, 부분 일치의 함정(대한 → 대한민국 사고), 정규식으로 한 단계 더 가는 법을 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/find-and-replace/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="찾기·바꾸기로 문서 일괄 수정 — 반복 작업 1분 컷">
+<meta property="og:description" content="안전한 일괄 치환 순서와 부분 일치의 함정.">
+<meta property="og:url" content="https://dogubox.shop/guide/find-and-replace/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="찾기·바꾸기 활용법">
+<meta name="twitter:description" content="문서 일괄 수정 요령.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "찾기·바꾸기로 문서 일괄 수정 — 반복 작업 1분 컷",
+  "description": "회사명 변경, 용어 통일, 연도 갱신 — 문서 전체에서 같은 수정을 반복하고 있다면 찾기·바꾸기가 답입니다. 안전하게 일괄 치환하는 순서, 부분 일치의 함정(대한 → 대한민국 사고), 정규식으로 한 단계 더 가는 법을 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "mainEntityOfPage": "https://dogubox.shop/guide/find-and-replace/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "일괄 바꾸기를 했더니 엉뚱한 단어까지 바뀌었어요.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "부분 일치 때문입니다. 찾기·바꾸기는 단어가 아니라 글자 조각을 찾으므로, '대한'을 '한국'으로 바꾸면 '대한민국'이 '한국민국'이 되는 식의 사고가 납니다. 예방법은 두 가지입니다. 바꿀 단어를 앞뒤 맥락과 함께 길게 지정하거나(예: '대한 ' 공백 포함), 바꾸기 전에 미리보기·하이라이트로 어디가 바뀌는지 전부 확인하는 것입니다. 원본을 복사해 두고 작업하는 것도 기본입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "여러 군데 흩어진 표기를 하나로 통일하려면요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "변형들을 하나씩 표준형으로 바꾸면 됩니다. 예를 들어 '이메일/이 메일/e메일/E-mail'을 ' 이메일'로 통일한다면, 가장 긴 변형부터 차례로 치환하는 것이 요령입니다. 짧은 것부터 바꾸면 긴 변형 안의 일부가 먼저 바뀌어 깨진 단어가 남을 수 있기 때문입니다. 변형이 많고 패턴이 있다면 정규식 치환으로 한 번에 처리할 수도 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "정규식 치환은 언제 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "'모양은 같지만 내용이 제각각'인 것을 바꿀 때입니다. 예를 들어 문서 속 모든 전화번호의 하이픈을 없애거나, 날짜 형식을 2026.06.12에서 2026-06-12로 통일하는 작업은 일반 찾기·바꾸기로는 한 건씩 해야 하지만 정규식으로는 패턴 하나로 끝납니다. 괄호로 잡은 그룹을 $1, $2로 재배치할 수 있어 형식 변환에 특히 강력합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "찾기·바꾸기 활용법", "item": "https://dogubox.shop/guide/find-and-replace/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>찾기·바꾸기로 문서 일괄 수정 — 반복 작업 1분 컷</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.12</span></div>
+
+      <section class="content">
+        <p>회사명이 바뀌어서, 용어를 통일하라고 해서, 연도를 갱신해야 해서 — 문서 곳곳의 같은 단어를 하나하나 고치고 있다면 멈추세요. 찾기·바꾸기는 그 일을 1분으로 줄여 줍니다. 단, <b>함정을 알아야 안전</b>합니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#uses">이럴 때 씁니다</a></li>
+            <li><a href="#trap">함정 — 부분 일치 사고</a></li>
+            <li><a href="#safe">안전한 일괄 치환 순서</a></li>
+            <li><a href="#regex">정규식으로 한 단계 더</a></li>
+          </ol>
+        </div>
+
+        <h2 id="uses">이럴 때 씁니다</h2>
+        <ul>
+          <li><b>명칭 변경</b> — 회사명·제품명·담당자명이 바뀌었을 때 문서 전체 갱신.</li>
+          <li><b>용어 통일</b> — "유저/사용자", "로그인/log in" 같은 혼용 정리.</li>
+          <li><b>형식 정리</b> — 전각 따옴표를 반각으로, 이중 공백을 하나로.</li>
+          <li><b>연도·버전 갱신</b> — 보고서 템플릿의 2025를 2026으로.</li>
+        </ul>
+
+        <h2 id="trap">함정 — 부분 일치 사고</h2>
+        <div class="callout"><b>대표 사고:</b> "대한"을 "한국"으로 일괄 치환 → "대한민국"이 <b>"한국민국"</b>으로. 찾기·바꾸기는 단어가 아니라 <b>글자 조각</b>을 찾기 때문입니다.</div>
+        <ul>
+          <li>짧은 검색어일수록 위험합니다 — 앞뒤 맥락(공백·조사)을 포함해 길게 지정하세요.</li>
+          <li>바꾸기 전에 <b>하이라이트로 전체 매치 위치를 확인</b>하는 습관이 사고를 막습니다.</li>
+          <li>대소문자 구분 옵션도 확인하세요 — "It"을 바꾸려다 "item"이 다치는 식의 사고가 흔합니다.</li>
+        </ul>
+
+        <h2 id="safe">안전한 일괄 치환 순서</h2>
+        <ol class="steps-list" style="list-style:decimal;padding-left:20px">
+          <li><b>원본 보존</b> — 원문을 복사해 두거나 도구에 붙여 넣어 작업합니다(원본 파일은 그대로).</li>
+          <li>찾을 단어를 입력하고 <b>매치 하이라이트를 전부 훑어봅니다</b> — 엉뚱한 곳이 걸리면 검색어를 더 구체적으로.</li>
+          <li>일괄 바꾸기를 실행하고 결과를 확인합니다.</li>
+          <li>표기 변형이 여럿이면 <b>긴 변형부터</b> 차례로 치환합니다 — 짧은 것부터 바꾸면 긴 변형이 깨집니다.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="replace"></span>
+          <span class="tc-tx"><b>텍스트 찾기·바꾸기</b><span>하이라이트 확인 후 일괄 치환 — 정규식 지원</span></span>
+          <a class="tc-go" href="/text-replace/">바꾸기 →</a>
+        </div>
+
+        <h2 id="regex">정규식으로 한 단계 더</h2>
+        <p>"모양은 같지만 내용이 제각각"인 것은 정규식 치환의 영역입니다.</p>
+        <ul>
+          <li><b>전화번호 하이픈 제거:</b> <code>(\d{3})-(\d{4})-(\d{4})</code> → <code>$1$2$3</code></li>
+          <li><b>날짜 형식 통일:</b> <code>(\d{4})\.(\d{2})\.(\d{2})</code> → <code>$1-$2-$3</code> (2026.06.12 → 2026-06-12)</li>
+          <li>괄호로 잡은 그룹을 <code>$1, $2</code>로 재배치하는 것이 핵심 — 형식 변환에 특히 강력합니다.</li>
+          <li>패턴이 처음이라면 <a class="inlink" href="/guide/regex-patterns/">정규식 패턴 모음</a>에서 복사해 시작하세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 일괄 바꾸기를 했더니 엉뚱한 단어까지 바뀌었어요.</b><p>부분 일치 때문입니다. 찾기·바꾸기는 단어가 아니라 글자 조각을 찾으므로, '대한'을 '한국'으로 바꾸면 '대한민국'이 '한국민국'이 되는 식의 사고가 납니다. 예방법은 두 가지입니다. 바꿀 단어를 앞뒤 맥락과 함께 길게 지정하거나(예: '대한 ' 공백 포함), 바꾸기 전에 미리보기·하이라이트로 어디가 바뀌는지 전부 확인하는 것입니다. 원본을 복사해 두고 작업하는 것도 기본입니다.</p></div>
+          <div class="qa"><b>Q. 여러 군데 흩어진 표기를 하나로 통일하려면요?</b><p>변형들을 하나씩 표준형으로 바꾸면 됩니다. 예를 들어 '이메일/이 메일/e메일/E-mail'을 ' 이메일'로 통일한다면, 가장 긴 변형부터 차례로 치환하는 것이 요령입니다. 짧은 것부터 바꾸면 긴 변형 안의 일부가 먼저 바뀌어 깨진 단어가 남을 수 있기 때문입니다. 변형이 많고 패턴이 있다면 정규식 치환으로 한 번에 처리할 수도 있습니다.</p></div>
+          <div class="qa"><b>Q. 정규식 치환은 언제 쓰나요?</b><p>'모양은 같지만 내용이 제각각'인 것을 바꿀 때입니다. 예를 들어 문서 속 모든 전화번호의 하이픈을 없애거나, 날짜 형식을 2026.06.12에서 2026-06-12로 통일하는 작업은 일반 찾기·바꾸기로는 한 건씩 해야 하지만 정규식으로는 패턴 하나로 끝납니다. 괄호로 잡은 그룹을 $1, $2로 재배치할 수 있어 형식 변환에 특히 강력합니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/regex-patterns/"><b>정규식 패턴 모음</b><span>복붙해 쓰는 치환 패턴</span></a>
+          <a class="rel-card" href="/guide/clean-text-list/"><b>복붙한 목록 1분 정리</b><span>치환 다음은 정리</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

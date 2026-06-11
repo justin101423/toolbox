@@ -259,6 +259,8 @@
 - HTML 표 기초 — table 태그 정리 (`/guide/html-table-basics/`)
 - 와이파이 비밀번호 QR로 공유하기 (`/guide/wifi-qr-code/`)
 - 공학용 계산기 사용법 (`/guide/scientific-calculator/`)
+- 찾기·바꾸기로 문서 일괄 수정 (`/guide/find-and-replace/`)
+- 배경화면 해상도 맞추기 (`/guide/wallpaper-resolution/`)
 
 ## 기술 스택
 
