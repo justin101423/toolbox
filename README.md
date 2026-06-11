@@ -201,6 +201,8 @@
 - 공정한 추첨 방법 — 추첨·사다리·돌림판 (`/guide/fair-random-draw/`)
 - 배색 기초 — 색 조합 규칙과 60-30-10 법칙 (`/guide/color-scheme-basics/`)
 - 밈·짤 만들기 — 글자 넣기 요령과 주의점 (`/guide/make-meme/`)
+- SQL 쿼리 읽기 좋게 정리하기 — 들여쓰기·대문자 규칙 (`/guide/sql-formatting/`)
+- 마크다운 표 만들기 — 문법·정렬과 엑셀에서 옮기는 법 (`/guide/markdown-table/`)
 
 ## 기술 스택
 
