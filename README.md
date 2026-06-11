@@ -217,6 +217,8 @@
 - 사진·화면 속 QR코드 읽는 법 (`/guide/read-qr-code/`)
 - 화면·사진 속 색상 코드 알아내는 법 (`/guide/find-color-code/`)
 - dkssud가 '안녕'인 이유 — 한/영 오타 (`/guide/korean-english-typo/`)
+- 계약서 금액 한글 표기법 — 일금 일백만원정 (`/guide/korean-money-notation/`)
+- 특수문자 빠르게 입력하는 법 (`/guide/type-special-characters/`)
 
 ## 기술 스택
 
