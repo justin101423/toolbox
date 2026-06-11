@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: UUID란? — 중복 걱정 없는 ID가 만들어지는 원리 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>UUID란? — 중복 걱정 없는 ID가 만들어지는 원리 | 도구상자</title>
+<meta name="description" content="36자짜리 알 수 없는 문자열 UUID, 정체가 뭘까요? 서로 모르는 컴퓨터들이 충돌 없이 ID를 만드는 원리, v4가 사실상 안 겹치는 이유, 자동 증가 번호와의 차이와 버전(v1·v4·v7) 구분을 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/what-is-uuid/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="UUID란? — 중복 걱정 없는 ID가 만들어지는 원리">
+<meta property="og:description" content="충돌 없는 ID의 원리, v4가 안 겹치는 이유, 버전 구분.">
+<meta property="og:url" content="https://dogubox.shop/guide/what-is-uuid/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="UUID란?">
+<meta name="twitter:description" content="중복 없는 ID의 원리.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "UUID란? — 중복 걱정 없는 ID가 만들어지는 원리",
+  "description": "36자짜리 알 수 없는 문자열 UUID, 정체가 뭘까요? 서로 모르는 컴퓨터들이 충돌 없이 ID를 만드는 원리, v4가 사실상 안 겹치는 이유, 자동 증가 번호와의 차이와 버전(v1·v4·v7) 구분을 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-11",
+  "dateModified": "2026-06-11",
+  "mainEntityOfPage": "https://dogubox.shop/guide/what-is-uuid/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "UUID는 정말 안 겹치나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이론상 겹칠 수 있지만 확률이 무시할 수 있을 만큼 작습니다. v4 UUID는 122비트의 무작위 값을 담는데, 초당 10억 개씩 100년을 만들어도 충돌 확률이 사실상 0에 가깝습니다. 그래서 실무에서는 '안 겹친다'고 간주하고 쓰되, 데이터베이스에서는 UNIQUE 제약을 함께 걸어 만약의 경우까지 막는 것이 관례입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "그냥 1, 2, 3 번호를 매기면 안 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "한 곳에서만 번호를 만들면 그게 더 간단합니다. 문제는 여러 서버·여러 기기가 동시에 ID를 만들어야 할 때입니다. 자동 증가 번호는 중앙에서 순서를 관리해야 충돌이 없는데, UUID는 서로 통신하지 않고도 각자 만들어 합쳐도 겹치지 않습니다. 또 순번 ID는 'id=42 다음은 43'처럼 추측이 가능해 외부에 노출되는 ID로는 UUID가 더 안전합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "v1, v4, v7 같은 버전은 뭐가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "만드는 재료가 다릅니다. v1은 생성 시각과 기기(MAC 주소) 정보 기반이라 순서는 있지만 기기 정보가 노출됩니다. v4는 완전 무작위로 가장 널리 쓰입니다. v7은 앞부분에 타임스탬프를 넣고 뒤를 무작위로 채워, 시간순 정렬이 가능하면서도 충돌이 없어 데이터베이스 키 용도로 주목받는 최신 표준입니다. 일반 용도라면 v4면 충분합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "UUID란?", "item": "https://dogubox.shop/guide/what-is-uuid/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>UUID란? — 중복 걱정 없는 ID가 만들어지는 원리</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.11</span></div>
+
+      <section class="content">
+        <p>개발을 하다 보면 <code>550e8400-e29b-41d4-a716-446655440000</code> 같은 36자 문자열을 자주 만납니다. 이것이 UUID입니다. 서로 모르는 컴퓨터들이 상의 없이 각자 ID를 만들어도 겹치지 않게 하는 장치죠. 어떻게 그게 가능한지, 언제 쓰는지 정리합니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">UUID의 정체 — 128비트 식별자</a></li>
+            <li><a href="#why">왜 필요한가 — 순번 ID의 한계</a></li>
+            <li><a href="#collision">정말 안 겹칠까 — 확률의 직관</a></li>
+            <li><a href="#versions">버전 구분 — v1·v4·v7</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">UUID의 정체 — 128비트 식별자</h2>
+        <p>UUID(Universally Unique IDentifier)는 <b>128비트 숫자</b>입니다. 사람이 읽기 좋게 16진수로 적고 하이픈으로 8-4-4-4-12 자리로 끊은 것이 우리가 보는 36자 형태입니다.</p>
+        <ul>
+          <li>형식: <code>xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx</code> — M 자리에 버전(4면 v4), N 자리에 변형 정보가 들어갑니다.</li>
+          <li>대소문자는 구분하지 않으며 표준 표기는 소문자입니다.</li>
+          <li>데이터베이스의 기본 키, 파일·주문·세션 ID, 분산 시스템의 요청 추적 ID 등 "전 세계에서 유일해야 하는 이름"이 필요한 곳에 쓰입니다.</li>
+        </ul>
+
+        <h2 id="why">왜 필요한가 — 순번 ID의 한계</h2>
+        <p>ID를 1, 2, 3… 순번으로 매기는 방식은 한 곳에서 발급할 때는 완벽합니다. 문제는 발급처가 여럿일 때입니다.</p>
+        <ul>
+          <li><b>충돌:</b> 서버 두 대가 동시에 "다음 번호는 101"이라고 판단하면 같은 ID가 두 개 생깁니다. 이를 막으려면 중앙에서 줄을 세워야 하고, 그만큼 느려집니다.</li>
+          <li><b>추측 가능:</b> <code>order/42</code> 다음에 <code>order/43</code>이 있다는 걸 누구나 압니다. 외부에 노출되는 ID가 순번이면 전체 규모와 다른 데이터의 존재가 드러납니다.</li>
+          <li><b>병합 곤란:</b> 오프라인 기기에서 만든 데이터를 나중에 합칠 때, 순번끼리는 반드시 겹칩니다.</li>
+        </ul>
+        <div class="callout"><b>UUID의 답:</b> 조율 없이 각자 무작위로 만들어도 통계적으로 안 겹치게 하자 — 이것이 UUID의 설계 철학입니다.</div>
+
+        <h2 id="collision">정말 안 겹칠까 — 확률의 직관</h2>
+        <p>v4 UUID는 122비트가 무작위입니다. 가능한 값이 약 5.3×10³⁶개로, <b>초당 10억 개씩 100년을 만들어도</b> 충돌 확률은 사실상 0으로 취급할 수 있는 수준입니다. 그래서 실무에서는 "안 겹친다"고 간주하되, 데이터베이스에는 UNIQUE 제약을 함께 걸어 만약의 경우까지 차단하는 것이 관례입니다.</p>
+
+        <h2 id="versions">버전 구분 — v1·v4·v7</h2>
+        <ul>
+          <li><b>v1</b> — 생성 시각 + 기기(MAC 주소) 기반. 순서가 있지만 기기 정보가 노출되고 예측 가능합니다.</li>
+          <li><b>v4</b> — 완전 무작위. 가장 널리 쓰이는 기본 선택지입니다.</li>
+          <li><b>v7</b> — 앞부분은 타임스탬프, 뒷부분은 무작위. 시간순 정렬이 가능해 데이터베이스 인덱스 성능에 유리한 최신 표준입니다.</li>
+        </ul>
+        <ol class="steps-list" style="list-style:decimal;padding-left:20px">
+          <li>일반 용도라면 v4를 생성해 그대로 쓰면 됩니다.</li>
+          <li>필요한 개수만큼 한 번에 만들어 복사합니다.</li>
+          <li>대문자가 필요한 환경이면 변환해도 같은 값으로 취급됩니다.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="fingerprint"></span>
+          <span class="tc-tx"><b>UUID 생성기</b><span>v4 UUID를 원하는 개수만큼, 브라우저에서 즉시</span></span>
+          <a class="tc-go" href="/uuid-generator/">생성하기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. UUID는 정말 안 겹치나요?</b><p>이론상 겹칠 수 있지만 확률이 무시할 수 있을 만큼 작습니다. v4 UUID는 122비트의 무작위 값을 담는데, 초당 10억 개씩 100년을 만들어도 충돌 확률이 사실상 0에 가깝습니다. 그래서 실무에서는 '안 겹친다'고 간주하고 쓰되, 데이터베이스에서는 UNIQUE 제약을 함께 걸어 만약의 경우까지 막는 것이 관례입니다.</p></div>
+          <div class="qa"><b>Q. 그냥 1, 2, 3 번호를 매기면 안 되나요?</b><p>한 곳에서만 번호를 만들면 그게 더 간단합니다. 문제는 여러 서버·여러 기기가 동시에 ID를 만들어야 할 때입니다. 자동 증가 번호는 중앙에서 순서를 관리해야 충돌이 없는데, UUID는 서로 통신하지 않고도 각자 만들어 합쳐도 겹치지 않습니다. 또 순번 ID는 'id=42 다음은 43'처럼 추측이 가능해 외부에 노출되는 ID로는 UUID가 더 안전합니다.</p></div>
+          <div class="qa"><b>Q. v1, v4, v7 같은 버전은 뭐가 다른가요?</b><p>만드는 재료가 다릅니다. v1은 생성 시각과 기기(MAC 주소) 정보 기반이라 순서는 있지만 기기 정보가 노출됩니다. v4는 완전 무작위로 가장 널리 쓰입니다. v7은 앞부분에 타임스탬프를 넣고 뒤를 무작위로 채워, 시간순 정렬이 가능하면서도 충돌이 없어 데이터베이스 키 용도로 주목받는 최신 표준입니다. 일반 용도라면 v4면 충분합니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/what-is-hash/"><b>해시·SHA-256</b><span>또 다른 고유값의 세계</span></a>
+          <a class="rel-card" href="/guide/timestamp-conversion/"><b>유닉스 타임스탬프</b><span>시간을 숫자로 다루기</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

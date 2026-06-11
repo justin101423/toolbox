@@ -211,6 +211,8 @@
 - 글자 깨짐(인코딩)의 원인과 해결 (`/guide/broken-text-encoding/`)
 - 기타 튜닝 하는 법 — EADGBE와 튜너 보는 법 (`/guide/guitar-tuning/`)
 - 메트로놈 연습법 — BPM 읽기와 템포 올리기 (`/guide/metronome-practice/`)
+- 피아노 건반 익히기 — 도 찾는 법부터 첫 화음까지 (`/guide/piano-keys/`)
+- UUID란? — 중복 없는 ID의 원리 (`/guide/what-is-uuid/`)
 
 ## 기술 스택
 
