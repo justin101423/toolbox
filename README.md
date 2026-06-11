@@ -225,6 +225,8 @@
 - 여러 사진 한 장으로 — 콜라주 요령 (`/guide/photo-collage/`)
 - 복붙한 목록 1분 정리 — 중복 제거·정렬 (`/guide/clean-text-list/`)
 - 비트 만들기 입문 — 스텝 시퀀서 패턴 (`/guide/make-beat/`)
+- 발표 대본 분량 계산법 — 분당 300자 (`/guide/speech-script-length/`)
+- 닉네임 꾸미기 글자의 정체 — 유니코드 (`/guide/fancy-nickname/`)
 
 ## 기술 스택
 
