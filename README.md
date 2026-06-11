@@ -255,6 +255,8 @@
 - LF·CRLF 줄바꿈 문제 정리 (`/guide/line-endings/`)
 - %와 %p의 차이 — 금리 뉴스 읽기 (`/guide/percent-vs-percentpoint/`)
 - XML이란? — 아직 살아 있는 이유 (`/guide/what-is-xml/`)
+- 원고지 매수 계산법 — 200자 환산 (`/guide/manuscript-paper/`)
+- HTML 표 기초 — table 태그 정리 (`/guide/html-table-basics/`)
 
 ## 기술 스택
 
