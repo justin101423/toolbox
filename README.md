@@ -257,6 +257,8 @@
 - XML이란? — 아직 살아 있는 이유 (`/guide/what-is-xml/`)
 - 원고지 매수 계산법 — 200자 환산 (`/guide/manuscript-paper/`)
 - HTML 표 기초 — table 태그 정리 (`/guide/html-table-basics/`)
+- 와이파이 비밀번호 QR로 공유하기 (`/guide/wifi-qr-code/`)
+- 공학용 계산기 사용법 (`/guide/scientific-calculator/`)
 
 ## 기술 스택
 
