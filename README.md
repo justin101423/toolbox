@@ -247,6 +247,8 @@
 - 테레민이란? — 만지지 않는 악기 (`/guide/what-is-theremin/`)
 - 하프 글리산도의 비밀 (`/guide/harp-glissando/`)
 - 가야금 이야기 — 12줄·안족·농현 (`/guide/gayageum-basics/`)
+- 실로폰 음악놀이 — 아이와 함께 도레미 (`/guide/xylophone-play/`)
+- 핸드팬이란? — 두드리면 명상이 되는 악기 (`/guide/handpan-relax/`)
 
 ## 기술 스택
 
