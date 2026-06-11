@@ -213,6 +213,8 @@
 - 메트로놈 연습법 — BPM 읽기와 템포 올리기 (`/guide/metronome-practice/`)
 - 피아노 건반 익히기 — 도 찾는 법부터 첫 화음까지 (`/guide/piano-keys/`)
 - UUID란? — 중복 없는 ID의 원리 (`/guide/what-is-uuid/`)
+- JSON vs YAML — 문법 차이와 변환 주의점 (`/guide/json-vs-yaml/`)
+- 사진·화면 속 QR코드 읽는 법 (`/guide/read-qr-code/`)
 
 ## 기술 스택
 
