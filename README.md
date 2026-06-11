@@ -203,6 +203,8 @@
 - 밈·짤 만들기 — 글자 넣기 요령과 주의점 (`/guide/make-meme/`)
 - SQL 쿼리 읽기 좋게 정리하기 — 들여쓰기·대문자 규칙 (`/guide/sql-formatting/`)
 - 마크다운 표 만들기 — 문법·정렬과 엑셀에서 옮기는 법 (`/guide/markdown-table/`)
+- CSS 그라데이션 만들기 — linear·radial 문법과 배색 (`/guide/css-gradient/`)
+- 자연스러운 그림자 만들기 — box-shadow 값 5개의 의미 (`/guide/css-box-shadow/`)
 
 ## 기술 스택
 
