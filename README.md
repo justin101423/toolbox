@@ -227,6 +227,8 @@
 - 비트 만들기 입문 — 스텝 시퀀서 패턴 (`/guide/make-beat/`)
 - 발표 대본 분량 계산법 — 분당 300자 (`/guide/speech-script-length/`)
 - 닉네임 꾸미기 글자의 정체 — 유니코드 (`/guide/fancy-nickname/`)
+- PDF에서 글자·이미지 꺼내기 (`/guide/extract-from-pdf/`)
+- 설치 없이 브라우저로 악기 연주 — 15종 둘러보기 (`/guide/browser-instruments/`)
 
 ## 기술 스택
 
