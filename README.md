@@ -245,6 +245,8 @@
 - 런치패드 입문 — 루프 쌓기 (`/guide/launchpad-loops/`)
 - 신디사이저 기초 — 파형·필터·ADSR (`/guide/synth-basics/`)
 - 테레민이란? — 만지지 않는 악기 (`/guide/what-is-theremin/`)
+- 하프 글리산도의 비밀 (`/guide/harp-glissando/`)
+- 가야금 이야기 — 12줄·안족·농현 (`/guide/gayageum-basics/`)
 
 ## 기술 스택
 
