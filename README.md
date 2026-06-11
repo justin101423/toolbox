@@ -209,6 +209,8 @@
 - 순공시간 재기 — 스톱워치·타이머 공부 활용법 (`/guide/study-timer/`)
 - 404, 500 에러 코드의 의미 — 방문자와 운영자가 할 일 (`/guide/http-error-codes/`)
 - 글자 깨짐(인코딩)의 원인과 해결 (`/guide/broken-text-encoding/`)
+- 기타 튜닝 하는 법 — EADGBE와 튜너 보는 법 (`/guide/guitar-tuning/`)
+- 메트로놈 연습법 — BPM 읽기와 템포 올리기 (`/guide/metronome-practice/`)
 
 ## 기술 스택
 
