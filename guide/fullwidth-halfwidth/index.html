@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: ％와 %는 다른 글자다 — 전각·반각 문자 이야기 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>％와 %는 다른 글자다 — 전각·반각 문자 이야기 | 도구상자</title>
+<meta name="description" content="분명 맞는 비밀번호인데 틀렸다고 나온다면 전각 문자를 의심하세요. 전각(％·１·ＡＢＣ)과 반각(%·1·ABC)은 모양이 비슷해도 컴퓨터에겐 완전히 다른 글자입니다. 전각이 생기는 경위(일본어 입력기·한자 모드), 찾는 법, 한 번에 바꾸는 법을 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/fullwidth-halfwidth/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="％와 %는 다른 글자다 — 전각·반각 문자 이야기">
+<meta property="og:description" content="비밀번호 오류·검색 실패의 숨은 범인 — 전각 문자 찾고 바꾸기.">
+<meta property="og:url" content="https://dogubox.shop/guide/fullwidth-halfwidth/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="전각·반각 문자">
+<meta name="twitter:description" content="％와 %가 다른 이유.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "％와 %는 다른 글자다 — 전각·반각 문자 이야기",
+  "description": "분명 맞는 비밀번호인데 틀렸다고 나온다면 전각 문자를 의심하세요. 전각(％·１·ＡＢＣ)과 반각(%·1·ABC)은 모양이 비슷해도 컴퓨터에겐 완전히 다른 글자입니다. 전각이 생기는 경위(일본어 입력기·한자 모드), 찾는 법, 한 번에 바꾸는 법을 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "mainEntityOfPage": "https://dogubox.shop/guide/fullwidth-halfwidth/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "전각 문자와 반각 문자가 뭔가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "한자 한 글자 폭(전각)과 그 절반 폭(반각)으로 글자를 나누던 동아시아 조판 관습에서 온 구분입니다. 영문·숫자·기호에는 반각(ABC, 123, %)과 전각(ＡＢＣ, １２３, ％) 두 벌이 유니코드에 모두 존재합니다. 사람 눈에는 폭만 다른 같은 글자처럼 보이지만, 컴퓨터에게는 코드가 다른 완전히 별개의 문자입니다. 그래서 검색·비밀번호·아이디 비교에서 일치하지 않는 것으로 처리됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "전각 문자는 어쩌다 입력되는 건가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "가장 흔한 경로는 일본어 입력기(기본이 전각 영숫자인 경우가 많음)와, 한국어 입력기의 한자/전각 모드가 실수로 켜진 경우입니다. 일본 사이트·문서에서 복사해 온 텍스트에 전각 영숫자가 섞여 오기도 하고, 일부 워드 프로그램의 자동 변환이 원인이 되기도 합니다. 특히 비밀번호 입력란은 글자가 점으로 가려져 전각이 들어가도 알아챌 수 없어서, '맞는 비밀번호가 계속 틀리다'는 미스터리의 단골 범인입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "문서에 섞인 전각 문자를 한 번에 찾아 바꿀 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "찾기·바꾸기로 전각 문자를 하나씩 반각으로 치환하는 것이 가장 확실합니다. 전각 공백(U+3000)은 눈에 안 보이는 단골이므로 공백 정리 도구로 일반 공백과 함께 정리하면 편합니다. 엑셀에는 전각을 반각으로 일괄 변환하는 ASC 함수가 있고, 일본어권 문서를 자주 다룬다면 편집기의 전각→반각 변환 기능을 찾아 두는 것도 좋습니다. 데이터 정리에서는 보이는 글자가 같아도 코드가 다를 수 있다는 사실 자체를 기억하는 것이 절반입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "전각·반각 문자", "item": "https://dogubox.shop/guide/fullwidth-halfwidth/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>％와 %는 다른 글자다 — 전각·반각 문자 이야기</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.12</span></div>
+
+      <section class="content">
+        <p>분명 맞는 비밀번호인데 "비밀번호가 일치하지 않습니다"가 뜹니다. 엑셀에서 같은 이름을 검색했는데 안 나옵니다. 이 미스터리의 단골 범인이 <b>전각 문자</b>입니다 — 사람 눈에는 같아 보여도, 컴퓨터에게 <b>％(전각)와 %(반각)는 완전히 다른 글자</b>니까요.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">전각·반각이란</a></li>
+            <li><a href="#how">어쩌다 입력되나</a></li>
+            <li><a href="#trouble">일으키는 사고들</a></li>
+            <li><a href="#fix">찾고 바꾸는 법</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">전각·반각이란</h2>
+        <ul>
+          <li>동아시아 조판에서 <b>한자 한 글자 폭 = 전각</b>, 그 절반 = 반각으로 글자 폭을 나누던 관습에서 왔습니다.</li>
+          <li>그래서 유니코드에는 영문·숫자·기호가 <b>두 벌</b> 있습니다 — 반각 <code>ABC 123 %</code> / 전각 <code>ＡＢＣ １２３ ％</code>.</li>
+          <li>모양은 폭만 달라 보이지만 <b>문자 코드가 다릅니다</b> — A(U+0041) vs Ａ(U+FF21). 비교·검색에서는 남남입니다.</li>
+          <li>한글 문서에서 자주 만나는 또 하나: <b>전각 공백(U+3000)</b> — 일반 공백보다 넓고, 눈으로 구분이 거의 안 됩니다.</li>
+        </ul>
+
+        <h2 id="how">어쩌다 입력되나</h2>
+        <ul>
+          <li><b>일본어 입력기</b> — 기본이 전각 영숫자인 경우가 많아, 일본어 자판 상태로 숫자를 치면 전각이 들어갑니다.</li>
+          <li><b>한자/전각 모드 오작동</b> — 한국어 입력기에서도 실수로 전각 모드가 켜질 수 있습니다.</li>
+          <li><b>복사·붙여넣기</b> — 일본 사이트·오래된 문서의 텍스트에 전각 영숫자·공백이 섞여 따라옵니다.</li>
+          <li><b>워드의 자동 변환</b> — 일부 환경에서 따옴표·기호가 전각형으로 자동 치환됩니다.</li>
+        </ul>
+
+        <h2 id="trouble">일으키는 사고들</h2>
+        <ul>
+          <li><b>비밀번호 불일치</b> — 입력란이 점(●)으로 가려져 전각이 섞여도 못 알아챕니다. "분명 맞는데 틀리다"의 정체.</li>
+          <li><b>검색 실패</b> — 엑셀·문서에서 "ＡＢＣ상사"는 "ABC상사" 검색에 안 걸립니다.</li>
+          <li><b>데이터 불일치</b> — 명단 대조·중복 제거에서 같은 사람이 다른 사람으로 처리됩니다.</li>
+          <li><b>코드 오류</b> — 프로그래밍에서 전각 공백·세미콜론이 섞이면 보이지 않는 문법 오류가 됩니다(<a class="inlink" href="/guide/broken-text-encoding/">글자 깨짐</a>과는 또 다른, "깨지지도 않는" 함정).</li>
+        </ul>
+
+        <h2 id="fix">찾고 바꾸는 법</h2>
+        <ol class="steps-list" style="list-style:decimal;padding-left:20px">
+          <li><b>의심부터</b> — "보이는 건 같은데 비교가 실패한다"면 전각을 떠올리세요. 절반은 여기서 해결됩니다.</li>
+          <li><b>찾기·바꾸기</b> — 전각 문자(％·１·Ａ 등)를 복사해 찾고 반각으로 치환합니다. <a class="inlink" href="/guide/find-and-replace/">찾기·바꾸기 활용법</a> 참고.</li>
+          <li><b>공백 정리</b> — 전각 공백은 공백 정리 도구로 일반 공백과 함께 일괄 정리하는 것이 빠릅니다.</li>
+          <li><b>엑셀이라면</b> — ASC 함수가 전각을 반각으로 일괄 변환합니다(반대는 JIS 함수).</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="remove-formatting"></span>
+          <span class="tc-tx"><b>공백·줄바꿈 정리</b><span>붙여넣은 텍스트의 이상한 공백을 한 번에 정리</span></span>
+          <a class="tc-go" href="/clean-text/">정리하기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 전각 문자와 반각 문자가 뭔가요?</b><p>한자 한 글자 폭(전각)과 그 절반 폭(반각)으로 글자를 나누던 동아시아 조판 관습에서 온 구분입니다. 영문·숫자·기호에는 반각(ABC, 123, %)과 전각(ＡＢＣ, １２３, ％) 두 벌이 유니코드에 모두 존재합니다. 사람 눈에는 폭만 다른 같은 글자처럼 보이지만, 컴퓨터에게는 코드가 다른 완전히 별개의 문자입니다. 그래서 검색·비밀번호·아이디 비교에서 일치하지 않는 것으로 처리됩니다.</p></div>
+          <div class="qa"><b>Q. 전각 문자는 어쩌다 입력되는 건가요?</b><p>가장 흔한 경로는 일본어 입력기(기본이 전각 영숫자인 경우가 많음)와, 한국어 입력기의 한자/전각 모드가 실수로 켜진 경우입니다. 일본 사이트·문서에서 복사해 온 텍스트에 전각 영숫자가 섞여 오기도 하고, 일부 워드 프로그램의 자동 변환이 원인이 되기도 합니다. 특히 비밀번호 입력란은 글자가 점으로 가려져 전각이 들어가도 알아챌 수 없어서, '맞는 비밀번호가 계속 틀리다'는 미스터리의 단골 범인입니다.</p></div>
+          <div class="qa"><b>Q. 문서에 섞인 전각 문자를 한 번에 찾아 바꿀 수 있나요?</b><p>찾기·바꾸기로 전각 문자를 하나씩 반각으로 치환하는 것이 가장 확실합니다. 전각 공백(U+3000)은 눈에 안 보이는 단골이므로 공백 정리 도구로 일반 공백과 함께 정리하면 편합니다. 엑셀에는 전각을 반각으로 일괄 변환하는 ASC 함수가 있고, 일본어권 문서를 자주 다룬다면 편집기의 전각→반각 변환 기능을 찾아 두는 것도 좋습니다. 데이터 정리에서는 보이는 글자가 같아도 코드가 다를 수 있다는 사실 자체를 기억하는 것이 절반입니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/broken-text-encoding/"><b>글자 깨짐과 인코딩</b><span>문자 코드의 세계</span></a>
+          <a class="rel-card" href="/guide/korean-english-typo/"><b>한/영 오타의 원리</b><span>또 다른 입력기 사고</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

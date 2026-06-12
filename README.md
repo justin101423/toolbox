@@ -293,6 +293,8 @@
 - 화씨 70도는 몇 도? (`/guide/fahrenheit-celsius/`)
 - 유튜브 1시간이면 몇 GB? — 스트리밍 데이터 (`/guide/streaming-data-usage/`)
 - 24절기는 음력이 아니다 (`/guide/solar-terms-24/`)
+- RAW vs JPG — 카메라 파일 형식 (`/guide/raw-vs-jpg/`)
+- ％와 %는 다른 글자다 — 전각·반각 (`/guide/fullwidth-halfwidth/`)
 
 ## 기술 스택
 
