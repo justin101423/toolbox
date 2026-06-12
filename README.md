@@ -279,6 +279,8 @@
 - 사다리타기는 정말 공정할까 (`/guide/ladder-game-fairness/`)
 - 보험 나이 계산법 — 상령일이란? (`/guide/insurance-age/`)
 - 패스키(Passkey)란? — 비밀번호 없는 로그인 (`/guide/what-is-passkey/`)
+- 중복할인의 함정 — 20%+10%는 30%가 아니다 (`/guide/double-discount/`)
+- 오늘은 몇 주차? — 주차 계산법 (`/guide/week-number/`)
 
 ## 기술 스택
 
