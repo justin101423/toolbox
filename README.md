@@ -324,5 +324,5 @@ npx serve .
 
 ## 라이선스 / 문의
 
-- 문의: 사이트 내 [문의 섹션](https://dogubox.shop/#contact)
+- 문의: 사이트 내 [문의 섹션](https://dogubox.shop/about.html#contact)
 - 개인정보처리방침: https://dogubox.shop/privacy.html
