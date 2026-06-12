@@ -269,6 +269,8 @@
 - 1큰술은 몇 ml? — 요리 계량 단위 환산표 (`/guide/cooking-measurements/`)
 - 16:9가 뭐길래 — 화면 비율 계산법과 해상도 표 (`/guide/aspect-ratio/`)
 - 사진 인화 사이즈 총정리 (`/guide/photo-print-size/`)
+- 100메가 인터넷인데 왜 12.5MB/s? — Mbps와 MB/s (`/guide/internet-speed-units/`)
+- A4 크기는 몇 픽셀? — 용지 규격과 dpi (`/guide/a4-paper-size/`)
 
 ## 기술 스택
 
