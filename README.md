@@ -289,6 +289,8 @@
 - 27인치 모니터는 몇 cm? (`/guide/monitor-inches/`)
 - 스크린샷 제대로 찍기 (`/guide/screenshot-basics/`)
 - 와이파이 2.4GHz vs 5GHz (`/guide/wifi-bands/`)
+- 윤년과 윤달은 다르다 (`/guide/leap-year-month/`)
+- 화씨 70도는 몇 도? (`/guide/fahrenheit-celsius/`)
 
 ## 기술 스택
 
