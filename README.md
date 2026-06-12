@@ -261,6 +261,10 @@
 - 공학용 계산기 사용법 (`/guide/scientific-calculator/`)
 - 찾기·바꾸기로 문서 일괄 수정 (`/guide/find-and-replace/`)
 - 배경화면 해상도 맞추기 (`/guide/wallpaper-resolution/`)
+- px·rem·em 차이 — CSS 단위 (`/guide/css-units/`)
+- 색맹·색약 사용자에게 내 디자인은 어떻게 보일까 (`/guide/colorblind-design/`)
+- 애니메이션이 어색한 이유 — 이징 곡선 입문 (`/guide/css-easing/`)
+- 둥근 모서리 디자인 — border-radius 제대로 쓰기 (`/guide/css-border-radius/`)
 
 ## 기술 스택
 
