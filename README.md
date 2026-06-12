@@ -265,6 +265,8 @@
 - 색맹·색약 사용자에게 내 디자인은 어떻게 보일까 (`/guide/colorblind-design/`)
 - 애니메이션이 어색한 이유 — 이징 곡선 입문 (`/guide/css-easing/`)
 - 둥근 모서리 디자인 — border-radius 제대로 쓰기 (`/guide/css-border-radius/`)
+- 여권 영문 이름 정하는 법 (`/guide/passport-english-name/`)
+- 1큰술은 몇 ml? — 요리 계량 단위 환산표 (`/guide/cooking-measurements/`)
 
 ## 기술 스택
 
