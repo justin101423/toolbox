@@ -4,7 +4,7 @@
  * GA_ID가 placeholder 상태면 아무것도 로드하지 않는다(요청 0).
  * ------------------------------------------------------------------ */
 (function () {
-  var GA_ID = "G-XXXXXXXXXX"; // TODO: GA4 측정 ID로 교체하면 활성화됩니다 (analytics.google.com → 관리 → 데이터 스트림)
+  var GA_ID = "G-EQH5P4E001"; // GA4 측정 ID (2026-06-13 활성화)
 
   // placeholder이거나 형식이 아니면 무동작 — 외부 요청을 일절 보내지 않음
   if (GA_ID.indexOf("X") >= 0 || !/^G-[A-Z0-9]{6,}$/.test(GA_ID)) return;
