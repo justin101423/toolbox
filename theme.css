@@ -1,15 +1,17 @@
+/* 다크 팔레트 — 무채색 회색 대신 따뜻한 다크 브라운("밤의 종이")으로
+   라이트 모드의 페이퍼 무드를 밤에도 잇는다. */
 html[data-theme="dark"] {
-  --paper:#1e1e1e;
-  --panel:#333333;
-  --panel-2:#3b3b3b;
-  --card:#282828;
-  --ink:#f0f0f0;
-  --ink-2:#b8b8b8;
-  --ink-3:#9f9f9f;
-  --accent:#df4324;
-  --accent-2:#bf3417;
-  --line:rgba(255,255,255,.18);
-  --line-2:rgba(255,255,255,.36);
+  --paper:#201d19;
+  --panel:#2c2823;
+  --panel-2:#363028;
+  --card:#272320;
+  --ink:#f2ede3;
+  --ink-2:#c6bdae;
+  --ink-3:#978e7f;
+  --accent:#e8502c;
+  --accent-2:#f06a48;
+  --line:rgba(242,237,227,.15);
+  --line-2:rgba(242,237,227,.33);
   --ok:#7fd19c;
   --err:#ff8a80;
 }
@@ -37,6 +39,19 @@ html[data-theme="dark"] {
 .theme-toggle:active {
   transform:scale(.96);
 }
+
+/* 맨 위로 플로팅 버튼 — theme.js가 주입. 한 화면 이상 스크롤하면 표시 */
+.to-top {
+  position:fixed; right:22px; bottom:22px; z-index:60;
+  width:42px; height:42px; border-radius:100px;
+  background:var(--card); border:1px solid var(--line-2); color:var(--ink-2);
+  font-size:17px; line-height:1; display:grid; place-items:center; cursor:pointer;
+  opacity:0; visibility:hidden; transform:translateY(8px);
+  transition:opacity .2s, transform .2s, visibility .2s, border-color .15s, color .15s;
+  box-shadow:3px 3px 0 rgba(0,0,0,.15);
+}
+.to-top.show { opacity:1; visibility:visible; transform:none }
+.to-top:hover { border-color:var(--accent); color:var(--accent) }
 
 /* 사이드바 스크롤바 — 기본 두꺼운 스크롤바를 가늘게 (전 페이지 공통) */
 .side { scrollbar-width:thin; scrollbar-color:var(--line-2) transparent }

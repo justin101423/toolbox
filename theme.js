@@ -60,3 +60,28 @@
     });
   }
 })();
+
+// "맨 위로" 플로팅 버튼 — 한 화면 이상 스크롤하면 우하단에 표시 (전 페이지 공통, 스타일은 theme.css .to-top)
+(() => {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'to-top';
+  btn.textContent = '↑';
+  btn.setAttribute('aria-label', '맨 위로');
+  document.body.appendChild(btn);
+
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  });
+
+  let ticking = false;
+  function update() {
+    btn.classList.toggle('show', window.scrollY > 600);
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();

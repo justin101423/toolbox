@@ -85,3 +85,7 @@
 /* 허브 검색창 — 입력 포커스 링을 사이트 공통 스타일과 통일 */
 #guide-search{transition:border-color .15s,box-shadow .15s}
 #guide-search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(223,67,36,.13)}
+/* 좁은 화면 — 본문 표는 찌그러뜨리지 않고 가로 스크롤로 */
+@media(max-width:640px){
+  .content table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}

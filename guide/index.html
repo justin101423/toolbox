@@ -58,6 +58,8 @@
 /* 허브 전용: 카드 그리드를 홈과 같은 폭(1320px)으로 확장. 제목·소개는 읽기 폭 유지 */
 .inner{max-width:1320px}
 .inner>h1,.inner>.lede{max-width:860px}
+/* 섹션 라벨의 글 수 배지 (스크립트가 채움) */
+.sec-label .cnt{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent)}
 </style>
 <script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
 
@@ -890,14 +892,24 @@
 <script src="/theme.js"></script>
 <script src="/analytics.js" defer></script>
 <script>
-/* 가이드 허브 검색 필터 — 제목·설명·카테고리 텍스트로 카드 필터링 (클라이언트 사이드) */
+/* 가이드 허브 검색 필터 — 제목·설명·카테고리 텍스트로 카드 필터링 + 섹션별 글 수 배지 (클라이언트 사이드) */
 (function(){
   var input = document.getElementById('guide-search');
   if (!input) return;
   var grids = Array.prototype.slice.call(document.querySelectorAll('.guide-grid'));
   var noResult = document.getElementById('guide-noresult');
-  input.addEventListener('input', function(){
-    var q = input.value.trim().toLowerCase();
+
+  // 섹션 라벨에 글 수 배지 생성
+  grids.forEach(function(grid){
+    var label = grid.previousElementSibling;
+    if (label && label.classList.contains('sec-label') && !label.querySelector('.cnt')) {
+      var c = document.createElement('span');
+      c.className = 'cnt';
+      label.appendChild(c);
+    }
+  });
+
+  function applyFilter(q){
     var total = 0;
     grids.forEach(function(grid){
       var visible = 0;
@@ -909,10 +921,17 @@
       total += visible;
       grid.style.display = visible ? '' : 'none';
       var label = grid.previousElementSibling;
-      if (label && label.classList.contains('sec-label')) label.style.display = visible ? '' : 'none';
+      if (label && label.classList.contains('sec-label')) {
+        label.style.display = visible ? '' : 'none';
+        var c = label.querySelector('.cnt');
+        if (c) c.textContent = visible;
+      }
     });
     if (noResult) noResult.style.display = (q && total === 0) ? '' : 'none';
-  });
+  }
+
+  input.addEventListener('input', function(){ applyFilter(input.value.trim().toLowerCase()); });
+  applyFilter('');
 })();
 </script>
 </html>
