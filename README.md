@@ -291,6 +291,8 @@
 - 와이파이 2.4GHz vs 5GHz (`/guide/wifi-bands/`)
 - 윤년과 윤달은 다르다 (`/guide/leap-year-month/`)
 - 화씨 70도는 몇 도? (`/guide/fahrenheit-celsius/`)
+- 유튜브 1시간이면 몇 GB? — 스트리밍 데이터 (`/guide/streaming-data-usage/`)
+- 24절기는 음력이 아니다 (`/guide/solar-terms-24/`)
 
 ## 기술 스택
 
