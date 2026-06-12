@@ -214,7 +214,7 @@ toolbox/
 
 > **목적**: 순수 유틸리티만 있는 사이트는 AdSense·검색에서 "가치 없는 콘텐츠(thin content)"로 평가받기 쉽습니다. 이를 보완하려고 **읽을거리형 editorial 콘텐츠**(도구 활용 가이드)를 `/guide/` 하위에 둡니다. 도구 개수(115)에는 포함하지 않습니다.
 
-- **허브**: `/guide/index.html` — 글 목록을 **주제별 8개 섹션**(`.sec-label` + 섹션별 `.guide-grid`)으로 묶어 표시: 이미지·사진 / PDF·문서 / 텍스트·생성 / 생활·편의 / 직장인·생산성 / 색상·디자인 / 개발자 / 악기·음악(도구 카테고리와 같은 순서). 새 글 카드는 해당 주제 섹션의 `.guide-grid` 안에 추가. canonical `https://dogubox.shop/guide/`. JSON-LD는 `CollectionPage` + `BreadcrumbList`.
+- **허브**: `/guide/index.html` — 글 목록을 **주제별 8개 섹션**(`.sec-label` + 섹션별 `.guide-grid`)으로 묶어 표시: 이미지·사진 / PDF·문서 / 텍스트·생성 / 생활·편의 / 직장인·생산성 / 색상·디자인 / 개발자 / 악기·음악(도구 카테고리와 같은 순서). 새 글 카드는 해당 주제 섹션의 `.guide-grid` 안에 추가. 상단에 클라이언트 검색 필터(`#guide-search`, 카드 텍스트로 필터링·빈 섹션 라벨 숨김) 있음. canonical `https://dogubox.shop/guide/`. JSON-LD는 `CollectionPage` + `BreadcrumbList`.
 - **각 글**: `/guide/<슬러그>/index.html` — `tool-page.css` + **`guide.css`** + `theme.css` 참조. 본문은 `<article class="inner">` 안에 `<h1>` 1개 + `<section class="content">`(h2 소제목·표·`.callout`·`.tool-cta`·`.toc`·FAQ·관련 글). JSON-LD는 **Article + FAQPage + BreadcrumbList**(홈>가이드>글). FAQPage 질문·답변은 본문 FAQ와 글자 단위로 동일해야 함.
 - **도구로 연결**: 글마다 관련 도구로 가는 `.tool-cta` 카드(아이콘은 `data-icon`로 두면 `sidebar.js`가 채움)와 본문 내부 링크(`a.inlink`)를 넣습니다.
 - **사이드바 노출**: `sidebar.js`의 `render()`가 즐겨찾기 그룹 다음에 **"가이드 · 사용법"** 링크(book-open 아이콘)를 자동 삽입 → 전 페이지(도구·허브)에서 노출. `/guide` 경로에서 active. (개별 페이지 수정 불필요)

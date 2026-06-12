@@ -77,6 +77,10 @@
       <h1>가이드</h1>
       <p class="lede">도구를 더 잘 쓰는 법, 자주 묻는 문제를 푸는 법을 실제 사용 맥락에 맞춰 정리했습니다. 각 글에는 관련 도구로 바로 가는 링크가 있습니다.</p>
 
+      <input type="search" id="guide-search" placeholder="가이드 검색 — 예: 비밀번호, PDF, 단위" aria-label="가이드 검색"
+        style="width:100%;max-width:420px;margin-top:14px;background:var(--paper);border:1px solid var(--line-2);border-radius:9px;padding:10px 14px;font-size:14.5px;color:var(--ink)">
+      <p id="guide-noresult" style="display:none;margin-top:18px;color:var(--ink-3);font-size:14.5px">검색 결과가 없습니다. 다른 단어로 시도해 보세요.</p>
+
       <section class="content" style="margin-top:8px">
         <div class="sec-label">이미지 · 사진</div>
         <div class="guide-grid">
@@ -869,4 +873,30 @@
 
 <script src="/sidebar.js"></script>
 <script src="/theme.js"></script>
+<script>
+/* 가이드 허브 검색 필터 — 제목·설명·카테고리 텍스트로 카드 필터링 (클라이언트 사이드) */
+(function(){
+  var input = document.getElementById('guide-search');
+  if (!input) return;
+  var grids = Array.prototype.slice.call(document.querySelectorAll('.guide-grid'));
+  var noResult = document.getElementById('guide-noresult');
+  input.addEventListener('input', function(){
+    var q = input.value.trim().toLowerCase();
+    var total = 0;
+    grids.forEach(function(grid){
+      var visible = 0;
+      Array.prototype.forEach.call(grid.querySelectorAll('.guide-item'), function(item){
+        var hit = !q || item.textContent.toLowerCase().indexOf(q) >= 0;
+        item.style.display = hit ? '' : 'none';
+        if (hit) visible++;
+      });
+      total += visible;
+      grid.style.display = visible ? '' : 'none';
+      var label = grid.previousElementSibling;
+      if (label && label.classList.contains('sec-label')) label.style.display = visible ? '' : 'none';
+    });
+    if (noResult) noResult.style.display = (q && total === 0) ? '' : 'none';
+  });
+})();
+</script>
 </html>
