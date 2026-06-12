@@ -38,6 +38,12 @@ html[data-theme="dark"] {
   transform:scale(.96);
 }
 
+/* 사이드바 스크롤바 — 기본 두꺼운 스크롤바를 가늘게 (전 페이지 공통) */
+.side { scrollbar-width:thin; scrollbar-color:var(--line-2) transparent }
+.side::-webkit-scrollbar { width:8px }
+.side::-webkit-scrollbar-thumb { background:var(--line-2); border-radius:100px }
+.side::-webkit-scrollbar-track { background:transparent }
+
 /* 본문 컬럼 가운데 정렬 — 도구·가이드 페이지의 .inner(max-width 860px)가 왼쪽에 붙어
    넓은 화면에서 오른쪽이 비어 보이던 것을, 여백을 좌우로 배분해 해소.
    전 페이지 공통 적용을 위해 theme.css에 둔다(구형 인라인 CSS 페이지 포함). */

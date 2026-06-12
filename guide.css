@@ -5,8 +5,9 @@
  * 색은 모두 var(--*) 토큰을 써서 다크모드(theme.css)에 자동 대응한다.
  * ------------------------------------------------------------------ */
 
-/* 글 메타(발행일·읽는 시간) */
-.article-meta{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin:-2px 0 20px;letter-spacing:.02em}
+/* 글 메타(발행일·읽는 시간) — 한글은 Pretendard, 날짜만 모노 */
+.article-meta{font-family:var(--kr);font-weight:600;font-size:12.5px;color:var(--ink-3);margin:-2px 0 20px}
+.article-meta span:last-child{font-family:var(--mono);font-weight:500;letter-spacing:.02em}
 .article-meta span+span::before{content:"·";margin:0 8px;color:var(--line-2)}
 
 /* 본문 소제목 — tool-page.css의 큰 h1,h2를 아티클용으로 재정의 */
@@ -68,8 +69,9 @@
 .guide-item p{font-size:13.5px;color:var(--ink-3);line-height:1.55}
 
 /* ---- 디테일 폴리시(가산적) ---- */
-/* 목차 — 번호 마커를 모노+액센트로 */
+/* 목차·단계 리스트 — 번호 마커를 모노+액센트로 */
 .toc li::marker{color:var(--accent);font-family:var(--mono);font-weight:600;font-size:12.5px}
+.content ol.steps-list li::marker{color:var(--accent);font-family:var(--mono);font-weight:700;font-size:13px}
 .toc a{transition:color .12s}
 /* 표 — 은은한 줄무늬와 행 호버(중립 회색이라 다크모드에서도 자연스러움) */
 .content tbody tr:nth-child(even) td{background:rgba(127,127,127,.035)}
