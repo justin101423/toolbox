@@ -108,6 +108,23 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .no-result{display:none;color:var(--ink-2);font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-bottom:8px}
 .no-result b{color:var(--ink)}
 
+/* 히어로 우측 패널 — 오늘의 가이드 + 통계 (넓은 화면 전용) */
+.hero-grid{display:grid;grid-template-columns:minmax(0,860px) 320px;gap:38px;align-items:start}
+.hero-aside{display:flex;flex-direction:column;gap:14px;margin-top:34px;animation:rise .6s .1s cubic-bezier(.2,.7,.2,1) both}
+.ha-card{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;transition:border-color .18s,transform .18s,box-shadow .18s}
+.ha-card:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:5px 7px 0 rgba(27,26,30,.08)}
+.ha-kick{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.ha-card h3{font-size:16px;font-weight:700;margin:9px 0 5px;letter-spacing:-.02em;line-height:1.35;transition:color .15s}
+.ha-card:hover h3{color:var(--accent)}
+.ha-card p{font-size:13px;color:var(--ink-3);line-height:1.55}
+.ha-go{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--accent)}
+.ha-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.ha-stat{display:block;background:var(--card);padding:14px 16px;transition:background .15s}
+a.ha-stat:hover{background:var(--panel)}
+.ha-stat .n{font-family:var(--mono);font-weight:700;font-size:20px;letter-spacing:-.02em;color:var(--ink)}
+.ha-stat .l{font-size:12px;color:var(--ink-3);margin-top:2px}
+@media(max-width:1120px){.hero-aside{display:none}.hero-grid{display:block}}
+
 .sec-label{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--ink-2);margin:30px 0 13px;display:flex;align-items:center;gap:10px}
 .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
 .sec-label:first-of-type{margin-top:6px}
@@ -173,6 +190,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
   <main class="main">
     <div class="inner">
+      <div class="hero-grid">
       <div class="hero">
         <div class="kick">All-in-one</div>
         <h1>필요한 도구,<br><em>여기 다 있어요.</em></h1>
@@ -196,6 +214,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
           <a class="chip" href="/color-picker/">컬러 피커</a>
         </div>
       </div>
+
+      <aside class="hero-aside" aria-label="추천 콘텐츠">
+        <a class="ha-card" id="today-guide" href="/guide/ladder-game-fairness/">
+          <div class="ha-kick">Today's Guide</div>
+          <h3>사다리타기는 정말 공정할까</h3>
+          <p>가로줄 배치에 따라 쏠리는 확률 — 수학으로 풀어보기.</p>
+          <span class="ha-go">읽으러 가기 →</span>
+        </a>
+        <div class="ha-stats">
+          <div class="ha-stat"><div class="n" id="ha-tools">115</div><div class="l">무료 도구</div></div>
+          <a class="ha-stat" href="/guide/"><div class="n">150+</div><div class="l">활용 가이드</div></a>
+        </div>
+      </aside>
+      </div><!-- /hero-grid -->
 
       <div class="no-result" id="no-result">‘<b id="nr-q"></b>’에 대한 검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</div>
 
@@ -385,6 +417,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     return !(g && g.className && g.className.indexOf('guide-cards') >= 0);
   }).length;
   if (countEl) countEl.textContent = toolCardCount; // 도구 개수 자동 반영(가이드 제외)
+  var haTools = document.getElementById('ha-tools');
+  if (haTools) haTools.textContent = toolCardCount; // 히어로 우측 통계 카드에도 동일 반영
   if (!input) return;
 
   // 한글 발음·약칭 등 보조 검색어 (카드 마크업은 건드리지 않고 여기서만 보강)
@@ -436,6 +470,35 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     else noResult.style.display = 'none';
   }
   input.addEventListener('input', filter);
+})();
+
+// 오늘의 가이드 — 날짜 기반으로 매일 다른 추천 글을 보여준다 (마크업의 기본값은 JS 실패 시 폴백)
+(function () {
+  var el = document.getElementById('today-guide');
+  if (!el) return;
+  var picks = [
+    { t: '사다리타기는 정말 공정할까', d: '가로줄 배치에 따라 쏠리는 확률 — 수학으로 풀어보기.', u: '/guide/ladder-game-fairness/' },
+    { t: '100메가 인터넷인데 왜 12.5MB/s?', d: 'Mbps와 MB/s의 8배 차이, 요금제별 실제 속도 표.', u: '/guide/internet-speed-units/' },
+    { t: '카톡 사진이 흐려지는 이유', d: '메신저 자동 압축 — 원본 화질로 보내는 세 가지 방법.', u: '/guide/messenger-photo-quality/' },
+    { t: '여권 영문 이름 정하는 법', d: '한 번 정하면 평생 — 성씨 관용 표기와 붙여쓰기 선택.', u: '/guide/passport-english-name/' },
+    { t: '1큰술은 몇 ml? — 요리 계량 환산표', d: '큰술·작은술·컵, 밥숟가락 대체법, 미국 cup과의 차이.', u: '/guide/cooking-measurements/' },
+    { t: '전용면적·공급면적·계약면적의 차이', d: '전용 84㎡ = 34평형의 비밀, 분양 광고 읽기 체크리스트.', u: '/guide/apartment-area-types/' },
+    { t: '유통기한 vs 소비기한', d: '지난 음식 판단 기준 — 식품별 참고표와 보관 요령.', u: '/guide/food-expiration-dates/' },
+    { t: '글자 수와 바이트는 다르다', d: '3,000바이트는 몇 자? 한글이 2~3바이트인 이유.', u: '/guide/byte-vs-character/' },
+    { t: 'USB 3.0인데 왜 느리지?', d: '버전별 속도 표와 "가장 느린 쪽의 법칙".', u: '/guide/usb-versions/' },
+    { t: '윤년과 윤달은 다르다', d: '2월 29일의 수학과 음력 한 달 보너스의 원리.', u: '/guide/leap-year-month/' },
+    { t: 'RAW vs JPG — 뭘로 찍을까', d: '원판과 완성본 — 후보정 여지·용량·호환성 비교.', u: '/guide/raw-vs-jpg/' },
+    { t: '스크린샷 제대로 찍기', d: 'Win+Shift+S부터 공유 전 자르기·모자이크까지.', u: '/guide/screenshot-basics/' },
+    { t: '27인치 모니터는 몇 cm?', d: '인치는 대각선 — 크기 표와 적정 시청거리.', u: '/guide/monitor-inches/' },
+    { t: '패스키(Passkey)란?', d: '비밀번호 없는 로그인 — 피싱이 안 통하는 원리.', u: '/guide/what-is-passkey/' },
+    { t: '중복할인의 함정 — 20%+10%≠30%', d: '곱셈으로 계산되는 이유와 쿠폰을 유리하게 쓰는 순서.', u: '/guide/double-discount/' },
+    { t: '보험 나이 계산법 — 상령일이란?', d: '만 나이 + 6개월 반올림, 가입 타이밍과 보험료의 관계.', u: '/guide/insurance-age/' }
+  ];
+  var g = picks[Math.floor(Date.now() / 86400000) % picks.length];
+  el.href = g.u;
+  var h = el.querySelector('h3'), p = el.querySelector('p');
+  if (h) h.textContent = g.t;
+  if (p) p.textContent = g.d;
 })();
 </script>
 </html>
