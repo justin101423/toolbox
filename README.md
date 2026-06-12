@@ -285,6 +285,8 @@
 - 반올림·올림·버림의 차이 (`/guide/rounding-methods/`)
 - 유통기한 vs 소비기한 (`/guide/food-expiration-dates/`)
 - 택배 부피무게 계산법 (`/guide/volumetric-weight/`)
+- 카드 할부 수수료의 구조 (`/guide/installment-fees/`)
+- 27인치 모니터는 몇 cm? (`/guide/monitor-inches/`)
 
 ## 기술 스택
 
