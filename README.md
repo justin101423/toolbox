@@ -297,6 +297,8 @@
 - ％와 %는 다른 글자다 — 전각·반각 (`/guide/fullwidth-halfwidth/`)
 - USB 3.0인데 왜 느리지? (`/guide/usb-versions/`)
 - 두벌식과 세벌식 — 한글 자판 이야기 (`/guide/korean-keyboard-layouts/`)
+- 카톡 사진이 흐려지는 이유 (`/guide/messenger-photo-quality/`)
+- 이모지가 네모(□)로 보일 때 (`/guide/emoji-not-showing/`)
 
 ## 기술 스택
 
