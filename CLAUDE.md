@@ -39,6 +39,7 @@ toolbox/
 ├── index.html          # 허브 페이지: 도구 카드 그리드 + 소개/이용방법/FAQ/문의 섹션(#about/#howto/#faq/#contact)
 ├── 404.html            # 404 페이지 (GitHub Pages 자동 사용) — noindex, ★유일하게 AdSense 스크립트 없음(오류 페이지 광고 금지 정책)
 ├── privacy.html        # 개인정보처리방침 (수정 주의)
+├── terms.html          # 이용약관 (privacy와 동일 디자인, 전 페이지 푸터에서 링크)
 ├── ads.txt             # AdSense 게시자 인증 (수정 주의)
 ├── robots.txt          # 크롤러 정책 (수정 주의)
 ├── sitemap.xml         # 사이트맵 — 도구 추가 시 URL 추가 필요
@@ -241,7 +242,7 @@ toolbox/
 - **상단바(.topbar)**: 브랜드 로고(`.brand`, `href="/"`), 다크모드 토글 버튼(`#darkModeToggle`), 모바일 메뉴 버튼
 - **좌측 사이드바(.side)**: 카테고리(`이미지·PDF / 텍스트·생성 / 색상·디자인 / 생활·편의 / 직장인·생산성 / 개발자 도구 / 악기`)별로 **전체 도구 링크**를 나열. **★ 사이드바는 더 이상 각 페이지에 하드코딩하지 않습니다.** 모든 페이지는 빈 컨테이너 `<aside class="side" id="sidebar">`(JS 비활성 대비 `<noscript>` "모든 도구" 폴백 포함)만 두고, 공통 스크립트 **`/sidebar.js`** 가 자신의 도구 목록 데이터 배열로부터 사이드바 HTML을 생성해 채웁니다. **전체 도구 목록의 단일 출처(source of truth)는 `sidebar.js`의 `CATEGORIES` 배열**입니다. **현재 페이지의 active 처리**는 `sidebar.js`가 경로(슬러그)로 자동 판별하므로 페이지마다 따로 표시하지 않습니다(`/sidebar.js`와 `<script src="/sidebar.js">`는 각 페이지에 포함).
 - 본문 상단 `← 모든 도구` 링크(`.crumb`)는 `/` 로 연결
-- **푸터**: `/#about`(소개) · `/#faq`(자주 묻는 질문) · `/#contact`(문의) · `/privacy.html`(개인정보처리방침)
+- **푸터**: `/#about`(소개) · `/#faq`(자주 묻는 질문) · `/#contact`(문의) · `/privacy.html`(개인정보처리방침) · `/terms.html`(이용약관)
 
 ### 본문 콘텐츠
 - 기능 UI(`.box` 등) 아래에 한국어 콘텐츠 섹션(`.content`):
