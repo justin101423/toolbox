@@ -189,6 +189,7 @@
 
 <script src="/sidebar.js"></script>
 <script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
 <script>
 const $=id=>document.getElementById(id);
 function download(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}
