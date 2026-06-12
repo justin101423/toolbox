@@ -38,6 +38,14 @@ html[data-theme="dark"] {
   transform:scale(.96);
 }
 
+/* 본문 컬럼 가운데 정렬 — 도구·가이드 페이지의 .inner(max-width 860px)가 왼쪽에 붙어
+   넓은 화면에서 오른쪽이 비어 보이던 것을, 여백을 좌우로 배분해 해소.
+   전 페이지 공통 적용을 위해 theme.css에 둔다(구형 인라인 CSS 페이지 포함). */
+.main .inner {
+  margin-left:auto;
+  margin-right:auto;
+}
+
 /* 사이드바 카테고리 라벨 — 모노 폰트에 한글 글리프가 없어 가는 시스템 폰트로 폴백되던 것을
    디스플레이 폰트(한글은 Pretendard) 굵은 웨이트로 교체. 전 페이지 공통 적용을 위해
    (모든 페이지가 마지막에 로드하는) theme.css에 둔다 — 구형 인라인 CSS 페이지도 덮어씀. */

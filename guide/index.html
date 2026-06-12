@@ -54,6 +54,11 @@
 <link rel="stylesheet" href="/tool-page.css">
 <link rel="stylesheet" href="/guide.css">
 <link rel="stylesheet" href="/theme.css">
+<style>
+/* 허브 전용: 카드 그리드를 홈과 같은 폭(1320px)으로 확장. 제목·소개는 읽기 폭 유지 */
+.inner{max-width:1320px}
+.inner>h1,.inner>.lede{max-width:860px}
+</style>
 <script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
 
 <div class="topbar">
