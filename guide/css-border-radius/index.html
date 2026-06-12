@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 둥근 모서리 디자인 — border-radius 제대로 쓰기 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>둥근 모서리 디자인 — border-radius 제대로 쓰기 | 도구상자</title>
+<meta name="description" content="버튼은 몇 px이 적당할까, 완전한 알약 모양은 어떻게 만들까, 카드 안의 카드는 왜 어색해 보일까 — border-radius의 문법(픽셀·퍼센트·모서리별 지정)과 중첩 radius 공식, 용도별 권장값을 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/css-border-radius/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="둥근 모서리 디자인 — border-radius 제대로 쓰기">
+<meta property="og:description" content="px vs %, 알약·원 만들기, 중첩 radius 공식과 용도별 권장값.">
+<meta property="og:url" content="https://dogubox.shop/guide/css-border-radius/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="border-radius 제대로 쓰기">
+<meta name="twitter:description" content="둥근 모서리의 문법과 권장값.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "둥근 모서리 디자인 — border-radius 제대로 쓰기",
+  "description": "버튼은 몇 px이 적당할까, 완전한 알약 모양은 어떻게 만들까, 카드 안의 카드는 왜 어색해 보일까 — border-radius의 문법(픽셀·퍼센트·모서리별 지정)과 중첩 radius 공식, 용도별 권장값을 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "mainEntityOfPage": "https://dogubox.shop/guide/css-border-radius/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "완전히 둥근 알약(pill) 버튼은 어떻게 만드나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "border-radius를 요소 높이의 절반 이상으로 주면 됩니다. 높이를 매번 계산하기 번거로우므로 실무에서는 9999px처럼 충분히 큰 값을 관용적으로 씁니다 — 브라우저가 가능한 최대(높이의 절반)로 알아서 잘라 주기 때문에 어떤 높이에서도 완전한 반원 끝이 됩니다. 50%를 쓰면 안 됩니다. 퍼센트는 가로·세로 각각에 적용되어 가로가 긴 버튼은 타원처럼 찌그러집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "카드 안에 들어 있는 요소의 둥글기는 어떻게 정하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "안쪽 radius = 바깥 radius − 간격(padding) 공식을 쓰면 두 곡선의 중심이 일치해 자연스럽게 보입니다. 예를 들어 radius 16px인 카드 안에 12px 여백을 두고 이미지를 넣는다면 이미지의 radius는 4px이 맞습니다. 안팎을 같은 값으로 주면 안쪽 모서리가 바깥쪽보다 두꺼워 보이는 어색함이 생깁니다. 이 공식 하나만 적용해도 디자인 완성도가 눈에 띄게 올라갑니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "프로필 사진을 원으로 만들려면 50%인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네, 단 요소가 정사각형일 때만 완전한 원이 됩니다. border-radius: 50%는 가로의 50%, 세로의 50%를 각각 둥글리므로 정사각형에서는 원, 직사각형에서는 타원이 됩니다. 프로필 이미지는 width와 height를 같게 지정하고 50%를 주는 것이 정석이며, 원본 사진의 비율이 다르면 object-fit: cover로 채우면 됩니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "border-radius 제대로 쓰기", "item": "https://dogubox.shop/guide/css-border-radius/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>둥근 모서리 디자인 — border-radius 제대로 쓰기</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.12</span></div>
+
+      <section class="content">
+        <p>요즘 UI에서 직각 모서리를 찾기가 더 어렵습니다. 그런데 둥글기는 "적당히 8px"로 끝나지 않습니다 — <b>버튼·카드·알약·원이 각각 다른 문법</b>을 쓰고, 카드 안의 카드처럼 중첩될 때는 공식이 따로 있습니다. 한 번 정리해 두면 평생 쓰는 내용입니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#syntax">문법 — px·%·모서리별 지정</a></li>
+            <li><a href="#shapes">알약·원 만들기</a></li>
+            <li><a href="#nested">중첩 radius 공식</a></li>
+            <li><a href="#values">용도별 권장값</a></li>
+          </ol>
+        </div>
+
+        <h2 id="syntax">문법 — px·%·모서리별 지정</h2>
+        <ul>
+          <li><b>값 1개</b> — <code>border-radius: 12px</code>: 네 모서리 모두 12px.</li>
+          <li><b>값 4개</b> — <code>border-radius: 12px 12px 0 0</code>: 왼쪽 위부터 시계방향. 위만 둥근 시트·탭에.</li>
+          <li><b>퍼센트</b> — 가로·세로에 <b>각각</b> 적용됩니다. <code>50%</code>는 정사각형에서 원, 직사각형에서 타원.</li>
+          <li><b>모서리마다 다른 값</b> — <code>border-top-left-radius</code> 등 개별 속성, 또는 단축 표기로 비대칭 모양(말풍선 꼬리 쪽만 직각 등)을 만듭니다.</li>
+          <li><b>가로/세로 분리</b> — <code>border-radius: 24px / 12px</code>처럼 슬래시를 쓰면 타원형 모서리도 가능합니다.</li>
+        </ul>
+
+        <h2 id="shapes">알약·원 만들기</h2>
+        <table>
+          <thead><tr><th>모양</th><th>방법</th><th>주의</th></tr></thead>
+          <tbody>
+            <tr><td>알약(pill) 버튼</td><td><code>border-radius: 9999px</code></td><td>50%를 쓰면 타원으로 찌그러짐</td></tr>
+            <tr><td>원형 아바타</td><td>정사각형 + <code>border-radius: 50%</code></td><td>비정사각형이면 타원이 됨 — <code>object-fit: cover</code> 병용</td></tr>
+            <tr><td>위만 둥근 시트</td><td><code>border-radius: 16px 16px 0 0</code></td><td>바닥에 붙는 바텀시트·탭의 정석</td></tr>
+          </tbody>
+        </table>
+        <div class="callout"><b>9999px의 비밀:</b> radius가 높이의 절반을 넘으면 브라우저가 알아서 최대치(반원)로 잘라 줍니다. 그래서 충분히 큰 값 하나로 어떤 높이의 버튼이든 완전한 알약이 됩니다.</div>
+
+        <h2 id="nested">중첩 radius 공식</h2>
+        <p>카드 안의 이미지, 모달 안의 버튼 — 둥근 것 안에 둥근 것이 들어갈 때 어색함의 원인은 대부분 이것입니다.</p>
+        <ol class="steps-list" style="list-style:decimal;padding-left:20px">
+          <li>공식: <b>안쪽 radius = 바깥 radius − 간격(padding)</b>.</li>
+          <li>예: radius 16px 카드, 안쪽 여백 12px → 안의 이미지는 <code>16 − 12 = 4px</code>.</li>
+          <li>이렇게 하면 두 곡선의 <b>중심이 일치</b>해 모서리 두께가 고르게 보입니다.</li>
+          <li>안팎을 같은 값으로 주면 안쪽 모서리가 더 두꺼워 보입니다 — 흔한 어색함의 정체.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="squircle"></span>
+          <span class="tc-tx"><b>border-radius 생성기</b><span>모서리별 슬라이더로 미리보기 — CSS 코드 복사</span></span>
+          <a class="tc-go" href="/border-radius-generator/">만들기 →</a>
+        </div>
+
+        <h2 id="values">용도별 권장값</h2>
+        <ul>
+          <li><b>입력창·작은 버튼</b> — 6~10px: 단정하고 클릭 가능해 보이는 범위.</li>
+          <li><b>카드·패널</b> — 12~16px: 콘텐츠 덩어리의 표준.</li>
+          <li><b>모달·큰 시트</b> — 16~24px: 면적이 클수록 radius도 키워야 비례가 맞습니다.</li>
+          <li><b>태그·뱃지</b> — 9999px 알약: 작고 둥근 정보 조각.</li>
+          <li><b>일관성이 핵심</b> — 사이트 전체에서 radius 단계를 2~3개(예: 8/12/16px)로 제한하면 통일감이 생깁니다. CSS 변수로 정의해 두면 관리가 쉽습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 완전히 둥근 알약(pill) 버튼은 어떻게 만드나요?</b><p>border-radius를 요소 높이의 절반 이상으로 주면 됩니다. 높이를 매번 계산하기 번거로우므로 실무에서는 9999px처럼 충분히 큰 값을 관용적으로 씁니다 — 브라우저가 가능한 최대(높이의 절반)로 알아서 잘라 주기 때문에 어떤 높이에서도 완전한 반원 끝이 됩니다. 50%를 쓰면 안 됩니다. 퍼센트는 가로·세로 각각에 적용되어 가로가 긴 버튼은 타원처럼 찌그러집니다.</p></div>
+          <div class="qa"><b>Q. 카드 안에 들어 있는 요소의 둥글기는 어떻게 정하나요?</b><p>안쪽 radius = 바깥 radius − 간격(padding) 공식을 쓰면 두 곡선의 중심이 일치해 자연스럽게 보입니다. 예를 들어 radius 16px인 카드 안에 12px 여백을 두고 이미지를 넣는다면 이미지의 radius는 4px이 맞습니다. 안팎을 같은 값으로 주면 안쪽 모서리가 바깥쪽보다 두꺼워 보이는 어색함이 생깁니다. 이 공식 하나만 적용해도 디자인 완성도가 눈에 띄게 올라갑니다.</p></div>
+          <div class="qa"><b>Q. 프로필 사진을 원으로 만들려면 50%인가요?</b><p>네, 단 요소가 정사각형일 때만 완전한 원이 됩니다. border-radius: 50%는 가로의 50%, 세로의 50%를 각각 둥글리므로 정사각형에서는 원, 직사각형에서는 타원이 됩니다. 프로필 이미지는 width와 height를 같게 지정하고 50%를 주는 것이 정석이며, 원본 사진의 비율이 다르면 object-fit: cover로 채우면 됩니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/css-box-shadow/"><b>box-shadow 그림자</b><span>둥근 카드에 깊이감 더하기</span></a>
+          <a class="rel-card" href="/guide/css-easing/"><b>이징(easing) 곡선 입문</b><span>자연스러운 움직임까지</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>
