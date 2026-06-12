@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 글자 수와 바이트는 다르다 — 한글이 2배로 계산되는 이유 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>글자 수와 바이트는 다르다 — 한글이 2배로 계산되는 이유 | 도구상자</title>
+<meta name="description" content="자기소개서 '3,000바이트 이내', 문자 메시지 90바이트 — 글자 수가 아니라 바이트로 제한하는 곳이 아직 많습니다. 한글 1자가 2바이트 또는 3바이트로 계산되는 이유(EUC-KR vs UTF-8), 제한별 실제 글자 수 환산, 초과를 피하는 요령을 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/byte-vs-character/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="글자 수와 바이트는 다르다 — 한글이 2배로 계산되는 이유">
+<meta property="og:description" content="3,000바이트는 몇 글자? — 인코딩별 환산과 제한 맞추는 요령.">
+<meta property="og:url" content="https://dogubox.shop/guide/byte-vs-character/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="글자 수 vs 바이트">
+<meta name="twitter:description" content="한글이 2배로 계산되는 이유.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "글자 수와 바이트는 다르다 — 한글이 2배로 계산되는 이유",
+  "description": "자기소개서 '3,000바이트 이내', 문자 메시지 90바이트 — 글자 수가 아니라 바이트로 제한하는 곳이 아직 많습니다. 한글 1자가 2바이트 또는 3바이트로 계산되는 이유(EUC-KR vs UTF-8), 제한별 실제 글자 수 환산, 초과를 피하는 요령을 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "mainEntityOfPage": "https://dogubox.shop/guide/byte-vs-character/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "3,000바이트 제한이면 한글 몇 자까지 쓸 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "그 시스템이 한글 1자를 몇 바이트로 세는지에 달려 있습니다. 공공기관·채용 시스템에 많은 2바이트 기준(EUC-KR 계열)이면 한글만 썼을 때 약 1,500자, 웹 표준인 UTF-8(3바이트) 기준이면 약 1,000자입니다. 공백·영문·숫자는 어느 쪽이든 1바이트라서, 실제로는 그 사이 어딘가가 됩니다. 안내문에 기준이 없으면 보수적으로 1,000자 안팎으로 잡고, 입력란에 표시되는 잔여 바이트로 확인하는 것이 안전합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "왜 한글은 1바이트가 아닌가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1바이트(8비트)로는 256가지밖에 구분할 수 없어서 영문 알파벳·숫자·기호를 담기에도 빠듯하기 때문입니다. 한글은 조합 가능한 글자가 11,172자라 1바이트에 들어갈 수 없고, 전통적인 한국어 인코딩(EUC-KR)은 2바이트, 세계 모든 문자를 담는 UTF-8은 한글에 3바이트를 씁니다. 같은 글에서 영문·공백은 1바이트로 계산되므로, 영문을 섞으면 같은 바이트 제한에서 더 많은 글자를 쓸 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "문자 메시지가 90바이트 넘으면 왜 요금이 달라지나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "90바이트 이하는 단문(SMS), 초과하면 장문(LMS)으로 전환되어 과금 체계가 달라지기 때문입니다. 통신사 SMS는 한글 1자를 2바이트로 세므로 한글 기준 약 45자, 영문 기준 90자가 단문의 한계입니다. 요즘 무제한 요금제에서는 체감이 없지만, 기업 문자 발송 서비스는 SMS와 LMS 단가가 2~3배 차이 나므로 알림 문구를 45자 안에 맞추는 것이 비용 절감 포인트가 됩니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "글자 수 vs 바이트", "item": "https://dogubox.shop/guide/byte-vs-character/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>글자 수와 바이트는 다르다 — 한글이 2배로 계산되는 이유</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.12</span></div>
+
+      <section class="content">
+        <p>분명 1,400자를 썼는데 "3,000바이트 초과"라고 합니다. 버그가 아닙니다 — <b>글자 수와 바이트는 다른 단위</b>이고, 한글은 1자가 2바이트 또는 3바이트로 계산되기 때문입니다. 환산법을 알면 제한 맞추기가 쉬워집니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#why">왜 한글은 2~3바이트인가</a></li>
+            <li><a href="#table">제한별 환산표</a></li>
+            <li><a href="#where">바이트 제한을 쓰는 곳들</a></li>
+            <li><a href="#fit">초과를 피하는 요령</a></li>
+          </ol>
+        </div>
+
+        <h2 id="why">왜 한글은 2~3바이트인가</h2>
+        <ul>
+          <li>1바이트(8비트)는 256가지를 구분합니다 — 영문·숫자·기호(ASCII)는 여기에 다 들어가서 <b>1바이트</b>.</li>
+          <li>한글은 11,172자라 1바이트로 부족합니다. 전통 인코딩 <b>EUC-KR은 2바이트</b>, 웹 표준 <b>UTF-8은 3바이트</b>를 씁니다.</li>
+          <li>그래서 같은 글이라도 시스템 인코딩에 따라 바이트가 다릅니다 — "안녕"은 EUC-KR로 4바이트, UTF-8로 6바이트.</li>
+          <li>공백·줄바꿈·영문·숫자는 어느 쪽이든 1바이트(줄바꿈은 환경에 따라 1~2바이트)입니다. 인코딩의 원리는 <a class="inlink" href="/guide/broken-text-encoding/">글자 깨짐과 인코딩</a>에서 더 자세히.</li>
+        </ul>
+
+        <h2 id="table">제한별 환산표</h2>
+        <table>
+          <thead><tr><th>제한</th><th>한글만(2바이트 기준)</th><th>한글만(UTF-8 3바이트)</th></tr></thead>
+          <tbody>
+            <tr><td>90바이트 (SMS 단문)</td><td>45자</td><td>30자</td></tr>
+            <tr><td>1,000바이트</td><td>500자</td><td>333자</td></tr>
+            <tr><td>2,000바이트</td><td>1,000자</td><td>666자</td></tr>
+            <tr><td>3,000바이트 (자소서 단골)</td><td><b>1,500자</b></td><td><b>1,000자</b></td></tr>
+            <tr><td>4,000바이트</td><td>2,000자</td><td>1,333자</td></tr>
+          </tbody>
+        </table>
+        <div class="callout"><b>주의:</b> 같은 "3,000바이트 이내"라도 시스템이 어떤 기준인지에 따라 <b>1,500자와 1,000자로 갈립니다</b>. 공공·채용 시스템은 2바이트 기준이 많지만, 안내가 없으면 보수적으로(1,000자 안팎) 잡고 입력란의 잔여 표시로 확인하세요.</div>
+
+        <h2 id="where">바이트 제한을 쓰는 곳들</h2>
+        <ul>
+          <li><b>채용 자기소개서</b> — "공백 포함 3,000바이트" 류. 글자 수 제한과 혼용되니 단위를 꼭 확인.</li>
+          <li><b>문자 메시지</b> — 90바이트(한글 45자)까지 단문(SMS), 초과 시 장문(LMS) 전환. 기업 발송은 단가가 2~3배 차이.</li>
+          <li><b>공공기관 민원·게시판</b> — 오래된 시스템일수록 바이트 제한이 남아 있습니다.</li>
+          <li><b>DB 입력란</b> — 개발에서 VARCHAR(100)이 "한글 33~50자"가 되는 것도 같은 원리입니다.</li>
+        </ul>
+
+        <h2 id="fit">초과를 피하는 요령</h2>
+        <ol class="steps-list" style="list-style:decimal;padding-left:20px">
+          <li>글자수 세기 도구에 붙여 넣어 <b>글자 수와 바이트를 동시에</b> 확인합니다 — 제출 직전 검증이 가장 확실합니다.</li>
+          <li>제한 단위(자 vs 바이트)와 공백 포함 여부를 모집 요강에서 다시 확인합니다.</li>
+          <li>줄여야 한다면: 접속사·부사 정리 → 중복 문장 삭제 → 조사 압축 순서가 글맛을 덜 해칩니다 — 요령은 <a class="inlink" href="/guide/self-intro-character-count/">자기소개서 글자 수 가이드</a>에서.</li>
+          <li>마지막 저장 전, 시스템 입력란에 직접 붙여 넣어 <b>그 시스템의 카운터</b>로 최종 확인하세요 — 기준이 다를 수 있는 건 결국 그쪽이니까요.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="type"></span>
+          <span class="tc-tx"><b>글자수 세기</b><span>공백 포함·제외·바이트(UTF-8)를 실시간으로 함께 표시</span></span>
+          <a class="tc-go" href="/word-counter/">세어보기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 3,000바이트 제한이면 한글 몇 자까지 쓸 수 있나요?</b><p>그 시스템이 한글 1자를 몇 바이트로 세는지에 달려 있습니다. 공공기관·채용 시스템에 많은 2바이트 기준(EUC-KR 계열)이면 한글만 썼을 때 약 1,500자, 웹 표준인 UTF-8(3바이트) 기준이면 약 1,000자입니다. 공백·영문·숫자는 어느 쪽이든 1바이트라서, 실제로는 그 사이 어딘가가 됩니다. 안내문에 기준이 없으면 보수적으로 1,000자 안팎으로 잡고, 입력란에 표시되는 잔여 바이트로 확인하는 것이 안전합니다.</p></div>
+          <div class="qa"><b>Q. 왜 한글은 1바이트가 아닌가요?</b><p>1바이트(8비트)로는 256가지밖에 구분할 수 없어서 영문 알파벳·숫자·기호를 담기에도 빠듯하기 때문입니다. 한글은 조합 가능한 글자가 11,172자라 1바이트에 들어갈 수 없고, 전통적인 한국어 인코딩(EUC-KR)은 2바이트, 세계 모든 문자를 담는 UTF-8은 한글에 3바이트를 씁니다. 같은 글에서 영문·공백은 1바이트로 계산되므로, 영문을 섞으면 같은 바이트 제한에서 더 많은 글자를 쓸 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 문자 메시지가 90바이트 넘으면 왜 요금이 달라지나요?</b><p>90바이트 이하는 단문(SMS), 초과하면 장문(LMS)으로 전환되어 과금 체계가 달라지기 때문입니다. 통신사 SMS는 한글 1자를 2바이트로 세므로 한글 기준 약 45자, 영문 기준 90자가 단문의 한계입니다. 요즘 무제한 요금제에서는 체감이 없지만, 기업 문자 발송 서비스는 SMS와 LMS 단가가 2~3배 차이 나므로 알림 문구를 45자 안에 맞추는 것이 비용 절감 포인트가 됩니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/self-intro-character-count/"><b>자기소개서 글자 수</b><span>공백 포함·제외와 분량 조절</span></a>
+          <a class="rel-card" href="/guide/broken-text-encoding/"><b>글자 깨짐과 인코딩</b><span>EUC-KR·UTF-8의 원리</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/#about">소개</a>
+  <a href="/#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+</html>

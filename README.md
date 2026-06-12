@@ -281,6 +281,8 @@
 - 패스키(Passkey)란? — 비밀번호 없는 로그인 (`/guide/what-is-passkey/`)
 - 중복할인의 함정 — 20%+10%는 30%가 아니다 (`/guide/double-discount/`)
 - 오늘은 몇 주차? — 주차 계산법 (`/guide/week-number/`)
+- 글자 수와 바이트는 다르다 (`/guide/byte-vs-character/`)
+- 반올림·올림·버림의 차이 (`/guide/rounding-methods/`)
 
 ## 기술 스택
 
