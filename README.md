@@ -273,6 +273,8 @@
 - A4 크기는 몇 픽셀? — 용지 규격과 dpi (`/guide/a4-paper-size/`)
 - 엑셀에서 CSV 한글이 깨질 때 (`/guide/csv-excel-encoding/`)
 - 전용면적·공급면적·계약면적의 차이 (`/guide/apartment-area-types/`)
+- MP3·WAV·M4A 차이 — 녹음 파일 포맷 (`/guide/audio-file-formats/`)
+- 사진 1만 장이면 몇 GB? — 용량 계산과 정리 (`/guide/photo-storage-size/`)
 
 ## 기술 스택
 
