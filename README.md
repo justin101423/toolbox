@@ -295,6 +295,8 @@
 - 24절기는 음력이 아니다 (`/guide/solar-terms-24/`)
 - RAW vs JPG — 카메라 파일 형식 (`/guide/raw-vs-jpg/`)
 - ％와 %는 다른 글자다 — 전각·반각 (`/guide/fullwidth-halfwidth/`)
+- USB 3.0인데 왜 느리지? (`/guide/usb-versions/`)
+- 두벌식과 세벌식 — 한글 자판 이야기 (`/guide/korean-keyboard-layouts/`)
 
 ## 기술 스택
 
