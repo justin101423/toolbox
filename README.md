@@ -267,6 +267,8 @@
 - 둥근 모서리 디자인 — border-radius 제대로 쓰기 (`/guide/css-border-radius/`)
 - 여권 영문 이름 정하는 법 (`/guide/passport-english-name/`)
 - 1큰술은 몇 ml? — 요리 계량 단위 환산표 (`/guide/cooking-measurements/`)
+- 16:9가 뭐길래 — 화면 비율 계산법과 해상도 표 (`/guide/aspect-ratio/`)
+- 사진 인화 사이즈 총정리 (`/guide/photo-print-size/`)
 
 ## 기술 스택
 
