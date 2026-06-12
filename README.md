@@ -287,6 +287,8 @@
 - 택배 부피무게 계산법 (`/guide/volumetric-weight/`)
 - 카드 할부 수수료의 구조 (`/guide/installment-fees/`)
 - 27인치 모니터는 몇 cm? (`/guide/monitor-inches/`)
+- 스크린샷 제대로 찍기 (`/guide/screenshot-basics/`)
+- 와이파이 2.4GHz vs 5GHz (`/guide/wifi-bands/`)
 
 ## 기술 스택
 
