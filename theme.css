@@ -38,6 +38,17 @@ html[data-theme="dark"] {
   transform:scale(.96);
 }
 
+/* 사이드바 카테고리 라벨 — 모노 폰트에 한글 글리프가 없어 가는 시스템 폰트로 폴백되던 것을
+   디스플레이 폰트(한글은 Pretendard) 굵은 웨이트로 교체. 전 페이지 공통 적용을 위해
+   (모든 페이지가 마지막에 로드하는) theme.css에 둔다 — 구형 인라인 CSS 페이지도 덮어씀. */
+.side .grp > .kick {
+  font-family:var(--disp);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.03em;
+  color:var(--ink-2);
+}
+
 html[data-theme="dark"] .topbar {
   background:rgba(30,30,30,.86);
   border-bottom-color:var(--line);
