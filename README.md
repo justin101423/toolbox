@@ -271,6 +271,8 @@
 - 사진 인화 사이즈 총정리 (`/guide/photo-print-size/`)
 - 100메가 인터넷인데 왜 12.5MB/s? — Mbps와 MB/s (`/guide/internet-speed-units/`)
 - A4 크기는 몇 픽셀? — 용지 규격과 dpi (`/guide/a4-paper-size/`)
+- 엑셀에서 CSV 한글이 깨질 때 (`/guide/csv-excel-encoding/`)
+- 전용면적·공급면적·계약면적의 차이 (`/guide/apartment-area-types/`)
 
 ## 기술 스택
 
