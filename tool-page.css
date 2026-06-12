@@ -95,3 +95,14 @@ footer a{color:var(--ink-2);border-bottom:1px solid var(--line)}
 footer a:hover{color:var(--accent)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:860px){.menu-btn{display:block}.app{grid-template-columns:1fr}.side{display:none;position:static;height:auto;border-right:none;border-bottom:1px solid var(--line);padding:16px 16px 22px}.side.open{display:block}.topbar .badge{display:none}.field-row{grid-template-columns:1fr}}
+
+/* ---- 디테일 폴리시(가산적) — 토큰 기반, 다크모드 자동 대응. 구형 인라인 CSS 페이지에는 적용되지 않아도 무방한 마이크로 개선만 둔다 ---- */
+[id]{scroll-margin-top:84px} /* 앵커 점프 시 sticky 상단바에 제목이 가려지지 않게 */
+::selection{background:rgba(223,67,36,.18)}
+a:focus-visible,button:focus-visible,.navlink:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.rel-card:hover{box-shadow:4px 6px 0 rgba(27,26,30,.07)}
+.rel-card b{transition:color .15s}
+.rel-card:hover b{color:var(--accent)}
+.qa{transition:border-color .15s}
+.qa:hover{border-color:var(--line-2)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}
