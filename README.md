@@ -275,6 +275,8 @@
 - 전용면적·공급면적·계약면적의 차이 (`/guide/apartment-area-types/`)
 - MP3·WAV·M4A 차이 — 녹음 파일 포맷 (`/guide/audio-file-formats/`)
 - 사진 1만 장이면 몇 GB? — 용량 계산과 정리 (`/guide/photo-storage-size/`)
+- QR코드가 안 찍히는 이유 7가지 (`/guide/qr-not-scanning/`)
+- 사다리타기는 정말 공정할까 (`/guide/ladder-game-fairness/`)
 
 ## 기술 스택
 
