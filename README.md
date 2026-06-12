@@ -283,6 +283,8 @@
 - 오늘은 몇 주차? — 주차 계산법 (`/guide/week-number/`)
 - 글자 수와 바이트는 다르다 (`/guide/byte-vs-character/`)
 - 반올림·올림·버림의 차이 (`/guide/rounding-methods/`)
+- 유통기한 vs 소비기한 (`/guide/food-expiration-dates/`)
+- 택배 부피무게 계산법 (`/guide/volumetric-weight/`)
 
 ## 기술 스택
 
