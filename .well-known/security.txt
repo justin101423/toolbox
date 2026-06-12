@@ -1,0 +1,4 @@
+Contact: mailto:justin101423@naver.com
+Expires: 2027-06-12T00:00:00.000Z
+Preferred-Languages: ko, en
+Canonical: https://dogubox.shop/.well-known/security.txt

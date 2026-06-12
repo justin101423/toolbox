@@ -49,7 +49,9 @@ toolbox/
 ├── guide.css           # 가이드(블로그) 전용 스타일 (tool-page.css 위에 얹어 사용 — 아티클 프로즈·표·도구 CTA·허브 그리드)
 ├── guide/index.html    # ★ 가이드 허브(블로그 글 목록) — SEO/AdSense용 읽을거리 콘텐츠
 ├── guide/<슬러그>/index.html # 각 가이드 글 = 독립 페이지(독립 URL)
-├── theme.css           # 다크모드 스타일
+├── .nojekyll           # GitHub Pages의 Jekyll 빌드 생략(배포 속도↑, 닷·밑줄 경로 그대로 서빙)
+├── .well-known/security.txt # 보안 제보 채널(RFC 9116) — Expires 매년 갱신 필요(현재 2027-06-12)
+├── theme.css           # 다크모드 스타일 + 전 페이지 공통 보조 스타일(테마 토글, 사이드바 라벨 타이포 — 모든 페이지가 마지막에 로드하므로 구형 인라인 CSS도 덮어씀)
 ├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어)
 ├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처)
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
@@ -286,4 +288,4 @@ toolbox/
 ## 9. 향후 작업 (보류 중)
 
 - **도구 폴더를 루트 → `tools/` 하위로 이전 예정**(예: `/qr-code/` → `/tools/qr-code/`). **단, (1) AdSense 승인 완료 + (2) 구글 색인이 어느 정도 안정화된 이후에만 진행.** URL이 전부 바뀌는 작업이므로 이전 시 반드시 함께 처리: ① 기존 URL→새 URL **301 리다이렉트** 설정, ② `sitemap.xml`의 전 URL 갱신, ③ 각 페이지 **canonical·JSON-LD(`url`·`BreadcrumbList`)** 갱신, ④ `sidebar.js`·허브 카드 링크 갱신, ⑤ 서치 콘솔에 **새 sitemap 재제출**. **색인/심사 안정화 전에는 절대 진행 금지.**
-- **푸터 공통화(`footer.js`) — AdSense 승인 후 진행하기로 사용자와 합의(2026-06-12).** `sidebar.js`와 같은 패턴으로: 공통 스크립트가 푸터를 그리고, 각 페이지에는 빈 `<footer>` 컨테이너 + `<noscript>` 폴백(최소한 홈·개인정보처리방침 링크)만 남김. 전 페이지(270+) 1회 스윕 필요 — 푸터 형식이 2종(가이드형 여러 줄 / 구형 도구 인라인 체인)이므로 각각 패턴 매치로 치환. 이후 푸터 수정은 footer.js 한 곳에서. (전면 OOP 레이어링·빌드 도구 도입은 하지 않기로 함 — 정적 사이트 원칙 유지.)
+- **푸터 공통화(`footer.js`) — AdSense 승인 후 진행하기로 사용자와 합의(2026-06-12).** `sidebar.js`와 같은 패턴으로: 공통 스크립트가 푸터를 그리고, 각 페이지에는 빈 `<footer>` 컨테이너 + `<noscript>` 폴백(최소한 홈·개인정보처리방침 링크)만 남김. 전 페이지(270+) 1회 스윕 필요 — 푸터 형식이 2종(가이드형 여러 줄 / 구형 도구 인라인 체인)이므로 각각 패턴 매치로 치환. 이후 푸터 수정은 footer.js 한 곳에서. (전면 OOP 레이어링·빌드 도구 도입은 하지 않기로 함 — 정적 사이트 원칙 유지.) 같은 스윕에 함께 처리할 잔여 항목: ① 구형 페이지 인라인 `<style>` → `/tool-page.css` 참조로 통합, ② 일부 페이지의 `<meta http-equiv="Content-Security-Policy" content="frame-ancestors...">` 제거(meta로 전달된 frame-ancestors는 브라우저가 무시 — 콘솔 경고만 발생), ③ `<head>`에 AdSense 도메인 preconnect 추가 검토.
