@@ -100,6 +100,10 @@
 - 대출 이자 계산기 (`/loan-calculator/`)
 - 적금·예금 이자 계산기 (`/savings-calculator/`)
 - 복리 계산기 (`/compound-interest/`)
+- 물타기(평단가) 계산기 (`/stock-average/`)
+- 주식 수익률·손익 계산기 (`/stock-profit/`)
+- 배당금 계산기 (`/dividend-calculator/`)
+- 목표가·손절가 계산기 (`/target-price/`)
 - 부가가치세 계산기 (`/vat-calculator/`)
 - 할인가 계산기 (`/discount-calculator/`)
 
