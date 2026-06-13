@@ -64,14 +64,14 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 172개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 176개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
 > - **카테고리 안 도구 순서**: 비슷한 기능끼리 묶고(예: 이미지편집 → 이미지변환·유틸 → PDF, 텍스트편집 → 변환 → 생성기, 계산 → 변환 → 날짜·시간 → 추첨·재미 등), 더 자주 쓰는 핵심 도구를 그 그룹 앞쪽에 둡니다.
 > - 새 도구를 추가할 때는 같은 카테고리의 알맞은 그룹 위치에 끼워 넣고, 위 4곳(sidebar·허브·이 표·README)의 순서를 동일하게 맞춥니다.
 
-### 이미지 · PDF (29)
+### 이미지 · PDF (30)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -89,6 +89,7 @@ toolbox/
 | meme-generator | 밈·짤 생성기 |
 | id-photo | 증명사진 규격 맞추기 |
 | remove-exif | EXIF·위치정보 제거 |
+| image-info | 이미지 정보 보기 |
 | heic-to-jpg | HEIC → JPG 변환 |
 | image-base64 | 이미지 ↔ Base64 |
 | image-ocr | 이미지 OCR·글자 추출 |
@@ -104,7 +105,7 @@ toolbox/
 | pdf-to-image | PDF → 이미지 |
 | pdf-to-text | PDF → 텍스트 추출 |
 
-### 텍스트 · 생성 (27)
+### 텍스트 · 생성 (28)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -121,6 +122,7 @@ toolbox/
 | text-diff | 텍스트 비교(diff) |
 | reading-time | 읽는 시간 계산기 |
 | fancy-text | 유니코드 꾸미기 글자 변환 |
+| nickname-generator | 랜덤 닉네임 생성기 |
 | special-characters | 특수문자·이모지 복사 |
 | romanizer | 한글 → 로마자 변환 |
 | keyboard-typo | 한/영 키보드 오타 변환 |
@@ -228,12 +230,13 @@ toolbox/
 | color-blindness | 색맹·색약 시뮬레이터 |
 | favicon-generator | 파비콘 생성 |
 
-### 개발자 도구 (24)
+### 개발자 도구 (26)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
 | url-parser | URL 쿼리스트링 파서 |
 | slug-generator | 슬러그(URL) 생성기 |
+| case-style-converter | 개발 표기법 변환 |
 | html-entities | HTML 엔티티 변환기 |
 | hash-generator | Hash 생성 |
 | jwt-decoder | JWT 디코더 |
@@ -255,6 +258,7 @@ toolbox/
 | markdown-preview | 마크다운 → HTML 변환 |
 | http-status-codes | HTTP 상태 코드 치트시트 |
 | ascii-table | 아스키 코드표·유니코드 변환 |
+| unicode-escape | 유니코드 이스케이프 변환 |
 
 ### 악기 (15)
 | 슬러그 | 이름 |

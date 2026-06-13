@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>유니코드 이스케이프 변환 — \uXXXX ↔ 문자 | 도구상자</title>
+<meta name="description" content="문자를 \uXXXX 형태의 유니코드 이스케이프로 인코딩하거나, 이스케이프 문자열을 원래 문자로 디코딩하는 무료 변환기. 비ASCII만 이스케이프하는 옵션을 지원하며 모든 변환은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/unicode-escape/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="유니코드 이스케이프 변환 — \uXXXX ↔ 문자 | 도구상자">
+<meta property="og:description" content="문자 ↔ \uXXXX 유니코드 이스케이프를 양방향 변환하는 무료 도구.">
+<meta property="og:url" content="https://dogubox.shop/unicode-escape/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="유니코드 이스케이프 변환 | 도구상자">
+<meta name="twitter:description" content="\uXXXX ↔ 문자 양방향 변환.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "유니코드 이스케이프 변환",
+  "description": "문자를 \\uXXXX 형태의 유니코드 이스케이프로 인코딩하거나, 이스케이프 문자열을 원래 문자로 디코딩하는 무료 변환기. 비ASCII만 이스케이프하는 옵션을 지원하며 모든 변환은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/unicode-escape/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 유니코드 이스케이프(\\uXXXX)는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "문자를 백슬래시 u와 네 자리 16진수로 표기하는 방식입니다. 예를 들어 한글 '가'는 백슬래시 u 다음에 AC00을 붙인 형태로 씁니다. 소스 코드나 JSON 문자열에 직접 넣기 어려운 문자를 안전하게 표현할 때 쓰며, 자바스크립트·자바·JSON 등에서 널리 사용됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 비ASCII만 이스케이프하는 옵션은 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "영문·숫자·기본 기호 같은 ASCII 문자는 그대로 두고, 한글·이모지 등 ASCII 범위를 벗어난 문자만 이스케이프하는 기능입니다. 코드의 가독성은 유지하면서 비ASCII 문자만 안전하게 표기하고 싶을 때 유용합니다. 끄면 모든 문자를 이스케이프합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이모지처럼 큰 문자도 변환되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 이모지나 일부 한자처럼 기본 영역을 벗어난 문자는 두 개의 \\uXXXX(서로게이트 쌍)로 표현되며, 디코딩하면 원래 문자로 정확히 복원됩니다. \\u{1F600} 형태의 코드포인트 표기도 디코딩에서 인식하므로 다양한 형식의 이스케이프 문자열을 되돌릴 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "유니코드 이스케이프 변환", "item": "https://dogubox.shop/unicode-escape/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.ue-field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:5px}
+.ue-field textarea{width:100%;min-height:90px;font-family:var(--mono);font-size:15px;line-height:1.6;padding:12px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);resize:vertical}
+.ue-mid{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:12px 0}
+.ue-mid .seg{display:inline-flex;border:1px solid var(--line-2);border-radius:var(--r-sm);overflow:hidden}
+.ue-mid .seg button{padding:8px 14px;font-size:13px;font-weight:600;color:var(--ink-2);background:transparent}
+.ue-mid .seg button.active{background:var(--ink);color:var(--paper)}
+.ue-mid label{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink-2)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>유니코드 이스케이프 변환</h1>
+      <p class="lede">문자를 <b>\uXXXX</b> 형태로 인코딩하거나, 이스케이프 문자열을 원래 문자로 디코딩합니다.</p>
+
+      <div class="box">
+        <div class="ue-field"><label id="inLbl">문자 (인코딩할 원본)</label><textarea id="input" placeholder="예: 안녕 Hello 😀">안녕 Hello 😀</textarea></div>
+        <div class="ue-mid">
+          <span class="seg" id="mode">
+            <button type="button" data-m="enc" class="active">인코딩 →</button>
+            <button type="button" data-m="dec">← 디코딩</button>
+          </span>
+          <label id="asciiOpt"><input type="checkbox" id="nonAscii" checked> 비ASCII만 이스케이프</label>
+          <button type="button" class="btn ghost" id="copy" style="margin-left:auto">결과 복사</button>
+        </div>
+        <div class="ue-field"><label id="outLbl">결과 (\uXXXX)</label><textarea id="output" readonly></textarea></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>인코딩 또는 디코딩 방향을 고릅니다.</li>
+          <li>위 칸에 변환할 내용을 입력하면 아래에 결과가 나옵니다.</li>
+          <li>인코딩 시 '비ASCII만 이스케이프'를 켜면 영문·숫자는 그대로 둡니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>JSON·소스 코드:</b> 한글이 깨지는 환경에서 \uXXXX로 바꿔 넣으면 안전하게 전달됩니다.</li>
+          <li><b>디버깅:</b> 보이지 않는 문자나 헷갈리는 유사 문자를 코드로 드러내 확인할 수 있습니다.</li>
+          <li><b>되돌리기:</b> 로그나 데이터에 섞인 \uXXXX 문자열을 디코딩해 사람이 읽을 수 있는 형태로 복원합니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 유니코드 이스케이프(\uXXXX)는 무엇인가요?</b><p>문자를 백슬래시 u와 네 자리 16진수로 표기하는 방식입니다. 예를 들어 한글 '가'는 백슬래시 u 다음에 AC00을 붙인 형태로 씁니다. 소스 코드나 JSON 문자열에 직접 넣기 어려운 문자를 안전하게 표현할 때 쓰며, 자바스크립트·자바·JSON 등에서 널리 사용됩니다.</p></div>
+          <div class="qa"><b>Q. 비ASCII만 이스케이프하는 옵션은 무엇인가요?</b><p>영문·숫자·기본 기호 같은 ASCII 문자는 그대로 두고, 한글·이모지 등 ASCII 범위를 벗어난 문자만 이스케이프하는 기능입니다. 코드의 가독성은 유지하면서 비ASCII 문자만 안전하게 표기하고 싶을 때 유용합니다. 끄면 모든 문자를 이스케이프합니다.</p></div>
+          <div class="qa"><b>Q. 이모지처럼 큰 문자도 변환되나요?</b><p>네. 이모지나 일부 한자처럼 기본 영역을 벗어난 문자는 두 개의 \uXXXX(서로게이트 쌍)로 표현되며, 디코딩하면 원래 문자로 정확히 복원됩니다. \u{1F600} 형태의 코드포인트 표기도 디코딩에서 인식하므로 다양한 형식의 이스케이프 문자열을 되돌릴 수 있습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/ascii-table/"><b>아스키 코드표</b><span>문자 ↔ 코드포인트</span></a>
+          <a class="rel-card" href="/encoder-decoder/"><b>인코더·디코더</b><span>Base64·URL 인코딩</span></a>
+          <a class="rel-card" href="/html-entities/"><b>HTML 엔티티 변환기</b><span>엔티티 인코딩</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50"></div>
+<style>.toast.show{opacity:1 !important;transform:translateX(-50%) translateY(0) !important}</style>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var mode='enc';
+  function pad4(n){ var h=n.toString(16).toUpperCase(); return ('0000'+h).slice(-4); }
+  function encode(s,nonAsciiOnly){
+    var out='';
+    for(var i=0;i<s.length;i++){
+      var code=s.charCodeAt(i); // UTF-16 코드 유닛 (서로게이트 자동 분리)
+      if(nonAsciiOnly && code<128){ out+=s[i]; }
+      else { out+='\\u'+pad4(code); }
+    }
+    return out;
+  }
+  function decode(s){
+    return s
+      .replace(/\\u\{([0-9a-fA-F]+)\}/g,function(_,h){ try{ return String.fromCodePoint(parseInt(h,16)); }catch(e){ return _; } })
+      .replace(/\\u([0-9a-fA-F]{4})/g,function(_,h){ return String.fromCharCode(parseInt(h,16)); });
+  }
+  function run(){
+    if(mode==='enc') $('output').value=encode($('input').value,$('nonAscii').checked);
+    else $('output').value=decode($('input').value);
+  }
+  $('mode').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-m]'); if(!b) return;
+    mode=b.getAttribute('data-m');
+    Array.prototype.forEach.call(this.querySelectorAll('button'),function(x){ x.classList.toggle('active',x===b); });
+    $('asciiOpt').style.display = mode==='enc'?'flex':'none';
+    $('inLbl').textContent = mode==='enc'?'문자 (인코딩할 원본)':'이스케이프 문자열 (\\uXXXX)';
+    $('outLbl').textContent = mode==='enc'?'결과 (\\uXXXX)':'결과 (문자)';
+    if(mode==='dec' && /^[^\\]/.test($('input').value)){ } // 입력 유지
+    run();
+  });
+  $('input').addEventListener('input',run);
+  $('nonAscii').addEventListener('change',run);
+  $('copy').addEventListener('click',function(){
+    if(!$('output').value) return;
+    navigator.clipboard.writeText($('output').value).then(function(){ toast('복사됨'); },function(){});
+  });
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1200);}
+  run();
+})();
+</script>
+</html>

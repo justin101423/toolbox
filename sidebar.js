@@ -32,6 +32,7 @@
       { slug: "meme-generator",   name: "밈·짤 생성기",         icon: "sticker" },
       { slug: "id-photo",         name: "증명사진 규격 맞추기", icon: "id-card" },
       { slug: "remove-exif",      name: "EXIF·위치정보 제거",   icon: "map-pin-off" },
+      { slug: "image-info",       name: "이미지 정보 보기",     icon: "aperture" },
       { slug: "heic-to-jpg",      name: "HEIC → JPG 변환",      icon: "image-down" },
       { slug: "image-base64",     name: "이미지 ↔ Base64",      icon: "image-up" },
       { slug: "image-ocr",        name: "이미지 OCR·글자 추출", icon: "scan-text" },
@@ -62,6 +63,7 @@
       { slug: "text-diff",          name: "텍스트 비교(diff)",  icon: "diff" },
       { slug: "reading-time",       name: "읽는 시간 계산",     icon: "book-open" },
       { slug: "fancy-text",         name: "꾸미기 글자 변환",   icon: "wand-sparkles" },
+      { slug: "nickname-generator", name: "랜덤 닉네임 생성기", icon: "user-round" },
       { slug: "special-characters", name: "특수문자·이모지",    icon: "smile" },
       { slug: "romanizer",          name: "한글 → 로마자",      icon: "spell-check" },
       { slug: "keyboard-typo",      name: "한/영 오타 변환",    icon: "languages" },
@@ -165,6 +167,7 @@
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
       { slug: "url-parser",       name: "URL 쿼리스트링 파서", icon: "link" },
       { slug: "slug-generator",   name: "슬러그(URL) 생성기",  icon: "link-2" },
+      { slug: "case-style-converter", name: "개발 표기법 변환", icon: "braces" },
       { slug: "html-entities",    name: "HTML 엔티티 변환기",  icon: "code-xml" },
       { slug: "hash-generator",   name: "Hash 생성",       icon: "hash" },
       { slug: "jwt-decoder",      name: "JWT 디코더",      icon: "key-square" },
@@ -185,7 +188,8 @@
       { slug: "sql-formatter",    name: "SQL 포매터",      icon: "database" },
       { slug: "markdown-preview", name: "마크다운 변환",   icon: "file-text" },
       { slug: "http-status-codes", name: "HTTP 상태 코드",  icon: "server" },
-      { slug: "ascii-table",      name: "아스키 코드표",   icon: "table-2" }
+      { slug: "ascii-table",      name: "아스키 코드표",   icon: "table-2" },
+      { slug: "unicode-escape",   name: "유니코드 이스케이프", icon: "code-2" }
     ]},
     { label: "악기", tools: [
       { slug: "piano",    name: "피아노",    icon: "piano" },
@@ -356,6 +360,9 @@
     "list-checks": '<path d="m3 17 2 2 4-4" /> <path d="m3 7 2 2 4-4" /> <path d="M13 6h8" /> <path d="M13 12h8" /> <path d="M13 18h8" />',
     "wrap-text": '<path d="M3 6h18" /> <path d="M3 12h15a3 3 0 1 1 0 6h-4" /> <path d="m16 16-2 2 2 2" /> <path d="M3 18h7" />',
     "droplet": '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />',
+    "code-2": '<path d="m18 16 4-4-4-4" /> <path d="m6 8-4 4 4 4" /> <path d="m14.5 4-5 16" />',
+    "aperture": '<circle cx="12" cy="12" r="10" /> <path d="m14.31 8 5.74 9.94" /> <path d="M9.69 8h11.48" /> <path d="m7.38 12 5.74-9.94" /> <path d="M9.69 16 3.95 6.06" /> <path d="M14.31 16H2.83" /> <path d="m16.62 12-5.74 9.94" />',
+    "user-round": '<circle cx="12" cy="8" r="5" /> <path d="M20 21a8 8 0 0 0-16 0" />',
     "briefcase": '<rect width="20" height="14" x="2" y="7" rx="2" ry="2" /> <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />',
     "flame": '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />',
     "layers": '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />',

@@ -252,6 +252,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/meme-generator/"><div class="ic" data-icon="sticker">😆</div><h3>밈·짤 생성기</h3><p>사진에 자막 넣기</p></a>
         <a class="card" href="/id-photo/"><div class="ic" data-icon="id-card">🪪</div><h3>증명사진 규격 맞추기</h3><p>여권·이력서·비자 규격 크롭</p></a>
         <a class="card" href="/remove-exif/"><div class="ic" data-icon="map-pin-off">🛡</div><h3>EXIF·위치정보 제거</h3><p>사진 GPS·메타데이터 삭제</p></a>
+        <a class="card" href="/image-info/"><div class="ic" data-icon="aperture">🔍</div><h3>이미지 정보 보기</h3><p>해상도·용량·EXIF 확인</p></a>
         <a class="card" href="/heic-to-jpg/"><div class="ic" data-icon="image-down">📥</div><h3>HEIC → JPG 변환</h3><p>아이폰 HEIC를 JPG로</p></a>
         <a class="card" href="/image-base64/"><div class="ic" data-icon="image-up">🖼</div><h3>이미지 ↔ Base64</h3><p>data URI 인코딩·디코딩</p></a>
         <a class="card" href="/image-ocr/"><div class="ic" data-icon="scan-text">🔎</div><h3>이미지 OCR·글자 추출</h3><p>사진 속 한글·영문 추출</p></a>
@@ -284,6 +285,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/text-diff/"><div class="ic" data-icon="diff">±</div><h3>텍스트 비교 (diff)</h3><p>두 글의 차이 색 표시</p></a>
         <a class="card" href="/reading-time/"><div class="ic" data-icon="book-open">📖</div><h3>읽는 시간 계산기</h3><p>묵독·낭독 시간 계산</p></a>
         <a class="card" href="/fancy-text/"><div class="ic" data-icon="wand-sparkles">✨</div><h3>꾸미기 글자 변환</h3><p>유니코드 특수 글꼴</p></a>
+        <a class="card" href="/nickname-generator/"><div class="ic" data-icon="user-round">🙂</div><h3>랜덤 닉네임 생성기</h3><p>귀여운 별명·아이디 추천</p></a>
         <a class="card" href="/special-characters/"><div class="ic" data-icon="smile">☺</div><h3>특수문자·이모지</h3><p>기호 클릭하면 복사</p></a>
         <a class="card" href="/romanizer/"><div class="ic" data-icon="spell-check">🔤</div><h3>한글 → 로마자</h3><p>이름·주소 로마자 표기</p></a>
         <a class="card" href="/keyboard-typo/"><div class="ic" data-icon="languages">⌨</div><h3>한/영 오타 변환</h3><p>ㅁㄴㅇㄹ↔asdf 변환</p></a>
@@ -397,6 +399,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/encoder-decoder/"><div class="ic" data-icon="file-code">⇄</div><h3>인코더 · 디코더</h3><p>Base64 · URL</p></a>
         <a class="card" href="/url-parser/"><div class="ic" data-icon="link">🔗</div><h3>URL 쿼리스트링 파서</h3><p>구성 요소·파라미터 분해</p></a>
         <a class="card" href="/slug-generator/"><div class="ic" data-icon="link-2">🔡</div><h3>슬러그(URL) 생성기</h3><p>한글 제목을 URL 슬러그로</p></a>
+        <a class="card" href="/case-style-converter/"><div class="ic" data-icon="braces">{}</div><h3>개발 표기법 변환</h3><p>camelCase·snake_case</p></a>
         <a class="card" href="/html-entities/"><div class="ic" data-icon="code-xml">⟨⟩</div><h3>HTML 엔티티 변환기</h3><p>특수문자 인코딩·디코딩</p></a>
         <a class="card" href="/hash-generator/"><div class="ic" data-icon="hash">🔒</div><h3>Hash 생성</h3><p>MD5 · SHA-256 · SHA-512</p></a>
         <a class="card" href="/jwt-decoder/"><div class="ic" data-icon="key-square">🔓</div><h3>JWT 디코더</h3><p>토큰 내용 분석</p></a>
@@ -418,6 +421,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/markdown-preview/"><div class="ic" data-icon="file-text">📝</div><h3>마크다운 → HTML</h3><p>실시간 미리보기·HTML 복사</p></a>
         <a class="card" href="/http-status-codes/"><div class="ic" data-icon="server">🌐</div><h3>HTTP 상태 코드</h3><p>1xx~5xx 치트시트</p></a>
         <a class="card" href="/ascii-table/"><div class="ic" data-icon="table-2">🔡</div><h3>아스키 코드표</h3><p>문자 ↔ ASCII·유니코드</p></a>
+        <a class="card" href="/unicode-escape/"><div class="ic" data-icon="code-2">\u</div><h3>유니코드 이스케이프</h3><p>\uXXXX ↔ 문자 변환</p></a>
       </div>
 
       <div class="sec-label">악기</div>
@@ -565,7 +569,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     'todo-list': '할일 투두 체크리스트 todo 할 일 목록 to-do 체크 리스트',
     'ascii-table': '아스키 코드표 ascii 유니코드 unicode 코드포인트 문자코드 16진수',
     'list-converter': '줄바꿈 쉼표 변환 목록 콤마 구분자 한줄 csv 따옴표',
-    'color-shades': '색상 명암 틴트 셰이드 tint shade 팔레트 색 단계 명도'
+    'color-shades': '색상 명암 틴트 셰이드 tint shade 팔레트 색 단계 명도',
+    'case-style-converter': 'camelcase snake_case kebab pascalcase 표기법 변수명 케이스 카멜 스네이크',
+    'unicode-escape': '유니코드 이스케이프 unicode escape u 코드포인트 디코딩 인코딩',
+    'image-info': '이미지 정보 사진 정보 해상도 exif 촬영정보 메타데이터 용량 gps',
+    'nickname-generator': '닉네임 별명 생성 랜덤 아이디 게임 닉 작명 nickname'
   };
   function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
   cards.forEach(function (c) {

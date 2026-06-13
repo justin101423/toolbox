@@ -34,6 +34,7 @@
 - 밈·짤 생성기 (`/meme-generator/`)
 - 증명사진 규격 맞추기 (`/id-photo/`)
 - EXIF·위치정보 제거 (`/remove-exif/`)
+- 이미지 정보 보기 (`/image-info/`)
 - HEIC → JPG 변환 (`/heic-to-jpg/`)
 - 이미지 ↔ Base64 (`/image-base64/`)
 - 이미지 OCR·글자 추출 (`/image-ocr/`)
@@ -64,6 +65,7 @@
 - 텍스트 비교 (diff) (`/text-diff/`)
 - 읽는 시간 계산기 (`/reading-time/`)
 - 유니코드 꾸미기 글자 변환 (`/fancy-text/`)
+- 랜덤 닉네임 생성기 (`/nickname-generator/`)
 - 특수문자·이모지 복사 (`/special-characters/`)
 - 한글 → 로마자 변환 (`/romanizer/`)
 - 한/영 키보드 오타 변환 (`/keyboard-typo/`)
@@ -167,6 +169,7 @@
 - 인코더 · 디코더 (`/encoder-decoder/`)
 - URL 쿼리스트링 파서 (`/url-parser/`)
 - 슬러그(URL) 생성기 (`/slug-generator/`)
+- 개발 표기법 변환 (`/case-style-converter/`)
 - HTML 엔티티 변환기 (`/html-entities/`)
 - Hash 생성 (`/hash-generator/`)
 - JWT 디코더 (`/jwt-decoder/`)
@@ -188,6 +191,7 @@
 - 마크다운 → HTML 변환 (`/markdown-preview/`)
 - HTTP 상태 코드 치트시트 (`/http-status-codes/`)
 - 아스키 코드표·유니코드 변환 (`/ascii-table/`)
+- 유니코드 이스케이프 변환 (`/unicode-escape/`)
 
 ### 악기
 - 피아노 (`/piano/`)
