@@ -64,7 +64,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 147개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 156개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
@@ -133,7 +133,7 @@ toolbox/
 | lorem-ipsum | 로렘 입숨 생성기 |
 | json-formatter | JSON 포매터 |
 
-### 생활 · 편의 (26)
+### 생활 · 편의 (28)
 | 슬러그 | 이름 |
 |---|---|
 | calculator | 계산기 (일반·공학용) |
@@ -146,6 +146,7 @@ toolbox/
 | pyeong-converter | 평 ↔ ㎡ 변환 |
 | size-converter | 옷·신발 사이즈 변환 |
 | roman-numerals | 로마 숫자 변환기 |
+| cooking-converter | 요리 계량 변환기 |
 | age-calculator | 만 나이 계산기 |
 | dday-calculator | D-Day · 날짜 계산 |
 | due-date-calculator | 출산 예정일 계산기 |
@@ -153,6 +154,7 @@ toolbox/
 | lunar-solar-converter | 음력 ↔ 양력 변환 |
 | timezone-converter | 세계 시간 변환 |
 | stopwatch-timer | 스톱워치·타이머 |
+| sleep-calculator | 수면 시간 계산기 |
 | bmi-calculator | BMI 계산기 |
 | calorie-calculator | 기초대사량·칼로리 계산기 |
 | gpa-calculator | 학점·GPA 계산기 |
@@ -163,11 +165,13 @@ toolbox/
 | ladder-game | 사다리타기 |
 | lotto-generator | 로또 번호 생성 |
 
-### 금융 (11)
+### 금융 (16)
 | 슬러그 | 이름 |
 |---|---|
 | salary-calculator | 연봉 실수령액 계산기 |
 | wage-calculator | 시급·주휴수당 계산기 |
+| unemployment-benefit | 실업급여 계산기 |
+| health-insurance | 건강보험료 계산기 |
 | severance-pay | 퇴직금 계산기 |
 | loan-calculator | 대출 이자 계산기 |
 | savings-calculator | 적금·예금 이자 계산기 |
@@ -176,14 +180,17 @@ toolbox/
 | stock-profit | 주식 수익률·손익 계산기 |
 | dividend-calculator | 배당금 계산기 |
 | target-price | 목표가·손절가 계산기 |
+| car-tax | 자동차세 계산기 |
+| acquisition-tax | 취득세 계산기 |
 | vat-calculator | 부가가치세 계산기 |
 | discount-calculator | 할인가 계산기 |
 
-### 직장인 · 생산성 (5)
+### 직장인 · 생산성 (6)
 | 슬러그 | 이름 |
 |---|---|
 | notepad | 임시 메모장 |
 | pomodoro | 포모도로 타이머 |
+| annual-leave | 연차 계산기 |
 | signature-maker | 서명 만들기 (전자서명) |
 | utm-builder | UTM 빌더 |
 | device-test | 마이크·웹캠 테스트 |
@@ -206,7 +213,7 @@ toolbox/
 | color-blindness | 색맹·색약 시뮬레이터 |
 | favicon-generator | 파비콘 생성 |
 
-### 개발자 도구 (21)
+### 개발자 도구 (23)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
@@ -216,8 +223,10 @@ toolbox/
 | hash-generator | Hash 생성 |
 | jwt-decoder | JWT 디코더 |
 | uuid-generator | UUID 생성 |
+| luhn-validator | 신용카드 번호 검증 |
 | base-converter | 진법 변환 |
 | subnet-calculator | 서브넷 계산기 |
+| chmod-calculator | chmod 권한 계산기 |
 | timestamp | 타임스탬프 변환 |
 | cron-parser | cron 표현식 변환·설명 |
 | regex-tester | 정규식 테스터 |

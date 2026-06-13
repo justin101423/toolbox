@@ -38,9 +38,11 @@
   <url><loc>https://dogubox.shop/timestamp/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/base-converter/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/subnet-calculator/</loc><lastmod>2026-06-13</lastmod></url>
+  <url><loc>https://dogubox.shop/chmod-calculator/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/pdf-page-numbers/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/word-frequency/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/roman-numerals/</loc><lastmod>2026-06-13</lastmod></url>
+  <url><loc>https://dogubox.shop/cooking-converter/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/regex-tester/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/image-to-pdf/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/json-formatter/</loc><lastmod>2026-05-31</lastmod></url>
@@ -53,6 +55,11 @@
   <url><loc>https://dogubox.shop/electricity-bill/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/fuel-cost/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/wage-calculator/</loc><lastmod>2026-06-13</lastmod></url>
+  <url><loc>https://dogubox.shop/unemployment-benefit/</loc><lastmod>2026-06-13</lastmod></url>
+  <url><loc>https://dogubox.shop/health-insurance/</loc><lastmod>2026-06-13</lastmod></url>
+  <url><loc>https://dogubox.shop/car-tax/</loc><lastmod>2026-06-13</lastmod></url>
+  <url><loc>https://dogubox.shop/acquisition-tax/</loc><lastmod>2026-06-13</lastmod></url>
+  <url><loc>https://dogubox.shop/annual-leave/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/due-date-calculator/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/parcel-weight/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/hangul-chosung/</loc><lastmod>2026-06-13</lastmod></url>
@@ -79,6 +86,7 @@
   <url><loc>https://dogubox.shop/qr-code/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/utm-builder/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/uuid-generator/</loc><lastmod>2026-05-31</lastmod></url>
+  <url><loc>https://dogubox.shop/luhn-validator/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/word-counter/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/clean-text/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/id-photo/</loc><lastmod>2026-05-31</lastmod></url>
@@ -129,6 +137,7 @@
   <url><loc>https://dogubox.shop/cubic-bezier/</loc><lastmod>2026-06-03</lastmod></url>
   <url><loc>https://dogubox.shop/calculator/</loc><lastmod>2026-06-03</lastmod></url>
   <url><loc>https://dogubox.shop/stopwatch-timer/</loc><lastmod>2026-06-03</lastmod></url>
+  <url><loc>https://dogubox.shop/sleep-calculator/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/pomodoro/</loc><lastmod>2026-06-03</lastmod></url>
   <url><loc>https://dogubox.shop/gpa-calculator/</loc><lastmod>2026-06-03</lastmod></url>
   <url><loc>https://dogubox.shop/size-converter/</loc><lastmod>2026-06-03</lastmod></url>

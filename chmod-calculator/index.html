@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>chmod 권한 계산기 — 8진수 ↔ rwx 권한 변환 | 도구상자</title>
+<meta name="description" content="소유자·그룹·기타의 읽기·쓰기·실행 권한을 체크하면 755 같은 8진수 권한과 rwxr-xr-x 기호 표기, chmod 명령어를 만들어 주는 무료 권한 계산기. 모든 변환은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/chmod-calculator/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="chmod 권한 계산기 — 8진수 ↔ rwx 권한 변환 | 도구상자">
+<meta property="og:description" content="rwx 권한을 체크하면 755 8진수·rwxr-xr-x 기호·chmod 명령어를 만들어 주는 무료 도구.">
+<meta property="og:url" content="https://dogubox.shop/chmod-calculator/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="chmod 권한 계산기 | 도구상자">
+<meta name="twitter:description" content="8진수 ↔ rwx 권한 변환·chmod 명령어.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "chmod 권한 계산기",
+  "description": "소유자·그룹·기타의 읽기·쓰기·실행 권한을 체크하면 755 같은 8진수 권한과 rwxr-xr-x 기호 표기, chmod 명령어를 만들어 주는 무료 권한 계산기. 모든 변환은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/chmod-calculator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 755, 644 같은 숫자는 무슨 뜻인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "세 자리 숫자는 차례로 소유자·그룹·기타 사용자의 권한을 나타냅니다. 각 자리는 읽기(4)·쓰기(2)·실행(1)을 더한 값입니다. 예를 들어 7은 4+2+1로 읽기·쓰기·실행 모두, 5는 4+1로 읽기·실행을 뜻합니다. 그래서 755는 소유자에게 모든 권한, 그룹과 기타에게는 읽기·실행을 줍니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 디렉터리에 실행 권한이 왜 필요한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "디렉터리에서 실행 권한(x)은 그 폴더 안으로 들어가거나 내부 파일에 접근할 수 있게 하는 권한입니다. 그래서 폴더는 보통 755, 파일은 644를 많이 씁니다. 폴더에 실행 권한이 없으면 읽기 권한이 있어도 내용에 접근하지 못할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 777로 설정하면 안 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "777은 모든 사용자에게 읽기·쓰기·실행을 모두 허용하는 설정이라 보안상 위험합니다. 누구나 파일을 수정하거나 실행할 수 있어 웹 서버 환경에서는 특히 피해야 합니다. 꼭 필요한 최소한의 권한만 부여하는 것이 안전하며, 보통 파일은 644, 폴더는 755로 충분합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "chmod 권한 계산기", "item": "https://dogubox.shop/chmod-calculator/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.cm-octal{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.cm-octal label{font-size:13px;font-weight:600;color:var(--ink-2)}
+.cm-octal input{width:120px;font-family:var(--mono);font-size:26px;font-weight:800;text-align:center;letter-spacing:.1em;padding:8px 10px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--accent)}
+.cm-table{width:100%;border-collapse:collapse;font-size:14px}
+.cm-table th,.cm-table td{border:1px solid var(--line);padding:10px 8px;text-align:center}
+.cm-table th{background:var(--panel);color:var(--ink-2);font-weight:700}
+.cm-table th:first-child{text-align:left}
+.cm-table td:first-child{text-align:left;color:var(--ink-2);font-weight:600}
+.cm-table input{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}
+.cm-out{margin-top:18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.cm-out .item .k{font-size:12px;color:var(--ink-3);font-weight:600}
+.cm-out .item .val{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--ink);cursor:pointer}
+.cm-out .item .val:hover{color:var(--accent)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>chmod 권한 계산기</h1>
+      <p class="lede">읽기·쓰기·실행 권한을 체크하면 <b>755 같은 8진수</b>와 rwx 기호 표기, chmod 명령어를 만들어 줍니다. 숫자를 직접 입력해도 됩니다.</p>
+
+      <div class="box">
+        <div class="cm-octal">
+          <label>8진수 권한</label>
+          <input type="text" id="octal" value="755" maxlength="4" inputmode="numeric">
+        </div>
+        <table class="cm-table">
+          <tr><th>대상</th><th>읽기 (r·4)</th><th>쓰기 (w·2)</th><th>실행 (x·1)</th></tr>
+          <tr><td>소유자 (user)</td><td><input type="checkbox" data-g="0" data-b="4"></td><td><input type="checkbox" data-g="0" data-b="2"></td><td><input type="checkbox" data-g="0" data-b="1"></td></tr>
+          <tr><td>그룹 (group)</td><td><input type="checkbox" data-g="1" data-b="4"></td><td><input type="checkbox" data-g="1" data-b="2"></td><td><input type="checkbox" data-g="1" data-b="1"></td></tr>
+          <tr><td>기타 (other)</td><td><input type="checkbox" data-g="2" data-b="4"></td><td><input type="checkbox" data-g="2" data-b="2"></td><td><input type="checkbox" data-g="2" data-b="1"></td></tr>
+        </table>
+
+        <div class="cm-out">
+          <div class="item"><div class="k">8진수</div><div class="val" id="oOctal">755</div></div>
+          <div class="item"><div class="k">기호 표기</div><div class="val" id="oSym">rwxr-xr-x</div></div>
+          <div class="item"><div class="k">명령어</div><div class="val" id="oCmd">chmod 755 파일명</div></div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>표에서 소유자·그룹·기타의 읽기·쓰기·실행 권한을 체크합니다.</li>
+          <li>또는 8진수 칸에 755·644 같은 숫자를 직접 입력합니다.</li>
+          <li>8진수·rwx 기호·chmod 명령어가 즉시 만들어집니다. 결과를 클릭하면 복사됩니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>파일은 644, 폴더는 755:</b> 일반적인 기본값입니다. 폴더는 들어가기 위해 실행 권한(x)이 필요합니다.</li>
+          <li><b>실행 스크립트는 +x:</b> 셸 스크립트를 실행하려면 소유자 실행 권한이 필요합니다. 보통 744나 755로 둡니다.</li>
+          <li><b>777은 지양:</b> 모두에게 모든 권한을 주는 777은 보안 위험이 큽니다. 꼭 필요한 최소 권한만 부여하세요.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 755, 644 같은 숫자는 무슨 뜻인가요?</b><p>세 자리 숫자는 차례로 소유자·그룹·기타 사용자의 권한을 나타냅니다. 각 자리는 읽기(4)·쓰기(2)·실행(1)을 더한 값입니다. 예를 들어 7은 4+2+1로 읽기·쓰기·실행 모두, 5는 4+1로 읽기·실행을 뜻합니다. 그래서 755는 소유자에게 모든 권한, 그룹과 기타에게는 읽기·실행을 줍니다.</p></div>
+          <div class="qa"><b>Q. 디렉터리에 실행 권한이 왜 필요한가요?</b><p>디렉터리에서 실행 권한(x)은 그 폴더 안으로 들어가거나 내부 파일에 접근할 수 있게 하는 권한입니다. 그래서 폴더는 보통 755, 파일은 644를 많이 씁니다. 폴더에 실행 권한이 없으면 읽기 권한이 있어도 내용에 접근하지 못할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 777로 설정하면 안 되나요?</b><p>777은 모든 사용자에게 읽기·쓰기·실행을 모두 허용하는 설정이라 보안상 위험합니다. 누구나 파일을 수정하거나 실행할 수 있어 웹 서버 환경에서는 특히 피해야 합니다. 꼭 필요한 최소한의 권한만 부여하는 것이 안전하며, 보통 파일은 644, 폴더는 755로 충분합니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/base-converter/"><b>진법 변환</b><span>2·8·10·16진수</span></a>
+          <a class="rel-card" href="/subnet-calculator/"><b>서브넷 계산기</b><span>IP·CIDR 계산</span></a>
+          <a class="rel-card" href="/hash-generator/"><b>Hash 생성</b><span>MD5·SHA 해시</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var boxes=Array.prototype.slice.call(document.querySelectorAll('.cm-table input[type=checkbox]'));
+  function groupVal(g){ var v=0; boxes.forEach(function(b){ if(+b.dataset.g===g && b.checked) v+=+b.dataset.b; }); return v; }
+  function symPart(v){ return (v&4?'r':'-')+(v&2?'w':'-')+(v&1?'x':'-'); }
+  function render(fromOctal){
+    var o0,o1,o2;
+    if(fromOctal){
+      var s=$('octal').value.replace(/[^0-7]/g,'').slice(-3).padStart(3,'0');
+      o0=+s[0]; o1=+s[1]; o2=+s[2];
+      boxes.forEach(function(b){ var g=+b.dataset.g, bit=+b.dataset.b; var gv=[o0,o1,o2][g]; b.checked=(gv&bit)>0; });
+    } else {
+      o0=groupVal(0); o1=groupVal(1); o2=groupVal(2);
+      $('octal').value=''+o0+o1+o2;
+    }
+    var octal=''+o0+o1+o2;
+    var sym=symPart(o0)+symPart(o1)+symPart(o2);
+    $('oOctal').textContent=octal;
+    $('oSym').textContent=sym;
+    $('oCmd').textContent='chmod '+octal+' 파일명';
+  }
+  boxes.forEach(function(b){ b.addEventListener('change',function(){ render(false); }); });
+  $('octal').addEventListener('input',function(){ render(true); });
+  document.querySelector('.cm-out').addEventListener('click',function(e){
+    var v=e.target.closest('.val'); if(!v) return;
+    navigator.clipboard.writeText(v.textContent).then(function(){ toast('복사됨'); },function(){});
+  });
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1200);}
+  render(true);
+})();
+</script>
+</html>
