@@ -85,8 +85,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 .main{padding:clamp(22px,3.5vw,46px) clamp(16px,4vw,52px) 90px;min-width:0}
 .inner{max-width:1320px}
-/* 카드 그리드 영역만 넓게(.inner). 상단 히어로/검색·소개/FAQ 등 읽기 영역은 기존 860px 폭 유지 */
-.hero,.no-result,.content{max-width:860px}
+/* 카드 그리드 영역만 넓게(.inner). 소개·FAQ 등 읽기 영역은 기존 860px 폭 유지. 히어로는 그리드 폭에 맞춰 펼치되 문단 자체는 개별 max-width로 가독성 유지 */
+.no-result,.content{max-width:860px}
 
 .hero{margin-bottom:38px;animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
 .hero .kick{margin-bottom:14px}
@@ -109,7 +109,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .no-result b{color:var(--ink)}
 
 /* 히어로 우측 패널 — 오늘의 가이드 + 통계 (넓은 화면 전용) */
-.hero-grid{display:grid;grid-template-columns:minmax(0,860px) 320px;gap:38px;align-items:stretch}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:38px;align-items:stretch}
 .hero-aside{display:flex;flex-direction:column;gap:14px;margin:34px 0 38px;animation:rise .6s .1s cubic-bezier(.2,.7,.2,1) both}
 .ha-card{display:flex;flex-direction:column;flex:1;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:border-color .18s,transform .18s,box-shadow .18s}
 .ha-card:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:5px 7px 0 rgba(27,26,30,.08)}
@@ -141,7 +141,7 @@ a.ha-stat:hover{background:var(--panel)}
 .card p{font-size:13px;color:var(--ink-2);line-height:1.45}
 
 .content{margin-top:38px;scroll-margin-top:84px}
-.content>p{font-size:15px;color:var(--ink-2);margin:11px 0;line-height:1.75;max-width:66ch}
+.content>p{font-size:15px;color:var(--ink-2);margin:11px 0;line-height:1.75}
 .content b{color:var(--ink);font-weight:700}
 .steps-list{margin:12px 0 4px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
 .steps-list li{font-size:14.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 15px}
