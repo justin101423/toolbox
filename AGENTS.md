@@ -64,20 +64,21 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 123개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 127개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
 > - **카테고리 안 도구 순서**: 비슷한 기능끼리 묶고(예: 이미지편집 → 이미지변환·유틸 → PDF, 텍스트편집 → 변환 → 생성기, 계산 → 변환 → 날짜·시간 → 추첨·재미 등), 더 자주 쓰는 핵심 도구를 그 그룹 앞쪽에 둡니다.
 > - 새 도구를 추가할 때는 같은 카테고리의 알맞은 그룹 위치에 끼워 넣고, 위 4곳(sidebar·허브·이 표·README)의 순서를 동일하게 맞춥니다.
 
-### 이미지 · PDF (25)
+### 이미지 · PDF (26)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
 | image-compressor | 이미지 압축·리사이즈 |
 | image-resizer | 이미지 크기 조절 |
 | image-crop | 이미지 자르기 |
+| image-border | 이미지 테두리·여백 추가 |
 | image-rotate | 이미지 회전·뒤집기 |
 | image-adjust | 이미지 밝기·대비·채도 조절 |
 | image-filter | 흑백·세피아 필터 |
@@ -127,7 +128,7 @@ toolbox/
 | lorem-ipsum | 로렘 입숨 생성기 |
 | json-formatter | JSON 포매터 |
 
-### 생활 · 편의 (18)
+### 생활 · 편의 (19)
 | 슬러그 | 이름 |
 |---|---|
 | calculator | 계산기 (일반·공학용) |
@@ -141,6 +142,7 @@ toolbox/
 | timezone-converter | 세계 시간 변환 |
 | stopwatch-timer | 스톱워치·타이머 |
 | bmi-calculator | BMI 계산기 |
+| calorie-calculator | 기초대사량·칼로리 계산기 |
 | gpa-calculator | 학점·GPA 계산기 |
 | typing-speed | 타자 속도 측정 |
 | zodiac-finder | 띠·별자리 찾기 |
@@ -169,7 +171,7 @@ toolbox/
 | utm-builder | UTM 빌더 |
 | device-test | 마이크·웹캠 테스트 |
 
-### 색상 · 디자인 (12)
+### 색상 · 디자인 (13)
 | 슬러그 | 이름 |
 |---|---|
 | color-picker | 컬러 피커·색상 변환 |
@@ -177,6 +179,7 @@ toolbox/
 | color-palette | 컬러 팔레트 생성 |
 | color-extractor | 이미지에서 색 추출 |
 | gradient-generator | 그라데이션 생성기 |
+| glassmorphism | 글래스모피즘 생성기 |
 | box-shadow-generator | 그림자(box-shadow) 생성기 |
 | border-radius-generator | 테두리 둥글기 생성기 |
 | cubic-bezier | cubic-bezier 이징 생성기 |
@@ -185,11 +188,12 @@ toolbox/
 | color-blindness | 색맹·색약 시뮬레이터 |
 | favicon-generator | 파비콘 생성 |
 
-### 개발자 도구 (18)
+### 개발자 도구 (19)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
 | url-parser | URL 쿼리스트링 파서 |
+| slug-generator | 슬러그(URL) 생성기 |
 | hash-generator | Hash 생성 |
 | jwt-decoder | JWT 디코더 |
 | uuid-generator | UUID 생성 |

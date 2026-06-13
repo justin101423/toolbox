@@ -241,6 +241,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/image-compressor/"><div class="ic" data-icon="shrink">📉</div><h3>이미지 압축·리사이즈</h3><p>용량 줄이고 크기 조절</p></a>
         <a class="card" href="/image-resizer/"><div class="ic" data-icon="scaling">↔</div><h3>이미지 크기 조절</h3><p>사진 픽셀 사이즈 변경</p></a>
         <a class="card" href="/image-crop/"><div class="ic" data-icon="crop">⛶</div><h3>이미지 자르기</h3><p>드래그로 원하는 영역 크롭</p></a>
+        <a class="card" href="/image-border/"><div class="ic" data-icon="frame">🖼</div><h3>이미지 테두리·여백</h3><p>여백·정사각형 만들기</p></a>
         <a class="card" href="/image-rotate/"><div class="ic" data-icon="rotate-cw">🔄</div><h3>이미지 회전·뒤집기</h3><p>90° 회전·좌우상하 반전</p></a>
         <a class="card" href="/image-adjust/"><div class="ic" data-icon="sliders-horizontal">🎚</div><h3>밝기·대비·채도 조절</h3><p>사진 색감 보정</p></a>
         <a class="card" href="/image-filter/"><div class="ic" data-icon="contrast">🌗</div><h3>흑백·세피아 필터</h3><p>흑백·세피아·밝기 조절</p></a>
@@ -304,6 +305,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/timezone-converter/"><div class="ic" data-icon="globe">🌍</div><h3>세계 시간 변환</h3><p>도시별 시차 변환</p></a>
         <a class="card" href="/stopwatch-timer/"><div class="ic" data-icon="timer">⏱</div><h3>스톱워치·타이머</h3><p>랩 기록·카운트다운</p></a>
         <a class="card" href="/bmi-calculator/"><div class="ic" data-icon="scale">⚖</div><h3>BMI 계산기</h3><p>키·몸무게로 체질량지수</p></a>
+        <a class="card" href="/calorie-calculator/"><div class="ic" data-icon="flame">🔥</div><h3>기초대사량·칼로리 계산기</h3><p>BMR·하루 권장 칼로리</p></a>
         <a class="card" href="/gpa-calculator/"><div class="ic" data-icon="graduation-cap">🎓</div><h3>학점·GPA 계산기</h3><p>대학 평점 계산</p></a>
         <a class="card" href="/typing-speed/"><div class="ic" data-icon="keyboard">⌨</div><h3>타자 속도 측정</h3><p>타수(CPM)·정확도 측정</p></a>
         <a class="card" href="/zodiac-finder/"><div class="ic" data-icon="sparkles">✨</div><h3>띠·별자리 찾기</h3><p>생년월일로 띠·별자리</p></a>
@@ -340,6 +342,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/color-palette/"><div class="ic" data-icon="palette">🎨</div><h3>컬러 팔레트 생성</h3><p>조화로운 색 조합</p></a>
         <a class="card" href="/color-extractor/"><div class="ic" data-icon="swatch-book">🔍</div><h3>이미지에서 색 추출</h3><p>사진에서 주요 색 추출</p></a>
         <a class="card" href="/gradient-generator/"><div class="ic" data-icon="blend">🌈</div><h3>그라데이션 생성기</h3><p>CSS 그라데이션 코드 생성</p></a>
+        <a class="card" href="/glassmorphism/"><div class="ic" data-icon="layers">🧊</div><h3>글래스모피즘 생성기</h3><p>반투명 유리 효과 CSS</p></a>
         <a class="card" href="/box-shadow-generator/"><div class="ic" data-icon="box">🌫</div><h3>그림자 생성기</h3><p>box-shadow CSS 생성</p></a>
         <a class="card" href="/border-radius-generator/"><div class="ic" data-icon="squircle">🔲</div><h3>둥글기 생성기</h3><p>border-radius CSS 생성</p></a>
         <a class="card" href="/cubic-bezier/"><div class="ic" data-icon="spline">〰</div><h3>cubic-bezier 생성기</h3><p>CSS 이징 곡선</p></a>
@@ -353,6 +356,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <div class="grid">
         <a class="card" href="/encoder-decoder/"><div class="ic" data-icon="file-code">⇄</div><h3>인코더 · 디코더</h3><p>Base64 · URL</p></a>
         <a class="card" href="/url-parser/"><div class="ic" data-icon="link">🔗</div><h3>URL 쿼리스트링 파서</h3><p>구성 요소·파라미터 분해</p></a>
+        <a class="card" href="/slug-generator/"><div class="ic" data-icon="link-2">🔡</div><h3>슬러그(URL) 생성기</h3><p>한글 제목을 URL 슬러그로</p></a>
         <a class="card" href="/hash-generator/"><div class="ic" data-icon="hash">🔒</div><h3>Hash 생성</h3><p>MD5 · SHA-256 · SHA-512</p></a>
         <a class="card" href="/jwt-decoder/"><div class="ic" data-icon="key-square">🔓</div><h3>JWT 디코더</h3><p>토큰 내용 분석</p></a>
         <a class="card" href="/uuid-generator/"><div class="ic" data-icon="fingerprint">#</div><h3>UUID 생성</h3><p>고유 식별자 발급</p></a>
@@ -467,6 +471,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     'compound-interest': '복리 이자 복리계산 미래가치 재테크 투자',
     'severance-pay': '퇴직금 평균임금 퇴직 계산 退職',
     'url-parser': 'url 쿼리스트링 파라미터 querystring 파서 분해',
+    'calorie-calculator': '기초대사량 칼로리 bmr tdee 다이어트 권장 열량',
+    'glassmorphism': '글래스모피즘 유리 backdrop blur 반투명 css',
+    'slug-generator': '슬러그 slug url 로마자 퍼머링크 한글',
+    'image-border': '이미지 테두리 여백 프레임 정사각형 인스타',
     'word-counter': '글자수 단어수 바이트'
   };
   function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
