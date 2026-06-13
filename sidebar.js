@@ -114,6 +114,7 @@
     ]},
     { label: "개발자 도구", tools: [
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
+      { slug: "url-parser",       name: "URL 쿼리스트링 파서", icon: "link" },
       { slug: "hash-generator",   name: "Hash 생성",       icon: "hash" },
       { slug: "jwt-decoder",      name: "JWT 디코더",      icon: "key-square" },
       { slug: "uuid-generator",   name: "UUID 생성",       icon: "fingerprint" },

@@ -116,6 +116,7 @@
 
 ### 개발자 도구
 - 인코더 · 디코더 (`/encoder-decoder/`)
+- URL 쿼리스트링 파서 (`/url-parser/`)
 - Hash 생성 (`/hash-generator/`)
 - JWT 디코더 (`/jwt-decoder/`)
 - UUID 생성 (`/uuid-generator/`)
