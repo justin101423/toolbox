@@ -71,9 +71,6 @@
     { label: "생활 · 편의", tools: [
       { slug: "calculator",      name: "계산기(공학용)",    icon: "calculator" },
       { slug: "percentage-calculator", name: "퍼센트 계산기", icon: "percent" },
-      { slug: "discount-calculator", name: "할인가 계산기", icon: "tag" },
-      { slug: "salary-calculator", name: "연봉 실수령액 계산기", icon: "wallet" },
-      { slug: "loan-calculator", name: "대출 이자 계산기",   icon: "landmark" },
       { slug: "unit-converter",  name: "단위 변환",         icon: "ruler" },
       { slug: "pyeong-converter", name: "평 ↔ ㎡ 변환",     icon: "house" },
       { slug: "size-converter",  name: "옷·신발 사이즈 변환", icon: "shirt" },
@@ -90,6 +87,13 @@
       { slug: "spinner-wheel",   name: "돌림판 추첨",       icon: "pie-chart" },
       { slug: "ladder-game",     name: "사다리타기",        icon: "ladder" },
       { slug: "lotto-generator", name: "로또 번호 생성",    icon: "ticket" }
+    ]},
+    { label: "금융", tools: [
+      { slug: "salary-calculator", name: "연봉 실수령액 계산기", icon: "wallet" },
+      { slug: "loan-calculator", name: "대출 이자 계산기",   icon: "landmark" },
+      { slug: "savings-calculator", name: "적금·예금 이자 계산기", icon: "piggy-bank" },
+      { slug: "vat-calculator",  name: "부가가치세 계산기",  icon: "receipt" },
+      { slug: "discount-calculator", name: "할인가 계산기",  icon: "tag" }
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
@@ -261,6 +265,8 @@
     "banknote": '<rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" />',
     "wallet": '<path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /> <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" />',
     "landmark": '<line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" />',
+    "piggy-bank": '<path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z" /> <path d="M2 9v1c0 1.1.9 2 2 2h1" /> <path d="M16 11h.01" />',
+    "receipt": '<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /> <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /> <path d="M12 17.5v-11" />',
     "star": '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />',
     "drum": '<path d="m2 2 8 8" /> <path d="m22 2-8 8" /> <ellipse cx="12" cy="9" rx="10" ry="5" /> <path d="M7 13.4v7.9" /> <path d="M12 14v8" /> <path d="M17 13.4v7.9" /> <path d="M2 9v8a10 5 0 0 0 20 0V9" />',
     "piano": '<path d="M18.5 8c-1.4 0-2.6-.8-3.2-2A6.87 6.87 0 0 0 2 9v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-8.5C22 9.6 20.4 8 18.5 8" /> <path d="M2 14h20" /> <path d="M6 14v4" /> <path d="M10 14v4" /> <path d="M14 14v4" /> <path d="M18 14v4" />',

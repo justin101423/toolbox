@@ -73,9 +73,6 @@
 ### 생활 · 편의
 - 계산기 (일반·공학용) (`/calculator/`)
 - 퍼센트 계산기 (`/percentage-calculator/`)
-- 할인가 계산기 (`/discount-calculator/`)
-- 연봉 실수령액 계산기 (`/salary-calculator/`)
-- 대출 이자 계산기 (`/loan-calculator/`)
 - 단위 변환 (`/unit-converter/`)
 - 평 ↔ ㎡ 변환 (`/pyeong-converter/`)
 - 옷·신발 사이즈 변환 (`/size-converter/`)
@@ -92,6 +89,13 @@
 - 돌림판 추첨 (룰렛) (`/spinner-wheel/`)
 - 사다리타기 (`/ladder-game/`)
 - 로또 번호 생성 (`/lotto-generator/`)
+
+### 금융
+- 연봉 실수령액 계산기 (`/salary-calculator/`)
+- 대출 이자 계산기 (`/loan-calculator/`)
+- 적금·예금 이자 계산기 (`/savings-calculator/`)
+- 부가가치세 계산기 (`/vat-calculator/`)
+- 할인가 계산기 (`/discount-calculator/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
