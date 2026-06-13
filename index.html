@@ -126,9 +126,11 @@ a.ha-stat:hover{background:var(--panel)}
 .ha-stat .l{font-size:12px;color:var(--ink-3);margin-top:2px}
 @media(max-width:1120px){.hero-aside{display:none}.hero-grid{display:block}}
 
-.sec-label{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--ink-2);margin:30px 0 13px;display:flex;align-items:center;gap:10px}
+.sec-label{font-family:var(--disp);font-weight:800;font-size:16px;letter-spacing:-.01em;color:var(--ink);margin:40px 0 15px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--accent);flex:none}
 .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
-.sec-label:first-of-type{margin-top:6px}
+.sec-label .cnt{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);border:1px solid var(--line);border-radius:100px;padding:2px 9px;flex:none}
+.sec-label:first-of-type{margin-top:8px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:14px}
 .card{display:block;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;transition:transform .18s ease,border-color .18s,box-shadow .18s;animation:rise .6s cubic-bezier(.2,.7,.2,1) both;}
@@ -421,6 +423,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   if (countEl) countEl.textContent = toolCardCount; // 도구 개수 자동 반영(가이드 제외)
   var haTools = document.getElementById('ha-tools');
   if (haTools) haTools.textContent = toolCardCount; // 히어로 우측 통계 카드에도 동일 반영
+  // 카테고리 섹션 라벨에 도구 개수 배지 자동 부착(가이드 카드 그리드는 제외)
+  grids.forEach(function (g) {
+    if (g.className.indexOf('guide-cards') >= 0) return;
+    var lbl = g.previousElementSibling;
+    if (!lbl || lbl.className.indexOf('sec-label') < 0 || lbl.querySelector('.cnt')) return;
+    var b = document.createElement('span');
+    b.className = 'cnt';
+    b.textContent = g.querySelectorAll('.card').length;
+    lbl.appendChild(b);
+  });
   if (!input) return;
 
   // 한글 발음·약칭 등 보조 검색어 (카드 마크업은 건드리지 않고 여기서만 보강)
