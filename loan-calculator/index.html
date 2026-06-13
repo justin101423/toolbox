@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>대출 이자 계산기 — 원리금균등·원금균등 월 상환액 | 도구상자</title>
+<meta name="description" content="대출 금액·연 이자율·기간을 입력하면 원리금균등·원금균등·만기일시 상환 방식별 월 상환액과 총이자, 총상환액을 계산하는 무료 대출 계산기. 모든 계산은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/loan-calculator/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="대출 이자 계산기 — 원리금균등·원금균등 월 상환액 | 도구상자">
+<meta property="og:description" content="대출 금액·이자율·기간으로 상환 방식별 월 상환액과 총이자를 계산하는 무료 대출 계산기. 모든 계산은 브라우저에서 이뤄집니다.">
+<meta property="og:url" content="https://dogubox.shop/loan-calculator/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="대출 이자 계산기 | 도구상자">
+<meta name="twitter:description" content="상환 방식별 월 상환액·총이자 계산.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "대출 이자 계산기",
+  "description": "대출 금액·연 이자율·기간을 입력하면 원리금균등·원금균등·만기일시 상환 방식별 월 상환액과 총이자, 총상환액을 계산하는 무료 대출 계산기. 모든 계산은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/loan-calculator/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 원리금균등과 원금균등 상환은 어떻게 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "원리금균등은 매달 갚는 금액(원금+이자)이 같아 계획을 세우기 쉽습니다. 원금균등은 매달 같은 원금에 남은 잔액의 이자를 더해 갚으므로 첫 달이 가장 크고 점점 줄며, 총이자는 원금균등이 더 적습니다. 만기일시는 기간 내내 이자만 내고 만기에 원금을 한 번에 갚는 방식으로 총이자가 가장 큽니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 중도상환수수료나 우대금리도 반영되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 이 계산기는 원금과 이자만 계산하며 중도상환수수료, 우대금리, 거치기간, 변동금리 변화는 반영하지 않습니다. 고정금리로 끝까지 갚는다는 가정의 예상치이므로, 실제 상환액은 대출 상품 조건에 따라 달라질 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이자율은 어떤 값을 넣나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "연 이자율(APR)을 % 단위로 넣습니다. 예를 들어 연 4.5%라면 4.5를 입력하면 됩니다. 계산기는 이를 12로 나눈 월 이자율로 매달 이자를 계산합니다. 우대금리를 받는다면 우대 적용 후의 최종 금리를 넣어야 실제에 가깝습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "대출 이자 계산기", "item": "https://dogubox.shop/loan-calculator/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.lc-seg{display:inline-flex;border:1px solid var(--line-2);border-radius:99px;overflow:hidden;margin-bottom:16px;flex-wrap:wrap}
+.lc-seg button{padding:8px 16px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:var(--paper)}
+.lc-seg button.on{background:var(--accent);color:#fff}
+.lc-field{margin-bottom:14px}
+.lc-field label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.lc-amt{position:relative}
+.lc-amt input{width:100%;font-family:var(--mono);font-size:19px;font-weight:700;padding:13px 44px 13px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);text-align:right}
+.lc-amt .won{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:15px;font-weight:600}
+.lc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lc-row input{width:100%;font-family:var(--mono);font-size:16px;padding:11px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);text-align:right}
+.lc-termrow{display:flex;gap:8px}
+.lc-termrow input{flex:1}
+.lc-termrow select{flex:0 0 auto;font-size:15px;padding:0 10px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.lc-result{margin-top:18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;text-align:center}
+.lc-result .lbl{font-size:13px;color:var(--ink-3);font-weight:600}
+.lc-result .big{font-family:var(--mono);font-size:32px;font-weight:800;color:var(--accent);letter-spacing:-.02em;margin-top:4px;word-break:break-all}
+.lc-result .sub{font-size:13px;color:var(--ink-2);margin-top:4px}
+.lc-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+.lc-table td{border-bottom:1px solid var(--line);padding:9px 4px}
+.lc-table td:last-child{text-align:right;font-family:var(--mono);font-weight:600;color:var(--ink)}
+.lc-table td:first-child{color:var(--ink-2)}
+.lc-table tr.sum td{border-top:2px solid var(--line-2);border-bottom:none;font-weight:700;color:var(--ink);padding-top:11px}
+.lc-note{font-size:12.5px;color:var(--ink-3);margin-top:14px;line-height:1.6;background:var(--panel);border-radius:var(--r-sm);padding:11px 13px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>대출 이자 계산기</h1>
+      <p class="lede">대출 금액·이자율·기간을 넣으면 <b>월 상환액</b>과 총이자, 총상환액을 상환 방식별로 계산합니다.</p>
+
+      <div class="box">
+        <div class="lc-seg" id="seg">
+          <button type="button" data-m="amort" class="on">원리금균등</button>
+          <button type="button" data-m="principal">원금균등</button>
+          <button type="button" data-m="bullet">만기일시</button>
+        </div>
+        <div class="lc-field">
+          <label>대출 금액</label>
+          <div class="lc-amt"><input type="text" inputmode="numeric" id="amt" value="100,000,000"><span class="won">원</span></div>
+        </div>
+        <div class="lc-row">
+          <div class="lc-field" style="margin-bottom:0">
+            <label>연 이자율 (%)</label>
+            <input type="text" inputmode="decimal" id="rate" value="4.5">
+          </div>
+          <div class="lc-field" style="margin-bottom:0">
+            <label>대출 기간</label>
+            <div class="lc-termrow">
+              <input type="number" id="term" value="30" min="1" step="1">
+              <select id="termUnit"><option value="year">년</option><option value="month">개월</option></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="lc-result">
+          <div class="lbl" id="mainLbl">월 상환액</div>
+          <div class="big" id="main">—</div>
+          <div class="sub" id="mainSub"></div>
+        </div>
+
+        <table class="lc-table" id="breakdown"></table>
+        <div class="lc-note" id="note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>상단에서 상환 방식(원리금균등·원금균등·만기일시)을 고릅니다.</li>
+          <li>대출 금액을 입력합니다. 숫자만 넣으면 자동으로 콤마가 표시됩니다.</li>
+          <li>연 이자율(%)과 대출 기간(년 또는 개월)을 입력하면 결과가 즉시 계산됩니다.</li>
+          <li>아래 표에서 총이자와 총상환액을 확인하고, 방식을 바꿔 가며 비교합니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>총이자로 비교하세요:</b> 같은 금액·금리라도 원금균등이 원리금균등보다 총이자가 적습니다. 대신 초반 상환 부담이 크니, 매달 낼 수 있는 금액과 총이자를 함께 보고 고르는 것이 좋습니다.</li>
+          <li><b>금리 0.5%의 차이:</b> 금액이 크고 기간이 길면 금리 0.5% 차이가 총이자 수백만 원으로 벌어집니다. 우대금리 조건을 채울 수 있는지 확인하면 도움이 됩니다.</li>
+          <li><b>기간과 월 부담의 균형:</b> 기간을 늘리면 월 상환액은 줄지만 총이자는 늘어납니다. 기간을 바꿔 가며 월 부담과 총이자의 균형점을 찾아보세요.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 원리금균등과 원금균등 상환은 어떻게 다른가요?</b><p>원리금균등은 매달 갚는 금액(원금+이자)이 같아 계획을 세우기 쉽습니다. 원금균등은 매달 같은 원금에 남은 잔액의 이자를 더해 갚으므로 첫 달이 가장 크고 점점 줄며, 총이자는 원금균등이 더 적습니다. 만기일시는 기간 내내 이자만 내고 만기에 원금을 한 번에 갚는 방식으로 총이자가 가장 큽니다.</p></div>
+          <div class="qa"><b>Q. 중도상환수수료나 우대금리도 반영되나요?</b><p>아니요. 이 계산기는 원금과 이자만 계산하며 중도상환수수료, 우대금리, 거치기간, 변동금리 변화는 반영하지 않습니다. 고정금리로 끝까지 갚는다는 가정의 예상치이므로, 실제 상환액은 대출 상품 조건에 따라 달라질 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 이자율은 어떤 값을 넣나요?</b><p>연 이자율(APR)을 % 단위로 넣습니다. 예를 들어 연 4.5%라면 4.5를 입력하면 됩니다. 계산기는 이를 12로 나눈 월 이자율로 매달 이자를 계산합니다. 우대금리를 받는다면 우대 적용 후의 최종 금리를 넣어야 실제에 가깝습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/salary-calculator/"><b>연봉 실수령액 계산기</b><span>세후 월급 확인</span></a>
+          <a class="rel-card" href="/percentage-calculator/"><b>퍼센트 계산기</b><span>비율·증감률 계산</span></a>
+          <a class="rel-card" href="/discount-calculator/"><b>할인가 계산기</b><span>할인율·중복할인</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var method="amort";
+  function won(n){ return Math.round(n).toLocaleString('ko-KR'); }
+  function num(s){ return parseInt(String(s).replace(/[^0-9]/g,''),10)||0; }
+  function dec(s){ return parseFloat(String(s).replace(/[^0-9.]/g,''))||0; }
+
+  function calc(){
+    var P=num($('amt').value);
+    var annual=dec($('rate').value)/100;
+    var r=annual/12;
+    var n=Math.max(1, parseInt($('term').value,10)||1);
+    if($('termUnit').value==='year') n*=12;
+
+    var totalInterest=0, totalPay=0, mainVal=0, sub='';
+    if(method==='amort'){
+      var m = r===0 ? P/n : P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+      totalPay=m*n; totalInterest=totalPay-P; mainVal=m;
+      $('mainLbl').textContent='월 상환액 (매달 동일)';
+      sub='총 '+n+'개월 동안 매달 같은 금액을 상환합니다.';
+    } else if(method==='principal'){
+      var pr=P/n;
+      var first=pr+P*r;
+      var last=pr+pr*r;
+      totalInterest = r*P*(n+1)/2;
+      totalPay=P+totalInterest; mainVal=first;
+      $('mainLbl').textContent='첫 달 상환액 (가장 큼)';
+      sub='첫 달 '+won(first)+'원 → 마지막 달 '+won(last)+'원으로 매달 줄어듭니다.';
+    } else { // bullet
+      var mi=P*r;
+      totalInterest=mi*n; totalPay=P+totalInterest; mainVal=mi;
+      $('mainLbl').textContent='월 이자 (만기까지)';
+      sub='매달 이자만 내고, 만기에 원금 '+won(P)+'원을 한 번에 상환합니다.';
+    }
+    $('main').textContent=won(mainVal)+'원';
+    $('mainSub').textContent=sub;
+    $('breakdown').innerHTML=
+      '<tr><td>대출 원금</td><td>'+won(P)+'원</td></tr>'+
+      '<tr><td>총 이자</td><td>'+won(totalInterest)+'원</td></tr>'+
+      '<tr class="sum"><td>총 상환액</td><td>'+won(totalPay)+'원</td></tr>';
+    $('note').textContent='※ 고정금리로 끝까지 상환한다고 가정한 예상치입니다. 중도상환수수료·우대금리·거치기간·변동금리는 반영하지 않으므로 실제와 차이가 날 수 있습니다.';
+  }
+  function formatAmt(el){ var c=num(el.value); el.value = c? c.toLocaleString('ko-KR') : ''; }
+  $('amt').addEventListener('input',function(){ var p=this.selectionStart,b=this.value.length; formatAmt(this); this.selectionStart=this.selectionEnd=Math.max(0,p+(this.value.length-b)); calc(); });
+  ['rate','term','termUnit'].forEach(function(id){ $(id).addEventListener('input',calc); });
+  $('seg').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-m]'); if(!b) return;
+    method=b.dataset.m;
+    [].forEach.call(this.querySelectorAll('button'),function(x){ x.classList.toggle('on',x===b); });
+    calc();
+  });
+  calc();
+})();
+</script>
+</html>

@@ -74,6 +74,7 @@
 - 퍼센트 계산기 (`/percentage-calculator/`)
 - 할인가 계산기 (`/discount-calculator/`)
 - 연봉 실수령액 계산기 (`/salary-calculator/`)
+- 대출 이자 계산기 (`/loan-calculator/`)
 - 단위 변환 (`/unit-converter/`)
 - 평 ↔ ㎡ 변환 (`/pyeong-converter/`)
 - 옷·신발 사이즈 변환 (`/size-converter/`)
