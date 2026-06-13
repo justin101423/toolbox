@@ -14,10 +14,10 @@
 .content h2{font-family:var(--disp);font-weight:800;font-size:clamp(19px,3vw,24px);letter-spacing:-.02em;line-height:1.28;margin:38px 0 10px}
 .content h3{font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:-.01em;margin:24px 0 8px}
 
-/* 본문 리스트(프로즈) */
-.content>ul,.content>ol{margin:12px 0;padding-left:22px}
-.content>ul li,.content>ol li{font-size:15px;color:var(--ink-2);line-height:1.75;margin:7px 0;padding-left:4px}
-.content>ul li::marker{color:var(--accent)}
+/* 본문 리스트(프로즈) — 단, .steps-list/.tips-list는 tool-page.css 스타일(번호 원·마커)을 쓰므로 제외 */
+.content>ul:not(.tips-list),.content>ol:not(.steps-list){margin:12px 0;padding-left:22px}
+.content>ul:not(.tips-list) li,.content>ol:not(.steps-list) li{font-size:15px;color:var(--ink-2);line-height:1.75;margin:7px 0;padding-left:4px}
+.content>ul:not(.tips-list) li::marker{color:var(--accent)}
 .content>ul li b,.content>ol li b{color:var(--ink);font-weight:700}
 
 /* 본문 내부 링크 */
