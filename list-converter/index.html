@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>줄바꿈 ↔ 쉼표 변환기 — 목록·구분자 변환 | 도구상자</title>
+<meta name="description" content="줄바꿈으로 된 목록을 쉼표로, 쉼표로 된 값을 줄바꿈으로 바꾸는 무료 변환기. 따옴표 감싸기, 접두·접미사, 중복 제거, 정렬, 빈 줄 제거 옵션을 지원합니다. 모든 처리는 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/list-converter/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="줄바꿈 ↔ 쉼표 변환기 — 목록·구분자 변환 | 도구상자">
+<meta property="og:description" content="줄바꿈↔쉼표 등 구분자 변환, 따옴표·접두접미사·중복제거·정렬 지원 무료 도구.">
+<meta property="og:url" content="https://dogubox.shop/list-converter/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="줄바꿈 ↔ 쉼표 변환기 | 도구상자">
+<meta name="twitter:description" content="목록·구분자 변환, 따옴표·중복제거.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "줄바꿈 ↔ 쉼표 변환기",
+  "description": "줄바꿈으로 된 목록을 쉼표로, 쉼표로 된 값을 줄바꿈으로 바꾸는 무료 변환기. 따옴표 감싸기, 접두·접미사, 중복 제거, 정렬, 빈 줄 제거 옵션을 지원합니다. 모든 처리는 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/list-converter/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 어떤 변환을 할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "줄바꿈으로 나열된 목록을 쉼표로 이어 붙이거나, 반대로 쉼표·공백·세미콜론 등으로 구분된 값을 한 줄씩 줄바꿈으로 펼칠 수 있습니다. 입력은 줄바꿈·쉼표·세미콜론·탭·공백을 모두 구분자로 인식하고, 출력 구분자는 원하는 것으로 고르면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 따옴표로 감싸는 기능은 언제 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SQL의 IN 절이나 코드의 배열처럼 각 값을 따옴표로 감싸야 할 때 유용합니다. 예를 들어 줄 목록을 'a','b','c' 형태로 한 번에 바꿀 수 있습니다. 작은따옴표·큰따옴표를 고를 수 있고, 접두사·접미사를 더해 원하는 형식으로 만들 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 중복 제거나 정렬도 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 변환 전에 중복된 항목을 제거하거나 가나다·알파벳 순으로 정렬하는 옵션이 있습니다. 빈 줄과 앞뒤 공백을 정리하는 기능도 있어, 지저분하게 붙여넣은 목록을 깔끔한 형태로 한 번에 다듬을 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "줄바꿈 ↔ 쉼표 변환기", "item": "https://dogubox.shop/list-converter/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.lc-ta{width:100%;min-height:120px;font-size:15px;line-height:1.6;padding:12px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);resize:vertical;font-family:var(--mono)}
+.lc-opts{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:14px 0}
+.lc-opts label{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.lc-opts select,.lc-opts input[type=text]{font-size:13.5px;padding:6px 9px;border:1px solid var(--line-2);border-radius:6px;background:var(--paper);color:var(--ink)}
+.lc-opts input[type=text]{width:80px}
+.lc-row{display:flex;align-items:center;gap:8px;margin-top:10px}
+.lc-row .sp{flex:1}
+.lc-stat{font-size:13px;color:var(--ink-3)}
+.toast.show{opacity:1 !important;transform:translateX(-50%) translateY(0) !important}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>줄바꿈 ↔ 쉼표 변환기</h1>
+      <p class="lede">줄 목록을 <b>쉼표·공백 등으로</b> 잇거나 반대로 펼칩니다. 따옴표 감싸기·중복 제거·정렬도 한 번에.</p>
+
+      <div class="box">
+        <textarea class="lc-ta" id="input" placeholder="여기에 목록을 붙여넣으세요 (줄바꿈·쉼표 등 구분)">사과
+바나나
+딸기
+사과</textarea>
+        <div class="lc-opts">
+          <label>출력 구분자
+            <select id="sep">
+              <option value=",">쉼표 (,)</option>
+              <option value=", ">쉼표+공백 (, )</option>
+              <option value="\n">줄바꿈</option>
+              <option value=" ">공백</option>
+              <option value=";">세미콜론 (;)</option>
+              <option value="\t">탭</option>
+              <option value="|">파이프 (|)</option>
+            </select>
+          </label>
+          <label>감싸기
+            <select id="quote"><option value="">없음</option><option value="'">'작은따옴표'</option><option value="&quot;">"큰따옴표"</option></select>
+          </label>
+          <label>접두사 <input type="text" id="prefix" placeholder="(예: -)"></label>
+          <label>접미사 <input type="text" id="suffix" placeholder="(예: ,)"></label>
+        </div>
+        <div class="lc-opts">
+          <label><input type="checkbox" id="trim" checked> 앞뒤 공백 제거</label>
+          <label><input type="checkbox" id="noEmpty" checked> 빈 항목 제거</label>
+          <label><input type="checkbox" id="dedup"> 중복 제거</label>
+          <label><input type="checkbox" id="sort"> 정렬</label>
+        </div>
+        <textarea class="lc-ta" id="output" readonly placeholder="결과가 여기에 표시됩니다"></textarea>
+        <div class="lc-row">
+          <span class="lc-stat" id="stat"></span>
+          <span class="sp"></span>
+          <button type="button" class="btn accent" id="copy">결과 복사</button>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>변환할 목록을 입력창에 붙여넣습니다(줄바꿈·쉼표 등 무엇이든 인식).</li>
+          <li>출력 구분자와 감싸기·접두/접미사, 정리 옵션을 고릅니다.</li>
+          <li>결과가 즉시 만들어지며 '결과 복사'로 클립보드에 담을 수 있습니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>SQL IN 절:</b> 작은따옴표 감싸기 + 쉼표 구분으로 'a','b','c' 형태를 빠르게 만듭니다.</li>
+          <li><b>엑셀 ↔ 목록:</b> 엑셀 한 열을 붙여넣어 쉼표로 잇거나, 쉼표 값을 줄바꿈으로 펼쳐 다시 붙여넣기 좋습니다.</li>
+          <li><b>정리까지 한 번에:</b> 중복 제거·정렬·빈 줄 제거를 켜면 지저분한 목록도 깔끔해집니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 어떤 변환을 할 수 있나요?</b><p>줄바꿈으로 나열된 목록을 쉼표로 이어 붙이거나, 반대로 쉼표·공백·세미콜론 등으로 구분된 값을 한 줄씩 줄바꿈으로 펼칠 수 있습니다. 입력은 줄바꿈·쉼표·세미콜론·탭·공백을 모두 구분자로 인식하고, 출력 구분자는 원하는 것으로 고르면 됩니다.</p></div>
+          <div class="qa"><b>Q. 따옴표로 감싸는 기능은 언제 쓰나요?</b><p>SQL의 IN 절이나 코드의 배열처럼 각 값을 따옴표로 감싸야 할 때 유용합니다. 예를 들어 줄 목록을 'a','b','c' 형태로 한 번에 바꿀 수 있습니다. 작은따옴표·큰따옴표를 고를 수 있고, 접두사·접미사를 더해 원하는 형식으로 만들 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 중복 제거나 정렬도 되나요?</b><p>네. 변환 전에 중복된 항목을 제거하거나 가나다·알파벳 순으로 정렬하는 옵션이 있습니다. 빈 줄과 앞뒤 공백을 정리하는 기능도 있어, 지저분하게 붙여넣은 목록을 깔끔한 형태로 한 번에 다듬을 수 있습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/clean-text/"><b>공백·줄바꿈 정리</b><span>지저분한 텍스트 정돈</span></a>
+          <a class="rel-card" href="/remove-duplicate-lines/"><b>중복 줄 제거</b><span>같은 줄 한 번만</span></a>
+          <a class="rel-card" href="/sort-lines/"><b>텍스트 줄 정렬</b><span>가나다·알파벳순</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  function unescapeSep(v){ return v.replace(/\\n/g,'\n').replace(/\\t/g,'\t'); }
+  function convert(){
+    var raw=$('input').value;
+    var parts=raw.split(/[\n,;\t|]+| {2,}/);
+    if($('trim').checked) parts=parts.map(function(s){return s.trim();});
+    if($('noEmpty').checked) parts=parts.filter(function(s){return s!=='';});
+    if($('dedup').checked){ var seen={}, out=[]; parts.forEach(function(s){ if(!seen[s]){seen[s]=1;out.push(s);} }); parts=out; }
+    if($('sort').checked) parts=parts.slice().sort(function(a,b){return a.localeCompare(b,'ko');});
+    var q=$('quote').value.replace('&quot;','"');
+    var pre=$('prefix').value, suf=$('suffix').value;
+    var items=parts.map(function(s){ return pre+q+s+q+suf; });
+    var sep=unescapeSep($('sep').value);
+    $('output').value=items.join(sep);
+    $('stat').textContent=parts.length+'개 항목';
+  }
+  ['input','sep','quote','prefix','suffix','trim','noEmpty','dedup','sort'].forEach(function(id){
+    $(id).addEventListener('input',convert); $(id).addEventListener('change',convert);
+  });
+  $('copy').addEventListener('click',function(){
+    if(!$('output').value) return;
+    navigator.clipboard.writeText($('output').value).then(function(){ toast('복사됨'); },function(){});
+  });
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1200);}
+  convert();
+})();
+</script>
+</html>

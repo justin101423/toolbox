@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://dogubox.shop/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/color-palette/</loc><lastmod>2026-05-31</lastmod></url>
+  <url><loc>https://dogubox.shop/color-shades/</loc><lastmod>2026-06-14</lastmod></url>
   <url><loc>https://dogubox.shop/dday-calculator/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/business-days/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/encoder-decoder/</loc><lastmod>2026-05-31</lastmod></url>
@@ -34,6 +35,7 @@
   <url><loc>https://dogubox.shop/text-reverser/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/morse-code/</loc><lastmod>2026-06-13</lastmod></url>
   <url><loc>https://dogubox.shop/sort-lines/</loc><lastmod>2026-05-31</lastmod></url>
+  <url><loc>https://dogubox.shop/list-converter/</loc><lastmod>2026-06-14</lastmod></url>
   <url><loc>https://dogubox.shop/line-numbers/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/csv-json/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/timestamp/</loc><lastmod>2026-05-31</lastmod></url>
@@ -89,6 +91,7 @@
   <url><loc>https://dogubox.shop/team-generator/</loc><lastmod>2026-06-14</lastmod></url>
   <url><loc>https://dogubox.shop/dice-roller/</loc><lastmod>2026-06-14</lastmod></url>
   <url><loc>https://dogubox.shop/notepad/</loc><lastmod>2026-05-31</lastmod></url>
+  <url><loc>https://dogubox.shop/todo-list/</loc><lastmod>2026-06-14</lastmod></url>
   <url><loc>https://dogubox.shop/password-generator/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/pdf-compressor/</loc><lastmod>2026-05-31</lastmod></url>
   <url><loc>https://dogubox.shop/pdf-merge/</loc><lastmod>2026-05-31</lastmod></url>
@@ -136,6 +139,7 @@
   <url><loc>https://dogubox.shop/json-to-types/</loc><lastmod>2026-06-02</lastmod></url>
   <url><loc>https://dogubox.shop/css-unit-converter/</loc><lastmod>2026-06-02</lastmod></url>
   <url><loc>https://dogubox.shop/http-status-codes/</loc><lastmod>2026-06-02</lastmod></url>
+  <url><loc>https://dogubox.shop/ascii-table/</loc><lastmod>2026-06-14</lastmod></url>
   <url><loc>https://dogubox.shop/pdf-to-text/</loc><lastmod>2026-06-03</lastmod></url>
   <url><loc>https://dogubox.shop/text-replace/</loc><lastmod>2026-06-03</lastmod></url>
   <url><loc>https://dogubox.shop/tts/</loc><lastmod>2026-06-03</lastmod></url>

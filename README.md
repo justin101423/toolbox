@@ -56,6 +56,7 @@
 - 텍스트 찾기·바꾸기 (`/text-replace/`)
 - 중복 줄 제거 (`/remove-duplicate-lines/`)
 - 텍스트 줄 정렬 (`/sort-lines/`)
+- 줄바꿈 ↔ 쉼표 변환기 (`/list-converter/`)
 - 줄 번호 매기기 (`/line-numbers/`)
 - 대소문자·표기 변환 (`/case-converter/`)
 - 글자 거꾸로·뒤집기 (`/text-reverser/`)
@@ -137,6 +138,7 @@
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
+- 할 일 체크리스트 (`/todo-list/`)
 - 포모도로 타이머 (`/pomodoro/`)
 - 연차 계산기 (`/annual-leave/`)
 - 근무시간 계산기 (`/work-hours/`)
@@ -148,6 +150,7 @@
 - 컬러 피커·색상 변환 (`/color-picker/`)
 - HEX ↔ RGB 변환 (`/hex-rgb-converter/`)
 - 컬러 팔레트 생성 (`/color-palette/`)
+- 색상 명암 생성기 (`/color-shades/`)
 - 이미지에서 색 추출 (`/color-extractor/`)
 - 그라데이션 생성기 (`/gradient-generator/`)
 - 글래스모피즘 생성기 (`/glassmorphism/`)
@@ -184,6 +187,7 @@
 - SQL 포매터 (`/sql-formatter/`)
 - 마크다운 → HTML 변환 (`/markdown-preview/`)
 - HTTP 상태 코드 치트시트 (`/http-status-codes/`)
+- 아스키 코드표·유니코드 변환 (`/ascii-table/`)
 
 ### 악기
 - 피아노 (`/piano/`)

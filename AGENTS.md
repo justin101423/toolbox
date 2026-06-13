@@ -64,7 +64,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 168개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 172개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
@@ -104,7 +104,7 @@ toolbox/
 | pdf-to-image | PDF → 이미지 |
 | pdf-to-text | PDF → 텍스트 추출 |
 
-### 텍스트 · 생성 (26)
+### 텍스트 · 생성 (27)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -113,6 +113,7 @@ toolbox/
 | text-replace | 텍스트 찾기·바꾸기 |
 | remove-duplicate-lines | 중복 줄 제거 |
 | sort-lines | 텍스트 줄 정렬 |
+| list-converter | 줄바꿈 ↔ 쉼표 변환기 |
 | line-numbers | 줄 번호 매기기 |
 | case-converter | 대소문자·표기 변환 |
 | text-reverser | 글자 거꾸로·뒤집기 |
@@ -196,10 +197,11 @@ toolbox/
 | discount-calculator | 할인가 계산기 |
 | installment-calculator | 할부 계산기 |
 
-### 직장인 · 생산성 (7)
+### 직장인 · 생산성 (8)
 | 슬러그 | 이름 |
 |---|---|
 | notepad | 임시 메모장 |
+| todo-list | 할 일 체크리스트 |
 | pomodoro | 포모도로 타이머 |
 | annual-leave | 연차 계산기 |
 | work-hours | 근무시간 계산기 |
@@ -207,12 +209,13 @@ toolbox/
 | utm-builder | UTM 빌더 |
 | device-test | 마이크·웹캠 테스트 |
 
-### 색상 · 디자인 (14)
+### 색상 · 디자인 (15)
 | 슬러그 | 이름 |
 |---|---|
 | color-picker | 컬러 피커·색상 변환 |
 | hex-rgb-converter | HEX ↔ RGB 변환 |
 | color-palette | 컬러 팔레트 생성 |
+| color-shades | 색상 명암 생성기 |
 | color-extractor | 이미지에서 색 추출 |
 | gradient-generator | 그라데이션 생성기 |
 | glassmorphism | 글래스모피즘 생성기 |
@@ -225,7 +228,7 @@ toolbox/
 | color-blindness | 색맹·색약 시뮬레이터 |
 | favicon-generator | 파비콘 생성 |
 
-### 개발자 도구 (23)
+### 개발자 도구 (24)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
@@ -251,6 +254,7 @@ toolbox/
 | sql-formatter | SQL 포매터 |
 | markdown-preview | 마크다운 → HTML 변환 |
 | http-status-codes | HTTP 상태 코드 치트시트 |
+| ascii-table | 아스키 코드표·유니코드 변환 |
 
 ### 악기 (15)
 | 슬러그 | 이름 |

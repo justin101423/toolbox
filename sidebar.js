@@ -54,6 +54,7 @@
       { slug: "text-replace",       name: "텍스트 찾기·바꾸기", icon: "replace" },
       { slug: "remove-duplicate-lines", name: "중복 줄 제거",   icon: "list-x" },
       { slug: "sort-lines",         name: "텍스트 줄 정렬",     icon: "arrow-down-up" },
+      { slug: "list-converter",     name: "줄바꿈↔쉼표 변환",   icon: "wrap-text" },
       { slug: "line-numbers",       name: "줄 번호 매기기",     icon: "list-ordered" },
       { slug: "case-converter",     name: "대소문자 변환",      icon: "case-sensitive" },
       { slug: "text-reverser",      name: "글자 거꾸로·뒤집기", icon: "arrow-left-right" },
@@ -135,6 +136,7 @@
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
+      { slug: "todo-list",   name: "할 일 체크리스트", icon: "list-checks" },
       { slug: "pomodoro",    name: "포모도로 타이머", icon: "alarm-clock" },
       { slug: "annual-leave", name: "연차 계산기", icon: "palmtree" },
       { slug: "work-hours", name: "근무시간 계산기", icon: "hourglass" },
@@ -146,6 +148,7 @@
       { slug: "color-picker",      name: "컬러 피커·변환",   icon: "pipette" },
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
       { slug: "color-palette",     name: "컬러 팔레트 생성", icon: "palette" },
+      { slug: "color-shades",      name: "색상 명암 생성기", icon: "droplet" },
       { slug: "color-extractor",   name: "이미지 색 추출",   icon: "swatch-book" },
       { slug: "gradient-generator", name: "그라데이션 생성기", icon: "blend" },
       { slug: "glassmorphism",    name: "글래스모피즘 생성기", icon: "layers" },
@@ -181,7 +184,8 @@
       { slug: "table-converter",  name: "표 변환기",        icon: "table-2" },
       { slug: "sql-formatter",    name: "SQL 포매터",      icon: "database" },
       { slug: "markdown-preview", name: "마크다운 변환",   icon: "file-text" },
-      { slug: "http-status-codes", name: "HTTP 상태 코드",  icon: "server" }
+      { slug: "http-status-codes", name: "HTTP 상태 코드",  icon: "server" },
+      { slug: "ascii-table",      name: "아스키 코드표",   icon: "table-2" }
     ]},
     { label: "악기", tools: [
       { slug: "piano",    name: "피아노",    icon: "piano" },
@@ -349,6 +353,9 @@
     "dumbbell": '<path d="M14.4 14.4 9.6 9.6" /> <path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" /> <path d="m21.5 21.5-1.4-1.4" /> <path d="M3.9 3.9 2.5 2.5" /> <path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" />',
     "heart": '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />',
     "invert": '<circle cx="12" cy="12" r="10" /> <path d="M12 2a10 10 0 0 0 0 20Z" />',
+    "list-checks": '<path d="m3 17 2 2 4-4" /> <path d="m3 7 2 2 4-4" /> <path d="M13 6h8" /> <path d="M13 12h8" /> <path d="M13 18h8" />',
+    "wrap-text": '<path d="M3 6h18" /> <path d="M3 12h15a3 3 0 1 1 0 6h-4" /> <path d="m16 16-2 2 2 2" /> <path d="M3 18h7" />',
+    "droplet": '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />',
     "briefcase": '<rect width="20" height="14" x="2" y="7" rx="2" ry="2" /> <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />',
     "flame": '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />',
     "layers": '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />',

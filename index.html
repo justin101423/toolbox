@@ -276,6 +276,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/text-replace/"><div class="ic" data-icon="replace">🔁</div><h3>텍스트 찾기·바꾸기</h3><p>한 번에 일괄 치환</p></a>
         <a class="card" href="/remove-duplicate-lines/"><div class="ic" data-icon="list-x">🗑</div><h3>중복 줄 제거</h3><p>중복된 줄 찾아 제거</p></a>
         <a class="card" href="/sort-lines/"><div class="ic" data-icon="arrow-down-up">↕</div><h3>텍스트 줄 정렬</h3><p>줄 단위 정렬·섞기</p></a>
+        <a class="card" href="/list-converter/"><div class="ic" data-icon="wrap-text">↩</div><h3>줄바꿈 ↔ 쉼표 변환기</h3><p>목록·구분자 변환</p></a>
         <a class="card" href="/line-numbers/"><div class="ic" data-icon="list-ordered">🔢</div><h3>줄 번호 매기기</h3><p>각 줄 앞 번호 추가</p></a>
         <a class="card" href="/case-converter/"><div class="ic" data-icon="case-sensitive">Aa</div><h3>대소문자·표기 변환</h3><p>camelCase·snake_case 등</p></a>
         <a class="card" href="/text-reverser/"><div class="ic" data-icon="arrow-left-right">⇄</div><h3>글자 거꾸로·뒤집기</h3><p>글자·단어·줄 반전, 거꾸로 글자</p></a>
@@ -363,6 +364,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <div class="sec-label">직장인 · 생산성</div>
       <div class="grid">
         <a class="card" href="/notepad/"><div class="ic" data-icon="sticky-note">📝</div><h3>임시 메모장</h3><p>자동 저장되는 메모</p></a>
+        <a class="card" href="/todo-list/"><div class="ic" data-icon="list-checks">✅</div><h3>할 일 체크리스트</h3><p>자동 저장 투두 리스트</p></a>
         <a class="card" href="/pomodoro/"><div class="ic" data-icon="alarm-clock">⏰</div><h3>포모도로 타이머</h3><p>집중·휴식 사이클</p></a>
         <a class="card" href="/annual-leave/"><div class="ic" data-icon="palmtree">🌴</div><h3>연차 계산기</h3><p>입사일 기준 연차 일수</p></a>
         <a class="card" href="/work-hours/"><div class="ic" data-icon="hourglass">⏳</div><h3>근무시간 계산기</h3><p>출퇴근·휴게·야근 시간</p></a>
@@ -376,6 +378,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/color-picker/"><div class="ic" data-icon="pipette">🖌</div><h3>컬러 피커·변환</h3><p>HEX·RGB·HSL 변환</p></a>
         <a class="card" href="/hex-rgb-converter/"><div class="ic" data-icon="arrow-right-left">◑</div><h3>HEX ↔ RGB 변환</h3><p>색상 코드 변환</p></a>
         <a class="card" href="/color-palette/"><div class="ic" data-icon="palette">🎨</div><h3>컬러 팔레트 생성</h3><p>조화로운 색 조합</p></a>
+        <a class="card" href="/color-shades/"><div class="ic" data-icon="droplet">💧</div><h3>색상 명암 생성기</h3><p>틴트·셰이드 팔레트</p></a>
         <a class="card" href="/color-extractor/"><div class="ic" data-icon="swatch-book">🔍</div><h3>이미지에서 색 추출</h3><p>사진에서 주요 색 추출</p></a>
         <a class="card" href="/gradient-generator/"><div class="ic" data-icon="blend">🌈</div><h3>그라데이션 생성기</h3><p>CSS 그라데이션 코드 생성</p></a>
         <a class="card" href="/glassmorphism/"><div class="ic" data-icon="layers">🧊</div><h3>글래스모피즘 생성기</h3><p>반투명 유리 효과 CSS</p></a>
@@ -414,6 +417,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/sql-formatter/"><div class="ic" data-icon="database">🗄</div><h3>SQL 포매터</h3><p>쿼리 정렬·들여쓰기</p></a>
         <a class="card" href="/markdown-preview/"><div class="ic" data-icon="file-text">📝</div><h3>마크다운 → HTML</h3><p>실시간 미리보기·HTML 복사</p></a>
         <a class="card" href="/http-status-codes/"><div class="ic" data-icon="server">🌐</div><h3>HTTP 상태 코드</h3><p>1xx~5xx 치트시트</p></a>
+        <a class="card" href="/ascii-table/"><div class="ic" data-icon="table-2">🔡</div><h3>아스키 코드표</h3><p>문자 ↔ ASCII·유니코드</p></a>
       </div>
 
       <div class="sec-label">악기</div>
@@ -557,7 +561,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     'quadratic-equation': '이차방정식 근의공식 판별식 이차 방정식 꼭짓점 해 수학',
     'exercise-calories': '운동 칼로리 소모 다이어트 met 달리기 걷기 유산소 열량',
     'ovulation-calculator': '배란일 가임기 생리주기 임신 배란 가임 주기 임신준비',
-    'image-invert': '이미지 색 반전 네거티브 음화 반전 invert 보색 사진'
+    'image-invert': '이미지 색 반전 네거티브 음화 반전 invert 보색 사진',
+    'todo-list': '할일 투두 체크리스트 todo 할 일 목록 to-do 체크 리스트',
+    'ascii-table': '아스키 코드표 ascii 유니코드 unicode 코드포인트 문자코드 16진수',
+    'list-converter': '줄바꿈 쉼표 변환 목록 콤마 구분자 한줄 csv 따옴표',
+    'color-shades': '색상 명암 틴트 셰이드 tint shade 팔레트 색 단계 명도'
   };
   function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
   cards.forEach(function (c) {
