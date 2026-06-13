@@ -305,6 +305,10 @@
 - 이모지가 네모(□)로 보일 때 (`/guide/emoji-not-showing/`)
 - 프린터 없이 PDF로 저장 (`/guide/print-to-pdf/`)
 - 술은 연 나이, 면허는 만 나이 (`/guide/legal-ages/`)
+- 연봉 실수령액 계산법 (`/guide/take-home-pay/`)
+- 원리금균등 vs 원금균등 (`/guide/loan-repayment-methods/`)
+- 거꾸로 글자·뒤집힌 글자 만들기 (`/guide/upside-down-text/`)
+- URL 구조 완전 정복 (`/guide/url-structure/`)
 
 ## 기술 스택
 

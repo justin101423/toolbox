@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: URL 구조 완전 정복 — 프로토콜·도메인·경로·쿼리스트링 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>URL 구조 완전 정복 — 프로토콜·도메인·경로·쿼리스트링 | 도구상자</title>
+<meta name="description" content="긴 URL은 어떻게 이뤄져 있을까요? 프로토콜·호스트·포트·경로·쿼리스트링·프래그먼트 각 부분의 역할과, ?와 &로 이어지는 쿼리 파라미터의 구조, utm·gclid 같은 추적 파라미터, 퍼센트 인코딩까지 예시로 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/url-structure/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="URL 구조 완전 정복 — 프로토콜·도메인·경로·쿼리스트링">
+<meta property="og:description" content="URL 각 부분의 역할과 쿼리 파라미터 구조를 예시로 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/url-structure/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="URL 구조 완전 정복">
+<meta name="twitter:description" content="프로토콜·경로·쿼리스트링 구조 정리.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "URL 구조 완전 정복 — 프로토콜·도메인·경로·쿼리스트링",
+  "description": "긴 URL은 어떻게 이뤄져 있을까요? 프로토콜·호스트·포트·경로·쿼리스트링·프래그먼트 각 부분의 역할과, ?와 &로 이어지는 쿼리 파라미터의 구조, utm·gclid 같은 추적 파라미터, 퍼센트 인코딩까지 예시로 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-13",
+  "dateModified": "2026-06-13",
+  "mainEntityOfPage": "https://dogubox.shop/guide/url-structure/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "URL에서 ?와 & 기호는 무슨 뜻인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "?는 경로가 끝나고 쿼리스트링이 시작된다는 표시이고, &는 여러 개의 쿼리 파라미터를 잇는 구분자입니다. 예를 들어 ?page=2&sort=new는 page=2와 sort=new라는 두 파라미터를 전달합니다. 각 파라미터는 이름=값 형태이며, 서버나 페이지가 이 값을 읽어 동작을 바꿉니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "utm_source, gclid 같은 파라미터는 지워도 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "대부분 지워도 페이지는 정상적으로 열립니다. utm_* 파라미터는 유입 경로를 분석하기 위한 추적용이고, gclid·fbclid는 광고 클릭을 식별하는 값입니다. 링크를 깔끔하게 공유하고 싶다면 이런 추적 파라미터를 빼도 됩니다. 다만 그 링크의 성과 측정이 필요한 경우라면 남겨 둬야 합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "URL에 한글이 들어가면 %EB%8F%84 처럼 바뀌는 이유는요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL에는 영문·숫자와 일부 기호만 안전하게 쓸 수 있어서, 한글이나 공백 같은 문자는 퍼센트 인코딩(UTF-8 바이트를 %XX로 표기)으로 변환됩니다. 그래서 '도구'가 %EB%8F%84%EA%B5%AC처럼 보입니다. 브라우저가 자동으로 인코딩·디코딩하므로 보통은 신경 쓰지 않아도 되며, 파서 도구로 디코딩하면 원래 글자를 확인할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "URL 구조 완전 정복", "item": "https://dogubox.shop/guide/url-structure/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>URL 구조 완전 정복 — 프로토콜·도메인·경로·쿼리스트링</h1>
+      <div class="article-meta"><span>가이드</span><span>약 5분</span><span>2026.06.13</span></div>
+
+      <section class="content">
+        <p>주소창의 긴 URL은 무작위 문자열이 아니라 <b>정해진 부품의 조합</b>입니다. 각 부분이 무슨 일을 하는지 알면, 추적 파라미터를 떼거나 링크를 점검하는 일이 쉬워집니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#parts">URL의 구성 요소</a></li>
+            <li><a href="#query">쿼리스트링과 파라미터</a></li>
+            <li><a href="#tracking">utm·gclid 추적 파라미터</a></li>
+            <li><a href="#encode">퍼센트 인코딩</a></li>
+          </ol>
+        </div>
+
+        <h2 id="parts">URL의 구성 요소</h2>
+        <p>예시: <code>https://shop.example.com:443/items/42?color=red&size=L#reviews</code></p>
+        <table>
+          <thead><tr><th>부분</th><th>예시</th><th>역할</th></tr></thead>
+          <tbody>
+            <tr><td>프로토콜</td><td>https</td><td>통신 방식(http/https 등)</td></tr>
+            <tr><td>호스트</td><td>shop.example.com</td><td>서버 주소(도메인)</td></tr>
+            <tr><td>포트</td><td>443</td><td>접속 문(생략 시 기본값)</td></tr>
+            <tr><td>경로</td><td>/items/42</td><td>서버 안의 위치</td></tr>
+            <tr><td>쿼리스트링</td><td>?color=red&size=L</td><td>추가 조건·옵션</td></tr>
+            <tr><td>프래그먼트</td><td>#reviews</td><td>페이지 안의 특정 위치(앵커)</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="query">쿼리스트링과 파라미터</h2>
+        <ul>
+          <li><b>?</b> 뒤부터가 쿼리스트링이고, <b>이름=값</b> 쌍을 <b>&</b>로 이어 붙입니다.</li>
+          <li>같은 이름이 여러 번 올 수도 있습니다 — <code>tag=a&tag=b</code>처럼 목록을 전달.</li>
+          <li>페이지·서버는 이 값을 읽어 검색어·페이지 번호·정렬 같은 동작을 바꿉니다.</li>
+        </ul>
+        <div class="callout"><b>프래그먼트(#)는 다릅니다:</b> # 뒤의 값은 서버로 전송되지 않고 브라우저가 페이지 안의 위치를 찾는 데만 씁니다. 그래서 같은 페이지의 특정 단락으로 바로 이동시키는 링크에 쓰입니다.</div>
+
+        <h2 id="tracking">utm·gclid 추적 파라미터</h2>
+        <ol class="steps-list">
+          <li><b>utm_source·utm_medium·utm_campaign</b> — 유입 경로를 분석하기 위한 표식. 페이지 동작에는 영향 없음.</li>
+          <li><b>gclid·fbclid</b> — 광고 클릭을 식별하는 값. 광고 성과 측정용.</li>
+          <li>깔끔한 공유 링크가 필요하면 이런 추적 파라미터를 빼도 페이지는 정상 동작합니다.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="link"></span>
+          <span class="tc-tx"><b>URL 쿼리스트링 파서</b><span>URL을 구성 요소·파라미터로 분해하고 다시 조립</span></span>
+          <a class="tc-go" href="/url-parser/">분해하기 →</a>
+        </div>
+
+        <h2 id="encode">퍼센트 인코딩</h2>
+        <p>URL에는 영문·숫자와 일부 기호만 안전하게 들어갑니다. 한글·공백 등은 <b>퍼센트 인코딩</b>(UTF-8 바이트를 %XX로 표기)으로 바뀝니다. 그래서 '도구'가 <code>%EB%8F%84%EA%B5%AC</code>처럼 보이죠. 추적 파라미터를 만들거나 직접 인코딩·디코딩할 일이 잦다면 <a class="inlink" href="/encoder-decoder/">인코더·디코더</a>와 <a class="inlink" href="/utm-builder/">UTM 빌더</a>도 함께 쓰면 편합니다.</p>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. URL에서 ?와 & 기호는 무슨 뜻인가요?</b><p>?는 경로가 끝나고 쿼리스트링이 시작된다는 표시이고, &는 여러 개의 쿼리 파라미터를 잇는 구분자입니다. 예를 들어 ?page=2&sort=new는 page=2와 sort=new라는 두 파라미터를 전달합니다. 각 파라미터는 이름=값 형태이며, 서버나 페이지가 이 값을 읽어 동작을 바꿉니다.</p></div>
+          <div class="qa"><b>Q. utm_source, gclid 같은 파라미터는 지워도 되나요?</b><p>대부분 지워도 페이지는 정상적으로 열립니다. utm_* 파라미터는 유입 경로를 분석하기 위한 추적용이고, gclid·fbclid는 광고 클릭을 식별하는 값입니다. 링크를 깔끔하게 공유하고 싶다면 이런 추적 파라미터를 빼도 됩니다. 다만 그 링크의 성과 측정이 필요한 경우라면 남겨 둬야 합니다.</p></div>
+          <div class="qa"><b>Q. URL에 한글이 들어가면 %EB%8F%84 처럼 바뀌는 이유는요?</b><p>URL에는 영문·숫자와 일부 기호만 안전하게 쓸 수 있어서, 한글이나 공백 같은 문자는 퍼센트 인코딩(UTF-8 바이트를 %XX로 표기)으로 변환됩니다. 그래서 '도구'가 %EB%8F%84%EA%B5%AC처럼 보입니다. 브라우저가 자동으로 인코딩·디코딩하므로 보통은 신경 쓰지 않아도 되며, 파서 도구로 디코딩하면 원래 글자를 확인할 수 있습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/base64-encoding/"><b>Base64·URL 인코딩</b><span>인코딩이 필요한 이유</span></a>
+          <a class="rel-card" href="/guide/utm-parameters/"><b>UTM 파라미터</b><span>유입 경로 추적의 기본</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/about.html">소개</a>
+  <a href="/about.html#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+</html>
