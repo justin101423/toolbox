@@ -53,6 +53,7 @@
 - 텍스트 줄 정렬 (`/sort-lines/`)
 - 줄 번호 매기기 (`/line-numbers/`)
 - 대소문자·표기 변환 (`/case-converter/`)
+- 글자 거꾸로·뒤집기 (`/text-reverser/`)
 - 텍스트 비교 (diff) (`/text-diff/`)
 - 읽는 시간 계산기 (`/reading-time/`)
 - 유니코드 꾸미기 글자 변환 (`/fancy-text/`)

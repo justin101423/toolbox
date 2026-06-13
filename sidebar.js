@@ -51,6 +51,7 @@
       { slug: "sort-lines",         name: "텍스트 줄 정렬",     icon: "arrow-down-up" },
       { slug: "line-numbers",       name: "줄 번호 매기기",     icon: "list-ordered" },
       { slug: "case-converter",     name: "대소문자 변환",      icon: "case-sensitive" },
+      { slug: "text-reverser",      name: "글자 거꾸로·뒤집기", icon: "arrow-left-right" },
       { slug: "text-diff",          name: "텍스트 비교(diff)",  icon: "diff" },
       { slug: "reading-time",       name: "읽는 시간 계산",     icon: "book-open" },
       { slug: "fancy-text",         name: "꾸미기 글자 변환",   icon: "wand-sparkles" },
