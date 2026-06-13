@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>로마 숫자 변환기 — 아라비아 숫자 ↔ 로마 숫자 | 도구상자</title>
+<meta name="description" content="아라비아 숫자(123)와 로마 숫자(I·V·X·L·C·D·M)를 양방향으로 변환하는 무료 변환기. 1부터 3999까지 표준 표기를 지원하고 로마 숫자 읽는 법도 함께 정리했습니다. 모든 변환은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/roman-numerals/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="로마 숫자 변환기 — 아라비아 숫자 ↔ 로마 숫자 | 도구상자">
+<meta property="og:description" content="아라비아 숫자와 로마 숫자를 양방향 변환하는 무료 도구. 1~3999 표준 표기 지원.">
+<meta property="og:url" content="https://dogubox.shop/roman-numerals/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="로마 숫자 변환기 | 도구상자">
+<meta name="twitter:description" content="아라비아 ↔ 로마 숫자 양방향 변환.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "로마 숫자 변환기",
+  "description": "아라비아 숫자(123)와 로마 숫자(I·V·X·L·C·D·M)를 양방향으로 변환하는 무료 변환기. 1부터 3999까지 표준 표기를 지원하고 로마 숫자 읽는 법도 함께 정리했습니다. 모든 변환은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/roman-numerals/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 로마 숫자는 어떻게 읽나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "기본 기호는 I=1, V=5, X=10, L=50, C=100, D=500, M=1000입니다. 큰 기호 뒤에 작은 기호가 오면 더하고(VI=6), 작은 기호가 앞에 오면 빼서(IV=4) 읽습니다. 같은 기호는 최대 세 번까지 이어 쓸 수 있습니다(III=3, 단 IIII는 쓰지 않음)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 왜 3999까지만 변환되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "표준 로마 숫자는 1000을 나타내는 M까지의 기호만 사용하므로, 기호를 세 번까지 반복하는 규칙으로는 3999(MMMCMXCIX)가 최대입니다. 4000 이상은 기호 위에 줄을 그어 1000배를 표시하는 별도 표기가 필요해, 이 도구는 가장 널리 쓰이는 1~3999 범위를 지원합니다. 0과 음수는 로마 숫자로 표기하지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 로마 숫자에 0이 없는 이유는 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "로마 숫자 체계는 개수를 세는 가산 기호에서 출발해, '없음'을 나타내는 0이라는 개념 자체가 들어 있지 않습니다. 0은 훨씬 뒤에 인도·아라비아 숫자 체계에서 도입된 개념입니다. 그래서 이 변환기도 1 이상의 정수만 로마 숫자로 바꿉니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "로마 숫자 변환기", "item": "https://dogubox.shop/roman-numerals/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.rn-field{margin-bottom:14px}
+.rn-field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:5px}
+.rn-field input{width:100%;font-family:var(--mono);font-size:22px;letter-spacing:.04em;padding:13px 15px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);text-align:center;text-transform:uppercase}
+.rn-swap{display:flex;justify-content:center;margin:2px 0}
+.rn-swap button{font-size:13px;font-weight:600;color:var(--ink-2);padding:6px 14px;border:1px solid var(--line-2);border-radius:99px;background:var(--paper)}
+.rn-swap button:hover{border-color:var(--ink);color:var(--ink)}
+.rn-err{color:var(--err);font-size:13px;margin-top:6px;min-height:1em;text-align:center}
+.rn-ref{width:100%;border-collapse:collapse;margin-top:6px;font-size:14px}
+.rn-ref th,.rn-ref td{border:1px solid var(--line);padding:7px 10px;text-align:center}
+.rn-ref th{background:var(--panel);color:var(--ink-2);font-weight:700}
+.rn-ref td:first-child{font-family:var(--mono);font-weight:700;color:var(--accent)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>로마 숫자 변환기</h1>
+      <p class="lede">아라비아 숫자와 로마 숫자를 양방향으로 변환합니다. 한쪽에 입력하면 다른 쪽이 즉시 바뀝니다. (1~3999)</p>
+
+      <div class="box">
+        <div class="rn-field">
+          <label>아라비아 숫자</label>
+          <input type="text" id="arabic" value="2026" inputmode="numeric" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="rn-swap"><button type="button" id="clear">지우기</button></div>
+        <div class="rn-field" style="margin-bottom:4px">
+          <label>로마 숫자</label>
+          <input type="text" id="roman" value="MMXXVI" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="rn-err" id="err"></div>
+      </div>
+
+      <div class="box flat" style="margin-top:18px">
+        <div style="font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:8px">기호 표</div>
+        <table class="rn-ref">
+          <tr><th>기호</th><th>값</th><th>기호</th><th>값</th></tr>
+          <tr><td>I</td><td>1</td><td>C</td><td>100</td></tr>
+          <tr><td>V</td><td>5</td><td>D</td><td>500</td></tr>
+          <tr><td>X</td><td>10</td><td>M</td><td>1000</td></tr>
+          <tr><td>L</td><td>50</td><td>IV·IX</td><td>4·9</td></tr>
+        </table>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>아라비아 숫자 칸에 1~3999 사이 숫자를 입력하면 로마 숫자로 변환됩니다.</li>
+          <li>반대로 로마 숫자(예: MCMXC)를 입력하면 아라비아 숫자로 변환됩니다.</li>
+          <li>잘못된 표기는 아래에 오류 메시지로 안내됩니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>시계·연도 표기:</b> 시계 문자판이나 영화 제작 연도(예: MMXXIV) 표기를 읽거나 만들 때 편리합니다.</li>
+          <li><b>목차·챕터 번호:</b> 책의 서문이나 챕터 번호를 로마 숫자로 매길 때 변환해 쓰면 됩니다.</li>
+          <li><b>4는 IV:</b> 같은 기호는 세 번까지만 반복합니다. IIII가 아니라 IV가 표준 표기입니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 로마 숫자는 어떻게 읽나요?</b><p>기본 기호는 I=1, V=5, X=10, L=50, C=100, D=500, M=1000입니다. 큰 기호 뒤에 작은 기호가 오면 더하고(VI=6), 작은 기호가 앞에 오면 빼서(IV=4) 읽습니다. 같은 기호는 최대 세 번까지 이어 쓸 수 있습니다(III=3, 단 IIII는 쓰지 않음).</p></div>
+          <div class="qa"><b>Q. 왜 3999까지만 변환되나요?</b><p>표준 로마 숫자는 1000을 나타내는 M까지의 기호만 사용하므로, 기호를 세 번까지 반복하는 규칙으로는 3999(MMMCMXCIX)가 최대입니다. 4000 이상은 기호 위에 줄을 그어 1000배를 표시하는 별도 표기가 필요해, 이 도구는 가장 널리 쓰이는 1~3999 범위를 지원합니다. 0과 음수는 로마 숫자로 표기하지 않습니다.</p></div>
+          <div class="qa"><b>Q. 로마 숫자에 0이 없는 이유는 무엇인가요?</b><p>로마 숫자 체계는 개수를 세는 가산 기호에서 출발해, '없음'을 나타내는 0이라는 개념 자체가 들어 있지 않습니다. 0은 훨씬 뒤에 인도·아라비아 숫자 체계에서 도입된 개념입니다. 그래서 이 변환기도 1 이상의 정수만 로마 숫자로 바꿉니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/base-converter/"><b>진법 변환</b><span>2·8·16진수 변환</span></a>
+          <a class="rel-card" href="/number-to-korean/"><b>숫자 → 한글 금액</b><span>금액 한글 표기</span></a>
+          <a class="rel-card" href="/calculator/"><b>계산기</b><span>일반·공학용</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var MAP=[[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];
+  function toRoman(n){ var s=''; for(var i=0;i<MAP.length;i++){ while(n>=MAP[i][0]){ s+=MAP[i][1]; n-=MAP[i][0]; } } return s; }
+  function fromRoman(str){
+    var s=str.toUpperCase().trim();
+    if(!/^[IVXLCDM]+$/.test(s)) return null;
+    var val={I:1,V:5,X:10,L:50,C:100,D:500,M:1000}, total=0, prev=0;
+    for(var i=s.length-1;i>=0;i--){ var v=val[s[i]]; if(v<prev) total-=v; else { total+=v; prev=v; } }
+    // 정규 표기 검증: 다시 로마자로 만들어 일치해야 유효
+    if(total<1||total>3999||toRoman(total)!==s) return null;
+    return total;
+  }
+  var lock=false;
+  function fromArabic(){
+    if(lock) return; lock=true;
+    var raw=$('arabic').value.replace(/[^0-9]/g,'');
+    $('arabic').value=raw;
+    if(raw===''){ $('roman').value=''; $('err').textContent=''; lock=false; return; }
+    var n=parseInt(raw,10);
+    if(n<1||n>3999){ $('roman').value=''; $('err').textContent='1부터 3999까지 입력할 수 있습니다.'; lock=false; return; }
+    $('roman').value=toRoman(n); $('err').textContent=''; lock=false;
+  }
+  function fromRomanInput(){
+    if(lock) return; lock=true;
+    var s=$('roman').value.toUpperCase().replace(/[^IVXLCDM]/g,'');
+    $('roman').value=s;
+    if(s===''){ $('arabic').value=''; $('err').textContent=''; lock=false; return; }
+    var n=fromRoman(s);
+    if(n===null){ $('arabic').value=''; $('err').textContent='올바른 로마 숫자 표기가 아닙니다.'; lock=false; return; }
+    $('arabic').value=String(n); $('err').textContent=''; lock=false;
+  }
+  $('arabic').addEventListener('input',fromArabic);
+  $('roman').addEventListener('input',fromRomanInput);
+  $('clear').addEventListener('click',function(){ $('arabic').value=''; $('roman').value=''; $('err').textContent=''; $('arabic').focus(); });
+})();
+</script>
+</html>

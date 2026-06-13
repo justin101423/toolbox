@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>서브넷 계산기 — IP·CIDR 네트워크/호스트 범위 계산 | 도구상자</title>
+<meta name="description" content="IP 주소와 CIDR(예: 192.168.0.0/24)을 입력하면 네트워크 주소·브로드캐스트·호스트 범위·사용 가능 호스트 수·서브넷 마스크·와일드카드를 계산하는 무료 서브넷 계산기. 모든 계산은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/subnet-calculator/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="서브넷 계산기 — IP·CIDR 네트워크/호스트 범위 계산 | 도구상자">
+<meta property="og:description" content="IP·CIDR로 네트워크 주소·브로드캐스트·호스트 범위·서브넷 마스크를 계산하는 무료 도구.">
+<meta property="og:url" content="https://dogubox.shop/subnet-calculator/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="서브넷 계산기 — IP·CIDR 계산 | 도구상자">
+<meta name="twitter:description" content="네트워크·브로드캐스트·호스트 범위·서브넷 마스크 계산.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "서브넷 계산기",
+  "description": "IP 주소와 CIDR(예: 192.168.0.0/24)을 입력하면 네트워크 주소·브로드캐스트·호스트 범위·사용 가능 호스트 수·서브넷 마스크·와일드카드를 계산하는 무료 서브넷 계산기. 모든 계산은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/subnet-calculator/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. CIDR의 /24는 무슨 뜻인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CIDR 뒤의 숫자는 32비트 IP 주소 중 네트워크를 나타내는 비트 수입니다. /24는 앞 24비트가 네트워크, 나머지 8비트가 호스트라는 뜻이라 256개 주소(사용 가능 호스트 254개)를 가집니다. 숫자가 클수록 네트워크가 작아지고, 작을수록 더 많은 주소를 포함합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 사용 가능한 호스트 수는 왜 2개를 빼나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "각 서브넷의 첫 주소는 네트워크 주소, 마지막 주소는 브로드캐스트 주소로 예약되어 일반 호스트에 할당할 수 없기 때문입니다. 그래서 /24는 256개 중 2개를 뺀 254개가 사용 가능합니다. 다만 /31(점대점 링크)과 /32(단일 호스트)는 예외로 다르게 취급됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 입력한 IP가 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 모든 계산은 자바스크립트로 브라우저 안에서만 이뤄집니다. 입력한 IP·CIDR은 서버로 전송되거나 저장되지 않으므로 내부망 주소 설계처럼 민감한 작업도 안전하게 할 수 있습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "서브넷 계산기", "item": "https://dogubox.shop/subnet-calculator/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.sn-row{display:flex;gap:10px;align-items:stretch}
+.sn-row input{flex:1;min-width:0;font-family:var(--mono);font-size:18px;padding:12px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.sn-row select{flex:0 0 auto;width:auto;font-family:var(--mono);font-size:16px;padding:12px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.sn-err{color:var(--err);font-size:13px;margin-top:10px;min-height:1em}
+.sn-table{width:100%;border-collapse:collapse;margin-top:6px;font-size:14px}
+.sn-table td{border-bottom:1px solid var(--line);padding:10px 4px}
+.sn-table td:first-child{color:var(--ink-2);width:42%}
+.sn-table td:last-child{font-family:var(--mono);font-weight:600;color:var(--ink);cursor:pointer;word-break:break-all}
+.sn-table td:last-child:hover{color:var(--accent)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>서브넷 계산기</h1>
+      <p class="lede">IP 주소와 CIDR을 입력하면 네트워크·브로드캐스트·호스트 범위와 서브넷 마스크를 계산합니다. 값을 누르면 복사됩니다.</p>
+
+      <div class="box">
+        <div class="sn-row">
+          <input type="text" id="ip" value="192.168.0.10" inputmode="decimal" placeholder="192.168.0.10" autocomplete="off" spellcheck="false">
+          <select id="cidr"></select>
+        </div>
+        <div class="sn-err" id="err"></div>
+        <table class="sn-table" id="out"></table>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>IP 주소를 점 표기(예: 192.168.0.10)로 입력합니다.</li>
+          <li>CIDR(서브넷 비트 수)을 /0 ~ /32에서 고릅니다.</li>
+          <li>네트워크 주소·브로드캐스트·호스트 범위·마스크가 즉시 계산됩니다.</li>
+          <li>결과 값을 클릭하면 클립보드에 복사됩니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>호스트 수로 CIDR 고르기:</b> 필요한 기기 수보다 큰 가장 작은 블록을 고르면 주소 낭비가 적습니다. 예를 들어 100대면 /25(126개)가 알맞습니다.</li>
+          <li><b>사설 IP 대역:</b> 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16은 내부망용 사설 주소 대역입니다. 공인 IP와 겹치지 않게 설계할 때 참고하세요.</li>
+          <li><b>와일드카드 마스크:</b> 서브넷 마스크의 비트를 뒤집은 값으로, 라우터 ACL 등에서 자주 씁니다. 결과에 함께 표시됩니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. CIDR의 /24는 무슨 뜻인가요?</b><p>CIDR 뒤의 숫자는 32비트 IP 주소 중 네트워크를 나타내는 비트 수입니다. /24는 앞 24비트가 네트워크, 나머지 8비트가 호스트라는 뜻이라 256개 주소(사용 가능 호스트 254개)를 가집니다. 숫자가 클수록 네트워크가 작아지고, 작을수록 더 많은 주소를 포함합니다.</p></div>
+          <div class="qa"><b>Q. 사용 가능한 호스트 수는 왜 2개를 빼나요?</b><p>각 서브넷의 첫 주소는 네트워크 주소, 마지막 주소는 브로드캐스트 주소로 예약되어 일반 호스트에 할당할 수 없기 때문입니다. 그래서 /24는 256개 중 2개를 뺀 254개가 사용 가능합니다. 다만 /31(점대점 링크)과 /32(단일 호스트)는 예외로 다르게 취급됩니다.</p></div>
+          <div class="qa"><b>Q. 입력한 IP가 서버로 전송되나요?</b><p>아니요. 모든 계산은 자바스크립트로 브라우저 안에서만 이뤄집니다. 입력한 IP·CIDR은 서버로 전송되거나 저장되지 않으므로 내부망 주소 설계처럼 민감한 작업도 안전하게 할 수 있습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/base-converter/"><b>진법 변환</b><span>2·8·10·16진수 변환</span></a>
+          <a class="rel-card" href="/url-parser/"><b>URL 쿼리스트링 파서</b><span>주소 분해·분석</span></a>
+          <a class="rel-card" href="/hash-generator/"><b>Hash 생성</b><span>MD5·SHA 해시</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  // CIDR select
+  var sel=$('cidr'), opts='';
+  for(var i=32;i>=0;i--){ opts+='<option value="'+i+'"'+(i===24?' selected':'')+'>/'+i+'</option>'; }
+  sel.innerHTML=opts;
+
+  function parseIP(s){
+    var m=String(s).trim().split('.');
+    if(m.length!==4) return null;
+    var n=0;
+    for(var i=0;i<4;i++){
+      if(!/^\d{1,3}$/.test(m[i])) return null;
+      var o=parseInt(m[i],10);
+      if(o>255) return null;
+      n=(n*256)+o;
+    }
+    return n>>>0;
+  }
+  function toIP(n){ n=n>>>0; return [(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255].join('.'); }
+  function toBin(n){ n=n>>>0; var s=''; for(var i=31;i>=0;i--){ s+=((n>>>i)&1); if(i%8===0&&i>0) s+='.'; } return s; }
+
+  function render(){
+    var ip=parseIP($('ip').value);
+    var bits=parseInt(sel.value,10);
+    if(ip===null){ $('err').textContent='올바른 IPv4 주소를 입력하세요 (예: 192.168.0.10)'; $('out').innerHTML=''; return; }
+    $('err').textContent='';
+    var mask = bits===0 ? 0 : (0xFFFFFFFF << (32-bits))>>>0;
+    var wild = (~mask)>>>0;
+    var network = (ip & mask)>>>0;
+    var broadcast = (network | wild)>>>0;
+    var total = Math.pow(2,32-bits);
+    var firstHost, lastHost, usable;
+    if(bits>=31){ firstHost=network; lastHost=broadcast; usable = bits===32?1:2; }
+    else { firstHost=(network+1)>>>0; lastHost=(broadcast-1)>>>0; usable=total-2; }
+    var rows=[
+      ['CIDR 표기', toIP(network)+'/'+bits],
+      ['네트워크 주소', toIP(network)],
+      ['브로드캐스트', toIP(broadcast)],
+      ['사용 가능 범위', toIP(firstHost)+' ~ '+toIP(lastHost)],
+      ['사용 가능 호스트', usable.toLocaleString('en-US')+'개'],
+      ['전체 주소 수', total.toLocaleString('en-US')+'개'],
+      ['서브넷 마스크', toIP(mask)],
+      ['와일드카드 마스크', toIP(wild)],
+      ['마스크 (2진수)', toBin(mask)]
+    ];
+    $('out').innerHTML=rows.map(function(r){ return '<tr><td>'+r[0]+'</td><td data-copy="'+r[1]+'">'+r[1]+'</td></tr>'; }).join('');
+  }
+  $('ip').addEventListener('input',render);
+  sel.addEventListener('change',render);
+  $('out').addEventListener('click',function(e){
+    var td=e.target.closest('td[data-copy]'); if(!td) return;
+    navigator.clipboard.writeText(td.getAttribute('data-copy')).then(function(){ toast('복사됨'); },function(){});
+  });
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1200);}
+  render();
+})();
+</script>
+</html>

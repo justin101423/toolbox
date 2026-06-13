@@ -64,14 +64,14 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 135개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 139개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
 > - **카테고리 안 도구 순서**: 비슷한 기능끼리 묶고(예: 이미지편집 → 이미지변환·유틸 → PDF, 텍스트편집 → 변환 → 생성기, 계산 → 변환 → 날짜·시간 → 추첨·재미 등), 더 자주 쓰는 핵심 도구를 그 그룹 앞쪽에 둡니다.
 > - 새 도구를 추가할 때는 같은 카테고리의 알맞은 그룹 위치에 끼워 넣고, 위 4곳(sidebar·허브·이 표·README)의 순서를 동일하게 맞춥니다.
 
-### 이미지 · PDF (27)
+### 이미지 · PDF (28)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -98,14 +98,16 @@ toolbox/
 | pdf-organize | PDF 회전·페이지 정리 |
 | pdf-compressor | PDF 용량 줄이기 |
 | pdf-watermark | PDF 워터마크 |
+| pdf-page-numbers | PDF 페이지 번호 넣기 |
 | image-to-pdf | 이미지 → PDF |
 | pdf-to-image | PDF → 이미지 |
 | pdf-to-text | PDF → 텍스트 추출 |
 
-### 텍스트 · 생성 (23)
+### 텍스트 · 생성 (24)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
+| word-frequency | 단어 빈도 분석기 |
 | clean-text | 공백·줄바꿈 정리 |
 | text-replace | 텍스트 찾기·바꾸기 |
 | remove-duplicate-lines | 중복 줄 제거 |
@@ -129,7 +131,7 @@ toolbox/
 | lorem-ipsum | 로렘 입숨 생성기 |
 | json-formatter | JSON 포매터 |
 
-### 생활 · 편의 (20)
+### 생활 · 편의 (21)
 | 슬러그 | 이름 |
 |---|---|
 | calculator | 계산기 (일반·공학용) |
@@ -137,6 +139,7 @@ toolbox/
 | unit-converter | 단위 변환 |
 | pyeong-converter | 평 ↔ ㎡ 변환 |
 | size-converter | 옷·신발 사이즈 변환 |
+| roman-numerals | 로마 숫자 변환기 |
 | age-calculator | 만 나이 계산기 |
 | dday-calculator | D-Day · 날짜 계산 |
 | business-days | 근무일수·영업일 계산기 |
@@ -195,7 +198,7 @@ toolbox/
 | color-blindness | 색맹·색약 시뮬레이터 |
 | favicon-generator | 파비콘 생성 |
 
-### 개발자 도구 (20)
+### 개발자 도구 (21)
 | 슬러그 | 이름 |
 |---|---|
 | encoder-decoder | 인코더 · 디코더 |
@@ -206,6 +209,7 @@ toolbox/
 | jwt-decoder | JWT 디코더 |
 | uuid-generator | UUID 생성 |
 | base-converter | 진법 변환 |
+| subnet-calculator | 서브넷 계산기 |
 | timestamp | 타임스탬프 변환 |
 | cron-parser | cron 표현식 변환·설명 |
 | regex-tester | 정규식 테스터 |

@@ -261,6 +261,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/pdf-organize/"><div class="ic" data-icon="file-cog">🗂</div><h3>PDF 회전·페이지 정리</h3><p>회전·삭제·순서·추출</p></a>
         <a class="card" href="/pdf-compressor/"><div class="ic" data-icon="file-archive">🗜</div><h3>PDF 용량 줄이기</h3><p>스캔 PDF 가볍게 압축</p></a>
         <a class="card" href="/pdf-watermark/"><div class="ic" data-icon="copyright">©</div><h3>PDF 워터마크</h3><p>텍스트·이미지 워터마크</p></a>
+        <a class="card" href="/pdf-page-numbers/"><div class="ic" data-icon="file-digit">#</div><h3>PDF 페이지 번호 넣기</h3><p>쪽 번호 자동 삽입</p></a>
         <a class="card" href="/image-to-pdf/"><div class="ic" data-icon="file-image">🖼</div><h3>이미지 → PDF</h3><p>사진들을 PDF로 묶기</p></a>
         <a class="card" href="/pdf-to-image/"><div class="ic" data-icon="images">▧</div><h3>PDF → 이미지</h3><p>PDF 페이지를 JPG·PNG로</p></a>
         <a class="card" href="/pdf-to-text/"><div class="ic" data-icon="file-search">🔍</div><h3>PDF → 텍스트 추출</h3><p>PDF 글자 복사·추출</p></a>
@@ -269,6 +270,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <div class="sec-label">텍스트 · 생성</div>
       <div class="grid">
         <a class="card" href="/word-counter/"><div class="ic" data-icon="type">🔤</div><h3>글자수 세기</h3><p>글자·단어·바이트 카운트</p></a>
+        <a class="card" href="/word-frequency/"><div class="ic" data-icon="bar-chart-3">📊</div><h3>단어 빈도 분석기</h3><p>키워드 등장 횟수·비율</p></a>
         <a class="card" href="/clean-text/"><div class="ic" data-icon="remove-formatting">🧹</div><h3>공백·줄바꿈 정리</h3><p>불필요한 공백·줄바꿈 정리</p></a>
         <a class="card" href="/text-replace/"><div class="ic" data-icon="replace">🔁</div><h3>텍스트 찾기·바꾸기</h3><p>한 번에 일괄 치환</p></a>
         <a class="card" href="/remove-duplicate-lines/"><div class="ic" data-icon="list-x">🗑</div><h3>중복 줄 제거</h3><p>중복된 줄 찾아 제거</p></a>
@@ -300,6 +302,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/unit-converter/"><div class="ic" data-icon="ruler">📏</div><h3>단위 변환</h3><p>길이·무게·온도·넓이·부피</p></a>
         <a class="card" href="/pyeong-converter/"><div class="ic" data-icon="house">🏠</div><h3>평 ↔ ㎡ 변환</h3><p>평수·제곱미터 즉시 변환</p></a>
         <a class="card" href="/size-converter/"><div class="ic" data-icon="shirt">👕</div><h3>옷·신발 사이즈 변환</h3><p>한국·US·EU·일본</p></a>
+        <a class="card" href="/roman-numerals/"><div class="ic" data-icon="scroll">Ⅹ</div><h3>로마 숫자 변환기</h3><p>아라비아 ↔ 로마 숫자</p></a>
         <a class="card" href="/age-calculator/"><div class="ic" data-icon="cake">🎂</div><h3>만 나이 계산기</h3><p>생년월일로 만 나이·생일</p></a>
         <a class="card" href="/dday-calculator/"><div class="ic" data-icon="calendar-days">📅</div><h3>D-Day · 날짜 계산</h3><p>남은 일수·며칠 뒤 날짜</p></a>
         <a class="card" href="/business-days/"><div class="ic" data-icon="calendar-check">🗓</div><h3>근무일수·영업일 계산기</h3><p>주말·공휴일 제외 일수</p></a>
@@ -369,6 +372,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/jwt-decoder/"><div class="ic" data-icon="key-square">🔓</div><h3>JWT 디코더</h3><p>토큰 내용 분석</p></a>
         <a class="card" href="/uuid-generator/"><div class="ic" data-icon="fingerprint">#</div><h3>UUID 생성</h3><p>고유 식별자 발급</p></a>
         <a class="card" href="/base-converter/"><div class="ic" data-icon="binary">0x</div><h3>진법 변환</h3><p>2·8·10·16진수 변환</p></a>
+        <a class="card" href="/subnet-calculator/"><div class="ic" data-icon="network">🌐</div><h3>서브넷 계산기</h3><p>IP·CIDR 네트워크 범위</p></a>
         <a class="card" href="/timestamp/"><div class="ic" data-icon="clock">🕐</div><h3>타임스탬프 변환</h3><p>Unix 시간 ↔ 날짜</p></a>
         <a class="card" href="/cron-parser/"><div class="ic" data-icon="calendar-clock">⏰</div><h3>cron 표현식 변환</h3><p>크론 해석·다음 실행</p></a>
         <a class="card" href="/regex-tester/"><div class="ic" data-icon="regex">.*</div><h3>정규식 테스터</h3><p>정규식 매칭 실시간 확인</p></a>
@@ -491,7 +495,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     'business-days': '근무일수 영업일 워킹데이 주말 공휴일 제외',
     'text-shadow-generator': 'text-shadow 글자 그림자 css 텍스트',
     'html-entities': 'html 엔티티 entity 인코딩 디코딩 특수문자',
-    'word-counter': '글자수 단어수 바이트'
+    'word-counter': '글자수 단어수 바이트',
+    'subnet-calculator': '서브넷 subnet cidr ip 아이피 네트워크 마스크 브로드캐스트 호스트 ipv4',
+    'pdf-page-numbers': 'pdf 페이지 번호 쪽번호 페이지번호 page number 넘버링',
+    'word-frequency': '단어 빈도 키워드 횟수 빈도수 frequency 분석 통계',
+    'roman-numerals': '로마 숫자 로마숫자 roman numeral 변환 아라비아'
   };
   function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
   cards.forEach(function (c) {
