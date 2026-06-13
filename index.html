@@ -302,6 +302,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/calculator/"><div class="ic" data-icon="calculator">🧮</div><h3>계산기(공학용)</h3><p>삼각·로그·괄호 계산</p></a>
         <a class="card" href="/percentage-calculator/"><div class="ic" data-icon="percent">%</div><h3>퍼센트 계산기</h3><p>비율·증감률·할인 계산</p></a>
         <a class="card" href="/statistics-calculator/"><div class="ic" data-icon="sigma">Σ</div><h3>통계 계산기</h3><p>평균·중앙값·표준편차</p></a>
+        <a class="card" href="/gcd-lcm/"><div class="ic" data-icon="divide">÷</div><h3>최대공약수·최소공배수</h3><p>GCD·LCM 한 번에</p></a>
+        <a class="card" href="/area-calculator/"><div class="ic" data-icon="shapes">▱</div><h3>도형 면적 계산기</h3><p>사각형·삼각형·원 면적</p></a>
         <a class="card" href="/electricity-bill/"><div class="ic" data-icon="zap">⚡</div><h3>전기요금 계산기</h3><p>주택용 누진제 청구액</p></a>
         <a class="card" href="/fuel-cost/"><div class="ic" data-icon="fuel">⛽</div><h3>유류비·연비 계산기</h3><p>주유비·km당 비용·정산</p></a>
         <a class="card" href="/parcel-weight/"><div class="ic" data-icon="box">📦</div><h3>택배 부피무게 계산기</h3><p>부피무게·적용무게 비교</p></a>
@@ -325,6 +327,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/zodiac-finder/"><div class="ic" data-icon="sparkles">✨</div><h3>띠·별자리 찾기</h3><p>생년월일로 띠·별자리</p></a>
         <a class="card" href="/random-picker/"><div class="ic" data-icon="dices">🎲</div><h3>랜덤 추첨기</h3><p>이름·항목 무작위 뽑기</p></a>
         <a class="card" href="/team-generator/"><div class="ic" data-icon="users">👥</div><h3>랜덤 팀 나누기</h3><p>이름으로 조 편성</p></a>
+        <a class="card" href="/dice-roller/"><div class="ic" data-icon="dice-6">🎲</div><h3>주사위·동전 던지기</h3><p>랜덤 주사위·동전</p></a>
         <a class="card" href="/spinner-wheel/"><div class="ic" data-icon="pie-chart">🎡</div><h3>돌림판 추첨</h3><p>룰렛 돌려 무작위 당첨</p></a>
         <a class="card" href="/ladder-game/"><div class="ic" data-icon="ladder">🪜</div><h3>사다리타기</h3><p>무작위 1:1 매칭 추첨</p></a>
         <a class="card" href="/lotto-generator/"><div class="ic" data-icon="ticket">🎱</div><h3>로또 번호 생성</h3><p>1~45 번호 뽑기</p></a>
@@ -350,6 +353,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/acquisition-tax/"><div class="ic" data-icon="building-2">🏢</div><h3>취득세 계산기</h3><p>주택 취득세·교육세·농특세</p></a>
         <a class="card" href="/vat-calculator/"><div class="ic" data-icon="receipt">🧾</div><h3>부가가치세 계산기</h3><p>공급가·부가세·합계 변환</p></a>
         <a class="card" href="/discount-calculator/"><div class="ic" data-icon="tag">🏷</div><h3>할인가 계산기</h3><p>할인율·중복할인 계산</p></a>
+        <a class="card" href="/installment-calculator/"><div class="ic" data-icon="hand-coins">💸</div><h3>할부 계산기</h3><p>카드 할부 수수료·월 납입</p></a>
       </div>
 
       <div class="sec-label">직장인 · 생산성</div>
@@ -541,7 +545,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     'dsr-calculator': 'dsr dti 총부채원리금상환비율 대출한도 부채비율 상환능력',
     'jeonse-conversion': '전월세 전환 전세 월세 반전세 전환율 보증금 환산',
     'work-hours': '근무시간 근로시간 출퇴근 야근 연장근로 휴게시간 워라밸',
-    'team-generator': '랜덤 팀 조 편성 그룹 모둠 조나누기 팀나누기 팀짜기 추첨'
+    'team-generator': '랜덤 팀 조 편성 그룹 모둠 조나누기 팀나누기 팀짜기 추첨',
+    'installment-calculator': '할부 카드 수수료 무이자 개월 월납입 분할결제',
+    'gcd-lcm': '최대공약수 최소공배수 gcd lcm 약수 배수 서로소 약분 통분',
+    'area-calculator': '도형 면적 넓이 둘레 사각형 삼각형 원 사다리꼴 평행사변형',
+    'dice-roller': '주사위 동전 던지기 굴리기 랜덤 dice coin 보드게임 다면체'
   };
   function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
   cards.forEach(function (c) {

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>할부 계산기 — 카드 할부 수수료·월 납입액 | 도구상자</title>
+<meta name="description" content="할부 원금·개월수·할부 수수료율을 입력하면 매달 납입액과 총 수수료, 총 결제액을 계산하는 무료 할부 계산기. 카드 할부 수수료(체감식) 기준으로 계산하며 모든 계산은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/installment-calculator/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="할부 계산기 — 카드 할부 수수료·월 납입액 | 도구상자">
+<meta property="og:description" content="할부 원금·개월·수수료율로 월 납입액·총 수수료·총 결제액을 계산하는 무료 도구.">
+<meta property="og:url" content="https://dogubox.shop/installment-calculator/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="할부 계산기 | 도구상자">
+<meta name="twitter:description" content="카드 할부 수수료·월 납입액 계산.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "할부 계산기",
+  "description": "할부 원금·개월수·할부 수수료율을 입력하면 매달 납입액과 총 수수료, 총 결제액을 계산하는 무료 할부 계산기. 카드 할부 수수료(체감식) 기준으로 계산하며 모든 계산은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/installment-calculator/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 할부 수수료는 어떻게 계산되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "카드 할부 수수료는 보통 남은 할부 잔액에 매달 수수료율(연이율÷12)을 곱하는 체감식으로 계산됩니다. 원금은 개월수로 나눠 매달 같은 금액을 갚고, 수수료는 잔액이 줄어들수록 함께 줄어듭니다. 그래서 첫 달 납입액이 가장 크고 갈수록 조금씩 작아집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 무이자 할부와 무엇이 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "무이자 할부는 수수료율이 0%라 원금만 개월수로 나눠 내면 됩니다. 이 계산기에서 수수료율을 0으로 두면 무이자 할부와 같은 결과가 나옵니다. 반대로 유이자 할부는 수수료율만큼 총 결제액이 늘어나므로, 같은 물건이라도 할부 조건에 따라 실제 부담이 달라집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 할부 수수료율은 보통 얼마인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "카드사·회원 등급·할부 개월수에 따라 다르지만 연 10~20% 수준인 경우가 많습니다. 개월수가 길수록 수수료율이 높아지기도 합니다. 정확한 수수료율은 카드사 약관이나 결제 화면에 표시되므로, 그 값을 확인해 이 계산기에 입력하면 실제와 가깝게 계산됩니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "할부 계산기", "item": "https://dogubox.shop/installment-calculator/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.in-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.in-field.full{grid-column:1 / -1}
+.in-field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:5px}
+.in-field input{width:100%;font-family:var(--mono);font-size:16px;padding:11px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);text-align:right}
+.in-result{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;text-align:center}
+.in-result .lbl{font-size:13px;color:var(--ink-3);font-weight:600}
+.in-result .big{font-family:var(--mono);font-size:30px;font-weight:800;color:var(--accent);letter-spacing:-.02em;margin-top:4px}
+.in-result .sub{font-size:13px;color:var(--ink-2);margin-top:4px}
+.in-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+.in-table td{border-bottom:1px solid var(--line);padding:9px 4px}
+.in-table td:first-child{color:var(--ink-2)}
+.in-table td:last-child{text-align:right;font-family:var(--mono);font-weight:600;color:var(--ink)}
+.in-table tr.sum td{border-top:2px solid var(--line-2);font-weight:700;color:var(--ink);padding-top:11px}
+.in-note{font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.5}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>할부 계산기</h1>
+      <p class="lede">할부 원금·개월수·수수료율로 <b>매달 납입액과 총 수수료</b>를 계산합니다. 무이자(0%)도 계산됩니다.</p>
+
+      <div class="box">
+        <div class="in-grid">
+          <div class="in-field full"><label>할부 원금 (원)</label><input type="text" inputmode="numeric" id="principal" value="1,200,000"></div>
+          <div class="in-field"><label>할부 개월수</label><input type="text" inputmode="numeric" id="months" value="12"></div>
+          <div class="in-field"><label>할부 수수료율 (연 %)</label><input type="text" inputmode="decimal" id="rate" value="15"></div>
+        </div>
+
+        <div class="in-result">
+          <div class="lbl">총 결제액</div>
+          <div class="big" id="total">—</div>
+          <div class="sub" id="sub"></div>
+        </div>
+        <table class="in-table" id="breakdown"></table>
+        <div class="in-note" id="note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>할부로 결제할 원금을 입력합니다.</li>
+          <li>할부 개월수와 할부 수수료율(연 %)을 넣습니다.</li>
+          <li>매달 납입액(첫 달·마지막 달)과 총 수수료, 총 결제액이 계산됩니다.</li>
+          <li>무이자 할부는 수수료율을 0으로 두면 됩니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>첫 달이 가장 큼:</b> 체감식 수수료라 잔액이 많은 초반 납입액이 가장 크고 갈수록 줄어듭니다.</li>
+          <li><b>개월수 비교:</b> 개월수를 늘리면 월 부담은 줄지만 총 수수료는 늘어납니다. 두 값을 함께 보고 결정하세요.</li>
+          <li><b>무이자 확인:</b> 같은 금액이라도 무이자 행사면 총 결제액이 원금과 같습니다. 행사 여부를 꼭 확인하세요.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 할부 수수료는 어떻게 계산되나요?</b><p>카드 할부 수수료는 보통 남은 할부 잔액에 매달 수수료율(연이율÷12)을 곱하는 체감식으로 계산됩니다. 원금은 개월수로 나눠 매달 같은 금액을 갚고, 수수료는 잔액이 줄어들수록 함께 줄어듭니다. 그래서 첫 달 납입액이 가장 크고 갈수록 조금씩 작아집니다.</p></div>
+          <div class="qa"><b>Q. 무이자 할부와 무엇이 다른가요?</b><p>무이자 할부는 수수료율이 0%라 원금만 개월수로 나눠 내면 됩니다. 이 계산기에서 수수료율을 0으로 두면 무이자 할부와 같은 결과가 나옵니다. 반대로 유이자 할부는 수수료율만큼 총 결제액이 늘어나므로, 같은 물건이라도 할부 조건에 따라 실제 부담이 달라집니다.</p></div>
+          <div class="qa"><b>Q. 할부 수수료율은 보통 얼마인가요?</b><p>카드사·회원 등급·할부 개월수에 따라 다르지만 연 10~20% 수준인 경우가 많습니다. 개월수가 길수록 수수료율이 높아지기도 합니다. 정확한 수수료율은 카드사 약관이나 결제 화면에 표시되므로, 그 값을 확인해 이 계산기에 입력하면 실제와 가깝게 계산됩니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/loan-calculator/"><b>대출 이자 계산기</b><span>원리금균등 상환</span></a>
+          <a class="rel-card" href="/discount-calculator/"><b>할인가 계산기</b><span>할인율·중복할인</span></a>
+          <a class="rel-card" href="/vat-calculator/"><b>부가가치세 계산기</b><span>세금 계산</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  function won(n){ return Math.round(n).toLocaleString('ko-KR'); }
+  function num(s){ return parseFloat(String(s).replace(/[^0-9.]/g,''))||0; }
+  function calc(){
+    var P=num($('principal').value), m=Math.max(1,Math.round(num($('months').value))||1), r=num($('rate').value)/100/12;
+    var pm=P/m;            // 매달 원금
+    var totalFee=0, first=0, last=0;
+    for(var i=0;i<m;i++){
+      var bal=P-pm*i;       // 그달 시작 잔액
+      var fee=bal*r;
+      totalFee+=fee;
+      var pay=pm+fee;
+      if(i===0) first=pay;
+      if(i===m-1) last=pay;
+    }
+    var total=P+totalFee;
+    $('total').textContent=won(total)+'원';
+    $('sub').textContent='원금 '+won(P)+'원 + 수수료 '+won(totalFee)+'원';
+    $('breakdown').innerHTML=
+      '<tr><td>매달 원금</td><td>'+won(pm)+'원</td></tr>'+
+      '<tr><td>첫 달 납입액</td><td>'+won(first)+'원</td></tr>'+
+      '<tr><td>마지막 달 납입액</td><td>'+won(last)+'원</td></tr>'+
+      '<tr><td>총 수수료</td><td>'+won(totalFee)+'원</td></tr>'+
+      '<tr class="sum"><td>총 결제액</td><td>'+won(total)+'원</td></tr>';
+    $('note').textContent='※ 잔액 기준 체감식 수수료(매달 잔액×연이율÷12)로 계산한 참고용 추정치입니다. 실제 청구는 카드사 산정 방식·소수점 처리에 따라 다를 수 있습니다.';
+  }
+  ['principal','months','rate'].forEach(function(id){ $(id).addEventListener('input',function(){
+    if(id!=='rate'){ var c=num(this.value); this.value=this.value.trim()===''?'':Math.round(c).toLocaleString('ko-KR'); }
+    calc();
+  }); });
+  calc();
+})();
+</script>
+</html>

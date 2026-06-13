@@ -78,6 +78,8 @@
       { slug: "calculator",      name: "계산기(공학용)",    icon: "calculator" },
       { slug: "percentage-calculator", name: "퍼센트 계산기", icon: "percent" },
       { slug: "statistics-calculator", name: "통계 계산기", icon: "sigma" },
+      { slug: "gcd-lcm",         name: "최대공약수·최소공배수", icon: "divide" },
+      { slug: "area-calculator", name: "도형 면적 계산기",  icon: "shapes" },
       { slug: "electricity-bill", name: "전기요금 계산기", icon: "zap" },
       { slug: "fuel-cost",       name: "유류비·연비 계산기", icon: "fuel" },
       { slug: "parcel-weight",   name: "택배 부피무게 계산기", icon: "box" },
@@ -101,6 +103,7 @@
       { slug: "zodiac-finder",   name: "띠·별자리 찾기",    icon: "sparkles" },
       { slug: "random-picker",   name: "랜덤 추첨기",       icon: "dices" },
       { slug: "team-generator",  name: "랜덤 팀 나누기",   icon: "users" },
+      { slug: "dice-roller",     name: "주사위·동전 던지기", icon: "dice-6" },
       { slug: "spinner-wheel",   name: "돌림판 추첨",       icon: "pie-chart" },
       { slug: "ladder-game",     name: "사다리타기",        icon: "ladder" },
       { slug: "lotto-generator", name: "로또 번호 생성",    icon: "ticket" }
@@ -123,7 +126,8 @@
       { slug: "car-tax",         name: "자동차세 계산기",   icon: "car" },
       { slug: "acquisition-tax", name: "취득세 계산기",     icon: "building-2" },
       { slug: "vat-calculator",  name: "부가가치세 계산기",  icon: "receipt" },
-      { slug: "discount-calculator", name: "할인가 계산기",  icon: "tag" }
+      { slug: "discount-calculator", name: "할인가 계산기",  icon: "tag" },
+      { slug: "installment-calculator", name: "할부 계산기", icon: "hand-coins" }
     ]},
     { label: "직장인 · 생산성", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
@@ -333,6 +337,10 @@
     "repeat": '<path d="m17 2 4 4-4 4" /> <path d="M3 11v-1a4 4 0 0 1 4-4h14" /> <path d="m7 22-4-4 4-4" /> <path d="M21 13v1a4 4 0 0 1-4 4H3" />',
     "users": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" />',
     "hourglass": '<path d="M5 22h14" /> <path d="M5 2h14" /> <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" /> <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" />',
+    "hand-coins": '<path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" /> <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" /> <path d="m2 16 6 6" /> <circle cx="16" cy="9" r="2.9" /> <circle cx="6" cy="5" r="3" />',
+    "divide": '<circle cx="12" cy="6" r="1" /> <line x1="5" x2="19" y1="12" y2="12" /> <circle cx="12" cy="18" r="1" />',
+    "shapes": '<path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z" /> <rect x="3" y="14" width="7" height="7" rx="1" /> <circle cx="17.5" cy="17.5" r="3.5" />',
+    "dice-6": '<rect width="20" height="20" x="2" y="2" rx="2" ry="2" /> <path d="M16 8h.01" /> <path d="M16 12h.01" /> <path d="M16 16h.01" /> <path d="M8 8h.01" /> <path d="M8 12h.01" /> <path d="M8 16h.01" />',
     "briefcase": '<rect width="20" height="14" x="2" y="7" rx="2" ry="2" /> <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />',
     "flame": '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />',
     "layers": '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />',

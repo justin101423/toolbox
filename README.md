@@ -80,6 +80,8 @@
 - 계산기 (일반·공학용) (`/calculator/`)
 - 퍼센트 계산기 (`/percentage-calculator/`)
 - 통계 계산기 (`/statistics-calculator/`)
+- 최대공약수·최소공배수 계산기 (`/gcd-lcm/`)
+- 도형 면적 계산기 (`/area-calculator/`)
 - 전기요금 계산기 (`/electricity-bill/`)
 - 유류비·연비 계산기 (`/fuel-cost/`)
 - 택배 부피무게 계산기 (`/parcel-weight/`)
@@ -103,6 +105,7 @@
 - 띠·별자리 찾기 (`/zodiac-finder/`)
 - 랜덤 추첨기 (`/random-picker/`)
 - 랜덤 팀 나누기 (`/team-generator/`)
+- 주사위·동전 던지기 (`/dice-roller/`)
 - 돌림판 추첨 (룰렛) (`/spinner-wheel/`)
 - 사다리타기 (`/ladder-game/`)
 - 로또 번호 생성 (`/lotto-generator/`)
@@ -126,6 +129,7 @@
 - 취득세 계산기 (`/acquisition-tax/`)
 - 부가가치세 계산기 (`/vat-calculator/`)
 - 할인가 계산기 (`/discount-calculator/`)
+- 할부 계산기 (`/installment-calculator/`)
 
 ### 직장인 · 생산성
 - 임시 메모장 (`/notepad/`)
