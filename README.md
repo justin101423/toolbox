@@ -92,8 +92,10 @@
 
 ### 금융
 - 연봉 실수령액 계산기 (`/salary-calculator/`)
+- 퇴직금 계산기 (`/severance-pay/`)
 - 대출 이자 계산기 (`/loan-calculator/`)
 - 적금·예금 이자 계산기 (`/savings-calculator/`)
+- 복리 계산기 (`/compound-interest/`)
 - 부가가치세 계산기 (`/vat-calculator/`)
 - 할인가 계산기 (`/discount-calculator/`)
 
