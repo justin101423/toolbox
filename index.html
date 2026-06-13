@@ -278,6 +278,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/line-numbers/"><div class="ic" data-icon="list-ordered">🔢</div><h3>줄 번호 매기기</h3><p>각 줄 앞 번호 추가</p></a>
         <a class="card" href="/case-converter/"><div class="ic" data-icon="case-sensitive">Aa</div><h3>대소문자·표기 변환</h3><p>camelCase·snake_case 등</p></a>
         <a class="card" href="/text-reverser/"><div class="ic" data-icon="arrow-left-right">⇄</div><h3>글자 거꾸로·뒤집기</h3><p>글자·단어·줄 반전, 거꾸로 글자</p></a>
+        <a class="card" href="/morse-code/"><div class="ic" data-icon="radio">··—</div><h3>모스부호 변환기</h3><p>텍스트 ↔ 모스부호·소리</p></a>
         <a class="card" href="/text-diff/"><div class="ic" data-icon="diff">±</div><h3>텍스트 비교 (diff)</h3><p>두 글의 차이 색 표시</p></a>
         <a class="card" href="/reading-time/"><div class="ic" data-icon="book-open">📖</div><h3>읽는 시간 계산기</h3><p>묵독·낭독 시간 계산</p></a>
         <a class="card" href="/fancy-text/"><div class="ic" data-icon="wand-sparkles">✨</div><h3>꾸미기 글자 변환</h3><p>유니코드 특수 글꼴</p></a>
@@ -299,6 +300,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <div class="grid">
         <a class="card" href="/calculator/"><div class="ic" data-icon="calculator">🧮</div><h3>계산기(공학용)</h3><p>삼각·로그·괄호 계산</p></a>
         <a class="card" href="/percentage-calculator/"><div class="ic" data-icon="percent">%</div><h3>퍼센트 계산기</h3><p>비율·증감률·할인 계산</p></a>
+        <a class="card" href="/statistics-calculator/"><div class="ic" data-icon="sigma">Σ</div><h3>통계 계산기</h3><p>평균·중앙값·표준편차</p></a>
+        <a class="card" href="/electricity-bill/"><div class="ic" data-icon="zap">⚡</div><h3>전기요금 계산기</h3><p>주택용 누진제 청구액</p></a>
+        <a class="card" href="/fuel-cost/"><div class="ic" data-icon="fuel">⛽</div><h3>유류비·연비 계산기</h3><p>주유비·km당 비용·정산</p></a>
         <a class="card" href="/unit-converter/"><div class="ic" data-icon="ruler">📏</div><h3>단위 변환</h3><p>길이·무게·온도·넓이·부피</p></a>
         <a class="card" href="/pyeong-converter/"><div class="ic" data-icon="house">🏠</div><h3>평 ↔ ㎡ 변환</h3><p>평수·제곱미터 즉시 변환</p></a>
         <a class="card" href="/size-converter/"><div class="ic" data-icon="shirt">👕</div><h3>옷·신발 사이즈 변환</h3><p>한국·US·EU·일본</p></a>
@@ -499,7 +503,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     'subnet-calculator': '서브넷 subnet cidr ip 아이피 네트워크 마스크 브로드캐스트 호스트 ipv4',
     'pdf-page-numbers': 'pdf 페이지 번호 쪽번호 페이지번호 page number 넘버링',
     'word-frequency': '단어 빈도 키워드 횟수 빈도수 frequency 분석 통계',
-    'roman-numerals': '로마 숫자 로마숫자 roman numeral 변환 아라비아'
+    'roman-numerals': '로마 숫자 로마숫자 roman numeral 변환 아라비아',
+    'electricity-bill': '전기요금 전기세 누진제 한전 kwh 전력 청구액 계산',
+    'statistics-calculator': '통계 평균 중앙값 표준편차 분산 최빈값 mean median 합계',
+    'fuel-cost': '유류비 기름값 연비 주유비 기름 카풀 정산 휘발유 경유',
+    'morse-code': '모스부호 모스 부호 morse code sos 점선 변환'
   };
   function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
   cards.forEach(function (c) {

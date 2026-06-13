@@ -58,6 +58,7 @@
 - 줄 번호 매기기 (`/line-numbers/`)
 - 대소문자·표기 변환 (`/case-converter/`)
 - 글자 거꾸로·뒤집기 (`/text-reverser/`)
+- 모스부호 변환기 (`/morse-code/`)
 - 텍스트 비교 (diff) (`/text-diff/`)
 - 읽는 시간 계산기 (`/reading-time/`)
 - 유니코드 꾸미기 글자 변환 (`/fancy-text/`)
@@ -77,6 +78,9 @@
 ### 생활 · 편의
 - 계산기 (일반·공학용) (`/calculator/`)
 - 퍼센트 계산기 (`/percentage-calculator/`)
+- 통계 계산기 (`/statistics-calculator/`)
+- 전기요금 계산기 (`/electricity-bill/`)
+- 유류비·연비 계산기 (`/fuel-cost/`)
 - 단위 변환 (`/unit-converter/`)
 - 평 ↔ ㎡ 변환 (`/pyeong-converter/`)
 - 옷·신발 사이즈 변환 (`/size-converter/`)
