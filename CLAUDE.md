@@ -64,7 +64,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 143개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 147개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
@@ -103,7 +103,7 @@ toolbox/
 | pdf-to-image | PDF → 이미지 |
 | pdf-to-text | PDF → 텍스트 추출 |
 
-### 텍스트 · 생성 (25)
+### 텍스트 · 생성 (26)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -122,6 +122,7 @@ toolbox/
 | special-characters | 특수문자·이모지 복사 |
 | romanizer | 한글 → 로마자 변환 |
 | keyboard-typo | 한/영 키보드 오타 변환 |
+| hangul-chosung | 초성 추출기 |
 | number-to-korean | 숫자 → 한글 금액 변환 |
 | tts | 텍스트 → 음성 (TTS) |
 | qr-code | QR코드 생성 |
@@ -132,7 +133,7 @@ toolbox/
 | lorem-ipsum | 로렘 입숨 생성기 |
 | json-formatter | JSON 포매터 |
 
-### 생활 · 편의 (24)
+### 생활 · 편의 (26)
 | 슬러그 | 이름 |
 |---|---|
 | calculator | 계산기 (일반·공학용) |
@@ -140,12 +141,14 @@ toolbox/
 | statistics-calculator | 통계 계산기 |
 | electricity-bill | 전기요금 계산기 |
 | fuel-cost | 유류비·연비 계산기 |
+| parcel-weight | 택배 부피무게 계산기 |
 | unit-converter | 단위 변환 |
 | pyeong-converter | 평 ↔ ㎡ 변환 |
 | size-converter | 옷·신발 사이즈 변환 |
 | roman-numerals | 로마 숫자 변환기 |
 | age-calculator | 만 나이 계산기 |
 | dday-calculator | D-Day · 날짜 계산 |
+| due-date-calculator | 출산 예정일 계산기 |
 | business-days | 근무일수·영업일 계산기 |
 | lunar-solar-converter | 음력 ↔ 양력 변환 |
 | timezone-converter | 세계 시간 변환 |
@@ -164,6 +167,7 @@ toolbox/
 | 슬러그 | 이름 |
 |---|---|
 | salary-calculator | 연봉 실수령액 계산기 |
+| wage-calculator | 시급·주휴수당 계산기 |
 | severance-pay | 퇴직금 계산기 |
 | loan-calculator | 대출 이자 계산기 |
 | savings-calculator | 적금·예금 이자 계산기 |

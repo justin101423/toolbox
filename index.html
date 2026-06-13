@@ -285,6 +285,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/special-characters/"><div class="ic" data-icon="smile">☺</div><h3>특수문자·이모지</h3><p>기호 클릭하면 복사</p></a>
         <a class="card" href="/romanizer/"><div class="ic" data-icon="spell-check">🔤</div><h3>한글 → 로마자</h3><p>이름·주소 로마자 표기</p></a>
         <a class="card" href="/keyboard-typo/"><div class="ic" data-icon="languages">⌨</div><h3>한/영 오타 변환</h3><p>ㅁㄴㅇㄹ↔asdf 변환</p></a>
+        <a class="card" href="/hangul-chosung/"><div class="ic" data-icon="whole-word">ㅊㅅ</div><h3>초성 추출기</h3><p>한글 초성·자모 분리</p></a>
         <a class="card" href="/number-to-korean/"><div class="ic" data-icon="banknote">💵</div><h3>숫자 → 한글 금액</h3><p>일금 …원정 변환</p></a>
         <a class="card" href="/tts/"><div class="ic" data-icon="volume-2">🔊</div><h3>텍스트 → 음성(TTS)</h3><p>글 읽어 주기</p></a>
         <a class="card" href="/qr-code/"><div class="ic" data-icon="qr-code">▦</div><h3>QR코드 생성</h3><p>링크·텍스트를 QR로</p></a>
@@ -303,12 +304,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/statistics-calculator/"><div class="ic" data-icon="sigma">Σ</div><h3>통계 계산기</h3><p>평균·중앙값·표준편차</p></a>
         <a class="card" href="/electricity-bill/"><div class="ic" data-icon="zap">⚡</div><h3>전기요금 계산기</h3><p>주택용 누진제 청구액</p></a>
         <a class="card" href="/fuel-cost/"><div class="ic" data-icon="fuel">⛽</div><h3>유류비·연비 계산기</h3><p>주유비·km당 비용·정산</p></a>
+        <a class="card" href="/parcel-weight/"><div class="ic" data-icon="box">📦</div><h3>택배 부피무게 계산기</h3><p>부피무게·적용무게 비교</p></a>
         <a class="card" href="/unit-converter/"><div class="ic" data-icon="ruler">📏</div><h3>단위 변환</h3><p>길이·무게·온도·넓이·부피</p></a>
         <a class="card" href="/pyeong-converter/"><div class="ic" data-icon="house">🏠</div><h3>평 ↔ ㎡ 변환</h3><p>평수·제곱미터 즉시 변환</p></a>
         <a class="card" href="/size-converter/"><div class="ic" data-icon="shirt">👕</div><h3>옷·신발 사이즈 변환</h3><p>한국·US·EU·일본</p></a>
         <a class="card" href="/roman-numerals/"><div class="ic" data-icon="scroll">Ⅹ</div><h3>로마 숫자 변환기</h3><p>아라비아 ↔ 로마 숫자</p></a>
         <a class="card" href="/age-calculator/"><div class="ic" data-icon="cake">🎂</div><h3>만 나이 계산기</h3><p>생년월일로 만 나이·생일</p></a>
         <a class="card" href="/dday-calculator/"><div class="ic" data-icon="calendar-days">📅</div><h3>D-Day · 날짜 계산</h3><p>남은 일수·며칠 뒤 날짜</p></a>
+        <a class="card" href="/due-date-calculator/"><div class="ic" data-icon="baby">👶</div><h3>출산 예정일 계산기</h3><p>임신 주수·예정일 계산</p></a>
         <a class="card" href="/business-days/"><div class="ic" data-icon="calendar-check">🗓</div><h3>근무일수·영업일 계산기</h3><p>주말·공휴일 제외 일수</p></a>
         <a class="card" href="/lunar-solar-converter/"><div class="ic" data-icon="moon">🌙</div><h3>음력 ↔ 양력 변환</h3><p>윤달까지 정확히 변환</p></a>
         <a class="card" href="/timezone-converter/"><div class="ic" data-icon="globe">🌍</div><h3>세계 시간 변환</h3><p>도시별 시차 변환</p></a>
@@ -327,6 +330,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <div class="sec-label">금융</div>
       <div class="grid">
         <a class="card" href="/salary-calculator/"><div class="ic" data-icon="wallet">💰</div><h3>연봉 실수령액 계산기</h3><p>4대보험·세금 공제 후 월급</p></a>
+        <a class="card" href="/wage-calculator/"><div class="ic" data-icon="banknote">💵</div><h3>시급·주휴수당 계산기</h3><p>주휴수당 포함 알바비</p></a>
         <a class="card" href="/severance-pay/"><div class="ic" data-icon="briefcase">💼</div><h3>퇴직금 계산기</h3><p>평균임금 기준 예상 퇴직금</p></a>
         <a class="card" href="/loan-calculator/"><div class="ic" data-icon="landmark">🏦</div><h3>대출 이자 계산기</h3><p>원리금균등·원금균등 월 상환액</p></a>
         <a class="card" href="/savings-calculator/"><div class="ic" data-icon="piggy-bank">🐷</div><h3>적금·예금 이자 계산기</h3><p>만기 수령액·세후 이자</p></a>
@@ -507,7 +511,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     'electricity-bill': '전기요금 전기세 누진제 한전 kwh 전력 청구액 계산',
     'statistics-calculator': '통계 평균 중앙값 표준편차 분산 최빈값 mean median 합계',
     'fuel-cost': '유류비 기름값 연비 주유비 기름 카풀 정산 휘발유 경유',
-    'morse-code': '모스부호 모스 부호 morse code sos 점선 변환'
+    'morse-code': '모스부호 모스 부호 morse code sos 점선 변환',
+    'wage-calculator': '시급 주휴수당 알바비 알바 최저임금 주급 시간당 아르바이트',
+    'due-date-calculator': '출산 예정일 임신 주수 분만 네겔레 예정일 임신주수',
+    'parcel-weight': '택배 부피무게 부피 무게 적용무게 운임 항공 부피계수 cbm',
+    'hangul-chosung': '초성 추출 한글 자모 분리 초성퀴즈 닉네임 ㄱㄴㄷ 자음'
   };
   function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
   cards.forEach(function (c) {
