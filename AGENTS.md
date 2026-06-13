@@ -14,7 +14,7 @@
 ## 2. 핵심 원칙 / 절대 규칙
 
 1. **클라이언트 사이드 전용**: 모든 기능은 서버 없이 브라우저 JavaScript로만 구현합니다. 백엔드·DB가 필요한 기능(예: URL 단축, 서버 저장형 공유, 회원 기능, 서버 측 파일 변환 등)은 추가하지 않습니다. 사용자가 업로드/입력한 파일·텍스트는 서버로 전송하지 않고 브라우저 안에서만 처리합니다(개인정보 보호 + 정적 호스팅 제약).
-2. **AdSense 스크립트 보존**: 모든 페이지 `<head>`의 Google AdSense 스크립트(`client=ca-pub-6448118773813567`)는 절대 제거하지 않습니다.
+2. **AdSense 스크립트 보존**: 모든 페이지 `<head>`의 Google AdSense 스크립트(`client=ca-pub-6448118773813567`)는 절대 제거하지 않습니다. (유일한 예외: `404.html` — 오류 페이지 광고 게재는 AdSense 정책 위반이라 의도적으로 스크립트를 넣지 않음.)
 3. **민감 파일 보호**: `CNAME`, `ads.txt`, `robots.txt`, `privacy.html`은 함부로 수정/삭제하지 않습니다(각각 도메인·광고·크롤링·정책에 직결). 변경이 꼭 필요하면 이유를 명확히 하고 사용자에게 확인합니다.
 4. **자동 커밋·푸시**: 작업을 마치면 Codex가 직접 `git add` → `commit` → `push`(브랜치 `main`)까지 수행합니다. 단, push 직전 보호 파일/스크립트 자가 점검을 반드시 거치며, 이상이 감지되면 push를 중단하고 보고합니다. 자세한 절차는 아래 **「자동 커밋·푸시 규칙」** 섹션을 따릅니다.
 
@@ -37,8 +37,10 @@
 ```
 toolbox/
 ├── index.html          # 허브 페이지: 도구 카드 그리드 + 활용 가이드 카드 (소개·FAQ·문의는 about.html로 분리)
-├── about.html          # 사이트 소개 페이지: 소개·이용 방법·FAQ(#faq)·문의(#contact)
+├── about.html          # 사이트 소개 페이지: 소개·이용 방법·FAQ(#faq)·문의(#contact) — FAQPage JSON-LD 포함
+├── 404.html            # 404 페이지 (GitHub Pages 자동 사용) — noindex, ★유일하게 AdSense 스크립트 없음(오류 페이지 광고 금지 정책)
 ├── privacy.html        # 개인정보처리방침 (수정 주의)
+├── terms.html          # 이용약관 (privacy와 동일 디자인, 전 페이지 푸터에서 링크)
 ├── ads.txt             # AdSense 게시자 인증 (수정 주의)
 ├── robots.txt          # 크롤러 정책 (수정 주의)
 ├── sitemap.xml         # 사이트맵 — 도구 추가 시 URL 추가 필요
@@ -47,9 +49,12 @@ toolbox/
 ├── guide.css           # 가이드(블로그) 전용 스타일 (tool-page.css 위에 얹어 사용 — 아티클 프로즈·표·도구 CTA·허브 그리드)
 ├── guide/index.html    # ★ 가이드 허브(블로그 글 목록) — SEO/AdSense용 읽을거리 콘텐츠
 ├── guide/<슬러그>/index.html # 각 가이드 글 = 독립 페이지(독립 URL)
-├── theme.css           # 다크모드 스타일
+├── .nojekyll           # GitHub Pages의 Jekyll 빌드 생략(배포 속도↑, 닷·밑줄 경로 그대로 서빙)
+├── .well-known/security.txt # 보안 제보 채널(RFC 9116) — Expires 매년 갱신 필요(현재 2027-06-12)
+├── theme.css           # 다크모드 스타일 + 전 페이지 공통 보조 스타일(테마 토글, 사이드바 라벨 타이포 — 모든 페이지가 마지막에 로드하므로 구형 인라인 CSS도 덮어씀)
 ├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어)
 ├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처)
+├── analytics.js        # GA4 로더 — 측정 ID(GA_ID)는 이 파일 한 곳에서만 관리. placeholder 상태면 무동작. 전 페이지가 theme.js 다음에 로드
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
 └── <슬러그>/index.html  # 각 도구 = 독립 페이지(독립 URL, SEO 목적)
 ```
@@ -213,12 +218,12 @@ toolbox/
 
 > **목적**: 순수 유틸리티만 있는 사이트는 AdSense·검색에서 "가치 없는 콘텐츠(thin content)"로 평가받기 쉽습니다. 이를 보완하려고 **읽을거리형 editorial 콘텐츠**(도구 활용 가이드)를 `/guide/` 하위에 둡니다. 도구 개수(115)에는 포함하지 않습니다.
 
-- **허브**: `/guide/index.html` — 글 목록(`.guide-grid` 카드). canonical `https://dogubox.shop/guide/`. JSON-LD는 `CollectionPage` + `BreadcrumbList`.
+- **허브**: `/guide/index.html` — 글 목록을 **주제별 8개 섹션**(`.sec-label` + 섹션별 `.guide-grid`)으로 묶어 표시: 이미지·사진 / PDF·문서 / 텍스트·생성 / 생활·편의 / 직장인·생산성 / 색상·디자인 / 개발자 / 악기·음악(도구 카테고리와 같은 순서). 새 글 카드는 해당 주제 섹션의 `.guide-grid` 안에 추가. 상단에 클라이언트 검색 필터(`#guide-search`, 카드 텍스트로 필터링·빈 섹션 라벨 숨김) 있음. canonical `https://dogubox.shop/guide/`. JSON-LD는 `CollectionPage` + `BreadcrumbList`.
 - **각 글**: `/guide/<슬러그>/index.html` — `tool-page.css` + **`guide.css`** + `theme.css` 참조. 본문은 `<article class="inner">` 안에 `<h1>` 1개 + `<section class="content">`(h2 소제목·표·`.callout`·`.tool-cta`·`.toc`·FAQ·관련 글). JSON-LD는 **Article + FAQPage + BreadcrumbList**(홈>가이드>글). FAQPage 질문·답변은 본문 FAQ와 글자 단위로 동일해야 함.
 - **도구로 연결**: 글마다 관련 도구로 가는 `.tool-cta` 카드(아이콘은 `data-icon`로 두면 `sidebar.js`가 채움)와 본문 내부 링크(`a.inlink`)를 넣습니다.
 - **사이드바 노출**: `sidebar.js`의 `render()`가 즐겨찾기 그룹 다음에 **"가이드 · 사용법"** 링크(book-open 아이콘)를 자동 삽입 → 전 페이지(도구·허브)에서 노출. `/guide` 경로에서 active. (개별 페이지 수정 불필요)
 - **허브(홈) 노출**: `index.html`에 "활용 가이드" 섹션(`.grid.guide-cards`)으로 6개 카드. **이 그리드는 도구 개수 카운트에서 제외**됩니다(홈 스크립트가 `.guide-cards` 부모를 가진 카드를 제외하고 셈). 푸터에도 `/guide/` 링크.
-- **현재 글(16)**: `self-intro-character-count`(자기소개서 글자 수), `heic-to-jpg-guide`(HEIC→JPG), `reduce-image-size`(이미지 용량 줄이기), `merge-split-pdf`(PDF 합치기·분할), `make-qr-code`(QR코드 만들기), `strong-password`(안전한 비밀번호), `id-photo-size`(증명사진 규격), `remove-photo-location`(사진 EXIF 위치정보 제거), `pyeong-conversion`(평↔㎡ 변환), `unit-conversion`(단위 변환), `percentage-calculation`(퍼센트 계산법), `json-basics`(JSON 입문), `lunar-solar-conversion`(음력↔양력), `dday-calculation`(D-Day 계산), `hex-rgb-color-codes`(색상 코드 HEX·RGB·HSL), `markdown-syntax`(마크다운 문법).
+- **현재 글(150)**: `self-intro-character-count`(자기소개서 글자 수), `heic-to-jpg-guide`(HEIC→JPG), `reduce-image-size`(이미지 용량 줄이기), `merge-split-pdf`(PDF 합치기·분할), `make-qr-code`(QR코드 만들기), `strong-password`(안전한 비밀번호), `id-photo-size`(증명사진 규격), `remove-photo-location`(사진 EXIF 위치정보 제거), `pyeong-conversion`(평↔㎡ 변환), `unit-conversion`(단위 변환), `percentage-calculation`(퍼센트 계산법), `json-basics`(JSON 입문), `lunar-solar-conversion`(음력↔양력), `dday-calculation`(D-Day 계산), `hex-rgb-color-codes`(색상 코드 HEX·RGB·HSL), `markdown-syntax`(마크다운 문법), `bmi-calculation`(BMI 계산법), `age-calculation`(만 나이 계산법), `regex-basics`(정규식 입문), `timestamp-conversion`(유닉스 타임스탬프), `csv-json-conversion`(CSV·엑셀·JSON), `size-conversion`(옷·신발 사이즈), `base64-encoding`(Base64·URL 인코딩), `discount-calculation`(할인율 계산), `gpa-calculation`(학점·GPA 계산), `lotto-probability`(로또 확률), `timezone-difference`(시차 계산), `make-gif`(움짤 GIF 만들기), `extract-text-from-image`(사진 글자 추출 OCR), `zodiac-animal`(띠·별자리), `add-watermark`(워터마크 넣기), `what-is-jwt`(JWT 토큰), `pomodoro-technique`(포모도로 공부법), `what-is-hash`(해시·SHA-256), `utm-parameters`(UTM 파라미터), `number-base-conversion`(진법 변환), `electronic-signature`(전자서명), `cron-expression`(cron 표현식), `color-contrast-accessibility`(색상 대비·접근성), `text-comparison`(텍스트 비교 diff), `korean-romanization`(로마자 표기법), `what-is-favicon`(파비콘), `text-to-speech`(TTS 활용법), `barcode-types`(바코드 종류), `typing-speed-tips`(타자 속도), `what-is-lorem-ipsum`(로렘 입숨), `video-call-check`(화상 면접·회의 점검), `fair-random-draw`(공정한 추첨), `color-scheme-basics`(배색 기초), `make-meme`(밈·짤 만들기), `sql-formatting`(SQL 쿼리 정리), `markdown-table`(마크다운 표 만들기), `css-gradient`(CSS 그라데이션), `css-box-shadow`(box-shadow 그림자), `password-strength-check`(비밀번호 강도 점검), `study-timer`(순공시간·스톱워치 공부법), `http-error-codes`(404·500 에러 의미), `broken-text-encoding`(글자 깨짐·인코딩), `guitar-tuning`(기타 튜닝), `metronome-practice`(메트로놈 연습법), `piano-keys`(피아노 건반 기초), `what-is-uuid`(UUID란?), `json-vs-yaml`(JSON vs YAML), `read-qr-code`(사진 속 QR 읽기), `find-color-code`(색상 코드 따기), `korean-english-typo`(한/영 오타 원리), `korean-money-notation`(금액 한글 표기), `type-special-characters`(특수문자 입력법), `compress-pdf`(PDF 용량 줄이기), `photo-adjust-basics`(사진 보정 기초), `photos-to-pdf`(사진→PDF 제출), `photo-collage`(사진 콜라주), `clean-text-list`(목록 정리 워크플로), `make-beat`(비트 만들기 입문), `speech-script-length`(발표 대본 분량), `fancy-nickname`(꾸미기 글자 원리), `extract-from-pdf`(PDF에서 글자·이미지 꺼내기), `browser-instruments`(브라우저 악기 둘러보기), `crop-aspect-ratio`(사진 비율 자르기), `voice-recording`(음성 녹음 요령), `blur-personal-info`(개인정보 모자이크), `photo-rotation-fix`(사진 회전 문제), `image-formats`(JPG·PNG·WebP 선택), `organize-pdf-pages`(PDF 페이지 정리), `watermark-pdf`(PDF 워터마크), `bw-sepia-filter`(흑백·세피아 활용), `browser-notepad`(브라우저 메모장), `image-data-uri`(Base64 데이터 URI), `regex-patterns`(정규식 패턴 모음), `finger-drumming`(손가락 드럼 입문), `kalimba-basics`(칼림바 입문), `launchpad-loops`(런치패드 입문), `synth-basics`(신디사이저 기초), `what-is-theremin`(테레민이란?), `harp-glissando`(하프 글리산도), `gayageum-basics`(가야금 이야기), `xylophone-play`(실로폰 음악놀이), `handpan-relax`(핸드팬이란?), `write-readme`(README 잘 쓰기), `json-to-types-guide`(JSON에서 타입 만들기), `naming-conventions`(개발 표기법), `line-endings`(LF·CRLF 줄바꿈), `percent-vs-percentpoint`(%와 %p), `what-is-xml`(XML이란?), `manuscript-paper`(원고지 매수), `html-table-basics`(HTML 표 기초), `wifi-qr-code`(와이파이 QR), `scientific-calculator`(공학용 계산기), `find-and-replace`(찾기·바꾸기), `wallpaper-resolution`(배경화면 해상도), `css-units`(px·rem·em 차이), `colorblind-design`(색맹·색약과 디자인), `css-easing`(이징 곡선 입문), `css-border-radius`(둥근 모서리 디자인), `passport-english-name`(여권 영문 이름), `cooking-measurements`(요리 계량 환산), `aspect-ratio`(화면 비율 계산), `photo-print-size`(사진 인화 사이즈), `internet-speed-units`(Mbps vs MB/s), `a4-paper-size`(A4 픽셀·dpi), `csv-excel-encoding`(CSV 한글 깨짐), `apartment-area-types`(아파트 면적 용어), `audio-file-formats`(MP3·WAV·M4A), `photo-storage-size`(사진 용량 계산), `qr-not-scanning`(QR 인식 실패), `ladder-game-fairness`(사다리타기 확률), `insurance-age`(보험 나이·상령일), `what-is-passkey`(패스키란?), `double-discount`(중복할인의 함정), `week-number`(주차 계산법), `byte-vs-character`(글자 수 vs 바이트), `rounding-methods`(반올림·올림·버림), `food-expiration-dates`(유통기한 vs 소비기한), `volumetric-weight`(택배 부피무게), `installment-fees`(할부 수수료), `monitor-inches`(모니터 인치), `screenshot-basics`(스크린샷 찍기), `wifi-bands`(와이파이 2.4 vs 5GHz), `leap-year-month`(윤년 vs 윤달), `fahrenheit-celsius`(화씨 온도), `streaming-data-usage`(스트리밍 데이터), `solar-terms-24`(24절기), `raw-vs-jpg`(RAW vs JPG), `fullwidth-halfwidth`(전각·반각 문자), `usb-versions`(USB 속도), `korean-keyboard-layouts`(두벌식·세벌식), `messenger-photo-quality`(카톡 사진 화질), `emoji-not-showing`(이모지 두부 현상), `print-to-pdf`(PDF로 저장), `legal-ages`(법정 나이 기준).
 - **새 글 추가 시**: ① `/guide/<슬러그>/index.html` 생성(위 패턴) → ② `guide/index.html` 허브에 카드 1개 추가 → ③ `sitemap.xml`에 URL 추가 → ④ 필요하면 홈 "활용 가이드" 카드 갱신 → ⑤ 이 목록 갱신. (사이드바 "가이드" 링크는 단일 진입점이라 글마다 수정 불필요.)
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
@@ -254,7 +259,7 @@ toolbox/
 
 새 도구 `<슬러그>`를 추가할 때 아래를 **모두** 수행합니다:
 
-1. **`/<슬러그>/index.html` 생성** — 기존 도구 페이지와 동일한 패턴(head · 상단바 · 푸터 · 디자인). `/tool-page.css` 참조 패턴 권장. **사이드바는 직접 작성하지 말고** 빈 컨테이너 `<aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>` 만 두고, 본문 끝(`theme.js` 앞)에 `<script src="/sidebar.js"></script>`를 추가합니다.
+1. **`/<슬러그>/index.html` 생성** — 기존 도구 페이지와 동일한 패턴(head · 상단바 · 푸터 · 디자인). `/tool-page.css` 참조 패턴 권장. **사이드바는 직접 작성하지 말고** 빈 컨테이너 `<aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>` 만 두고, 본문 끝(`theme.js` 앞)에 `<script src="/sidebar.js"></script>`를 추가합니다. `theme.js` 다음 줄에는 `<script src="/analytics.js" defer></script>`도 추가합니다(전 페이지 공통).
    - **★ 표준 문서 구조(SEO)**: 파일 맨 첫 줄 `<!DOCTYPE html>`, 그다음 `<html lang="ko">`로 시작해 맨 끝을 `</html>`로 닫습니다. `<head>`에 `<link rel="canonical" href="https://dogubox.shop/<슬러그>/">`를 넣고, 페이지 **대표 제목은 `<h1>` 한 개**만 둡니다(콘텐츠 섹션 라벨은 `<div class="sec-label">` 유지 — h1/h2로 만들지 않음). h1 스타일은 `tool-page.css`의 `h1,h2{…}` 규칙이 담당합니다.
 2. **외부 라이브러리** — 그 도구에 꼭 필요한 라이브러리만 `<head>`에 추가.
 3. **★ 사이드바 = `sidebar.js` 데이터에 한 줄 추가** — `sidebar.js`의 `CATEGORIES`에서 알맞은 카테고리의 `tools` 배열에 `{ slug, name, icon }` 한 줄만 추가하면 **전 페이지 사이드바와 active 처리가 자동 반영**됩니다. (더 이상 개별 페이지 사이드바를 수정하지 않습니다.) **아이콘은 Lucide 인라인 SVG로 통일**되어 있습니다 — `icon` 값은 `sidebar.js`의 `ICONS` 매핑에 있는 Lucide 아이콘 이름(예: `"crop"`)을 쓰고, 새 아이콘이 필요하면 `ICONS`에 해당 Lucide SVG의 inner path를 추가합니다(`stroke="currentColor"`라 다크모드 자동 대응, 외부 CDN·SRI 불필요).
@@ -281,6 +286,16 @@ toolbox/
 - 사이트 UI·콘텐츠는 **한국어**. 친절하고 간결하게.
 - 도구 설명·FAQ는 실제 사용 맥락(자기소개서 글자 수, 엑셀 붙여넣기 정리, 인쇄용 QR 등)을 담아 구체적으로.
 
-## 9. 향후 작업 (보류 중)
+## 9. 운영 현황 (2026-06-13 기준 — 상태 바뀌면 이 표를 갱신할 것)
+
+| 채널 | 상태 | 다음 액션 |
+|---|---|---|
+| **애드센스** | 검토 요청 제출됨 — **심사 진행 중** | 결과 대기. **승인 시 → 아래 10번 footer.js 빅스윕 진행**, 거절 시 → 사유 분석부터 |
+| 구글 Search Console | sitemap(270 URL) 제출됨, 색인 요청 1차분 8개 완료 | 2차분은 `double-discount`부터 (하루 한도 ~10개). 색인 추이 주 1회 확인 |
+| 네이버 서치어드바이저 | 등록 완료 — 소유 확인(홈 head 메타) + sitemap 제출 + 홈·가이드 허브 수집 요청 | 며칠 뒤 "검증 → 사이트 최적화" 리포트 확인 |
+| GA4 | 활성화됨 — 측정 ID `G-EQH5P4E001`, `/analytics.js` 한 곳에서 관리 | 데이터 1주 쌓이면 인기 콘텐츠 기반으로 다음 방향 결정 |
+
+## 10. 향후 작업 (보류 중)
 
 - **도구 폴더를 루트 → `tools/` 하위로 이전 예정**(예: `/qr-code/` → `/tools/qr-code/`). **단, (1) AdSense 승인 완료 + (2) 구글 색인이 어느 정도 안정화된 이후에만 진행.** URL이 전부 바뀌는 작업이므로 이전 시 반드시 함께 처리: ① 기존 URL→새 URL **301 리다이렉트** 설정, ② `sitemap.xml`의 전 URL 갱신, ③ 각 페이지 **canonical·JSON-LD(`url`·`BreadcrumbList`)** 갱신, ④ `sidebar.js`·허브 카드 링크 갱신, ⑤ 서치 콘솔에 **새 sitemap 재제출**. **색인/심사 안정화 전에는 절대 진행 금지.**
+- **푸터 공통화(`footer.js`) — AdSense 승인 후 진행하기로 사용자와 합의(2026-06-12).** `sidebar.js`와 같은 패턴으로: 공통 스크립트가 푸터를 그리고, 각 페이지에는 빈 `<footer>` 컨테이너 + `<noscript>` 폴백(최소한 홈·개인정보처리방침 링크)만 남김. 전 페이지(270+) 1회 스윕 필요 — 푸터 형식이 2종(가이드형 여러 줄 / 구형 도구 인라인 체인)이므로 각각 패턴 매치로 치환. 이후 푸터 수정은 footer.js 한 곳에서. (전면 OOP 레이어링·빌드 도구 도입은 하지 않기로 함 — 정적 사이트 원칙 유지.) 같은 스윕에 함께 처리할 잔여 항목: ① 구형 페이지 인라인 `<style>` → `/tool-page.css` 참조로 통합, ② 일부 페이지의 `<meta http-equiv="Content-Security-Policy" content="frame-ancestors...">` 제거(meta로 전달된 frame-ancestors는 브라우저가 무시 — 콘솔 경고만 발생), ③ `<head>`에 AdSense 도메인 preconnect 추가 검토.
