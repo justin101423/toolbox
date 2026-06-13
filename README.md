@@ -331,6 +331,10 @@
 - 복리의 힘과 72 법칙 (`/guide/compound-effect/`)
 - 부가가치세란? (`/guide/what-is-vat/`)
 - 퇴직금 계산법과 받는 조건 (`/guide/severance-pay-guide/`)
+- 물타기 뜻과 평단가 계산법 (`/guide/stock-averaging-down/`)
+- 주식 수수료·세금과 실현 수익률 (`/guide/stock-tax-fees/`)
+- 배당 투자 기초 (`/guide/dividend-investing/`)
+- 손절과 익절 원칙 (`/guide/stop-loss-take-profit/`)
 
 ## 기술 스택
 
