@@ -16,6 +16,9 @@ html[data-theme="dark"] {
   --err:#ff8a80;
 }
 
+/* 도구 박스 강조 그림자 — 다크에서는 더 깊게(어두운 배경 대응) */
+html[data-theme="dark"] .box{box-shadow:0 16px 40px -22px rgba(0,0,0,.7)}
+
 .theme-toggle {
   display:inline-flex;
   align-items:center;
