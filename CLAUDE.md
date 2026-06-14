@@ -56,7 +56,7 @@ toolbox/
 ├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처). CATEGORIES·iconHtml을 window.DGB_TOOLS로 노출 → 작업대(workbench.js)가 같은 도구 목록을 재사용
 ├── workbench.js        # ★ 작업대(베타) — 홈 상단 #workbenchToggle 버튼으로 홈 위에 오버레이를 띄워 도구를 N칸(베타 2칸) 좌우로 나란히 사용. 각 칸은 도구를 /<슬러그>/?embed=1 iframe으로 로드. 도구 목록은 window.DGB_TOOLS(단일 출처). 칸 추가/닫기·드래그 분할 포함, MAX_PANES만 올리면 3~4칸 확장. **index.html에서만 로드**
 ├── workbench.css       # 작업대 스타일(상단바 .wb-btn 버튼 + .wb-overlay 오버레이 + .wb-pane 분할 칸 + .wb-divider 드래그 손잡이). workbench.js와 한 쌍, index.html에서만 로드
-├── analytics.js        # GA4 로더 — 측정 ID(GA_ID)는 이 파일 한 곳에서만 관리. placeholder 상태면 무동작. 전 페이지가 theme.js 다음에 로드
+├── analytics.js        # GA4 로더 — 측정 ID(GA_ID)는 이 파일 한 곳에서만 관리. placeholder 상태면 무동작. 전 페이지가 theme.js 다음에 로드. ★?embed=1(작업대 iframe)이면 페이지뷰(page_view)를 끄고 대신 `workbench_tool_open`(tool_slug 포함) 이벤트로 기록 → 방문 통계는 깨끗하게 유지
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
 └── <슬러그>/index.html  # 각 도구 = 독립 페이지(독립 URL, SEO 목적)
 ```
@@ -335,6 +335,7 @@ toolbox/
 - **도구 목록 단일 출처**: 선택기는 `sidebar.js`가 노출하는 `window.DGB_TOOLS`(= `CATEGORIES`)를 그대로 쓴다 → **새 도구를 추가하면 작업대 선택기에도 자동 반영**된다. 단, 그 도구 페이지가 표준 구조(`.box` 기능 UI + `.lede`/`.content` 설명, `theme.js` 로드)를 따라야 임베드 모드가 크롬을 깔끔히 걷어낸다.
 - **칸 수 한도**: `workbench.js`의 `MAX_PANES`(현재 **2**, 베타). 코드는 N칸으로 일반화돼 있어 이 값만 올리면 3~4칸으로 확장된다(칸 추가/닫기·드래그 분할 그대로 동작).
 - **로드 위치**: `index.html`만 `<link rel="stylesheet" href="/workbench.css">`(head) + `<script src="/workbench.js">`(sidebar.js 다음, theme.js 앞)를 포함한다. 다른 페이지는 포함하지 않는다.
+- **애널리틱스**: 작업대 iframe(`?embed=1`)으로 열린 도구는 GA4 페이지뷰로 집계하지 않고 `analytics.js`가 `workbench_tool_open`(tool_slug) 이벤트로만 기록한다 → 실제 방문 통계는 부풀지 않고, 작업대 사용량은 따로 추적된다.
 
 ## 6. 새 도구 추가 시 체크리스트
 
