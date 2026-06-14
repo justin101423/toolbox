@@ -1,0 +1,131 @@
+/* ===========================================================================
+   작업대(워크벤치) 스타일 — workbench.js 와 한 쌍.
+   홈 화면(index.html) 위에 오버레이로 떠서 도구를 여러 칸 나란히 사용한다.
+   베타: 2칸. 구조는 N칸으로 일반화되어 있어 나중에 한도만 올리면 확장된다.
+   디자인 토큰(--paper/--card/--ink/--accent/--line ...)은 홈/테마에서 상속.
+   =========================================================================== */
+
+/* ── 상단바의 "작업대" 토글 버튼 ───────────────────────────────────────── */
+.wb-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  height:36px; padding:0 13px;
+  border:1px solid var(--line-2); border-radius:9px;
+  background:var(--card); color:var(--ink);
+  font-family:var(--kr); font-size:13.5px; font-weight:600; line-height:1;
+  transition:background .15s, border-color .15s, transform .12s;
+}
+.wb-btn svg { width:16px; height:16px; }
+.wb-btn:hover { background:var(--panel); border-color:var(--ink); }
+.wb-btn:active { transform:scale(.97); }
+
+/* ── 오버레이 ─────────────────────────────────────────────────────────── */
+html.wb-lock { overflow:hidden; }
+
+.wb-overlay {
+  position:fixed; inset:0; z-index:200;
+  display:none; flex-direction:column;
+  background:var(--paper);
+}
+.wb-overlay.open { display:flex; animation:wb-fade .18s ease both; }
+@keyframes wb-fade { from { opacity:0; } to { opacity:1; } }
+
+/* ── 상단 바(타이틀 · 칸 추가 · 닫기) ─────────────────────────────────── */
+.wb-bar {
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:11px clamp(14px,3vw,24px);
+  border-bottom:1px solid var(--line); background:var(--panel);
+}
+.wb-title {
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--disp); font-weight:800; font-size:18px; letter-spacing:-.02em;
+}
+.wb-beta {
+  font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.1em;
+  color:#fff; background:var(--accent); border-radius:5px; padding:3px 6px;
+}
+.wb-hint { font-size:13px; color:var(--ink-3); }
+.wb-bar-sp { flex:1; }
+.wb-add, .wb-close {
+  height:34px; padding:0 13px;
+  border:1px solid var(--line-2); border-radius:8px;
+  background:var(--card); color:var(--ink);
+  font-family:var(--kr); font-size:13px; font-weight:600;
+  transition:background .15s, border-color .15s, opacity .15s;
+}
+.wb-add:hover:not(:disabled), .wb-close:hover { background:var(--panel); border-color:var(--ink); }
+.wb-add:disabled { opacity:.4; cursor:not-allowed; }
+.wb-close { background:transparent; }
+
+/* ── 분할 영역 ───────────────────────────────────────────────────────── */
+.wb-row { flex:1; display:flex; min-height:0; overflow:hidden; }
+.wb-pane {
+  flex:1 1 0; min-width:0; min-height:0;
+  display:flex; flex-direction:column; background:var(--paper);
+}
+
+.wb-pane-head {
+  display:flex; align-items:center; gap:8px;
+  padding:8px 10px; border-bottom:1px solid var(--line); background:var(--card);
+}
+.wb-pane-ic { display:inline-flex; flex:0 0 auto; color:var(--accent); }
+.wb-pane-ic svg { width:18px; height:18px; display:block; }
+.wb-pane-ic:empty { display:none; }
+.wb-select {
+  flex:1; min-width:0; height:34px; padding:0 8px;
+  border:1px solid var(--line-2); border-radius:8px;
+  background:var(--paper); color:var(--ink);
+  font-family:var(--kr); font-size:13.5px; font-weight:600; cursor:pointer;
+}
+.wb-select:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(223,67,36,.13); }
+.wb-open, .wb-close-pane {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:32px; height:32px; flex:0 0 auto;
+  border:1px solid var(--line-2); border-radius:8px;
+  background:var(--paper); color:var(--ink-2);
+  font-size:14px; line-height:1; transition:.15s;
+}
+.wb-open:hover, .wb-close-pane:hover { border-color:var(--ink); color:var(--ink); }
+
+.wb-pane-body { position:relative; flex:1; min-height:0; background:var(--paper); }
+.wb-frame {
+  position:absolute; inset:0; width:100%; height:100%;
+  border:0; opacity:0; transition:opacity .2s;
+}
+.wb-empty {
+  position:absolute; inset:0; display:grid; place-items:center;
+  padding:24px; text-align:center; color:var(--ink-3); font-size:14px; line-height:1.6;
+}
+.wb-empty svg { width:30px; height:30px; margin:0 auto 10px; color:var(--ink-3); display:block; }
+.wb-spin {
+  position:absolute; top:50%; left:50%; width:28px; height:28px; margin:-14px 0 0 -14px;
+  border:3px solid var(--line-2); border-top-color:var(--accent); border-radius:50%;
+  opacity:0; animation:wb-rot .7s linear infinite;
+}
+.wb-pane.loading .wb-spin { opacity:1; }
+@keyframes wb-rot { to { transform:rotate(360deg); } }
+
+/* ── 칸 사이 드래그 손잡이 ───────────────────────────────────────────── */
+.wb-divider {
+  flex:0 0 8px; position:relative; cursor:col-resize;
+  background:var(--line); transition:background .15s;
+}
+.wb-divider::before { /* 손잡이 점 3개 */
+  content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:3px; height:26px; border-radius:3px;
+  background:var(--line-2);
+}
+.wb-divider:hover { background:var(--accent); }
+.wb-divider:hover::before { background:#fff; }
+body.wb-resizing { cursor:col-resize; user-select:none; }
+body.wb-resizing iframe { pointer-events:none; }
+
+/* ── 모바일: 세로로 적층(드래그 분할은 비활성, 정적 구분선) ──────────── */
+@media (max-width:760px) {
+  .wb-bar { gap:8px; }
+  .wb-hint { display:none; }
+  .wb-row { flex-direction:column; overflow-y:auto; }
+  .wb-pane { flex:0 0 auto; min-height:72vh; }
+  .wb-divider { flex-basis:1px; cursor:default; background:var(--line); }
+  .wb-divider::before { display:none; }
+  .wb-divider:hover { background:var(--line); }
+}

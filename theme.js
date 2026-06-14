@@ -4,11 +4,26 @@
 (() => {
   try {
     if (window.top !== window.self) {
-      window.top.location = window.self.location;
+      // 같은 출처(우리 도구상자 작업대 iframe) 안이면 정상 동작 — 빠져나오지 않는다.
+      // 외부 사이트가 우리 페이지를 iframe에 끼워넣은 경우(클릭재킹)에만 최상위로 탈출.
+      let sameOrigin = false;
+      try { sameOrigin = window.top.location.origin === window.self.location.origin; } catch (_) { sameOrigin = false; }
+      if (!sameOrigin) window.top.location = window.self.location;
     }
   } catch (_) {
-    // 교차 출처 프레임이라 top 접근/이동이 차단된 경우 — 이미 외부 프레임이므로 무시
+    // top 접근/이동이 차단된 교차 출처 프레임 — 무시
   }
+})();
+
+// 작업대(iframe) 임베드 모드: ?embed=1 로 열린 도구 페이지는 상단바·사이드바·푸터·
+// 설명(.content)·광고 등 "크롬"을 숨기고 순수 도구 UI(.box)만 노출한다.
+// (실제 숨김 스타일은 theme.css 의 html.embed 규칙. 여기선 클래스만 부여.)
+(() => {
+  try {
+    if (new URLSearchParams(window.location.search).get("embed") === "1") {
+      document.documentElement.classList.add("embed");
+    }
+  } catch (_) {}
 })();
 
 (() => {

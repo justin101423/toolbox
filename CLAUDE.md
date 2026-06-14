@@ -51,9 +51,11 @@ toolbox/
 ├── guide/<슬러그>/index.html # 각 가이드 글 = 독립 페이지(독립 URL)
 ├── .nojekyll           # GitHub Pages의 Jekyll 빌드 생략(배포 속도↑, 닷·밑줄 경로 그대로 서빙)
 ├── .well-known/security.txt # 보안 제보 채널(RFC 9116) — Expires 매년 갱신 필요(현재 2027-06-12)
-├── theme.css           # 다크모드 스타일 + 전 페이지 공통 보조 스타일(테마 토글, 사이드바 라벨 타이포 — 모든 페이지가 마지막에 로드하므로 구형 인라인 CSS도 덮어씀)
-├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어)
-├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처)
+├── theme.css           # 다크모드 스타일 + 전 페이지 공통 보조 스타일(테마 토글, 사이드바 라벨 타이포 — 모든 페이지가 마지막에 로드하므로 구형 인라인 CSS도 덮어씀) + ★작업대 임베드 모드(html.embed) 규칙(?embed=1 로 열린 도구 페이지의 상단바·사이드바·푸터·.crumb·.lede·.content·h1·광고를 숨겨 순수 도구 UI만 남김)
+├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어) + 프레임버스터(★같은 출처=작업대 iframe이면 탈출 안 함, 외부 클릭재킹만 방어) + ?embed=1 감지 시 html에 .embed 클래스 부여(작업대 임베드 모드)
+├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처). CATEGORIES·iconHtml을 window.DGB_TOOLS로 노출 → 작업대(workbench.js)가 같은 도구 목록을 재사용
+├── workbench.js        # ★ 작업대(베타) — 홈 상단 #workbenchToggle 버튼으로 홈 위에 오버레이를 띄워 도구를 N칸(베타 2칸) 좌우로 나란히 사용. 각 칸은 도구를 /<슬러그>/?embed=1 iframe으로 로드. 도구 목록은 window.DGB_TOOLS(단일 출처). 칸 추가/닫기·드래그 분할 포함, MAX_PANES만 올리면 3~4칸 확장. **index.html에서만 로드**
+├── workbench.css       # 작업대 스타일(상단바 .wb-btn 버튼 + .wb-overlay 오버레이 + .wb-pane 분할 칸 + .wb-divider 드래그 손잡이). workbench.js와 한 쌍, index.html에서만 로드
 ├── analytics.js        # GA4 로더 — 측정 ID(GA_ID)는 이 파일 한 곳에서만 관리. placeholder 상태면 무동작. 전 페이지가 theme.js 다음에 로드
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
 └── <슬러그>/index.html  # 각 도구 = 독립 페이지(독립 URL, SEO 목적)
@@ -319,6 +321,18 @@ toolbox/
   - **활용 팁** (`.tips-list`)
   - **자주 묻는 질문 / FAQ** (`.faq-list` > `.qa`)
 - `<script src="/theme.js"></script>` 로 다크모드 토글 로직 로드
+
+## 5-1. 작업대(워크벤치) — 도구 N칸 동시 사용 (베타)
+
+> **목적**: 사용자가 도구 하나만 쓰는 게 아니라 **둘을 동시에** 쓰고 싶을 때(예: 글자수 세기 + 컬러 피커). 홈 화면 위에 오버레이를 띄워 도구를 좌우로 나란히 놓는다. **새 페이지로 이동하지 않는다.**
+
+- **진입점**: 홈(`index.html`) 상단바의 `#workbenchToggle`(`.wb-btn`, "작업대") 버튼 — **홈에서만 노출**. 누르면 `workbench.js`가 `.wb-overlay`(z-index 200, `position:fixed inset:0`)를 띄운다(Esc 또는 "닫기"로 종료).
+- **칸 구조**: 각 칸(`.wb-pane`)은 상단에 도구 선택 `<select>`(카테고리별 `<optgroup>`) + 새 탭 링크 + 칸 닫기 버튼, 아래에 도구를 띄우는 `<iframe>`. 칸 사이 `.wb-divider`는 드래그로 너비 조절(모바일은 세로 적층·드래그 비활성).
+- **임베드 모드(핵심)**: iframe은 도구를 **`/<슬러그>/?embed=1`** 로 로드한다. 그러면 `theme.js`가 `<html>`에 `.embed` 클래스를 붙이고, `theme.css`의 `html.embed` 규칙이 **상단바·사이드바·푸터·`.crumb`·`.lede`·`.content`·`h1`·광고를 숨겨** 순수 도구 UI(`.box`)만 남긴다 → "설명 없이 순수 도구만". **별도 페이지 작업이 필요 없다.**
+- **프레임버스터 주의**: `theme.js`의 클릭재킹 방어는 **같은 출처(우리 작업대 iframe)면 탈출하지 않도록** 되어 있다(외부 사이트 프레임만 탈출). 이 동작을 깨면 작업대 iframe이 통째로 튕겨 나가므로 수정 시 주의.
+- **도구 목록 단일 출처**: 선택기는 `sidebar.js`가 노출하는 `window.DGB_TOOLS`(= `CATEGORIES`)를 그대로 쓴다 → **새 도구를 추가하면 작업대 선택기에도 자동 반영**된다. 단, 그 도구 페이지가 표준 구조(`.box` 기능 UI + `.lede`/`.content` 설명, `theme.js` 로드)를 따라야 임베드 모드가 크롬을 깔끔히 걷어낸다.
+- **칸 수 한도**: `workbench.js`의 `MAX_PANES`(현재 **2**, 베타). 코드는 N칸으로 일반화돼 있어 이 값만 올리면 3~4칸으로 확장된다(칸 추가/닫기·드래그 분할 그대로 동작).
+- **로드 위치**: `index.html`만 `<link rel="stylesheet" href="/workbench.css">`(head) + `<script src="/workbench.js">`(sidebar.js 다음, theme.js 앞)를 포함한다. 다른 페이지는 포함하지 않는다.
 
 ## 6. 새 도구 추가 시 체크리스트
 

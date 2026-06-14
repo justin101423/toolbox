@@ -109,3 +109,25 @@ html[data-theme="dark"] .btn:not(.accent):not(.ghost):hover {
 html[data-theme="dark"] .qr-wrap {
   border-color:var(--line-2);
 }
+
+/* ───────────────────────────────────────────────────────────────────────
+   작업대 임베드 모드 (html.embed)
+   도구 페이지를 작업대 iframe 안에서 ?embed=1 로 열 때, 상단바·사이드바·푸터·
+   ← 모든 도구(.crumb)·설명(.content)·페이지 제목(h1)·광고 등 "크롬"을 숨기고
+   순수 도구 UI(.box 등)만 남긴다. theme.js 가 html 에 .embed 클래스를 부여한다.
+   theme.css 는 전 페이지에서 가장 마지막에 로드되므로 인라인/외부 CSS를 덮어쓴다.
+   ─────────────────────────────────────────────────────────────────────── */
+html.embed .topbar,
+html.embed .side,
+html.embed footer,
+html.embed .crumb,
+html.embed .lede,
+html.embed .to-top,
+html.embed .content,
+html.embed ins.adsbygoogle { display:none !important; }
+
+html.embed .app { display:block !important; }
+html.embed .main { padding:16px clamp(12px,3vw,20px) 28px !important; max-width:none !important; }
+html.embed .main .inner { max-width:none !important; margin:0 !important; }
+html.embed h1 { display:none !important; }
+html.embed body::before { display:none; }

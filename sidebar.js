@@ -605,6 +605,11 @@
     window.addEventListener("pagehide", function () { saveScroll(host); });
   }
 
+  // 작업대(workbench.js) 등 다른 스크립트가 동일한 도구 목록(단일 출처)과
+  // 아이콘 세트를 재사용하도록 노출한다. CATEGORIES가 전 사이트 도구 목록의
+  // 유일한 source of truth이므로, 새 도구를 추가하면 작업대 선택기에도 자동 반영된다.
+  try { window.DGB_TOOLS = { categories: CATEGORIES, iconHtml: iconHtml }; } catch (e) {}
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
   } else {
