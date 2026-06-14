@@ -608,7 +608,17 @@
   // 작업대(workbench.js) 등 다른 스크립트가 동일한 도구 목록(단일 출처)과
   // 아이콘 세트를 재사용하도록 노출한다. CATEGORIES가 전 사이트 도구 목록의
   // 유일한 source of truth이므로, 새 도구를 추가하면 작업대 선택기에도 자동 반영된다.
-  try { window.DGB_TOOLS = { categories: CATEGORIES, iconHtml: iconHtml }; } catch (e) {}
+  // toolCount/catCount는 CATEGORIES에서 자동 산출(소개글 등이 참조 → 드리프트 없음).
+  // guideCount는 단일 출처 상수 — ★새 가이드 추가 시 이 숫자도 함께 갱신할 것.
+  var GUIDE_COUNT = 162;
+  var TOOL_COUNT = 0;
+  for (var _c = 0; _c < CATEGORIES.length; _c++) TOOL_COUNT += CATEGORIES[_c].tools.length;
+  try {
+    window.DGB_TOOLS = {
+      categories: CATEGORIES, iconHtml: iconHtml,
+      toolCount: TOOL_COUNT, catCount: CATEGORIES.length, guideCount: GUIDE_COUNT
+    };
+  } catch (e) {}
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);

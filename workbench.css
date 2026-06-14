@@ -181,6 +181,13 @@ body.wb-tool-dragging iframe { pointer-events:none; }       /* iframe 위에서�
 .wb-pop-ic svg { width:16px; height:16px; display:block; }
 .wb-pop-nm { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
+/* ── 카테고리별 아이콘 색조(theme.css의 --cat 시스템 재사용) ──────────────
+   도구 선택 창(피커)·빈 칸 런처 칩·칸 헤더 아이콘을 카테고리 색으로. data-cat은
+   workbench.js가 카테고리 key로 부여하고, [data-cat]→--cat 매핑은 theme.css에 있다. */
+.wb-pop-grp[data-cat] .wb-pop-ic { color:var(--cat); }
+.wb-chip[data-cat] .wb-chip-ic { color:var(--cat); }
+.wb-pane[data-cat] .wb-pane-ic { color:var(--cat); background:color-mix(in srgb, var(--cat) 13%, transparent); }
+
 /* ── 같은 도구 중복 방지: 안내 토스트 · 기존 칸 강조 · 피커 "열림" 표시 ── */
 .wb-toast { position:absolute; top:14px; left:50%; transform:translateX(-50%); z-index:7; pointer-events:none; white-space:nowrap; background:var(--ink); color:var(--paper); font-size:13px; font-weight:600; padding:9px 16px; border-radius:100px; box-shadow:0 14px 32px -12px rgba(0,0,0,.55); animation:wb-toast-in .2s ease both; }
 .wb-toast[hidden] { display:none; }

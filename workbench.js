@@ -55,6 +55,16 @@
     }
     return null;
   }
+  // 도구가 속한 카테고리 key(image/text/…) — 카테고리별 아이콘 색조용
+  function catKeyOf(slug) {
+    var cs = cats();
+    for (var i = 0; i < cs.length; i++) {
+      for (var j = 0; j < cs[i].tools.length; j++) {
+        if (cs[i].tools[j].slug === slug) return cs[i].key || "";
+      }
+    }
+    return "";
+  }
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
@@ -107,7 +117,7 @@
     SUGGESTED.forEach(function (slug) {
       var t = findTool(slug);
       if (!t) return;
-      h += '<button type="button" class="wb-chip" data-slug="' + esc(slug) + '">' +
+      h += '<button type="button" class="wb-chip" data-slug="' + esc(slug) + '" data-cat="' + esc(catKeyOf(slug)) + '">' +
            '<span class="wb-chip-ic">' + iconHtml(t.icon) + "</span>" + esc(t.name) + "</button>";
     });
     optsSuggest = h;
@@ -120,6 +130,7 @@
     var empty = pane.querySelector(".wb-empty");
     var t = findTool(slug);
     pane.dataset.slug = t ? slug : "";
+    if (t) pane.setAttribute("data-cat", catKeyOf(slug)); else pane.removeAttribute("data-cat");
 
     // 헤더(피커 버튼) 갱신: 아이콘 칩(전환 팝) · 이름 · 그립/새탭 노출
     var ic = pane.querySelector(".wb-pane-ic");
@@ -298,7 +309,7 @@
 
     var h = "";
     cats().forEach(function (c) {
-      h += '<div class="wb-pop-grp"><div class="wb-pop-kick">' + esc(c.label) + "</div>";
+      h += '<div class="wb-pop-grp" data-cat="' + esc(c.key || "") + '"><div class="wb-pop-kick">' + esc(c.label) + "</div>";
       c.tools.forEach(function (t) {
         h += '<button type="button" class="wb-pop-item" data-slug="' + esc(t.slug) + '" data-name="' + esc(t.name) + '">' +
              '<span class="wb-pop-ic">' + iconHtml(t.icon) + "</span>" +

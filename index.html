@@ -143,6 +143,21 @@ a.ha-stat:hover{background:var(--panel)}
 .card:hover h3{color:var(--accent)}
 .card p{font-size:13px;color:var(--ink-2);line-height:1.45}
 
+/* 인기 도구 피처링 행 — 가로형 카드 6개. 카테고리 색조 적용(data-cat→--cat).
+   .grid .card가 아니므로 도구 개수 카운트·검색 카드 집합에 포함되지 않음. */
+.featured{margin:8px 0 2px}
+.feat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(186px,1fr));gap:12px}
+.feat-card{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 15px;transition:transform .18s ease,border-color .18s,box-shadow .18s;animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+.feat-card:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:5px 7px 0 rgba(27,26,30,.08)}
+.feat-card .ic{width:42px;height:42px;border-radius:11px;background:var(--panel-2);color:var(--cat,var(--ink));display:grid;place-items:center;flex:none;transition:background .18s,color .18s}
+.feat-card .ic svg{width:23px;height:23px;transition:transform .2s cubic-bezier(.2,.7,.2,1)}
+.feat-card:hover .ic{background:var(--cat,var(--accent));color:#fff}
+.feat-card:hover .ic svg{transform:scale(1.1)}
+.feat-card .ft{min-width:0}
+.feat-card b{display:block;font-size:14.5px;font-weight:700;letter-spacing:-.02em;transition:color .15s}
+.feat-card:hover b{color:var(--cat,var(--accent))}
+.feat-card span{display:block;font-size:12px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
 .content{margin-top:38px;scroll-margin-top:84px}
 .content>p{font-size:15px;color:var(--ink-2);margin:11px 0;line-height:1.75}
 .content b{color:var(--ink);font-weight:700}
@@ -233,12 +248,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         </a>
         <div class="ha-stats">
           <div class="ha-stat"><div class="n" id="ha-tools">115</div><div class="l">무료 도구</div></div>
-          <a class="ha-stat" href="/guide/"><div class="n">150+</div><div class="l">활용 가이드</div></a>
+          <a class="ha-stat" href="/guide/"><div class="n" id="ha-guides">150</div><div class="l">활용 가이드</div></a>
         </div>
       </aside>
       </div><!-- /hero-grid -->
 
       <div class="no-result" id="no-result">‘<b id="nr-q"></b>’에 대한 검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</div>
+
+      <section class="featured" id="featured">
+        <div class="sec-label">인기 도구</div>
+        <div class="feat-row">
+          <a class="feat-card" data-cat="image" href="/image-compressor/"><div class="ic" data-icon="shrink"></div><div class="ft"><b>이미지 압축</b><span>용량·크기 줄이기</span></div></a>
+          <a class="feat-card" data-cat="text" href="/qr-code/"><div class="ic" data-icon="qr-code"></div><div class="ft"><b>QR코드 생성</b><span>링크·와이파이 QR</span></div></a>
+          <a class="feat-card" data-cat="finance" href="/salary-calculator/"><div class="ic" data-icon="wallet"></div><div class="ft"><b>연봉 실수령액</b><span>세후 월급 계산</span></div></a>
+          <a class="feat-card" data-cat="image" href="/pdf-merge/"><div class="ic" data-icon="files"></div><div class="ft"><b>PDF 합치기</b><span>여러 PDF를 하나로</span></div></a>
+          <a class="feat-card" data-cat="text" href="/word-counter/"><div class="ic" data-icon="type"></div><div class="ft"><b>글자수 세기</b><span>자소서·바이트 카운트</span></div></a>
+          <a class="feat-card" data-cat="life" href="/age-calculator/"><div class="ic" data-icon="cake"></div><div class="ft"><b>만 나이 계산</b><span>생일로 만 나이</span></div></a>
+        </div>
+      </section>
 
       <div class="sec-label">이미지 · PDF</div>
       <div class="grid" data-cat="image">
@@ -494,6 +521,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   if (countEl) countEl.textContent = toolCardCount; // 도구 개수 자동 반영(가이드 제외)
   var haTools = document.getElementById('ha-tools');
   if (haTools) haTools.textContent = toolCardCount; // 히어로 우측 통계 카드에도 동일 반영
+  // 가이드 수는 단일 출처(DGB_TOOLS.guideCount)에서 — 통계 카드·소개글과 일치
+  var haGuides = document.getElementById('ha-guides');
+  if (haGuides && window.DGB_TOOLS && window.DGB_TOOLS.guideCount != null) haGuides.textContent = window.DGB_TOOLS.guideCount;
   // 카테고리 섹션 라벨에 도구 개수 배지 자동 부착(가이드 카드 그리드는 제외)
   grids.forEach(function (g) {
     if (g.className.indexOf('guide-cards') >= 0) return;
@@ -596,8 +626,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       if (lbl && lbl.className.indexOf('sec-label') >= 0) lbl.style.display = any ? '' : 'none';
     });
   }
+  var featured = document.getElementById('featured');
   function filter() {
     var q = norm(input.value);
+    if (featured) featured.style.display = q ? 'none' : '';  // 검색 중엔 인기 도구 행 숨김
     if (!q) {
       cards.forEach(function (c) { c.style.display = ''; });
       grids.forEach(function (g) {

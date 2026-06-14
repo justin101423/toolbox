@@ -67,6 +67,11 @@
 .guide-item h2{font-size:16.5px;font-weight:700;margin:9px 0 6px;letter-spacing:-.02em;line-height:1.32;transition:color .15s}
 .guide-item:hover h2{color:var(--accent)}
 .guide-item p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+/* 카테고리별 색조(theme.css의 --cat 시스템 재사용; data-cat은 허브 .guide-grid에 부여).
+   카드 eyebrow(.gi-cat)와 호버 시 제목·테두리를 해당 토픽 색으로 통일. */
+.guide-grid[data-cat] .guide-item .gi-cat{color:var(--cat)}
+.guide-grid[data-cat] .guide-item:hover{border-color:var(--cat)}
+.guide-grid[data-cat] .guide-item:hover h2{color:var(--cat)}
 
 /* ---- 디테일 폴리시(가산적) ---- */
 /* 목차·단계 리스트 — 번호 마커를 모노+액센트로 */
