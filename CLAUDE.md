@@ -67,14 +67,14 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 184개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 188개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
 > - **카테고리 안 도구 순서**: 비슷한 기능끼리 묶고(예: 이미지편집 → 이미지변환·유틸 → PDF, 텍스트편집 → 변환 → 생성기, 계산 → 변환 → 날짜·시간 → 추첨·재미 등), 더 자주 쓰는 핵심 도구를 그 그룹 앞쪽에 둡니다.
 > - 새 도구를 추가할 때는 같은 카테고리의 알맞은 그룹 위치에 끼워 넣고, 위 4곳(sidebar·허브·이 표·README)의 순서를 동일하게 맞춥니다.
 
-### 이미지 · PDF (30)
+### 이미지 · PDF (31)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
@@ -94,6 +94,7 @@ toolbox/
 | remove-exif | EXIF·위치정보 제거 |
 | image-info | 이미지 정보 보기 |
 | heic-to-jpg | HEIC → JPG 변환 |
+| svg-to-png | SVG → PNG 변환 |
 | image-base64 | 이미지 ↔ Base64 |
 | image-ocr | 이미지 OCR·글자 추출 |
 | image-ascii | 이미지 → ASCII 아트 |
@@ -140,7 +141,7 @@ toolbox/
 | lorem-ipsum | 로렘 입숨 생성기 |
 | json-formatter | JSON 포매터 |
 
-### 생활 · 편의 (37)
+### 생활 · 편의 (38)
 | 슬러그 | 이름 |
 |---|---|
 | calculator | 계산기 (일반·공학용) |
@@ -174,6 +175,7 @@ toolbox/
 | gpa-calculator | 학점·GPA 계산기 |
 | typing-speed | 타자 속도 측정 |
 | zodiac-finder | 띠·별자리 찾기 |
+| mbti-test | MBTI 성격유형 테스트 |
 | random-picker | 랜덤 추첨기 |
 | team-generator | 랜덤 팀 나누기 |
 | dice-roller | 주사위·동전 던지기 |
@@ -210,7 +212,7 @@ toolbox/
 | discount-calculator | 할인가 계산기 |
 | installment-calculator | 할부 계산기 |
 
-### 직장인 · 생산성 (8)
+### 직장인 · 생산성 (9)
 | 슬러그 | 이름 |
 |---|---|
 | notepad | 임시 메모장 |
@@ -219,10 +221,11 @@ toolbox/
 | annual-leave | 연차 계산기 |
 | work-hours | 근무시간 계산기 |
 | signature-maker | 서명 만들기 (전자서명) |
+| email-signature | 이메일 서명 생성기 |
 | utm-builder | UTM 빌더 |
 | device-test | 마이크·웹캠 테스트 |
 
-### 색상 · 디자인 (15)
+### 색상 · 디자인 (16)
 | 슬러그 | 이름 |
 |---|---|
 | color-picker | 컬러 피커·색상 변환 |
@@ -235,6 +238,7 @@ toolbox/
 | box-shadow-generator | 그림자(box-shadow) 생성기 |
 | text-shadow-generator | text-shadow 생성기 |
 | border-radius-generator | 테두리 둥글기 생성기 |
+| clip-path-generator | clip-path 생성기 |
 | cubic-bezier | cubic-bezier 이징 생성기 |
 | css-unit-converter | CSS 단위 변환 (px↔rem↔em) |
 | contrast-checker | 색상 대비 검사 |

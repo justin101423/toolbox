@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>이메일 서명 생성기 — 회사 HTML 메일 서명 만들기 | 도구상자</title>
+<meta name="description" content="이름·직함·연락처·회사 정보를 넣으면 깔끔한 HTML 이메일 서명을 만들어 복사. 메일 앱에 붙여넣기만 하면 끝. 모든 처리는 브라우저에서.">
+<link rel="canonical" href="https://dogubox.shop/email-signature/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="이메일 서명 생성기 — 회사 HTML 메일 서명 만들기 | 도구상자">
+<meta property="og:description" content="이름·직함·연락처·회사 정보를 넣으면 깔끔한 HTML 이메일 서명을 만들어 복사. 모든 처리는 브라우저에서.">
+<meta property="og:url" content="https://dogubox.shop/email-signature/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="이메일 서명 생성기 | 도구상자">
+<meta name="twitter:description" content="회사 HTML 메일 서명을 만들어 복사.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "이메일 서명 생성기",
+  "description": "이름·직함·연락처·회사 정보를 넣으면 깔끔한 HTML 이메일 서명을 만들어 복사. 메일 앱에 붙여넣기만 하면 끝. 모든 처리는 브라우저에서.",
+  "url": "https://dogubox.shop/email-signature/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 만든 서명은 어디에 붙여넣나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "각 메일 서비스의 서명 설정에 붙여넣으면 됩니다. Gmail은 설정 → 전체 → 서명, Outlook은 설정 → 메일 → 작성 및 회신 → 서명, 네이버 메일은 환경설정 → 서명 관리에서 추가합니다. 대부분은 '서명 복사 (붙여넣기용)' 버튼으로 복사한 뒤 서명 입력란에 그대로 붙여넣으면 서식이 유지됩니다. 서식이 깨지면 'HTML 코드 복사'로 받은 코드를 HTML 편집 모드에 넣으세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 로고가 안 보여요.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이 도구는 로고를 이미지 URL로 받습니다. 회사 홈페이지나 이미지 호스팅에 올라가 누구나 접근할 수 있는 https 주소여야 받는 사람 화면에서도 보입니다. 내 PC의 로컬 파일 경로나 로그인이 필요한 주소를 넣으면 상대방에게는 깨져 보입니다. 가급적 가로 64px 이하의 가벼운 PNG를 권장합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 회사 전체가 같은 서명을 쓰고 싶어요.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이름·직함·전화번호만 바꿔 한 사람씩 만들면 동일한 양식의 서명을 통일해 쓸 수 있습니다. 회사명·웹사이트·강조 색상·로고를 고정해 두고 인적 정보만 교체하면 됩니다. 다만 회사 메일은 관리자가 서명 정책을 따로 둘 수 있으니, 배포 전 IT 담당자에게 허용 여부를 확인하는 것이 좋습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "이메일 서명 생성기", "item": "https://dogubox.shop/email-signature/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.es-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:760px){.es-grid{grid-template-columns:1fr 1fr}}
+.es-field{margin-bottom:13px}
+.es-field label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.es-field input[type=text]{width:100%;font-size:14.5px;padding:11px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.es-color{display:flex;align-items:center;gap:10px}
+.es-color input[type=color]{width:46px;height:38px;padding:0;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);cursor:pointer}
+.es-color span{font-family:var(--mono);font-size:13px;color:var(--ink-2);font-weight:600}
+.es-prev-wrap{border:1px solid var(--line-2);border-radius:var(--r);background:#fff;padding:22px;overflow-x:auto}
+.es-prev-label{font-size:12px;color:var(--ink-3);font-weight:600;margin-bottom:8px}
+.es-btns{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.es-btns .btn{padding:11px 16px;font-size:14px;font-weight:600;border-radius:99px;border:1px solid var(--line-2);cursor:pointer}
+.es-btns .btn.accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.es-btns .btn.ghost{background:var(--paper);color:var(--ink-2)}
+.es-code{margin-top:14px}
+.es-code textarea{width:100%;min-height:120px;font-family:var(--mono);font-size:12.5px;line-height:1.5;padding:12px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--panel);color:var(--ink);resize:vertical}
+.es-note{font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.6;background:var(--panel);border-radius:var(--r-sm);padding:11px 13px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>이메일 서명 생성기</h1>
+      <p class="lede">이름·직함·연락처·회사 정보를 넣으면 메일 클라이언트 호환 HTML 서명이 실시간으로 만들어집니다. 복사해서 메일 앱 서명란에 붙여넣기만 하면 끝.</p>
+
+      <div class="box">
+        <div class="es-grid">
+          <div>
+            <div class="es-field"><label>이름</label><input type="text" id="f-name" value="홍길동"></div>
+            <div class="es-field"><label>직함 / 부서</label><input type="text" id="f-title" value="마케팅팀 매니저"></div>
+            <div class="es-field"><label>회사명</label><input type="text" id="f-company" value="도구상자 주식회사"></div>
+            <div class="es-field"><label>전화번호</label><input type="text" id="f-phone" value="010-1234-5678"></div>
+            <div class="es-field"><label>이메일</label><input type="text" id="f-email" value="hong@dogubox.shop"></div>
+            <div class="es-field"><label>웹사이트 (선택)</label><input type="text" id="f-web" value="https://dogubox.shop"></div>
+            <div class="es-field"><label>로고 이미지 URL (선택)</label><input type="text" id="f-logo" value=""></div>
+            <div class="es-field"><label>강조 색상</label>
+              <div class="es-color"><input type="color" id="f-color" value="#df4324"><span id="colorHex">#df4324</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="es-prev-label">미리보기</div>
+            <div class="es-prev-wrap"><div id="preview"></div></div>
+            <div class="es-btns">
+              <button type="button" class="btn accent" id="btn-rich">서명 복사 (붙여넣기용)</button>
+              <button type="button" class="btn ghost" id="btn-html">HTML 코드 복사</button>
+            </div>
+            <div class="es-code"><textarea id="htmlCode" readonly spellcheck="false"></textarea></div>
+          </div>
+        </div>
+        <div class="es-note">※ 모든 처리는 브라우저에서만 이뤄지며 입력 정보는 서버로 전송되지 않습니다. 로고는 누구나 접근할 수 있는 https 이미지 URL이어야 받는 사람 화면에도 보입니다.</div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>이름·직함·회사명·연락처를 입력합니다. 빈 칸은 서명에서 자동으로 생략됩니다.</li>
+          <li>오른쪽 미리보기로 모양을 확인하고, 강조 색상이나 로고 URL을 원하는 대로 바꿉니다.</li>
+          <li><b>서명 복사 (붙여넣기용)</b>를 눌러 메일 앱의 서명 설정에 그대로 붙여넣습니다.</li>
+          <li>서식이 깨지면 <b>HTML 코드 복사</b>로 받은 코드를 메일 앱의 HTML 편집 모드에 붙여넣으세요.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>로고는 URL로:</b> 메일 서명은 이미지를 첨부가 아닌 링크로 불러옵니다. 회사 서버나 이미지 호스팅에 올린 https 주소를 넣어야 상대방에게도 보입니다.</li>
+          <li><b>회사 메일은 정책 확인:</b> 회사 계정은 관리자가 서명 양식을 강제하는 경우가 있으니 배포 전 IT 담당자에게 확인하세요.</li>
+          <li><b>모바일 폭을 생각하기:</b> 정보 줄이 길면 작은 화면에서 줄바꿈됩니다. 핵심 연락처 위주로 간결하게 구성하는 편이 깔끔합니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 만든 서명은 어디에 붙여넣나요?</b><p>각 메일 서비스의 서명 설정에 붙여넣으면 됩니다. Gmail은 설정 → 전체 → 서명, Outlook은 설정 → 메일 → 작성 및 회신 → 서명, 네이버 메일은 환경설정 → 서명 관리에서 추가합니다. 대부분은 '서명 복사 (붙여넣기용)' 버튼으로 복사한 뒤 서명 입력란에 그대로 붙여넣으면 서식이 유지됩니다. 서식이 깨지면 'HTML 코드 복사'로 받은 코드를 HTML 편집 모드에 넣으세요.</p></div>
+          <div class="qa"><b>Q. 로고가 안 보여요.</b><p>이 도구는 로고를 이미지 URL로 받습니다. 회사 홈페이지나 이미지 호스팅에 올라가 누구나 접근할 수 있는 https 주소여야 받는 사람 화면에서도 보입니다. 내 PC의 로컬 파일 경로나 로그인이 필요한 주소를 넣으면 상대방에게는 깨져 보입니다. 가급적 가로 64px 이하의 가벼운 PNG를 권장합니다.</p></div>
+          <div class="qa"><b>Q. 회사 전체가 같은 서명을 쓰고 싶어요.</b><p>이름·직함·전화번호만 바꿔 한 사람씩 만들면 동일한 양식의 서명을 통일해 쓸 수 있습니다. 회사명·웹사이트·강조 색상·로고를 고정해 두고 인적 정보만 교체하면 됩니다. 다만 회사 메일은 관리자가 서명 정책을 따로 둘 수 있으니, 배포 전 IT 담당자에게 허용 여부를 확인하는 것이 좋습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/signature-maker/"><b>서명 만들기 (전자서명)</b><span>손글씨 서명을 이미지로</span></a>
+          <a class="rel-card" href="/utm-builder/"><b>UTM 빌더</b><span>캠페인 추적 링크 생성</span></a>
+          <a class="rel-card" href="/qr-code/"><b>QR코드 생성</b><span>링크·명함을 QR로</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var ids=['name','title','company','phone','email','web','logo','color'];
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function val(k){ return $('f-'+k).value.trim(); }
+
+  function buildHTML(){
+    var name=val('name'), title=val('title'), company=val('company'),
+        phone=val('phone'), email=val('email'), web=val('web'),
+        logo=val('logo'), color=val('color')||'#df4324';
+    var cAttr=esc(color);
+    var rows='';
+    // name
+    if(name){ rows+='<tr><td style="font-family:Arial,sans-serif;font-size:17px;font-weight:bold;color:#1a1a1a;padding:0 0 2px;line-height:1.3;">'+esc(name)+'</td></tr>'; }
+    // title / company line
+    var sub=[];
+    if(title) sub.push(esc(title));
+    if(company) sub.push(esc(company));
+    if(sub.length){ rows+='<tr><td style="font-family:Arial,sans-serif;font-size:13px;color:#555555;padding:0 0 8px;line-height:1.4;">'+sub.join(' · ')+'</td></tr>'; }
+    // divider
+    if(name||sub.length){ rows+='<tr><td style="padding:0 0 8px;"><div style="height:1px;width:240px;background:'+cAttr+';opacity:.45;font-size:1px;line-height:1px;">&nbsp;</div></td></tr>'; }
+    // contacts
+    var lines='';
+    if(phone){ lines+='<div style="font-family:Arial,sans-serif;font-size:12.5px;color:#444444;line-height:1.7;"><span style="color:'+cAttr+';font-weight:bold;">T.</span> '+esc(phone)+'</div>'; }
+    if(email){ lines+='<div style="font-family:Arial,sans-serif;font-size:12.5px;line-height:1.7;"><span style="color:'+cAttr+';font-weight:bold;">E.</span> <a href="mailto:'+esc(email)+'" style="color:'+cAttr+';text-decoration:none;">'+esc(email)+'</a></div>'; }
+    if(web){ var href=/^https?:\/\//i.test(web)?web:'https://'+web; var disp=web.replace(/^https?:\/\//i,''); lines+='<div style="font-family:Arial,sans-serif;font-size:12.5px;line-height:1.7;"><span style="color:'+cAttr+';font-weight:bold;">W.</span> <a href="'+esc(href)+'" style="color:'+cAttr+';text-decoration:none;">'+esc(disp)+'</a></div>'; }
+    if(lines){ rows+='<tr><td>'+lines+'</td></tr>'; }
+
+    var inner='<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>';
+    if(logo){
+      inner+='<td valign="top" style="padding:0 16px 0 0;"><img src="'+esc(logo)+'" alt="logo" style="display:block;max-width:64px;height:auto;border:0;"></td>';
+    }
+    inner+='<td valign="top"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">'+rows+'</table></td></tr></table>';
+    return inner;
+  }
+
+  function render(){
+    $('colorHex').textContent = val('color')||'#df4324';
+    var html=buildHTML();
+    $('preview').innerHTML=html;
+    $('htmlCode').value=html;
+  }
+
+  function toast(m){var t=$('toast');t.textContent=m;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},1400);}
+
+  ids.forEach(function(k){ var el=$('f-'+k); el.addEventListener('input',render); });
+
+  // copy HTML source
+  $('btn-html').addEventListener('click',function(){
+    var code=$('htmlCode').value;
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(code).then(function(){toast('HTML 코드가 복사되었습니다');},function(){fallbackCopyText(code);});
+    } else { fallbackCopyText(code); }
+  });
+  function fallbackCopyText(code){
+    var ta=$('htmlCode'); ta.removeAttribute('readonly'); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); toast('HTML 코드가 복사되었습니다'); }catch(e){ toast('복사에 실패했습니다'); }
+    ta.setAttribute('readonly','readonly');
+  }
+
+  // copy rich (formatted) signature
+  $('btn-rich').addEventListener('click',function(){
+    var html=$('preview').innerHTML;
+    if(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write){
+      try{
+        var item=new ClipboardItem({
+          'text/html': new Blob([html],{type:'text/html'}),
+          'text/plain': new Blob([$('preview').innerText||''],{type:'text/plain'})
+        });
+        navigator.clipboard.write([item]).then(function(){toast('서명이 복사되었습니다 — 메일 서명란에 붙여넣으세요');},function(){execCopyRich();});
+        return;
+      }catch(e){ /* fall through */ }
+    }
+    execCopyRich();
+  });
+  function execCopyRich(){
+    var prev=$('preview');
+    var range=document.createRange(); range.selectNodeContents(prev);
+    var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    try{ document.execCommand('copy'); toast('서명이 복사되었습니다 — 메일 서명란에 붙여넣으세요'); }
+    catch(e){ toast('복사에 실패했습니다'); }
+    sel.removeAllRanges();
+  }
+
+  render();
+})();
+</script>
+</html>
