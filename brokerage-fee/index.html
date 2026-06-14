@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>부동산 중개수수료(복비) 계산기 — 매매·전세·월세 | 도구상자</title>
+<meta name="description" content="거래금액과 거래유형(매매·전세·월세)만 넣으면 법정 상한요율로 부동산 중개수수료(복비)를 계산하는 무료 계산기. 구간별 상한요율·한도액·부가세까지 반영. 모든 계산은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/brokerage-fee/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="부동산 중개수수료(복비) 계산기 — 매매·전세·월세 | 도구상자">
+<meta property="og:description" content="거래금액·거래유형으로 법정 상한 복비를 계산. 구간별 요율·한도액·부가세 반영. 모든 계산은 브라우저에서.">
+<meta property="og:url" content="https://dogubox.shop/brokerage-fee/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="부동산 중개수수료(복비) 계산기 | 도구상자">
+<meta name="twitter:description" content="매매·전세·월세 복비를 상한요율로 계산.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "부동산 중개수수료(복비) 계산기",
+  "description": "거래금액과 거래유형(매매·전세·월세)으로 법정 상한요율에 따른 부동산 중개수수료(복비)를 계산하는 무료 계산기. 구간별 상한요율·한도액·부가세를 반영합니다. 모든 계산은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/brokerage-fee/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 복비는 상한요율이 정해져 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 부동산 중개보수는 거래금액 구간별로 법으로 정한 상한요율이 있고, 일부 구간은 한도액도 있습니다. 매매는 2억~9억 구간이 0.4%, 9억 이상부터 0.5~0.7%로 올라가고, 전·월세는 1억~6억 구간이 0.3%입니다. 이 값은 최대치이므로 한도 안에서 공인중개사와 협의해 더 낮출 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 월세는 거래금액을 어떻게 계산하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "월세는 보증금에 월세액의 100배를 더한 금액을 거래금액으로 봅니다. 다만 그렇게 계산한 금액이 5천만 원 미만이면 월세액의 70배를 더해 다시 계산합니다. 예를 들어 보증금 1,000만 원에 월세 50만 원이면 1,000만 + 50만×100 = 6,000만 원이 거래금액이 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 복비에 부가세가 붙나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "공인중개사가 일반과세자이면 중개보수에 부가가치세 10%가 별도로 붙을 수 있습니다. 간이과세자이면 그보다 낮거나 붙지 않을 수 있습니다. 이 계산기에서 '부가세 10% 포함'을 켜면 부가세를 더한 금액을 함께 보여줍니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "부동산 중개수수료(복비) 계산기", "item": "https://dogubox.shop/brokerage-fee/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.bf-seg{display:inline-flex;border:1px solid var(--line-2);border-radius:99px;overflow:hidden;margin-bottom:16px}
+.bf-seg button{padding:8px 18px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:var(--paper)}
+.bf-seg button.on{background:var(--accent);color:#fff}
+.bf-field{margin-bottom:14px}
+.bf-field label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.bf-amt{position:relative}
+.bf-amt input{width:100%;font-family:var(--mono);font-size:19px;font-weight:700;padding:12px 38px 12px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);text-align:right}
+.bf-amt .won{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:14px;font-weight:600}
+.bf-amt .kr{position:absolute;left:14px;bottom:-17px;font-size:11.5px;color:var(--ink-3);font-weight:600}
+.bf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bf-chk{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink-2);margin:6px 0 2px}
+.bf-out{background:var(--card);border:1px solid var(--line-2);border-top:3px solid var(--accent);border-radius:var(--r);padding:18px;margin-top:22px;text-align:center}
+.bf-out .lbl{font-size:13px;color:var(--ink-3);font-weight:600}
+.bf-out .fee{font-family:var(--disp);font-size:clamp(28px,7vw,40px);font-weight:800;color:var(--accent);letter-spacing:-.02em;margin:4px 0 2px;word-break:break-all}
+.bf-out .each{font-size:12.5px;color:var(--ink-3)}
+.bf-lines{margin-top:14px;border-top:1px dashed var(--line-2);padding-top:12px;display:flex;flex-direction:column;gap:7px}
+.bf-line{display:flex;justify-content:space-between;font-size:13.5px}
+.bf-line span:first-child{color:var(--ink-2)}
+.bf-line span:last-child{font-family:var(--mono);font-weight:700;color:var(--ink)}
+.bf-note{font-size:12.5px;color:var(--ink-3);margin-top:14px;line-height:1.6;background:var(--panel);border-radius:var(--r-sm);padding:11px 13px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>부동산 중개수수료(복비) 계산기</h1>
+      <p class="lede">거래유형과 금액을 넣으면 법정 상한요율로 복비를 계산합니다. 매매·전세·월세 모두 지원해요.</p>
+
+      <div class="box">
+        <div class="bf-seg" id="seg">
+          <button type="button" data-t="sale" class="on">매매</button>
+          <button type="button" data-t="lease">전세</button>
+          <button type="button" data-t="monthly">월세</button>
+        </div>
+
+        <div id="single" class="bf-field">
+          <label id="amtLabel">매매가</label>
+          <div class="bf-amt"><input type="text" inputmode="numeric" id="amt" value="500,000,000"><span class="won">원</span><span class="kr" id="amtKr"></span></div>
+        </div>
+
+        <div id="monthly" class="bf-row" style="display:none;margin-bottom:14px">
+          <div class="bf-field" style="margin:0">
+            <label>보증금</label>
+            <div class="bf-amt"><input type="text" inputmode="numeric" id="deposit" value="10,000,000"><span class="won">원</span></div>
+          </div>
+          <div class="bf-field" style="margin:0">
+            <label>월세</label>
+            <div class="bf-amt"><input type="text" inputmode="numeric" id="rent" value="500,000"><span class="won">원</span></div>
+          </div>
+        </div>
+
+        <label class="bf-chk"><input type="checkbox" id="vat"> 부가세 10% 포함 (중개사 일반과세자)</label>
+
+        <div class="bf-out">
+          <div class="lbl">예상 중개보수 (한쪽 부담)</div>
+          <div class="fee" id="fee">—</div>
+          <div class="each">매도·매수 각각 지급 — 양쪽 합계 <b id="both">—</b></div>
+          <div class="bf-lines">
+            <div class="bf-line"><span>거래금액 (환산)</span><span id="oAmt">—</span></div>
+            <div class="bf-line"><span>적용 상한요율</span><span id="oRate">—</span></div>
+            <div class="bf-line" id="capLine" style="display:none"><span>한도액 적용</span><span id="oCap">—</span></div>
+            <div class="bf-line" id="vatLine" style="display:none"><span>부가세 10%</span><span id="oVat">—</span></div>
+          </div>
+        </div>
+
+        <div class="bf-note">※ 표시 금액은 법정 <b>상한</b>입니다 — 한도 안에서 공인중개사와 협의해 낮출 수 있습니다. 2021년 개편 요율 기준(2026년 적용)이며 지자체 조례·거래 형태에 따라 차이가 있을 수 있어 <b>참고용</b>으로 사용하세요.</div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>거래유형을 고릅니다 — 매매·전세·월세.</li>
+          <li>금액을 입력합니다. 월세는 보증금과 월세를 따로 넣습니다.</li>
+          <li>구간별 상한요율이 적용된 중개보수가 바로 계산됩니다. 부가세는 필요하면 포함하세요.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>상한일 뿐입니다:</b> 표시 금액은 받을 수 있는 최대치예요. 계약 전에 중개사와 요율을 협의하면 더 낮출 수 있습니다.</li>
+          <li><b>월세 환산:</b> 보증금 + 월세×100이 거래금액. 단 5천만 원 미만이면 월세×70으로 다시 계산합니다.</li>
+          <li><b>부가세 확인:</b> 중개사가 일반과세자면 10%가 붙습니다. 현금영수증·세금계산서 발급 여부도 함께 확인하세요.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 복비는 상한요율이 정해져 있나요?</b><p>네. 부동산 중개보수는 거래금액 구간별로 법으로 정한 상한요율이 있고, 일부 구간은 한도액도 있습니다. 매매는 2억~9억 구간이 0.4%, 9억 이상부터 0.5~0.7%로 올라가고, 전·월세는 1억~6억 구간이 0.3%입니다. 이 값은 최대치이므로 한도 안에서 공인중개사와 협의해 더 낮출 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 월세는 거래금액을 어떻게 계산하나요?</b><p>월세는 보증금에 월세액의 100배를 더한 금액을 거래금액으로 봅니다. 다만 그렇게 계산한 금액이 5천만 원 미만이면 월세액의 70배를 더해 다시 계산합니다. 예를 들어 보증금 1,000만 원에 월세 50만 원이면 1,000만 + 50만×100 = 6,000만 원이 거래금액이 됩니다.</p></div>
+          <div class="qa"><b>Q. 복비에 부가세가 붙나요?</b><p>공인중개사가 일반과세자이면 중개보수에 부가가치세 10%가 별도로 붙을 수 있습니다. 간이과세자이면 그보다 낮거나 붙지 않을 수 있습니다. 이 계산기에서 '부가세 10% 포함'을 켜면 부가세를 더한 금액을 함께 보여줍니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/acquisition-tax/"><b>취득세 계산기</b><span>부동산 취득세·세율</span></a>
+          <a class="rel-card" href="/jeonse-conversion/"><b>전월세 전환 계산기</b><span>보증금↔월세 전환</span></a>
+          <a class="rel-card" href="/loan-calculator/"><b>대출 이자 계산기</b><span>원리금·월 상환액</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+<div class="toast" id="toast" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:99px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50"></div>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var type="sale";
+  // [상한 거래금액(미만), 요율, 한도액(0=없음)]
+  var RATES={
+    sale:[[50000000,0.006,250000],[200000000,0.005,800000],[900000000,0.004,0],[1200000000,0.005,0],[1500000000,0.006,0],[Infinity,0.007,0]],
+    lease:[[50000000,0.005,200000],[100000000,0.004,300000],[600000000,0.003,0],[1200000000,0.004,0],[1500000000,0.005,0],[Infinity,0.006,0]]
+  };
+  function num(s){return parseInt(String(s).replace(/[^0-9]/g,''),10)||0;}
+  function won(n){return Math.round(n).toLocaleString('ko-KR');}
+  function krUnit(n){ // 억/만 한글 표기
+    if(n<=0)return'';
+    var eok=Math.floor(n/100000000), man=Math.floor((n%100000000)/10000);
+    var s=''; if(eok)s+=eok+'억'; if(man)s+=(s?' ':'')+man.toLocaleString('ko-KR')+'만'; var rest=n%10000; if(rest&&!eok&&!man)s+=rest; return s?s+'원':'';
+  }
+  function bracket(table,amt){ for(var i=0;i<table.length;i++){ if(amt<table[i][0]) return table[i]; } return table[table.length-1]; }
+
+  function calc(){
+    var dealAmt;
+    if(type==='monthly'){
+      var dep=num($('deposit').value), rent=num($('rent').value);
+      dealAmt=dep+rent*100;
+      if(dealAmt<50000000) dealAmt=dep+rent*70;
+    } else {
+      dealAmt=num($('amt').value);
+    }
+    var table = type==='sale'?RATES.sale:RATES.lease;
+    var br=bracket(table,dealAmt);
+    var rate=br[1], cap=br[2];
+    var fee=dealAmt*rate;
+    var capped=false;
+    if(cap>0 && fee>cap){ fee=cap; capped=true; }
+    var vat = $('vat').checked ? fee*0.1 : 0;
+    var feeV=fee+vat;
+
+    $('amtKr').textContent=krUnit(dealAmt);
+    $('fee').textContent=won(feeV)+'원';
+    $('both').textContent=won(feeV*2)+'원';
+    $('oAmt').textContent=won(dealAmt)+'원';
+    $('oRate').textContent=(rate*100).toFixed(1).replace(/\.0$/,'')+'%';
+    $('capLine').style.display=capped?'':'none';
+    $('oCap').textContent=won(cap)+'원';
+    $('vatLine').style.display=vat?'':'none';
+    $('oVat').textContent=won(vat)+'원';
+  }
+  function fmtField(el){var c=num(el.value);el.value=c?c.toLocaleString('ko-KR'):'';}
+  ['amt','deposit','rent'].forEach(function(id){
+    $(id).addEventListener('input',function(){var p=this.selectionStart,b=this.value.length;fmtField(this);this.selectionStart=this.selectionEnd=Math.max(0,p+(this.value.length-b));calc();});
+  });
+  $('vat').addEventListener('change',calc);
+  $('seg').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-t]');if(!b)return;
+    type=b.dataset.t;
+    [].forEach.call(this.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b);});
+    $('single').style.display=type==='monthly'?'none':'';
+    $('monthly').style.display=type==='monthly'?'grid':'none';
+    $('amtLabel').textContent=type==='sale'?'매매가':'전세 보증금';
+    calc();
+  });
+  calc();
+})();
+</script>
+</html>

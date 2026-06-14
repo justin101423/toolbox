@@ -67,7 +67,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 176개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 180개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
@@ -140,7 +140,7 @@ toolbox/
 | lorem-ipsum | 로렘 입숨 생성기 |
 | json-formatter | JSON 포매터 |
 
-### 생활 · 편의 (35)
+### 생활 · 편의 (36)
 | 슬러그 | 이름 |
 |---|---|
 | calculator | 계산기 (일반·공학용) |
@@ -162,6 +162,7 @@ toolbox/
 | due-date-calculator | 출산 예정일 계산기 |
 | ovulation-calculator | 배란일·가임기 계산기 |
 | business-days | 근무일수·영업일 계산기 |
+| military-discharge | 전역일 계산기 |
 | lunar-solar-converter | 음력 ↔ 양력 변환 |
 | timezone-converter | 세계 시간 변환 |
 | stopwatch-timer | 스톱워치·타이머 |
@@ -179,13 +180,14 @@ toolbox/
 | ladder-game | 사다리타기 |
 | lotto-generator | 로또 번호 생성 |
 
-### 금융 (19)
+### 금융 (22)
 | 슬러그 | 이름 |
 |---|---|
 | salary-calculator | 연봉 실수령액 계산기 |
 | wage-calculator | 시급·주휴수당 계산기 |
 | unemployment-benefit | 실업급여 계산기 |
 | health-insurance | 건강보험료 계산기 |
+| four-insurances | 4대보험 계산기 |
 | severance-pay | 퇴직금 계산기 |
 | loan-calculator | 대출 이자 계산기 |
 | savings-calculator | 적금·예금 이자 계산기 |
@@ -198,6 +200,8 @@ toolbox/
 | target-price | 목표가·손절가 계산기 |
 | car-tax | 자동차세 계산기 |
 | acquisition-tax | 취득세 계산기 |
+| brokerage-fee | 부동산 중개수수료(복비) 계산기 |
+| gift-tax | 증여세 계산기 |
 | vat-calculator | 부가가치세 계산기 |
 | discount-calculator | 할인가 계산기 |
 | installment-calculator | 할부 계산기 |

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>전역일 계산기 — 입대일로 전역일·진급일·복무 D-Day | 도구상자</title>
+<meta name="description" content="입대일과 군종(육군·해군·공군·해병대·사회복무요원)만 넣으면 전역일과 D-Day, 복무 진행률, 계급별 진급일(일병·상병·병장)을 한 번에 계산하는 무료 전역일 계산기. 모든 계산은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/military-discharge/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="전역일 계산기 — 전역일·진급일·복무 D-Day | 도구상자">
+<meta property="og:description" content="입대일·군종으로 전역일, D-Day, 복무 진행률, 진급일을 한 번에. 모든 계산은 브라우저에서.">
+<meta property="og:url" content="https://dogubox.shop/military-discharge/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="전역일 계산기 | 도구상자">
+<meta name="twitter:description" content="입대일로 전역일·진급일·D-Day 계산.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "전역일 계산기",
+  "description": "입대일과 군종(육군·해군·공군·해병대·사회복무요원)으로 전역일과 D-Day, 복무 진행률, 계급별 진급일을 계산하는 무료 전역일 계산기. 모든 계산은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/military-discharge/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 군종별 복무기간은 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2026년 현재 육군과 해병대는 18개월, 해군은 20개월, 공군과 사회복무요원은 21개월입니다. 이 계산기는 군종을 고르면 해당 복무기간을 자동으로 적용합니다. 전역일은 입대일에 복무기간을 더한 날의 전날(만기전역일)로 계산됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 진급일(일병·상병·병장)은 어떻게 계산하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "자동진급 기준으로 입대 후 일병은 2개월, 상병은 8개월, 병장은 14개월이 지나면 진급합니다. 다만 최근 병사 진급도 심사를 거치도록 바뀌어 진급이 누락될 수 있으므로, 이 계산기의 진급일은 일정의 참고값으로 보시면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 복무 진행률은 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "입대일부터 전역일까지 전체 복무기간 중 오늘까지 지난 비율(%)입니다. 50%면 복무의 절반이 지났다는 뜻이고, 남은 복무일과 함께 표시됩니다. 입대 전이면 0%, 전역 후면 100%로 표시됩니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "전역일 계산기", "item": "https://dogubox.shop/military-discharge/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.md-seg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.md-seg button{padding:8px 14px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:var(--paper);border:1px solid var(--line-2);border-radius:99px;transition:.15s}
+.md-seg button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.md-field label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.md-field input[type=date]{width:100%;font-family:var(--mono);font-size:17px;font-weight:700}
+.md-hero{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:18px}
+.md-hero .cell{background:var(--card);padding:18px 16px;text-align:center}
+.md-hero .u{font-size:12px;color:var(--ink-3);font-weight:600}
+.md-hero .v{font-family:var(--disp);font-size:clamp(22px,5vw,30px);font-weight:800;color:var(--ink);margin-top:4px;letter-spacing:-.02em}
+.md-hero .cell.acc .v{color:var(--accent)}
+.md-hero .sub{font-size:12px;color:var(--ink-3);margin-top:3px}
+.md-bar{height:11px;background:var(--panel);border-radius:99px;overflow:hidden;margin:16px 0 6px}
+.md-bar span{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.md-bar-l{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);font-weight:600}
+.md-rank{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:16px}
+.md-rank .r{background:var(--card);padding:13px 8px;text-align:center}
+.md-rank .r.now{background:var(--panel)}
+.md-rank .rk{font-size:13px;font-weight:700;color:var(--ink)}
+.md-rank .r.now .rk{color:var(--accent)}
+.md-rank .dt{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.md-note{font-size:12.5px;color:var(--ink-3);margin-top:14px;line-height:1.6;background:var(--panel);border-radius:var(--r-sm);padding:11px 13px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>전역일 계산기</h1>
+      <p class="lede">군종과 입대일만 넣으면 전역일과 D-Day, 복무 진행률, 계급별 진급일을 바로 계산합니다.</p>
+
+      <div class="box">
+        <div class="md-seg" id="seg">
+          <button type="button" data-m="18" class="on">육군</button>
+          <button type="button" data-m="18">해병대</button>
+          <button type="button" data-m="20">해군</button>
+          <button type="button" data-m="21">공군</button>
+          <button type="button" data-m="21">사회복무요원</button>
+        </div>
+        <div class="md-field">
+          <label for="enlist">입대일</label>
+          <input type="date" id="enlist">
+        </div>
+
+        <div class="md-hero">
+          <div class="cell acc"><div class="u">전역일</div><div class="v" id="dDate">—</div><div class="sub" id="dDow"></div></div>
+          <div class="cell"><div class="u">전역까지</div><div class="v" id="dDday">—</div><div class="sub" id="dRemain"></div></div>
+        </div>
+
+        <div class="md-bar"><span id="bar"></span></div>
+        <div class="md-bar-l"><span id="pctL">복무 진행률 0%</span><span id="servedL"></span></div>
+
+        <div class="md-rank" id="rank"></div>
+        <div class="md-note">※ 복무기간 — 육군·해병대 18개월 / 해군 20개월 / 공군·사회복무요원 21개월(2026년 기준). 진급일은 자동진급 기준(일병 +2·상병 +8·병장 +14개월) 참고값이며, 진급 심사·복무 조정에 따라 달라질 수 있습니다.</div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>군종을 고릅니다 — 복무기간이 자동으로 적용됩니다.</li>
+          <li>입대일을 선택합니다.</li>
+          <li>전역일·D-Day·복무 진행률과 계급별 진급일이 즉시 계산됩니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>전역일은 만기 기준:</b> 입대일에 복무기간을 더한 날의 전날이 전역일입니다. 조기 전역·복무 조정이 있으면 달라질 수 있어요.</li>
+          <li><b>진급일은 참고용:</b> 최근 병사 진급도 심사를 거치도록 바뀌어, 표시된 진급일과 실제가 다를 수 있습니다.</li>
+          <li><b>곰신·가족도:</b> 입대일만 알면 디데이와 진행률을 함께 볼 수 있어 면회·휴가 계획에 쓰기 좋습니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 군종별 복무기간은 어떻게 되나요?</b><p>2026년 현재 육군과 해병대는 18개월, 해군은 20개월, 공군과 사회복무요원은 21개월입니다. 이 계산기는 군종을 고르면 해당 복무기간을 자동으로 적용합니다. 전역일은 입대일에 복무기간을 더한 날의 전날(만기전역일)로 계산됩니다.</p></div>
+          <div class="qa"><b>Q. 진급일(일병·상병·병장)은 어떻게 계산하나요?</b><p>자동진급 기준으로 입대 후 일병은 2개월, 상병은 8개월, 병장은 14개월이 지나면 진급합니다. 다만 최근 병사 진급도 심사를 거치도록 바뀌어 진급이 누락될 수 있으므로, 이 계산기의 진급일은 일정의 참고값으로 보시면 됩니다.</p></div>
+          <div class="qa"><b>Q. 복무 진행률은 무엇인가요?</b><p>입대일부터 전역일까지 전체 복무기간 중 오늘까지 지난 비율(%)입니다. 50%면 복무의 절반이 지났다는 뜻이고, 남은 복무일과 함께 표시됩니다. 입대 전이면 0%, 전역 후면 100%로 표시됩니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/dday-calculator/"><b>D-Day · 날짜 계산</b><span>기념일·디데이 한 번에</span></a>
+          <a class="rel-card" href="/age-calculator/"><b>만 나이 계산기</b><span>생년월일로 만 나이</span></a>
+          <a class="rel-card" href="/business-days/"><b>근무일수·영업일 계산기</b><span>주말·공휴일 제외 일수</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var months=18;
+  var DOW=['일','월','화','수','목','금','토'];
+  function addMonths(d,n){var r=new Date(d.getTime());var day=r.getDate();r.setMonth(r.getMonth()+n);if(r.getDate()!==day)r.setDate(0);return r;}
+  function addDays(d,n){var r=new Date(d.getTime());r.setDate(r.getDate()+n);return r;}
+  function fmt(d){return d.getFullYear()+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getDate()).padStart(2,'0');}
+  function dayStart(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate());}
+  function diffDays(a,b){return Math.round((dayStart(b)-dayStart(a))/86400000);}
+
+  function calc(){
+    var v=$('enlist').value;
+    if(!v){ $('dDate').textContent='—'; $('rank').innerHTML=''; return; }
+    var enlist=new Date(v+'T00:00:00');
+    if(isNaN(enlist)){ return; }
+    var today=new Date();
+    var discharge=addDays(addMonths(enlist,months),-1);
+    $('dDate').textContent=fmt(discharge);
+    $('dDow').textContent=DOW[discharge.getDay()]+'요일';
+
+    var dleft=diffDays(today,discharge);   // 전역까지 남은 일수(전역 당일 0)
+    if(dleft>0){ $('dDday').textContent='D-'+dleft; $('dRemain').textContent='남은 복무 '+dleft+'일'; }
+    else if(dleft===0){ $('dDday').textContent='D-DAY'; $('dRemain').textContent='오늘 전역!'; }
+    else { $('dDday').textContent='전역 완료'; $('dRemain').textContent=(-dleft)+'일 지남'; }
+
+    var total=diffDays(enlist,discharge)+1;       // 전체 복무일
+    var served=Math.min(Math.max(diffDays(enlist,today),0),total);
+    var pct=total>0?Math.min(100,Math.max(0,served/total*100)):0;
+    $('bar').style.width=pct.toFixed(1)+'%';
+    $('pctL').textContent='복무 진행률 '+pct.toFixed(1)+'%';
+    $('servedL').textContent=served+' / '+total+'일';
+
+    var ranks=[['이병',0],['일병',2],['상병',8],['병장',14]];
+    var cur=0;
+    for(var i=0;i<ranks.length;i++){ if(today>=addMonths(enlist,ranks[i][1])) cur=i; }
+    $('rank').innerHTML=ranks.map(function(r,i){
+      var d=r[1]===0?enlist:addMonths(enlist,r[1]);
+      return '<div class="r'+(i===cur?' now':'')+'"><div class="rk">'+r[0]+'</div><div class="dt">'+(r[1]===0?'입대':fmt(d))+'</div></div>';
+    }).join('');
+  }
+  $('seg').addEventListener('click',function(e){var b=e.target.closest('button[data-m]');if(!b)return;months=parseInt(b.dataset.m,10);[].forEach.call(this.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b);});calc();});
+  $('enlist').addEventListener('input',calc);
+  // 기본값: 오늘
+  (function(){var t=new Date();$('enlist').value=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');})();
+  calc();
+})();
+</script>
+</html>

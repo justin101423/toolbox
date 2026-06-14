@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>증여세 계산기 — 증여재산공제·세율로 납부세액 계산 | 도구상자</title>
+<meta name="description" content="증여재산가액과 증여자와의 관계만 넣으면 증여재산공제와 누진세율로 증여세 납부세액을 계산하는 무료 증여세 계산기. 배우자·자녀·혼인출산 공제, 신고세액공제 3% 반영. 모든 계산은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/gift-tax/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="증여세 계산기 — 증여재산공제·세율로 납부세액 | 도구상자">
+<meta property="og:description" content="증여재산가액·관계로 증여재산공제와 누진세율을 적용해 증여세를 계산. 신고세액공제 3% 반영. 모든 계산은 브라우저에서.">
+<meta property="og:url" content="https://dogubox.shop/gift-tax/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="증여세 계산기 | 도구상자">
+<meta name="twitter:description" content="증여재산공제·세율로 증여세 납부액 계산.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "증여세 계산기",
+  "description": "증여재산가액과 증여자와의 관계로 증여재산공제와 누진세율을 적용해 증여세 납부세액을 계산하는 무료 증여세 계산기. 배우자·자녀·혼인출산 공제와 신고세액공제 3%를 반영합니다. 모든 계산은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/gift-tax/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 증여재산공제는 얼마인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "10년간 합산 기준으로 배우자에게 받으면 6억 원, 성인 자녀가 부모 등 직계존속에게 받으면 5천만 원(미성년은 2천만 원), 부모가 자녀에게 받으면 5천만 원, 기타 친족은 1천만 원까지 공제됩니다. 2024년부터는 결혼·출산 시 직계존속에게 받는 증여에 1억 원의 추가 공제도 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 증여세율은 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "과세표준 구간에 따라 1억 이하 10%, 5억 이하 20%, 10억 이하 30%, 30억 이하 40%, 30억 초과 50%의 5단계 누진세율입니다. 각 구간에는 누진공제액이 있어, 산출세액은 과세표준 × 세율 − 누진공제로 계산합니다. 기한 내에 자진신고하면 산출세액의 3%를 신고세액공제로 빼줍니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이 계산 결과를 그대로 신고에 써도 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "참고용으로만 사용하세요. 실제 증여세는 10년 내 사전증여 합산, 부담부증여(채무 인수), 비상장주식·부동산 평가, 세대생략 할증(30%) 등 변수가 많아 달라질 수 있습니다. 금액이 크거나 상황이 복잡하면 홈택스 모의계산이나 세무 전문가의 확인을 받는 것이 안전합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "증여세 계산기", "item": "https://dogubox.shop/gift-tax/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.gt-field{margin-bottom:14px}
+.gt-field label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.gt-amt{position:relative}
+.gt-amt input{width:100%;font-family:var(--mono);font-size:20px;font-weight:700;padding:13px 38px 13px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);text-align:right}
+.gt-amt .won{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:14px;font-weight:600}
+.gt-amt .kr{position:absolute;left:14px;bottom:-17px;font-size:11.5px;color:var(--ink-3);font-weight:600}
+.gt-field select{width:100%;font-size:15px;padding:12px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.gt-chk{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink-2);margin:4px 0}
+.gt-out{background:var(--card);border:1px solid var(--line-2);border-top:3px solid var(--accent);border-radius:var(--r);padding:18px;margin-top:22px;text-align:center}
+.gt-out .lbl{font-size:13px;color:var(--ink-3);font-weight:600}
+.gt-out .fee{font-family:var(--disp);font-size:clamp(28px,7vw,40px);font-weight:800;color:var(--accent);letter-spacing:-.02em;margin:4px 0;word-break:break-all}
+.gt-lines{margin-top:14px;border-top:1px dashed var(--line-2);padding-top:12px;display:flex;flex-direction:column;gap:7px}
+.gt-line{display:flex;justify-content:space-between;font-size:13.5px}
+.gt-line span:first-child{color:var(--ink-2)}
+.gt-line span:last-child{font-family:var(--mono);font-weight:700;color:var(--ink)}
+.gt-line.minus span:last-child{color:var(--ok)}
+.gt-note{font-size:12.5px;color:var(--ink-3);margin-top:14px;line-height:1.6;background:var(--panel);border-radius:var(--r-sm);padding:11px 13px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>증여세 계산기</h1>
+      <p class="lede">증여재산가액과 관계를 넣으면 증여재산공제와 누진세율로 증여세를 계산합니다. 자진신고 공제도 반영해요.</p>
+
+      <div class="box">
+        <div class="gt-field">
+          <label for="amt">증여재산가액</label>
+          <div class="gt-amt"><input type="text" inputmode="numeric" id="amt" value="300,000,000"><span class="won">원</span><span class="kr" id="amtKr"></span></div>
+        </div>
+        <div class="gt-field">
+          <label for="rel">증여자와의 관계 (받는 사람 기준)</label>
+          <select id="rel">
+            <option value="spouse">배우자에게 받음 (공제 6억)</option>
+            <option value="child_adult" selected>성인 자녀가 부모 등 직계존속에게 (공제 5천만)</option>
+            <option value="child_minor">미성년 자녀가 직계존속에게 (공제 2천만)</option>
+            <option value="parent">부모가 자녀에게 (공제 5천만)</option>
+            <option value="other">기타 친족 (공제 1천만)</option>
+          </select>
+        </div>
+        <label class="gt-chk"><input type="checkbox" id="marriage"> 혼인·출산 증여공제 +1억 (직계존속 → 직계비속)</label>
+        <label class="gt-chk"><input type="checkbox" id="filed" checked> 기한 내 자진신고 (신고세액공제 3%)</label>
+
+        <div class="gt-out">
+          <div class="lbl">예상 납부세액</div>
+          <div class="fee" id="fee">—</div>
+          <div class="gt-lines">
+            <div class="gt-line"><span>증여재산가액</span><span id="oGift">—</span></div>
+            <div class="gt-line minus"><span>증여재산공제</span><span id="oDed">—</span></div>
+            <div class="gt-line"><span>과세표준</span><span id="oBase">—</span></div>
+            <div class="gt-line"><span>적용 세율 (누진공제)</span><span id="oRate">—</span></div>
+            <div class="gt-line"><span>산출세액</span><span id="oCalc">—</span></div>
+            <div class="gt-line minus" id="filedLine"><span>신고세액공제 3%</span><span id="oFiled">—</span></div>
+          </div>
+        </div>
+
+        <div class="gt-note">※ 10년 내 사전증여 합산, 부담부증여(채무 인수), 부동산·비상장주식 평가, 세대생략 할증(30%) 등은 반영되지 않은 <b>참고용</b> 계산입니다. 실제 신고는 홈택스 모의계산이나 세무 전문가의 확인을 받으세요.</div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>증여받는 재산의 가액을 입력합니다.</li>
+          <li>증여자와의 관계를 고르면 해당 증여재산공제가 적용됩니다.</li>
+          <li>과세표준·세율·산출세액과 신고세액공제까지 반영한 납부세액이 바로 계산됩니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>10년 합산이 핵심:</b> 같은 사람에게 10년 안에 여러 번 증여하면 합산해 과세됩니다. 공제 한도도 10년 기준이에요.</li>
+          <li><b>혼인·출산 공제:</b> 결혼(혼인신고 전후 2년) 또는 출산(2년 내) 시 직계존속에게 받는 증여는 1억 원이 추가 공제됩니다.</li>
+          <li><b>자진신고가 이득:</b> 증여일이 속한 달의 말일부터 3개월 안에 신고하면 산출세액의 3%를 깎아줍니다.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 증여재산공제는 얼마인가요?</b><p>10년간 합산 기준으로 배우자에게 받으면 6억 원, 성인 자녀가 부모 등 직계존속에게 받으면 5천만 원(미성년은 2천만 원), 부모가 자녀에게 받으면 5천만 원, 기타 친족은 1천만 원까지 공제됩니다. 2024년부터는 결혼·출산 시 직계존속에게 받는 증여에 1억 원의 추가 공제도 있습니다.</p></div>
+          <div class="qa"><b>Q. 증여세율은 어떻게 되나요?</b><p>과세표준 구간에 따라 1억 이하 10%, 5억 이하 20%, 10억 이하 30%, 30억 이하 40%, 30억 초과 50%의 5단계 누진세율입니다. 각 구간에는 누진공제액이 있어, 산출세액은 과세표준 × 세율 − 누진공제로 계산합니다. 기한 내에 자진신고하면 산출세액의 3%를 신고세액공제로 빼줍니다.</p></div>
+          <div class="qa"><b>Q. 이 계산 결과를 그대로 신고에 써도 되나요?</b><p>참고용으로만 사용하세요. 실제 증여세는 10년 내 사전증여 합산, 부담부증여(채무 인수), 비상장주식·부동산 평가, 세대생략 할증(30%) 등 변수가 많아 달라질 수 있습니다. 금액이 크거나 상황이 복잡하면 홈택스 모의계산이나 세무 전문가의 확인을 받는 것이 안전합니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/acquisition-tax/"><b>취득세 계산기</b><span>부동산 취득세·세율</span></a>
+          <a class="rel-card" href="/brokerage-fee/"><b>부동산 중개수수료 계산기</b><span>매매·전세 복비</span></a>
+          <a class="rel-card" href="/vat-calculator/"><b>부가가치세 계산기</b><span>공급가·부가세 환산</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  var DED={spouse:600000000,child_adult:50000000,child_minor:20000000,parent:50000000,other:10000000};
+  function num(s){return parseInt(String(s).replace(/[^0-9]/g,''),10)||0;}
+  function won(n){return Math.round(n).toLocaleString('ko-KR');}
+  function krUnit(n){if(n<=0)return'';var eok=Math.floor(n/100000000),man=Math.floor((n%100000000)/10000);var s='';if(eok)s+=eok+'억';if(man)s+=(s?' ':'')+man.toLocaleString('ko-KR')+'만';return s?s+'원':'';}
+  function rate(base){
+    if(base<=0)return[0,0];
+    if(base<=100000000)return[0.1,0];
+    if(base<=500000000)return[0.2,10000000];
+    if(base<=1000000000)return[0.3,60000000];
+    if(base<=3000000000)return[0.4,160000000];
+    return[0.5,460000000];
+  }
+  function calc(){
+    var gift=num($('amt').value);
+    var ded=DED[$('rel').value]||0;
+    if($('marriage').checked) ded+=100000000;
+    var base=Math.max(0,gift-ded);
+    var r=rate(base);
+    var calcTax=Math.max(0,base*r[0]-r[1]);
+    var filed=$('filed').checked?calcTax*0.03:0;
+    var pay=calcTax-filed;
+
+    $('amtKr').textContent=krUnit(gift);
+    $('fee').textContent=won(pay)+'원';
+    $('oGift').textContent=won(gift)+'원';
+    $('oDed').textContent='− '+won(ded)+'원';
+    $('oBase').textContent=won(base)+'원';
+    $('oRate').textContent=base>0?((r[0]*100)+'% (누진 '+won(r[1])+')'):'—';
+    $('oCalc').textContent=won(calcTax)+'원';
+    $('filedLine').style.display=filed?'':'none';
+    $('oFiled').textContent='− '+won(filed)+'원';
+  }
+  function fmtField(el){var c=num(el.value);el.value=c?c.toLocaleString('ko-KR'):'';}
+  $('amt').addEventListener('input',function(){var p=this.selectionStart,b=this.value.length;fmtField(this);this.selectionStart=this.selectionEnd=Math.max(0,p+(this.value.length-b));calc();});
+  $('rel').addEventListener('change',calc);
+  $('marriage').addEventListener('change',calc);
+  $('filed').addEventListener('change',calc);
+  calc();
+})();
+</script>
+</html>

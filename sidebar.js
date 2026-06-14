@@ -98,6 +98,7 @@
       { slug: "due-date-calculator", name: "출산 예정일 계산기", icon: "baby" },
       { slug: "ovulation-calculator", name: "배란일·가임기 계산기", icon: "heart" },
       { slug: "business-days",   name: "근무일수·영업일 계산기", icon: "calendar-check" },
+      { slug: "military-discharge", name: "전역일 계산기",     icon: "shield" },
       { slug: "lunar-solar-converter", name: "음력 ↔ 양력", icon: "moon" },
       { slug: "timezone-converter", name: "세계 시간 변환", icon: "globe" },
       { slug: "stopwatch-timer", name: "스톱워치·타이머",   icon: "timer" },
@@ -120,6 +121,7 @@
       { slug: "wage-calculator", name: "시급·주휴수당 계산기", icon: "banknote" },
       { slug: "unemployment-benefit", name: "실업급여 계산기", icon: "umbrella" },
       { slug: "health-insurance", name: "건강보험료 계산기", icon: "heart-pulse" },
+      { slug: "four-insurances", name: "4대보험 계산기",     icon: "shield-plus" },
       { slug: "severance-pay",   name: "퇴직금 계산기",      icon: "briefcase" },
       { slug: "loan-calculator", name: "대출 이자 계산기",   icon: "landmark" },
       { slug: "savings-calculator", name: "적금·예금 이자 계산기", icon: "piggy-bank" },
@@ -132,6 +134,8 @@
       { slug: "target-price",    name: "목표가·손절가 계산기", icon: "target" },
       { slug: "car-tax",         name: "자동차세 계산기",   icon: "car" },
       { slug: "acquisition-tax", name: "취득세 계산기",     icon: "building-2" },
+      { slug: "brokerage-fee",   name: "부동산 중개수수료 계산기", icon: "handshake" },
+      { slug: "gift-tax",        name: "증여세 계산기",      icon: "gift" },
       { slug: "vat-calculator",  name: "부가가치세 계산기",  icon: "receipt" },
       { slug: "discount-calculator", name: "할인가 계산기",  icon: "tag" },
       { slug: "installment-calculator", name: "할부 계산기", icon: "hand-coins" }
@@ -218,6 +222,10 @@
   // 이 한 곳의 매핑을 공유한다. icon 이름이 여기 없으면 기존 이모지/문자로 폴백.
   // ------------------------------------------------------------------
   var ICONS = {
+    "shield": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />',
+    "shield-plus": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="M9 12h6" /> <path d="M12 9v6" />',
+    "handshake": '<path d="m11 17 2 2a1 1 0 1 0 3-3" /> <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /> <path d="m21 3 1 11h-2" /> <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /> <path d="M3 4h8" />',
+    "gift": '<rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />',
     "image": '<rect width="18" height="18" x="3" y="3" rx="2" ry="2" /> <circle cx="9" cy="9" r="2" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />',
     "shrink": '<path d="m15 15 6 6m-6-6v4.8m0-4.8h4.8" /> <path d="M9 19.8V15m0 0H4.2M9 15l-6 6" /> <path d="M15 4.2V9m0 0h4.8M15 9l6-6" /> <path d="M9 4.2V9m0 0H4.2M9 9 3 3" />',
     "scaling": '<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /> <path d="M14 15H9v-5" /> <path d="M16 3h5v5" /> <path d="M21 3 9 15" />',
