@@ -59,6 +59,8 @@ toolbox/
 ├── footer.js           # ★ 공통 푸터 생성(★초안·미배포) — sidebar.js 패턴. `#site-footer` 컨테이너가 있는 페이지에서만 동작(없으면 무동작 → 현재 사이트 영향 0). 푸터 링크 단일 출처(LINKS)·저작권 연도 자동. AdSense 승인 후 빅스윕에서 전 페이지 `<footer>`를 컨테이너로 치환 + 이 스크립트 로드하면 활성화(치환 패턴은 파일 상단 주석 참고)
 ├── analytics.js        # GA4 로더 — 측정 ID(GA_ID)는 이 파일 한 곳에서만 관리. placeholder 상태면 무동작. 전 페이지가 theme.js 다음에 로드. ★?embed=1(작업대 iframe)이면 페이지뷰(page_view)를 끄고 대신 `workbench_tool_open`(tool_slug 포함) 이벤트로 기록 → 방문 통계는 깨끗하게 유지
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
+├── scripts/validate.js # ★ 검증 하네스 — 단일 출처(sidebar.js) 슬러그가 폴더·홈 카드·sitemap에 다 있는지, 사이드바에 없는 고아 폴더, 보호 파일, AdSense(404.html 제외), JSON-LD 유효성, 깨진 내부 링크를 점검. **로컬에서 `node scripts/validate.js`로 직접 실행 가능**(도구 추가 후 권장) / CI에서 자동 실행
+├── .github/workflows/validate.yml # ★ GitHub Actions(Stage 1·경고용) — main push/PR마다 JS 신택스(node --check)·sitemap XML 유효성·scripts/validate.js 실행. Pages는 브랜치를 그대로 서빙하므로 검증 실패해도 배포는 막지 않고 커밋에 빨간 X로 알림(go-live 게이팅은 Stage 2에서 Pages를 Actions 배포로 전환 시)
 └── <슬러그>/index.html  # 각 도구 = 독립 페이지(독립 URL, SEO 목적)
 ```
 
