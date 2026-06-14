@@ -634,22 +634,9 @@
     };
   } catch (e) {}
 
-  // 어려운 용어 자동 설명(말풍선) — 설명 글(.content/.lede)이 있는 페이지에서만
-  // glossary.js 를 지연 로드한다. 도구·가이드 페이지를 안 고치고 전 페이지 적용.
-  function loadGlossary() {
-    try {
-      if (!document.querySelector(".content, .lede")) return;
-      var g = document.createElement("script");
-      g.src = "/glossary.js"; g.defer = true;
-      (document.head || document.documentElement).appendChild(g);
-    } catch (e) {}
-  }
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
-    document.addEventListener("DOMContentLoaded", loadGlossary);
   } else {
     boot();
-    loadGlossary();
   }
 })();

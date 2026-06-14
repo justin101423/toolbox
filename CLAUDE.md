@@ -53,11 +53,10 @@ toolbox/
 ├── .well-known/security.txt # 보안 제보 채널(RFC 9116) — Expires 매년 갱신 필요(현재 2027-06-12)
 ├── theme.css           # 다크모드 스타일 + 전 페이지 공통 보조 스타일(테마 토글, 사이드바 라벨 타이포 — 모든 페이지가 마지막에 로드하므로 구형 인라인 CSS도 덮어씀) + ★작업대 임베드 모드(html.embed) 규칙(?embed=1 로 열린 도구 페이지의 상단바·사이드바·푸터·.crumb·.lede·.content·h1·광고를 숨겨 순수 도구 UI만 남김)
 ├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어) + 프레임버스터(★같은 출처=작업대 iframe이면 탈출 안 함, 외부 클릭재킹만 방어) + ?embed=1 감지 시 html에 .embed 클래스 부여(작업대 임베드 모드)
-├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처). 각 카테고리에 key(image/text/…)가 있어 .grp에 data-cat 부여(카테고리 색조). CATEGORIES·iconHtml + toolCount·catCount·guideCount를 window.DGB_TOOLS로 노출 → 작업대·소개글이 재사용. ★GUIDE_COUNT 상수 = 가이드 수 단일 출처(새 가이드 추가 시 함께 갱신). 설명 글(.content/.lede)이 있는 페이지에선 glossary.js(용어 말풍선)도 지연 로드
+├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처). 각 카테고리에 key(image/text/…)가 있어 .grp에 data-cat 부여(카테고리 색조). CATEGORIES·iconHtml + toolCount·catCount·guideCount를 window.DGB_TOOLS로 노출 → 작업대·소개글이 재사용. ★GUIDE_COUNT 상수 = 가이드 수 단일 출처(새 가이드 추가 시 함께 갱신)
 ├── workbench.js        # ★ 작업대 — 홈 상단 #workbenchToggle 버튼으로 홈 위에 "떠 있는 창"을 띄워 도구를 1~5칸 나란히 사용. 각 칸은 도구를 /<슬러그>/?embed=1 iframe으로 로드. 도구 목록은 window.DGB_TOOLS(단일 출처). 기능: 검색 가능한 도구 피커(.wb-pop)·분할 수(1~5) 선택·칸 사이 너비 드래그·도구를 다른 칸으로 끌어 옮기기(.wb-grip 드래그→"여기에 놓기"). ★배치는 flex order(vorder)로만 바꿔 iframe을 reparent하지 않음 → 옮겨도 입력 상태 보존. MAX_PANES=5. **index.html에서만 로드**
 ├── workbench.css       # 작업대 스타일(상단바 .wb-btn + 스크림 .wb-overlay + 떠 있는 창 .wb-window + 분할 칸 .wb-pane + 너비 손잡이 .wb-divider + 검색 팝오버 .wb-pop + 드래그 고스트 .wb-drag-ghost). workbench.js와 한 쌍, index.html에서만 로드
 ├── footer.js           # ★ 공통 푸터 생성(★초안·미배포) — sidebar.js 패턴. `#site-footer` 컨테이너가 있는 페이지에서만 동작(없으면 무동작 → 현재 사이트 영향 0). 푸터 링크 단일 출처(LINKS)·저작권 연도 자동. AdSense 승인 후 빅스윕에서 전 페이지 `<footer>`를 컨테이너로 치환 + 이 스크립트 로드하면 활성화(치환 패턴은 파일 상단 주석 참고)
-├── glossary.js         # ★ 어려운 용어 자동 설명(말풍선) — GLOSSARY 사전의 단어가 설명 글(.content/.lede)에 나오면 점선 밑줄 + 클릭/호버 시 다크 툴팁으로 풀이. 페이지를 안 고치고 sidebar.js가 .content/.lede 있는 페이지에서만 지연 로드(도구·가이드·about). CSS 자체 주입, 한 단어는 페이지 첫 등장 1회만 표시(프로즈만 — .box 입력/결과·링크·코드 제외). 새 용어는 GLOSSARY 객체 한 곳에만 추가. 현재 금융·세금 위주 ~29개
 ├── analytics.js        # GA4 로더 — 측정 ID(GA_ID)는 이 파일 한 곳에서만 관리. placeholder 상태면 무동작. 전 페이지가 theme.js 다음에 로드. ★?embed=1(작업대 iframe)이면 페이지뷰(page_view)를 끄고 대신 `workbench_tool_open`(tool_slug 포함) 이벤트로 기록 → 방문 통계는 깨끗하게 유지
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
 └── <슬러그>/index.html  # 각 도구 = 독립 페이지(독립 URL, SEO 목적)
