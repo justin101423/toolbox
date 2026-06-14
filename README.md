@@ -84,6 +84,7 @@
 ### 생활 · 편의
 - 계산기 (일반·공학용) (`/calculator/`)
 - 퍼센트 계산기 (`/percentage-calculator/`)
+- 더치페이 계산기 (`/dutch-pay/`)
 - 통계 계산기 (`/statistics-calculator/`)
 - 최대공약수·최소공배수 계산기 (`/gcd-lcm/`)
 - 도형 면적 계산기 (`/area-calculator/`)
