@@ -213,6 +213,7 @@
 - 오늘 뭐 먹지 (`/lunch-menu/`)
 - 밸런스 게임 (`/balance-game/`)
 - 가짜 카톡 생성기 (`/fake-kakao/`)
+- 이름 궁합 테스트 (`/name-compatibility/`)
 - 랜덤 추첨기 (`/random-picker/`)
 - 랜덤 팀 나누기 (`/team-generator/`)
 - 주사위·동전 던지기 (`/dice-roller/`)

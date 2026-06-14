@@ -209,6 +209,7 @@
       { slug: "lunch-menu",      name: "오늘 뭐 먹지",       icon: "utensils-crossed" },
       { slug: "balance-game",    name: "밸런스 게임",        icon: "git-compare" },
       { slug: "fake-kakao",      name: "가짜 카톡 생성기",   icon: "messages-square" },
+      { slug: "name-compatibility", name: "이름 궁합 테스트", icon: "heart" },
       { slug: "random-picker",   name: "랜덤 추첨기",       icon: "dices" },
       { slug: "team-generator",  name: "랜덤 팀 나누기",   icon: "users" },
       { slug: "dice-roller",     name: "주사위·동전 던지기", icon: "dice-6" },
