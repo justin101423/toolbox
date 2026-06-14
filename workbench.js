@@ -18,7 +18,11 @@
   var LS_KEY = "dgb-workbench-tools";  // 마지막으로 고른 도구 슬러그 배열
 
   var overlay = null, paneRow = null, layoutSel = null;
-  var paneCount = 0;
+  // vorder = 칸의 "시각적(좌→우) 순서" 배열 = 레이아웃의 source of truth.
+  // DOM 순서는 칸 생성 순서로 고정하고, 화면 배치는 flex order 로만 바꾼다.
+  // → 도구를 다른 칸으로 옮길 때 iframe 을 DOM 에서 이동시키지 않으므로(=reparent
+  //   안 함) 브라우저가 iframe 을 새로고침하지 않는다 → 입력 상태가 보존된다.
+  var vorder = [], dividers = [];
   var optsSuggest = null;
   var pop = null, popList = null, popSearch = null, activePickerPane = null;
 
@@ -60,9 +64,7 @@
   }
   function saveState() {
     try {
-      var arr = [];
-      paneRow.querySelectorAll(".wb-pane").forEach(function (p) { arr.push(p.dataset.slug || ""); });
-      localStorage.setItem(LS_KEY, JSON.stringify(arr));
+      localStorage.setItem(LS_KEY, JSON.stringify(vorder.map(function (p) { return p.dataset.slug || ""; })));
     } catch (e) {}
   }
 
@@ -162,56 +164,91 @@
   }
 
   function equalize() {
-    paneRow.querySelectorAll(".wb-pane").forEach(function (p) { p.style.flex = "1 1 0"; });
+    vorder.forEach(function (p) { p.style.flex = "1 1 0"; });
+  }
+
+  // vorder(시각 순서)에 맞춰 각 칸의 flex order 를 부여하고, 칸 사이 분할 손잡이
+  // 개수를 (칸-1)개로 맞춘다. DOM 순서는 건드리지 않는다(iframe 보존 핵심).
+  function relayout() {
+    var n = vorder.length;
+    while (dividers.length < n - 1) {
+      var d = document.createElement("div");
+      d.className = "wb-divider";
+      bindDivider(d);
+      paneRow.appendChild(d);
+      dividers.push(d);
+    }
+    while (dividers.length > n - 1) dividers.pop().remove();
+    vorder.forEach(function (p, i) { p.style.order = i * 10; });
+    dividers.forEach(function (d, i) { d.style.order = i * 10 + 5; });
   }
 
   function addPane(slug) {
-    if (paneCount >= MAX_PANES) return;
-    if (paneCount > 0) {
-      var div = document.createElement("div");
-      div.className = "wb-divider";
-      bindDivider(div);
-      paneRow.appendChild(div);
-    }
+    if (vorder.length >= MAX_PANES) return;
     var pane = makePane(slug || "");
-    paneRow.appendChild(pane);
-    paneCount++;
+    paneRow.appendChild(pane);   // DOM 끝에 추가(시각 위치는 relayout 의 order 가 결정)
+    vorder.push(pane);
+    relayout();
     if (slug) loadTool(pane, slug);
   }
 
   function removePane(pane) {
-    if (paneCount <= 1) return;  // 최소 1칸 유지
-    var prev = pane.previousElementSibling, next = pane.nextElementSibling;
-    if (prev && prev.classList.contains("wb-divider")) prev.remove();
-    else if (next && next.classList.contains("wb-divider")) next.remove();
+    if (vorder.length <= 1) return;  // 최소 1칸 유지
+    var i = vorder.indexOf(pane);
+    if (i < 0) return;
+    vorder.splice(i, 1);
     pane.remove();
-    paneCount--;
+    relayout();
     equalize();
     updateChrome();
     saveState();
   }
 
-  // 분할 수(1~5)를 직접 지정 — 늘리면 빈 칸 추가, 줄이면 끝 칸부터 제거(기존 칸 유지)
+  // 분할 수(1~5)를 직접 지정 — 늘리면 빈 칸 추가, 줄이면 끝(맨 오른쪽) 칸부터 제거.
   function setPaneCount(n) {
     n = Math.max(1, Math.min(MAX_PANES, n));
-    while (paneCount < n) addPane("");
-    while (paneCount > n) {
-      var panes = paneRow.querySelectorAll(".wb-pane");
-      removePane(panes[panes.length - 1]);
-    }
+    while (vorder.length < n) addPane("");
+    while (vorder.length > n) removePane(vorder[vorder.length - 1]);
     equalize();
     updateChrome();
+    saveState();
+  }
+
+  // 두 칸의 시각 위치를 맞바꾼다(FLIP 애니메이션). order 만 바꾸고 iframe 은 그대로
+  // 두므로 양쪽 도구의 입력 상태가 모두 보존된다.
+  function movePane(a, b) {
+    var i = vorder.indexOf(a), j = vorder.indexOf(b);
+    if (i < 0 || j < 0 || i === j) return;
+    var panes = vorder.slice();
+    var first = panes.map(function (p) { return p.getBoundingClientRect().left; });
+    vorder[i] = b; vorder[j] = a;
+    relayout();
+    panes.forEach(function (p, k) {
+      var dx = first[k] - p.getBoundingClientRect().left;
+      if (dx) { p.style.transition = "none"; p.style.transform = "translateX(" + dx + "px)"; }
+    });
+    requestAnimationFrame(function () {
+      panes.forEach(function (p) {
+        if (p.style.transform) {
+          p.style.transition = "transform .28s cubic-bezier(.2,.7,.2,1)";
+          p.style.transform = "";
+        }
+      });
+    });
     saveState();
   }
 
   // 분할 세그먼트 active + 1칸일 땐 칸 닫기 숨김
   function updateChrome() {
+    var n = vorder.length;
     if (layoutSel) {
       layoutSel.querySelectorAll(".wb-layout-btn").forEach(function (b) {
-        b.classList.toggle("active", parseInt(b.getAttribute("data-n"), 10) === paneCount);
+        b.classList.toggle("active", parseInt(b.getAttribute("data-n"), 10) === n);
       });
     }
-    paneRow.querySelectorAll(".wb-close-pane").forEach(function (b) { b.hidden = paneCount <= 1; });
+    vorder.forEach(function (p) {
+      var b = p.querySelector(".wb-close-pane"); if (b) b.hidden = n <= 1;
+    });
   }
 
   // ── 검색 가능한 도구 피커(싱글턴 팝오버) ───────────────────────────────
@@ -319,7 +356,9 @@
     }
     function down(e) {
       if (window.matchMedia("(max-width:760px)").matches) return;  // 모바일(세로 적층) 비활성
-      prevPane = div.previousElementSibling; nextPane = div.nextElementSibling;
+      // DOM 형제가 아니라 "시각 순서(vorder)"의 양옆 칸을 조절한다(order 로 배치되므로)
+      var idx = dividers.indexOf(div);
+      prevPane = vorder[idx]; nextPane = vorder[idx + 1];
       if (!prevPane || !nextPane) return;
       startX = e.touches ? e.touches[0].clientX : e.clientX;
       prevW = prevPane.getBoundingClientRect().width;
@@ -361,12 +400,9 @@
   }
   function onDragUp() {
     window.removeEventListener("pointermove", onDragMove);
-    // 옮기기 = 두 칸의 도구를 맞바꿈(대상이 비었으면 출발 칸이 비워짐)
-    if (dropTarget && dropTarget !== dragSrc) {
-      var a = dragSrc.dataset.slug || "", b = dropTarget.dataset.slug || "";
-      loadTool(dropTarget, a);
-      loadTool(dragSrc, b);
-    }
+    // 옮기기 = 두 칸의 "시각 위치"를 맞바꿈(order 만 변경 → iframe 보존 → 입력 유지).
+    // 대상이 비었으면 빈 칸이 출발 위치로 와 사실상 "이동"이 된다.
+    if (dropTarget && dropTarget !== dragSrc) movePane(dragSrc, dropTarget);
     setDropTarget(null);
     if (dragGhost) { dragGhost.remove(); dragGhost = null; }
     if (dragSrc) dragSrc.classList.remove("wb-drag-source");
@@ -441,7 +477,7 @@
 
   function open() {
     if (!overlay) build();
-    if (!paneCount) {
+    if (!vorder.length) {
       var saved = loadSaved();
       var n = Math.max(1, Math.min(MAX_PANES, saved.length || DEFAULT_PANES));
       for (var i = 0; i < n; i++) addPane(saved[i] || "");
