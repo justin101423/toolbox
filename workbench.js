@@ -1,31 +1,40 @@
 /*
  * 작업대(워크벤치) — workbench.css 와 한 쌍.
  * ---------------------------------------------------------------------------
- * 홈 화면(index.html) 위에 오버레이로 떠서, 도구를 여러 칸 나란히 두고
- * "동시에" 사용하기 위한 기능. 각 칸은 도구 페이지를 ?embed=1 로 <iframe> 에
- * 띄운다(임베드 모드 → 상단바·사이드바·설명 없이 순수 도구 UI만; theme.js/
- * theme.css 의 html.embed 처리 참고).
+ * 홈 화면(index.html) 위에 "떠 있는 창"으로 도구를 1~5칸 나란히 두고 동시에
+ * 사용한다. 뒤 홈은 딤+블러 스크림으로 비친다. 각 칸은 도구 페이지를
+ * /<슬러그>/?embed=1 로 <iframe>에 띄운다(임베드 모드 → 순수 도구 UI만;
+ * theme.js/theme.css 의 html.embed 처리 참고).
  *
- * 도구 목록은 sidebar.js 가 노출한 window.DGB_TOOLS(단일 source of truth)를
- * 그대로 쓴다 → 새 도구를 추가하면 작업대 선택기에도 자동 반영된다.
- *
- * 칸 수: 베타에서는 MAX_PANES=2 로 제한. 코드는 N칸으로 일반화돼 있으므로
- * 나중에 한도만 올리면(3·4칸) 그대로 확장된다(칸 추가/닫기·드래그 분할 포함).
+ * 기능: 검색 가능한 도구 피커 · 분할 수(1~5) 선택 · 칸 사이 너비 드래그 ·
+ *       도구를 다른 칸으로 끌어 옮기기(드래그&드롭). 도구 목록은 sidebar.js 가
+ *       노출한 window.DGB_TOOLS(단일 source of truth)를 그대로 쓴다.
  */
 (function () {
   "use strict";
 
-  var MAX_PANES = 2;       // 베타 한도 (나중에 3·4 로 올리면 확장됨)
-  var DEFAULT_PANES = 2;   // 처음 열 때 만드는 칸 수
+  var MAX_PANES = 5;       // 최대 분할 수
+  var DEFAULT_PANES = 2;   // 처음 열 때(저장값 없을 때) 칸 수
   var LS_KEY = "dgb-workbench-tools";  // 마지막으로 고른 도구 슬러그 배열
 
-  var overlay = null, paneRow = null, addBtn = null;
+  var overlay = null, paneRow = null, layoutSel = null;
   var paneCount = 0;
-  var optsCache = null, suggestCache = null;
+  var optsSuggest = null;
+  var pop = null, popList = null, popSearch = null, activePickerPane = null;
 
-  // 빈 칸에서 바로 시작할 수 있는 "자주 쓰는 도구" 추천(런처 칩). 슬러그만 두고
-  // 이름·아이콘은 DGB_TOOLS(단일 출처)에서 조회한다.
+  // 드래그 상태
+  var dragSrc = null, dragGhost = null, dropTarget = null;
+
+  // 빈 칸에서 바로 시작할 "자주 쓰는 도구" 칩(런처). 슬러그만 두고 이름·아이콘은 조회.
   var SUGGESTED = ["word-counter", "qr-code", "color-picker", "json-formatter", "calculator", "unit-converter"];
+
+  // ── 인라인 SVG ──────────────────────────────────────────────────────────
+  var SVG = {
+    split: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>',
+    caret: '<svg class="wb-picker-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
+    grip: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="9" cy="5" r="1.4"/><circle cx="9" cy="12" r="1.4"/><circle cx="9" cy="19" r="1.4"/><circle cx="15" cy="5" r="1.4"/><circle cx="15" cy="12" r="1.4"/><circle cx="15" cy="19" r="1.4"/></svg>',
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>'
+  };
 
   // ── 데이터 헬퍼(단일 출처 = sidebar.js) ────────────────────────────────
   function cats() { return (window.DGB_TOOLS && window.DGB_TOOLS.categories) || []; }
@@ -46,7 +55,6 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   }
-
   function loadSaved() {
     try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; } catch (e) { return []; }
   }
@@ -58,24 +66,9 @@
     } catch (e) {}
   }
 
-  // 카테고리별 <optgroup> 으로 묶은 도구 선택 옵션(한 번만 만들어 재사용)
-  function optionsHtml() {
-    if (optsCache) return optsCache;
-    var h = '<option value="">도구 선택…</option>';
-    cats().forEach(function (c) {
-      h += '<optgroup label="' + esc(c.label) + '">';
-      c.tools.forEach(function (t) {
-        h += '<option value="' + esc(t.slug) + '">' + esc(t.name) + "</option>";
-      });
-      h += "</optgroup>";
-    });
-    optsCache = h;
-    return h;
-  }
-
   // 빈 칸 런처용 추천 도구 칩(아이콘 + 이름). 한 번만 만들어 재사용.
   function suggestHtml() {
-    if (suggestCache !== null) return suggestCache;
+    if (optsSuggest !== null) return optsSuggest;
     var h = "";
     SUGGESTED.forEach(function (slug) {
       var t = findTool(slug);
@@ -83,26 +76,30 @@
       h += '<button type="button" class="wb-chip" data-slug="' + esc(slug) + '">' +
            '<span class="wb-chip-ic">' + iconHtml(t.icon) + "</span>" + esc(t.name) + "</button>";
     });
-    suggestCache = h;
+    optsSuggest = h;
     return h;
   }
 
-  // ── 한 칸(pane) 동작 ───────────────────────────────────────────────────
+  // ── 한 칸(pane) ────────────────────────────────────────────────────────
   function loadTool(pane, slug) {
     var frame = pane.querySelector(".wb-frame");
     var empty = pane.querySelector(".wb-empty");
-    pane.dataset.slug = slug || "";
     var t = findTool(slug);
+    pane.dataset.slug = t ? slug : "";
 
-    // 헤더 아이콘(전환 시 살짝 팝) · 새 탭 링크 갱신
-    var icEl = pane.querySelector(".wb-pane-ic");
-    icEl.innerHTML = t ? iconHtml(t.icon) : "";
-    if (t) { icEl.classList.remove("pop"); void icEl.offsetWidth; icEl.classList.add("pop"); }
+    // 헤더(피커 버튼) 갱신: 아이콘 칩(전환 팝) · 이름 · 그립/새탭 노출
+    var ic = pane.querySelector(".wb-pane-ic");
+    var nm = pane.querySelector(".wb-picker-name");
+    ic.innerHTML = t ? iconHtml(t.icon) : "";
+    if (t) { ic.classList.remove("pop"); void ic.offsetWidth; ic.classList.add("pop"); }
+    nm.textContent = t ? t.name : "도구 선택";
+    pane.querySelector(".wb-picker").classList.toggle("empty", !t);
+    pane.querySelector(".wb-grip").hidden = !t;
     var open = pane.querySelector(".wb-open");
-    if (slug) { open.href = "/" + slug + "/"; open.style.display = ""; }
-    else { open.removeAttribute("href"); open.style.display = "none"; }
+    if (t) { open.hidden = false; open.href = "/" + slug + "/"; }
+    else { open.hidden = true; open.removeAttribute("href"); }
 
-    if (!slug) {
+    if (!t) {
       pane.classList.remove("loading");
       frame.removeAttribute("src");
       frame.style.opacity = 0;
@@ -122,39 +119,44 @@
     pane.className = "wb-pane";
     pane.innerHTML =
       '<div class="wb-pane-head">' +
-        '<span class="wb-pane-ic"></span>' +
-        '<select class="wb-select" aria-label="도구 선택">' + optionsHtml() + "</select>" +
-        '<a class="wb-open" target="_blank" rel="noopener" title="새 탭에서 열기" aria-label="새 탭에서 열기" style="display:none">↗</a>' +
-        '<button class="wb-close-pane" type="button" title="이 칸 닫기" aria-label="이 칸 닫기">✕</button>' +
+        '<button type="button" class="wb-picker empty" aria-label="도구 선택·검색">' +
+          '<span class="wb-pane-ic"></span>' +
+          '<span class="wb-picker-name">도구 선택</span>' +
+          SVG.caret +
+        "</button>" +
+        '<button type="button" class="wb-grip" title="드래그해서 다른 칸으로 이동" aria-label="다른 칸으로 이동" hidden>' + SVG.grip + "</button>" +
+        '<a class="wb-open" target="_blank" rel="noopener" title="새 탭에서 열기" aria-label="새 탭에서 열기" hidden>↗</a>' +
+        '<button type="button" class="wb-close-pane" title="이 칸 닫기" aria-label="이 칸 닫기" hidden>✕</button>' +
       "</div>" +
       '<div class="wb-pane-body">' +
         '<div class="wb-empty"><div class="wb-empty-card">' +
-          '<div class="wb-empty-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg></div>' +
+          '<div class="wb-empty-ic">' + SVG.split + "</div>" +
           '<div class="wb-empty-kick">빈 칸</div>' +
           '<div class="wb-empty-title">도구를 선택하세요</div>' +
-          '<div class="wb-empty-sub">위 드롭다운에서 고르거나,<br>자주 쓰는 도구로 바로 시작하세요</div>' +
+          '<div class="wb-empty-sub">위 칸을 눌러 검색하거나,<br>자주 쓰는 도구로 바로 시작하세요</div>' +
           '<div class="wb-suggest">' + suggestHtml() + "</div>" +
         "</div></div>" +
         '<div class="wb-spin" aria-hidden="true"></div>' +
+        '<div class="wb-drop-hint" aria-hidden="true"><span>여기에 놓기</span></div>' +
         '<iframe class="wb-frame" title="도구" loading="lazy"></iframe>' +
       "</div>";
 
-    var sel = pane.querySelector(".wb-select");
     var frame = pane.querySelector(".wb-frame");
-    sel.value = slug || "";
-    sel.addEventListener("change", function () { loadTool(pane, sel.value); });
-    // 빈 칸 런처 칩 → 선택 + 로드
-    pane.querySelectorAll(".wb-chip").forEach(function (chip) {
-      chip.addEventListener("click", function () {
-        var s = chip.getAttribute("data-slug");
-        sel.value = s;
-        loadTool(pane, s);
-      });
-    });
     frame.addEventListener("load", function () {
       pane.classList.remove("loading");
       if (pane.dataset.slug) frame.style.opacity = 1;
     });
+    // 피커 버튼 → 검색 팝오버 토글
+    pane.querySelector(".wb-picker").addEventListener("click", function (e) {
+      if (pop && !pop.hidden && activePickerPane === pane) { closePicker(); return; }
+      openPicker(pane, e.currentTarget);
+    });
+    // 빈 칸 런처 칩 → 선택 + 로드
+    pane.querySelectorAll(".wb-chip").forEach(function (chip) {
+      chip.addEventListener("click", function () { loadTool(pane, chip.getAttribute("data-slug")); });
+    });
+    // 그립 → 다른 칸으로 끌어 옮기기
+    pane.querySelector(".wb-grip").addEventListener("pointerdown", function (e) { startDrag(pane, e); });
     pane.querySelector(".wb-close-pane").addEventListener("click", function () { removePane(pane); });
     return pane;
   }
@@ -175,13 +177,10 @@
     paneRow.appendChild(pane);
     paneCount++;
     if (slug) loadTool(pane, slug);
-    equalize();
-    updateChrome();
-    saveState();
   }
 
   function removePane(pane) {
-    if (paneCount <= 1) return;  // 최소 1칸은 유지
+    if (paneCount <= 1) return;  // 최소 1칸 유지
     var prev = pane.previousElementSibling, next = pane.nextElementSibling;
     if (prev && prev.classList.contains("wb-divider")) prev.remove();
     else if (next && next.classList.contains("wb-divider")) next.remove();
@@ -192,23 +191,120 @@
     saveState();
   }
 
-  // "칸 추가" 버튼 상태 + 1칸일 땐 칸 닫기 숨김
-  function updateChrome() {
-    if (addBtn) {
-      var full = paneCount >= MAX_PANES;
-      addBtn.disabled = full;
-      addBtn.title = full ? ("베타에서는 최대 " + MAX_PANES + "칸까지 가능해요") : "칸 추가";
+  // 분할 수(1~5)를 직접 지정 — 늘리면 빈 칸 추가, 줄이면 끝 칸부터 제거(기존 칸 유지)
+  function setPaneCount(n) {
+    n = Math.max(1, Math.min(MAX_PANES, n));
+    while (paneCount < n) addPane("");
+    while (paneCount > n) {
+      var panes = paneRow.querySelectorAll(".wb-pane");
+      removePane(panes[panes.length - 1]);
     }
-    var closers = paneRow.querySelectorAll(".wb-close-pane");
-    closers.forEach(function (b) { b.style.display = paneCount <= 1 ? "none" : ""; });
+    equalize();
+    updateChrome();
+    saveState();
   }
 
-  // ── 칸 사이 드래그 분할(가로). 모바일(세로 적층)에선 비활성 ───────────
+  // 분할 세그먼트 active + 1칸일 땐 칸 닫기 숨김
+  function updateChrome() {
+    if (layoutSel) {
+      layoutSel.querySelectorAll(".wb-layout-btn").forEach(function (b) {
+        b.classList.toggle("active", parseInt(b.getAttribute("data-n"), 10) === paneCount);
+      });
+    }
+    paneRow.querySelectorAll(".wb-close-pane").forEach(function (b) { b.hidden = paneCount <= 1; });
+  }
+
+  // ── 검색 가능한 도구 피커(싱글턴 팝오버) ───────────────────────────────
+  function buildPop() {
+    pop = document.createElement("div");
+    pop.className = "wb-pop";
+    pop.hidden = true;
+    pop.innerHTML =
+      '<div class="wb-pop-search">' + SVG.search +
+        '<input type="text" placeholder="도구 검색…" aria-label="도구 검색" autocomplete="off" spellcheck="false"></div>' +
+      '<div class="wb-pop-list"></div>';
+    document.body.appendChild(pop);
+    popList = pop.querySelector(".wb-pop-list");
+    popSearch = pop.querySelector(".wb-pop-search input");
+
+    var h = "";
+    cats().forEach(function (c) {
+      h += '<div class="wb-pop-grp"><div class="wb-pop-kick">' + esc(c.label) + "</div>";
+      c.tools.forEach(function (t) {
+        h += '<button type="button" class="wb-pop-item" data-slug="' + esc(t.slug) + '" data-name="' + esc(t.name) + '">' +
+             '<span class="wb-pop-ic">' + iconHtml(t.icon) + "</span>" +
+             '<span class="wb-pop-nm">' + esc(t.name) + "</span></button>";
+      });
+      h += "</div>";
+    });
+    popList.innerHTML = h;
+
+    popSearch.addEventListener("input", function () { filterPop(popSearch.value); });
+    popSearch.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        var first = popList.querySelector('.wb-pop-item:not([hidden])');
+        if (first && activePickerPane) { loadTool(activePickerPane, first.getAttribute("data-slug")); closePicker(); }
+      }
+    });
+    popList.addEventListener("click", function (e) {
+      var it = e.target.closest(".wb-pop-item");
+      if (!it || !activePickerPane) return;
+      loadTool(activePickerPane, it.getAttribute("data-slug"));
+      closePicker();
+    });
+  }
+
+  function filterPop(term) {
+    term = (term || "").trim().toLowerCase();
+    popList.querySelectorAll(".wb-pop-grp").forEach(function (g) {
+      var any = false;
+      g.querySelectorAll(".wb-pop-item").forEach(function (it) {
+        var show = !term ||
+          it.getAttribute("data-name").toLowerCase().indexOf(term) >= 0 ||
+          it.getAttribute("data-slug").indexOf(term) >= 0;
+        it.hidden = !show;
+        if (show) any = true;
+      });
+      g.hidden = !any;
+    });
+    popList.scrollTop = 0;
+  }
+
+  function openPicker(pane, anchor) {
+    if (!pop) buildPop();
+    activePickerPane = pane;
+    popSearch.value = "";
+    filterPop("");
+    // 현재 도구 표시
+    var cur = pane.dataset.slug || "";
+    popList.querySelectorAll(".wb-pop-item").forEach(function (it) {
+      it.classList.toggle("active", it.getAttribute("data-slug") === cur);
+    });
+    pop.hidden = false;
+
+    var r = anchor.getBoundingClientRect();
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var w = Math.min(330, Math.max(238, r.width));
+    var left = Math.max(8, Math.min(r.left, vw - 8 - w));
+    var top = r.bottom + 6;
+    pop.style.width = w + "px";
+    pop.style.left = left + "px";
+    pop.style.top = top + "px";
+    pop.style.maxHeight = Math.max(180, vh - top - 14) + "px";
+    setTimeout(function () { popSearch.focus(); }, 0);
+  }
+
+  function closePicker() {
+    if (pop) pop.hidden = true;
+    activePickerPane = null;
+  }
+
+  // ── 칸 사이 너비 드래그 손잡이 ──────────────────────────────────────────
   function bindDivider(div) {
     var startX, prevPane, nextPane, prevW, nextW;
     function move(e) {
       var x = e.touches ? e.touches[0].clientX : e.clientX;
-      var total = prevW + nextW, min = 240;
+      var total = prevW + nextW, min = 220;
       var np = Math.max(min, Math.min(total - min, prevW + (x - startX)));
       prevPane.style.flex = "0 0 " + np + "px";
       nextPane.style.flex = "1 1 0";
@@ -222,7 +318,7 @@
       window.removeEventListener("touchend", up);
     }
     function down(e) {
-      if (window.matchMedia("(max-width:760px)").matches) return;  // 모바일 비활성
+      if (window.matchMedia("(max-width:760px)").matches) return;  // 모바일(세로 적층) 비활성
       prevPane = div.previousElementSibling; nextPane = div.nextElementSibling;
       if (!prevPane || !nextPane) return;
       startX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -239,6 +335,62 @@
     div.addEventListener("touchstart", down, { passive: false });
   }
 
+  // ── 도구를 다른 칸으로 끌어 옮기기 ─────────────────────────────────────
+  function paneFromPoint(x, y) {
+    var el = document.elementFromPoint(x, y);
+    while (el && el !== document.body) {
+      if (el.classList && el.classList.contains("wb-pane")) return el;
+      el = el.parentElement;
+    }
+    return null;
+  }
+  function setDropTarget(pane) {
+    if (dropTarget === pane) return;
+    if (dropTarget) dropTarget.classList.remove("wb-drop-target");
+    dropTarget = pane;
+    if (dropTarget) dropTarget.classList.add("wb-drop-target");
+  }
+  function moveGhost(x, y) {
+    dragGhost.style.left = x + "px";
+    dragGhost.style.top = y + "px";
+  }
+  function onDragMove(e) {
+    moveGhost(e.clientX, e.clientY);
+    var target = paneFromPoint(e.clientX, e.clientY);
+    setDropTarget(target && target !== dragSrc ? target : null);
+  }
+  function onDragUp() {
+    window.removeEventListener("pointermove", onDragMove);
+    // 옮기기 = 두 칸의 도구를 맞바꿈(대상이 비었으면 출발 칸이 비워짐)
+    if (dropTarget && dropTarget !== dragSrc) {
+      var a = dragSrc.dataset.slug || "", b = dropTarget.dataset.slug || "";
+      loadTool(dropTarget, a);
+      loadTool(dragSrc, b);
+    }
+    setDropTarget(null);
+    if (dragGhost) { dragGhost.remove(); dragGhost = null; }
+    if (dragSrc) dragSrc.classList.remove("wb-drag-source");
+    document.body.classList.remove("wb-tool-dragging");
+    dragSrc = null;
+  }
+  function startDrag(pane, e) {
+    if (!pane.dataset.slug) return;
+    var t = findTool(pane.dataset.slug);
+    dragSrc = pane;
+    var ghost = document.createElement("div");
+    ghost.className = "wb-drag-ghost";
+    ghost.innerHTML = '<span class="wb-pane-ic">' + (t ? iconHtml(t.icon) : "") + "</span>" +
+                      "<span>" + (t ? esc(t.name) : "") + "</span>";
+    document.body.appendChild(ghost);
+    dragGhost = ghost;
+    document.body.classList.add("wb-tool-dragging");
+    pane.classList.add("wb-drag-source");
+    moveGhost(e.clientX, e.clientY);
+    window.addEventListener("pointermove", onDragMove);
+    window.addEventListener("pointerup", onDragUp, { once: true });
+    if (e.cancelable) e.preventDefault();
+  }
+
   // ── 오버레이 열기/닫기 ─────────────────────────────────────────────────
   function build() {
     overlay = document.createElement("div");
@@ -246,25 +398,44 @@
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-modal", "true");
     overlay.setAttribute("aria-label", "작업대");
+
+    var layout = '<div class="wb-layout" role="group" aria-label="화면 분할 수"><span class="wb-layout-label">분할</span>';
+    for (var n = 1; n <= MAX_PANES; n++) layout += '<button type="button" class="wb-layout-btn" data-n="' + n + '">' + n + "</button>";
+    layout += "</div>";
+
     overlay.innerHTML =
-      '<div class="wb-bar">' +
-        '<div class="wb-title">' +
-          '<span class="wb-title-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg></span>' +
-          '작업대 <span class="wb-beta">BETA</span>' +
+      '<div class="wb-window">' +
+        '<div class="wb-bar">' +
+          '<div class="wb-title"><span class="wb-title-mark">' + SVG.split + "</span>작업대</div>" +
+          '<div class="wb-hint">도구를 나란히 놓고 함께 사용하세요</div>' +
+          '<div class="wb-bar-sp"></div>' +
+          layout +
+          '<button class="wb-close" type="button" aria-label="작업대 닫기">닫기 ✕</button>' +
         "</div>" +
-        '<div class="wb-hint">도구를 나란히 놓고 함께 사용하세요</div>' +
-        '<div class="wb-bar-sp"></div>' +
-        '<button class="wb-add" type="button">칸 추가 +</button>' +
-        '<button class="wb-close" type="button" aria-label="작업대 닫기">닫기 ✕</button>' +
-      "</div>" +
-      '<div class="wb-row"></div>';
+        '<div class="wb-row"></div>' +
+      "</div>";
     document.body.appendChild(overlay);
     paneRow = overlay.querySelector(".wb-row");
-    addBtn = overlay.querySelector(".wb-add");
-    addBtn.addEventListener("click", function () { addPane(""); });
+    layoutSel = overlay.querySelector(".wb-layout");
+
+    layoutSel.addEventListener("click", function (e) {
+      var b = e.target.closest(".wb-layout-btn");
+      if (b) setPaneCount(parseInt(b.getAttribute("data-n"), 10));
+    });
     overlay.querySelector(".wb-close").addEventListener("click", close);
+    overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
+
+    // 전역: Esc(피커 먼저 닫고, 없으면 오버레이), 바깥 클릭으로 피커 닫기
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && overlay.classList.contains("open")) close();
+      if (e.key !== "Escape") return;
+      if (pop && !pop.hidden) { closePicker(); return; }
+      if (overlay.classList.contains("open")) close();
+    });
+    document.addEventListener("pointerdown", function (e) {
+      if (!pop || pop.hidden) return;
+      if (pop.contains(e.target)) return;
+      if (e.target.closest && e.target.closest(".wb-picker")) return;
+      closePicker();
     });
   }
 
@@ -272,13 +443,17 @@
     if (!overlay) build();
     if (!paneCount) {
       var saved = loadSaved();
-      for (var i = 0; i < DEFAULT_PANES; i++) addPane(saved[i] || "");
+      var n = Math.max(1, Math.min(MAX_PANES, saved.length || DEFAULT_PANES));
+      for (var i = 0; i < n; i++) addPane(saved[i] || "");
     }
+    equalize();
+    updateChrome();
     overlay.classList.add("open");
     document.documentElement.classList.add("wb-lock");
   }
   function close() {
     if (!overlay) return;
+    closePicker();
     overlay.classList.remove("open");
     document.documentElement.classList.remove("wb-lock");
   }

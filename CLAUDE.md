@@ -54,8 +54,8 @@ toolbox/
 ├── theme.css           # 다크모드 스타일 + 전 페이지 공통 보조 스타일(테마 토글, 사이드바 라벨 타이포 — 모든 페이지가 마지막에 로드하므로 구형 인라인 CSS도 덮어씀) + ★작업대 임베드 모드(html.embed) 규칙(?embed=1 로 열린 도구 페이지의 상단바·사이드바·푸터·.crumb·.lede·.content·h1·광고를 숨겨 순수 도구 UI만 남김)
 ├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어) + 프레임버스터(★같은 출처=작업대 iframe이면 탈출 안 함, 외부 클릭재킹만 방어) + ?embed=1 감지 시 html에 .embed 클래스 부여(작업대 임베드 모드)
 ├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처). CATEGORIES·iconHtml을 window.DGB_TOOLS로 노출 → 작업대(workbench.js)가 같은 도구 목록을 재사용
-├── workbench.js        # ★ 작업대(베타) — 홈 상단 #workbenchToggle 버튼으로 홈 위에 오버레이를 띄워 도구를 N칸(베타 2칸) 좌우로 나란히 사용. 각 칸은 도구를 /<슬러그>/?embed=1 iframe으로 로드. 도구 목록은 window.DGB_TOOLS(단일 출처). 칸 추가/닫기·드래그 분할 포함, MAX_PANES만 올리면 3~4칸 확장. **index.html에서만 로드**
-├── workbench.css       # 작업대 스타일(상단바 .wb-btn 버튼 + .wb-overlay 오버레이 + .wb-pane 분할 칸 + .wb-divider 드래그 손잡이). workbench.js와 한 쌍, index.html에서만 로드
+├── workbench.js        # ★ 작업대 — 홈 상단 #workbenchToggle 버튼으로 홈 위에 "떠 있는 창"을 띄워 도구를 1~5칸 나란히 사용. 각 칸은 도구를 /<슬러그>/?embed=1 iframe으로 로드. 도구 목록은 window.DGB_TOOLS(단일 출처). 기능: 검색 가능한 도구 피커(.wb-pop)·분할 수(1~5) 선택·칸 사이 너비 드래그·도구를 다른 칸으로 끌어 옮기기(.wb-grip 드래그→대상 칸에 "여기에 놓기"). MAX_PANES=5. **index.html에서만 로드**
+├── workbench.css       # 작업대 스타일(상단바 .wb-btn + 스크림 .wb-overlay + 떠 있는 창 .wb-window + 분할 칸 .wb-pane + 너비 손잡이 .wb-divider + 검색 팝오버 .wb-pop + 드래그 고스트 .wb-drag-ghost). workbench.js와 한 쌍, index.html에서만 로드
 ├── analytics.js        # GA4 로더 — 측정 ID(GA_ID)는 이 파일 한 곳에서만 관리. placeholder 상태면 무동작. 전 페이지가 theme.js 다음에 로드. ★?embed=1(작업대 iframe)이면 페이지뷰(page_view)를 끄고 대신 `workbench_tool_open`(tool_slug 포함) 이벤트로 기록 → 방문 통계는 깨끗하게 유지
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
 └── <슬러그>/index.html  # 각 도구 = 독립 페이지(독립 URL, SEO 목적)
@@ -322,18 +322,21 @@ toolbox/
   - **자주 묻는 질문 / FAQ** (`.faq-list` > `.qa`)
 - `<script src="/theme.js"></script>` 로 다크모드 토글 로직 로드
 
-## 5-1. 작업대(워크벤치) — 도구 N칸 동시 사용 (베타)
+## 5-1. 작업대(워크벤치) — 도구 1~5칸 동시 사용
 
-> **목적**: 사용자가 도구 하나만 쓰는 게 아니라 **둘을 동시에** 쓰고 싶을 때(예: 글자수 세기 + 컬러 피커). 홈 화면 위에 오버레이를 띄워 도구를 좌우로 나란히 놓는다. **새 페이지로 이동하지 않는다.**
+> **목적**: 사용자가 도구 하나만 쓰는 게 아니라 **여러 개를 동시에** 쓰고 싶을 때(예: 글자수 세기 + 컬러 피커). 홈 화면 위에 **떠 있는 창**을 띄워 도구를 나란히 놓는다. **새 페이지로 이동하지 않는다.**
 
-- **진입점**: 홈(`index.html`) 상단바의 `#workbenchToggle`(`.wb-btn`, "작업대") 버튼 — **홈에서만 노출**. 누르면 `workbench.js`가 `.wb-overlay`(z-index 200, `position:fixed inset:0`)를 띄운다(Esc 또는 "닫기"로 종료).
-- **칸 구조**: 각 칸(`.wb-pane`)은 상단에 도구 선택 `<select>`(카테고리별 `<optgroup>`) + 새 탭 링크 + 칸 닫기 버튼, 아래에 도구를 띄우는 `<iframe>`. 칸 사이 `.wb-divider`는 드래그로 너비 조절(모바일은 세로 적층·드래그 비활성).
-- **빈 칸 런처**: 도구 미선택 칸(`.wb-empty`)은 드롭다운만 두지 않고, 바로 시작할 수 있는 "자주 쓰는 도구" 칩(`.wb-chip`)을 보여준다. 칩 목록은 `workbench.js`의 `SUGGESTED`(슬러그 배열)에서 큐레이션하고 이름·아이콘은 `DGB_TOOLS`에서 조회한다.
-- **다듬기(frontend-design 적용)**: 오버레이 등장은 페이드+상단바 슬라이드다운+칸 스태거 상승으로 오케스트레이션, 배경엔 홈과 동일한 종이 노이즈 텍스처+상단 액센트 글로우, 헤더 도구 아이콘은 액센트 틴트 칩(전환 시 팝 모션), 분할 손잡이는 호버 시 그립이 늘어나는 촉각적 피드백. 모두 "밤의 종이" 무드·`#df4324` 액센트 안에서 라이트/다크 동일하게 동작. (`prefers-reduced-motion`은 홈 인라인 규칙이 전역 처리)
+- **진입점**: 홈(`index.html`) 상단바의 `#workbenchToggle`(`.wb-btn`, "작업대") 버튼 — **홈에서만 노출**. 누르면 `workbench.js`가 `.wb-overlay`(z-index 200)를 띄운다(Esc·"닫기"·스크림 클릭으로 종료).
+- **떠 있는 창 구조**: `.wb-overlay`는 **딤+블러 스크림**(뒤 홈이 비침), 그 안의 `.wb-window`가 **둥근 모서리·그림자를 가진 플로팅 창**(종이 노이즈 텍스처 + 상단 액센트 글로우). 창은 `.wb-bar`(상단바) + `.wb-row`(분할 영역)로 구성.
+- **분할 수(1~5) 선택**: 상단바의 `.wb-layout` 세그먼트(1·2·3·4·5)로 칸 수를 직접 지정한다(`setPaneCount`). 늘리면 빈 칸 추가, 줄이면 끝 칸부터 제거(기존 칸 유지). `MAX_PANES=5`. 칸 사이 `.wb-divider`는 드래그로 너비 조절(모바일은 세로 적층·드래그 비활성).
+- **칸 구조**: 각 칸(`.wb-pane`)은 상단에 **검색 피커 버튼**(`.wb-picker` — 아이콘 칩 + 도구명) + **이동 그립**(`.wb-grip`) + 새 탭 링크 + 칸 닫기, 아래에 도구를 띄우는 `<iframe>`.
+- **검색 가능한 도구 피커**: 피커 버튼을 누르면 `body`에 붙는 싱글턴 팝오버 `.wb-pop`(검색 입력 + 카테고리별 도구 목록)이 버튼 아래에 뜬다. 입력하면 이름·슬러그로 즉시 필터(`filterPop`), 클릭/Enter로 선택. 도구가 많아져도 스크롤 대신 검색으로 빠르게 고른다.
+- **도구 끌어 옮기기(드래그&드롭)**: 칸 헤더의 `.wb-grip`을 잡아 끌면, 커서 위로 살짝 떠오른 고스트(`.wb-drag-ghost`)가 따라오고 출발 칸은 흐려진다(`.wb-drag-source`). 마우스가 올라간 대상 칸에 **"여기에 놓기"** 힌트(`.wb-drop-hint` + `.wb-drop-target` 점선)가 뜨고, 놓으면 두 칸의 도구를 **맞바꾼다**(대상이 비었으면 이동). 드래그 중 `body.wb-tool-dragging`이 iframe 포인터를 꺼 대상 칸 감지를 가능하게 한다. (iframe 재로딩으로 진행 중 입력 상태는 유지되지 않음 — 의도된 한계)
+- **빈 칸 런처**: 도구 미선택 칸(`.wb-empty`)은 "자주 쓰는 도구" 칩(`.wb-chip`)을 보여줘 바로 시작하게 한다. 칩 목록은 `workbench.js`의 `SUGGESTED`(슬러그 배열) 큐레이션, 이름·아이콘은 `DGB_TOOLS`에서 조회.
 - **임베드 모드(핵심)**: iframe은 도구를 **`/<슬러그>/?embed=1`** 로 로드한다. 그러면 `theme.js`가 `<html>`에 `.embed` 클래스를 붙이고, `theme.css`의 `html.embed` 규칙이 **상단바·사이드바·푸터·`.crumb`·`.lede`·`.content`·`h1`·광고를 숨겨** 순수 도구 UI(`.box`)만 남긴다 → "설명 없이 순수 도구만". **별도 페이지 작업이 필요 없다.**
 - **프레임버스터 주의**: `theme.js`의 클릭재킹 방어는 **같은 출처(우리 작업대 iframe)면 탈출하지 않도록** 되어 있다(외부 사이트 프레임만 탈출). 이 동작을 깨면 작업대 iframe이 통째로 튕겨 나가므로 수정 시 주의.
-- **도구 목록 단일 출처**: 선택기는 `sidebar.js`가 노출하는 `window.DGB_TOOLS`(= `CATEGORIES`)를 그대로 쓴다 → **새 도구를 추가하면 작업대 선택기에도 자동 반영**된다. 단, 그 도구 페이지가 표준 구조(`.box` 기능 UI + `.lede`/`.content` 설명, `theme.js` 로드)를 따라야 임베드 모드가 크롬을 깔끔히 걷어낸다.
-- **칸 수 한도**: `workbench.js`의 `MAX_PANES`(현재 **2**, 베타). 코드는 N칸으로 일반화돼 있어 이 값만 올리면 3~4칸으로 확장된다(칸 추가/닫기·드래그 분할 그대로 동작).
+- **도구 목록 단일 출처**: 피커는 `sidebar.js`가 노출하는 `window.DGB_TOOLS`(= `CATEGORIES`)를 그대로 쓴다 → **새 도구를 추가하면 작업대 피커에도 자동 반영**된다. 단, 그 도구 페이지가 표준 구조(`.box` 기능 UI + `.lede`/`.content` 설명, `theme.js` 로드)를 따라야 임베드 모드가 크롬을 깔끔히 걷어낸다.
+- **다듬기(frontend-design 적용)**: 등장은 스크림 페이드 + 창 팝인 + 칸 스태거 상승으로 오케스트레이션, "밤의 종이" 무드·`#df4324` 액센트 안에서 라이트/다크 동일 동작. (`prefers-reduced-motion`은 홈 인라인 규칙이 전역 처리)
 - **로드 위치**: `index.html`만 `<link rel="stylesheet" href="/workbench.css">`(head) + `<script src="/workbench.js">`(sidebar.js 다음, theme.js 앞)를 포함한다. 다른 페이지는 포함하지 않는다.
 - **애널리틱스**: 작업대 iframe(`?embed=1`)으로 열린 도구는 GA4 페이지뷰로 집계하지 않고 `analytics.js`가 `workbench_tool_open`(tool_slug) 이벤트로만 기록한다 → 실제 방문 통계는 부풀지 않고, 작업대 사용량은 따로 추적된다.
 
