@@ -241,7 +241,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       <div class="no-result" id="no-result">‘<b id="nr-q"></b>’에 대한 검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</div>
 
       <div class="sec-label">이미지 · PDF</div>
-      <div class="grid">
+      <div class="grid" data-cat="image">
         <a class="card" href="/image-converter/"><div class="ic" data-icon="image">🖼</div><h3>이미지 포맷 변환</h3><p>PNG · JPG · WebP 서로 변환</p></a>
         <a class="card" href="/image-compressor/"><div class="ic" data-icon="shrink">📉</div><h3>이미지 압축·리사이즈</h3><p>용량 줄이고 크기 조절</p></a>
         <a class="card" href="/image-resizer/"><div class="ic" data-icon="scaling">↔</div><h3>이미지 크기 조절</h3><p>사진 픽셀 사이즈 변경</p></a>
@@ -275,7 +275,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
 
       <div class="sec-label">텍스트 · 생성</div>
-      <div class="grid">
+      <div class="grid" data-cat="text">
         <a class="card" href="/word-counter/"><div class="ic" data-icon="type">🔤</div><h3>글자수 세기</h3><p>글자·단어·바이트 카운트</p></a>
         <a class="card" href="/word-frequency/"><div class="ic" data-icon="bar-chart-3">📊</div><h3>단어 빈도 분석기</h3><p>키워드 등장 횟수·비율</p></a>
         <a class="card" href="/clean-text/"><div class="ic" data-icon="remove-formatting">🧹</div><h3>공백·줄바꿈 정리</h3><p>불필요한 공백·줄바꿈 정리</p></a>
@@ -307,7 +307,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
 
       <div class="sec-label">생활 · 편의</div>
-      <div class="grid">
+      <div class="grid" data-cat="life">
         <a class="card" href="/calculator/"><div class="ic" data-icon="calculator">🧮</div><h3>계산기(공학용)</h3><p>삼각·로그·괄호 계산</p></a>
         <a class="card" href="/percentage-calculator/"><div class="ic" data-icon="percent">%</div><h3>퍼센트 계산기</h3><p>비율·증감률·할인 계산</p></a>
         <a class="card" href="/statistics-calculator/"><div class="ic" data-icon="sigma">Σ</div><h3>통계 계산기</h3><p>평균·중앙값·표준편차</p></a>
@@ -346,7 +346,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
 
       <div class="sec-label">금융</div>
-      <div class="grid">
+      <div class="grid" data-cat="finance">
         <a class="card" href="/salary-calculator/"><div class="ic" data-icon="wallet">💰</div><h3>연봉 실수령액 계산기</h3><p>4대보험·세금 공제 후 월급</p></a>
         <a class="card" href="/wage-calculator/"><div class="ic" data-icon="banknote">💵</div><h3>시급·주휴수당 계산기</h3><p>주휴수당 포함 알바비</p></a>
         <a class="card" href="/unemployment-benefit/"><div class="ic" data-icon="umbrella">☂</div><h3>실업급여 계산기</h3><p>구직급여 수급액·일수</p></a>
@@ -369,7 +369,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
 
       <div class="sec-label">직장인 · 생산성</div>
-      <div class="grid">
+      <div class="grid" data-cat="work">
         <a class="card" href="/notepad/"><div class="ic" data-icon="sticky-note">📝</div><h3>임시 메모장</h3><p>자동 저장되는 메모</p></a>
         <a class="card" href="/todo-list/"><div class="ic" data-icon="list-checks">✅</div><h3>할 일 체크리스트</h3><p>자동 저장 투두 리스트</p></a>
         <a class="card" href="/pomodoro/"><div class="ic" data-icon="alarm-clock">⏰</div><h3>포모도로 타이머</h3><p>집중·휴식 사이클</p></a>
@@ -381,7 +381,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
 
       <div class="sec-label">색상 · 디자인</div>
-      <div class="grid">
+      <div class="grid" data-cat="color">
         <a class="card" href="/color-picker/"><div class="ic" data-icon="pipette">🖌</div><h3>컬러 피커·변환</h3><p>HEX·RGB·HSL 변환</p></a>
         <a class="card" href="/hex-rgb-converter/"><div class="ic" data-icon="arrow-right-left">◑</div><h3>HEX ↔ RGB 변환</h3><p>색상 코드 변환</p></a>
         <a class="card" href="/color-palette/"><div class="ic" data-icon="palette">🎨</div><h3>컬러 팔레트 생성</h3><p>조화로운 색 조합</p></a>
@@ -400,7 +400,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
 
       <div class="sec-label">개발자 도구</div>
-      <div class="grid">
+      <div class="grid" data-cat="dev">
         <a class="card" href="/encoder-decoder/"><div class="ic" data-icon="file-code">⇄</div><h3>인코더 · 디코더</h3><p>Base64 · URL</p></a>
         <a class="card" href="/url-parser/"><div class="ic" data-icon="link">🔗</div><h3>URL 쿼리스트링 파서</h3><p>구성 요소·파라미터 분해</p></a>
         <a class="card" href="/slug-generator/"><div class="ic" data-icon="link-2">🔡</div><h3>슬러그(URL) 생성기</h3><p>한글 제목을 URL 슬러그로</p></a>
@@ -430,7 +430,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
       </div>
 
       <div class="sec-label">악기</div>
-      <div class="grid">
+      <div class="grid" data-cat="inst">
         <a class="card" href="/piano/"><div class="ic" data-icon="piano">🎹</div><h3>피아노</h3><p>키보드·터치로 치는 건반</p></a>
         <a class="card" href="/synth/"><div class="ic" data-icon="sliders">🎛</div><h3>신디사이저</h3><p>파형·필터·ADSR로 음색 만들기</p></a>
         <a class="card" href="/xylophone/"><div class="ic" data-icon="xylophone">🎵</div><h3>실로폰</h3><p>색색 막대를 치는 마림바</p></a>

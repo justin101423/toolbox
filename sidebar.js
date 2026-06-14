@@ -16,7 +16,7 @@
   "use strict";
 
   var CATEGORIES = [
-    { label: "이미지 · PDF", tools: [
+    { label: "이미지 · PDF", key: "image", tools: [
       { slug: "image-converter",  name: "이미지 포맷 변환",     icon: "image" },
       { slug: "image-compressor", name: "이미지 압축·리사이즈", icon: "shrink" },
       { slug: "image-resizer",    name: "이미지 크기 조절",     icon: "scaling" },
@@ -48,7 +48,7 @@
       { slug: "pdf-to-image",     name: "PDF → 이미지",         icon: "images" },
       { slug: "pdf-to-text",      name: "PDF → 텍스트 추출",    icon: "file-search" }
     ]},
-    { label: "텍스트 · 생성", tools: [
+    { label: "텍스트 · 생성", key: "text", tools: [
       { slug: "word-counter",       name: "글자수 세기",        icon: "type" },
       { slug: "word-frequency",     name: "단어 빈도 분석기",   icon: "bar-chart-3" },
       { slug: "clean-text",         name: "공백·줄바꿈 정리",   icon: "remove-formatting" },
@@ -78,7 +78,7 @@
       { slug: "lorem-ipsum",        name: "로렘 입숨 생성",     icon: "pilcrow" },
       { slug: "json-formatter",     name: "JSON 포매터",        icon: "braces" }
     ]},
-    { label: "생활 · 편의", tools: [
+    { label: "생활 · 편의", key: "life", tools: [
       { slug: "calculator",      name: "계산기(공학용)",    icon: "calculator" },
       { slug: "percentage-calculator", name: "퍼센트 계산기", icon: "percent" },
       { slug: "statistics-calculator", name: "통계 계산기", icon: "sigma" },
@@ -115,7 +115,7 @@
       { slug: "ladder-game",     name: "사다리타기",        icon: "ladder" },
       { slug: "lotto-generator", name: "로또 번호 생성",    icon: "ticket" }
     ]},
-    { label: "금융", tools: [
+    { label: "금융", key: "finance", tools: [
       { slug: "salary-calculator", name: "연봉 실수령액 계산기", icon: "wallet" },
       { slug: "wage-calculator", name: "시급·주휴수당 계산기", icon: "banknote" },
       { slug: "unemployment-benefit", name: "실업급여 계산기", icon: "umbrella" },
@@ -136,7 +136,7 @@
       { slug: "discount-calculator", name: "할인가 계산기",  icon: "tag" },
       { slug: "installment-calculator", name: "할부 계산기", icon: "hand-coins" }
     ]},
-    { label: "직장인 · 생산성", tools: [
+    { label: "직장인 · 생산성", key: "work", tools: [
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
       { slug: "todo-list",   name: "할 일 체크리스트", icon: "list-checks" },
       { slug: "pomodoro",    name: "포모도로 타이머", icon: "alarm-clock" },
@@ -146,7 +146,7 @@
       { slug: "utm-builder", name: "UTM 빌더",    icon: "link" },
       { slug: "device-test", name: "마이크·웹캠 테스트", icon: "video" }
     ]},
-    { label: "색상 · 디자인", tools: [
+    { label: "색상 · 디자인", key: "color", tools: [
       { slug: "color-picker",      name: "컬러 피커·변환",   icon: "pipette" },
       { slug: "hex-rgb-converter", name: "HEX ↔ RGB 변환",   icon: "arrow-right-left" },
       { slug: "color-palette",     name: "컬러 팔레트 생성", icon: "palette" },
@@ -163,7 +163,7 @@
       { slug: "color-blindness", name: "색맹 시뮬레이터", icon: "glasses" },
       { slug: "favicon-generator", name: "파비콘 생성",      icon: "app-window" }
     ]},
-    { label: "개발자 도구", tools: [
+    { label: "개발자 도구", key: "dev", tools: [
       { slug: "encoder-decoder",  name: "인코더 · 디코더", icon: "file-code" },
       { slug: "url-parser",       name: "URL 쿼리스트링 파서", icon: "link" },
       { slug: "slug-generator",   name: "슬러그(URL) 생성기",  icon: "link-2" },
@@ -191,7 +191,7 @@
       { slug: "ascii-table",      name: "아스키 코드표",   icon: "table-2" },
       { slug: "unicode-escape",   name: "유니코드 이스케이프", icon: "code-2" }
     ]},
-    { label: "악기", tools: [
+    { label: "악기", key: "inst", tools: [
       { slug: "piano",    name: "피아노",    icon: "piano" },
       { slug: "synth",     name: "신디사이저", icon: "sliders" },
       { slug: "xylophone", name: "실로폰",   icon: "xylophone" },
@@ -553,7 +553,7 @@
             '<span class="ic">' + iconHtml("book-open") + "</span> 가이드 · 사용법</a></div>";
     for (var i = 0; i < CATEGORIES.length; i++) {
       var cat = CATEGORIES[i];
-      html += '<div class="grp"><div class="kick">' + esc(cat.label) + "</div>";
+      html += '<div class="grp" data-cat="' + (cat.key || "") + '"><div class="kick">' + esc(cat.label) + "</div>";
       for (var j = 0; j < cat.tools.length; j++) {
         var t = cat.tools[j];
         var cls = "navlink" + (t.slug === active ? " active" : "");

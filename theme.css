@@ -93,6 +93,37 @@ html[data-theme="dark"] .box{box-shadow:0 16px 40px -22px rgba(0,0,0,.7)}
 .side .navlink:hover::before { transform:translateY(-50%) scaleY(1); }
 .side .navlink.active::before { transform:translateY(-50%) scaleY(1); background:var(--paper); }
 
+/* ── 카테고리별 아이콘 색조 ──────────────────────────────────────────────
+   8개 카테고리에 "밤의 종이" 팔레트와 어울리는 고유 색조를 부여해 사이드바·홈
+   카드 아이콘을 카테고리별로 구분(스캔성↑). 다크에서는 어두운 배경 대비로 한 톤
+   밝게 보정. data-cat → --cat 매핑 후 컴포넌트가 var(--cat)만 참조한다.
+   (data-cat은 sidebar.js가 사이드바 .grp에, index.html이 홈 .grid에 부여) */
+:root {
+  --cat-image:#cf4f3e; --cat-text:#b1742a; --cat-life:#4f9a5e; --cat-finance:#2f8f86;
+  --cat-work:#5a78c4; --cat-color:#9a62bd; --cat-dev:#4878a6; --cat-inst:#c1568c;
+}
+html[data-theme="dark"] {
+  --cat-image:#e8674f; --cat-text:#d2954a; --cat-life:#6fbb7f; --cat-finance:#49b0a4;
+  --cat-work:#8098d6; --cat-color:#b487d4; --cat-dev:#6f9cc8; --cat-inst:#d77aa6;
+}
+[data-cat="image"]  { --cat:var(--cat-image); }
+[data-cat="text"]   { --cat:var(--cat-text); }
+[data-cat="life"]   { --cat:var(--cat-life); }
+[data-cat="finance"]{ --cat:var(--cat-finance); }
+[data-cat="work"]   { --cat:var(--cat-work); }
+[data-cat="color"]  { --cat:var(--cat-color); }
+[data-cat="dev"]    { --cat:var(--cat-dev); }
+[data-cat="inst"]   { --cat:var(--cat-inst); }
+
+/* 사이드바: 아이콘 색조 + 호버 액센트 탭도 카테고리 색으로 */
+.side .grp[data-cat] .navlink .ic { color:var(--cat); opacity:1; }
+.side .grp[data-cat] .navlink:hover::before { background:var(--cat); }
+
+/* 홈 카드: 평상시 아이콘 글리프 색조, 호버 시 칩이 카테고리 색으로 채워지고 제목도 같은 색 */
+.grid[data-cat] .card .ic { color:var(--cat); }
+.grid[data-cat] .card:hover .ic { background:var(--cat); color:#fff; }
+.grid[data-cat] .card:hover h3 { color:var(--cat); }
+
 html[data-theme="dark"] .topbar {
   background:rgba(30,30,30,.86);
   border-bottom-color:var(--line);
