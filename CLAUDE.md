@@ -69,7 +69,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 194개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 199개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 재미·운세 → 악기.
@@ -111,7 +111,7 @@ toolbox/
 | pdf-to-image | PDF → 이미지 |
 | pdf-to-text | PDF → 텍스트 추출 |
 
-### 텍스트 · 생성 (28)
+### 텍스트 · 생성 (29)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -121,6 +121,7 @@ toolbox/
 | remove-duplicate-lines | 중복 줄 제거 |
 | sort-lines | 텍스트 줄 정렬 |
 | list-converter | 줄바꿈 ↔ 쉼표 변환기 |
+| instagram-linebreak | 인스타 줄바꿈 |
 | line-numbers | 줄 번호 매기기 |
 | case-converter | 대소문자·표기 변환 |
 | text-reverser | 글자 거꾸로·뒤집기 |
@@ -270,16 +271,20 @@ toolbox/
 | ascii-table | 아스키 코드표·유니코드 변환 |
 | unicode-escape | 유니코드 이스케이프 변환 |
 
-### 재미 · 운세 (13)
+### 재미 · 운세 (17)
 | 슬러그 | 이름 |
 |---|---|
 | mbti-test | MBTI 성격유형 테스트 |
 | egen-teto | 에겐·테토 테스트 |
 | personal-color | 퍼스널컬러 진단 |
+| animal-face | 동물상 테스트 |
 | daily-fortune | 오늘의 운세 |
 | tarot | 타로 카드 뽑기 |
+| dream-interpretation | 꿈해몽 |
 | zodiac-finder | 띠·별자리 찾기 |
 | lunch-menu | 오늘 뭐 먹지 |
+| balance-game | 밸런스 게임 |
+| fake-kakao | 가짜 카톡 생성기 |
 | random-picker | 랜덤 추첨기 |
 | team-generator | 랜덤 팀 나누기 |
 | dice-roller | 주사위·동전 던지기 |
