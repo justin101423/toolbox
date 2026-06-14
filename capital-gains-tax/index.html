@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>양도소득세 계산기 — 부동산 양도차익·세율 간편 계산(참고용) | 도구상자</title>
+<meta name="description" content="양도가액·취득가액·보유기간만 넣으면 양도차익, 장기보유특별공제, 기본공제, 세율로 부동산 양도소득세를 어림 계산하는 무료 계산기. 1세대1주택 비과세 판정 포함. 변수가 많아 참고용이며 모든 계산은 브라우저에서 이뤄집니다.">
+<link rel="canonical" href="https://dogubox.shop/capital-gains-tax/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="양도소득세 계산기 — 부동산 양도차익·세율 간편 계산(참고용) | 도구상자">
+<meta property="og:description" content="양도·취득가액과 보유기간으로 양도차익·장기보유특별공제·세율을 적용해 양도소득세를 어림 계산. 1세대1주택 비과세 판정 포함. 참고용.">
+<meta property="og:url" content="https://dogubox.shop/capital-gains-tax/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="양도소득세 계산기(참고용) | 도구상자">
+<meta name="twitter:description" content="부동산 양도차익·세율로 양도소득세 어림 계산.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "양도소득세 계산기",
+  "description": "양도가액·취득가액·보유기간으로 양도차익, 장기보유특별공제, 기본공제, 세율을 적용해 부동산 양도소득세를 어림 계산하는 무료 계산기. 1세대1주택 비과세 판정을 포함합니다. 변수가 많아 참고용이며 모든 계산은 브라우저에서 이뤄집니다.",
+  "url": "https://dogubox.shop/capital-gains-tax/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "provider": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 양도소득세는 어떻게 계산되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "양도가액에서 취득가액과 필요경비를 뺀 양도차익에, 보유기간에 따른 장기보유특별공제와 연 250만 원의 기본공제를 적용해 과세표준을 구하고, 보유기간별 세율을 곱해 산출세액을 계산합니다. 여기에 지방소득세 10%가 별도로 붙습니다. 2년 이상 보유하면 6~45% 기본세율, 1년 미만 등 단기 보유는 더 높은 세율이 적용됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 1세대 1주택은 양도세가 없나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1세대가 1주택을 2년 이상 보유(조정대상지역은 2년 거주 포함)하고 양도가액이 12억 원 이하이면 비과세입니다. 12억 원을 넘는 고가주택은 12억 초과분에 해당하는 양도차익에만 과세되고 장기보유특별공제도 최대 80%로 더 크게 적용돼, 이 계산기의 일반 계산과는 방식이 다릅니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이 계산 결과를 믿어도 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "양도소득세는 세금 중에서도 변수가 가장 많아 이 계산기는 단순 어림용입니다. 다주택자 중과세, 조정대상지역, 거주요건, 고가주택 과세, 감면·필요경비 인정 범위 등에 따라 실제 세액이 크게 달라집니다. 반드시 홈택스 모의계산이나 세무 전문가의 확인을 받으세요."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "양도소득세 계산기", "item": "https://dogubox.shop/capital-gains-tax/" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+.gt-warn{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.35);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:18px;font-size:12.5px;color:var(--ink-2);line-height:1.65}
+.gt-warn b{color:var(--err)}
+.gt-field{margin-bottom:14px}
+.gt-field label{display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.gt-amt{position:relative}
+.gt-amt input{width:100%;font-family:var(--mono);font-size:19px;font-weight:700;padding:12px 38px 12px 14px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);text-align:right}
+.gt-amt .won{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:14px;font-weight:600}
+.gt-amt .kr{position:absolute;left:14px;bottom:-17px;font-size:11.5px;color:var(--ink-3);font-weight:600}
+.gt-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gt-field select,.gt-num{width:100%;font-size:15px;padding:12px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.gt-num{font-family:var(--mono);font-weight:700;text-align:right}
+.gt-chk{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink-2);margin:8px 0 2px}
+.gt-out{background:var(--card);border:1px solid var(--line-2);border-top:3px solid var(--accent);border-radius:var(--r);padding:18px;margin-top:22px;text-align:center}
+.gt-out .lbl{font-size:13px;color:var(--ink-3);font-weight:600}
+.gt-out .fee{font-family:var(--disp);font-size:clamp(26px,6.5vw,38px);font-weight:800;color:var(--accent);letter-spacing:-.02em;margin:4px 0;word-break:break-all}
+.gt-out.free .fee{color:var(--ok)}
+.gt-lines{margin-top:14px;border-top:1px dashed var(--line-2);padding-top:12px;display:flex;flex-direction:column;gap:7px}
+.gt-line{display:flex;justify-content:space-between;font-size:13.5px}
+.gt-line span:first-child{color:var(--ink-2)}
+.gt-line span:last-child{font-family:var(--mono);font-weight:700;color:var(--ink)}
+.gt-line.minus span:last-child{color:var(--ok)}
+.gt-msg{font-size:13px;color:var(--ink-2);margin-top:10px;line-height:1.6}
+.gt-note{font-size:12.5px;color:var(--ink-3);margin-top:14px;line-height:1.6;background:var(--panel);border-radius:var(--r-sm);padding:11px 13px}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar"><noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript></aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>양도소득세 계산기</h1>
+      <p class="lede">부동산 양도차익에 장기보유특별공제·세율을 적용해 양도소득세를 어림 계산합니다.</p>
+
+      <div class="box">
+        <div class="gt-warn">⚠️ <b>참고용 어림 계산입니다.</b> 양도소득세는 세금 중 변수가 가장 많아 — <b>다주택 중과·조정대상지역·거주요건·고가주택 과세·감면·필요경비 인정범위</b> 등에 따라 실제 세액이 크게 달라집니다. 실제 신고·납부 전에는 반드시 <b>홈택스 모의계산</b>이나 <b>세무 전문가</b>의 확인을 받으세요.</div>
+
+        <div class="gt-field">
+          <label for="sell">양도가액 (판 금액)</label>
+          <div class="gt-amt"><input type="text" inputmode="numeric" id="sell" value="900,000,000"><span class="won">원</span><span class="kr" id="sellKr"></span></div>
+        </div>
+        <div class="gt-field">
+          <label for="buy">취득가액 (산 금액)</label>
+          <div class="gt-amt"><input type="text" inputmode="numeric" id="buy" value="600,000,000"><span class="won">원</span><span class="kr" id="buyKr"></span></div>
+        </div>
+        <div class="gt-field">
+          <label for="cost">필요경비 (취득세·중개보수·수리비 등, 선택)</label>
+          <div class="gt-amt"><input type="text" inputmode="numeric" id="cost" value="0"><span class="won">원</span></div>
+        </div>
+        <div class="gt-row">
+          <div class="gt-field" style="margin:0">
+            <label for="years">보유기간 (년)</label>
+            <input type="number" class="gt-num" id="years" value="5" min="0" step="0.5">
+          </div>
+          <div class="gt-field" style="margin:0">
+            <label for="asset">자산 유형</label>
+            <select id="asset">
+              <option value="house" selected>주택·입주권</option>
+              <option value="land">토지·건물(그 외)</option>
+            </select>
+          </div>
+        </div>
+        <label class="gt-chk"><input type="checkbox" id="one"> 1세대 1주택 · 2년 이상 보유(실거주) — 비과세 판정</label>
+
+        <div class="gt-out" id="outBox">
+          <div class="lbl">예상 양도소득세 (지방세 포함)</div>
+          <div class="fee" id="fee">—</div>
+          <div class="gt-lines" id="lines">
+            <div class="gt-line"><span>양도차익</span><span id="oGain">—</span></div>
+            <div class="gt-line minus"><span>장기보유특별공제</span><span id="oLtd">—</span></div>
+            <div class="gt-line minus"><span>기본공제</span><span id="oBasic">−2,500,000원</span></div>
+            <div class="gt-line"><span>과세표준</span><span id="oBase">—</span></div>
+            <div class="gt-line"><span>적용 세율</span><span id="oRate">—</span></div>
+            <div class="gt-line"><span>산출세액</span><span id="oCalc">—</span></div>
+            <div class="gt-line"><span>지방소득세 10%</span><span id="oLocal">—</span></div>
+          </div>
+          <div class="gt-msg" id="msg" style="display:none"></div>
+        </div>
+
+        <div class="gt-note">※ 장기보유특별공제는 일반(토지·건물·비1세대1주택) 기준 3년 6%~15년 30%로 계산합니다. 1세대1주택 고가주택(12억 초과)·다주택 중과·감면 등은 반영하지 않습니다. 같은 해 여러 건 양도 시 기본공제는 1회만 적용됩니다.</div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>양도가액과 취득가액을 입력합니다. 취득세·중개보수 등은 필요경비에 넣으면 차익이 줄어 세금이 낮아집니다.</li>
+          <li>보유기간과 자산 유형을 고릅니다 — 단기 보유는 더 높은 세율이 적용됩니다.</li>
+          <li>1세대 1주택이면 체크해 비과세 여부를 확인하세요. 양도차익·공제·세율을 반영한 세액이 바로 계산됩니다.</li>
+        </ol>
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>2년은 넘기는 게 유리:</b> 1년 미만·2년 미만 단기 양도는 70%·60%(주택) 같은 높은 세율이라 세금이 크게 늘어납니다.</li>
+          <li><b>장기보유 할인:</b> 오래 보유할수록 장기보유특별공제가 커져(일반 최대 30%) 과세 대상 차익이 줄어듭니다.</li>
+          <li><b>필요경비 챙기기:</b> 취득세, 중개보수, 자본적 지출(샷시·확장 등)은 필요경비로 인정돼 양도차익을 줄여줍니다. 증빙을 보관하세요.</li>
+        </ul>
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 양도소득세는 어떻게 계산되나요?</b><p>양도가액에서 취득가액과 필요경비를 뺀 양도차익에, 보유기간에 따른 장기보유특별공제와 연 250만 원의 기본공제를 적용해 과세표준을 구하고, 보유기간별 세율을 곱해 산출세액을 계산합니다. 여기에 지방소득세 10%가 별도로 붙습니다. 2년 이상 보유하면 6~45% 기본세율, 1년 미만 등 단기 보유는 더 높은 세율이 적용됩니다.</p></div>
+          <div class="qa"><b>Q. 1세대 1주택은 양도세가 없나요?</b><p>1세대가 1주택을 2년 이상 보유(조정대상지역은 2년 거주 포함)하고 양도가액이 12억 원 이하이면 비과세입니다. 12억 원을 넘는 고가주택은 12억 초과분에 해당하는 양도차익에만 과세되고 장기보유특별공제도 최대 80%로 더 크게 적용돼, 이 계산기의 일반 계산과는 방식이 다릅니다.</p></div>
+          <div class="qa"><b>Q. 이 계산 결과를 믿어도 되나요?</b><p>양도소득세는 세금 중에서도 변수가 가장 많아 이 계산기는 단순 어림용입니다. 다주택자 중과세, 조정대상지역, 거주요건, 고가주택 과세, 감면·필요경비 인정 범위 등에 따라 실제 세액이 크게 달라집니다. 반드시 홈택스 모의계산이나 세무 전문가의 확인을 받으세요.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/acquisition-tax/"><b>취득세 계산기</b><span>부동산 취득세·세율</span></a>
+          <a class="rel-card" href="/gift-tax/"><b>증여세 계산기</b><span>증여재산공제·세율</span></a>
+          <a class="rel-card" href="/brokerage-fee/"><b>부동산 중개수수료 계산기</b><span>매매·전세 복비</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id);};
+  function num(s){return parseInt(String(s).replace(/[^0-9]/g,''),10)||0;}
+  function won(n){return Math.round(n).toLocaleString('ko-KR');}
+  function krUnit(n){if(n<=0)return'';var eok=Math.floor(n/100000000),man=Math.floor((n%100000000)/10000);var s='';if(eok)s+=eok+'억';if(man)s+=(s?' ':'')+man.toLocaleString('ko-KR')+'만';return s?s+'원':'';}
+  // 2년 이상 기본세율(종합소득세 8단계)
+  function baseRate(b){
+    if(b<=0)return[0,0];
+    if(b<=14000000)return[0.06,0];
+    if(b<=50000000)return[0.15,1260000];
+    if(b<=88000000)return[0.24,5760000];
+    if(b<=150000000)return[0.35,15440000];
+    if(b<=300000000)return[0.38,19940000];
+    if(b<=500000000)return[0.40,25940000];
+    if(b<=1000000000)return[0.42,35940000];
+    return[0.45,65940000];
+  }
+  function calc(){
+    var sell=num($('sell').value), buy=num($('buy').value), cost=num($('cost').value);
+    var years=parseFloat($('years').value)||0;
+    var asset=$('asset').value;
+    $('sellKr').textContent=krUnit(sell);
+    $('buyKr').textContent=krUnit(buy);
+
+    var box=$('outBox'), msg=$('msg'), lines=$('lines');
+
+    // 1세대 1주택 비과세 판정
+    if($('one').checked){
+      if(sell<=1200000000){
+        box.classList.add('free'); lines.style.display='none'; msg.style.display='';
+        $('fee').textContent='비과세 (0원)';
+        msg.innerHTML='1세대 1주택 · 2년 이상 보유 · 양도가액 12억 이하 → <b>비과세</b>입니다. (조정대상지역은 2년 거주 요건 추가)';
+        return;
+      } else {
+        msg.style.display=''; lines.style.display='';
+        msg.innerHTML='⚠️ 양도가액이 12억을 넘는 <b>고가주택</b>입니다. 12억 초과분만 과세되고 장기보유특별공제도 최대 80%로 달라, 아래 일반 계산과 다릅니다 — 홈택스 확인이 필요합니다.';
+      }
+    } else {
+      msg.style.display='none'; lines.style.display='';
+    }
+    box.classList.remove('free');
+
+    var gain=Math.max(0,sell-buy-cost);   // 양도차익
+    var yrs=Math.floor(years);
+    var ltdRate = yrs>=3 ? Math.min(30,yrs*2)/100 : 0;  // 일반 장기보유특별공제
+    var ltd=gain*ltdRate;
+    var incomeAmt=gain-ltd;                // 양도소득금액
+    var base=Math.max(0,incomeAmt-2500000); // 과세표준(기본공제 250만)
+
+    var rate, prog, rateLabel, tax;
+    if(years<1){ rate=asset==='house'?0.7:0.5; prog=0; rateLabel=(rate*100)+'% (1년 미만 단기)'; tax=base*rate; }
+    else if(years<2){ rate=asset==='house'?0.6:0.4; prog=0; rateLabel=(rate*100)+'% (2년 미만 단기)'; tax=base*rate; }
+    else { var r=baseRate(base); rate=r[0]; prog=r[1]; rateLabel=(rate*100)+'% (기본세율, 누진 '+won(prog)+')'; tax=base*rate-prog; }
+    tax=Math.max(0,tax);
+    var local=tax*0.1;
+    var total=tax+local;
+
+    $('oGain').textContent=won(gain)+'원';
+    $('oLtd').textContent='− '+won(ltd)+'원'+(ltdRate?(' ('+(ltdRate*100)+'%)'):'');
+    $('oBase').textContent=won(base)+'원';
+    $('oRate').textContent=rateLabel;
+    $('oCalc').textContent=won(tax)+'원';
+    $('oLocal').textContent=won(local)+'원';
+    $('fee').textContent=won(total)+'원';
+  }
+  function fmtField(el){var c=num(el.value);el.value=c?c.toLocaleString('ko-KR'):'';}
+  ['sell','buy','cost'].forEach(function(id){
+    $(id).addEventListener('input',function(){var p=this.selectionStart,b=this.value.length;fmtField(this);this.selectionStart=this.selectionEnd=Math.max(0,p+(this.value.length-b));calc();});
+  });
+  $('years').addEventListener('input',calc);
+  $('asset').addEventListener('change',calc);
+  $('one').addEventListener('change',calc);
+  calc();
+})();
+</script>
+</html>

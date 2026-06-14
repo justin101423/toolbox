@@ -138,6 +138,7 @@
       { slug: "gift-tax",        name: "증여세 계산기",      icon: "gift" },
       { slug: "inheritance-tax", name: "상속세 계산기",      icon: "scroll-text" },
       { slug: "comprehensive-income-tax", name: "종합소득세 계산기", icon: "receipt-text" },
+      { slug: "capital-gains-tax", name: "양도소득세 계산기", icon: "building" },
       { slug: "vat-calculator",  name: "부가가치세 계산기",  icon: "receipt" },
       { slug: "discount-calculator", name: "할인가 계산기",  icon: "tag" },
       { slug: "installment-calculator", name: "할부 계산기", icon: "hand-coins" }
@@ -230,6 +231,7 @@
     "gift": '<rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />',
     "scroll-text": '<path d="M15 12h-5" /> <path d="M15 8h-5" /> <path d="M19 17V5a2 2 0 0 0-2-2H4" /> <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />',
     "receipt-text": '<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /> <path d="M14 8H8" /> <path d="M16 12H8" /> <path d="M13 16H8" />',
+    "building": '<rect width="16" height="20" x="4" y="2" rx="2" ry="2" /> <path d="M9 22v-4h6v4" /> <path d="M8 6h.01" /> <path d="M16 6h.01" /> <path d="M12 6h.01" /> <path d="M12 10h.01" /> <path d="M12 14h.01" /> <path d="M16 10h.01" /> <path d="M16 14h.01" /> <path d="M8 10h.01" /> <path d="M8 14h.01" />',
     "image": '<rect width="18" height="18" x="3" y="3" rx="2" ry="2" /> <circle cx="9" cy="9" r="2" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />',
     "shrink": '<path d="m15 15 6 6m-6-6v4.8m0-4.8h4.8" /> <path d="M9 19.8V15m0 0H4.2M9 15l-6 6" /> <path d="M15 4.2V9m0 0h4.8M15 9l6-6" /> <path d="M9 4.2V9m0 0H4.2M9 9 3 3" />',
     "scaling": '<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /> <path d="M14 15H9v-5" /> <path d="M16 3h5v5" /> <path d="M21 3 9 15" />',

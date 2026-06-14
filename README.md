@@ -141,6 +141,7 @@
 - 증여세 계산기 (`/gift-tax/`)
 - 상속세 계산기 (`/inheritance-tax/`)
 - 종합소득세 계산기 (`/comprehensive-income-tax/`)
+- 양도소득세 계산기 (`/capital-gains-tax/`)
 - 부가가치세 계산기 (`/vat-calculator/`)
 - 할인가 계산기 (`/discount-calculator/`)
 - 할부 계산기 (`/installment-calculator/`)
