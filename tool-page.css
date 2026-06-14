@@ -112,4 +112,32 @@ a:focus-visible,button:focus-visible,.navlink:focus-visible{outline:2px solid va
 .rel-card:hover b{color:var(--accent)}
 .qa{transition:border-color .15s}
 .qa:hover{border-color:var(--line-2)}
+
+/* ---- v2 촉각 폴리시 ----
+   홈 카드·rel-card·tool-cta에 이미 쓰인 "인쇄물(리소그래프)" 시그니처
+   ─ 오프셋 그림자 + 살짝 떠오르는 리프트 + 액센트 ─ 를 도구/가이드/about
+   공통 컴포넌트에도 일관 적용해 전 페이지의 결을 통일한다. 모두 가산적이라
+   구형 인라인 CSS 페이지엔 적용 안 돼도 무방하고, 토큰 기반이라 다크모드 자동 대응. */
+
+/* 섹션 라벨 앞에 액센트 사각 불릿(홈 .sec-label과 통일) */
+.sec-label::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--accent);flex:none}
+
+/* 버튼: 호버 시 살짝 떠오르며 오프셋 그림자(브랜드 마크 결), 클릭 시 눌리는 느낌 */
+.btn:hover{transform:translateY(-1px);box-shadow:3px 3px 0 rgba(27,26,30,.13)}
+.btn.accent:hover{box-shadow:3px 3px 0 rgba(223,67,36,.26)}
+.btn.ghost:hover{box-shadow:3px 3px 0 rgba(27,26,30,.07)}
+.btn:active{transform:translateY(0) scale(.985);box-shadow:1px 1px 0 rgba(27,26,30,.12)}
+.btn:disabled,.btn:disabled:hover{transform:none;box-shadow:none}
+
+/* 단계 번호 원: 인쇄물 같은 액센트 오프셋 그림자로 입체감 */
+.steps-list li::before{box-shadow:2px 2px 0 rgba(223,67,36,.2)}
+
+/* FAQ 카드: rel-card와 동일한 리프트 + 오프셋 그림자 */
+.qa{transition:border-color .15s,transform .15s,box-shadow .15s}
+.qa:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:4px 6px 0 rgba(27,26,30,.06)}
+
+/* 빵부스러기(← 모든 도구): 화살표 방향으로 살짝 당겨지는 미세 인터랙션 */
+.crumb{transition:border-color .15s,color .15s,transform .15s}
+.crumb:hover{transform:translateX(-2px)}
+
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}

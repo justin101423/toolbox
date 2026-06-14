@@ -81,6 +81,18 @@ html[data-theme="dark"] .box{box-shadow:0 16px 40px -22px rgba(0,0,0,.7)}
   color:var(--ink-2);
 }
 
+/* 사이드바 항목: 호버/활성 시 좌측에 액센트 탭이 펼쳐지는 미세 인터랙션.
+   사이드바는 sidebar.js가 전 페이지 동일하게 그리므로 여기 한 곳에서 전 페이지 적용. */
+.side .navlink { position:relative; }
+.side .navlink::before {
+  content:""; position:absolute; left:3px; top:50%;
+  width:3px; height:15px; border-radius:3px; background:var(--accent);
+  transform:translateY(-50%) scaleY(0); transform-origin:center;
+  transition:transform .15s ease;
+}
+.side .navlink:hover::before { transform:translateY(-50%) scaleY(1); }
+.side .navlink.active::before { transform:translateY(-50%) scaleY(1); background:var(--paper); }
+
 html[data-theme="dark"] .topbar {
   background:rgba(30,30,30,.86);
   border-bottom-color:var(--line);
