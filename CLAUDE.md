@@ -69,10 +69,10 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 188개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 194개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
-> - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
+> - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 재미·운세 → 악기.
 > - **카테고리 안 도구 순서**: 비슷한 기능끼리 묶고(예: 이미지편집 → 이미지변환·유틸 → PDF, 텍스트편집 → 변환 → 생성기, 계산 → 변환 → 날짜·시간 → 추첨·재미 등), 더 자주 쓰는 핵심 도구를 그 그룹 앞쪽에 둡니다.
 > - 새 도구를 추가할 때는 같은 카테고리의 알맞은 그룹 위치에 끼워 넣고, 위 4곳(sidebar·허브·이 표·README)의 순서를 동일하게 맞춥니다.
 
@@ -143,7 +143,7 @@ toolbox/
 | lorem-ipsum | 로렘 입숨 생성기 |
 | json-formatter | JSON 포매터 |
 
-### 생활 · 편의 (38)
+### 생활 · 편의 (31)
 | 슬러그 | 이름 |
 |---|---|
 | calculator | 계산기 (일반·공학용) |
@@ -163,6 +163,7 @@ toolbox/
 | cooking-converter | 요리 계량 변환기 |
 | age-calculator | 만 나이 계산기 |
 | dday-calculator | D-Day · 날짜 계산 |
+| anniversary | 100일·기념일 계산기 |
 | due-date-calculator | 출산 예정일 계산기 |
 | ovulation-calculator | 배란일·가임기 계산기 |
 | business-days | 근무일수·영업일 계산기 |
@@ -176,14 +177,6 @@ toolbox/
 | exercise-calories | 운동 칼로리 소모 계산기 |
 | gpa-calculator | 학점·GPA 계산기 |
 | typing-speed | 타자 속도 측정 |
-| zodiac-finder | 띠·별자리 찾기 |
-| mbti-test | MBTI 성격유형 테스트 |
-| random-picker | 랜덤 추첨기 |
-| team-generator | 랜덤 팀 나누기 |
-| dice-roller | 주사위·동전 던지기 |
-| spinner-wheel | 돌림판 추첨 (룰렛) |
-| ladder-game | 사다리타기 |
-| lotto-generator | 로또 번호 생성 |
 
 ### 금융 (25)
 | 슬러그 | 이름 |
@@ -277,6 +270,23 @@ toolbox/
 | ascii-table | 아스키 코드표·유니코드 변환 |
 | unicode-escape | 유니코드 이스케이프 변환 |
 
+### 재미 · 운세 (13)
+| 슬러그 | 이름 |
+|---|---|
+| mbti-test | MBTI 성격유형 테스트 |
+| egen-teto | 에겐·테토 테스트 |
+| personal-color | 퍼스널컬러 진단 |
+| daily-fortune | 오늘의 운세 |
+| tarot | 타로 카드 뽑기 |
+| zodiac-finder | 띠·별자리 찾기 |
+| lunch-menu | 오늘 뭐 먹지 |
+| random-picker | 랜덤 추첨기 |
+| team-generator | 랜덤 팀 나누기 |
+| dice-roller | 주사위·동전 던지기 |
+| spinner-wheel | 돌림판 추첨 (룰렛) |
+| ladder-game | 사다리타기 |
+| lotto-generator | 로또 번호 생성 |
+
 ### 악기 (15)
 | 슬러그 | 이름 |
 |---|---|
@@ -327,7 +337,7 @@ toolbox/
 
 ### 상단바 / 사이드바 / 푸터
 - **상단바(.topbar)**: 브랜드 로고(`.brand`, `href="/"`), 다크모드 토글 버튼(`#darkModeToggle`), 모바일 메뉴 버튼
-- **좌측 사이드바(.side)**: 카테고리(`이미지·PDF / 텍스트·생성 / 색상·디자인 / 생활·편의 / 직장인·생산성 / 개발자 도구 / 악기`)별로 **전체 도구 링크**를 나열. **★ 사이드바는 더 이상 각 페이지에 하드코딩하지 않습니다.** 모든 페이지는 빈 컨테이너 `<aside class="side" id="sidebar">`(JS 비활성 대비 `<noscript>` "모든 도구" 폴백 포함)만 두고, 공통 스크립트 **`/sidebar.js`** 가 자신의 도구 목록 데이터 배열로부터 사이드바 HTML을 생성해 채웁니다. **전체 도구 목록의 단일 출처(source of truth)는 `sidebar.js`의 `CATEGORIES` 배열**입니다. **현재 페이지의 active 처리**는 `sidebar.js`가 경로(슬러그)로 자동 판별하므로 페이지마다 따로 표시하지 않습니다(`/sidebar.js`와 `<script src="/sidebar.js">`는 각 페이지에 포함).
+- **좌측 사이드바(.side)**: 카테고리(`이미지·PDF / 텍스트·생성 / 생활·편의 / 금융 / 직장인·생산성 / 색상·디자인 / 개발자 도구 / 재미·운세 / 악기`)별로 **전체 도구 링크**를 나열. **★ 사이드바는 더 이상 각 페이지에 하드코딩하지 않습니다.** 모든 페이지는 빈 컨테이너 `<aside class="side" id="sidebar">`(JS 비활성 대비 `<noscript>` "모든 도구" 폴백 포함)만 두고, 공통 스크립트 **`/sidebar.js`** 가 자신의 도구 목록 데이터 배열로부터 사이드바 HTML을 생성해 채웁니다. **전체 도구 목록의 단일 출처(source of truth)는 `sidebar.js`의 `CATEGORIES` 배열**입니다. **현재 페이지의 active 처리**는 `sidebar.js`가 경로(슬러그)로 자동 판별하므로 페이지마다 따로 표시하지 않습니다(`/sidebar.js`와 `<script src="/sidebar.js">`는 각 페이지에 포함).
 - 본문 상단 `← 모든 도구` 링크(`.crumb`)는 `/` 로 연결
 - **푸터**: `/guide/`(가이드) · `/about.html`(소개) · `/about.html#faq`(자주 묻는 질문) · `/about.html#contact`(문의) · `/privacy.html`(개인정보처리방침) · `/terms.html`(이용약관)
 
@@ -406,4 +416,4 @@ toolbox/
 - **홈 "인기 도구" 피처링 행 — 완료(2026-06-14).** 히어로 아래(첫 카테고리 위) `<section class="featured" id="featured">`에 가로형 카드 6개(`.feat-card`, data-cat로 카테고리 색조·호버 시 칩 채움). ★`.grid .card`가 아니라 `.feat-card`이므로 **도구 개수 카운트·검색 카드 집합에 포함되지 않음**(중복 도구를 피처링해도 총계 안 늘어남). 검색 중에는 홈 스크립트가 `#featured`를 숨김. 피처링 도구를 바꾸려면 이 섹션의 6개 `<a>`만 교체.
 - **소개글·홈 통계 개수 동기화 — 완료(2026-06-14).** about.html 본문(도구 수·카테고리 수·가이드 수)과 홈 히어로 통계(`#ha-tools`·`#ha-guides`)를 `window.DGB_TOOLS`(toolCount·catCount는 CATEGORIES 자동 산출, guideCount는 sidebar.js의 GUIDE_COUNT 상수)에서 채워 드리프트 방지. SEO 메타/og/JSON-LD의 정적 숫자도 현재값(176/162)으로 갱신.
 - **v2 촉각 폴리시 — 작업대 작업 이후 전 페이지 결 통일(frontend-design 플러그인 기념, 2026-06-14).** 홈 카드·rel-card·tool-cta에 이미 쓰이던 "인쇄물(리소그래프)" 시그니처(오프셋 그림자+리프트+액센트)를 공통 컴포넌트에도 일관 적용. **적용 완료**: `tool-page.css` 폴리시 — `.sec-label` 앞 액센트 사각 불릿, `.btn` 호버 리프트+오프셋 그림자(`.active`는 눌림), `.steps-list` 번호 원 오프셋 그림자, `.qa`(FAQ) 호버 리프트+그림자, `.crumb` 화살표 방향 nudge; `theme.css` 글로벌 — 사이드바 `.navlink` 좌측 액센트 탭(hover=액센트/active=`--paper`, 전 페이지 적용). 모두 가산적·토큰 기반(다크 자동 대응), reduced-motion 가드 안. 라이트/다크 헤드리스 렌더 검증 완료. (작업대 디자인은 이 패스에서 제외 — 이미 별도 다듬음.)
-- **카테고리별 아이콘 색조 차별화 — 완료(2026-06-14).** 8개 카테고리에 "밤의 종이" 팔레트와 어울리는 고유 색조를 부여(사이드바 아이콘 + 홈 카드 아이콘; 홈 카드는 호버 시 칩이 카테고리 색으로 채워지고 제목도 동색). 구조: ① `sidebar.js`의 각 `CATEGORIES` 항목에 `key`(image/text/life/finance/work/color/dev/inst) → `render()`가 사이드바 `.grp`에 `data-cat` 부여, ② `index.html`의 홈 8개 `.grid`에 같은 `data-cat`, ③ `theme.css`가 `--cat-<key>` 색 변수(라이트 + 다크 한 톤 밝게)를 정의하고 `[data-cat=<key>]{--cat:…}`로 매핑한 뒤 `.side .grp[data-cat] .navlink .ic`·`.grid[data-cat] .card .ic`가 `var(--cat)` 참조. **카테고리 색조 적용 범위**(2026-06-14 확장): 사이드바·홈 카드 외에 **홈 인기 도구 행(`.feat-card[data-cat]`)·가이드 허브 카드(`.guide-grid[data-cat]` → `.gi-cat`)·작업대 도구 선택 창(`.wb-pop-grp[data-cat] .wb-pop-ic`)·작업대 빈 칸 칩(`.wb-chip[data-cat]`)·작업대 칸 헤더 아이콘(`.wb-pane[data-cat] .wb-pane-ic`)**에도 적용. 전부 theme.css의 `[data-cat]{--cat:…}` 전역 매핑 + `var(--cat)` 참조 한 시스템. **새 카테고리 추가 시**: sidebar.js에 `key` + theme.css에 `--cat-<key>`(라이트/다크) 색 + `[data-cat=<key>]` 매핑 + 홈 `.grid`에 `data-cat`를 함께 추가해야 색조가 적용됨.
+- **카테고리별 아이콘 색조 차별화 — 완료(2026-06-14).** 9개 카테고리에 "밤의 종이" 팔레트와 어울리는 고유 색조를 부여(사이드바 아이콘 + 홈 카드 아이콘; 홈 카드는 호버 시 칩이 카테고리 색으로 채워지고 제목도 동색). 구조: ① `sidebar.js`의 각 `CATEGORIES` 항목에 `key`(image/text/life/finance/work/color/dev/**fun**/inst) → `render()`가 사이드바 `.grp`에 `data-cat` 부여, ② `index.html`의 홈 9개 `.grid`에 같은 `data-cat`, ③ `theme.css`가 `--cat-<key>` 색 변수(라이트 + 다크 한 톤 밝게)를 정의하고 `[data-cat=<key>]{--cat:…}`로 매핑한 뒤 `.side .grp[data-cat] .navlink .ic`·`.grid[data-cat] .card .ic`가 `var(--cat)` 참조. **카테고리 색조 적용 범위**(2026-06-14 확장): 사이드바·홈 카드 외에 **홈 인기 도구 행(`.feat-card[data-cat]`)·가이드 허브 카드(`.guide-grid[data-cat]` → `.gi-cat`)·작업대 도구 선택 창(`.wb-pop-grp[data-cat] .wb-pop-ic`)·작업대 빈 칸 칩(`.wb-chip[data-cat]`)·작업대 칸 헤더 아이콘(`.wb-pane[data-cat] .wb-pane-ic`)**에도 적용. 전부 theme.css의 `[data-cat]{--cat:…}` 전역 매핑 + `var(--cat)` 참조 한 시스템. **새 카테고리 추가 시**: sidebar.js에 `key` + theme.css에 `--cat-<key>`(라이트/다크) 색 + `[data-cat=<key>]` 매핑 + 홈 `.grid`에 `data-cat`를 함께 추가해야 색조가 적용됨.

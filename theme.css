@@ -101,10 +101,12 @@ html[data-theme="dark"] .box{box-shadow:0 16px 40px -22px rgba(0,0,0,.7)}
 :root {
   --cat-image:#cf4f3e; --cat-text:#b1742a; --cat-life:#4f9a5e; --cat-finance:#2f8f86;
   --cat-work:#5a78c4; --cat-color:#9a62bd; --cat-dev:#4878a6; --cat-inst:#c1568c;
+  --cat-fun:#d6479b;
 }
 html[data-theme="dark"] {
   --cat-image:#e8674f; --cat-text:#d2954a; --cat-life:#6fbb7f; --cat-finance:#49b0a4;
   --cat-work:#8098d6; --cat-color:#b487d4; --cat-dev:#6f9cc8; --cat-inst:#d77aa6;
+  --cat-fun:#ec74b8;
 }
 [data-cat="image"]  { --cat:var(--cat-image); }
 [data-cat="text"]   { --cat:var(--cat-text); }
@@ -113,6 +115,7 @@ html[data-theme="dark"] {
 [data-cat="work"]   { --cat:var(--cat-work); }
 [data-cat="color"]  { --cat:var(--cat-color); }
 [data-cat="dev"]    { --cat:var(--cat-dev); }
+[data-cat="fun"]    { --cat:var(--cat-fun); }
 [data-cat="inst"]   { --cat:var(--cat-inst); }
 
 /* 사이드바: 아이콘 색조 + 호버 액센트 탭도 카테고리 색으로 */

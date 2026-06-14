@@ -97,6 +97,7 @@
       { slug: "cooking-converter", name: "요리 계량 변환기", icon: "utensils" },
       { slug: "age-calculator",  name: "만 나이 계산기",    icon: "cake" },
       { slug: "dday-calculator", name: "D-Day · 날짜 계산", icon: "calendar-days" },
+      { slug: "anniversary",     name: "100일·기념일 계산기", icon: "calendar-heart" },
       { slug: "due-date-calculator", name: "출산 예정일 계산기", icon: "baby" },
       { slug: "ovulation-calculator", name: "배란일·가임기 계산기", icon: "heart" },
       { slug: "business-days",   name: "근무일수·영업일 계산기", icon: "calendar-check" },
@@ -109,15 +110,7 @@
       { slug: "calorie-calculator", name: "기초대사량·칼로리 계산기", icon: "flame" },
       { slug: "exercise-calories", name: "운동 칼로리 소모 계산기", icon: "dumbbell" },
       { slug: "gpa-calculator",  name: "학점·GPA 계산기",   icon: "graduation-cap" },
-      { slug: "typing-speed",    name: "타자 속도 측정",    icon: "keyboard" },
-      { slug: "zodiac-finder",   name: "띠·별자리 찾기",    icon: "sparkles" },
-      { slug: "mbti-test",       name: "MBTI 성격유형 테스트", icon: "brain" },
-      { slug: "random-picker",   name: "랜덤 추첨기",       icon: "dices" },
-      { slug: "team-generator",  name: "랜덤 팀 나누기",   icon: "users" },
-      { slug: "dice-roller",     name: "주사위·동전 던지기", icon: "dice-6" },
-      { slug: "spinner-wheel",   name: "돌림판 추첨",       icon: "pie-chart" },
-      { slug: "ladder-game",     name: "사다리타기",        icon: "ladder" },
-      { slug: "lotto-generator", name: "로또 번호 생성",    icon: "ticket" }
+      { slug: "typing-speed",    name: "타자 속도 측정",    icon: "keyboard" }
     ]},
     { label: "금융", key: "finance", tools: [
       { slug: "salary-calculator", name: "연봉 실수령액 계산기", icon: "wallet" },
@@ -203,6 +196,21 @@
       { slug: "ascii-table",      name: "아스키 코드표",   icon: "table-2" },
       { slug: "unicode-escape",   name: "유니코드 이스케이프", icon: "code-2" }
     ]},
+    { label: "재미 · 운세", key: "fun", tools: [
+      { slug: "mbti-test",       name: "MBTI 성격유형 테스트", icon: "brain" },
+      { slug: "egen-teto",       name: "에겐·테토 테스트",   icon: "venetian-mask" },
+      { slug: "personal-color",  name: "퍼스널컬러 진단",    icon: "palette" },
+      { slug: "daily-fortune",   name: "오늘의 운세",        icon: "star" },
+      { slug: "tarot",           name: "타로 카드 뽑기",     icon: "spade" },
+      { slug: "zodiac-finder",   name: "띠·별자리 찾기",    icon: "sparkles" },
+      { slug: "lunch-menu",      name: "오늘 뭐 먹지",       icon: "utensils-crossed" },
+      { slug: "random-picker",   name: "랜덤 추첨기",       icon: "dices" },
+      { slug: "team-generator",  name: "랜덤 팀 나누기",   icon: "users" },
+      { slug: "dice-roller",     name: "주사위·동전 던지기", icon: "dice-6" },
+      { slug: "spinner-wheel",   name: "돌림판 추첨",       icon: "pie-chart" },
+      { slug: "ladder-game",     name: "사다리타기",        icon: "ladder" },
+      { slug: "lotto-generator", name: "로또 번호 생성",    icon: "ticket" }
+    ]},
     { label: "악기", key: "inst", tools: [
       { slug: "piano",    name: "피아노",    icon: "piano" },
       { slug: "synth",     name: "신디사이저", icon: "sliders" },
@@ -239,6 +247,11 @@
     "mail": '<rect width="20" height="16" x="2" y="4" rx="2" /> <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />',
     "pentagon": '<path d="M10.83 2.38a2 2 0 0 1 2.34 0l8 5.74a2 2 0 0 1 .73 2.25l-3.04 9.26a2 2 0 0 1-1.9 1.37H7.04a2 2 0 0 1-1.9-1.37L2.1 10.37a2 2 0 0 1 .73-2.25z" />',
     "brain": '<path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" />',
+    "venetian-mask": '<path d="M18 11c-1.5 0-2.5.5-3 2" /> <path d="M4 6a2 2 0 0 0-2 2v4a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V8a2 2 0 0 0-2-2h-3a8 8 0 0 0-5 2 8 8 0 0 0-5-2z" /> <path d="M6 11c1.5 0 2.5.5 3 2" />',
+    "star": '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />',
+    "spade": '<path d="M5 9c-1.5 1.5-3 3.2-3 5.5A5.5 5.5 0 0 0 7.5 20c1.8 0 3-.5 4.5-2 1.5 1.5 2.7 2 4.5 2a5.5 5.5 0 0 0 5.5-5.5c0-2.3-1.5-4-3-5.5l-7-7-7 7Z" /> <path d="M12 18v4" />',
+    "utensils-crossed": '<path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8" /> <path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7" /> <path d="m2.1 21.8 6.4-6.3" /> <path d="m19 5-7 7" />',
+    "calendar-heart": '<path d="M16 2v4" /> <path d="M8 2v4" /> <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7" /> <path d="M3 10h18" /> <path d="M21.29 14.7a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-2.65-.53c-.3.12-.56.3-.79.53-.95.94-1 2.53.2 3.74L17.5 22l3.6-3.55c1.2-1.21 1.14-2.8.19-3.74Z" />',
     "scroll-text": '<path d="M15 12h-5" /> <path d="M15 8h-5" /> <path d="M19 17V5a2 2 0 0 0-2-2H4" /> <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />',
     "receipt-text": '<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /> <path d="M14 8H8" /> <path d="M16 12H8" /> <path d="M13 16H8" />',
     "building": '<rect width="16" height="20" x="4" y="2" rx="2" ry="2" /> <path d="M9 22v-4h6v4" /> <path d="M8 6h.01" /> <path d="M16 6h.01" /> <path d="M12 6h.01" /> <path d="M12 10h.01" /> <path d="M12 14h.01" /> <path d="M16 10h.01" /> <path d="M16 14h.01" /> <path d="M8 10h.01" /> <path d="M8 14h.01" />',

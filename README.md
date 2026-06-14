@@ -100,6 +100,7 @@
 - 요리 계량 변환기 (`/cooking-converter/`)
 - 만 나이 계산기 (`/age-calculator/`)
 - D-Day · 날짜 계산 (`/dday-calculator/`)
+- 100일·기념일 계산기 (`/anniversary/`)
 - 출산 예정일 계산기 (`/due-date-calculator/`)
 - 배란일·가임기 계산기 (`/ovulation-calculator/`)
 - 근무일수·영업일 계산기 (`/business-days/`)
@@ -113,14 +114,6 @@
 - 운동 칼로리 소모 계산기 (`/exercise-calories/`)
 - 학점·GPA 계산기 (`/gpa-calculator/`)
 - 타자 속도 측정 (`/typing-speed/`)
-- 띠·별자리 찾기 (`/zodiac-finder/`)
-- MBTI 성격유형 테스트 (`/mbti-test/`)
-- 랜덤 추첨기 (`/random-picker/`)
-- 랜덤 팀 나누기 (`/team-generator/`)
-- 주사위·동전 던지기 (`/dice-roller/`)
-- 돌림판 추첨 (룰렛) (`/spinner-wheel/`)
-- 사다리타기 (`/ladder-game/`)
-- 로또 번호 생성 (`/lotto-generator/`)
 
 ### 금융
 - 연봉 실수령액 계산기 (`/salary-calculator/`)
@@ -205,6 +198,22 @@
 - HTTP 상태 코드 치트시트 (`/http-status-codes/`)
 - 아스키 코드표·유니코드 변환 (`/ascii-table/`)
 - 유니코드 이스케이프 변환 (`/unicode-escape/`)
+
+### 재미 · 운세
+
+- MBTI 성격유형 테스트 (`/mbti-test/`)
+- 에겐·테토 테스트 (`/egen-teto/`)
+- 퍼스널컬러 진단 (`/personal-color/`)
+- 오늘의 운세 (`/daily-fortune/`)
+- 타로 카드 뽑기 (`/tarot/`)
+- 띠·별자리 찾기 (`/zodiac-finder/`)
+- 오늘 뭐 먹지 (`/lunch-menu/`)
+- 랜덤 추첨기 (`/random-picker/`)
+- 랜덤 팀 나누기 (`/team-generator/`)
+- 주사위·동전 던지기 (`/dice-roller/`)
+- 돌림판 추첨 (룰렛) (`/spinner-wheel/`)
+- 사다리타기 (`/ladder-game/`)
+- 로또 번호 생성 (`/lotto-generator/`)
 
 ### 악기
 - 피아노 (`/piano/`)
