@@ -2,21 +2,24 @@
    작업대(워크벤치) 스타일 — workbench.js 와 한 쌍.
    홈 화면(index.html) 위에 오버레이로 떠서 도구를 여러 칸 나란히 사용한다.
    베타: 2칸. 구조는 N칸으로 일반화되어 있어 나중에 한도만 올리면 확장된다.
-   디자인 토큰(--paper/--card/--ink/--accent/--line ...)은 홈/테마에서 상속.
+   디자인 토큰(--paper/--card/--ink/--accent/--line/--disp/--mono ...)은 홈/테마 상속.
+   "밤의 종이" 무드 안에서 결을 유지하되, 등장 모션·빈 칸 런처·종이 텍스처·
+   촉각적 분할 손잡이로 완성도를 끌어올린다.
    =========================================================================== */
 
 /* ── 상단바의 "작업대" 토글 버튼 ───────────────────────────────────────── */
 .wb-btn {
   display:inline-flex; align-items:center; gap:7px;
-  height:36px; padding:0 13px;
+  height:36px; padding:0 14px;
   border:1px solid var(--line-2); border-radius:9px;
   background:var(--card); color:var(--ink);
   font-family:var(--kr); font-size:13.5px; font-weight:600; line-height:1;
-  transition:background .15s, border-color .15s, transform .12s;
+  box-shadow:2px 2px 0 rgba(27,26,30,.05);
+  transition:background .15s, border-color .15s, transform .12s, box-shadow .15s;
 }
-.wb-btn svg { width:16px; height:16px; }
-.wb-btn:hover { background:var(--panel); border-color:var(--ink); }
-.wb-btn:active { transform:scale(.97); }
+.wb-btn svg { width:16px; height:16px; color:var(--accent); }
+.wb-btn:hover { background:var(--panel); border-color:var(--ink); transform:translate(-1px,-1px); box-shadow:3px 3px 0 rgba(223,67,36,.18); }
+.wb-btn:active { transform:translate(0,0); box-shadow:1px 1px 0 rgba(27,26,30,.08); }
 
 /* ── 오버레이 ─────────────────────────────────────────────────────────── */
 html.wb-lock { overflow:hidden; }
@@ -24,21 +27,40 @@ html.wb-lock { overflow:hidden; }
 .wb-overlay {
   position:fixed; inset:0; z-index:200;
   display:none; flex-direction:column;
-  background:var(--paper);
+  /* 상단 액센트 글로우 + 종이 바탕 — 단색 대신 깊이감 */
+  background:
+    radial-gradient(135% 75% at 50% -18%, rgba(223,67,36,.055), transparent 58%),
+    var(--paper);
 }
-.wb-overlay.open { display:flex; animation:wb-fade .18s ease both; }
+/* 종이 노이즈 텍스처(홈 body::before와 동일 결) */
+.wb-overlay::before {
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:0; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wb-overlay.open { display:flex; animation:wb-fade .2s ease both; }
 @keyframes wb-fade { from { opacity:0; } to { opacity:1; } }
 
 /* ── 상단 바(타이틀 · 칸 추가 · 닫기) ─────────────────────────────────── */
 .wb-bar {
+  position:relative; z-index:2;
   display:flex; align-items:center; gap:12px; flex-wrap:wrap;
   padding:11px clamp(14px,3vw,24px);
-  border-bottom:1px solid var(--line); background:var(--panel);
+  border-bottom:1px solid var(--line);
+  background:rgba(235,228,213,.72); backdrop-filter:saturate(140%) blur(8px);
 }
+html[data-theme="dark"] .wb-bar { background:rgba(44,40,35,.72); }
+.wb-overlay.open .wb-bar { animation:wb-slidedown .34s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes wb-slidedown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:none; } }
+
 .wb-title {
-  display:flex; align-items:center; gap:8px;
+  display:flex; align-items:center; gap:9px;
   font-family:var(--disp); font-weight:800; font-size:18px; letter-spacing:-.02em;
 }
+.wb-title-mark {
+  display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px;
+  background:var(--ink); color:var(--paper); box-shadow:2px 2px 0 var(--accent);
+}
+.wb-title-mark svg { width:16px; height:16px; }
 .wb-beta {
   font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.1em;
   color:#fff; background:var(--accent); border-radius:5px; padding:3px 6px;
@@ -46,36 +68,53 @@ html.wb-lock { overflow:hidden; }
 .wb-hint { font-size:13px; color:var(--ink-3); }
 .wb-bar-sp { flex:1; }
 .wb-add, .wb-close {
-  height:34px; padding:0 13px;
+  height:34px; padding:0 14px;
   border:1px solid var(--line-2); border-radius:8px;
   background:var(--card); color:var(--ink);
   font-family:var(--kr); font-size:13px; font-weight:600;
-  transition:background .15s, border-color .15s, opacity .15s;
+  transition:background .15s, border-color .15s, color .15s, transform .12s, opacity .15s;
 }
-.wb-add:hover:not(:disabled), .wb-close:hover { background:var(--panel); border-color:var(--ink); }
+.wb-add:hover:not(:disabled) { background:var(--panel); border-color:var(--ink); transform:translateY(-1px); }
 .wb-add:disabled { opacity:.4; cursor:not-allowed; }
 .wb-close { background:transparent; }
+.wb-close:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-1px); }
 
 /* ── 분할 영역 ───────────────────────────────────────────────────────── */
-.wb-row { flex:1; display:flex; min-height:0; overflow:hidden; }
+.wb-row { position:relative; z-index:1; flex:1; display:flex; min-height:0; overflow:hidden; }
 .wb-pane {
   flex:1 1 0; min-width:0; min-height:0;
   display:flex; flex-direction:column; background:var(--paper);
 }
+/* 등장: 칸이 살짝 떠오르며 나타남(첫 칸 → 둘째 칸 순서로) */
+.wb-overlay.open .wb-pane { animation:wb-rise .44s cubic-bezier(.2,.7,.2,1) both; }
+.wb-overlay.open .wb-pane:nth-child(1) { animation-delay:.05s; }
+.wb-overlay.open .wb-pane:nth-child(3) { animation-delay:.13s; }
+.wb-overlay.open .wb-pane:nth-child(5) { animation-delay:.21s; }
+@keyframes wb-rise { from { opacity:0; transform:translateY(16px) scale(.985); } to { opacity:1; transform:none; } }
 
 .wb-pane-head {
   display:flex; align-items:center; gap:8px;
   padding:8px 10px; border-bottom:1px solid var(--line); background:var(--card);
 }
-.wb-pane-ic { display:inline-flex; flex:0 0 auto; color:var(--accent); }
-.wb-pane-ic svg { width:18px; height:18px; display:block; }
+/* 도구 아이콘 — 액센트 틴트 칩 */
+.wb-pane-ic {
+  display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;
+  width:30px; height:30px; border-radius:8px;
+  background:rgba(223,67,36,.12); color:var(--accent);
+}
+.wb-pane-ic svg { width:17px; height:17px; display:block; }
 .wb-pane-ic:empty { display:none; }
+.wb-pane-ic.pop { animation:wb-pop .32s cubic-bezier(.2,.8,.2,1); }
+@keyframes wb-pop { 0% { transform:scale(.55); opacity:0; } 60% { transform:scale(1.12); } 100% { transform:scale(1); opacity:1; } }
+
 .wb-select {
   flex:1; min-width:0; height:34px; padding:0 8px;
   border:1px solid var(--line-2); border-radius:8px;
   background:var(--paper); color:var(--ink);
   font-family:var(--kr); font-size:13.5px; font-weight:600; cursor:pointer;
+  transition:border-color .15s, box-shadow .15s;
 }
+.wb-select:hover { border-color:var(--ink); }
 .wb-select:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(223,67,36,.13); }
 .wb-open, .wb-close-pane {
   display:inline-flex; align-items:center; justify-content:center;
@@ -84,18 +123,53 @@ html.wb-lock { overflow:hidden; }
   background:var(--paper); color:var(--ink-2);
   font-size:14px; line-height:1; transition:.15s;
 }
-.wb-open:hover, .wb-close-pane:hover { border-color:var(--ink); color:var(--ink); }
+.wb-open:hover { border-color:var(--ink); color:var(--ink); }
+.wb-close-pane:hover { border-color:var(--accent); color:var(--accent); }
 
 .wb-pane-body { position:relative; flex:1; min-height:0; background:var(--paper); }
 .wb-frame {
   position:absolute; inset:0; width:100%; height:100%;
-  border:0; opacity:0; transition:opacity .2s;
+  border:0; opacity:0; transition:opacity .25s ease;
 }
+
+/* ── 빈 칸 런처(추천 도구로 바로 시작) ───────────────────────────────── */
 .wb-empty {
   position:absolute; inset:0; display:grid; place-items:center;
-  padding:24px; text-align:center; color:var(--ink-3); font-size:14px; line-height:1.6;
+  padding:24px; overflow:auto;
 }
-.wb-empty svg { width:30px; height:30px; margin:0 auto 10px; color:var(--ink-3); display:block; }
+.wb-empty-card {
+  width:100%; max-width:300px; text-align:center;
+  animation:wb-emptyin .5s .1s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes wb-emptyin { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+.wb-empty-ic {
+  width:52px; height:52px; margin:0 auto 14px;
+  display:grid; place-items:center; border-radius:14px;
+  background:var(--card); border:1px solid var(--line);
+  color:var(--accent); box-shadow:0 10px 26px -16px rgba(27,26,30,.4);
+}
+.wb-empty-ic svg { width:26px; height:26px; }
+.wb-empty-kick {
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--accent); font-weight:700; margin-bottom:6px;
+}
+.wb-empty-title {
+  font-family:var(--disp); font-weight:800; font-size:19px; letter-spacing:-.02em; color:var(--ink);
+}
+.wb-empty-sub { font-size:13px; color:var(--ink-3); line-height:1.6; margin-top:7px; }
+.wb-suggest { display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-top:16px; }
+.wb-chip {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:7px 11px 7px 9px; border-radius:100px;
+  border:1px solid var(--line-2); background:var(--card); color:var(--ink-2);
+  font-family:var(--kr); font-size:12.5px; font-weight:600;
+  transition:border-color .15s, color .15s, background .15s, transform .12s;
+}
+.wb-chip-ic { display:inline-flex; color:var(--accent); }
+.wb-chip-ic svg { width:14px; height:14px; display:block; }
+.wb-chip:hover { border-color:var(--accent); color:var(--ink); background:var(--paper); transform:translateY(-1px); }
+
+/* ── 로딩 스피너 ─────────────────────────────────────────────────────── */
 .wb-spin {
   position:absolute; top:50%; left:50%; width:28px; height:28px; margin:-14px 0 0 -14px;
   border:3px solid var(--line-2); border-top-color:var(--accent); border-radius:50%;
@@ -106,16 +180,16 @@ html.wb-lock { overflow:hidden; }
 
 /* ── 칸 사이 드래그 손잡이 ───────────────────────────────────────────── */
 .wb-divider {
-  flex:0 0 8px; position:relative; cursor:col-resize;
+  flex:0 0 9px; position:relative; cursor:col-resize; z-index:1;
   background:var(--line); transition:background .15s;
 }
-.wb-divider::before { /* 손잡이 점 3개 */
+.wb-divider::before { /* 손잡이 그립 */
   content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:3px; height:26px; border-radius:3px;
-  background:var(--line-2);
+  width:3px; height:30px; border-radius:3px; background:var(--line-2);
+  transition:height .15s, background .15s;
 }
 .wb-divider:hover { background:var(--accent); }
-.wb-divider:hover::before { background:#fff; }
+.wb-divider:hover::before { height:44px; background:#fff; }
 body.wb-resizing { cursor:col-resize; user-select:none; }
 body.wb-resizing iframe { pointer-events:none; }
 

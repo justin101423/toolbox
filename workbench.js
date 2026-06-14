@@ -21,7 +21,11 @@
 
   var overlay = null, paneRow = null, addBtn = null;
   var paneCount = 0;
-  var optsCache = null;
+  var optsCache = null, suggestCache = null;
+
+  // 빈 칸에서 바로 시작할 수 있는 "자주 쓰는 도구" 추천(런처 칩). 슬러그만 두고
+  // 이름·아이콘은 DGB_TOOLS(단일 출처)에서 조회한다.
+  var SUGGESTED = ["word-counter", "qr-code", "color-picker", "json-formatter", "calculator", "unit-converter"];
 
   // ── 데이터 헬퍼(단일 출처 = sidebar.js) ────────────────────────────────
   function cats() { return (window.DGB_TOOLS && window.DGB_TOOLS.categories) || []; }
@@ -69,6 +73,20 @@
     return h;
   }
 
+  // 빈 칸 런처용 추천 도구 칩(아이콘 + 이름). 한 번만 만들어 재사용.
+  function suggestHtml() {
+    if (suggestCache !== null) return suggestCache;
+    var h = "";
+    SUGGESTED.forEach(function (slug) {
+      var t = findTool(slug);
+      if (!t) return;
+      h += '<button type="button" class="wb-chip" data-slug="' + esc(slug) + '">' +
+           '<span class="wb-chip-ic">' + iconHtml(t.icon) + "</span>" + esc(t.name) + "</button>";
+    });
+    suggestCache = h;
+    return h;
+  }
+
   // ── 한 칸(pane) 동작 ───────────────────────────────────────────────────
   function loadTool(pane, slug) {
     var frame = pane.querySelector(".wb-frame");
@@ -76,8 +94,10 @@
     pane.dataset.slug = slug || "";
     var t = findTool(slug);
 
-    // 헤더 아이콘 · 새 탭 링크 갱신
-    pane.querySelector(".wb-pane-ic").innerHTML = t ? iconHtml(t.icon) : "";
+    // 헤더 아이콘(전환 시 살짝 팝) · 새 탭 링크 갱신
+    var icEl = pane.querySelector(".wb-pane-ic");
+    icEl.innerHTML = t ? iconHtml(t.icon) : "";
+    if (t) { icEl.classList.remove("pop"); void icEl.offsetWidth; icEl.classList.add("pop"); }
     var open = pane.querySelector(".wb-open");
     if (slug) { open.href = "/" + slug + "/"; open.style.display = ""; }
     else { open.removeAttribute("href"); open.style.display = "none"; }
@@ -108,9 +128,12 @@
         '<button class="wb-close-pane" type="button" title="이 칸 닫기" aria-label="이 칸 닫기">✕</button>' +
       "</div>" +
       '<div class="wb-pane-body">' +
-        '<div class="wb-empty"><div>' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg>' +
-          "위에서 도구를 선택하세요" +
+        '<div class="wb-empty"><div class="wb-empty-card">' +
+          '<div class="wb-empty-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg></div>' +
+          '<div class="wb-empty-kick">빈 칸</div>' +
+          '<div class="wb-empty-title">도구를 선택하세요</div>' +
+          '<div class="wb-empty-sub">위 드롭다운에서 고르거나,<br>자주 쓰는 도구로 바로 시작하세요</div>' +
+          '<div class="wb-suggest">' + suggestHtml() + "</div>" +
         "</div></div>" +
         '<div class="wb-spin" aria-hidden="true"></div>' +
         '<iframe class="wb-frame" title="도구" loading="lazy"></iframe>' +
@@ -120,6 +143,14 @@
     var frame = pane.querySelector(".wb-frame");
     sel.value = slug || "";
     sel.addEventListener("change", function () { loadTool(pane, sel.value); });
+    // 빈 칸 런처 칩 → 선택 + 로드
+    pane.querySelectorAll(".wb-chip").forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var s = chip.getAttribute("data-slug");
+        sel.value = s;
+        loadTool(pane, s);
+      });
+    });
     frame.addEventListener("load", function () {
       pane.classList.remove("loading");
       if (pane.dataset.slug) frame.style.opacity = 1;
@@ -217,7 +248,10 @@
     overlay.setAttribute("aria-label", "작업대");
     overlay.innerHTML =
       '<div class="wb-bar">' +
-        '<div class="wb-title">작업대 <span class="wb-beta">BETA</span></div>' +
+        '<div class="wb-title">' +
+          '<span class="wb-title-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 3v18"/></svg></span>' +
+          '작업대 <span class="wb-beta">BETA</span>' +
+        "</div>" +
         '<div class="wb-hint">도구를 나란히 놓고 함께 사용하세요</div>' +
         '<div class="wb-bar-sp"></div>' +
         '<button class="wb-add" type="button">칸 추가 +</button>' +
