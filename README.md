@@ -139,6 +139,8 @@
 - 취득세 계산기 (`/acquisition-tax/`)
 - 부동산 중개수수료(복비) 계산기 (`/brokerage-fee/`)
 - 증여세 계산기 (`/gift-tax/`)
+- 상속세 계산기 (`/inheritance-tax/`)
+- 종합소득세 계산기 (`/comprehensive-income-tax/`)
 - 부가가치세 계산기 (`/vat-calculator/`)
 - 할인가 계산기 (`/discount-calculator/`)
 - 할부 계산기 (`/installment-calculator/`)

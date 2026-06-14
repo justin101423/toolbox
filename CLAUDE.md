@@ -67,7 +67,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 180개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 182개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 악기.
@@ -180,7 +180,7 @@ toolbox/
 | ladder-game | 사다리타기 |
 | lotto-generator | 로또 번호 생성 |
 
-### 금융 (22)
+### 금융 (24)
 | 슬러그 | 이름 |
 |---|---|
 | salary-calculator | 연봉 실수령액 계산기 |
@@ -202,6 +202,8 @@ toolbox/
 | acquisition-tax | 취득세 계산기 |
 | brokerage-fee | 부동산 중개수수료(복비) 계산기 |
 | gift-tax | 증여세 계산기 |
+| inheritance-tax | 상속세 계산기 |
+| comprehensive-income-tax | 종합소득세 계산기 |
 | vat-calculator | 부가가치세 계산기 |
 | discount-calculator | 할인가 계산기 |
 | installment-calculator | 할부 계산기 |
