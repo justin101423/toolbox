@@ -25,6 +25,7 @@
   var vorder = [], dividers = [];
   var optsSuggest = null;
   var pop = null, popList = null, popSearch = null, activePickerPane = null;
+  var toastEl = null, toastTimer = 0;
 
   // 드래그 상태
   var dragSrc = null, dragGhost = null, dropTarget = null;
@@ -66,6 +67,37 @@
     try {
       localStorage.setItem(LS_KEY, JSON.stringify(vorder.map(function (p) { return p.dataset.slug || ""; })));
     } catch (e) {}
+  }
+
+  // ── 같은 도구 중복 방지 ─────────────────────────────────────────────────
+  // 같은 도구를 두 칸에 띄우면 두 iframe이 같은 origin의 localStorage(같은 키)를
+  // 공유해 서로의 작업 데이터를 덮어쓴다(예: 메모장·악기 설정). origin이 같아
+  // 인스턴스별 저장소 격리가 불가능하므로, "한 도구는 한 칸"으로 충돌을 막는다.
+  function paneWithSlug(slug, except) {
+    for (var i = 0; i < vorder.length; i++) {
+      if (vorder[i] !== except && vorder[i].dataset.slug === slug) return vorder[i];
+    }
+    return null;
+  }
+  function flashPane(pane) {
+    if (!pane) return;
+    pane.classList.remove("wb-flash"); void pane.offsetWidth; pane.classList.add("wb-flash");
+    setTimeout(function () { pane.classList.remove("wb-flash"); }, 1100);
+  }
+  function toast(msg) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.hidden = false;
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.hidden = true; }, 1900);
+  }
+  // 중복이면 막고(기존 칸 강조 + 안내) false, 아니면 로드하고 true 반환
+  function trySelect(pane, slug) {
+    if (!slug) return false;
+    var other = paneWithSlug(slug, pane);
+    if (other) { toast("이미 다른 칸에 열려 있어요"); flashPane(other); return false; }
+    loadTool(pane, slug);
+    return true;
   }
 
   // 빈 칸 런처용 추천 도구 칩(아이콘 + 이름). 한 번만 만들어 재사용.
@@ -153,9 +185,9 @@
       if (pop && !pop.hidden && activePickerPane === pane) { closePicker(); return; }
       openPicker(pane, e.currentTarget);
     });
-    // 빈 칸 런처 칩 → 선택 + 로드
+    // 빈 칸 런처 칩 → 선택 + 로드(중복 방지)
     pane.querySelectorAll(".wb-chip").forEach(function (chip) {
-      chip.addEventListener("click", function () { loadTool(pane, chip.getAttribute("data-slug")); });
+      chip.addEventListener("click", function () { trySelect(pane, chip.getAttribute("data-slug")); });
     });
     // 그립 → 다른 칸으로 끌어 옮기기
     pane.querySelector(".wb-grip").addEventListener("pointerdown", function (e) { startDrag(pane, e); });
@@ -280,14 +312,14 @@
     popSearch.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         var first = popList.querySelector('.wb-pop-item:not([hidden])');
-        if (first && activePickerPane) { loadTool(activePickerPane, first.getAttribute("data-slug")); closePicker(); }
+        if (first && activePickerPane && trySelect(activePickerPane, first.getAttribute("data-slug"))) closePicker();
       }
     });
     popList.addEventListener("click", function (e) {
       var it = e.target.closest(".wb-pop-item");
       if (!it || !activePickerPane) return;
-      loadTool(activePickerPane, it.getAttribute("data-slug"));
-      closePicker();
+      // 중복이면 trySelect가 안내만 하고 false → 팝오버는 열어둔다
+      if (trySelect(activePickerPane, it.getAttribute("data-slug"))) closePicker();
     });
   }
 
@@ -312,10 +344,12 @@
     activePickerPane = pane;
     popSearch.value = "";
     filterPop("");
-    // 현재 도구 표시
+    // 현재 도구 표시 + 다른 칸에 이미 열린 도구는 "열림"으로 비활성 표시
     var cur = pane.dataset.slug || "";
     popList.querySelectorAll(".wb-pop-item").forEach(function (it) {
-      it.classList.toggle("active", it.getAttribute("data-slug") === cur);
+      var s = it.getAttribute("data-slug");
+      it.classList.toggle("active", s === cur);
+      it.classList.toggle("taken", !!paneWithSlug(s, pane));
     });
     pop.hidden = false;
 
@@ -453,6 +487,10 @@
     document.body.appendChild(overlay);
     paneRow = overlay.querySelector(".wb-row");
     layoutSel = overlay.querySelector(".wb-layout");
+    toastEl = document.createElement("div");
+    toastEl.className = "wb-toast";
+    toastEl.hidden = true;
+    paneRow.appendChild(toastEl);
 
     layoutSel.addEventListener("click", function (e) {
       var b = e.target.closest(".wb-layout-btn");
@@ -480,7 +518,13 @@
     if (!vorder.length) {
       var saved = loadSaved();
       var n = Math.max(1, Math.min(MAX_PANES, saved.length || DEFAULT_PANES));
-      for (var i = 0; i < n; i++) addPane(saved[i] || "");
+      var used = {};
+      for (var i = 0; i < n; i++) {
+        var s = saved[i] || "";
+        if (s && used[s]) s = "";   // 저장값에 같은 도구가 중복돼 있으면 한 칸만 유지
+        if (s) used[s] = 1;
+        addPane(s);
+      }
     }
     equalize();
     updateChrome();
