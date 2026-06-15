@@ -416,6 +416,20 @@
 - 텍스트에 줄 번호 매기는 법 (`/guide/add-line-numbers/`)
 - 모스부호 읽고 쓰는 법 (`/guide/morse-code-guide/`)
 - 초성이란? 추출·퀴즈·검색의 원리 (`/guide/hangul-chosung-guide/`)
+- 더치페이 정산 깔끔하게 (`/guide/dutch-pay-guide/`)
+- 평균·중앙값·표준편차 읽는 법 (`/guide/statistics-basics/`)
+- 최대공약수·최소공배수란 (`/guide/gcd-lcm-guide/`)
+- 도형 면적 구하는 공식 (`/guide/area-calculation/`)
+- 이차방정식 근의 공식 (`/guide/quadratic-formula/`)
+- 전기요금 계산법 (`/guide/electricity-bill-guide/`)
+- 유류비·연비 계산법 (`/guide/fuel-cost-guide/`)
+- 로마 숫자 읽는 법 (`/guide/roman-numerals-guide/`)
+- 출산 예정일 계산법 (`/guide/due-date-calculation/`)
+- 배란일·가임기 계산법 (`/guide/ovulation-guide/`)
+- 영업일·근무일수 계산법 (`/guide/business-days-guide/`)
+- 전역일 계산법 (`/guide/military-discharge-guide/`)
+- 수면 주기 계산법 (`/guide/sleep-cycle-guide/`)
+- 운동 칼로리 소모 계산법 (`/guide/exercise-calories-guide/`)
 
 ## 기술 스택
 

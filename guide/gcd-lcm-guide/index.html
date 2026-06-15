@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 최대공약수·최소공배수란 — 약분·통분과 실생활 활용 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>최대공약수·최소공배수란 — 약분·통분과 실생활 활용 | 도구상자</title>
+<meta name="description" content="최대공약수(GCD)와 최소공배수(LCM)의 뜻을 약수·배수부터 차근차근 짚고, 소인수분해와 유클리드 호제법으로 구하는 법, GCD×LCM=두 수의 곱이라는 관계, 약분·통분·톱니바퀴·주기 맞추기 같은 실생활 활용까지 한 번에 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/gcd-lcm-guide/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="최대공약수·최소공배수란 — 약분·통분과 실생활 활용">
+<meta property="og:description" content="GCD·LCM의 뜻과 구하는 법, 실생활 활용까지.">
+<meta property="og:url" content="https://dogubox.shop/guide/gcd-lcm-guide/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="최대공약수·최소공배수란">
+<meta name="twitter:description" content="약분·통분·톱니바퀴·주기 맞추기.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "최대공약수·최소공배수란 — 약분·통분과 실생활 활용",
+  "description": "최대공약수(GCD)와 최소공배수(LCM)의 뜻을 약수·배수부터 차근차근 짚고, 소인수분해와 유클리드 호제법으로 구하는 법, GCD×LCM=두 수의 곱이라는 관계, 약분·통분·톱니바퀴·주기 맞추기 같은 실생활 활용까지 한 번에 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "mainEntityOfPage": "https://dogubox.shop/guide/gcd-lcm-guide/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "최대공약수와 최소공배수는 뭐가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "최대공약수(GCD)는 두 수를 동시에 나누어떨어지게 하는 가장 큰 수이고, 최소공배수(LCM)는 두 수의 공통 배수 가운데 가장 작은 수입니다. 쉽게 말해 약수 쪽에서 가장 큰 것을 찾으면 최대공약수, 배수 쪽에서 가장 작은 것을 찾으면 최소공배수입니다. 12와 18이라면 최대공약수는 6, 최소공배수는 36입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "두 수의 최대공약수와 최소공배수를 빠르게 구하는 법은?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "각 수를 소인수분해한 뒤, 공통으로 들어 있는 소인수의 곱을 모으면 최대공약수가 되고, 모든 소인수를 더 큰 지수로 모으면 최소공배수가 됩니다. 더 빠른 방법은 유클리드 호제법으로, 큰 수를 작은 수로 나눈 나머지로 계속 바꿔 가다 나머지가 0이 되었을 때의 나누는 수가 최대공약수입니다. 최소공배수는 두 수의 곱을 최대공약수로 나누면 바로 나옵니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GCD와 LCM은 실생활에서 어디에 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "분수를 약분할 때는 분자·분모의 최대공약수로 나누고, 분모가 다른 분수를 통분할 때는 분모들의 최소공배수를 공통분모로 씁니다. 또 톱니 수가 다른 두 기어가 처음 위치로 돌아오는 시점, 주기가 다른 두 신호나 일정이 다시 겹치는 날을 구할 때도 최소공배수를 사용합니다. 무언가를 가장 큰 덩어리로 똑같이 나누는 문제에는 최대공약수가 쓰입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "최대공약수·최소공배수", "item": "https://dogubox.shop/guide/gcd-lcm-guide/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>최대공약수·최소공배수란 — 약분·통분과 실생활 활용</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.15</span></div>
+
+      <section class="content">
+        <p>분수를 약분할 때, 일정을 다시 맞출 때, 톱니바퀴가 제자리로 돌아오는 시점을 따질 때 — 알게 모르게 우리는 <b>최대공약수와 최소공배수</b>를 씁니다. 학교에서 배운 두 개념을 약수·배수부터 다시 짚고, 구하는 법과 실생활 활용까지 정리했습니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#basics">약수와 배수 복습</a></li>
+            <li><a href="#meaning">GCD와 LCM의 뜻</a></li>
+            <li><a href="#how">구하는 두 가지 방법</a></li>
+            <li><a href="#use">약분·통분과 실생활</a></li>
+          </ol>
+        </div>
+
+        <h2 id="basics">약수와 배수 복습</h2>
+        <p><b>약수</b>는 어떤 수를 나누어떨어지게 하는 수입니다. 12의 약수는 1, 2, 3, 4, 6, 12입니다. <b>배수</b>는 어떤 수를 정수배 한 값으로, 12의 배수는 12, 24, 36, 48…처럼 끝없이 이어집니다. 두 수를 동시에 만족하는 것을 각각 <b>공약수</b>, <b>공배수</b>라고 부르며, 여기서 출발하면 두 개념이 한눈에 들어옵니다.</p>
+
+        <h2 id="meaning">GCD와 LCM의 뜻</h2>
+        <table>
+          <thead><tr><th>구분</th><th>뜻</th><th>12와 18의 예</th></tr></thead>
+          <tbody>
+            <tr><td><b>최대공약수 (GCD)</b></td><td>공약수 중 가장 큰 수</td><td>공약수 1·2·3·6 → <b>6</b></td></tr>
+            <tr><td><b>최소공배수 (LCM)</b></td><td>공배수 중 가장 작은 수</td><td>공배수 36·72… → <b>36</b></td></tr>
+          </tbody>
+        </table>
+        <p>즉 약수 쪽에서 가장 큰 것을 고르면 최대공약수, 배수 쪽에서 가장 작은 것을 고르면 최소공배수입니다. 영어 약자 GCD(Greatest Common Divisor)·LCM(Least Common Multiple)을 그대로 풀면 뜻이 보입니다.</p>
+
+        <h2 id="how">구하는 두 가지 방법</h2>
+        <ul>
+          <li><b>소인수분해</b> — 12 = 2²×3, 18 = 2×3². 공통 소인수를 작은 지수로 모으면 GCD(2×3=6), 모든 소인수를 큰 지수로 모으면 LCM(2²×3²=36)입니다.</li>
+          <li><b>유클리드 호제법</b> — 큰 수를 작은 수로 나눈 나머지로 계속 바꿔 갑니다. 18÷12=나머지6, 12÷6=나머지0 → 나누는 수 <b>6</b>이 GCD. 수가 커도 빠릅니다.</li>
+        </ul>
+        <div class="callout"><b>황금 관계식:</b> 두 수 a·b에 대해 <b>GCD × LCM = a × b</b>가 항상 성립합니다. 그래서 GCD를 먼저 구하면 LCM = (a×b) ÷ GCD로 바로 얻습니다 — 12×18 ÷ 6 = 36. 셋 이상이라면 두 개씩 차례로 묶어 계산하세요.</div>
+
+        <h2 id="use">약분·통분과 실생활</h2>
+        <ol class="steps-list">
+          <li><b>약분</b> — 분자·분모를 최대공약수로 나눠 가장 간단한 분수로 만듭니다. 18/12 → GCD 6으로 나눠 3/2.</li>
+          <li><b>통분</b> — 분모가 다른 분수를 더할 때 분모들의 최소공배수를 공통분모로 씁니다.</li>
+          <li><b>주기 맞추기</b> — 톱니 수가 다른 기어가 제자리로 돌아오는 시점, 주기가 다른 두 일정이 다시 겹치는 날은 최소공배수로 구합니다.</li>
+        </ol>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="divide"></span>
+          <span class="tc-tx"><b>최대공약수·최소공배수 계산기</b><span>두 수 이상의 GCD·LCM을 풀이 과정과 함께</span></span>
+          <a class="tc-go" href="/gcd-lcm/">계산하기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 최대공약수와 최소공배수는 뭐가 다른가요?</b><p>최대공약수(GCD)는 두 수를 동시에 나누어떨어지게 하는 가장 큰 수이고, 최소공배수(LCM)는 두 수의 공통 배수 가운데 가장 작은 수입니다. 쉽게 말해 약수 쪽에서 가장 큰 것을 찾으면 최대공약수, 배수 쪽에서 가장 작은 것을 찾으면 최소공배수입니다. 12와 18이라면 최대공약수는 6, 최소공배수는 36입니다.</p></div>
+          <div class="qa"><b>Q. 두 수의 최대공약수와 최소공배수를 빠르게 구하는 법은?</b><p>각 수를 소인수분해한 뒤, 공통으로 들어 있는 소인수의 곱을 모으면 최대공약수가 되고, 모든 소인수를 더 큰 지수로 모으면 최소공배수가 됩니다. 더 빠른 방법은 유클리드 호제법으로, 큰 수를 작은 수로 나눈 나머지로 계속 바꿔 가다 나머지가 0이 되었을 때의 나누는 수가 최대공약수입니다. 최소공배수는 두 수의 곱을 최대공약수로 나누면 바로 나옵니다.</p></div>
+          <div class="qa"><b>Q. GCD와 LCM은 실생활에서 어디에 쓰나요?</b><p>분수를 약분할 때는 분자·분모의 최대공약수로 나누고, 분모가 다른 분수를 통분할 때는 분모들의 최소공배수를 공통분모로 씁니다. 또 톱니 수가 다른 두 기어가 처음 위치로 돌아오는 시점, 주기가 다른 두 신호나 일정이 다시 겹치는 날을 구할 때도 최소공배수를 사용합니다. 무언가를 가장 큰 덩어리로 똑같이 나누는 문제에는 최대공약수가 쓰입니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/number-base-conversion/"><b>진법 변환</b><span>2·8·16진법</span></a>
+          <a class="rel-card" href="/guide/percentage-calculation/"><b>퍼센트 계산법</b><span>비율 다루기</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/about.html">소개</a>
+  <a href="/about.html#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+</html>
