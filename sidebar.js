@@ -658,7 +658,7 @@
   // 유일한 source of truth이므로, 새 도구를 추가하면 작업대 선택기에도 자동 반영된다.
   // toolCount/catCount는 CATEGORIES에서 자동 산출(소개글 등이 참조 → 드리프트 없음).
   // guideCount는 단일 출처 상수 — ★새 가이드 추가 시 이 숫자도 함께 갱신할 것.
-  var GUIDE_COUNT = 212;
+  var GUIDE_COUNT = 224;
   var TOOL_COUNT = 0;
   for (var _c = 0; _c < CATEGORIES.length; _c++) TOOL_COUNT += CATEGORIES[_c].tools.length;
   try {

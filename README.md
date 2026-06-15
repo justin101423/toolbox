@@ -454,6 +454,18 @@
 - JSON으로 자바 DTO 만들기 (`/guide/json-to-dto-guide/`)
 - 아스키(ASCII) 코드란 (`/guide/ascii-table-guide/`)
 - 유니코드 이스케이프란 (`/guide/unicode-escape-guide/`)
+- MBTI란 — 16가지 성격유형 (`/guide/mbti-guide/`)
+- 에겐·테토 뜻 (`/guide/egen-teto-guide/`)
+- 동물상 테스트란 (`/guide/animal-face-guide/`)
+- 타로 카드 기초 (`/guide/tarot-guide/`)
+- 꿈해몽이란 (`/guide/dream-interpretation-guide/`)
+- 이름 궁합 보는 법 (`/guide/name-compatibility-guide/`)
+- 점심 메뉴 정하기 (`/guide/lunch-menu-guide/`)
+- 밸런스 게임이란 (`/guide/balance-game-guide/`)
+- 공정하게 팀 나누는 법 (`/guide/team-generator-guide/`)
+- 주사위·동전의 확률 (`/guide/dice-roller-guide/`)
+- 돌림판으로 공정하게 정하기 (`/guide/spinner-wheel-guide/`)
+- 기타 코드 기초 (`/guide/guitar-chords-guide/`)
 
 ## 기술 스택
 
