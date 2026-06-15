@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 초성이란? 초성 추출·초성 퀴즈·초성 검색의 원리 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>초성이란? 초성 추출·초성 퀴즈·초성 검색의 원리 | 도구상자</title>
+<meta name="description" content="ㄱㅅ(감사), ㅇㅈ(인정)처럼 쓰는 초성의 정체와 활용을 정리했습니다. 한글이 초성·중성·종성으로 이뤄진 원리, 단어에서 초성만 뽑아내는 법, 초성 퀴즈·초성 검색이 어떻게 동작하는지, ㄱ~ㅎ 19개 초성 표까지 알려드립니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/hangul-chosung-guide/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="초성이란? 초성 추출·퀴즈·검색의 원리">
+<meta property="og:description" content="한글 초성·중성·종성 원리와 초성 활용.">
+<meta property="og:url" content="https://dogubox.shop/guide/hangul-chosung-guide/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="초성이란? 추출·퀴즈·검색의 원리">
+<meta name="twitter:description" content="한글 초성·중성·종성 원리와 활용.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "초성이란? 초성 추출·초성 퀴즈·초성 검색의 원리",
+  "description": "ㄱㅅ(감사), ㅇㅈ(인정)처럼 쓰는 초성의 정체와 활용을 정리했습니다. 한글이 초성·중성·종성으로 이뤄진 원리, 단어에서 초성만 뽑아내는 법, 초성 퀴즈·초성 검색이 어떻게 동작하는지, ㄱ~ㅎ 19개 초성 표까지 알려드립니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "mainEntityOfPage": "https://dogubox.shop/guide/hangul-chosung-guide/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "초성은 정확히 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "한글 한 글자는 첫소리(초성)·가운뎃소리(중성)·끝소리(종성)로 이뤄집니다. 예를 들어 '강'은 초성 ㄱ, 중성 ㅏ, 종성 ㅇ으로 나뉩니다. 초성은 그중 맨 앞 자음으로, '감사'에서 ㄱ과 ㅅ을 뽑으면 ㄱㅅ이 됩니다. 채팅에서 ㄱㅅ(감사), ㅇㅈ(인정), ㄴㄴ(노노)처럼 초성만 쓰는 줄임말이 바로 이 초성을 활용한 것입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "단어에서 초성만 어떻게 뽑아내나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "한글은 글자마다 코드값이 규칙적으로 배열돼 있어서, 글자의 코드에서 계산을 하면 초성·중성·종성을 분리할 수 있습니다. 초성은 ㄱ, ㄲ, ㄴ … ㅎ 까지 19개가 정해진 순서로 있고, 각 글자가 그중 몇 번째 초성을 쓰는지 계산해 뽑아냅니다. 사람이 일일이 나눌 필요 없이, 단어를 입력하면 도구가 자동으로 글자마다 초성을 추출해 줍니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "초성 검색은 어떻게 동작하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "연락처나 목록에서 'ㄱㅎㅈ'만 쳐도 '강호준'이 나오는 기능이 초성 검색입니다. 각 이름의 초성을 미리 뽑아 두었다가, 사용자가 입력한 초성과 맞춰 보는 방식입니다. 전체 이름을 다 치지 않아도 초성만으로 후보를 좁힐 수 있어 빠릅니다. 같은 원리로 초성 퀴즈는 단어의 초성만 보여 주고 원래 단어를 맞히게 하는 놀이입니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "초성이란? 추출·퀴즈·검색의 원리", "item": "https://dogubox.shop/guide/hangul-chosung-guide/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>초성이란? 초성 추출·초성 퀴즈·초성 검색의 원리</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.15</span></div>
+
+      <section class="content">
+        <p>ㄱㅅ(감사), ㅇㅈ(인정), ㅋㅋ… 우리는 매일 초성을 씁니다. 그런데 단어에서 초성만 어떻게 뽑아낼까요? 답은 한글의 똑똑한 설계에 있습니다 — 한글은 글자가 <b>초성·중성·종성</b>으로 규칙적으로 조립돼 있어 분리가 깔끔합니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">초성·중성·종성</a></li>
+            <li><a href="#table">19개 초성 표</a></li>
+            <li><a href="#extract">초성 뽑아내기</a></li>
+            <li><a href="#use">퀴즈·검색 활용</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">초성·중성·종성</h2>
+        <p>한글 한 글자는 세 부분으로 나뉩니다. <b>'강'</b> = 초성 ㄱ + 중성 ㅏ + 종성 ㅇ. 이 중 맨 앞 자음이 <b>초성</b>입니다. '감사'에서 ㄱ·ㅅ을 뽑으면 ㄱㅅ이 됩니다.</p>
+
+        <h2 id="table">19개 초성 표</h2>
+        <p>초성으로 쓰이는 자음은 정해진 순서로 19개입니다.</p>
+        <div class="callout" style="font-family:var(--mono)">ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ</div>
+        <p>이 순서가 코드에 정해져 있어, 각 글자가 몇 번째 초성을 쓰는지 계산할 수 있습니다.</p>
+
+        <h2 id="extract">초성 뽑아내기</h2>
+        <p>한글은 글자마다 코드값이 규칙적이라, 코드에서 계산하면 초성·중성·종성을 분리할 수 있습니다.</p>
+        <ol class="steps-list">
+          <li>글자의 코드값에서 한글 시작 위치를 뺍니다.</li>
+          <li>중성·종성 가짓수로 나눠 <b>초성 번호</b>를 구합니다.</li>
+          <li>그 번호로 19개 표에서 초성을 찾습니다.</li>
+        </ol>
+        <p>사람이 나눌 필요 없이 단어를 넣으면 도구가 글자마다 초성을 자동 추출합니다. 한글 코드 원리는 <a class="inlink" href="/guide/korean-romanization/">로마자 표기법</a> 글에서도 자모 단위 처리로 엿볼 수 있습니다.</p>
+
+        <h2 id="use">퀴즈·검색 활용</h2>
+        <ul>
+          <li><b>초성 검색</b> — 'ㄱㅎㅈ'만 쳐도 '강호준'을 찾음(이름 초성을 미리 뽑아 매칭).</li>
+          <li><b>초성 퀴즈</b> — 단어의 초성만 보여 주고 원래 단어 맞히기.</li>
+          <li><b>채팅 줄임말</b> — ㄱㅅ·ㅇㅈ·ㄴㄴ 같은 표현.</li>
+        </ul>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="whole-word"></span>
+          <span class="tc-tx"><b>초성 추출기</b><span>단어·문장에서 초성만 한 번에 — 퀴즈·검색용</span></span>
+          <a class="tc-go" href="/hangul-chosung/">초성 추출하기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 초성은 정확히 무엇인가요?</b><p>한글 한 글자는 첫소리(초성)·가운뎃소리(중성)·끝소리(종성)로 이뤄집니다. 예를 들어 '강'은 초성 ㄱ, 중성 ㅏ, 종성 ㅇ으로 나뉩니다. 초성은 그중 맨 앞 자음으로, '감사'에서 ㄱ과 ㅅ을 뽑으면 ㄱㅅ이 됩니다. 채팅에서 ㄱㅅ(감사), ㅇㅈ(인정), ㄴㄴ(노노)처럼 초성만 쓰는 줄임말이 바로 이 초성을 활용한 것입니다.</p></div>
+          <div class="qa"><b>Q. 단어에서 초성만 어떻게 뽑아내나요?</b><p>한글은 글자마다 코드값이 규칙적으로 배열돼 있어서, 글자의 코드에서 계산을 하면 초성·중성·종성을 분리할 수 있습니다. 초성은 ㄱ, ㄲ, ㄴ … ㅎ 까지 19개가 정해진 순서로 있고, 각 글자가 그중 몇 번째 초성을 쓰는지 계산해 뽑아냅니다. 사람이 일일이 나눌 필요 없이, 단어를 입력하면 도구가 자동으로 글자마다 초성을 추출해 줍니다.</p></div>
+          <div class="qa"><b>Q. 초성 검색은 어떻게 동작하나요?</b><p>연락처나 목록에서 'ㄱㅎㅈ'만 쳐도 '강호준'이 나오는 기능이 초성 검색입니다. 각 이름의 초성을 미리 뽑아 두었다가, 사용자가 입력한 초성과 맞춰 보는 방식입니다. 전체 이름을 다 치지 않아도 초성만으로 후보를 좁힐 수 있어 빠릅니다. 같은 원리로 초성 퀴즈는 단어의 초성만 보여 주고 원래 단어를 맞히게 하는 놀이입니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/korean-romanization/"><b>로마자 표기법</b><span>한글을 영문으로</span></a>
+          <a class="rel-card" href="/guide/korean-english-typo/"><b>한/영 오타 원리</b><span>자판과 한글 입력</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/about.html">소개</a>
+  <a href="/about.html#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+</html>

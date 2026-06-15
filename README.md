@@ -410,6 +410,12 @@
 - 사진을 ASCII 아트로 바꾸는 법 (`/guide/ascii-art-from-image/`)
 - PDF에 페이지 번호 넣는 법 (`/guide/add-pdf-page-numbers/`)
 - PDF를 이미지(JPG·PNG)로 바꾸는 법 (`/guide/pdf-to-image-guide/`)
+- 단어 빈도 분석으로 글 다듬기 (`/guide/word-frequency-analysis/`)
+- 텍스트 줄 정렬하는 법 (`/guide/sort-text-lines/`)
+- 인스타 줄바꿈이 사라질 때 (`/guide/instagram-line-break/`)
+- 텍스트에 줄 번호 매기는 법 (`/guide/add-line-numbers/`)
+- 모스부호 읽고 쓰는 법 (`/guide/morse-code-guide/`)
+- 초성이란? 추출·퀴즈·검색의 원리 (`/guide/hangul-chosung-guide/`)
 
 ## 기술 스택
 
