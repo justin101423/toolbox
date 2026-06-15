@@ -404,6 +404,12 @@
 - 주식 수수료·세금과 실현 수익률 (`/guide/stock-tax-fees/`)
 - 배당 투자 기초 (`/guide/dividend-investing/`)
 - 손절과 익절 원칙 (`/guide/stop-loss-take-profit/`)
+- 사진에 테두리·여백 넣는 법 (`/guide/add-image-border/`)
+- 이미지 색 반전(네거티브)이란 (`/guide/invert-image-colors/`)
+- 이미지 정보 확인하는 법 — 해상도·EXIF (`/guide/check-image-info/`)
+- 사진을 ASCII 아트로 바꾸는 법 (`/guide/ascii-art-from-image/`)
+- PDF에 페이지 번호 넣는 법 (`/guide/add-pdf-page-numbers/`)
+- PDF를 이미지(JPG·PNG)로 바꾸는 법 (`/guide/pdf-to-image-guide/`)
 
 ## 기술 스택
 
