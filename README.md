@@ -440,6 +440,20 @@
 - 상속세 계산법 (`/guide/inheritance-tax-guide/`)
 - 종합소득세란 (`/guide/comprehensive-income-tax-guide/`)
 - 양도소득세 계산법 (`/guide/capital-gains-tax-guide/`)
+- 할 일 관리 잘하는 법 (`/guide/todo-list-guide/`)
+- 연차 계산법 (`/guide/annual-leave-guide/`)
+- 근무시간 계산법 (`/guide/work-hours-guide/`)
+- 글래스모피즘이란 (`/guide/glassmorphism-guide/`)
+- CSS text-shadow 다루기 (`/guide/text-shadow-guide/`)
+- CSS clip-path란 (`/guide/clip-path-guide/`)
+- URL 슬러그란 (`/guide/slug-guide/`)
+- HTML 엔티티란 (`/guide/html-entities-guide/`)
+- 룬 알고리즘이란 (`/guide/luhn-algorithm-guide/`)
+- 서브넷·CIDR 이해하기 (`/guide/subnet-guide/`)
+- chmod 권한이란 (`/guide/chmod-guide/`)
+- JSON으로 자바 DTO 만들기 (`/guide/json-to-dto-guide/`)
+- 아스키(ASCII) 코드란 (`/guide/ascii-table-guide/`)
+- 유니코드 이스케이프란 (`/guide/unicode-escape-guide/`)
 
 ## 기술 스택
 

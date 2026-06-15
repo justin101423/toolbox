@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 가이드: 글래스모피즘이란 — CSS로 유리 질감 UI 만들기 | 도구상자 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<title>글래스모피즘이란 — CSS로 유리 질감 UI 만들기 | 도구상자</title>
+<meta name="description" content="글래스모피즘(반투명 유리 효과)은 backdrop-filter 흐림과 반투명 배경, 옅은 테두리로 만드는 UI 스타일입니다. 핵심 CSS 속성, 배경이 비쳐야 효과가 사는 이유, 가독성·접근성 주의점, 브라우저 지원과 성능까지 코드 예시와 함께 정리했습니다.">
+<link rel="canonical" href="https://dogubox.shop/guide/glassmorphism-guide/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="글래스모피즘이란 — CSS로 유리 질감 UI 만들기">
+<meta property="og:description" content="흐림·반투명·테두리로 만드는 유리 질감 UI — 핵심 CSS 정리.">
+<meta property="og:url" content="https://dogubox.shop/guide/glassmorphism-guide/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="글래스모피즘이란">
+<meta name="twitter:description" content="CSS로 유리 질감 UI 만들기.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "글래스모피즘이란 — CSS로 유리 질감 UI 만들기",
+  "description": "글래스모피즘(반투명 유리 효과)은 backdrop-filter 흐림과 반투명 배경, 옅은 테두리로 만드는 UI 스타일입니다. 핵심 CSS 속성, 배경이 비쳐야 효과가 사는 이유, 가독성·접근성 주의점, 브라우저 지원과 성능까지 코드 예시와 함께 정리했습니다.",
+  "inLanguage": "ko",
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "mainEntityOfPage": "https://dogubox.shop/guide/glassmorphism-guide/",
+  "author": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" },
+  "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "글래스모피즘 효과가 안 보이고 그냥 회색 박스로만 나와요.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "흐림 효과는 요소 뒤에 비칠 배경이 있어야만 보입니다. 부모나 페이지에 단색 배경만 있으면 흐릴 것이 없어 그냥 반투명 회색 박스처럼 보입니다. 사진·그라데이션·다른 요소가 카드 뒤로 겹쳐 보이는 위치에 두어야 유리 질감이 살아납니다. 또 backdrop-filter는 요소 자신이 반투명(rgba 배경)이어야 뒤가 비치므로 배경 불투명도도 함께 확인하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "글래스 카드 위의 글씨가 잘 안 읽혀요.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "반투명 배경은 뒤 내용이 비쳐 글자 대비가 떨어지기 쉽습니다. 배경 불투명도를 조금 더 올리거나, 흐림 정도를 키워 뒷배경을 더 뭉개면 대비가 좋아집니다. 글자에 옅은 그림자를 주거나, 본문처럼 긴 텍스트에는 유리 효과 대신 불투명 배경을 쓰는 것도 방법입니다. 명도 대비는 검사 도구로 4.5:1 이상을 확인하는 것이 안전합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "backdrop-filter는 모든 브라우저에서 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "최신 크롬·엣지·파이어폭스·사파리에서 지원되지만, 사파리 계열은 -webkit-backdrop-filter 접두사도 함께 적어 주어야 안전합니다. 지원하지 않는 환경에서는 흐림이 빠지므로, 그 경우에도 반투명 배경만으로 읽을 수 있게 디자인하는 것이 좋습니다. 흐림은 실시간 합성이라 비용이 큰 편이니 화면에 글래스 요소를 너무 많이 겹치지 않는 것이 성능에 유리합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://dogubox.shop/" },
+    { "@type": "ListItem", "position": 2, "name": "가이드", "item": "https://dogubox.shop/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "글래스모피즘이란", "item": "https://dogubox.shop/guide/glassmorphism-guide/" }
+  ]
+}
+</script>
+
+<!-- Google AdSense (이 줄은 지우지 마세요) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/guide.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <div class="mark">도</div>
+    <div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div>
+  </a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <article class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/guide/">← 가이드 목록</a>
+      <h1>글래스모피즘이란 — CSS로 유리 질감 UI 만들기</h1>
+      <div class="article-meta"><span>가이드</span><span>약 4분</span><span>2026.06.15</span></div>
+
+      <section class="content">
+        <p>글래스모피즘(Glassmorphism)은 반투명한 <b>서리 낀 유리</b>처럼 뒤가 흐릿하게 비치는 UI 스타일입니다. 카드·내비게이션·팝업 위에 입히면 화면에 깊이와 세련된 느낌을 줄 수 있죠. 핵심은 의외로 단순한 CSS 몇 줄이며, 배경이 비쳐야 효과가 산다는 한 가지만 기억하면 됩니다.</p>
+
+        <div class="toc">
+          <b>이 글의 순서</b>
+          <ol>
+            <li><a href="#what">글래스모피즘이란</a></li>
+            <li><a href="#css">핵심 CSS 네 가지</a></li>
+            <li><a href="#tips">가독성·접근성 주의</a></li>
+            <li><a href="#support">브라우저 지원과 성능</a></li>
+          </ol>
+        </div>
+
+        <h2 id="what">글래스모피즘이란</h2>
+        <p>2020년 무렵 디자인 트렌드로 떠오른 표현 방식으로, 윈도우·iOS의 반투명 패널처럼 <b>뒤 배경을 흐리게 통과시켜</b> 유리판을 겹쳐 놓은 듯한 질감을 만듭니다. 평평한 플랫 디자인에 살짝 입체감과 층위를 더하고 싶을 때 잘 어울립니다. 핵심 조건은 단 하나 — <b>유리 뒤에 비칠 무언가</b>(사진, 그라데이션, 겹친 요소)가 있어야 한다는 점입니다.</p>
+
+        <h2 id="css">핵심 CSS 네 가지</h2>
+        <p>아래 네 속성이 글래스 효과의 전부입니다. 흐림과 반투명 배경이 본체, 테두리와 그림자가 마무리입니다.</p>
+        <table>
+          <thead><tr><th>속성</th><th>역할</th><th>예시 값</th></tr></thead>
+          <tbody>
+            <tr><td><b>backdrop-filter</b></td><td>요소 뒤 배경을 흐리게</td><td>blur(12px)</td></tr>
+            <tr><td><b>background</b></td><td>반투명 배경 (뒤가 비침)</td><td>rgba(255,255,255,0.15)</td></tr>
+            <tr><td>border</td><td>유리 가장자리 빛 반사</td><td>1px solid rgba(255,255,255,0.3)</td></tr>
+            <tr><td>box-shadow</td><td>떠 있는 듯한 깊이</td><td>0 8px 32px rgba(0,0,0,0.2)</td></tr>
+          </tbody>
+        </table>
+        <p>합치면 이런 모양입니다 — <code>backdrop-filter: blur(12px); background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px;</code> 사파리 대응을 위해 <code>-webkit-backdrop-filter: blur(12px);</code>도 함께 적어 둡니다. 둥근 모서리는 필수는 아니지만 유리 카드 느낌을 더해 줍니다.</p>
+        <div class="callout"><b>핵심:</b> <b>backdrop-filter</b>는 요소 자신이 반투명할 때만 뒤가 비칩니다. 배경을 <b>rgba</b>로 옅게 두고, 그 뒤에 사진이나 그라데이션이 깔려 있어야 유리 질감이 보입니다 — 단색 배경 위에서는 그냥 흐릿한 회색 박스가 됩니다. 값을 직접 만지며 미리 보고 싶다면 <a class="inlink" href="/glassmorphism/">글래스모피즘 생성기</a>에서 흐림·투명도·테두리를 슬라이더로 조절해 CSS를 바로 받을 수 있습니다.</p></div>
+
+        <h2 id="tips">가독성·접근성 주의</h2>
+        <ul>
+          <li>반투명 배경 위의 <b>글자는 대비가 떨어지기 쉽습니다</b> — 배경 불투명도를 올리거나 흐림을 키워 뒤를 더 뭉개세요.</li>
+          <li>본문처럼 <b>긴 텍스트</b>에는 유리 효과보다 불투명 배경이 안전합니다. 글래스는 짧은 라벨·버튼·카드 헤더에 잘 맞습니다.</li>
+          <li>명도 대비 <b>4.5:1 이상</b>을 권장합니다 — 검사 도구로 확인하면 접근성을 놓치지 않습니다.</li>
+          <li>흐림에만 의존한 구분선은 약하므로, 옅은 테두리로 가장자리를 분명히 잡아 주세요.</li>
+        </ul>
+
+        <h2 id="support">브라우저 지원과 성능</h2>
+        <p>최신 크롬·엣지·파이어폭스·사파리에서 <code>backdrop-filter</code>가 동작합니다. 사파리 계열은 <code>-webkit-</code> 접두사를 함께 적어야 하고, 지원하지 않는 환경에서는 흐림이 빠지므로 <b>반투명 배경만으로도 읽히게</b> 설계하는 것이 안전합니다. 흐림은 실시간으로 뒤 화면을 다시 그리는 비용이 큰 효과라, 화면에 글래스 요소를 <b>너무 많이 겹치면 스크롤이 버벅일</b> 수 있습니다. 핵심 영역 한두 곳에만 절제해 쓰는 편이 보기에도 성능에도 좋습니다.</p>
+
+        <div class="tool-cta">
+          <span class="tc-ic" data-icon="layers"></span>
+          <span class="tc-tx"><b>글래스모피즘 생성기</b><span>흐림·투명도·테두리 조절해 CSS 코드 생성</span></span>
+          <a class="tc-go" href="/glassmorphism/">만들기 →</a>
+        </div>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 글래스모피즘 효과가 안 보이고 그냥 회색 박스로만 나와요.</b><p>흐림 효과는 요소 뒤에 비칠 배경이 있어야만 보입니다. 부모나 페이지에 단색 배경만 있으면 흐릴 것이 없어 그냥 반투명 회색 박스처럼 보입니다. 사진·그라데이션·다른 요소가 카드 뒤로 겹쳐 보이는 위치에 두어야 유리 질감이 살아납니다. 또 backdrop-filter는 요소 자신이 반투명(rgba 배경)이어야 뒤가 비치므로 배경 불투명도도 함께 확인하세요.</p></div>
+          <div class="qa"><b>Q. 글래스 카드 위의 글씨가 잘 안 읽혀요.</b><p>반투명 배경은 뒤 내용이 비쳐 글자 대비가 떨어지기 쉽습니다. 배경 불투명도를 조금 더 올리거나, 흐림 정도를 키워 뒷배경을 더 뭉개면 대비가 좋아집니다. 글자에 옅은 그림자를 주거나, 본문처럼 긴 텍스트에는 유리 효과 대신 불투명 배경을 쓰는 것도 방법입니다. 명도 대비는 검사 도구로 4.5:1 이상을 확인하는 것이 안전합니다.</p></div>
+          <div class="qa"><b>Q. backdrop-filter는 모든 브라우저에서 되나요?</b><p>최신 크롬·엣지·파이어폭스·사파리에서 지원되지만, 사파리 계열은 -webkit-backdrop-filter 접두사도 함께 적어 주어야 안전합니다. 지원하지 않는 환경에서는 흐림이 빠지므로, 그 경우에도 반투명 배경만으로 읽을 수 있게 디자인하는 것이 좋습니다. 흐림은 실시간 합성이라 비용이 큰 편이니 화면에 글래스 요소를 너무 많이 겹치지 않는 것이 성능에 유리합니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/guide/css-box-shadow/"><b>box-shadow 그림자</b><span>입체감</span></a>
+          <a class="rel-card" href="/guide/css-gradient/"><b>CSS 그라데이션</b><span>배경 연출</span></a>
+        </div>
+      </section>
+    </article>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/guide/">가이드</a>
+  <a href="/about.html">소개</a>
+  <a href="/about.html#faq">자주 묻는 질문</a>
+  <a href="/privacy.html">개인정보처리방침</a>
+  <a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+</html>
