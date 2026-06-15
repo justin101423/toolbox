@@ -430,6 +430,16 @@
 - 전역일 계산법 (`/guide/military-discharge-guide/`)
 - 수면 주기 계산법 (`/guide/sleep-cycle-guide/`)
 - 운동 칼로리 소모 계산법 (`/guide/exercise-calories-guide/`)
+- 시급·주휴수당 계산법 (`/guide/wage-calculation/`)
+- 실업급여 조건·금액 계산법 (`/guide/unemployment-benefit-guide/`)
+- DSR·DTI란 — 대출 한도 규제 (`/guide/dsr-dti-guide/`)
+- 전월세 전환 계산법 (`/guide/jeonse-monthly-conversion/`)
+- 자동차세 계산법 (`/guide/car-tax-guide/`)
+- 취득세 계산법 (`/guide/acquisition-tax-guide/`)
+- 증여세 계산법 (`/guide/gift-tax-guide/`)
+- 상속세 계산법 (`/guide/inheritance-tax-guide/`)
+- 종합소득세란 (`/guide/comprehensive-income-tax-guide/`)
+- 양도소득세 계산법 (`/guide/capital-gains-tax-guide/`)
 
 ## 기술 스택
 
