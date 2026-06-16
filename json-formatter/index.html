@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "현재 다운로드 기능은 없습니다. 복사 버튼으로 클립보드에 저장한 뒤 텍스트 에디터에 붙여넣어 저장하세요."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 들여쓰기 칸 수를 바꿀 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이 도구의 정렬은 2칸 들여쓰기를 사용합니다. 4칸 등 다른 들여쓰기가 필요하면 정렬된 결과를 에디터에 붙여넣어 조정하거나, 압축본을 원하는 칸 수로 다시 정렬하면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 주석이 있는 JSON(JSONC)도 처리되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "표준 JSON은 주석을 허용하지 않으므로 // 나 /* */ 주석이 들어 있으면 문법 오류로 표시됩니다. 설정 파일(JSONC)처럼 주석이 포함된 경우 주석을 먼저 지운 뒤 정렬하세요."
+      }
     }
   ]
 }
@@ -180,6 +196,15 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>"복사" 버튼으로 결과를 클립보드에 저장해 바로 사용합니다.</li>
         </ol>
 
+        <div class="sec-label">정렬과 압축, 언제 무엇을 쓸까</div>
+        <p>JSON은 사람이 읽기 좋은 형태와 기계가 주고받기 좋은 형태가 다릅니다. 이 도구는 그 둘을 자유롭게 오가게 해 줍니다.</p>
+        <ul class="tips-list">
+          <li><b>정렬(Pretty):</b> 들여쓰기와 줄바꿈을 넣어 구조를 한눈에 보이게 합니다. API 응답을 분석하거나 디버깅할 때 씁니다.</li>
+          <li><b>압축(Minify):</b> 공백·줄바꿈을 모두 없애 한 줄로 만듭니다. 전송량을 줄이거나 설정값을 한 줄로 넣을 때 유용합니다.</li>
+          <li><b>오류 검사:</b> 붙여넣은 JSON에 문법 오류가 있으면 위치를 알려 줘, 어디가 잘못됐는지 바로 찾을 수 있습니다.</li>
+        </ul>
+        <p>JSON 자체가 처음이라면 중괄호·키·값 구조부터 정리한 <a class="inlink" href="/guide/json-basics/">JSON 입문 가이드</a>를 함께 보세요.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>API 디버깅:</b> API 응답으로 받은 한 줄짜리 JSON을 "정렬"하면 키-값 구조를 한눈에 파악할 수 있어 디버깅 시간이 크게 줄어듭니다. Postman 없이 빠르게 확인할 때 유용합니다.</li>
@@ -192,10 +217,14 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. 대용량 JSON 파일도 처리할 수 있나요?</b><p>브라우저에서 처리하므로 수십 MB 이상의 JSON은 느릴 수 있습니다. 일반적인 API 응답(수십 KB~수 MB)은 즉시 처리됩니다.</p></div>
           <div class="qa"><b>Q. 한글이 포함된 JSON도 정상 처리되나요?</b><p>네. JavaScript의 JSON.parse/stringify는 유니코드를 완벽히 처리하므로 한글, 이모지 등이 포함된 JSON도 문제없습니다.</p></div>
           <div class="qa"><b>Q. 결과를 파일로 다운로드할 수 있나요?</b><p>현재 다운로드 기능은 없습니다. 복사 버튼으로 클립보드에 저장한 뒤 텍스트 에디터에 붙여넣어 저장하세요.</p></div>
+          <div class="qa"><b>Q. 들여쓰기 칸 수를 바꿀 수 있나요?</b><p>이 도구의 정렬은 2칸 들여쓰기를 사용합니다. 4칸 등 다른 들여쓰기가 필요하면 정렬된 결과를 에디터에 붙여넣어 조정하거나, 압축본을 원하는 칸 수로 다시 정렬하면 됩니다.</p></div>
+          <div class="qa"><b>Q. 주석이 있는 JSON(JSONC)도 처리되나요?</b><p>표준 JSON은 주석을 허용하지 않으므로 // 나 /* */ 주석이 들어 있으면 문법 오류로 표시됩니다. 설정 파일(JSONC)처럼 주석이 포함된 경우 주석을 먼저 지운 뒤 정렬하세요.</p></div>
         </div>
-      
-        <div class="sec-label">함께 보면 좋은 가이드</div>
+
+        <div class="sec-label">함께 쓰면 좋은 도구</div>
         <div class="rel-grid">
+          <a class="rel-card" href="/json-yaml/"><b>JSON ↔ YAML 변환</b><span>설정 파일 형식 바꾸기</span></a>
+          <a class="rel-card" href="/csv-json/"><b>CSV ↔ JSON 변환</b><span>표 데이터를 JSON으로</span></a>
           <a class="rel-card" href="/guide/json-basics/"><b>JSON 입문</b><span>중괄호·키·값부터</span></a>
           <a class="rel-card" href="/guide/json-to-types-guide/"><b>JSON에서 타입 만들기</b><span>API 응답을 코드로</span></a>
         </div>
