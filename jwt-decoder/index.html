@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "디코딩된 payload의 exp 값(만료 시각, Unix 타임스탬프)을 보면 됩니다. 이 도구는 내용만 해석해 보여주므로, 실제 만료 여부는 exp를 현재 시각과 비교하거나 타임스탬프 변환 도구로 확인하세요."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. JWT는 암호화된 건가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "기본 JWT는 암호화가 아니라 '서명'된 것입니다. 페이로드는 Base64로 인코딩만 돼 있어 누구나 디코딩해 볼 수 있으므로, 비밀번호 같은 민감 정보를 담으면 안 됩니다. 서명은 내용 위조를 막을 뿐 내용을 숨기지는 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 디코딩한 토큰이 외부로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아닙니다. 디코딩은 브라우저 안에서만 이뤄지며 입력한 토큰은 서버로 전송되지 않습니다. 다만 안전을 위해 실제 운영 환경의 유효한 사용자 토큰보다 테스트·만료된 토큰을 사용하는 것이 좋습니다."
+      }
     }
   ]
 }
@@ -188,6 +204,15 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>필요한 부분을 복사 버튼으로 클립보드에 저장합니다.</li>
         </ol>
 
+        <div class="sec-label">JWT는 어떻게 생겼을까</div>
+        <p>JWT(JSON Web Token)는 점(.)으로 구분된 <b>세 부분</b>으로 이뤄집니다: 헤더.페이로드.서명. 앞 두 부분은 Base64URL로 인코딩된 JSON이라 누구나 내용을 볼 수 있고, 세 번째 서명이 위조를 막습니다.</p>
+        <ul class="tips-list">
+          <li><b>헤더(header):</b> 토큰 종류와 서명 알고리즘(예: HS256).</li>
+          <li><b>페이로드(payload):</b> 사용자 ID(sub)·권한(role)·만료(exp) 등 담긴 정보(클레임).</li>
+          <li><b>서명(signature):</b> 비밀 키로 만든 검증값. 내용이 바뀌면 서명이 깨집니다.</li>
+        </ul>
+        <p>이 도구는 앞 두 부분을 디코딩해 내용을 보여 줄 뿐, 내용 자체는 암호화돼 있지 않습니다. 자세한 구조는 <a class="inlink" href="/guide/what-is-jwt/">JWT란? 가이드</a>에 있습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>만료 시각(exp) 확인:</b> exp 클레임은 Unix 타임스탬프(초 단위)로 저장됩니다. 디코딩 결과에서 exp 값을 현재 시각과 비교해 토큰이 아직 유효한지 직접 검토할 수 있습니다.</li>
@@ -200,6 +225,8 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. 서명(signature) 검증도 되나요?</b><p>아닙니다. 이 도구는 Base64URL 디코딩만 수행합니다. 서명 검증은 서버 측에서 비밀 키나 공개 키를 사용해야 합니다.</p></div>
           <div class="qa"><b>Q. JWT가 아닌 다른 토큰을 입력하면 어떻게 되나요?</b><p>header.payload.signature 구조(점 두 개로 구분)가 아니면 오류 메시지가 표시됩니다.</p></div>
           <div class="qa"><b>Q. 토큰이 만료됐는지 여기서 알 수 있나요?</b><p>디코딩된 payload의 exp 값(만료 시각, Unix 타임스탬프)을 보면 됩니다. 이 도구는 내용만 해석해 보여주므로, 실제 만료 여부는 exp를 현재 시각과 비교하거나 타임스탬프 변환 도구로 확인하세요.</p></div>
+          <div class="qa"><b>Q. JWT는 암호화된 건가요?</b><p>기본 JWT는 암호화가 아니라 '서명'된 것입니다. 페이로드는 Base64로 인코딩만 돼 있어 누구나 디코딩해 볼 수 있으므로, 비밀번호 같은 민감 정보를 담으면 안 됩니다. 서명은 내용 위조를 막을 뿐 내용을 숨기지는 않습니다.</p></div>
+          <div class="qa"><b>Q. 디코딩한 토큰이 외부로 전송되나요?</b><p>아닙니다. 디코딩은 브라우저 안에서만 이뤄지며 입력한 토큰은 서버로 전송되지 않습니다. 다만 안전을 위해 실제 운영 환경의 유효한 사용자 토큰보다 테스트·만료된 토큰을 사용하는 것이 좋습니다.</p></div>
         </div>
 
         <div class="sec-label">함께 보면 좋은 가이드</div>
