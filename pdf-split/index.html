@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "현재 범위 및 개별 지정 방식만 지원합니다. 홀수/짝수 필터 기능은 없으므로 직접 번호를 나열해 입력하세요."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 페이지마다 따로 파일로 나눌 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이 도구는 지정한 페이지를 하나의 새 PDF로 묶어 줍니다. 페이지를 각각 별도 파일로 만들려면, 페이지 범위를 한 번에 하나씩(예: '1', 그다음 '2') 지정해 여러 번 추출하면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 분할하면 화질이나 텍스트가 손상되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아닙니다. 페이지를 이미지로 바꾸지 않고 원본 페이지를 그대로 새 PDF에 옮기므로, 글자 선택·검색·링크가 모두 유지되고 화질 손실도 없습니다."
+      }
     }
   ]
 }
@@ -183,6 +199,15 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>"분할 후 다운로드" 버튼을 누르면 지정한 페이지만 담긴 새 PDF가 다운로드됩니다.</li>
         </ol>
 
+        <div class="sec-label">PDF에서 필요한 페이지만 꺼내기</div>
+        <p>PDF 분할은 여러 페이지 문서에서 <b>원하는 페이지만 골라 새 PDF</b>로 만드는 것입니다. 전체를 보내는 대신 필요한 부분만 공유할 수 있습니다.</p>
+        <ul class="tips-list">
+          <li><b>범위 지정:</b> "1-3, 5, 8-10"처럼 연속 범위와 개별 페이지를 섞어 적습니다.</li>
+          <li><b>순서 자동 정렬:</b> 번호를 뒤죽박죽 넣어도 오름차순으로 정리됩니다.</li>
+          <li><b>원본 유지:</b> 원본은 그대로 두고 추출분만 새 파일로 저장됩니다.</li>
+        </ul>
+        <p>합치기와 함께 쓰면 문서를 자유롭게 재구성할 수 있습니다. 전체 워크플로는 <a class="inlink" href="/guide/merge-split-pdf/">PDF 합치기·나누기 가이드</a>에 정리했습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>필요한 페이지만 공유:</b> 긴 보고서에서 요약본(1~5페이지)만 따로 공유하거나, 계약서에서 서명 페이지만 추출하는 등 문서의 일부만 전달할 때 편리합니다.</li>
@@ -195,10 +220,14 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. 분할 후 원본 파일이 변경되나요?</b><p>아닙니다. 브라우저 메모리에서 읽어 새 PDF를 만들므로 원본 파일은 그대로 유지됩니다.</p></div>
           <div class="qa"><b>Q. 페이지를 중복 입력하면 어떻게 되나요?</b><p>중복 입력된 페이지는 한 번만 추출됩니다. "1-3, 2, 3"을 입력해도 1·2·3페이지가 각각 한 번씩만 포함됩니다.</p></div>
           <div class="qa"><b>Q. 홀수·짝수 페이지만 추출할 수 있나요?</b><p>현재 범위 및 개별 지정 방식만 지원합니다. 홀수/짝수 필터 기능은 없으므로 직접 번호를 나열해 입력하세요.</p></div>
+          <div class="qa"><b>Q. 페이지마다 따로 파일로 나눌 수 있나요?</b><p>이 도구는 지정한 페이지를 하나의 새 PDF로 묶어 줍니다. 페이지를 각각 별도 파일로 만들려면, 페이지 범위를 한 번에 하나씩(예: '1', 그다음 '2') 지정해 여러 번 추출하면 됩니다.</p></div>
+          <div class="qa"><b>Q. 분할하면 화질이나 텍스트가 손상되나요?</b><p>아닙니다. 페이지를 이미지로 바꾸지 않고 원본 페이지를 그대로 새 PDF에 옮기므로, 글자 선택·검색·링크가 모두 유지되고 화질 손실도 없습니다.</p></div>
         </div>
 
-        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="sec-label">함께 쓰면 좋은 도구</div>
         <div class="rel-grid">
+          <a class="rel-card" href="/pdf-merge/"><b>PDF 합치기</b><span>여러 PDF를 하나로</span></a>
+          <a class="rel-card" href="/pdf-organize/"><b>PDF 회전·페이지 정리</b><span>순서 바꾸기·삭제</span></a>
           <a class="rel-card" href="/guide/organize-pdf-pages/"><b>PDF 페이지 정리법</b><span>정리와 분할의 구분</span></a>
           <a class="rel-card" href="/guide/merge-split-pdf/"><b>PDF 합치기·나누기</b><span>기본 워크플로</span></a>
         </div>
