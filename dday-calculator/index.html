@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "네. 각 날짜를 밀리초 타임스탬프로 변환해 계산하므로 윤년 2월 29일도 정확히 반영됩니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 100일·1주년은 왜 따로 계산하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "기념일은 시작일을 1일째로 세기 때문에 단순 경과 일수와 하루 차이가 납니다. 예를 들어 100일은 시작일로부터 99일 뒤가 아니라 시작일을 포함해 100번째 되는 날입니다. 연인 기념일·아기 100일처럼 시작일을 1일로 세는 계산은 기념일 계산기를 사용하는 것이 정확합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 기준 날짜를 오늘이 아닌 다른 날로 바꿀 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 기준 날짜를 원하는 과거·미래 날짜로 바꾸면 그 날을 기준으로 한 D-Day를 계산합니다. '계약일 기준 며칠 남았는지'처럼 오늘이 아닌 특정 날짜를 기준으로 세야 할 때 활용하세요."
+      }
     }
   ]
 }
@@ -199,6 +215,15 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>계산 결과는 화면에 크게 표시되며, 다른 날짜로 바꿔 바로 재계산할 수 있습니다.</li>
         </ol>
 
+        <div class="sec-label">D-Day와 D+1, 헷갈리는 날짜 세기</div>
+        <p>D-Day는 군사 용어에서 온 말로, <b>목표한 그 날 자체</b>를 가리킵니다. 그래서 시험 당일은 'D-Day', 그 전날은 'D-1', 하루 뒤는 'D+1'이 됩니다.</p>
+        <ul class="tips-list">
+          <li><b>D-며칠(D-n):</b> 목표일까지 <b>남은 날</b>. 오늘이 7월 1일이고 시험이 7월 10일이면 D-9입니다. 자정이 지나면 숫자가 하나씩 줄어듭니다.</li>
+          <li><b>D-Day:</b> 바로 그 날. 남은 날이 0인 상태입니다.</li>
+          <li><b>D+며칠(D+n):</b> 기준일에서 <b>지난 날</b>. 입사한 지·오픈한 지 며칠 됐는지 셀 때 씁니다.</li>
+        </ul>
+        <p>한편 100일·1주년 같은 기념일은 보통 <b>시작일을 1일째로</b> 세기 때문에 단순 경과 일수와 하루 차이가 납니다. 시작일을 1일로 세는 계산은 기념일 계산기를 쓰는 것이 정확합니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>시험·공모전 준비:</b> 수능, 공무원 시험, 자격증 접수 마감일을 목표 날짜로 설정하면 매일 남은 일수를 바로 확인할 수 있습니다. 오늘이 D-1이라면 내일이 시험 날임을 잊지 마세요.</li>
@@ -211,14 +236,16 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. 목표 날짜가 오늘과 같으면 어떻게 표시되나요?</b><p>"D-Day"로 표시되며 "오늘이 바로 그 날입니다!"라는 메시지가 함께 나옵니다.</p></div>
           <div class="qa"><b>Q. 날짜 더하기에서 음수 일수를 입력하면 어떻게 되나요?</b><p>입력한 일수만큼 시작 날짜에서 빼서 결과 날짜를 계산합니다. 예를 들어 오늘에서 -30을 넣으면 30일 전 날짜가 표시됩니다.</p></div>
           <div class="qa"><b>Q. 윤년이 포함된 기간도 정확히 계산되나요?</b><p>네. 각 날짜를 밀리초 타임스탬프로 변환해 계산하므로 윤년 2월 29일도 정확히 반영됩니다.</p></div>
+          <div class="qa"><b>Q. 100일·1주년은 왜 따로 계산하나요?</b><p>기념일은 시작일을 1일째로 세기 때문에 단순 경과 일수와 하루 차이가 납니다. 예를 들어 100일은 시작일로부터 99일 뒤가 아니라 시작일을 포함해 100번째 되는 날입니다. 연인 기념일·아기 100일처럼 시작일을 1일로 세는 계산은 기념일 계산기를 사용하는 것이 정확합니다.</p></div>
+          <div class="qa"><b>Q. 기준 날짜를 오늘이 아닌 다른 날로 바꿀 수 있나요?</b><p>네. 기준 날짜를 원하는 과거·미래 날짜로 바꾸면 그 날을 기준으로 한 D-Day를 계산합니다. '계약일 기준 며칠 남았는지'처럼 오늘이 아닌 특정 날짜를 기준으로 세야 할 때 활용하세요.</p></div>
         </div>
-      
-        <div class="sec-label">함께 보면 좋은 가이드</div>
+
+        <div class="sec-label">함께 쓰면 좋은 도구</div>
         <div class="rel-grid">
+          <a class="rel-card" href="/anniversary/"><b>100일·기념일 계산기</b><span>시작일 1일째 기준 기념일</span></a>
+          <a class="rel-card" href="/age-calculator/"><b>만 나이 계산기</b><span>생년월일로 만 나이·생일</span></a>
           <a class="rel-card" href="/guide/dday-calculation/"><b>D-Day 계산법</b><span>날짜 계산의 원리</span></a>
           <a class="rel-card" href="/guide/week-number/"><b>오늘은 몇 주차?</b><span>월 주차·W주차 기준 정리</span></a>
-          <a class="rel-card" href="/guide/food-expiration-dates/"><b>유통기한 vs 소비기한</b><span>기한까지 남은 날 계산</span></a>
-          <a class="rel-card" href="/guide/age-calculation/"><b>만 나이 계산법</b><span>나이 계산도 함께</span></a>
         </div>
       </section>
     </div>
