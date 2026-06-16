@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "인식할 수 없는 형식이면 미리보기와 다른 칸이 갱신되지 않습니다. HEX는 3자리(#abc)·6자리(#aabbcc)를 모두 받고, RGB·HSL은 숫자만 정확히 넣으면 나머지 형식으로 자동 변환됩니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 보색이나 어울리는 색은 어떻게 찾나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HSL의 색조(H)를 180° 돌리면 보색, 30~60°씩 옮기면 비슷한 계열의 조화로운 색을 얻을 수 있습니다. 여러 색을 한 번에 뽑아 배색을 구성하려면 컬러 팔레트 생성기를, 한 색의 명암 단계가 필요하면 색상 명암 생성기를 함께 쓰면 편합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 화면 색과 인쇄 색이 다른 이유는 뭔가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "화면은 빛을 더하는 RGB 방식이고 인쇄는 잉크를 섞는 CMYK 방식이라 표현할 수 있는 색 범위가 다릅니다. 특히 선명한 형광색 계열은 인쇄에서 탁해질 수 있습니다. 인쇄물이라면 최종본을 실제 인쇄로 한 번 확인하는 것이 안전합니다."
+      }
     }
   ]
 }
@@ -157,6 +173,15 @@
           <li>필요한 형식 옆 "복사" 버튼으로 코드를 클립보드에 담아 CSS나 디자인 툴에 붙여넣습니다.</li>
         </ol>
 
+        <div class="sec-label">HEX·RGB·HSL, 언제 무엇을 쓸까</div>
+        <p>웹에서 색을 지정하는 방법은 여러 가지지만 결국 같은 색을 다르게 적은 것입니다. 상황에 맞는 표기를 고르면 작업이 편해집니다.</p>
+        <ul class="tips-list">
+          <li><b>HEX:</b> #df4324처럼 짧아 디자인 시안·CSS에 가장 널리 쓰입니다.</li>
+          <li><b>RGB:</b> 0~255 값이라 투명도를 더한 rgba()나 그래픽 코드에서 다루기 좋습니다.</li>
+          <li><b>HSL:</b> 색조·채도·명도가 분리돼, 같은 색 계열에서 밝기만 조절하기에 가장 직관적입니다.</li>
+        </ul>
+        <p>이 도구는 한 곳만 바꿔도 세 형식이 동시에 갱신되므로, 시안은 HEX로 받고 코드엔 RGB·HSL로 바꿔 쓰는 식으로 활용할 수 있습니다. 코드의 의미는 <a class="inlink" href="/guide/hex-rgb-color-codes/">색상 코드 읽는 법 가이드</a>에 있습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>HSL로 색을 직관적으로 조정:</b> HEX·RGB는 미세 조정이 어렵지만 HSL은 색조(H)·채도(S)·명도(L)가 분리돼 있어, 같은 색조에서 더 밝거나 연한 변형을 만들기 쉽습니다. 명도(L)만 낮추면 같은 계열의 어두운 색을 바로 얻을 수 있습니다.</li>
@@ -169,10 +194,14 @@
           <div class="qa"><b>Q. HSL이 무엇인가요?</b><p>Hue(색조 0~360°), Saturation(채도 0~100%), Lightness(명도 0~100%)로 색을 표현하는 방식입니다. 사람이 색을 인지하는 방식에 가까워, 색조는 유지하면서 밝기나 선명도만 바꾸기에 RGB보다 직관적입니다.</p></div>
           <div class="qa"><b>Q. hex-rgb 변환 도구와 무엇이 다른가요?</b><p>이 도구는 색상 피커 UI와 HSL 형식까지 포함한 종합 변환기입니다. HEX·RGB 양방향만 필요하면 더 단순한 'HEX ↔ RGB 변환' 도구를, 색을 시각적으로 고르고 HSL로 미세 조정까지 하려면 이 도구를 사용하세요.</p></div>
           <div class="qa"><b>Q. 잘못된 색상 코드를 입력하면 어떻게 되나요?</b><p>인식할 수 없는 형식이면 미리보기와 다른 칸이 갱신되지 않습니다. HEX는 3자리(#abc)·6자리(#aabbcc)를 모두 받고, RGB·HSL은 숫자만 정확히 넣으면 나머지 형식으로 자동 변환됩니다.</p></div>
+          <div class="qa"><b>Q. 보색이나 어울리는 색은 어떻게 찾나요?</b><p>HSL의 색조(H)를 180° 돌리면 보색, 30~60°씩 옮기면 비슷한 계열의 조화로운 색을 얻을 수 있습니다. 여러 색을 한 번에 뽑아 배색을 구성하려면 컬러 팔레트 생성기를, 한 색의 명암 단계가 필요하면 색상 명암 생성기를 함께 쓰면 편합니다.</p></div>
+          <div class="qa"><b>Q. 화면 색과 인쇄 색이 다른 이유는 뭔가요?</b><p>화면은 빛을 더하는 RGB 방식이고 인쇄는 잉크를 섞는 CMYK 방식이라 표현할 수 있는 색 범위가 다릅니다. 특히 선명한 형광색 계열은 인쇄에서 탁해질 수 있습니다. 인쇄물이라면 최종본을 실제 인쇄로 한 번 확인하는 것이 안전합니다.</p></div>
         </div>
 
-        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="sec-label">함께 쓰면 좋은 도구</div>
         <div class="rel-grid">
+          <a class="rel-card" href="/hex-rgb-converter/"><b>HEX ↔ RGB 변환</b><span>두 형식만 빠르게 변환</span></a>
+          <a class="rel-card" href="/color-palette/"><b>컬러 팔레트 생성</b><span>어울리는 색 조합 만들기</span></a>
           <a class="rel-card" href="/guide/hex-rgb-color-codes/"><b>색상 코드 읽는 법</b><span>HEX·RGB·HSL의 의미</span></a>
           <a class="rel-card" href="/guide/find-color-code/"><b>색상 코드 알아내는 법</b><span>화면·사진에서 HEX 따기</span></a>
         </div>
