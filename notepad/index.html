@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "시크릿 모드는 창을 닫으면 저장 공간을 비우므로 메모도 함께 사라집니다. 메모를 계속 남기려면 일반 창에서 사용하고, 중요한 내용은 따로 복사해 두세요."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 글자 수나 분량 제한이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "localStorage 용량(브라우저당 보통 5MB 안팎) 안에서는 사실상 제한 없이 긴 글도 저장됩니다. 다만 아주 방대한 텍스트라면 전용 문서 도구가 더 적합합니다. 글자 수를 정확히 세야 하면 글자수 세기 도구를 함께 쓰세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 메모를 파일로 내보낼 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "'복사' 버튼으로 전체 내용을 클립보드에 담아 메모 앱·문서에 붙여넣어 보관할 수 있습니다. 별도 파일 다운로드 기능은 없으므로, 장기 보관이 필요한 내용은 복사해 외부에 저장해 두는 것이 안전합니다."
+      }
     }
   ]
 }
@@ -178,6 +194,15 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>"초기화" 버튼으로 내용을 전부 지우고 새 메모를 시작합니다.</li>
         </ol>
 
+        <div class="sec-label">브라우저에 바로 저장되는 메모장</div>
+        <p>이 메모장은 설치·로그인 없이 열자마자 쓸 수 있고, 입력하는 즉시 브라우저(localStorage)에 자동 저장됩니다. 별도 서버에 올리지 않아 빠르고 사적입니다.</p>
+        <ul class="tips-list">
+          <li><b>자동 저장:</b> 저장 버튼이 없습니다. 타이핑과 동시에 보관됩니다.</li>
+          <li><b>같은 브라우저에서 유지:</b> 탭을 닫거나 새로고침해도 같은 브라우저로 열면 남아 있습니다.</li>
+          <li><b>기기·브라우저 격리:</b> 다른 기기나 다른 브라우저와는 공유되지 않습니다.</li>
+        </ul>
+        <p>잠깐 쓸 텍스트나 임시 메모에 적합합니다. 원리와 사라지는 조건은 <a class="inlink" href="/guide/browser-notepad/">브라우저 메모장 활용법</a>에 정리했습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>개발 작업용 임시 공간:</b> 쿼리문, API 키, 스크립트 조각처럼 잠깐 보관하고 쓸 텍스트를 저장해두기 좋습니다. 다른 탭을 열었다가 돌아와도 내용이 그대로 남아 있습니다.</li>
@@ -190,12 +215,15 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. 저장 내용이 갑자기 사라졌는데 왜 그런가요?</b><p>브라우저 캐시·쿠키 삭제, 시크릿 모드 종료, 또는 LocalStorage 초기화 시 내용이 함께 삭제됩니다. 장기 보관이 필요하면 외부에 별도 저장하세요.</p></div>
           <div class="qa"><b>Q. 다른 기기에서도 메모를 볼 수 있나요?</b><p>아닙니다. 내용은 현재 기기의 브라우저 LocalStorage에만 저장됩니다. 기기 간 동기화는 지원하지 않습니다.</p></div>
           <div class="qa"><b>Q. 시크릿(인코그니토) 모드에서도 메모가 보관되나요?</b><p>시크릿 모드는 창을 닫으면 저장 공간을 비우므로 메모도 함께 사라집니다. 메모를 계속 남기려면 일반 창에서 사용하고, 중요한 내용은 따로 복사해 두세요.</p></div>
+          <div class="qa"><b>Q. 글자 수나 분량 제한이 있나요?</b><p>localStorage 용량(브라우저당 보통 5MB 안팎) 안에서는 사실상 제한 없이 긴 글도 저장됩니다. 다만 아주 방대한 텍스트라면 전용 문서 도구가 더 적합합니다. 글자 수를 정확히 세야 하면 글자수 세기 도구를 함께 쓰세요.</p></div>
+          <div class="qa"><b>Q. 메모를 파일로 내보낼 수 있나요?</b><p>'복사' 버튼으로 전체 내용을 클립보드에 담아 메모 앱·문서에 붙여넣어 보관할 수 있습니다. 별도 파일 다운로드 기능은 없으므로, 장기 보관이 필요한 내용은 복사해 외부에 저장해 두는 것이 안전합니다.</p></div>
         </div>
 
-        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="sec-label">함께 쓰면 좋은 도구</div>
         <div class="rel-grid">
+          <a class="rel-card" href="/todo-list/"><b>할 일 체크리스트</b><span>자동 저장되는 투두</span></a>
+          <a class="rel-card" href="/word-counter/"><b>글자수 세기</b><span>메모 분량 확인</span></a>
           <a class="rel-card" href="/guide/browser-notepad/"><b>브라우저 메모장 활용법</b><span>원리와 사라지는 조건</span></a>
-          <a class="rel-card" href="/guide/clean-text-list/"><b>복붙한 목록 1분 정리</b><span>메모 옮기기 전 다듬기</span></a>
         </div>
       </section>
     </div>
