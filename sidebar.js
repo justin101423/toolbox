@@ -164,6 +164,7 @@
       { slug: "color-extractor",   name: "이미지 색 추출",   icon: "swatch-book" },
       { slug: "gradient-generator", name: "그라데이션 생성기", icon: "blend" },
       { slug: "mesh-gradient",    name: "메시 그라데이션 생성기", icon: "spline" },
+      { slug: "font-preview",     name: "글꼴 미리보기",     icon: "baseline" },
       { slug: "glassmorphism",    name: "글래스모피즘 생성기", icon: "layers" },
       { slug: "box-shadow-generator", name: "box-shadow 생성기", icon: "box" },
       { slug: "text-shadow-generator", name: "text-shadow 생성기", icon: "baseline" },

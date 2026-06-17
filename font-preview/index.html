@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>글꼴 미리보기 — 내 문장을 여러 한글·영문 폰트로 비교 | 도구상자</title>
+<meta name="description" content="원하는 글자를 입력하면 여러 무료 한글·영문 구글 폰트로 한눈에 비교해 주는 미리보기 도구. 크기를 조절하고 마음에 드는 폰트의 CSS를 복사할 수 있으며 모든 작업은 브라우저에서 처리됩니다.">
+<link rel="canonical" href="https://dogubox.shop/font-preview/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="글꼴 미리보기 — 내 문장을 여러 한글·영문 폰트로 비교 | 도구상자">
+<meta property="og:description" content="원하는 글자를 여러 무료 한글·영문 폰트로 한눈에 비교하고 CSS를 복사하는 미리보기 도구.">
+<meta property="og:url" content="https://dogubox.shop/font-preview/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="글꼴 미리보기 | 도구상자">
+<meta name="twitter:description" content="내 문장을 여러 한글·영문 폰트로 비교하고 CSS를 복사하는 미리보기 도구.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "글꼴 미리보기",
+  "description": "원하는 글자를 입력하면 여러 무료 한글·영문 구글 폰트로 한눈에 비교해 주는 미리보기 도구. 크기를 조절하고 마음에 드는 폰트의 CSS를 복사할 수 있으며 모든 작업은 브라우저에서 처리됩니다.",
+  "url": "https://dogubox.shop/font-preview/",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 여기 나오는 폰트는 무료인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 이 도구는 구글 폰트(Google Fonts)에서 제공하는 폰트를 미리보기로 보여 줍니다. 구글 폰트는 대부분 상업적 이용까지 무료인 오픈 라이선스이지만, 사용 전 각 폰트의 라이선스를 한 번 확인하는 것이 안전합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 내가 쓴 글자가 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 입력한 글자는 브라우저 화면에서 폰트를 적용해 보여 줄 뿐 서버로 전송되거나 저장되지 않습니다. 폰트 파일만 구글 폰트에서 불러오며, 새로고침하면 입력한 글자는 사라집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 마음에 드는 폰트를 내 사이트에 쓰려면?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "각 폰트의 'CSS 복사' 버튼을 누르면 구글 폰트를 불러오는 코드와 font-family 속성이 복사됩니다. 이를 내 HTML·CSS에 붙여 넣으면 같은 폰트를 적용할 수 있습니다. 한글 폰트는 용량이 큰 편이라 필요한 폰트만 불러오는 것이 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 폰트가 안 보이거나 기본 글꼴로 나와요.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "폰트 파일을 불러오는 중이거나 네트워크가 느리면 잠깐 기본 글꼴로 보였다가 바뀝니다. 한글 폰트는 용량이 커 처음 로드에 시간이 조금 걸릴 수 있으니 잠시 기다려 주세요. 계속 안 보이면 새로고침하거나 인터넷 연결을 확인하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 손글씨·제목용 폰트도 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 깔끔한 본문용 고딕·명조부터 굵은 제목용, 손글씨 느낌까지 다양한 한글·영문 폰트를 함께 보여 줍니다. 같은 문장을 여러 분위기로 비교하며 카드뉴스 제목, 썸네일, 로고 글씨 등에 어울리는 폰트를 골라 보세요."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "글꼴 미리보기",
+      "item": "https://dogubox.shop/font-preview/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- 미리보기용 한글·영문 구글 폰트 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Nanum+Pen+Script&family=Gowun+Dodum&family=Gowun+Batang&family=Black+Han+Sans&family=Do+Hyeon&family=Jua&family=Gaegu&family=Dongle&family=Gugi&family=Song+Myung&family=Hi+Melody&family=Stylish&family=Poor+Story&family=Lobster&family=Pacifico&family=Caveat&family=Bebas+Neue&family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+#fp-list{display:grid;gap:12px;margin-top:14px}
+.fp-card{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper);padding:14px 16px}
+.fp-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.fp-name{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.fp-copy{font-size:12px;padding:4px 9px;border:1px solid var(--line-2);border-radius:6px;color:var(--ink-2);background:var(--card);cursor:pointer}
+.fp-copy:hover{border-color:var(--ink);color:var(--ink)}
+.fp-sample{line-height:1.35;word-break:break-word;color:var(--ink)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>글꼴 미리보기</h1>
+      <p class="lede">원하는 문장을 입력하면 여러 무료 한글·영문 폰트로 한눈에 비교해 드립니다. 마음에 드는 폰트의 CSS를 복사해 바로 쓰세요.</p>
+
+      <div class="box">
+        <div class="field" style="margin-bottom:0">
+          <label for="fp-text">미리볼 문장</label>
+          <input type="text" id="fp-text" value="다람쥐 헌 쳇바퀴에 타고파 Sphinx 1234" autocomplete="off">
+        </div>
+        <div class="field" style="margin-top:14px;margin-bottom:0">
+          <label for="fp-size">글자 크기 <span id="fp-size-v" class="hint" style="display:inline">32px</span></label>
+          <input type="range" id="fp-size" min="16" max="80" value="32" style="width:100%">
+        </div>
+        <div id="fp-list"></div>
+        <div class="note" id="fp-note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>미리볼 문장을 입력란에 적습니다. 한글·영문·숫자 모두 됩니다.</li>
+          <li>글자 크기 슬라이더로 본문용·제목용 느낌을 맞춰 봅니다.</li>
+          <li>여러 폰트로 같은 문장이 어떻게 보이는지 비교합니다.</li>
+          <li>마음에 드는 폰트의 "CSS 복사"를 눌러 코드(불러오기 + font-family)를 가져갑니다.</li>
+        </ol>
+
+        <div class="sec-label">폰트는 분위기를 바꿉니다</div>
+        <p>같은 문장도 어떤 글꼴로 쓰느냐에 따라 느낌이 완전히 달라집니다. 깔끔한 고딕은 정보 전달에, 명조는 차분하고 고급스러운 분위기에, 손글씨·제목용 폰트는 개성과 주목도를 줍니다. 실제 문구를 넣어 비교하면 머릿속 상상보다 훨씬 정확하게 고를 수 있습니다.</p>
+        <ul class="tips-list">
+          <li><b>본문용 고딕·명조:</b> Noto Sans KR, 나눔고딕, 나눔명조처럼 가독성이 좋은 폰트는 긴 글·웹사이트 본문에 적합합니다.</li>
+          <li><b>제목용 굵은 폰트:</b> Black Han Sans, 두현, 주아처럼 굵은 폰트는 카드뉴스 제목·썸네일에서 눈에 잘 띕니다.</li>
+          <li><b>손글씨·감성 폰트:</b> 나눔손글씨 펜, 가을체 같은 폰트는 따뜻하고 개성 있는 느낌을 줍니다. 너무 긴 글에는 가독성이 떨어질 수 있어요.</li>
+        </ul>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>실제 문구로 테스트:</b> 로고나 제목에 쓸 진짜 문구를 넣어 비교하세요. 받침이 많은 한글, 숫자, 영문이 섞인 실제 문장이 가장 정확합니다.</li>
+          <li><b>썸네일·카드뉴스에:</b> 마음에 드는 폰트를 정한 뒤 <a class="inlink" href="/meme-generator/">밈·짤 생성기</a>나 <a class="inlink" href="/mesh-gradient/">메시 그라데이션</a> 배경과 조합하면 보기 좋은 이미지를 만들 수 있습니다.</li>
+          <li><b>웹에 적용:</b> "CSS 복사"로 받은 코드를 붙여 넣으면 됩니다. 한글 폰트는 용량이 크니 실제로 쓰는 굵기만 불러오세요.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 여기 나오는 폰트는 무료인가요?</b><p>네. 이 도구는 구글 폰트(Google Fonts)에서 제공하는 폰트를 미리보기로 보여 줍니다. 구글 폰트는 대부분 상업적 이용까지 무료인 오픈 라이선스이지만, 사용 전 각 폰트의 라이선스를 한 번 확인하는 것이 안전합니다.</p></div>
+          <div class="qa"><b>Q. 내가 쓴 글자가 서버로 전송되나요?</b><p>아니요. 입력한 글자는 브라우저 화면에서 폰트를 적용해 보여 줄 뿐 서버로 전송되거나 저장되지 않습니다. 폰트 파일만 구글 폰트에서 불러오며, 새로고침하면 입력한 글자는 사라집니다.</p></div>
+          <div class="qa"><b>Q. 마음에 드는 폰트를 내 사이트에 쓰려면?</b><p>각 폰트의 'CSS 복사' 버튼을 누르면 구글 폰트를 불러오는 코드와 font-family 속성이 복사됩니다. 이를 내 HTML·CSS에 붙여 넣으면 같은 폰트를 적용할 수 있습니다. 한글 폰트는 용량이 큰 편이라 필요한 폰트만 불러오는 것이 좋습니다.</p></div>
+          <div class="qa"><b>Q. 폰트가 안 보이거나 기본 글꼴로 나와요.</b><p>폰트 파일을 불러오는 중이거나 네트워크가 느리면 잠깐 기본 글꼴로 보였다가 바뀝니다. 한글 폰트는 용량이 커 처음 로드에 시간이 조금 걸릴 수 있으니 잠시 기다려 주세요. 계속 안 보이면 새로고침하거나 인터넷 연결을 확인하세요.</p></div>
+          <div class="qa"><b>Q. 손글씨·제목용 폰트도 있나요?</b><p>네. 깔끔한 본문용 고딕·명조부터 굵은 제목용, 손글씨 느낌까지 다양한 한글·영문 폰트를 함께 보여 줍니다. 같은 문장을 여러 분위기로 비교하며 카드뉴스 제목, 썸네일, 로고 글씨 등에 어울리는 폰트를 골라 보세요.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/fancy-text/"><b>꾸미기 글자 변환</b><span>유니코드 특수 글자체</span></a>
+          <a class="rel-card" href="/meme-generator/"><b>밈·짤 생성기</b><span>사진에 글자 넣기</span></a>
+          <a class="rel-card" href="/mesh-gradient/"><b>메시 그라데이션</b><span>배경과 폰트 조합</span></a>
+          <a class="rel-card" href="/color-palette/"><b>컬러 팔레트 생성</b><span>색과 글꼴 함께 정하기</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+const $=id=>document.getElementById(id);
+function note(m,k){const n=$('fp-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
+
+const FONTS=[
+  {n:'Noto Sans KR',label:'노토 산스 (고딕 본문)'},
+  {n:'Nanum Gothic',label:'나눔고딕'},
+  {n:'Nanum Myeongjo',label:'나눔명조'},
+  {n:'Gowun Dodum',label:'고운돋움'},
+  {n:'Gowun Batang',label:'고운바탕'},
+  {n:'Black Han Sans',label:'검은고딕 (제목)'},
+  {n:'Do Hyeon',label:'도현 (제목)'},
+  {n:'Jua',label:'주아 (둥근 제목)'},
+  {n:'Song Myung',label:'송명'},
+  {n:'Stylish',label:'스타일리시'},
+  {n:'Gugi',label:'구기 (붓글씨)'},
+  {n:'Gaegu',label:'개구 (손글씨)'},
+  {n:'Nanum Pen Script',label:'나눔손글씨 펜'},
+  {n:'Hi Melody',label:'하이멜로디 (손글씨)'},
+  {n:'Poor Story',label:'푸어스토리 (손글씨)'},
+  {n:'Dongle',label:'동글 (둥근 손글씨)'},
+  {n:'Montserrat',label:'Montserrat (영문)'},
+  {n:'Playfair Display',label:'Playfair Display (영문 명조)'},
+  {n:'Bebas Neue',label:'Bebas Neue (영문 제목)'},
+  {n:'Lobster',label:'Lobster (영문 필기)'},
+  {n:'Pacifico',label:'Pacifico (영문 손글씨)'},
+  {n:'Caveat',label:'Caveat (영문 손글씨)'}
+];
+
+function render(){
+  const text=$('fp-text').value||'미리보기 Preview 0123';
+  const size=$('fp-size').value;
+  const list=$('fp-list');list.innerHTML='';
+  FONTS.forEach(f=>{
+    const card=document.createElement('div');card.className='fp-card';
+    card.innerHTML='<div class="fp-top"><span class="fp-name">'+f.label+' · '+f.n+'</span>'+
+      '<button class="fp-copy" type="button">CSS 복사</button></div>'+
+      '<div class="fp-sample"></div>';
+    const sample=card.querySelector('.fp-sample');
+    sample.textContent=text;
+    sample.style.fontFamily="'"+f.n+"', sans-serif";
+    sample.style.fontSize=size+'px';
+    card.querySelector('.fp-copy').onclick=()=>copyCss(f.n);
+    list.appendChild(card);
+  });
+  $('fp-size-v').textContent=size+'px';
+}
+
+async function copyCss(name){
+  const fam=name.replace(/ /g,'+');
+  const css="@import url('https://fonts.googleapis.com/css2?family="+fam+"&display=swap');\nfont-family: '"+name+"', sans-serif;";
+  try{await navigator.clipboard.writeText(css);note("'"+name+"' CSS를 복사했습니다.",'ok');}
+  catch(e){note('복사에 실패했습니다. 직접 선택해 복사하세요.','err');}
+}
+
+$('fp-text').addEventListener('input',render);
+$('fp-size').addEventListener('input',render);
+render();
+</script>
+</html>

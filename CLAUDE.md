@@ -70,7 +70,7 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 211개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 212개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 재미·운세 → 악기.
@@ -227,7 +227,7 @@ toolbox/
 | utm-builder | UTM 빌더 |
 | device-test | 마이크·웹캠 테스트 |
 
-### 색상 · 디자인 (17)
+### 색상 · 디자인 (18)
 | 슬러그 | 이름 |
 |---|---|
 | color-picker | 컬러 피커·색상 변환 |
@@ -237,6 +237,7 @@ toolbox/
 | color-extractor | 이미지에서 색 추출 |
 | gradient-generator | 그라데이션 생성기 |
 | mesh-gradient | 메시 그라데이션 생성기 |
+| font-preview | 글꼴 미리보기 |
 | glassmorphism | 글래스모피즘 생성기 |
 | box-shadow-generator | 그림자(box-shadow) 생성기 |
 | text-shadow-generator | text-shadow 생성기 |
