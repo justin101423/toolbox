@@ -75,6 +75,7 @@
 - 유니코드 꾸미기 글자 변환 (`/fancy-text/`)
 - 랜덤 닉네임 생성기 (`/nickname-generator/`)
 - 특수문자·이모지 복사 (`/special-characters/`)
+- 카오모지·이모티콘 텍스트 모음 (`/kaomoji/`)
 - 한글 → 로마자 변환 (`/romanizer/`)
 - 한/영 키보드 오타 변환 (`/keyboard-typo/`)
 - 초성 추출기 (`/hangul-chosung/`)
