@@ -220,6 +220,7 @@
       { slug: "daily-fortune",   name: "오늘의 운세",        icon: "star" },
       { slug: "tarot",           name: "타로 카드 뽑기",     icon: "spade" },
       { slug: "dream-interpretation", name: "꿈해몽",        icon: "cloud" },
+      { slug: "saju",            name: "사주팔자 만세력",    icon: "scroll-text" },
       { slug: "zodiac-finder",   name: "띠·별자리 찾기",    icon: "sparkles" },
       { slug: "lunch-menu",      name: "오늘 뭐 먹지",       icon: "utensils-crossed" },
       { slug: "balance-game",    name: "밸런스 게임",        icon: "git-compare" },

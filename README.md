@@ -224,6 +224,7 @@
 - 오늘의 운세 (`/daily-fortune/`)
 - 타로 카드 뽑기 (`/tarot/`)
 - 꿈해몽 (`/dream-interpretation/`)
+- 사주팔자 만세력 (`/saju/`)
 - 띠·별자리 찾기 (`/zodiac-finder/`)
 - 오늘 뭐 먹지 (`/lunch-menu/`)
 - 밸런스 게임 (`/balance-game/`)
