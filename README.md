@@ -43,6 +43,7 @@
 - 이미지 OCR·글자 추출 (`/image-ocr/`)
 - 이미지 → ASCII 아트 (`/image-ascii/`)
 - 이미지로 GIF 만들기 (`/gif-maker/`)
+- 동영상 → GIF 변환 (`/video-to-gif/`)
 - PDF 합치기 (`/pdf-merge/`)
 - PDF 페이지 분할 (`/pdf-split/`)
 - PDF 회전·페이지 정리 (`/pdf-organize/`)
