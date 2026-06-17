@@ -166,6 +166,7 @@
 - 색상 명암 생성기 (`/color-shades/`)
 - 이미지에서 색 추출 (`/color-extractor/`)
 - 그라데이션 생성기 (`/gradient-generator/`)
+- 메시 그라데이션 생성기 (`/mesh-gradient/`)
 - 글래스모피즘 생성기 (`/glassmorphism/`)
 - 그림자(box-shadow) 생성기 (`/box-shadow-generator/`)
 - text-shadow 생성기 (`/text-shadow-generator/`)

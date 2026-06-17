@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>메시 그라데이션 생성기 — CSS 멀티 컬러 배경 만들기·복사 | 도구상자</title>
+<meta name="description" content="여러 색을 부드럽게 섞은 메시(mesh) 그라데이션을 만들고 CSS 코드를 복사하거나 PNG로 내려받는 무료 도구. 색 추가·랜덤 생성을 지원하며 모든 작업은 브라우저에서 처리됩니다.">
+<link rel="canonical" href="https://dogubox.shop/mesh-gradient/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="메시 그라데이션 생성기 — CSS 멀티 컬러 배경 만들기·복사 | 도구상자">
+<meta property="og:description" content="여러 색을 부드럽게 섞은 메시 그라데이션을 만들고 CSS 코드를 복사하거나 PNG로 내려받는 무료 도구.">
+<meta property="og:url" content="https://dogubox.shop/mesh-gradient/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="메시 그라데이션 생성기 | 도구상자">
+<meta name="twitter:description" content="여러 색을 섞은 메시 그라데이션을 만들어 CSS·PNG로 내보내는 무료 도구.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "메시 그라데이션 생성기",
+  "description": "여러 색을 부드럽게 섞은 메시(mesh) 그라데이션을 만들고 CSS 코드를 복사하거나 PNG로 내려받는 무료 도구. 색 추가·랜덤 생성을 지원하며 모든 작업은 브라우저에서 처리됩니다.",
+  "url": "https://dogubox.shop/mesh-gradient/",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 메시 그라데이션이 일반 그라데이션과 어떻게 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "일반 그라데이션이 두세 가지 색이 한 방향으로 이어지는 것이라면, 메시 그라데이션은 여러 색의 점이 화면 곳곳에서 부드럽게 번지며 섞이는 형태입니다. 더 풍부하고 몽환적인 배경을 만들 수 있어 요즘 웹·앱 디자인에서 많이 쓰입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 만든 그라데이션을 어떻게 쓰나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS 복사 버튼으로 background 속성 코드를 받아 원하는 요소에 붙여 넣으면 됩니다. 코드 한 벌이면 별도 이미지 없이 배경이 적용되어 가볍고 어떤 크기에서도 깨지지 않습니다. 이미지가 필요하면 PNG 다운로드로 저장할 수도 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이 도구는 어떤 방식으로 색을 섞나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "각 색마다 특정 위치에서 시작해 가장자리로 갈수록 투명해지는 원형 그라데이션(radial-gradient)을 만들고, 이들을 여러 겹 겹쳐 메시 느낌을 냅니다. 색마다 위치가 다르기 때문에 색이 만나는 부분에서 자연스럽게 섞입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 색은 몇 개까지 넣을 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "보통 3~6개 정도가 보기 좋습니다. 너무 많으면 색이 탁해질 수 있어 이 도구는 최대 6개까지 지원합니다. 색을 더하거나 빼면서 랜덤 생성 버튼으로 다양한 조합을 빠르게 살펴보세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 작업 내용이 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 색 선택, 코드 생성, PNG 저장은 모두 브라우저 안에서 처리되며 어떤 데이터도 서버로 전송되지 않습니다. 새로고침하면 작업 내용은 사라집니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "메시 그라데이션 생성기",
+      "item": "https://dogubox.shop/mesh-gradient/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+#mg-preview{height:300px;border-radius:var(--r-sm);border:1px solid var(--line)}
+.mg-colors{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.mg-color{display:flex;align-items:center;gap:6px;border:1px solid var(--line-2);border-radius:9px;padding:5px 7px;background:var(--card)}
+.mg-color input[type=color]{width:34px;height:30px;padding:0;border:0;background:none;cursor:pointer}
+.mg-color .hex{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.mg-color .x{cursor:pointer;color:var(--ink-3);font-size:15px;line-height:1;padding:0 2px}
+.mg-color .x:hover{color:var(--accent)}
+#mg-css{width:100%;font-family:var(--mono);font-size:12px;min-height:120px;margin-top:12px;white-space:pre;overflow:auto}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>메시 그라데이션 생성기</h1>
+      <p class="lede">여러 색이 부드럽게 번지며 섞이는 메시 그라데이션을 만들고, CSS 코드를 복사하거나 PNG로 내려받습니다. 모든 작업은 브라우저 안에서 처리됩니다.</p>
+
+      <div class="box">
+        <div id="mg-preview"></div>
+
+        <div class="mg-colors" id="mg-colors"></div>
+
+        <div class="btn-row">
+          <button class="btn accent" id="mg-random">🎲 랜덤 생성</button>
+          <button class="btn" id="mg-add">+ 색 추가</button>
+          <button class="btn" id="mg-shuffle">위치 재배치</button>
+        </div>
+
+        <textarea id="mg-css" readonly spellcheck="false"></textarea>
+        <div class="btn-row">
+          <button class="btn accent" id="mg-copy">CSS 복사</button>
+          <button class="btn" id="mg-png">PNG 다운로드</button>
+        </div>
+        <div class="note" id="mg-note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>"랜덤 생성"을 눌러 마음에 드는 색 조합이 나올 때까지 돌려 봅니다.</li>
+          <li>각 색을 눌러 원하는 색으로 바꾸거나, "색 추가"로 색을 더하고 ✕로 뺍니다.</li>
+          <li>"위치 재배치"로 색이 번지는 위치를 바꿔 분위기를 조정합니다.</li>
+          <li>"CSS 복사"로 코드를 받아 붙여 넣거나, "PNG 다운로드"로 이미지를 저장합니다.</li>
+        </ol>
+
+        <div class="sec-label">메시 그라데이션이란</div>
+        <p>메시 그라데이션은 여러 색의 점이 화면 곳곳에서 부드럽게 번지며 섞이는 배경입니다. 한 방향으로만 이어지는 일반 그라데이션보다 훨씬 풍부하고 입체적인 느낌을 주어, 요즘 웹사이트 히어로 영역, 앱 배경, 발표 자료 표지 등에 자주 쓰입니다.</p>
+        <ul class="tips-list">
+          <li><b>radial-gradient를 여러 겹:</b> 이 도구는 색마다 특정 위치에서 가장자리로 갈수록 투명해지는 원형 그라데이션을 만들고, 여러 겹 겹쳐 메시 느낌을 냅니다. 그래서 색이 만나는 곳에서 자연스럽게 섞입니다.</li>
+          <li><b>코드 한 벌로 적용:</b> 결과는 CSS background 속성이라 이미지 없이 가볍게 적용되고, 화면 크기가 달라져도 깨지지 않습니다.</li>
+          <li><b>색 조합 고르기:</b> 3~6개가 보기 좋습니다. 비슷한 톤끼리 모으면 차분하게, 보색을 섞으면 화려하게 보입니다. <a class="inlink" href="/color-palette/">컬러 팔레트 생성</a>으로 색을 먼저 정해도 좋습니다.</li>
+        </ul>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>히어로 배경:</b> 사이트 첫 화면 배경에 깔면 단조로운 단색보다 훨씬 세련돼 보입니다. 글자가 잘 보이도록 너무 밝거나 대비가 강한 색은 피하세요.</li>
+          <li><b>프로필·썸네일:</b> PNG로 저장해 SNS 배경, 발표 표지, 카드 뉴스 바탕으로 쓸 수 있습니다. <a class="inlink" href="/image-resizer/">이미지 크기 조절</a>로 필요한 크기에 맞추세요.</li>
+          <li><b>다크모드 대응:</b> 어두운 색 위주로 조합하면 다크 테마 배경으로 잘 어울립니다. 밝은 버전과 어두운 버전을 각각 만들어 두면 편합니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 메시 그라데이션이 일반 그라데이션과 어떻게 다른가요?</b><p>일반 그라데이션이 두세 가지 색이 한 방향으로 이어지는 것이라면, 메시 그라데이션은 여러 색의 점이 화면 곳곳에서 부드럽게 번지며 섞이는 형태입니다. 더 풍부하고 몽환적인 배경을 만들 수 있어 요즘 웹·앱 디자인에서 많이 쓰입니다.</p></div>
+          <div class="qa"><b>Q. 만든 그라데이션을 어떻게 쓰나요?</b><p>CSS 복사 버튼으로 background 속성 코드를 받아 원하는 요소에 붙여 넣으면 됩니다. 코드 한 벌이면 별도 이미지 없이 배경이 적용되어 가볍고 어떤 크기에서도 깨지지 않습니다. 이미지가 필요하면 PNG 다운로드로 저장할 수도 있습니다.</p></div>
+          <div class="qa"><b>Q. 이 도구는 어떤 방식으로 색을 섞나요?</b><p>각 색마다 특정 위치에서 시작해 가장자리로 갈수록 투명해지는 원형 그라데이션(radial-gradient)을 만들고, 이들을 여러 겹 겹쳐 메시 느낌을 냅니다. 색마다 위치가 다르기 때문에 색이 만나는 부분에서 자연스럽게 섞입니다.</p></div>
+          <div class="qa"><b>Q. 색은 몇 개까지 넣을 수 있나요?</b><p>보통 3~6개 정도가 보기 좋습니다. 너무 많으면 색이 탁해질 수 있어 이 도구는 최대 6개까지 지원합니다. 색을 더하거나 빼면서 랜덤 생성 버튼으로 다양한 조합을 빠르게 살펴보세요.</p></div>
+          <div class="qa"><b>Q. 작업 내용이 서버로 전송되나요?</b><p>아니요. 색 선택, 코드 생성, PNG 저장은 모두 브라우저 안에서 처리되며 어떤 데이터도 서버로 전송되지 않습니다. 새로고침하면 작업 내용은 사라집니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/gradient-generator/"><b>그라데이션 생성기</b><span>방향형 CSS 그라데이션</span></a>
+          <a class="rel-card" href="/color-palette/"><b>컬러 팔레트 생성</b><span>어울리는 색 조합 찾기</span></a>
+          <a class="rel-card" href="/color-picker/"><b>컬러 피커·색상 변환</b><span>HEX·RGB·HSL 확인</span></a>
+          <a class="rel-card" href="/glassmorphism/"><b>글래스모피즘 생성기</b><span>반투명 유리 효과</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+const $=id=>document.getElementById(id);
+let points=[]; // {color,x,y}  x,y in %
+
+function rand(min,max){return Math.round(min+Math.random()*(max-min));}
+function randColor(){
+  // 보기 좋은 채도/명도 위주 HSL → HEX
+  const h=rand(0,359),s=rand(60,90),l=rand(45,65);
+  return hslToHex(h,s,l);
+}
+function hslToHex(h,s,l){
+  s/=100;l/=100;
+  const k=n=>(n+h/30)%12;
+  const a=s*Math.min(l,1-l);
+  const f=n=>{const c=l-a*Math.max(-1,Math.min(k(n)-3,Math.min(9-k(n),1)));return Math.round(255*c);};
+  const toHex=v=>v.toString(16).padStart(2,'0');
+  return '#'+toHex(f(0))+toHex(f(8))+toHex(f(4));
+}
+
+function buildCSS(){
+  // 첫 색을 base, 나머지를 radial로 겹침 (첫 색도 radial 한 겹 추가)
+  const base=points[0]?points[0].color:'#ffffff';
+  const layers=points.map(p=>'radial-gradient(at '+p.x+'% '+p.y+'%, '+p.color+' 0px, transparent 55%)');
+  return 'background-color: '+base+';\nbackground-image:\n  '+layers.join(',\n  ')+';';
+}
+
+function apply(){
+  const css=buildCSS();
+  const prev=$('mg-preview');
+  // 미리보기에 직접 스타일 적용
+  prev.style.backgroundColor=points[0]?points[0].color:'#fff';
+  prev.style.backgroundImage=points.map(p=>'radial-gradient(at '+p.x+'% '+p.y+'%, '+p.color+' 0px, transparent 55%)').join(',');
+  $('mg-css').value=css;
+  renderColors();
+}
+
+function renderColors(){
+  const wrap=$('mg-colors');wrap.innerHTML='';
+  points.forEach((p,i)=>{
+    const el=document.createElement('div');el.className='mg-color';
+    el.innerHTML='<input type="color" value="'+p.color+'" data-i="'+i+'"><span class="hex">'+p.color+'</span>'+
+      (points.length>2?'<span class="x" data-x="'+i+'" title="삭제">✕</span>':'');
+    wrap.appendChild(el);
+  });
+}
+$('mg-colors').addEventListener('input',e=>{
+  if(e.target.type==='color'){points[+e.target.dataset.i].color=e.target.value;apply();}
+});
+$('mg-colors').addEventListener('click',e=>{
+  const x=e.target.closest('.x');if(!x)return;
+  points.splice(+x.dataset.x,1);apply();
+});
+
+function randomize(){
+  const n=rand(4,5);
+  points=[];
+  for(let i=0;i<n;i++)points.push({color:randColor(),x:rand(5,95),y:rand(5,95)});
+  apply();
+}
+function shuffle(){points.forEach(p=>{p.x=rand(5,95);p.y=rand(5,95);});apply();}
+
+$('mg-random').onclick=randomize;
+$('mg-shuffle').onclick=shuffle;
+$('mg-add').onclick=()=>{if(points.length>=6){note('색은 최대 6개까지입니다.','err');return;}points.push({color:randColor(),x:rand(5,95),y:rand(5,95)});apply();};
+
+function note(m,k){const n=$('mg-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
+
+$('mg-copy').onclick=async()=>{
+  try{await navigator.clipboard.writeText($('mg-css').value);note('CSS를 복사했습니다.','ok');}
+  catch(e){$('mg-css').select();document.execCommand('copy');note('CSS를 복사했습니다.','ok');}
+};
+
+$('mg-png').onclick=()=>{
+  const W=1200,H=675;
+  const cv=document.createElement('canvas');cv.width=W;cv.height=H;
+  const ctx=cv.getContext('2d');
+  ctx.fillStyle=points[0]?points[0].color:'#ffffff';ctx.fillRect(0,0,W,H);
+  points.forEach(p=>{
+    const cx=p.x/100*W,cy=p.y/100*H;
+    const radius=Math.max(W,H)*0.55;
+    const g=ctx.createRadialGradient(cx,cy,0,cx,cy,radius);
+    g.addColorStop(0,hexA(p.color,1));
+    g.addColorStop(1,hexA(p.color,0));
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  });
+  cv.toBlob(b=>{
+    const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='mesh-gradient.png';document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(u),1500);
+    note('PNG를 저장했습니다.','ok');
+  },'image/png');
+};
+function hexA(hex,a){
+  const n=hex.replace('#','');const r=parseInt(n.slice(0,2),16),g=parseInt(n.slice(2,4),16),b=parseInt(n.slice(4,6),16);
+  return 'rgba('+r+','+g+','+b+','+a+')';
+}
+
+randomize();
+</script>
+</html>
