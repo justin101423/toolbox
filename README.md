@@ -210,6 +210,7 @@
 - 에겐·테토 테스트 (`/egen-teto/`)
 - 퍼스널컬러 진단 (`/personal-color/`)
 - 동물상 테스트 (`/animal-face/`)
+- 청력 나이 테스트 (`/hearing-age-test/`)
 - 오늘의 운세 (`/daily-fortune/`)
 - 타로 카드 뽑기 (`/tarot/`)
 - 꿈해몽 (`/dream-interpretation/`)
