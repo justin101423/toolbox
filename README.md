@@ -153,6 +153,7 @@
 - 임시 메모장 (`/notepad/`)
 - 할 일 체크리스트 (`/todo-list/`)
 - 포모도로 타이머 (`/pomodoro/`)
+- 백색소음 생성기 (`/white-noise/`)
 - 연차 계산기 (`/annual-leave/`)
 - 근무시간 계산기 (`/work-hours/`)
 - 서명 만들기 (전자서명) (`/signature-maker/`)

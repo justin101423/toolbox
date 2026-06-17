@@ -150,6 +150,7 @@
       { slug: "notepad",     name: "임시 메모장", icon: "sticky-note" },
       { slug: "todo-list",   name: "할 일 체크리스트", icon: "list-checks" },
       { slug: "pomodoro",    name: "포모도로 타이머", icon: "alarm-clock" },
+      { slug: "white-noise", name: "백색소음 생성기",  icon: "volume-2" },
       { slug: "annual-leave", name: "연차 계산기", icon: "palmtree" },
       { slug: "work-hours", name: "근무시간 계산기", icon: "hourglass" },
       { slug: "signature-maker", name: "서명 만들기", icon: "pen-tool" },
