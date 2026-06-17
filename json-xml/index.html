@@ -65,6 +65,22 @@
         "@type": "Answer",
         "text": "아니요. JSON ↔ XML 변환은 모두 사용자의 브라우저 안에서 이뤄지며, 입력한 데이터는 서버로 전송되거나 저장되지 않습니다. API 응답이나 설정 데이터처럼 민감할 수 있는 내용도 안전하게 변환할 수 있습니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. JSON과 XML은 언제 어떤 것을 쓰는 게 좋나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON은 표기가 가볍고 자바스크립트와 잘 맞아 요즘 웹 API와 설정 파일에서 널리 쓰입니다. XML은 속성, 네임스페이스, 스키마 검증 같은 기능이 풍부해 문서 형식이나 SOAP, RSS, 오피스 문서처럼 구조가 엄격해야 하는 곳에서 강점을 보입니다. 새로 만드는 API라면 JSON이 무난하고, 기존 시스템이나 표준이 XML을 요구하면 XML을 쓰는 식으로 상황에 맞춰 고르면 됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. XML 주석이나 CDATA가 들어 있어도 변환되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML을 JSON으로 바꿀 때 주석은 데이터가 아니므로 결과에 포함되지 않고 사라집니다. CDATA로 감싼 내용은 일반 텍스트로 풀려 해당 요소의 글자 값으로 들어갑니다. 따라서 주석이나 CDATA 표시 자체를 그대로 보존해야 하는 작업이라면, 변환 후 결과를 한 번 확인하고 필요한 부분을 직접 손보는 것이 안전합니다."
+      }
     }
   ]
 }
@@ -143,6 +159,15 @@
           <li>왼쪽 칸에 변환할 데이터를 붙여넣습니다.</li>
           <li>오른쪽에 변환 결과가 즉시 표시됩니다. <b>복사</b>로 가져갑니다.</li>
         </ol>
+        <div class="sec-label">JSON과 XML, 어떻게 대응될까</div>
+        <p>두 형식 모두 트리 구조로 데이터를 담지만 표현 방식이 다릅니다. JSON은 키와 값, 배열로 간결하게 적고, XML은 여는 태그와 닫는 태그로 요소를 감싸며 속성까지 붙일 수 있습니다. 변환은 이 둘 사이의 규칙을 정해 자동으로 옮겨 주는 작업입니다.</p>
+        <ul class="tips-list">
+          <li><b>객체 ↔ 요소:</b> JSON 객체의 키는 XML 요소(태그) 이름이 되고, 값은 태그 안의 내용이 됩니다.</li>
+          <li><b>배열 ↔ 반복 태그:</b> JSON 배열은 같은 이름의 태그를 여러 번 반복하는 형태로 펼쳐집니다.</li>
+          <li><b>속성 ↔ @ 키:</b> XML의 속성은 JSON에서 @를 붙인 키(@id 등)로, 태그 사이 글자는 #text 키로 표현됩니다.</li>
+        </ul>
+        <p>형식별 특징과 선택 기준은 <a class="inlink" href="/guide/json-vs-yaml/">JSON vs YAML 비교 가이드</a>에서 함께 살펴보면 감이 잡힙니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>API·설정 변환:</b> XML로 된 레거시 설정이나 응답을 다루기 쉬운 JSON으로 바꾸거나, 반대로 JSON 데이터를 XML을 요구하는 시스템에 맞출 때 유용합니다.</li>
@@ -154,12 +179,16 @@
           <div class="qa"><b>Q. XML의 속성(attribute)은 어떻게 변환되나요?</b><p>XML을 JSON으로 바꿀 때 요소의 속성은 앞에 @를 붙인 키(예: @id)로, 태그 사이의 글자는 #text 키로 표현합니다. 반대로 JSON을 XML로 바꿀 때는 모든 키를 요소(태그)로 만들기 때문에, 속성 형태로 되돌리려면 약간의 수동 정리가 필요할 수 있습니다.</p></div>
           <div class="qa"><b>Q. 같은 태그가 여러 번 나오면 어떻게 되나요?</b><p>XML에서 같은 이름의 태그가 반복되면 JSON에서는 자동으로 배열로 묶어 줍니다. 반대로 JSON의 배열은 XML로 바꿀 때 같은 이름의 태그를 여러 번 반복하는 형태로 펼쳐집니다. 목록 데이터를 두 형식 사이에서 오갈 때 자연스럽게 처리됩니다.</p></div>
           <div class="qa"><b>Q. 입력한 데이터가 서버로 전송되나요?</b><p>아니요. JSON ↔ XML 변환은 모두 사용자의 브라우저 안에서 이뤄지며, 입력한 데이터는 서버로 전송되거나 저장되지 않습니다. API 응답이나 설정 데이터처럼 민감할 수 있는 내용도 안전하게 변환할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. JSON과 XML은 언제 어떤 것을 쓰는 게 좋나요?</b><p>JSON은 표기가 가볍고 자바스크립트와 잘 맞아 요즘 웹 API와 설정 파일에서 널리 쓰입니다. XML은 속성, 네임스페이스, 스키마 검증 같은 기능이 풍부해 문서 형식이나 SOAP, RSS, 오피스 문서처럼 구조가 엄격해야 하는 곳에서 강점을 보입니다. 새로 만드는 API라면 JSON이 무난하고, 기존 시스템이나 표준이 XML을 요구하면 XML을 쓰는 식으로 상황에 맞춰 고르면 됩니다.</p></div>
+          <div class="qa"><b>Q. XML 주석이나 CDATA가 들어 있어도 변환되나요?</b><p>XML을 JSON으로 바꿀 때 주석은 데이터가 아니므로 결과에 포함되지 않고 사라집니다. CDATA로 감싼 내용은 일반 텍스트로 풀려 해당 요소의 글자 값으로 들어갑니다. 따라서 주석이나 CDATA 표시 자체를 그대로 보존해야 하는 작업이라면, 변환 후 결과를 한 번 확인하고 필요한 부분을 직접 손보는 것이 안전합니다.</p></div>
         </div>
       
         <div class="sec-label">함께 보면 좋은 가이드</div>
         <div class="rel-grid">
           <a class="rel-card" href="/guide/json-vs-yaml/"><b>JSON vs YAML</b><span>형식 비교의 감각</span></a>
           <a class="rel-card" href="/guide/json-basics/"><b>JSON 입문</b><span>구조 읽기의 기본</span></a>
+          <a class="rel-card" href="/json-yaml/"><b>JSON ↔ YAML 변환</b><span>같은 데이터를 YAML로 바꾸기</span></a>
+          <a class="rel-card" href="/csv-json/"><b>CSV ↔ JSON 변환</b><span>표 형식 데이터를 JSON으로</span></a>
         </div>
       </section>
     </div>
