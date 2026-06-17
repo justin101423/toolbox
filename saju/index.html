@@ -146,6 +146,13 @@ html[data-theme=dark] .o-토{background:#332a16;color:#e0b774}html[data-theme=da
 .sj-oh-row .bar{flex:1;height:14px;border-radius:7px;background:var(--line);overflow:hidden}
 .sj-oh-row .bar > i{display:block;height:100%}
 .sj-note-conv{font-size:13px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 12px;margin-top:8px}
+#sj-interpret{margin-top:18px}
+.sj-int-card{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--card);padding:14px 16px;margin-top:10px}
+.sj-int-card .h{font-size:14px;font-weight:700;margin-bottom:6px}
+.sj-int-card .h .tag{font-size:12px;color:var(--accent);font-family:var(--mono);margin-left:4px}
+.sj-int-card p{font-size:14px;color:var(--ink-2);line-height:1.6;margin:0}
+.sj-int-card .kw{display:inline-block;font-size:12px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:2px 8px;margin:6px 4px 0 0;color:var(--ink-2)}
+.sj-disc{font-size:12px;color:var(--ink-3);margin-top:10px;text-align:center}
 </style>
 
 <div class="topbar">
@@ -205,6 +212,7 @@ html[data-theme=dark] .o-토{background:#332a16;color:#e0b774}html[data-theme=da
           <div class="sj-grid" id="sj-grid"></div>
           <div class="sj-meta" id="sj-meta"></div>
           <div class="sj-oh-bars" id="sj-oh"></div>
+          <div id="sj-interpret"></div>
         </div>
       </div>
 
@@ -278,6 +286,23 @@ const MBR=[2,3,4,5,6,7,8,9,10,11,0,1]; // 절기월 인덱스→지지 인덱스
 const STEM_OH=["목","목","화","화","토","토","금","금","수","수"];
 const BR_OH=["수","토","목","목","토","화","화","토","금","금","토","수"];
 
+// 일간(日干)별 성향 풀이 — 전통 십간론 기반(참고용)
+const ILGAN=[
+ {t:"甲 갑목 (큰 나무)",d:"곧고 진취적이며 리더십이 있습니다. 한번 정한 목표를 향해 꾸준히 밀고 나가는 추진력이 강점이지만, 때로 고집스럽게 비칠 수 있어 유연함을 더하면 좋습니다.",kw:["추진력","리더십","정직"]},
+ {t:"乙 을목 (화초·덩굴)",d:"유연하고 섬세하며 친화력이 뛰어납니다. 환경에 잘 적응하고 사람을 부드럽게 끌어당기지만, 줏대를 지키는 단단함을 기르면 더 안정적입니다.",kw:["친화력","적응력","섬세함"]},
+ {t:"丙 병화 (태양)",d:"밝고 열정적이며 표현력이 풍부합니다. 주변을 환하게 밝히는 에너지가 매력이지만, 감정 기복을 다스리면 그 빛이 더 오래갑니다.",kw:["열정","표현력","활발함"]},
+ {t:"丁 정화 (촛불·등불)",d:"따뜻하고 헌신적이며 속이 깊습니다. 가까운 사람을 정성껏 챙기고 사색이 깊지만, 예민함을 잘 보듬으면 마음이 한결 편안해집니다.",kw:["헌신","온화함","사색"]},
+ {t:"戊 무토 (큰 산·대지)",d:"듬직하고 포용력이 커 신뢰를 줍니다. 흔들림 없이 중심을 잡는 힘이 강점이지만, 변화에 조금 더 열려 있으면 기회를 넓힐 수 있습니다.",kw:["신뢰","포용력","듬직함"]},
+ {t:"己 기토 (논밭·정원)",d:"온화하고 현실적이며 꼼꼼합니다. 묵묵히 자기 자리를 가꾸는 성실함이 돋보이지만, 결정을 너무 미루지 않으면 더 큰 결실을 봅니다.",kw:["성실","현실감","포용"]},
+ {t:"庚 경금 (무쇠·원석)",d:"결단력이 있고 의리가 강합니다. 맺고 끊음이 분명해 일을 깔끔히 처리하지만, 융통성을 더하면 사람을 더 가까이 둘 수 있습니다.",kw:["결단력","의리","강직함"]},
+ {t:"辛 신금 (보석·금속)",d:"깔끔하고 예리하며 미적 감각이 뛰어납니다. 자존심이 곧고 섬세하지만, 너그러움을 곁들이면 관계가 한결 부드러워집니다.",kw:["섬세함","감각","원칙"]},
+ {t:"壬 임수 (바다·큰물)",d:"지혜롭고 포용력이 넓으며 활동적입니다. 융통성 있게 상황을 풀어가는 힘이 강점이지만, 한 가지에 집중하면 더 멀리 갑니다.",kw:["지혜","융통성","활동성"]},
+ {t:"癸 계수 (이슬·시냇물)",d:"총명하고 상상력이 풍부하며 직관이 예리합니다. 조용히 깊이 파고드는 힘이 매력이지만, 자신감을 더하면 가진 재능이 더 빛납니다.",kw:["총명","직관","상상력"]}
+];
+const OH_DESC={
+ 목:"성장·계획·인정의 기운",화:"열정·표현·명예의 기운",토:"안정·신뢰·중재의 기운",금:"결단·원칙·결실의 기운",수:"지혜·소통·유연함의 기운"
+};
+
 function jdnInt(y,m,d){const a=Math.floor((14-m)/12),yy=y+4800-a,mm=m+12*a-3;
  return d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045;}
 function julianDay(y,m,d,h,mi){return jdnInt(y,m,d)-0.5+((h-9)+mi/60)/24;}
@@ -343,6 +368,25 @@ $('sj-go').onclick=()=>{
  const total=Object.values(oh).reduce((a,b)=>a+b,0);
  const COL={목:'#1f7a3d',화:'#c0392b',토:'#9a6b1e',금:'#566270',수:'#2c5aa0'};
  $('sj-oh').innerHTML=Object.keys(oh).map(k=>'<div class="sj-oh-row"><span class="nm">'+k+'</span><span class="bar"><i style="width:'+(oh[k]/total*100)+'%;background:'+COL[k]+'"></i></span><span>'+oh[k]+'</span></div>').join('');
+ // === 운세 해석 (참고용) — 일간 성향 + 오행 균형 ===
+ const ig=ILGAN[r.day[0]];
+ const max=Math.max(...Object.values(oh)), min=Math.min(...Object.values(oh));
+ const strong=Object.keys(oh).filter(k=>oh[k]===max);
+ const lack=Object.keys(oh).filter(k=>oh[k]===0);
+ let balanceTxt='';
+ if(lack.length){
+   balanceTxt='여덟 글자 중 <b>'+strong.join('·')+'</b>('+OH_DESC[strong[0]]+')이 가장 강하고, <b>'+lack.join('·')+'</b> 기운이 없습니다. 강한 기운의 장점을 살리되, 부족한 '+lack.join('·')+'('+OH_DESC[lack[0]]+')을 채우는 활동을 곁들이면 균형이 좋아집니다.';
+ }else if(max-min>=3){
+   balanceTxt='<b>'+strong.join('·')+'</b>('+OH_DESC[strong[0]]+')의 기운이 두드러집니다. 그 강점이 큰 무기이지만, 한쪽으로 치우치지 않도록 다른 기운도 의식해서 챙기면 더 안정적입니다.';
+ }else{
+   balanceTxt='오행이 비교적 고르게 분포해 균형이 잡힌 편입니다. 어느 한쪽에 치우치지 않아 두루 무난하게 풀어가는 힘이 있습니다.';
+ }
+ $('sj-interpret').innerHTML=
+   '<div class="sec-label" style="margin-top:6px">운세 해석 (참고용)</div>'+
+   '<div class="sj-int-card"><div class="h">나의 일간 — '+ig.t+'<span class="tag">日干</span></div><p>'+ig.d+'</p>'+
+     ig.kw.map(k=>'<span class="kw"># '+k+'</span>').join('')+'</div>'+
+   '<div class="sj-int-card"><div class="h">오행 균형</div><p>'+balanceTxt+'</p></div>'+
+   '<div class="sj-disc">※ 사주 해석은 유파·관점에 따라 다릅니다. 재미와 참고로만 봐 주세요.</div>';
  $('saju-result').style.display='block';
  note('','');
  $('saju-result').scrollIntoView({behavior:'smooth',block:'nearest'});
