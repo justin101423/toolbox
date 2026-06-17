@@ -126,6 +126,7 @@
       { slug: "unemployment-benefit", name: "실업급여 계산기", icon: "umbrella" },
       { slug: "health-insurance", name: "건강보험료 계산기", icon: "heart-pulse" },
       { slug: "four-insurances", name: "4대보험 계산기",     icon: "shield-plus" },
+      { slug: "national-pension", name: "국민연금 예상수령액", icon: "umbrella" },
       { slug: "severance-pay",   name: "퇴직금 계산기",      icon: "briefcase" },
       { slug: "loan-calculator", name: "대출 이자 계산기",   icon: "landmark" },
       { slug: "savings-calculator", name: "적금·예금 이자 계산기", icon: "piggy-bank" },

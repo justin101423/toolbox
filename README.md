@@ -129,6 +129,7 @@
 - 실업급여 계산기 (`/unemployment-benefit/`)
 - 건강보험료 계산기 (`/health-insurance/`)
 - 4대보험 계산기 (`/four-insurances/`)
+- 국민연금 예상 수령액 계산기 (`/national-pension/`)
 - 퇴직금 계산기 (`/severance-pay/`)
 - 대출 이자 계산기 (`/loan-calculator/`)
 - 적금·예금 이자 계산기 (`/savings-calculator/`)
