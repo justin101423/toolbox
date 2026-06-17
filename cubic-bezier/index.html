@@ -65,6 +65,22 @@
         "@type": "Answer",
         "text": "표시된 cubic-bezier(...) 값을 복사해 CSS의 transition-timing-function이나 animation-timing-function에 그대로 붙여넣으면 됩니다. 예를 들어 transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); 처럼 사용합니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. ease와 ease-in-out은 무엇이 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "둘 다 시작과 끝이 부드러운 곡선이지만 ease는 시작을 조금 더 빠르게 치고 나가 기본값으로 흔히 쓰이고, ease-in-out은 시작과 끝의 가속·감속이 더 대칭적이라 왕복하거나 부드럽게 오가는 움직임에 어울립니다. 이 도구의 프리셋으로 두 곡선을 번갈아 적용해 미리보기로 차이를 비교해 보세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 튕김 효과를 자연스럽게 쓰려면?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "제어점 y를 0 아래나 1 위로 끌면 목표를 살짝 지나쳤다 돌아오는 탄력이 생기는데, 과하면 멀미가 날 만큼 출렁입니다. 오버슈트는 작게 주고 지속시간을 0.3초 안팎으로 짧게 잡으면 경쾌하면서도 부담스럽지 않습니다. 버튼 클릭이나 모달 등장처럼 강조하고 싶은 한두 곳에만 쓰는 것이 좋습니다."
+      }
     }
   ]
 }
@@ -161,6 +177,15 @@
           <li>아래 미리보기에서 실제 움직임을 확인합니다.</li>
           <li>프리셋으로 빠르게 시작하거나, <b>CSS 값 복사</b>로 cubic-bezier() 값을 가져갑니다.</li>
         </ol>
+        <div class="sec-label">네 숫자가 만드는 움직임</div>
+        <p>cubic-bezier(x1, y1, x2, y2)의 네 숫자는 두 제어점의 좌표입니다. 가로축(x)은 <b>시간</b>, 세로축(y)은 <b>진행 정도</b>를 나타내며, 곡선이 가파른 구간은 빠르게, 완만한 구간은 느리게 움직입니다.</p>
+        <ul class="tips-list">
+          <li><b>x 값 (시간):</b> 항상 0~1 사이여야 합니다. 시간 축을 거꾸로 가거나 벗어날 수 없기 때문입니다.</li>
+          <li><b>y 값 (진행):</b> 0~1을 넘어 음수나 1 이상도 가능합니다. 이때 목표를 지나쳤다 돌아오는 튕김(오버슈트)이 생깁니다.</li>
+          <li><b>곡선 읽기:</b> 처음이 가파르면 빠르게 시작(ease-in), 끝이 완만하면 천천히 멈춤(ease-out)입니다.</li>
+        </ul>
+        <p>각 숫자의 의미와 자주 쓰는 곡선 레시피는 <a class="inlink" href="/guide/css-easing/">이징 곡선 입문</a>에 정리했습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>자연스러운 등장:</b> 요소가 나타날 때는 ease-out 계열(처음 빠르고 끝에 천천히)이 부드럽게 느껴집니다.</li>
@@ -172,10 +197,14 @@
           <div class="qa"><b>Q. cubic-bezier는 어디에 쓰나요?</b><p>CSS의 transition이나 animation에서 시간에 따른 변화 속도(이징)를 정의할 때 씁니다. transition-timing-function: cubic-bezier(...) 형태로 넣으면 됩니다. 기본 ease·linear로는 표현하기 어려운, 처음에 빠르다 천천히 멈추거나 살짝 튀는 듯한 자연스러운 움직임을 만들 수 있습니다.</p></div>
           <div class="qa"><b>Q. y 값이 0~1을 벗어나도 되나요?</b><p>네. 제어점의 y 값은 0보다 작거나 1보다 클 수 있습니다. 이렇게 하면 목표 지점을 잠깐 지나쳤다가 되돌아오는 '오버슈트(튕김)' 효과를 만들 수 있습니다. 다만 x 값(0~1)은 시간 축이라 그 범위를 벗어날 수 없습니다.</p></div>
           <div class="qa"><b>Q. 만든 값은 어떻게 쓰나요?</b><p>표시된 cubic-bezier(...) 값을 복사해 CSS의 transition-timing-function이나 animation-timing-function에 그대로 붙여넣으면 됩니다. 예를 들어 transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); 처럼 사용합니다.</p></div>
+          <div class="qa"><b>Q. ease와 ease-in-out은 무엇이 다른가요?</b><p>둘 다 시작과 끝이 부드러운 곡선이지만 ease는 시작을 조금 더 빠르게 치고 나가 기본값으로 흔히 쓰이고, ease-in-out은 시작과 끝의 가속·감속이 더 대칭적이라 왕복하거나 부드럽게 오가는 움직임에 어울립니다. 이 도구의 프리셋으로 두 곡선을 번갈아 적용해 미리보기로 차이를 비교해 보세요.</p></div>
+          <div class="qa"><b>Q. 튕김 효과를 자연스럽게 쓰려면?</b><p>제어점 y를 0 아래나 1 위로 끌면 목표를 살짝 지나쳤다 돌아오는 탄력이 생기는데, 과하면 멀미가 날 만큼 출렁입니다. 오버슈트는 작게 주고 지속시간을 0.3초 안팎으로 짧게 잡으면 경쾌하면서도 부담스럽지 않습니다. 버튼 클릭이나 모달 등장처럼 강조하고 싶은 한두 곳에만 쓰는 것이 좋습니다.</p></div>
         </div>
       
-        <div class="sec-label">함께 보면 좋은 가이드</div>
+        <div class="sec-label">함께 보면 좋은 도구</div>
         <div class="rel-grid">
+          <a class="rel-card" href="/box-shadow-generator/"><b>그림자(box-shadow) 생성기</b><span>애니메이션에 곁들일 그림자</span></a>
+          <a class="rel-card" href="/border-radius-generator/"><b>테두리 둥글기 생성기</b><span>움직이는 요소의 모서리</span></a>
           <a class="rel-card" href="/guide/css-easing/"><b>이징(easing) 곡선 입문</b><span>네 숫자의 의미와 곡선 레시피</span></a>
           <a class="rel-card" href="/guide/css-box-shadow/"><b>자연스러운 그림자 만들기</b><span>UI 디테일의 짝</span></a>
           <a class="rel-card" href="/guide/css-gradient/"><b>CSS 그라데이션</b><span>배경 전환과 함께</span></a>
