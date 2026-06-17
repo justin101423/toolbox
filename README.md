@@ -26,6 +26,7 @@
 - 이미지 자르기 (`/image-crop/`)
 - 인스타 9분할 그리드 자르기 (`/instagram-grid/`)
 - 이미지 테두리·여백 추가 (`/image-border/`)
+- 원형·둥근 프로필 사진 만들기 (`/profile-picture/`)
 - 이미지 회전·뒤집기 (`/image-rotate/`)
 - 이미지 밝기·대비·채도 조절 (`/image-adjust/`)
 - 흑백·세피아 필터 (`/image-filter/`)

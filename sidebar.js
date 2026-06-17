@@ -23,6 +23,7 @@
       { slug: "image-crop",       name: "이미지 자르기",        icon: "crop" },
       { slug: "instagram-grid",   name: "인스타 9분할 그리드",  icon: "layout-grid" },
       { slug: "image-border",     name: "이미지 테두리·여백",   icon: "frame" },
+      { slug: "profile-picture",  name: "원형·둥근 프로필 사진", icon: "squircle" },
       { slug: "image-rotate",     name: "이미지 회전·뒤집기",   icon: "rotate-cw" },
       { slug: "image-adjust",     name: "밝기·대비·채도 조절",  icon: "sliders-horizontal" },
       { slug: "image-filter",     name: "흑백·세피아 필터",     icon: "contrast" },

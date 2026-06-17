@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>원형·둥근 프로필 사진 만들기 — 사진을 동그랗게 자르기(투명 PNG) | 도구상자</title>
+<meta name="description" content="사진을 정사각형으로 중앙 크롭한 뒤 원형이나 둥근 모서리로 잘라 투명 PNG로 내려받는 무료 도구. 카톡·인스타·디스코드 프로필 사진을 동그랗게 만들 수 있고 사진은 서버로 전송되지 않습니다.">
+<link rel="canonical" href="https://dogubox.shop/profile-picture/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="원형·둥근 프로필 사진 만들기 — 사진을 동그랗게 자르기(투명 PNG) | 도구상자">
+<meta property="og:description" content="사진을 원형이나 둥근 모서리로 잘라 투명 PNG로 내려받는 무료 도구. 사진은 서버로 전송되지 않습니다.">
+<meta property="og:url" content="https://dogubox.shop/profile-picture/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="원형·둥근 프로필 사진 만들기 | 도구상자">
+<meta name="twitter:description" content="사진을 동그랗게(원형)·둥근 모서리로 잘라 투명 PNG로 내려받는 무료 도구.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "원형·둥근 프로필 사진 만들기",
+  "description": "사진을 정사각형으로 중앙 크롭한 뒤 원형이나 둥근 모서리로 잘라 투명 PNG로 내려받는 무료 도구. 카톡·인스타·디스코드 프로필 사진을 동그랗게 만들 수 있고 사진은 서버로 전송되지 않습니다.",
+  "url": "https://dogubox.shop/profile-picture/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 원형으로 자르면 모서리는 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "원의 바깥쪽(네 모서리)은 투명하게 비워집니다. 그래서 PNG로 저장해야 투명이 유지됩니다. JPG로 저장하면 투명이 지원되지 않아 모서리가 흰색 등으로 채워지니, 동그란 모양을 살리려면 PNG로 받으세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 사진이 서버로 전송되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 사진을 정사각형으로 자르고 원형·둥근 모서리로 만드는 모든 과정은 브라우저 안에서 처리되며 사진은 서버로 전송되거나 저장되지 않습니다. 얼굴 사진처럼 민감한 이미지도 안심하고 사용할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 직사각형 사진을 넣으면 어떻게 잘리나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "가로세로 비율이 다른 사진은 가운데를 기준으로 정사각형으로 잘린 뒤 원형·둥근 모양이 적용됩니다. 인물이 화면 중앙에 오도록 미리 잘라 두면 원하는 부분이 그대로 보입니다. 중앙에서 벗어난 구도는 먼저 자르기 도구로 위치를 맞추는 것이 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 배경색을 넣을 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 모서리를 투명하게 두는 대신 원하는 배경색을 채울 수 있습니다. 투명을 지원하지 않는 곳에 올릴 때는 배경색을 흰색이나 어울리는 색으로 지정하면 깔끔하게 보입니다. 투명이 필요하면 배경을 투명으로 두고 PNG로 저장하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 어디에 쓰면 좋나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "카카오톡·인스타그램·디스코드·슬랙·노션 등 프로필 사진, 발표 자료의 인물 아이콘, 웹사이트 팀 소개의 동그란 사진 등에 쓰기 좋습니다. 둥근 모서리 모드는 앱 아이콘이나 카드형 썸네일 느낌을 낼 때 유용합니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "원형·둥근 프로필 사진 만들기",
+      "item": "https://dogubox.shop/profile-picture/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+#pp-stage{display:none;margin-top:14px;text-align:center}
+#pp-canvas{max-width:300px;width:100%;height:auto;border-radius:8px;background-image:linear-gradient(45deg,#ccc 25%,transparent 25%),linear-gradient(-45deg,#ccc 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ccc 75%),linear-gradient(-45deg,transparent 75%,#ccc 75%);background-size:18px 18px;background-position:0 0,0 9px,9px -9px,-9px 0}
+.bg-swatch{display:inline-flex;align-items:center;gap:6px}
+.bg-swatch input[type=color]{width:34px;height:28px;padding:0;border:1px solid var(--line-2);border-radius:6px;background:none;cursor:pointer}
+#pp-radius-field{display:none}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>원형·둥근 프로필 사진 만들기</h1>
+      <p class="lede">사진을 정사각형으로 자른 뒤 원형이나 둥근 모서리로 만들어 투명 PNG로 내려받습니다. 카톡·인스타·디스코드 프로필에 바로 쓰세요.</p>
+
+      <div class="box">
+        <div class="drop" id="pp-drop">
+          <div class="big">🖼️</div>
+          <div><b>이미지 선택</b> 또는 여기로 드래그</div>
+          <small>얼굴이 가운데 오면 가장 예쁩니다 · PNG · JPG · WebP</small>
+        </div>
+        <input type="file" id="pp-file" accept="image/*" hidden>
+
+        <div class="field-row" style="margin-top:16px">
+          <div class="field" style="margin-bottom:0">
+            <label for="pp-shape">모양</label>
+            <select id="pp-shape">
+              <option value="circle" selected>원형 (동그랗게)</option>
+              <option value="rounded">둥근 모서리</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label for="pp-size">크기 (px)</label>
+            <select id="pp-size">
+              <option value="256">256</option>
+              <option value="400" selected>400</option>
+              <option value="512">512</option>
+              <option value="800">800</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row" style="margin-top:14px">
+          <div class="field" id="pp-radius-field" style="margin-bottom:0">
+            <label for="pp-radius">모서리 둥글기 <span class="hint" id="pp-radius-v" style="display:inline">30%</span></label>
+            <input type="range" id="pp-radius" min="5" max="50" value="30" style="width:100%">
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label for="pp-bg">배경</label>
+            <select id="pp-bg">
+              <option value="transparent" selected>투명</option>
+              <option value="white">흰색</option>
+              <option value="black">검정</option>
+              <option value="custom">색 지정</option>
+            </select>
+          </div>
+          <div class="bg-swatch field" id="pp-color-field" style="margin-bottom:0;display:none">
+            <label for="pp-color" style="margin:0">색</label>
+            <input type="color" id="pp-color" value="#4a7bd5">
+          </div>
+        </div>
+
+        <div id="pp-stage">
+          <canvas id="pp-canvas"></canvas>
+          <div class="btn-row" style="justify-content:center">
+            <a class="btn accent" id="pp-download" download="profile.png">PNG 다운로드</a>
+            <button class="btn ghost" id="pp-clear">지우기</button>
+          </div>
+        </div>
+        <div class="note" id="pp-note"></div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>프로필로 만들 사진을 올리거나 드래그합니다. 얼굴이 가운데 오면 예쁩니다.</li>
+          <li>모양(원형·둥근 모서리)과 크기를 고릅니다. 둥근 모서리는 둥글기를 조절할 수 있습니다.</li>
+          <li>배경을 투명으로 둘지, 색을 채울지 정합니다.</li>
+          <li>미리보기를 확인하고 "PNG 다운로드"로 저장합니다. 투명을 살리려면 PNG 그대로 받으세요.</li>
+        </ol>
+
+        <div class="sec-label">원형 프로필, 왜 PNG로 받아야 할까</div>
+        <p>사진을 원으로 자르면 네 모서리가 비게 됩니다. 이 빈 부분을 '투명'하게 유지하려면 투명을 지원하는 PNG 형식으로 저장해야 합니다. JPG는 투명을 지원하지 않아 모서리가 색으로 채워지므로, 동그란 모양을 그대로 쓰려면 PNG가 정답입니다.</p>
+        <ul class="tips-list">
+          <li><b>중앙 정사각 크롭:</b> 비율이 다른 사진은 가운데를 기준으로 정사각형으로 잘린 뒤 모양이 적용됩니다. 인물이 중앙에서 벗어났다면 <a class="inlink" href="/image-crop/">이미지 자르기</a>로 먼저 맞추세요.</li>
+          <li><b>둥근 모서리 모드:</b> 앱 아이콘·카드 썸네일 느낌을 낼 때 좋습니다. 둥글기를 50%로 올리면 원형과 같아집니다.</li>
+          <li><b>배경색 채우기:</b> 투명을 지원하지 않는 곳에 올릴 때는 배경색을 지정해 깔끔하게 만드세요.</li>
+        </ul>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>메신저·SNS 프로필:</b> 카카오톡·인스타·디스코드·슬랙은 보통 프로필을 원으로 보여 줍니다. 미리 원형으로 만들어 두면 잘리는 부분 없이 의도대로 보입니다.</li>
+          <li><b>팀 소개 페이지:</b> 웹사이트의 동그란 인물 사진을 통일된 크기로 만들 때 좋습니다. 같은 크기로 여러 장을 만들어 두면 정렬이 깔끔합니다.</li>
+          <li><b>배경 지운 사진과 함께:</b> <a class="inlink" href="/bg-remover/">배경 제거</a>로 인물만 분리한 뒤 원형으로 만들면 더 또렷한 프로필이 됩니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 원형으로 자르면 모서리는 어떻게 되나요?</b><p>원의 바깥쪽(네 모서리)은 투명하게 비워집니다. 그래서 PNG로 저장해야 투명이 유지됩니다. JPG로 저장하면 투명이 지원되지 않아 모서리가 흰색 등으로 채워지니, 동그란 모양을 살리려면 PNG로 받으세요.</p></div>
+          <div class="qa"><b>Q. 사진이 서버로 전송되나요?</b><p>아니요. 사진을 정사각형으로 자르고 원형·둥근 모서리로 만드는 모든 과정은 브라우저 안에서 처리되며 사진은 서버로 전송되거나 저장되지 않습니다. 얼굴 사진처럼 민감한 이미지도 안심하고 사용할 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 직사각형 사진을 넣으면 어떻게 잘리나요?</b><p>가로세로 비율이 다른 사진은 가운데를 기준으로 정사각형으로 잘린 뒤 원형·둥근 모양이 적용됩니다. 인물이 화면 중앙에 오도록 미리 잘라 두면 원하는 부분이 그대로 보입니다. 중앙에서 벗어난 구도는 먼저 자르기 도구로 위치를 맞추는 것이 좋습니다.</p></div>
+          <div class="qa"><b>Q. 배경색을 넣을 수 있나요?</b><p>네. 모서리를 투명하게 두는 대신 원하는 배경색을 채울 수 있습니다. 투명을 지원하지 않는 곳에 올릴 때는 배경색을 흰색이나 어울리는 색으로 지정하면 깔끔하게 보입니다. 투명이 필요하면 배경을 투명으로 두고 PNG로 저장하세요.</p></div>
+          <div class="qa"><b>Q. 어디에 쓰면 좋나요?</b><p>카카오톡·인스타그램·디스코드·슬랙·노션 등 프로필 사진, 발표 자료의 인물 아이콘, 웹사이트 팀 소개의 동그란 사진 등에 쓰기 좋습니다. 둥근 모서리 모드는 앱 아이콘이나 카드형 썸네일 느낌을 낼 때 유용합니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/bg-remover/"><b>이미지 배경 제거(누끼)</b><span>인물만 분리 후 원형으로</span></a>
+          <a class="rel-card" href="/image-crop/"><b>이미지 자르기</b><span>구도 먼저 맞추기</span></a>
+          <a class="rel-card" href="/id-photo/"><b>증명사진 규격 맞추기</b><span>규격용 사진 만들기</span></a>
+          <a class="rel-card" href="/image-resizer/"><b>이미지 크기 조절</b><span>업로드 크기 맞추기</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+const $=id=>document.getElementById(id);
+const canvas=$('pp-canvas'),ctx=canvas.getContext('2d');
+let img=null,imgUrl=null;
+function note(m,k){const n=$('pp-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
+
+const drop=$('pp-drop'),fileInput=$('pp-file');
+drop.onclick=()=>fileInput.click();
+fileInput.onchange=e=>{if(e.target.files[0])load(e.target.files[0]);fileInput.value='';};
+['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+drop.addEventListener('drop',e=>{if(e.dataTransfer.files[0])load(e.dataTransfer.files[0]);});
+
+function load(file){
+  if(!/^image\//.test(file.type)){note('이미지 파일을 선택하세요.','err');return;}
+  if(imgUrl)URL.revokeObjectURL(imgUrl);
+  imgUrl=URL.createObjectURL(file);
+  const im=new Image();
+  im.onload=()=>{img=im;$('pp-stage').style.display='block';draw();note('완성! 아래에서 다운로드하세요.','ok');};
+  im.onerror=()=>note('이미지를 불러오지 못했습니다.','err');
+  im.src=imgUrl;
+}
+
+function roundRect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+
+function draw(){
+  if(!img)return;
+  const S=parseInt($('pp-size').value)||400;
+  const shape=$('pp-shape').value;
+  const bgMode=$('pp-bg').value;
+  canvas.width=S;canvas.height=S;
+  ctx.clearRect(0,0,S,S);
+  // 배경
+  if(bgMode!=='transparent'){
+    ctx.fillStyle=bgMode==='white'?'#ffffff':bgMode==='black'?'#000000':$('pp-color').value;
+    ctx.fillRect(0,0,S,S);
+  }
+  // 마스크
+  ctx.save();
+  if(shape==='circle'){ctx.beginPath();ctx.arc(S/2,S/2,S/2,0,Math.PI*2);ctx.closePath();}
+  else{const r=Math.round(S*(parseInt($('pp-radius').value)/100));roundRect(ctx,0,0,S,S,r);}
+  ctx.clip();
+  // 중앙 정사각 cover 크롭
+  const iw=img.naturalWidth,ih=img.naturalHeight,s=Math.min(iw,ih);
+  ctx.drawImage(img,(iw-s)/2,(ih-s)/2,s,s,0,0,S,S);
+  ctx.restore();
+  // 다운로드 링크 갱신
+  canvas.toBlob(b=>{
+    if(canvas._u)URL.revokeObjectURL(canvas._u);
+    canvas._u=URL.createObjectURL(b);
+    $('pp-download').href=canvas._u;
+  },'image/png');
+}
+
+$('pp-shape').onchange=()=>{$('pp-radius-field').style.display=$('pp-shape').value==='rounded'?'block':'none';draw();};
+$('pp-size').onchange=draw;
+$('pp-radius').oninput=()=>{$('pp-radius-v').textContent=$('pp-radius').value+'%';draw();};
+$('pp-bg').onchange=()=>{$('pp-color-field').style.display=$('pp-bg').value==='custom'?'inline-flex':'none';draw();};
+$('pp-color').oninput=()=>{if($('pp-bg').value==='custom')draw();};
+$('pp-clear').onclick=()=>{img=null;$('pp-stage').style.display='none';note('');};
+</script>
+</html>
