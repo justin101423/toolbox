@@ -38,6 +38,7 @@
 - 증명사진 규격 맞추기 (`/id-photo/`)
 - EXIF·위치정보 제거 (`/remove-exif/`)
 - 이미지 정보 보기 (`/image-info/`)
+- 유튜브 썸네일 다운로드 (`/youtube-thumbnail/`)
 - HEIC → JPG 변환 (`/heic-to-jpg/`)
 - SVG → PNG 변환 (`/svg-to-png/`)
 - 이미지 ↔ Base64 (`/image-base64/`)
