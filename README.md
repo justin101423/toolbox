@@ -114,6 +114,7 @@
 - 세계 시간 변환 (`/timezone-converter/`)
 - 스톱워치·타이머 (`/stopwatch-timer/`)
 - 수면 시간 계산기 (`/sleep-calculator/`)
+- 혈중알코올농도 계산기 (`/blood-alcohol/`)
 - BMI 계산기 (`/bmi-calculator/`)
 - 기초대사량·칼로리 계산기 (`/calorie-calculator/`)
 - 운동 칼로리 소모 계산기 (`/exercise-calories/`)
