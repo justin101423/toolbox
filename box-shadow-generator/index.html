@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "복사한 값은 CSS의 box-shadow 속성입니다. 원하는 요소 스타일에 그대로 붙여넣으면 적용됩니다. inset 키워드가 포함되면 내부 그림자로, 없으면 외부 그림자로 동작합니다."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 그림자를 여러 겹 겹치려면 어떻게 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "box-shadow는 값을 쉼표로 이어 붙이면 여러 그림자를 한 요소에 동시에 줄 수 있습니다. 이 도구로 가까운 진한 그림자 값을 하나 만들고, 다시 멀리 퍼지는 옅은 그림자 값을 만든 뒤 두 값을 쉼표로 연결하면 됩니다. 먼저 쓴 그림자가 위에 올라옵니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. text-shadow와 box-shadow는 무엇이 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "box-shadow는 요소의 사각형(박스) 전체에 그림자를 주고, text-shadow는 글자 모양을 따라 그림자를 줍니다. 카드나 버튼처럼 영역에 입체감을 줄 때는 box-shadow를, 제목 글자에 또렷함이나 네온 효과를 줄 때는 text-shadow를 사용합니다. 확산(spread)과 inset은 box-shadow에만 있습니다."
+      }
     }
   ]
 }
@@ -166,6 +182,16 @@
           <li>안쪽으로 파인 효과가 필요하면 "내부 그림자(inset)"를 켜고, 완성되면 "CSS 복사"로 코드를 가져갑니다.</li>
         </ol>
 
+        <div class="sec-label">box-shadow를 이루는 5가지 값</div>
+        <p>box-shadow는 다섯 개의 값과 한 개의 키워드(inset)로 구성됩니다. 각 값이 무엇을 바꾸는지 알면 슬라이더를 의도대로 조절할 수 있습니다.</p>
+        <ul class="tips-list">
+          <li><b>X · Y(위치):</b> 그림자가 좌우·상하로 얼마나 치우칠지 정합니다. Y가 양수면 아래로 떨어집니다.</li>
+          <li><b>blur(흐림):</b> 가장자리를 얼마나 부드럽게 번지게 할지. 클수록 은은해집니다.</li>
+          <li><b>spread(확산):</b> 그림자 자체의 크기. 양수면 커지고 음수면 작아집니다.</li>
+          <li><b>색상 · 투명도:</b> 보통 검정에 가까운 색을 낮은 투명도(10~25%)로 줘야 자연스럽습니다.</li>
+        </ul>
+        <p>값 조합으로 자연스러운 그림자를 만드는 레시피는 <a class="inlink" href="/guide/css-box-shadow/">자연스러운 그림자 만들기</a>에서 더 다룹니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>자연스러운 카드 그림자:</b> 빛은 보통 위에서 내려오므로 X는 0, Y는 양수(4~12px), blur는 그보다 크게(16~30px), 투명도는 낮게 주면 떠 있는 듯한 부드러운 카드 그림자가 됩니다. 검정 대신 살짝 어두운 회색을 쓰면 더 자연스럽습니다.</li>
@@ -178,12 +204,16 @@
           <div class="qa"><b>Q. blur와 spread는 어떻게 다른가요?</b><p>blur(흐림)는 그림자 가장자리를 얼마나 부드럽게 번지게 할지, spread(확산)는 그림자 자체를 얼마나 크게(양수) 또는 작게(음수) 만들지를 정합니다. blur는 흐릿함, spread는 크기라고 이해하면 쉽습니다.</p></div>
           <div class="qa"><b>Q. 색상 투명도는 왜 따로 조절하나요?</b><p>그림자는 보통 불투명한 색보다 반투명할 때 자연스럽습니다. 그래서 색상은 색상 피커로 고르고 투명도를 따로 조절해, 최종적으로 rgba 형식으로 코드를 생성합니다. 투명도 20% 안팎이 가장 무난합니다.</p></div>
           <div class="qa"><b>Q. 생성된 코드는 어떻게 쓰나요?</b><p>복사한 값은 CSS의 box-shadow 속성입니다. 원하는 요소 스타일에 그대로 붙여넣으면 적용됩니다. inset 키워드가 포함되면 내부 그림자로, 없으면 외부 그림자로 동작합니다.</p></div>
+          <div class="qa"><b>Q. 그림자를 여러 겹 겹치려면 어떻게 하나요?</b><p>box-shadow는 값을 쉼표로 이어 붙이면 여러 그림자를 한 요소에 동시에 줄 수 있습니다. 이 도구로 가까운 진한 그림자 값을 하나 만들고, 다시 멀리 퍼지는 옅은 그림자 값을 만든 뒤 두 값을 쉼표로 연결하면 됩니다. 먼저 쓴 그림자가 위에 올라옵니다.</p></div>
+          <div class="qa"><b>Q. text-shadow와 box-shadow는 무엇이 다른가요?</b><p>box-shadow는 요소의 사각형(박스) 전체에 그림자를 주고, text-shadow는 글자 모양을 따라 그림자를 줍니다. 카드나 버튼처럼 영역에 입체감을 줄 때는 box-shadow를, 제목 글자에 또렷함이나 네온 효과를 줄 때는 text-shadow를 사용합니다. 확산(spread)과 inset은 box-shadow에만 있습니다.</p></div>
         </div>
 
         <div class="sec-label">함께 보면 좋은 가이드</div>
         <div class="rel-grid">
           <a class="rel-card" href="/guide/css-box-shadow/"><b>자연스러운 그림자 만들기</b><span>값 5개의 의미와 레시피</span></a>
           <a class="rel-card" href="/guide/css-gradient/"><b>CSS 그라데이션</b><span>배경을 한 단계 위로</span></a>
+          <a class="rel-card" href="/text-shadow-generator/"><b>text-shadow 생성기</b><span>글자에 주는 그림자 CSS</span></a>
+          <a class="rel-card" href="/border-radius-generator/"><b>테두리 둥글기 생성기</b><span>카드 모서리 둥글게</span></a>
         </div>
       </section>
     </div>

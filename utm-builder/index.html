@@ -74,6 +74,22 @@
         "@type": "Answer",
         "text": "GA4 → 보고서 → 획득 → 트래픽 획득에서 소스/매체별로 확인합니다. 캠페인 이름으로 보려면 보고서 → 획득 → 캠페인 섹션을 이용하세요."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. utm 값에 대문자나 한글, 띄어쓰기를 써도 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "기술적으로는 가능하지만 권하지 않습니다. GA4는 utm 값의 대소문자를 구분하기 때문에 Naver와 naver가 서로 다른 출처로 집계되어 데이터가 쪼개집니다. 띄어쓰기는 자동으로 인코딩되어 URL이 지저분해지므로, 소문자와 하이픈(-)이나 밑줄(_)로 통일하는 것이 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 같은 링크에 utm을 두 번 붙이면 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이미 utm 파라미터가 붙어 있는 주소를 다시 빌더에 넣으면 같은 키가 두 번 들어가 추적이 꼬일 수 있습니다. utm은 항상 파라미터가 없는 깨끗한 원본 주소에 한 번만 붙이세요. 기존 utm을 바꾸고 싶다면 물음표 앞의 순수 주소만 남기고 다시 만드는 것이 안전합니다."
+      }
     }
   ]
 }
@@ -187,6 +203,16 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>복사 버튼으로 URL을 클립보드에 저장해 광고 링크, 이메일, SNS에 사용하세요.</li>
         </ol>
 
+        <div class="sec-label">UTM 5가지 파라미터, 무엇을 담나</div>
+        <p>UTM은 링크 끝에 붙는 다섯 개의 꼬리표입니다. 어떤 광고·게시물을 누가 클릭해 들어왔는지 GA4가 출처를 구분하도록 알려 주는 역할을 합니다.</p>
+        <ul class="tips-list">
+          <li><b>utm_source(출처):</b> 트래픽이 온 구체적 매체. naver, kakao, newsletter처럼 "어디서"에 해당합니다.</li>
+          <li><b>utm_medium(채널 유형):</b> cpc(유료 검색), email, social, banner처럼 마케팅 방식의 큰 분류입니다.</li>
+          <li><b>utm_campaign(캠페인명):</b> spring-sale-2026처럼 어떤 행사·프로모션인지 묶는 이름입니다.</li>
+          <li><b>utm_term · utm_content(선택):</b> term은 입찰 키워드, content는 같은 캠페인 안에서 배너 A·B 같은 소재를 구분합니다.</li>
+        </ul>
+        <p>source와 medium은 필수, 나머지는 필요할 때만 채우면 됩니다. 표기 규칙은 <a class="inlink" href="/guide/utm-parameters/">UTM 파라미터 가이드</a>에 정리해 두었습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>회사 내 표준 통일:</b> utm_source와 utm_medium을 팀 전체에서 일관성 있게 사용해야 GA4 보고서 데이터가 정확히 묶입니다. 예: 네이버 검색 광고 = source:naver, medium:cpc. 한 번 정한 규칙은 문서로 공유하세요.</li>
@@ -199,12 +225,16 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <div class="qa"><b>Q. UTM 파라미터가 검색 엔진 순위(SEO)에 영향을 주나요?</b><p>Google은 검색 색인 시 UTM 파라미터를 무시합니다. SEO에는 영향이 없지만 URL이 길어지므로 공유 시 단축 URL 서비스를 함께 사용하는 것도 좋습니다.</p></div>
           <div class="qa"><b>Q. utm_source와 utm_medium에 어떤 값을 넣어야 하나요?</b><p>Google 권장 가이드 기준: utm_medium에는 cpc, email, social 같은 채널 유형을, utm_source에는 naver, kakao, newsletter 같은 구체적 출처를 씁니다.</p></div>
           <div class="qa"><b>Q. GA4에서 UTM 데이터를 어디서 확인하나요?</b><p>GA4 → 보고서 → 획득 → 트래픽 획득에서 소스/매체별로 확인합니다. 캠페인 이름으로 보려면 보고서 → 획득 → 캠페인 섹션을 이용하세요.</p></div>
+          <div class="qa"><b>Q. utm 값에 대문자나 한글, 띄어쓰기를 써도 되나요?</b><p>기술적으로는 가능하지만 권하지 않습니다. GA4는 utm 값의 대소문자를 구분하기 때문에 Naver와 naver가 서로 다른 출처로 집계되어 데이터가 쪼개집니다. 띄어쓰기는 자동으로 인코딩되어 URL이 지저분해지므로, 소문자와 하이픈(-)이나 밑줄(_)로 통일하는 것이 좋습니다.</p></div>
+          <div class="qa"><b>Q. 같은 링크에 utm을 두 번 붙이면 어떻게 되나요?</b><p>이미 utm 파라미터가 붙어 있는 주소를 다시 빌더에 넣으면 같은 키가 두 번 들어가 추적이 꼬일 수 있습니다. utm은 항상 파라미터가 없는 깨끗한 원본 주소에 한 번만 붙이세요. 기존 utm을 바꾸고 싶다면 물음표 앞의 순수 주소만 남기고 다시 만드는 것이 안전합니다.</p></div>
         </div>
 
         <div class="sec-label">함께 보면 좋은 가이드</div>
         <div class="rel-grid">
           <a class="rel-card" href="/guide/utm-parameters/"><b>UTM 파라미터 가이드</b><span>5가지 태그 의미와 표기 규칙</span></a>
           <a class="rel-card" href="/qr-code/"><b>QR코드 생성</b><span>UTM 링크를 QR로 인쇄물에</span></a>
+          <a class="rel-card" href="/url-parser/"><b>URL 쿼리스트링 파서</b><span>붙인 utm 값 다시 확인·분해</span></a>
+          <a class="rel-card" href="/guide/url-structure/"><b>URL 구조 이해하기</b><span>물음표·파라미터가 하는 일</span></a>
         </div>
       </section>
     </div>
