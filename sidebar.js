@@ -197,6 +197,7 @@
       { slug: "json-to-types",    name: "JSON → 타입 변환", icon: "file-json" },
       { slug: "json-to-java-dto", name: "JSON → Java DTO", icon: "coffee" },
       { slug: "table-converter",  name: "표 변환기",        icon: "table-2" },
+      { slug: "mock-data",        name: "더미 데이터 생성기", icon: "database" },
       { slug: "sql-formatter",    name: "SQL 포매터",      icon: "database" },
       { slug: "markdown-preview", name: "마크다운 변환",   icon: "file-text" },
       { slug: "code-image",      name: "코드 이미지 생성기", icon: "code-2" },
