@@ -208,6 +208,7 @@
       { slug: "personal-color",  name: "퍼스널컬러 진단",    icon: "palette" },
       { slug: "animal-face",     name: "동물상 테스트",      icon: "paw-print" },
       { slug: "hearing-age-test", name: "청력 나이 테스트",   icon: "ear" },
+      { slug: "reaction-test",   name: "반응속도 테스트",     icon: "zap" },
       { slug: "daily-fortune",   name: "오늘의 운세",        icon: "star" },
       { slug: "tarot",           name: "타로 카드 뽑기",     icon: "spade" },
       { slug: "dream-interpretation", name: "꿈해몽",        icon: "cloud" },
