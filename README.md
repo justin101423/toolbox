@@ -32,6 +32,7 @@
 - 이미지 색 반전 (`/image-invert/`)
 - 이미지 워터마크 넣기 (`/watermark/`)
 - 이미지 모자이크·블러 (`/image-blur/`)
+- 이미지 배경 제거 (누끼) (`/bg-remover/`)
 - 이미지 합치기·콜라주 (`/image-merge/`)
 - 밈·짤 생성기 (`/meme-generator/`)
 - 증명사진 규격 맞추기 (`/id-photo/`)
