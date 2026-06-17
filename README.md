@@ -24,6 +24,7 @@
 - 이미지 압축·리사이즈 (`/image-compressor/`)
 - 이미지 크기 조절 (`/image-resizer/`)
 - 이미지 자르기 (`/image-crop/`)
+- 인스타 9분할 그리드 자르기 (`/instagram-grid/`)
 - 이미지 테두리·여백 추가 (`/image-border/`)
 - 이미지 회전·뒤집기 (`/image-rotate/`)
 - 이미지 밝기·대비·채도 조절 (`/image-adjust/`)
