@@ -207,6 +207,7 @@
     ]},
     { label: "재미 · 운세", key: "fun", tools: [
       { slug: "mbti-test",       name: "MBTI 성격유형 테스트", icon: "brain" },
+      { slug: "mbti-compatibility", name: "MBTI 궁합",        icon: "handshake" },
       { slug: "egen-teto",       name: "에겐·테토 테스트",   icon: "venetian-mask" },
       { slug: "personal-color",  name: "퍼스널컬러 진단",    icon: "palette" },
       { slug: "animal-face",     name: "동물상 테스트",      icon: "paw-print" },

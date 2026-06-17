@@ -211,6 +211,7 @@
 ### 재미 · 운세
 
 - MBTI 성격유형 테스트 (`/mbti-test/`)
+- MBTI 궁합 (`/mbti-compatibility/`)
 - 에겐·테토 테스트 (`/egen-teto/`)
 - 퍼스널컬러 진단 (`/personal-color/`)
 - 동물상 테스트 (`/animal-face/`)
