@@ -199,6 +199,7 @@
       { slug: "table-converter",  name: "표 변환기",        icon: "table-2" },
       { slug: "sql-formatter",    name: "SQL 포매터",      icon: "database" },
       { slug: "markdown-preview", name: "마크다운 변환",   icon: "file-text" },
+      { slug: "code-image",      name: "코드 이미지 생성기", icon: "code-2" },
       { slug: "http-status-codes", name: "HTTP 상태 코드",  icon: "server" },
       { slug: "ascii-table",      name: "아스키 코드표",   icon: "table-2" },
       { slug: "unicode-escape",   name: "유니코드 이스케이프", icon: "code-2" }

@@ -202,6 +202,7 @@
 - 표 변환기 (`/table-converter/`)
 - SQL 포매터 (`/sql-formatter/`)
 - 마크다운 → HTML 변환 (`/markdown-preview/`)
+- 코드 이미지 생성기 (`/code-image/`)
 - HTTP 상태 코드 치트시트 (`/http-status-codes/`)
 - 아스키 코드표·유니코드 변환 (`/ascii-table/`)
 - 유니코드 이스케이프 변환 (`/unicode-escape/`)
