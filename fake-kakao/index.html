@@ -131,12 +131,17 @@
 .kk-phone{display:inline-block;width:100%;max-width:360px;text-align:left;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:0 6px 24px rgba(0,0,0,.12)}
 .kk-bar{background:#a6c5d6;color:#1c2b33;padding:12px 14px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
 .kk-bar .bk{font-size:17px;opacity:.7}
+.kk-bar .kk-bar-ic{margin-left:auto;display:flex;gap:14px}
+.kk-bar .kk-bar-ic svg{width:19px;height:19px;display:block;fill:none;stroke:#1c2b33;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
 .kk-body{background:#b2c7d9;padding:14px 12px;min-height:160px}
-.kk-msg{margin-bottom:12px;display:flex;flex-direction:column}
+.kk-msg{margin-bottom:10px;display:flex;flex-direction:column}
 .kk-msg.me{align-items:flex-end}
-.kk-msg.you{align-items:flex-start}
-.kk-name{font-size:12px;color:#33414a;margin:0 2px 4px;font-weight:600}
-.kk-line{display:flex;align-items:flex-end;gap:5px;max-width:78%}
+.kk-msg.you{flex-direction:row;align-items:flex-start;gap:7px}
+.kk-av{width:38px;height:38px;border-radius:13px;flex-shrink:0;background:#8e9aa6;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:17px;overflow:hidden}
+.kk-av-sp{width:38px;flex-shrink:0}
+.kk-col{display:flex;flex-direction:column;gap:3px;min-width:0}
+.kk-name{font-size:12.5px;color:#33414a;margin:1px 2px 1px;font-weight:600}
+.kk-line{display:flex;align-items:flex-end;gap:5px;max-width:100%}
 .kk-msg.me .kk-line{flex-direction:row-reverse}
 .kk-bub{padding:8px 11px;border-radius:14px;font-size:14px;line-height:1.4;white-space:pre-wrap;word-break:break-word}
 .kk-msg.you .kk-bub{background:#fff;color:#222;border-top-left-radius:3px}
@@ -167,6 +172,7 @@
           <div class="field"><label for="roomName">채팅방 이름</label><input type="text" id="roomName" value="단톡방" maxlength="30"></div>
           <div class="field"><label for="peerName">상대 이름</label><input type="text" id="peerName" value="친구" maxlength="20"></div>
         </div>
+        <div class="fk-field"><label for="peerAvatar">상대 프로필 사진 (선택)</label><input type="file" id="peerAvatar" accept="image/*"></div>
 
         <div class="fk-add">
           <div class="fk-seg" id="whoSeg">
@@ -185,7 +191,7 @@
 
       <div class="kk-wrap">
         <div class="kk-phone">
-          <div class="kk-bar"><span class="bk">‹</span><span id="barTitle">단톡방</span></div>
+          <div class="kk-bar"><span class="bk">‹</span><span id="barTitle">단톡방</span><span class="kk-bar-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></span></div>
           <div class="kk-body" id="kkBody"></div>
         </div>
         <div class="btn-row" style="margin-top:16px;justify-content:center">
@@ -255,7 +261,9 @@
   "use strict";
   var $=function(id){return document.getElementById(id);};
   var msgs=[], who='you', uid=0;
+  var peerAvatarURL=null, peerAvatarImg=null; // 상대 프로필 사진
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function firstLetter(s){ s=(s||'').trim(); return s?s.charAt(0):'?'; }
 
   function renderList(){
     var box=$('list');
@@ -276,13 +284,21 @@
     var peer=$('peerName').value||'상대';
     var body=$('kkBody');
     if(!msgs.length){ body.innerHTML='<div style="color:#5a6b75;font-size:13px;text-align:center;padding:24px 0">메시지를 추가하면 여기에 표시됩니다</div>'; return; }
-    var html='', lastWho=null;
-    msgs.forEach(function(m){
-      var showName=(m.who==='you' && lastWho!=='you'+peer);
-      html+='<div class="kk-msg '+m.who+'">'+
-        (m.who==='you'?'<div class="kk-name">'+esc(peer)+'</div>':'')+
-        '<div class="kk-line"><div class="kk-bub">'+esc(m.text)+'</div>'+
-        (m.time?'<span class="kk-time">'+esc(m.time)+'</span>':'')+'</div></div>';
+    var avStyle=peerAvatarURL?(' style="background-image:url(\''+peerAvatarURL+'\')"'):'';
+    var avInner=peerAvatarURL?'':esc(firstLetter(peer));
+    var html='';
+    msgs.forEach(function(m,i){
+      var firstOfGroup=(i===0 || msgs[i-1].who!==m.who);
+      var lineHtml='<div class="kk-line"><div class="kk-bub">'+esc(m.text)+'</div>'+
+        (m.time?'<span class="kk-time">'+esc(m.time)+'</span>':'')+'</div>';
+      if(m.who==='you'){
+        html+='<div class="kk-msg you">'+
+          (firstOfGroup?'<div class="kk-av"'+avStyle+'>'+avInner+'</div>':'<div class="kk-av-sp"></div>')+
+          '<div class="kk-col">'+(firstOfGroup?'<div class="kk-name">'+esc(peer)+'</div>':'')+lineHtml+'</div>'+
+        '</div>';
+      } else {
+        html+='<div class="kk-msg me">'+lineHtml+'</div>';
+      }
     });
     body.innerHTML=html;
   }
@@ -299,6 +315,13 @@
   $('msgText').addEventListener('keydown',function(e){ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); add(); } });
   $('whoSeg').addEventListener('click',function(e){ var b=e.target.closest('button[data-w]'); if(!b)return; who=b.dataset.w; [].forEach.call(this.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b);}); });
   ['roomName','peerName'].forEach(function(id){ $(id).addEventListener('input',renderPreview); });
+  $('peerAvatar').addEventListener('change',function(e){
+    var f=e.target.files&&e.target.files[0];
+    if(!f){ peerAvatarURL=null; peerAvatarImg=null; renderPreview(); return; }
+    var r=new FileReader();
+    r.onload=function(){ peerAvatarURL=r.result; var im=new Image(); im.onload=function(){ peerAvatarImg=im; renderPreview(); }; im.src=peerAvatarURL; renderPreview(); };
+    r.readAsDataURL(f);
+  });
   $('list').addEventListener('click',function(e){
     var it=e.target.closest('.fk-item'); if(!it)return; var id=+it.dataset.id;
     var i=msgs.findIndex(function(m){return m.id===id;}); if(i<0)return;
@@ -333,6 +356,21 @@
     ctx.arcTo(x,y,x+w,y,r);
     ctx.closePath();
   }
+  // 상대 프로필 사진(둥근 사각형) — 카카오톡 스타일
+  function drawAvatar(ctx,img,name,x,y,s){
+    ctx.save();
+    rrect(ctx,x,y,s,s,s*0.3); ctx.clip();
+    if(img){
+      var iw=img.width, ih=img.height, sc=Math.max(s/iw,s/ih), dw=iw*sc, dh=ih*sc;
+      ctx.drawImage(img,x+s/2-dw/2,y+s/2-dh/2,dw,dh);
+    } else {
+      ctx.fillStyle='#8e9aa6'; ctx.fillRect(x,y,s,s);
+      ctx.fillStyle='#fff'; ctx.font='700 '+Math.round(s*0.5)+'px "Pretendard", system-ui, sans-serif';
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(firstLetter(name),x+s/2,y+s/2+1);
+    }
+    ctx.restore();
+  }
 
   function buildCanvas(){
     var W=720, scale=2;
@@ -353,7 +391,7 @@
     var barH=72;
     var y=barH+pad, lastWho=null;
     items.forEach(function(it){
-      if(it.m.who==='you' && lastWho!=='you') y+=26; // name line
+      if(it.m.who==='you' && lastWho!=='you') y+=28; // name line
       y+=it.bh+gap; lastWho=it.m.who;
     });
     var H=Math.max(barH+200,y+pad-gap+pad);
@@ -367,16 +405,29 @@
     ctx.fillStyle='#1c2b33'; ctx.font='bold 28px '+FONT; ctx.textAlign='left'; ctx.textBaseline='middle';
     ctx.fillText('‹',22,barH/2+1);
     ctx.fillText($('roomName').value||'채팅방',52,barH/2+1);
+    // 우측 검색·메뉴 아이콘
+    ctx.strokeStyle='#1c2b33'; ctx.lineWidth=2.4; ctx.globalAlpha=.7; ctx.lineCap='round';
+    var icY=barH/2;
+    ctx.beginPath(); ctx.arc(W-92,icY-2,9,0,Math.PI*2); ctx.moveTo(W-86,icY+5); ctx.lineTo(W-80,icY+11); ctx.stroke();
+    ctx.beginPath();
+    [-7,0,7].forEach(function(dy){ ctx.moveTo(W-46,icY+dy); ctx.lineTo(W-26,icY+dy); });
+    ctx.stroke(); ctx.globalAlpha=1;
 
     // messages
     ctx.textBaseline='top';
     y=barH+pad; lastWho=null;
+    var avSize=46, colX=pad+avSize+12;
     items.forEach(function(it){
-      var m=it.m, isMe=m.who==='me';
-      var x=isMe?(W-pad-it.bw):pad;
-      if(m.who==='you' && lastWho!=='you'){
-        ctx.fillStyle='#33414a'; ctx.font='600 22px '+FONT; ctx.textAlign='left';
-        ctx.fillText(peer,pad+4,y); y+=26;
+      var m=it.m, isMe=m.who==='me', firstOfGroup=(lastWho!==m.who);
+      var x;
+      if(isMe){ x=W-pad-it.bw; }
+      else {
+        if(firstOfGroup){
+          drawAvatar(ctx,peerAvatarImg,peer,pad,y,avSize);
+          ctx.fillStyle='#33414a'; ctx.font='600 22px '+FONT; ctx.textAlign='left'; ctx.textBaseline='top';
+          ctx.fillText(peer,colX,y); y+=28;
+        }
+        x=colX;
       }
       // bubble
       ctx.fillStyle=isMe?'#fee500':'#ffffff';
