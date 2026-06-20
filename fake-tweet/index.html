@@ -118,16 +118,19 @@
 .tw-av{width:48px;height:48px;border-radius:50%;flex-shrink:0;object-fit:cover;background:#ccd6dd;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#fff;overflow:hidden}
 .tw-id{display:flex;flex-direction:column;line-height:1.25;min-width:0}
 .tw-name{font-weight:800;font-size:15.5px;display:flex;align-items:center;gap:4px}
-.tw-name .vb{color:#1d9bf0;flex-shrink:0}
+.tw-name .vb{width:18px;height:18px;flex-shrink:0;display:inline-block}
+.tw-name .vb svg{display:block;width:100%;height:100%}
 .tw-handle{color:#536471;font-size:14.5px}
 .tw-card.dark .tw-handle{color:#8b98a5}
 .tw-text{font-size:16px;line-height:1.5;margin:13px 0 11px;white-space:pre-wrap;word-break:break-word}
 .tw-time{color:#536471;font-size:14px;border-bottom:1px solid #eff3f4;padding-bottom:13px}
 .tw-card.dark .tw-time{color:#8b98a5;border-color:#38444d}
-.tw-stats{display:flex;gap:26px;margin-top:12px;color:#536471;font-size:14px}
+.tw-stats{display:flex;align-items:center;gap:22px;margin-top:14px;color:#536471;font-size:13.5px}
 .tw-card.dark .tw-stats{color:#8b98a5}
-.tw-stats b{color:inherit;font-weight:800}
-.tw-stats span{display:inline-flex;align-items:center;gap:5px}
+.tw-stats b{color:inherit;font-weight:500}
+.tw-stats span{display:inline-flex;align-items:center;gap:6px}
+.tw-stats .tw-sp{flex:1}
+.tw-ic{width:18.5px;height:18.5px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 </style>
 
 <div class="topbar">
@@ -184,16 +187,19 @@
           <div class="tw-head">
             <div class="tw-av" id="twAv">도</div>
             <div class="tw-id">
-              <div class="tw-name"><span id="pvName">도구상자</span><span class="vb" id="pvBadge" aria-hidden="true">✔</span></div>
+              <div class="tw-name"><span id="pvName">도구상자</span><span class="vb" id="pvBadge" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#1d9bf0" d="M12 1.5l2.3 1.7 2.85-.05 1 2.7 2.7 1-.05 2.85L22.5 12l-1.75 2.3.05 2.85-2.7 1-1 2.7-2.85-.05L12 22.5l-2.3-1.75-2.85.05-1-2.7-2.7-1 .05-2.85L1.5 12l1.75-2.3-.05-2.85 2.7-1 1-2.7 2.85.05z"/><path fill="#fff" d="M10.6 14.6l-2.2-2.2 1.1-1.1 1.1 1.1 3.3-3.3 1.1 1.1z"/></svg></span></div>
               <div class="tw-handle" id="pvHandle">@dogubox</div>
             </div>
           </div>
           <div class="tw-text" id="pvText"></div>
           <div class="tw-time" id="pvDate"></div>
           <div class="tw-stats">
-            <span>💬 <b id="pvReply">0</b></span>
-            <span>🔁 <b id="pvRt">0</b></span>
-            <span>❤️ <b id="pvLike">0</b></span>
+            <span><svg class="tw-ic" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> <b id="pvReply">0</b></span>
+            <span><svg class="tw-ic" viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg> <b id="pvRt">0</b></span>
+            <span><svg class="tw-ic" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> <b id="pvLike">0</b></span>
+            <span class="tw-sp"></span>
+            <span><svg class="tw-ic" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></span>
+            <span><svg class="tw-ic" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg></span>
           </div>
         </div>
       </div>
@@ -269,6 +275,28 @@
   }
   function trim(x){ var s=(Math.round(x*10)/10).toString(); return s; }
   function firstLetter(s){ s=(s||'').trim(); return s?s.charAt(0):'?'; }
+
+  // X(트위터) 액션 아이콘 — HTML 미리보기와 캔버스 저장이 같은 path 사용
+  var ICO={
+    reply:'M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z',
+    retweet:'M17 1l4 4-4 4 M3 11V9a4 4 0 0 1 4-4h14 M7 23l-4-4 4-4 M21 13v2a4 4 0 0 1-4 4H3',
+    like:'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z',
+    bookmark:'M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z',
+    share:'M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8 M16 6l-4-4-4 4 M12 2v13'
+  };
+  function drawIco(ctx,d,x,y,size,color){
+    var p=new Path2D(d);
+    ctx.save(); ctx.translate(x,y); ctx.scale(size/24,size/24);
+    ctx.strokeStyle=color; ctx.lineWidth=2*24/size; ctx.lineJoin='round'; ctx.lineCap='round';
+    ctx.stroke(p); ctx.restore();
+  }
+  function drawBadge(ctx,cx,cy,size){
+    var po=new Path2D('M12 1.5l2.3 1.7 2.85-.05 1 2.7 2.7 1-.05 2.85L22.5 12l-1.75 2.3.05 2.85-2.7 1-1 2.7-2.85-.05L12 22.5l-2.3-1.75-2.85.05-1-2.7-2.7-1 .05-2.85L1.5 12l1.75-2.3-.05-2.85 2.7-1 1-2.7 2.85.05z');
+    var pc=new Path2D('M10.6 14.6l-2.2-2.2 1.1-1.1 1.1 1.1 3.3-3.3 1.1 1.1z');
+    ctx.save(); ctx.translate(cx-size/2,cy-size/2); ctx.scale(size/24,size/24);
+    ctx.fillStyle='#1d9bf0'; ctx.fill(po); ctx.fillStyle='#fff'; ctx.fill(pc);
+    ctx.restore();
+  }
 
   function render(){
     var name=$('twName').value||'이름';
@@ -379,10 +407,7 @@
     ctx.fillText(name,nx,ny);
     var nameW=ctx.measureText(name).width;
     if($('twVerified').checked){
-      var bx=nx+nameW+10, by=ny+15, br=12;
-      ctx.fillStyle='#1d9bf0'; ctx.beginPath(); ctx.arc(bx,by,br,0,Math.PI*2); ctx.fill();
-      ctx.strokeStyle='#fff'; ctx.lineWidth=3; ctx.lineCap='round'; ctx.lineJoin='round';
-      ctx.beginPath(); ctx.moveTo(bx-5,by); ctx.lineTo(bx-1,by+4); ctx.lineTo(bx+5,by-4); ctx.stroke();
+      drawBadge(ctx,nx+nameW+15,ny+15,28);
     }
     // handle
     ctx.fillStyle=col.sub; ctx.font='28px '+FONT;
@@ -403,23 +428,23 @@
     ctx.strokeStyle=col.line; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(pad,sy); ctx.lineTo(W-pad,sy); ctx.stroke();
 
-    // stats
-    var stY=sy+26;
-    ctx.font='28px '+FONT;
-    var parts=[
-      {l:'💬',v:fmtCount(+$('twReply').value)},
-      {l:'🔁',v:fmtCount(+$('twRt').value)},
-      {l:'❤️',v:fmtCount(+$('twLike').value)}
-    ];
+    // stats (X 아웃라인 아이콘 — 답글·리트윗·좋아요 / 우측 북마크·공유)
+    var stY=sy+30, icS=30, iC=col.sub;
     var sx=pad;
+    var parts=[
+      {d:ICO.reply,v:fmtCount(+$('twReply').value)},
+      {d:ICO.retweet,v:fmtCount(+$('twRt').value)},
+      {d:ICO.like,v:fmtCount(+$('twLike').value)}
+    ];
+    ctx.textAlign='left'; ctx.textBaseline='middle';
     parts.forEach(function(p){
-      ctx.fillStyle=col.sub; ctx.font='28px '+FONT;
-      ctx.fillText(p.l,sx,stY);
-      var lw=ctx.measureText(p.l+'  ').width;
-      ctx.fillStyle=col.ink; ctx.font='800 28px '+FONT;
-      ctx.fillText(p.v,sx+lw,stY);
-      sx+=lw+ctx.measureText(p.v).width+44;
+      drawIco(ctx,p.d,sx,stY-icS/2,icS,iC);
+      ctx.fillStyle=col.sub; ctx.font='27px '+FONT;
+      ctx.fillText(p.v,sx+icS+10,stY);
+      sx+=icS+10+ctx.measureText(p.v).width+54;
     });
+    drawIco(ctx,ICO.share,W-pad-icS,stY-icS/2,icS,iC);
+    drawIco(ctx,ICO.bookmark,W-pad-icS*2-26,stY-icS/2,icS,iC);
 
     return c;
   }
