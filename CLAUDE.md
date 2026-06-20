@@ -70,19 +70,20 @@ toolbox/
 
 ## 4. 현재 존재하는 모든 도구 목록
 
-> **총 217개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
+> **총 226개** (실제 도구 폴더 수와 일치해야 함). 도구를 추가/삭제/이름변경하면 이 표를 반드시 갱신하세요.
 
 > **★ 정렬(순서) 규칙 — 새 도구는 아무 데나 끝에 붙이지 말고 아래 순서에 맞는 위치에 넣습니다.** 이 순서는 `sidebar.js`의 CATEGORIES, 허브 `index.html` 카드, 이 표(섹션 4), `README.md`가 **모두 동일**해야 합니다.
 > - **카테고리 순서(일상 → 전문 → 재미)**: 이미지·PDF → 텍스트·생성 → 생활·편의 → 금융 → 직장인·생산성 → 색상·디자인 → 개발자 도구 → 재미·운세 → 악기.
 > - **카테고리 안 도구 순서**: 비슷한 기능끼리 묶고(예: 이미지편집 → 이미지변환·유틸 → PDF, 텍스트편집 → 변환 → 생성기, 계산 → 변환 → 날짜·시간 → 추첨·재미 등), 더 자주 쓰는 핵심 도구를 그 그룹 앞쪽에 둡니다.
 > - 새 도구를 추가할 때는 같은 카테고리의 알맞은 그룹 위치에 끼워 넣고, 위 4곳(sidebar·허브·이 표·README)의 순서를 동일하게 맞춥니다.
 
-### 이미지 · PDF (36)
+### 이미지 · PDF (37)
 | 슬러그 | 이름 |
 |---|---|
 | image-converter | 이미지 포맷 변환 |
 | image-compressor | 이미지 압축·리사이즈 |
 | image-resizer | 이미지 크기 조절 |
+| image-upscale | 이미지 업스케일·확대 |
 | image-crop | 이미지 자르기 |
 | instagram-grid | 인스타 9분할 그리드 자르기 |
 | image-border | 이미지 테두리·여백 추가 |
@@ -117,7 +118,7 @@ toolbox/
 | pdf-to-image | PDF → 이미지 |
 | pdf-to-text | PDF → 텍스트 추출 |
 
-### 텍스트 · 생성 (30)
+### 텍스트 · 생성 (31)
 | 슬러그 | 이름 |
 |---|---|
 | word-counter | 글자수 세기 |
@@ -135,6 +136,7 @@ toolbox/
 | text-diff | 텍스트 비교(diff) |
 | reading-time | 읽는 시간 계산기 |
 | fancy-text | 유니코드 꾸미기 글자 변환 |
+| handwriting | 손글씨 생성기 |
 | nickname-generator | 랜덤 닉네임 생성기 |
 | special-characters | 특수문자·이모지 복사 |
 | kaomoji | 카오모지·이모티콘 텍스트 모음 |
@@ -151,7 +153,7 @@ toolbox/
 | lorem-ipsum | 로렘 입숨 생성기 |
 | json-formatter | JSON 포매터 |
 
-### 생활 · 편의 (32)
+### 생활 · 편의 (35)
 | 슬러그 | 이름 |
 |---|---|
 | calculator | 계산기 (일반·공학용) |
@@ -184,10 +186,13 @@ toolbox/
 | bmi-calculator | BMI 계산기 |
 | calorie-calculator | 기초대사량·칼로리 계산기 |
 | exercise-calories | 운동 칼로리 소모 계산기 |
+| body-fat | 체지방률 계산기 |
+| one-rep-max | 1RM 최대중량 계산기 |
+| child-height | 자녀 키 예측 계산기 |
 | gpa-calculator | 학점·GPA 계산기 |
 | typing-speed | 타자 속도 측정 |
 
-### 금융 (26)
+### 금융 (27)
 | 슬러그 | 이름 |
 |---|---|
 | salary-calculator | 연봉 실수령액 계산기 |
@@ -201,6 +206,7 @@ toolbox/
 | savings-calculator | 적금·예금 이자 계산기 |
 | dsr-calculator | DSR·DTI 계산기 |
 | jeonse-conversion | 전월세 전환 계산기 |
+| housing-subscription | 주택청약 가점 계산기 |
 | compound-interest | 복리 계산기 |
 | stock-average | 물타기(평단가) 계산기 |
 | stock-profit | 주식 수익률·손익 계산기 |
@@ -285,7 +291,7 @@ toolbox/
 | ascii-table | 아스키 코드표·유니코드 변환 |
 | unicode-escape | 유니코드 이스케이프 변환 |
 
-### 재미 · 운세 (22)
+### 재미 · 운세 (25)
 | 슬러그 | 이름 |
 |---|---|
 | mbti-test | MBTI 성격유형 테스트 |
@@ -299,10 +305,13 @@ toolbox/
 | tarot | 타로 카드 뽑기 |
 | dream-interpretation | 꿈해몽 |
 | saju | 사주팔자 만세력 |
+| tojeong | 토정비결 만세력 신년 운세 |
 | zodiac-finder | 띠·별자리 찾기 |
 | lunch-menu | 오늘 뭐 먹지 |
 | balance-game | 밸런스 게임 |
 | fake-kakao | 가짜 카톡 생성기 |
+| fake-tweet | 가짜 트윗(X) 생성기 |
+| fake-instagram | 가짜 인스타 게시물·DM 생성기 |
 | name-compatibility | 이름 궁합 테스트 |
 | random-picker | 랜덤 추첨기 |
 | team-generator | 랜덤 팀 나누기 |

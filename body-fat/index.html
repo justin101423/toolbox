@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>체지방률 계산기 — 미해군 둘레 공식으로 체지방 % 추정 | 도구상자</title>
+<meta name="description" content="성별·키·목·허리(여성은 엉덩이) 둘레를 넣어 미해군 둘레 공식으로 체지방률(%)을 추정하는 무료 계산기. 입력은 서버로 전송되지 않습니다.">
+<link rel="canonical" href="https://dogubox.shop/body-fat/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="체지방률 계산기 — 미해군 둘레 공식으로 체지방 % 추정 | 도구상자">
+<meta property="og:description" content="성별·키·둘레로 미해군 둘레 공식을 이용해 체지방률(%)을 추정하는 무료 계산기.">
+<meta property="og:url" content="https://dogubox.shop/body-fat/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="체지방률 계산기 | 도구상자">
+<meta name="twitter:description" content="성별·키·둘레로 미해군 둘레 공식을 이용해 체지방률(%)을 추정합니다.">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "체지방률 계산기",
+  "description": "성별·키·목·허리(여성은 엉덩이) 둘레를 넣어 미해군 둘레 공식으로 체지방률(%)을 추정하는 무료 계산기. 입력은 서버로 전송되지 않습니다.",
+  "url": "https://dogubox.shop/body-fat/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 체지방률은 어떻게 계산하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "이 계산기는 미국 해군(US Navy)이 쓰는 둘레 공식을 사용합니다. 키와 목·허리(여성은 엉덩이 포함) 둘레를 로그 식에 넣어 체지방률을 추정하는 방식입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 둘레는 어디를 재나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "목은 후두(목젖) 아래를 수평으로, 허리는 남성은 배꼽 높이·여성은 가장 가는 부분을, 엉덩이는 가장 큰 부분을 잽니다. 줄자를 너무 조이지 말고 자연스럽게 감아 재세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 정상 체지방률은 몇 %인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "보통 남성은 10~20%, 여성은 18~28%를 양호한 범위로 봅니다. 남성 25% 이상, 여성 32% 이상은 비만으로 분류됩니다. 나이와 근육량에 따라 기준은 달라질 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 인바디(체성분 측정)와 결과가 다른가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 둘레 공식은 간편하지만 오차가 있어 인바디나 DEXA 같은 정밀 측정과 몇 % 차이가 날 수 있습니다. 절대값보다 변화 추세를 보는 용도로 쓰는 것이 좋습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 입력한 신체 정보가 저장되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 키·둘레 등 입력은 브라우저 안에서 계산에만 쓰이고 서버로 전송되거나 저장되지 않습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "체지방률 계산기",
+      "item": "https://dogubox.shop/body-fat/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+#bf-result{display:none;margin-top:16px;padding:18px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper)}
+#bf-percent{font-family:var(--mono);font-size:40px;font-weight:800;color:var(--accent);text-align:center;line-height:1.1}
+.bf-sub{text-align:center;color:var(--ink-2);font-size:14px;margin-top:2px}
+.bf-cat{text-align:center;margin-top:10px}
+.bf-cat span{display:inline-block;padding:4px 14px;border:1px solid var(--accent);border-radius:999px;font-size:14px;font-weight:700;color:var(--accent)}
+.bf-rows{display:grid;gap:6px;margin-top:14px}
+.bf-rows .r{display:flex;justify-content:space-between;font-size:14px;border-top:1px dashed var(--line);padding-top:6px}
+.bf-rows .r b{font-family:var(--mono)}
+.bf-table{margin-top:14px;width:100%;border-collapse:collapse;font-size:13px}
+.bf-table th,.bf-table td{border:1px solid var(--line);padding:5px 8px;text-align:center}
+.bf-table th{background:var(--card);color:var(--ink-2);font-weight:600}
+.bf-table tr.hit td{background:var(--card);font-weight:700;color:var(--accent)}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>체지방률 계산기</h1>
+      <p class="lede">성별·키·목·허리(여성은 엉덩이) 둘레만 넣으면 미국 해군 둘레 공식으로 체지방률(%)을 추정합니다. 줄자만 있으면 집에서 간편하게 잴 수 있는 참고용 추정치입니다.</p>
+
+      <div class="box">
+        <div class="field" style="margin-bottom:0">
+          <label>성별</label>
+          <div style="display:flex;gap:14px;align-items:center;margin-top:8px">
+            <label class="check" style="margin:0"><input type="radio" name="bf-sex" value="male" checked> 남성</label>
+            <label class="check" style="margin:0"><input type="radio" name="bf-sex" value="female"> 여성</label>
+          </div>
+        </div>
+        <div class="field-row" style="margin-top:12px">
+          <div class="field" style="margin-bottom:0">
+            <label for="bf-height">키 (cm)</label>
+            <input type="number" id="bf-height" value="170" min="80" max="250" step="0.1">
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label for="bf-neck">목둘레 (cm)</label>
+            <input type="number" id="bf-neck" value="38" min="10" max="80" step="0.1">
+          </div>
+        </div>
+        <div class="field-row" style="margin-top:12px">
+          <div class="field" style="margin-bottom:0">
+            <label for="bf-waist">허리둘레 (cm)</label>
+            <input type="number" id="bf-waist" value="82" min="30" max="200" step="0.1">
+          </div>
+          <div class="field" id="bf-hip-field" style="margin-bottom:0;display:none">
+            <label for="bf-hip">엉덩이둘레 (cm)</label>
+            <input type="number" id="bf-hip" value="95" min="40" max="200" step="0.1">
+          </div>
+        </div>
+        <div class="field" style="margin-top:12px;margin-bottom:0">
+          <label for="bf-weight">몸무게 (kg, 선택)</label>
+          <input type="number" id="bf-weight" value="" min="0" max="300" step="0.1" placeholder="입력하면 체지방량·제지방량도 계산">
+          <div class="hint">몸무게를 넣으면 체지방량(kg)과 제지방량(kg)을 함께 보여 줍니다.</div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn accent" id="bf-calc">계산하기</button>
+          <button class="btn ghost" id="bf-reset">초기화</button>
+        </div>
+        <div class="note" id="bf-note"></div>
+
+        <div id="bf-result">
+          <div id="bf-percent">0.0%</div>
+          <div class="bf-sub">추정 체지방률 (미해군 둘레 공식)</div>
+          <div class="bf-cat"><span id="bf-cat">—</span></div>
+          <div class="bf-rows" id="bf-mass" style="display:none">
+            <div class="r"><span>체지방량</span><b id="bf-fatmass">0 kg</b></div>
+            <div class="r"><span>제지방량(근육·뼈 등)</span><b id="bf-leanmass">0 kg</b></div>
+          </div>
+          <table class="bf-table" id="bf-classtable"></table>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>성별을 고릅니다. 여성을 선택하면 엉덩이둘레 입력칸이 나타납니다.</li>
+          <li>키와 목·허리 둘레(cm)를 줄자로 재서 입력합니다. 여성은 엉덩이둘레도 넣습니다.</li>
+          <li>몸무게(kg)는 선택 입력입니다. 넣으면 체지방량·제지방량까지 계산됩니다.</li>
+          <li>"계산하기"를 누르면 체지방률 %와 분류, 입력 시 체지방량/제지방량이 나옵니다.</li>
+        </ol>
+
+        <div class="sec-label">체지방률은 이렇게 계산됩니다</div>
+        <p>이 계산기는 미국 해군(US Navy)이 신체검사에 쓰는 <b>둘레(circumference) 공식</b>을 사용합니다. 체중계가 아니라 줄자로 잰 둘레와 키를 로그(log10) 식에 넣어 체지방률을 추정합니다. 남성은 <b>허리 − 목</b>, 여성은 <b>허리 + 엉덩이 − 목</b> 둘레와 키를 사용합니다. 장비 없이 집에서 잴 수 있어 변화 추세를 꾸준히 보기에 좋습니다. 둘레만 정확히 재면 결과가 안정적이니, 측정 부위를 잘 맞추는 것이 중요합니다.</p>
+        <ul class="tips-list">
+          <li><b>목둘레:</b> 후두(목젖) 바로 아래를 지면과 수평이 되게 한 바퀴 감아 잽니다. 고개는 정면을 보고 어깨 힘을 뺍니다.</li>
+          <li><b>허리둘레:</b> 남성은 배꼽 높이를, 여성은 허리에서 가장 가는 부분을 잽니다. 숨을 내쉰 자연스러운 상태에서 잽니다.</li>
+          <li><b>엉덩이둘레(여성):</b> 옆에서 봤을 때 엉덩이가 가장 많이 나온 부분을 수평으로 한 바퀴 감아 잽니다. 줄자를 너무 조이지 않습니다.</li>
+        </ul>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>같은 시간·자세로 재기:</b> 식사·운동·시간대에 따라 둘레가 조금씩 달라집니다. 아침 공복 등 같은 조건에서 재면 변화 추세를 정확히 볼 수 있습니다.</li>
+          <li><b>BMI와 함께 보기:</b> 체지방률은 체형(근육량)을 반영하므로 체중·키만 보는 지표와 함께 보면 좋습니다. <a class="inlink" href="/bmi-calculator/">BMI 계산기</a>로 체질량지수도 같이 확인해 보세요.</li>
+          <li><b>목표는 추세로:</b> 한 번의 절대값보다 주 1회씩 같은 방법으로 재서 줄어드는지 보는 것이 다이어트·체성분 관리에 더 도움이 됩니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 체지방률은 어떻게 계산하나요?</b><p>이 계산기는 미국 해군(US Navy)이 쓰는 둘레 공식을 사용합니다. 키와 목·허리(여성은 엉덩이 포함) 둘레를 로그 식에 넣어 체지방률을 추정하는 방식입니다.</p></div>
+          <div class="qa"><b>Q. 둘레는 어디를 재나요?</b><p>목은 후두(목젖) 아래를 수평으로, 허리는 남성은 배꼽 높이·여성은 가장 가는 부분을, 엉덩이는 가장 큰 부분을 잽니다. 줄자를 너무 조이지 말고 자연스럽게 감아 재세요.</p></div>
+          <div class="qa"><b>Q. 정상 체지방률은 몇 %인가요?</b><p>보통 남성은 10~20%, 여성은 18~28%를 양호한 범위로 봅니다. 남성 25% 이상, 여성 32% 이상은 비만으로 분류됩니다. 나이와 근육량에 따라 기준은 달라질 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 인바디(체성분 측정)와 결과가 다른가요?</b><p>네. 둘레 공식은 간편하지만 오차가 있어 인바디나 DEXA 같은 정밀 측정과 몇 % 차이가 날 수 있습니다. 절대값보다 변화 추세를 보는 용도로 쓰는 것이 좋습니다.</p></div>
+          <div class="qa"><b>Q. 입력한 신체 정보가 저장되나요?</b><p>아니요. 키·둘레 등 입력은 브라우저 안에서 계산에만 쓰이고 서버로 전송되거나 저장되지 않습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/bmi-calculator/"><b>BMI 계산기</b><span>체질량지수</span></a>
+          <a class="rel-card" href="/calorie-calculator/"><b>기초대사량·칼로리 계산기</b><span>하루 칼로리</span></a>
+          <a class="rel-card" href="/exercise-calories/"><b>운동 칼로리 소모 계산기</b><span>운동 소모량</span></a>
+          <a class="rel-card" href="/one-rep-max/"><b>1RM 계산기</b><span>최대 중량</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+const $=id=>document.getElementById(id);
+function note(m,k){const n=$('bf-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
+const sex=()=>document.querySelector('input[name="bf-sex"]:checked').value;
+
+// 분류 기준 (하한 %, 라벨)
+const CATS={
+  male:[[2,'필수지방'],[6,'운동선수'],[14,'양호'],[18,'평균'],[25,'비만']],
+  female:[[10,'필수지방'],[14,'운동선수'],[21,'양호'],[25,'평균'],[32,'비만']]
+};
+const RANGES={
+  male:['2~5%','6~13%','14~17%','18~24%','25%+'],
+  female:['10~13%','14~20%','21~24%','25~31%','32%+']
+};
+function classify(s,bf){
+  const c=CATS[s];let label=c[0][1];
+  for(let i=0;i<c.length;i++){if(bf>=c[i][0])label=c[i][1];}
+  return label;
+}
+function buildTable(s,label){
+  const c=CATS[s],r=RANGES[s];
+  let html='<tr><th>분류</th><th>체지방률</th></tr>';
+  for(let i=0;i<c.length;i++){
+    const hit=c[i][1]===label?' class="hit"':'';
+    html+='<tr'+hit+'><td>'+c[i][1]+'</td><td>'+r[i]+'</td></tr>';
+  }
+  $('bf-classtable').innerHTML=html;
+}
+
+function toggleHip(){
+  $('bf-hip-field').style.display=sex()==='female'?'':'none';
+}
+document.querySelectorAll('input[name="bf-sex"]').forEach(el=>el.addEventListener('change',toggleHip));
+toggleHip();
+
+$('bf-calc').onclick=()=>{
+  const s=sex();
+  const height=parseFloat($('bf-height').value)||0;
+  const neck=parseFloat($('bf-neck').value)||0;
+  const waist=parseFloat($('bf-waist').value)||0;
+  const hip=parseFloat($('bf-hip').value)||0;
+  const weight=parseFloat($('bf-weight').value)||0;
+  if(height<=0||neck<=0||waist<=0){note('키·목·허리 둘레를 모두 입력하세요.','err');return;}
+  if(s==='female'&&hip<=0){note('여성은 엉덩이둘레도 입력하세요.','err');return;}
+
+  let bf;
+  if(s==='male'){
+    if(waist-neck<=0){note('허리둘레가 목둘레보다 커야 합니다. 측정값을 확인하세요.','err');return;}
+    bf=495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(height))-450;
+  }else{
+    if(waist+hip-neck<=0){note('허리+엉덩이 둘레가 목둘레보다 커야 합니다. 측정값을 확인하세요.','err');return;}
+    bf=495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(height))-450;
+  }
+  bf=Math.round(bf*10)/10;
+  if(!isFinite(bf)||bf<=0){note('계산할 수 없는 값입니다. 입력을 확인하세요.','err');return;}
+
+  $('bf-percent').textContent=bf.toFixed(1)+'%';
+  const label=classify(s,bf);
+  $('bf-cat').textContent=label;
+  buildTable(s,label);
+
+  if(weight>0){
+    const fatMass=weight*bf/100;
+    const leanMass=weight-fatMass;
+    $('bf-fatmass').textContent=(Math.round(fatMass*10)/10).toLocaleString('ko-KR')+' kg';
+    $('bf-leanmass').textContent=(Math.round(leanMass*10)/10).toLocaleString('ko-KR')+' kg';
+    $('bf-mass').style.display='grid';
+  }else{
+    $('bf-mass').style.display='none';
+  }
+
+  $('bf-result').style.display='block';
+  note('','');
+  $('bf-result').scrollIntoView({behavior:'smooth',block:'nearest'});
+};
+$('bf-reset').onclick=()=>{$('bf-result').style.display='none';note('');};
+</script>
+</html>

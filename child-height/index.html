@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="rJD1KV4igqV4Au6eBm58HD2H06bJY6DFy4FDb63vW-I" />
+<meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+<title>자녀 키 예측 계산기 — 부모 키로 예상 성인 키 추정 | 도구상자</title>
+<meta name="description" content="부모의 키로 자녀의 예상 성인 키를 중간부모키(MPH) 공식으로 추정하는 무료 계산기. 참고용이며 입력은 서버로 전송되지 않습니다.">
+<link rel="canonical" href="https://dogubox.shop/child-height/">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="도구상자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="자녀 키 예측 계산기 — 부모 키로 예상 성인 키 추정 | 도구상자">
+<meta property="og:description" content="부모의 키로 자녀의 예상 성인 키를 중간부모키(MPH) 공식으로 추정하는 무료 계산기(참고용).">
+<meta property="og:url" content="https://dogubox.shop/child-height/">
+<meta property="og:image" content="https://dogubox.shop/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="도구상자 — 무료 온라인 도구 모음">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dogubox.shop/og-image.png">
+<meta name="twitter:title" content="자녀 키 예측 계산기 | 도구상자">
+<meta name="twitter:description" content="부모의 키로 자녀의 예상 성인 키를 중간부모키 공식으로 추정합니다(참고용).">
+<!-- 구조화 데이터 (JSON-LD) — 검색 리치 스니펫용. 화면 표시 없음. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "자녀 키 예측 계산기",
+  "description": "부모의 키로 자녀의 예상 성인 키를 중간부모키(MPH) 공식으로 추정하는 무료 계산기. 참고용이며 입력은 서버로 전송되지 않습니다.",
+  "url": "https://dogubox.shop/child-height/",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "도구상자",
+    "url": "https://dogubox.shop/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Q. 자녀 키는 어떻게 예측하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "부모의 키로 평균을 내는 '중간부모키' 공식을 씁니다. 아들은 (아빠 키 + 엄마 키 + 13) ÷ 2, 딸은 (아빠 키 + 엄마 키 − 13) ÷ 2 로 예상 성인 키를 계산합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 이 예측은 얼마나 정확한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "유전이 키에 큰 영향을 주지만 전부는 아닙니다. 실제 키는 보통 예측값의 ±8~10cm 범위 안에 들며, 영양·수면·운동·건강 상태에 따라 달라집니다. 참고용으로만 보세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 부모보다 더 클 수도 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 중간부모키는 평균적인 기대치일 뿐이라 영양과 생활습관, 성장기 관리에 따라 부모보다 크거나 작을 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 형제자매인데 예측이 똑같이 나와요.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "부모 키와 성별이 같으면 공식 결과도 같습니다. 이 계산기는 부모 키만으로 추정하므로 아이마다 다른 성장 곡선까지 반영하지는 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Q. 입력한 키 정보가 저장되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 부모 키 등 입력은 브라우저 안에서 계산에만 쓰이고 서버로 전송되거나 저장되지 않습니다."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://dogubox.shop/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "자녀 키 예측 계산기",
+      "item": "https://dogubox.shop/child-height/"
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6448118773813567" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
+<link rel="stylesheet" href="/tool-page.css">
+<link rel="stylesheet" href="/theme.css">
+<script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
+<style>
+#ch-result{display:none;margin-top:16px;padding:18px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper)}
+#ch-height{font-family:var(--mono);font-size:40px;font-weight:800;color:var(--accent);text-align:center;line-height:1.1}
+.ch-sub{text-align:center;color:var(--ink-2);font-size:14px;margin-top:2px}
+.ch-range{text-align:center;font-family:var(--mono);font-size:16px;margin-top:12px;color:var(--ink)}
+.ch-range b{color:var(--accent)}
+.ch-warn{margin-top:12px;padding:10px 12px;border:1px solid var(--accent);border-radius:var(--r-sm);background:var(--card);font-size:13px;color:var(--ink-2)}
+.seg{display:flex;gap:0;border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;margin-top:8px}
+.seg button{flex:1;background:var(--card);border:0;padding:10px;font:inherit;font-weight:700;color:var(--ink-2);cursor:pointer}
+.seg button.on{background:var(--accent);color:#fff}
+</style>
+
+<div class="topbar">
+  <a class="brand" href="/"><div class="mark">도</div><div><b>도구상자</b><span>FREE ONLINE TOOLS</span></div></a>
+  <div class="spacer"></div>
+  <button id="darkModeToggle" class="theme-toggle" type="button" aria-label="다크 모드로 전환">🌙</button>
+  <button class="menu-btn" onclick="document.querySelector('.side').classList.toggle('open')">메뉴</button>
+</div>
+
+<div class="app">
+  <aside class="side" id="sidebar">
+    <noscript><a class="navlink" href="/"><span class="ic">←</span> 모든 도구</a></noscript>
+  </aside>
+
+  <main class="main">
+    <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
+      <a class="crumb" href="/">← 모든 도구</a>
+      <h1>자녀 키 예측 계산기</h1>
+      <p class="lede">아빠·엄마 키로 자녀의 예상 성인 키를 중간부모키(MPH) 공식으로 추정합니다. 유전 외에도 영양·수면·운동에 따라 달라지는 참고용 추정치입니다.</p>
+
+      <div class="box">
+        <div class="field" style="margin-bottom:0">
+          <label>자녀 성별</label>
+          <div class="seg" id="ch-seg">
+            <button type="button" data-sex="son" class="on">아들</button>
+            <button type="button" data-sex="daughter">딸</button>
+          </div>
+        </div>
+        <div class="field-row" style="margin-top:12px">
+          <div class="field" style="margin-bottom:0">
+            <label for="ch-dad">아빠 키 (cm)</label>
+            <input type="number" id="ch-dad" value="175" min="100" max="250" step="0.1">
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label for="ch-mom">엄마 키 (cm)</label>
+            <input type="number" id="ch-mom" value="162" min="100" max="250" step="0.1">
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn accent" id="ch-calc">예상 키 계산</button>
+          <button class="btn ghost" id="ch-reset">초기화</button>
+        </div>
+        <div class="note" id="ch-note"></div>
+
+        <div id="ch-result">
+          <div id="ch-height">0 cm</div>
+          <div class="ch-sub" id="ch-sub">예상 성인 키 (중간부모키)</div>
+          <div class="ch-range">예상 범위 <b id="ch-range">0 ~ 0cm</b></div>
+          <div class="ch-warn">⚠️ 이 값은 부모 키만으로 낸 <b>참고용 추정치</b>입니다. 실제 키는 영양·수면·운동·건강 상태에 따라 달라지며, 보통 예측값의 ±8~10cm 범위 안에 듭니다.</div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="sec-label">사용법</div>
+        <ol class="steps-list">
+          <li>자녀의 성별(아들·딸)을 고릅니다.</li>
+          <li>아빠 키와 엄마 키를 cm 단위로 입력합니다.</li>
+          <li>"예상 키 계산"을 누릅니다.</li>
+          <li>예상 성인 키와 ±8.5cm 범위가 나옵니다. 참고용으로 확인하세요.</li>
+        </ol>
+
+        <div class="sec-label">자녀 키는 이렇게 예측합니다</div>
+        <p>가장 널리 쓰이는 방법은 부모의 키를 평균 내는 <b>중간부모키(Mid-Parental Height)</b> 공식입니다. 자녀 성별에 따라 13cm를 더하거나 빼서 계산합니다.</p>
+        <ul class="tips-list">
+          <li><b>아들:</b> (아빠 키 + 엄마 키 + 13) ÷ 2 — 남자는 평균적으로 더 크기 때문에 13cm를 더합니다.</li>
+          <li><b>딸:</b> (아빠 키 + 엄마 키 − 13) ÷ 2 — 여자는 13cm를 뺍니다.</li>
+          <li><b>유전 외 요인:</b> 키의 60~80%는 유전이지만 나머지는 후천적 요인이 결정합니다. 충분한 영양·수면·규칙적인 운동, 성장기 건강 관리가 실제 키를 좌우합니다. 그래서 결과에 ±8.5cm 정도의 범위를 함께 보여 줍니다.</li>
+        </ul>
+
+        <div class="sec-label">활용 팁</div>
+        <ul class="tips-list">
+          <li><b>범위로 보세요:</b> 한 숫자보다 예상 범위를 기준으로 생각하면 좋습니다. 같은 부모라도 자녀마다 성장 곡선이 다릅니다.</li>
+          <li><b>성장 관리:</b> 키는 잠과 영양의 영향을 크게 받습니다. 규칙적인 수면과 균형 잡힌 식사가 중요합니다.</li>
+          <li><b>건강 지표 함께 보기:</b> 키와 함께 체중·체형도 살펴보세요. <a class="inlink" href="/bmi-calculator/">BMI 계산기</a>로 체질량지수를 확인할 수 있습니다.</li>
+        </ul>
+
+        <div class="sec-label">자주 묻는 질문</div>
+        <div class="faq-list">
+          <div class="qa"><b>Q. 자녀 키는 어떻게 예측하나요?</b><p>부모의 키로 평균을 내는 '중간부모키' 공식을 씁니다. 아들은 (아빠 키 + 엄마 키 + 13) ÷ 2, 딸은 (아빠 키 + 엄마 키 − 13) ÷ 2 로 예상 성인 키를 계산합니다.</p></div>
+          <div class="qa"><b>Q. 이 예측은 얼마나 정확한가요?</b><p>유전이 키에 큰 영향을 주지만 전부는 아닙니다. 실제 키는 보통 예측값의 ±8~10cm 범위 안에 들며, 영양·수면·운동·건강 상태에 따라 달라집니다. 참고용으로만 보세요.</p></div>
+          <div class="qa"><b>Q. 부모보다 더 클 수도 있나요?</b><p>네. 중간부모키는 평균적인 기대치일 뿐이라 영양과 생활습관, 성장기 관리에 따라 부모보다 크거나 작을 수 있습니다.</p></div>
+          <div class="qa"><b>Q. 형제자매인데 예측이 똑같이 나와요.</b><p>부모 키와 성별이 같으면 공식 결과도 같습니다. 이 계산기는 부모 키만으로 추정하므로 아이마다 다른 성장 곡선까지 반영하지는 않습니다.</p></div>
+          <div class="qa"><b>Q. 입력한 키 정보가 저장되나요?</b><p>아니요. 부모 키 등 입력은 브라우저 안에서 계산에만 쓰이고 서버로 전송되거나 저장되지 않습니다.</p></div>
+        </div>
+
+        <div class="sec-label">함께 보면 좋은 도구</div>
+        <div class="rel-grid">
+          <a class="rel-card" href="/bmi-calculator/"><b>BMI 계산기</b><span>체질량지수</span></a>
+          <a class="rel-card" href="/age-calculator/"><b>만 나이 계산기</b><span>나이 계산</span></a>
+          <a class="rel-card" href="/due-date-calculator/"><b>출산 예정일 계산기</b><span>출산일 추정</span></a>
+          <a class="rel-card" href="/anniversary/"><b>100일·기념일 계산기</b><span>기념일 계산</span></a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div><b style="color:var(--ink-2)">도구상자</b> — 무료 온라인 도구 모음</div>
+  <div class="spacer"></div>
+  <a href="/about.html">소개</a><a href="/about.html#faq">자주 묻는 질문</a><a href="/about.html#contact">문의</a><a href="/privacy.html">개인정보처리방침</a><a href="/terms.html">이용약관</a>
+  <span style="font-family:var(--mono);font-size:11px">© 2026</span>
+</footer>
+
+<script src="/sidebar.js"></script>
+<script src="/theme.js"></script>
+<script src="/analytics.js" defer></script>
+<script>
+const $=id=>document.getElementById(id);
+function note(m,k){const n=$('ch-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
+const cm=n=>n.toFixed(1)+'cm';
+let sex='son';
+
+document.querySelectorAll('#ch-seg button').forEach(b=>{
+  b.onclick=()=>{
+    sex=b.dataset.sex;
+    document.querySelectorAll('#ch-seg button').forEach(x=>x.classList.toggle('on',x===b));
+  };
+});
+
+const RANGE=8.5; // 예상 범위 ±cm
+
+$('ch-calc').onclick=()=>{
+  const dad=parseFloat($('ch-dad').value)||0;
+  const mom=parseFloat($('ch-mom').value)||0;
+  if(dad<=0||mom<=0){note('아빠·엄마 키를 올바르게 입력하세요.','err');return;}
+  // 중간부모키(MPH): 아들 (아빠+엄마+13)/2, 딸 (아빠+엄마-13)/2
+  const mph = sex==='son' ? (dad+mom+13)/2 : (dad+mom-13)/2;
+  const low=mph-RANGE, high=mph+RANGE;
+
+  $('ch-height').textContent=cm(mph);
+  $('ch-sub').textContent='예상 성인 키 ('+(sex==='son'?'아들':'딸')+' · 중간부모키)';
+  $('ch-range').textContent=low.toFixed(1)+' ~ '+high.toFixed(1)+'cm';
+  $('ch-result').style.display='block';
+  note('','');
+  $('ch-result').scrollIntoView({behavior:'smooth',block:'nearest'});
+};
+$('ch-reset').onclick=()=>{$('ch-result').style.display='none';note('');};
+</script>
+</html>
