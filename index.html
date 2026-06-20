@@ -537,7 +537,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/guide/merge-split-pdf/"><div class="ic" data-icon="files">📄</div><h3>PDF 합치기·나누기</h3><p>설치 없이 안전하게 PDF 다루기</p></a>
         <a class="card" href="/guide/make-qr-code/"><div class="ic" data-icon="qr-code">▦</div><h3>QR코드 만들기</h3><p>인쇄·메뉴판까지 제대로 쓰는 법</p></a>
         <a class="card" href="/guide/strong-password/"><div class="ic" data-icon="key-round">🔑</div><h3>안전한 비밀번호 만들기</h3><p>해킹 안 당하는 비밀번호의 원칙</p></a>
-        <a class="card" href="/guide/"><div class="ic" data-icon="book-open">📚</div><h3>가이드 전체 보기 →</h3><p>도구 활용법·생활 꿀팁 150여 편</p></a>
+        <a class="card" href="/guide/"><div class="ic" data-icon="book-open">📚</div><h3>가이드 전체 보기 →</h3><p>도구 활용법·생활 꿀팁 <span id="guide-all-count">220</span>여 편</p></a>
       </div>
 
       <section class="content">
@@ -578,6 +578,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
   // 가이드 수는 단일 출처(DGB_TOOLS.guideCount)에서 — 통계 카드·소개글과 일치
   var haGuides = document.getElementById('ha-guides');
   if (haGuides && window.DGB_TOOLS && window.DGB_TOOLS.guideCount != null) haGuides.textContent = window.DGB_TOOLS.guideCount;
+  // "가이드 전체 보기" 카드 편수도 단일 출처에서 — 10단위로 내림해 "N여 편" 표기
+  var gAll = document.getElementById('guide-all-count');
+  if (gAll && window.DGB_TOOLS && window.DGB_TOOLS.guideCount != null) gAll.textContent = Math.floor(window.DGB_TOOLS.guideCount / 10) * 10;
   // 카테고리 섹션 라벨에 도구 개수 배지 자동 부착(가이드 카드 그리드는 제외)
   grids.forEach(function (g) {
     if (g.className.indexOf('guide-cards') >= 0) return;
