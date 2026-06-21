@@ -132,6 +132,14 @@ a.ha-stat:hover{background:var(--panel)}
 .sec-label .cnt{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);border:1px solid var(--line);border-radius:100px;padding:2px 9px;flex:none}
 .sec-label:first-of-type{margin-top:8px}
 
+.home-intro{max-width:760px;margin:30px 0 8px;padding:24px 26px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--r)}
+.home-intro h2{font-family:var(--disp);font-weight:800;font-size:clamp(19px,2.6vw,23px);letter-spacing:-.02em;margin-bottom:12px}
+.home-intro p{font-size:14.5px;color:var(--ink-2);line-height:1.75;margin-bottom:11px}
+.home-intro p:last-child{margin-bottom:0}
+.home-intro b{color:var(--ink);font-weight:700}
+.home-intro a{color:var(--accent);font-weight:600;border-bottom:1px solid rgba(223,67,36,.35)}
+.home-intro a:hover{border-bottom-color:var(--accent)}
+
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:14px}
 .card{display:block;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;transition:transform .18s ease,border-color .18s,box-shadow .18s;animation:rise .6s cubic-bezier(.2,.7,.2,1) both;}
 .card:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:5px 7px 0 rgba(27,26,30,.08)}
@@ -265,6 +273,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
           <a class="feat-card" data-cat="text" href="/word-counter/"><div class="ic" data-icon="type"></div><div class="ft"><b>글자수 세기</b><span>자소서·바이트 카운트</span></div></a>
           <a class="feat-card" data-cat="life" href="/age-calculator/"><div class="ic" data-icon="cake"></div><div class="ft"><b>만 나이 계산</b><span>생일로 만 나이</span></div></a>
         </div>
+      </section>
+
+      <section class="home-intro" aria-label="도구상자 소개">
+        <h2>설치도 회원가입도 없는 무료 온라인 도구 모음</h2>
+        <p><b>도구상자</b>는 일상과 업무에서 자주 막히는 작은 일들을 브라우저 안에서 바로 끝내려고 만든 사이트입니다. 이미지 압축·포맷 변환, PDF 합치기·나누기, 글자수 세기, QR코드 생성, 연봉 실수령액·세금 계산처럼 따로 프로그램을 깔거나 가입하지 않아도 되는 도구들을 한곳에 모았습니다. 프로그램 설치, 로그인, 워터마크, 사용 횟수 제한이 없습니다.</p>
+        <p><b>입력한 파일과 텍스트는 서버로 전송되지 않습니다.</b> 모든 변환과 계산은 여러분의 기기(브라우저) 안에서만 처리되고, 작업이 끝나면 그대로 사라집니다. 그래서 자기소개서, 신분증 사진, 계약서 PDF처럼 남에게 보이고 싶지 않은 파일도 안심하고 다룰 수 있습니다.</p>
+        <p>도구는 <b>이미지·PDF / 텍스트·생성 / 생활·편의 / 금융 / 직장인·생산성 / 색상·디자인 / 개발자 / 재미·운세 / 악기</b> 아홉 갈래로 나눠 두었고, 위 검색창에 한두 글자만 넣어도 바로 찾을 수 있습니다. 각 도구마다 쓰는 방법과 자주 묻는 질문을 함께 정리했고, 더 깊은 사용법은 <a href="/guide/">활용 가이드</a>에서 글로 풀어 설명합니다. 처음이라면 <a href="/about.html">사이트 소개</a>부터 보셔도 좋습니다.</p>
       </section>
 
       <div class="sec-label">이미지 · PDF</div>
@@ -498,9 +513,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
         <a class="card" href="/zodiac-finder/"><div class="ic" data-icon="sparkles">✨</div><h3>띠·별자리 찾기</h3><p>생년월일로 띠·별자리</p></a>
         <a class="card" href="/lunch-menu/"><div class="ic" data-icon="utensils-crossed">🍽</div><h3>오늘 뭐 먹지</h3><p>점심·저녁 메뉴 랜덤 추천</p></a>
         <a class="card" href="/balance-game/"><div class="ic" data-icon="git-compare">⚖</div><h3>밸런스 게임</h3><p>둘 중 하나 랜덤 질문</p></a>
-        <a class="card" href="/fake-kakao/"><div class="ic" data-icon="messages-square">💬</div><h3>가짜 카톡 생성기</h3><p>카톡 대화 짤 만들기</p></a>
-        <a class="card" href="/fake-tweet/"><div class="ic" data-icon="twitter">🐦</div><h3>가짜 트윗(X) 생성기</h3><p>트위터 게시물 짤 만들기</p></a>
-        <a class="card" href="/fake-instagram/"><div class="ic" data-icon="instagram">📸</div><h3>가짜 인스타 게시물</h3><p>인스타 게시물·DM 짤</p></a>
         <a class="card" href="/name-compatibility/"><div class="ic" data-icon="heart">💕</div><h3>이름 궁합 테스트</h3><p>두 이름으로 궁합 점수</p></a>
         <a class="card" href="/random-picker/"><div class="ic" data-icon="dices">🎲</div><h3>랜덤 추첨기</h3><p>이름·항목 무작위 뽑기</p></a>
         <a class="card" href="/team-generator/"><div class="ic" data-icon="users">👥</div><h3>랜덤 팀 나누기</h3><p>이름으로 조 편성</p></a>
@@ -673,9 +685,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     'one-rep-max': '1rm 최대중량 원렙맥스 epley brzycki 헬스 웨이트 스쿼트 벤치 데드 무게',
     'child-height': '자녀 키 예측 아이 키 성인 키 중간부모키 유전 성장 mph 키계산',
     'housing-subscription': '주택청약 청약 가점 무주택 부양가족 청약통장 84점 청약홈 아파트',
-    'tojeong': '토정비결 신년운세 새해 운세 사주 토정 이지함 한해운세 띠운세',
-    'fake-tweet': '가짜 트윗 트위터 x 짤 밈 패러디 게시물 합성 가짜트윗 fake tweet',
-    'fake-instagram': '가짜 인스타 인스타그램 게시물 dm 짤 밈 패러디 합성 fake instagram'
+    'tojeong': '토정비결 신년운세 새해 운세 사주 토정 이지함 한해운세 띠운세'
   };
   function norm(s) { return (s || '').toLowerCase().replace(/[\s\-]/g, ''); }
   cards.forEach(function (c) {
@@ -693,9 +703,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     });
   }
   var featured = document.getElementById('featured');
+  var homeIntro = document.querySelector('.home-intro');
   function filter() {
     var q = norm(input.value);
     if (featured) featured.style.display = q ? 'none' : '';  // 검색 중엔 인기 도구 행 숨김
+    if (homeIntro) homeIntro.style.display = q ? 'none' : '';  // 검색 중엔 소개 블록 숨김
     if (!q) {
       cards.forEach(function (c) { c.style.display = ''; });
       grids.forEach(function (g) {
