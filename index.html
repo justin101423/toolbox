@@ -112,7 +112,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 /* 히어로 우측 패널 — 오늘의 가이드 + 통계 (넓은 화면 전용) */
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:38px;align-items:stretch}
 .hero-aside{display:flex;flex-direction:column;gap:14px;margin:34px 0 38px;animation:rise .6s .1s cubic-bezier(.2,.7,.2,1) both}
-.ha-card{display:flex;flex-direction:column;flex:1;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:border-color .18s,transform .18s,box-shadow .18s}
+.ha-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:border-color .18s,transform .18s,box-shadow .18s}
+.ha-list{display:flex;flex-direction:column;flex:1;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px}
+.ha-list-lb{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:4px}
+.ha-list a{display:flex;align-items:baseline;gap:8px;padding:9px 0;font-size:13px;color:var(--ink-2);line-height:1.4;border-top:1px solid var(--line);transition:color .15s}
+.ha-list a:first-of-type{border-top:0}
+.ha-list a:hover{color:var(--accent)}
+.ha-list a::before{content:"›";color:var(--accent);font-weight:800;flex:none}
 .ha-card:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:5px 7px 0 rgba(27,26,30,.08)}
 .ha-kick{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
 .ha-card h3{font-size:18px;font-weight:700;margin:12px 0 7px;letter-spacing:-.02em;line-height:1.32;transition:color .15s}
@@ -255,12 +261,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
           <p>가로줄 배치에 따라 쏠리는 확률 — 수학으로 풀어보기.</p>
           <span class="ha-go">읽으러 가기 →</span>
         </a>
+        <nav class="ha-list" aria-label="추천 가이드">
+          <div class="ha-list-lb">이어서 읽어보기</div>
+          <a href="/guide/take-home-pay/">연봉 실수령액, 왜 이렇게 적게 들어올까</a>
+          <a href="/guide/reduce-image-size/">사진 용량, 화질 지키며 줄이는 법</a>
+          <a href="/guide/strong-password/">안 뚫리는 비밀번호 만들기</a>
+        </nav>
         <div class="ha-stats">
           <div class="ha-stat"><div class="n" id="ha-tools">115</div><div class="l">무료 도구</div></div>
           <a class="ha-stat" href="/guide/"><div class="n" id="ha-guides">150</div><div class="l">활용 가이드</div></a>
         </div>
       </aside>
       </div><!-- /hero-grid -->
+
+      <section class="home-intro" aria-label="도구상자 소개">
+        <h2>설치도 회원가입도 없는 무료 온라인 도구 모음</h2>
+        <p><b>도구상자</b>는 일상과 업무에서 자주 막히는 작은 일들을 브라우저 안에서 바로 끝내려고 만든 사이트입니다. 이미지 압축·포맷 변환, PDF 합치기·나누기, 글자수 세기, QR코드 생성, 연봉 실수령액·세금 계산처럼 따로 프로그램을 깔거나 가입하지 않아도 되는 도구들을 한곳에 모았습니다. 프로그램 설치, 로그인, 워터마크, 사용 횟수 제한이 없습니다.</p>
+        <p><b>입력한 파일과 텍스트는 서버로 전송되지 않습니다.</b> 모든 변환과 계산은 여러분의 기기(브라우저) 안에서만 처리되고, 작업이 끝나면 그대로 사라집니다. 그래서 자기소개서, 신분증 사진, 계약서 PDF처럼 남에게 보이고 싶지 않은 파일도 안심하고 다룰 수 있습니다.</p>
+        <p>도구는 <b>이미지·PDF / 텍스트·생성 / 생활·편의 / 금융 / 직장인·생산성 / 색상·디자인 / 개발자 / 재미·운세 / 악기</b> 아홉 갈래로 나눠 두었고, 위 검색창에 한두 글자만 넣어도 바로 찾을 수 있습니다. 각 도구마다 쓰는 방법과 자주 묻는 질문을 함께 정리했고, 더 깊은 사용법은 <a href="/guide/">활용 가이드</a>에서 글로 풀어 설명합니다. 처음이라면 <a href="/about.html">사이트 소개</a>부터 보셔도 좋습니다.</p>
+        <p>도구상자는 회사가 아니라 <b>개발자 한 사람이 직접 만들고 운영하는 개인 프로젝트</b>입니다. 간단한 일 하나 하려고 광고 범벅인 사이트에 파일을 올리고 가입까지 해야 하는 게 싫어서, 가입·설치 없이 내 기기 안에서 바로 끝나는 도구를 직접 만들기 시작했습니다. 가짜 다운로드 버튼이나 강제 대기 시간 없이, 오류 제보와 도구 제안을 받아 꾸준히 다듬어 갑니다 — <a href="/about.html#maker">만든 사람 이야기</a>.</p>
+      </section>
 
       <div class="no-result" id="no-result">‘<b id="nr-q"></b>’에 대한 검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</div>
 
@@ -274,14 +294,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
           <a class="feat-card" data-cat="text" href="/word-counter/"><div class="ic" data-icon="type"></div><div class="ft"><b>글자수 세기</b><span>자소서·바이트 카운트</span></div></a>
           <a class="feat-card" data-cat="life" href="/age-calculator/"><div class="ic" data-icon="cake"></div><div class="ft"><b>만 나이 계산</b><span>생일로 만 나이</span></div></a>
         </div>
-      </section>
-
-      <section class="home-intro" aria-label="도구상자 소개">
-        <h2>설치도 회원가입도 없는 무료 온라인 도구 모음</h2>
-        <p><b>도구상자</b>는 일상과 업무에서 자주 막히는 작은 일들을 브라우저 안에서 바로 끝내려고 만든 사이트입니다. 이미지 압축·포맷 변환, PDF 합치기·나누기, 글자수 세기, QR코드 생성, 연봉 실수령액·세금 계산처럼 따로 프로그램을 깔거나 가입하지 않아도 되는 도구들을 한곳에 모았습니다. 프로그램 설치, 로그인, 워터마크, 사용 횟수 제한이 없습니다.</p>
-        <p><b>입력한 파일과 텍스트는 서버로 전송되지 않습니다.</b> 모든 변환과 계산은 여러분의 기기(브라우저) 안에서만 처리되고, 작업이 끝나면 그대로 사라집니다. 그래서 자기소개서, 신분증 사진, 계약서 PDF처럼 남에게 보이고 싶지 않은 파일도 안심하고 다룰 수 있습니다.</p>
-        <p>도구는 <b>이미지·PDF / 텍스트·생성 / 생활·편의 / 금융 / 직장인·생산성 / 색상·디자인 / 개발자 / 재미·운세 / 악기</b> 아홉 갈래로 나눠 두었고, 위 검색창에 한두 글자만 넣어도 바로 찾을 수 있습니다. 각 도구마다 쓰는 방법과 자주 묻는 질문을 함께 정리했고, 더 깊은 사용법은 <a href="/guide/">활용 가이드</a>에서 글로 풀어 설명합니다. 처음이라면 <a href="/about.html">사이트 소개</a>부터 보셔도 좋습니다.</p>
-        <p>도구상자는 회사가 아니라 <b>개발자 한 사람이 직접 만들고 운영하는 개인 프로젝트</b>입니다. 간단한 일 하나 하려고 광고 범벅인 사이트에 파일을 올리고 가입까지 해야 하는 게 싫어서, 가입·설치 없이 내 기기 안에서 바로 끝나는 도구를 직접 만들기 시작했습니다. 가짜 다운로드 버튼이나 강제 대기 시간 없이, 오류 제보와 도구 제안을 받아 꾸준히 다듬어 갑니다 — <a href="/about.html#maker">만든 사람 이야기</a>.</p>
       </section>
 
       <div class="sec-label">이미지 · PDF</div>
