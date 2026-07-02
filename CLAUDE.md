@@ -59,6 +59,8 @@ toolbox/
 ├── footer.js           # ★ 공통 푸터 생성(★초안·미배포) — sidebar.js 패턴. `#site-footer` 컨테이너가 있는 페이지에서만 동작(없으면 무동작 → 현재 사이트 영향 0). 푸터 링크 단일 출처(LINKS)·저작권 연도 자동. AdSense 승인 후 빅스윕에서 전 페이지 `<footer>`를 컨테이너로 치환 + 이 스크립트 로드하면 활성화(치환 패턴은 파일 상단 주석 참고)
 ├── analytics.js        # GA4 로더 — 측정 ID(GA_ID)는 이 파일 한 곳에서만 관리. placeholder 상태면 무동작. 전 페이지가 theme.js 다음에 로드. ★?embed=1(작업대 iframe)이면 페이지뷰(page_view)를 끄고 대신 `workbench_tool_open`(tool_slug 포함) 이벤트로 기록 → 방문 통계는 깨끗하게 유지
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
+├── 02a6550d208a4969b895c0335b97356b.txt # ★ IndexNow 인증 키 파일(삭제 금지 — Bing·네이버 색인 제출용, 파일명=키)
+├── scripts/gsc-index-queue.md # 구글 Search Console 수동 색인 요청 대기열(하루 10개 체크리스트, 우선순위 정렬 452 URL)
 ├── scripts/validate.js # ★ 검증 하네스 — 단일 출처(sidebar.js) 슬러그가 폴더·홈 카드·sitemap에 다 있는지, 사이드바에 없는 고아 폴더, 보호 파일, AdSense(404.html 제외), JSON-LD 유효성, 깨진 내부 링크를 점검. **로컬에서 `node scripts/validate.js`로 직접 실행 가능**(도구 추가 후 권장) / CI에서 자동 실행
 ├── scripts/hardening-check.js # ★ "굳히기" 전용 검증기 — 인자로 받은 슬러그들의 도구 페이지가 골드 스탠다드 기준(설명 sec-label≥5, 본문 FAQ 5개 = JSON-LD FAQPage 5개 **글자단위 일치**, 답변 평문, 깨진 내부 링크 0)을 충족하는지 점검. 사용: `node scripts/hardening-check.js <슬러그> ...`. 도구 굳히기 캠페인(200/200 완료, 2026-06-17)에서 작성·전수 통과
 ├── .github/workflows/validate.yml # ★ GitHub Actions(Stage 1·경고용) — main push/PR마다 JS 신택스(node --check)·sitemap XML 유효성·scripts/validate.js 실행. Pages는 브랜치를 그대로 서빙하므로 검증 실패해도 배포는 막지 않고 커밋에 빨간 X로 알림(go-live 게이팅은 Stage 2에서 Pages를 Actions 배포로 전환 시)
@@ -434,7 +436,8 @@ toolbox/
 | 채널 | 상태 | 다음 액션 |
 |---|---|---|
 | **애드센스** | **2차 거절(2026-07-01) — "가치가 별로 없는 콘텐츠(thin content)"**. 진단: 콘텐츠 양·질은 충분(도구 900~1900단어·가이드 800~1000단어)하나 ①449개 판박이 템플릿=쿠키커터/툴팜 인상 ②홈·허브가 탐색용 화면 ③운영자 정체성(E-E-A-T) 부재 ④색인/트래픽 미축적이 원인으로 추정. **대응 완료**: about.html '만든 사람' 섹션+Organization JSON-LD(ba1dcfc), 홈 인트로 운영주체 문단(ba1dcfc), 가이드 224편 저자 Person('도구상자 지기')+바이라인 E-E-A-T(7776c4e) | **확장(도구·가이드 추가) 중단** — 판박이 비율 악화. 색인·트래픽 몇 주 쌓고 재신청. 스팸성 즉시 재신청 금지. 남은 레버는 대부분 코드 밖(트래픽·백링크·시간) |
-| 구글 Search Console | sitemap(452 URL) 제출됨, 색인 요청 1차분 8개 완료 | 2차분은 `double-discount`부터 (하루 한도 ~10개). 색인 추이 주 1회 확인 |
+| 구글 Search Console | sitemap(452 URL) 제출됨, 색인 요청 1차분 8개 완료 | **`scripts/gsc-index-queue.md` 체크리스트를 하루 10개씩 진행**(우선순위 정렬 452 URL, 요청한 URL은 체크). 색인 추이 주 1회 확인 |
+| **IndexNow (Bing·네이버)** | 키 파일 `/02a6550d208a4969b895c0335b97356b.txt` 배포(2026-07-03), 전체 452 URL 제출 | 새 도구·가이드 추가 시 해당 URL을 api.indexnow.org에 재제출(선택). 키 파일 삭제 금지 |
 | 네이버 서치어드바이저 | 등록 완료 — 소유 확인(홈 head 메타) + sitemap 제출 + 홈·가이드 허브 수집 요청 | 며칠 뒤 "검증 → 사이트 최적화" 리포트 확인 |
 | GA4 | 활성화됨 — 측정 ID `G-EQH5P4E001`, `/analytics.js` 한 곳에서 관리 | 데이터 1주 쌓이면 인기 콘텐츠 기반으로 다음 방향 결정 |
 
