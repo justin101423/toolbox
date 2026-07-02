@@ -161,7 +161,10 @@ a.ha-stat:hover{background:var(--panel)}
 /* 인기 도구 피처링 행 — 가로형 카드 6개. 카테고리 색조 적용(data-cat→--cat).
    .grid .card가 아니므로 도구 개수 카운트·검색 카드 집합에 포함되지 않음. */
 .featured{margin:8px 0 2px}
-.feat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(186px,1fr));gap:12px}
+/* 6장이 5+1로 어긋나는 고아 카드 방지 — 항상 2/3/6열로 균등 분할 */
+.feat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:700px){.feat-row{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1500px){.feat-row{grid-template-columns:repeat(6,1fr)}}
 .feat-card{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 15px;transition:transform .18s ease,border-color .18s,box-shadow .18s;animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
 .feat-card:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:5px 7px 0 rgba(27,26,30,.08)}
 .feat-card .ic{width:42px;height:42px;border-radius:11px;background:var(--panel-2);color:var(--cat,var(--ink));display:grid;place-items:center;flex:none;transition:background .18s,color .18s}
