@@ -483,6 +483,8 @@
         ".dgb-fav-btn{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;padding:6px;margin-right:2px;border-radius:8px;color:inherit;-webkit-tap-highlight-color:transparent}" +
         ".dgb-fav-btn svg{width:22px;height:22px;display:block}" +
         ".dgb-fav-btn:hover{background:rgba(127,127,127,.14)}" +
+        "@media (prefers-reduced-motion: no-preference){.dgb-fav-btn.pop svg{animation:dgb-star-pop .42s cubic-bezier(.2,.8,.2,1)}}" +
+        "@keyframes dgb-star-pop{0%{transform:scale(.4) rotate(-15deg)}55%{transform:scale(1.3) rotate(8deg)}100%{transform:scale(1) rotate(0)}}" +
         ".quick-links .ql-hint{font-size:12px;color:var(--ink-3);width:100%;margin-top:2px}";
       (document.head || document.documentElement).appendChild(st);
     }
@@ -567,6 +569,9 @@
         try {
           var nowFav = toggleFav(slug);
           updateStarBtn(btn, nowFav);
+          // 즐겨찾기 추가 순간 별이 팝 하고 튀는 마이크로 피드백 (해제 때는 조용히)
+          btn.classList.remove("pop");
+          if (nowFav) { void btn.offsetWidth; btn.classList.add("pop"); }
           var host = document.getElementById("sidebar");
           var sc = host ? host.scrollTop : 0;
           render(); applyIcons();                  // 사이드바 즐겨찾기 그룹 즉시 갱신

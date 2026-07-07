@@ -187,3 +187,18 @@ html.embed body::before { display:none; }
    ─────────────────────────────────────────────────────────────────────── */
 ::view-transition-old(root),
 ::view-transition-new(root) { animation:none; mix-blend-mode:normal; }
+
+/* ───────────────────────────────────────────────────────────────────────
+   드롭존 드래그 오버 펄스
+   파일을 끌어 올린 동안(.over) 액센트색 링이 퍼지며 "여기에 놓으세요"를
+   알린다. 드롭존 클래스는 페이지마다 다르지만(drop/ia-drop/sp-drop …)
+   전부 "drop"을 포함하므로 [class*="drop"]로 잡는다.
+   (.il-count.over 같은 글자수 초과 상태는 "drop"이 없어 안 걸림)
+   ─────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  [class*="drop"].over { animation:dgb-drop-invite .9s ease-out infinite; }
+  @keyframes dgb-drop-invite {
+    from { box-shadow:0 0 0 0 rgba(223,67,36,.30); }
+    to   { box-shadow:0 0 0 9px rgba(223,67,36,0); }
+  }
+}
