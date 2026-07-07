@@ -177,3 +177,13 @@ html.embed .main { padding:16px clamp(12px,3vw,20px) 28px !important; max-width:
 html.embed .main .inner { max-width:none !important; margin:0 !important; }
 html.embed h1 { display:none !important; }
 html.embed body::before { display:none; }
+
+/* ───────────────────────────────────────────────────────────────────────
+   테마 전환 스윕 (View Transitions)
+   다크모드 토글 시 theme.js 가 document.startViewTransition 으로 새 테마를
+   토글 버튼 위치에서 원형(clip-path)으로 번지게 한다("밤의 종이"가 물들 듯).
+   기본 크로스페이드가 겹치면 원이 흐려지므로 여기서 끈다.
+   미지원 브라우저는 이 규칙·전환 모두 무시 → 기존처럼 즉시 전환.
+   ─────────────────────────────────────────────────────────────────────── */
+::view-transition-old(root),
+::view-transition-new(root) { animation:none; mix-blend-mode:normal; }

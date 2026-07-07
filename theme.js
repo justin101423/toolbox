@@ -70,8 +70,34 @@
   if (toggle) {
     toggle.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      setStoredTheme(next);
-      applyTheme(next);
+      const change = () => {
+        setStoredTheme(next);
+        applyTheme(next);
+      };
+
+      // "밤의 종이" 테마 전환 스윕: 토글 버튼에서 새 테마가 원형으로 번져나간다.
+      // (기본 크로스페이드는 theme.css 의 ::view-transition-*(root) 규칙이 끔)
+      // View Transitions 미지원 브라우저·reduced-motion 은 기존처럼 즉시 전환.
+      const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!document.startViewTransition || reduced) {
+        change();
+        return;
+      }
+
+      const rect = toggle.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      const radius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+
+      document.startViewTransition(change).ready.then(() => {
+        root.animate(
+          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+          { duration: 560, easing: 'cubic-bezier(.3,0,.2,1)', pseudoElement: '::view-transition-new(root)' }
+        );
+      }).catch(() => { /* 전환이 스킵돼도 테마는 이미 적용됨 */ });
     });
   }
 })();

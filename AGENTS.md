@@ -52,7 +52,7 @@ toolbox/
 ├── .nojekyll           # GitHub Pages의 Jekyll 빌드 생략(배포 속도↑, 닷·밑줄 경로 그대로 서빙)
 ├── .well-known/security.txt # 보안 제보 채널(RFC 9116) — Expires 매년 갱신 필요(현재 2027-06-12)
 ├── theme.css           # 다크모드 스타일 + 전 페이지 공통 보조 스타일(테마 토글, 사이드바 라벨 타이포 — 모든 페이지가 마지막에 로드하므로 구형 인라인 CSS도 덮어씀) + ★작업대 임베드 모드(html.embed) 규칙(?embed=1 로 열린 도구 페이지의 상단바·사이드바·푸터·.crumb·.lede·.content·h1·광고를 숨겨 순수 도구 UI만 남김)
-├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어) + 프레임버스터(★같은 출처=작업대 iframe이면 탈출 안 함, 외부 클릭재킹만 방어) + ?embed=1 감지 시 html에 .embed 클래스 부여(작업대 임베드 모드)
+├── theme.js            # 다크모드 토글 로직 (#darkModeToggle 버튼 제어, ★전환은 View Transitions 원형 스윕 — 토글 버튼에서 새 테마가 번짐, 미지원·reduced-motion은 즉시 전환) + 프레임버스터(★같은 출처=작업대 iframe이면 탈출 안 함, 외부 클릭재킹만 방어) + ?embed=1 감지 시 html에 .embed 클래스 부여(작업대 임베드 모드)
 ├── sidebar.js          # ★ 공통 사이드바 생성 + 전체 도구 목록 데이터(단일 출처). 각 카테고리에 key(image/text/…)가 있어 .grp에 data-cat 부여(카테고리 색조). CATEGORIES·iconHtml + toolCount·catCount·guideCount를 window.DGB_TOOLS로 노출 → 작업대·소개글이 재사용. ★GUIDE_COUNT 상수 = 가이드 수 단일 출처(새 가이드 추가 시 함께 갱신)
 ├── workbench.js        # ★ 작업대 — 홈 상단 #workbenchToggle 버튼으로 홈 위에 "떠 있는 창"을 띄워 도구를 1~5칸 나란히 사용. 각 칸은 도구를 /<슬러그>/?embed=1 iframe으로 로드. 도구 목록은 window.DGB_TOOLS(단일 출처). 기능: 검색 가능한 도구 피커(.wb-pop)·분할 수(1~5) 선택·칸 사이 너비 드래그·도구를 다른 칸으로 끌어 옮기기(.wb-grip 드래그→"여기에 놓기"). ★배치는 flex order(vorder)로만 바꿔 iframe을 reparent하지 않음 → 옮겨도 입력 상태 보존. MAX_PANES=5. **index.html에서만 로드**
 ├── workbench.css       # 작업대 스타일(상단바 .wb-btn + 스크림 .wb-overlay + 떠 있는 창 .wb-window + 분할 칸 .wb-pane + 너비 손잡이 .wb-divider + 검색 팝오버 .wb-pop + 드래그 고스트 .wb-drag-ghost). workbench.js와 한 쌍, index.html에서만 로드
