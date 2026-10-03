@@ -210,6 +210,42 @@ textarea.code{font-family:var(--mono);font-size:13px;line-height:1.6;min-height:
         </ul>
         <p>엑셀 데이터를 API에 넣거나, API 응답을 시트에서 분석할 때 이 변환이 유용합니다. 한글 깨짐 등 주의점은 <a class="inlink" href="/guide/csv-excel-encoding/">CSV 한글 깨짐 가이드</a>를 참고하세요.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 4줄짜리 CSV를 바꿔 보면</div>
+        <p>아래 CSV를 "CSV → JSON"(쉼표 구분, 헤더 사용)으로 변환한 결과를 칸별로 정리했습니다.</p>
+        <code class="ex-code">name,age,zip,memo
+홍길동,30,01234,"서울, 강남"
+김영희,25,48058,"그는 ""안녕""이라 했다"
+이철수,,06236,</code>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>CSV의 칸</th><th>JSON 값</th><th class="wrap">눈여겨볼 점</th></tr></thead>
+          <tbody>
+            <tr><td><code>30</code></td><td><code>"30"</code></td><td class="wrap">숫자도 문자열로 들어옴</td></tr>
+            <tr><td><code>01234</code></td><td><code>"01234"</code></td><td class="wrap">앞자리 0이 그대로 유지됨</td></tr>
+            <tr><td><code>"서울, 강남"</code></td><td><code>"서울, 강남"</code></td><td class="wrap">따옴표 안의 쉼표는 칸을 나누지 않음</td></tr>
+            <tr><td><code>"그는 ""안녕""이라 했다"</code></td><td><code>"그는 \"안녕\"이라 했다"</code></td><td class="wrap">따옴표 두 개는 따옴표 한 개로 풀림</td></tr>
+            <tr><td>(빈 칸)</td><td><code>""</code></td><td class="wrap">null이 아니라 빈 문자열</td></tr>
+          </tbody>
+        </table></div>
+        <p>모든 값이 문자열로 나오므로 나이처럼 계산에 쓸 값은 받는 쪽에서 숫자로 바꿔야 합니다. 대신 우편번호·전화번호의 앞자리 0은 지워지지 않습니다. 크기는 81자였던 CSV가 보기 좋게 정렬한 JSON으로 260자, 공백을 뺀 JSON으로 169자가 됩니다. 행마다 키 이름이 반복되기 때문에 2~3배로 커지는 것입니다.</p>
+        <p><b>구분자와 칸 수가 맞지 않으면</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>입력</th><th>구분자 설정</th><th class="wrap">결과</th></tr></thead>
+          <tbody>
+            <tr><td><code>a;b</code> ↵ <code>1;2</code></td><td>쉼표</td><td class="wrap"><code>[{"a;b":"1;2"}]</code> — 한 칸으로 읽힘</td></tr>
+            <tr><td><code>a;b</code> ↵ <code>1;2</code></td><td>세미콜론</td><td class="wrap"><code>[{"a":"1","b":"2"}]</code></td></tr>
+            <tr><td><code>a,b</code> ↵ <code>1,2,3</code></td><td>쉼표</td><td class="wrap">변환 실패: Too many fields: expected 2 fields but parsed 3</td></tr>
+            <tr><td><code>a,b</code> ↵ <code>1</code></td><td>쉼표</td><td class="wrap">변환 실패: Too few fields: expected 2 fields but parsed 1</td></tr>
+          </tbody>
+        </table></div>
+        <p>결과의 키가 <code>"a;b"</code>처럼 구분 기호를 품고 있다면 구분자 설정이 데이터와 다른 것입니다.</p>
+        <p><b>JSON → CSV: 키가 서로 다르거나 값이 중첩돼 있으면</b></p>
+        <code class="ex-code">[{"name":"홍길동","age":30,"memo":"서울, 강남","tags":["a","b"],"addr":{"city":"서울"}},
+ {"name":"김영희","age":25,"extra":true}]</code>
+        <code class="ex-code">name,age,memo,tags,addr,extra
+홍길동,30,"서울, 강남","[""a"",""b""]","{""city"":""서울""}",
+김영희,25,,,,true</code>
+        <p>열은 모든 객체의 키를 합쳐 만들기 때문에 둘째 객체에만 있는 extra도 열로 나옵니다. 해당 키가 없는 칸은 비워 두고, 배열이나 객체처럼 중첩된 값은 JSON 문자열 그대로 한 칸에 담습니다. 쉼표가 든 값에는 따옴표가 자동으로 붙습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>엑셀·스프레드시트 데이터를 API용으로:</b> 엑셀에서 범위를 복사하면 탭으로 구분된 표가 됩니다. 구분자를 "탭"으로 두고 CSV → JSON으로 변환하면, 시트 데이터를 그대로 REST API 요청 본문이나 목업 데이터로 활용할 수 있습니다.</li>
@@ -274,7 +310,15 @@ function convert(){
       $('cj-out').value=JSON.stringify(res.data,null,2);
     }else{
       const obj=JSON.parse(input);
-      const csv=Papa.unparse(obj,{delimiter:delim()==='\t'?'\t':delim(),header:$('cj-header').checked});
+      // 객체 하나만 들어오면 한 행으로 취급
+      let rows=(obj&&typeof obj==='object'&&!Array.isArray(obj))?[obj]:obj;
+      let cols;
+      if(Array.isArray(rows)&&rows.length&&rows.every(r=>r&&typeof r==='object'&&!Array.isArray(r))){
+        // 열은 모든 객체의 키를 합쳐서(첫 객체에 없는 키가 빠지지 않게), 중첩 값은 JSON 문자열로
+        cols=[];rows.forEach(r=>Object.keys(r).forEach(k=>{if(!cols.includes(k))cols.push(k);}));
+        rows=rows.map(r=>{const o={};cols.forEach(k=>{const v=r[k];o[k]=(v&&typeof v==='object')?JSON.stringify(v):v;});return o;});
+      }
+      const csv=Papa.unparse(rows,{delimiter:delim()==='\t'?'\t':delim(),header:$('cj-header').checked,columns:cols});
       $('cj-out').value=csv;
     }
     note('변환 완료.','ok');
@@ -296,7 +340,8 @@ $('cj-download').onclick=()=>{
   const v=$('cj-out').value;
   if(!v){note('먼저 변환하세요.','err');return;}
   const isJson=dir==='c2j';
-  const blob=new Blob([v],{type:isJson?'application/json':'text/csv'});
+  // CSV는 UTF-8 BOM을 붙여 저장 — 엑셀에서 한글이 깨지지 않게
+  const blob=new Blob(isJson?[v]:['﻿',v],{type:isJson?'application/json':'text/csv;charset=utf-8'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
   a.download=isJson?'data.json':'data.csv';

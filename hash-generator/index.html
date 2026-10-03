@@ -212,6 +212,33 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         </ul>
         <p>해시와 암호화의 차이, 쓰임새는 <a class="inlink" href="/guide/what-is-hash/">해시란? 가이드</a>에 자세히 정리했습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 한 글자, 공백 하나의 차이</div>
+        <p>아래는 이 도구에 각 텍스트를 넣어 얻은 SHA-256 값입니다.</p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>입력</th><th>SHA-256</th></tr></thead>
+          <tbody>
+            <tr><td>(빈 입력)</td><td><code>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></td></tr>
+            <tr><td>abc</td><td><code>ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad</code></td></tr>
+            <tr><td>Abc</td><td><code>06d90109c8cce34ec0c776950465421e176f08b831a938b3c6e76cb7bee8790b</code></td></tr>
+            <tr><td>abc + 끝에 공백 1칸</td><td><code>5488613c42b0d34d60f7aa9e94be317a3ee102a2bbd91ccc73cc79fbc2269955</code></td></tr>
+            <tr><td>abc + 끝에 줄바꿈 1개</td><td><code>edeaaff3f1774ad2888673770c6d64097e391bc362d7d6fb34982ddf0efd18cb</code></td></tr>
+            <tr><td>안녕하세요</td><td><code>2c68318e352971113645cbc72861e1ec23f48d5baa5f9b405fed9dddca893eb4</code></td></tr>
+            <tr><td>a를 1,000번 반복</td><td><code>41edece42d63e8d9bf515a9ba6932e1c20cbc9f5a5d134645adb5db1b9737ea3</code></td></tr>
+          </tbody>
+        </table></div>
+        <p>abc와 Abc의 해시를 자리별로 비교하면 16진수 64자리 가운데 63자리가 다르고, 비트로는 256비트 중 131비트가 다릅니다. 입력은 대문자 하나만 바뀌었는데 출력은 절반가량이 뒤집힌 셈입니다. 빈 입력도 해시값이 있고, 3글자든 1,000글자든 결과는 똑같이 64자리입니다.</p>
+        <p>다른 도구에서 구한 값과 맞지 않을 때는 <b>끝의 공백이나 줄바꿈</b>부터 의심하세요. 눈에는 같은 abc라도 줄바꿈 하나가 붙으면 전혀 다른 값이 됩니다. 텍스트를 복사하다 마지막 줄바꿈이 딸려 오거나, 명령줄에서 문자열 끝에 줄바꿈이 자동으로 붙는 경우가 흔한 원인입니다.</p>
+        <p><b>같은 입력 hello, 알고리즘만 바꾸면</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>알고리즘</th><th>결과</th></tr></thead>
+          <tbody>
+            <tr><td>MD5</td><td><code>5d41402abc4b2a76b9719d911017c592</code></td></tr>
+            <tr><td>SHA-1</td><td><code>aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d</code></td></tr>
+            <tr><td>SHA-256</td><td><code>2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824</code></td></tr>
+          </tbody>
+        </table></div>
+        <p>hello나 password 같은 흔한 단어의 해시는 이미 널리 알려져 있어, 해시값만 검색해도 원문이 나옵니다. 해시를 되돌릴 수 없다는 것과 원문을 맞힐 수 없다는 것은 다른 이야기입니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>파일 무결성 확인:</b> 다운로드받은 파일의 SHA-256 해시를 공식 사이트에서 제공하는 값과 비교하면, 파일이 변조되지 않았는지 검증할 수 있습니다. 보안 소프트웨어 다운로드 시 특히 중요합니다.</li>

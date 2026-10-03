@@ -216,6 +216,37 @@
         </ul>
         <p>패턴을 머리로만 짜면 틀리기 쉬우니 실제 문자열에 바로 대 보며 다듬는 것이 가장 빠릅니다. 자주 쓰는 패턴은 <a class="inlink" href="/guide/regex-patterns/">정규식 패턴 모음</a>에서 복사해 쓸 수 있습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 예시 패턴이 잡는 것과 놓치는 것</div>
+        <p>"자주 쓰는 예시" 버튼의 패턴을 일부러 까다로운 문자열에 대 본 결과입니다. 간단한 패턴은 형태만 볼 뿐 값이 맞는지는 판단하지 못합니다.</p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>예시 패턴</th><th class="wrap">테스트 문자열</th><th class="wrap">매칭 결과</th></tr></thead>
+          <tbody>
+            <tr><td>이메일</td><td class="wrap">문의는 help@dogubox.shop. 또는 a.b+c@mail.co.kr, 잘못된 hong@localhost</td><td class="wrap">2개 — <code>help@dogubox.shop.</code>(문장 끝 마침표까지 포함), <code>a.b+c@mail.co.kr</code></td></tr>
+            <tr><td>휴대폰</td><td class="wrap">010-1234-5678 / 01012345678 / 010-123-4567 / 011-222-3333 / 02-123-4567 / 010 1234 5678</td><td class="wrap">4개 — 지역번호 02와 공백으로 띄운 번호는 제외</td></tr>
+            <tr><td>URL</td><td class="wrap">사이트(https://dogubox.shop/qr-code/)와 http://example.com, 참고.</td><td class="wrap">2개 — <code>https://dogubox.shop/qr-code/)와</code>, <code>http://example.com,</code> (뒤따르는 괄호·조사·쉼표까지 포함)</td></tr>
+            <tr><td>날짜</td><td class="wrap">2026-05-31 2026-13-45 2026-5-3 20260531</td><td class="wrap">2개 — <code>2026-05-31</code>, <code>2026-13-45</code> (13월 45일도 통과)</td></tr>
+            <tr><td>HEX 색상</td><td class="wrap">#FF8800 #fff #12345G #1234567 #abcdef;</td><td class="wrap">2개 — <code>#FF8800</code>, <code>#abcdef</code> (3자리 #fff는 제외)</td></tr>
+          </tbody>
+        </table></div>
+        <p>문장 속에서 URL이나 이메일을 뽑을 때는 끝에 붙은 문장부호가 함께 잡히는지 꼭 확인하세요. 날짜 패턴처럼 숫자 자릿수만 보는 패턴은 실제로 있는 날짜인지까지는 걸러 주지 않으므로, 값 검증은 코드에서 따로 해야 합니다.</p>
+        <p><b>플래그와 수량자 하나로 달라지는 매칭 개수</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>패턴</th><th>테스트 문자열</th><th>플래그</th><th class="wrap">결과</th></tr></thead>
+          <tbody>
+            <tr><td><code>&lt;.+&gt;</code></td><td>&lt;b&gt;굵게&lt;/b&gt;와 &lt;i&gt;기울임&lt;/i&gt;</td><td>g</td><td class="wrap">1개 — 처음 &lt;부터 마지막 &gt;까지 통째로</td></tr>
+            <tr><td><code>&lt;.+?&gt;</code></td><td>(같은 문자열)</td><td>g</td><td class="wrap">4개 — &lt;b&gt;, &lt;/b&gt;, &lt;i&gt;, &lt;/i&gt;</td></tr>
+            <tr><td><code>^\w+</code></td><td>apple 3 ↵ Banana 12 ↵ apple 7</td><td>g</td><td class="wrap">1개 — 첫 줄의 apple만</td></tr>
+            <tr><td><code>^\w+</code></td><td>(같은 문자열)</td><td>g, m</td><td class="wrap">3개 — 각 줄의 첫 단어</td></tr>
+            <tr><td><code>apple</code></td><td>Apple apple APPLE</td><td>g</td><td class="wrap">1개</td></tr>
+            <tr><td><code>apple</code></td><td>(같은 문자열)</td><td>g, i</td><td class="wrap">3개</td></tr>
+            <tr><td><code>a.b</code></td><td>a ↵ b a-b</td><td>g</td><td class="wrap">1개 — a-b만</td></tr>
+            <tr><td><code>a.b</code></td><td>(같은 문자열)</td><td>g, s</td><td class="wrap">2개 — 줄바꿈을 사이에 둔 a↵b도 포함</td></tr>
+            <tr><td><code>\w+</code></td><td>도구상자 toolbox 2026 무료</td><td>g</td><td class="wrap">2개 — toolbox, 2026 (한글은 \w에 들어가지 않음)</td></tr>
+            <tr><td><code>[가-힣]+</code></td><td>(같은 문자열)</td><td>g</td><td class="wrap">2개 — 도구상자, 무료</td></tr>
+          </tbody>
+        </table></div>
+        <p>표에서 ↵는 줄바꿈입니다. 한글 단어를 잡으려고 <code>\w+</code>를 쓰면 영문과 숫자만 매칭되므로, 한글은 <code>[가-힣]</code>처럼 범위를 직접 적어야 합니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>입력값 검증 패턴 만들기:</b> 회원가입 폼의 이메일·전화번호 유효성 검사를 작성하기 전에, 실제 데이터를 붙여넣고 패턴이 의도대로 매칭되는지 먼저 확인하세요. 예외 케이스를 미리 잡아 코드에 그대로 옮길 수 있습니다.</li>

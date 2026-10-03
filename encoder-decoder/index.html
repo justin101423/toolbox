@@ -218,6 +218,50 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         </ul>
         <p>Base64의 자세한 원리는 <a class="inlink" href="/guide/base64-encoding/">Base64 가이드</a>에서 볼 수 있습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 인코딩하면 길이가 얼마나 늘까</div>
+        <p>아래는 이 도구에 각 텍스트를 넣어 얻은 결과입니다.</p>
+        <p><b>Base64 인코딩</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>입력</th><th>UTF-8 바이트</th><th>Base64 결과</th><th>글자 수</th></tr></thead>
+          <tbody>
+            <tr><td>a</td><td>1</td><td><code>YQ==</code></td><td>4</td></tr>
+            <tr><td>ab</td><td>2</td><td><code>YWI=</code></td><td>4</td></tr>
+            <tr><td>abc</td><td>3</td><td><code>YWJj</code></td><td>4</td></tr>
+            <tr><td>Hello</td><td>5</td><td><code>SGVsbG8=</code></td><td>8</td></tr>
+            <tr><td>도구상자</td><td>12</td><td><code>64+E6rWs7IOB7J6Q</code></td><td>16</td></tr>
+            <tr><td>서울 강남</td><td>13</td><td><code>7ISc7Jq4IOqwleuCqA==</code></td><td>20</td></tr>
+            <tr><td>a를 300번 반복</td><td>300</td><td>(생략)</td><td>400</td></tr>
+          </tbody>
+        </table></div>
+        <p>결과 길이는 늘 4의 배수입니다. 3바이트가 4글자가 되고, 3바이트에 못 미치는 나머지는 <code>=</code>로 채웁니다. 그래서 1바이트짜리 a는 4배가 되지만 300바이트는 정확히 400글자입니다. 한글은 글자 수가 아니라 바이트 수로 계산되므로 4글자인 "도구상자"가 16글자로 바뀝니다.</p>
+        <p><b>URL 인코딩</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>입력</th><th>결과</th><th>글자 수</th></tr></thead>
+          <tbody>
+            <tr><td>서울</td><td><code>%EC%84%9C%EC%9A%B8</code></td><td>2 → 18</td></tr>
+            <tr><td>a b</td><td><code>a%20b</code></td><td>3 → 5</td></tr>
+            <tr><td>a+b</td><td><code>a%2Bb</code></td><td>3 → 5</td></tr>
+            <tr><td>a&amp;b=c</td><td><code>a%26b%3Dc</code></td><td>5 → 9</td></tr>
+            <tr><td>100%</td><td><code>100%25</code></td><td>4 → 6</td></tr>
+            <tr><td>%20</td><td><code>%2520</code></td><td>3 → 5</td></tr>
+            <tr><td>-_.!~*'()</td><td><code>-_.!~*'()</code></td><td>9 → 9</td></tr>
+          </tbody>
+        </table></div>
+        <p>한글 한 글자는 9글자(%XX 세 묶음)가 됩니다. 이미 인코딩된 <code>%20</code>을 한 번 더 인코딩하면 <code>%2520</code>이 되는데, 주소에 %25가 보인다면 이중 인코딩을 의심할 만합니다. 주소 전체를 넣으면 <code>https://example.com/검색?q=커피&amp;page=2</code>(34자)가 <code>https%3A%2F%2Fexample.com%2F…</code>(82자)로 바뀌어 <code>://</code>, <code>?</code>, <code>&amp;</code>, <code>=</code>까지 모두 깨지므로, 주소 전체가 아니라 <b>값 부분만</b> 넣어야 합니다.</p>
+        <p><b>디코딩이 실패하는 경우</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>방식</th><th>입력</th><th>결과</th></tr></thead>
+          <tbody>
+            <tr><td>URL 디코딩</td><td><code>100%</code></td><td>변환 오류: URI malformed</td></tr>
+            <tr><td>URL 디코딩</td><td><code>a+b</code></td><td>a+b (+는 공백으로 바뀌지 않음)</td></tr>
+            <tr><td>URL 디코딩</td><td><code>%2520</code></td><td>%20 (한 번만 풀림)</td></tr>
+            <tr><td>Base64 디코딩</td><td><code>SGVsbG8</code> (= 생략)</td><td>Hello</td></tr>
+            <tr><td>Base64 디코딩</td><td><code>eyJuYW1lIjoi7ZmN6ri464-ZIn0</code></td><td>{"name":"홍길동"}</td></tr>
+            <tr><td>Base64 디코딩</td><td><code>!!!</code></td><td>변환 오류: Invalid character</td></tr>
+          </tbody>
+        </table></div>
+        <p>Base64 디코딩은 패딩 <code>=</code>가 빠진 입력과, <code>+</code>·<code>/</code> 대신 <code>-</code>·<code>_</code>를 쓰는 URL-safe 형식도 받습니다. 위에서 다섯째 줄이 그 예입니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>JWT 페이로드 확인:</b> JWT(JSON Web Token)의 Payload 부분만 잘라 Base64 디코딩하면 토큰 안에 어떤 클레임이 담겼는지 빠르게 확인할 수 있습니다. API 디버깅 시 자주 쓰이는 방법입니다.</li>
@@ -270,7 +314,8 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
       let r='';
       switch(mode.value){
         case 'b64e': r=btoa(unescape(encodeURIComponent(v))); break;
-        case 'b64d': r=decodeURIComponent(escape(atob(v))); break;
+        // URL-safe Base64(JWT 등: - _ 사용, 패딩 생략)와 줄바꿈이 섞인 입력도 받도록 표준 형태로 맞춘 뒤 디코딩
+        case 'b64d': r=decodeURIComponent(escape(atob(v.replace(/\s+/g,'').replace(/-/g,'+').replace(/_/g,'/')))); break;
         case 'urle': r=encodeURIComponent(v); break;
         case 'urld': r=decodeURIComponent(v); break;
       }

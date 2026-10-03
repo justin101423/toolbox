@@ -215,3 +215,17 @@ html.embed body::before { display:none; }
     to   { opacity:1; transform:none; }
   }
 }
+
+/* 본문 예시 표 — "숫자로 보는 예시" 섹션(.content 안). 좁은 화면에서는 .ex-wrap이 가로 스크롤.
+   theme.css에 두는 이유: tool-page.css를 참조하지 않는 구형 인라인 페이지에도 같은 표 스타일이 필요해서 */
+.ex-wrap{overflow-x:auto;margin:10px 0 14px}
+.ex-table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card)}
+.ex-table th,.ex-table td{border:1px solid var(--line);padding:8px 12px;text-align:right;white-space:nowrap}
+.ex-table th{background:var(--panel);color:var(--ink-2);font-weight:700;text-align:center}
+.ex-table td:first-child{text-align:left;color:var(--ink-2);font-weight:600}
+/* 글자 위주 표(코드·설명): 왼쪽 정렬, 설명 칸(.wrap)은 줄바꿈 허용 */
+.ex-table.ex-left td{text-align:left}
+.ex-table td.wrap{white-space:normal;min-width:200px}
+.ex-table code,.ex-code{font-family:var(--mono,monospace);font-size:12.5px}
+/* 여러 줄 입력·출력 예시 블록 */
+.ex-code{display:block;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:10px 0 14px;color:var(--ink-2);white-space:pre-wrap;word-break:break-all;line-height:1.6}

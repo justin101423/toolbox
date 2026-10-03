@@ -196,6 +196,42 @@
         </ul>
         <p>설정 파일을 다른 도구로 옮길 때 이 변환이 편합니다. 차이와 함정은 <a class="inlink" href="/guide/json-vs-yaml/">JSON vs YAML 가이드</a>에 정리했습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 변환하면서 값이 달라지는 경우</div>
+        <p>아래는 "YAML → JSON" 방향으로 한 줄씩 넣어 얻은 결과입니다. 따옴표 없이 쓴 값은 YAML이 타입을 추측하기 때문에, 적은 것과 다른 값이 될 수 있습니다.</p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>YAML 입력</th><th>JSON 결과</th><th class="wrap">무슨 일이 일어났나</th></tr></thead>
+          <tbody>
+            <tr><td><code>version: 1.10</code></td><td><code>1.1</code></td><td class="wrap">숫자로 읽혀 끝의 0이 사라짐</td></tr>
+            <tr><td><code>zip: 01234</code></td><td><code>1234</code></td><td class="wrap">앞자리 0이 사라짐</td></tr>
+            <tr><td><code>port: 08080</code></td><td><code>8080</code></td><td class="wrap">앞자리 0이 사라짐</td></tr>
+            <tr><td><code>hex: 0x1F</code></td><td><code>31</code></td><td class="wrap">16진수로 해석</td></tr>
+            <tr><td><code>octal: 0o17</code></td><td><code>15</code></td><td class="wrap">8진수로 해석</td></tr>
+            <tr><td><code>sci: 1e3</code></td><td><code>1000</code></td><td class="wrap">지수 표기로 해석</td></tr>
+            <tr><td><code>date: 2026-10-03</code></td><td><code>"2026-10-03T00:00:00.000Z"</code></td><td class="wrap">날짜로 읽혀 시각이 붙음</td></tr>
+            <tr><td><code>time: 12:30</code></td><td><code>"12:30"</code></td><td class="wrap">문자열 그대로</td></tr>
+            <tr><td><code>enabled: yes</code></td><td><code>"yes"</code></td><td class="wrap">문자열 그대로 — true가 아님</td></tr>
+            <tr><td><code>flag: true</code></td><td><code>true</code></td><td class="wrap">불리언</td></tr>
+            <tr><td><code>empty:</code> / <code>tilde: ~</code></td><td><code>null</code></td><td class="wrap">값이 없거나 ~이면 null</td></tr>
+            <tr><td><code>quoted: "1.10"</code></td><td><code>"1.10"</code></td><td class="wrap">따옴표로 감싸면 그대로 유지</td></tr>
+          </tbody>
+        </table></div>
+        <p>버전 번호, 우편번호, 전화번호처럼 숫자로 보이지만 숫자가 아닌 값은 따옴표로 감싸야 합니다. <code>yes</code>·<code>no</code>는 이 변환기에서는 문자열로 남지만 YAML 파서에 따라 true·false로 읽는 것도 있으므로, 참·거짓을 뜻한다면 <code>true</code>·<code>false</code>로 적는 편이 안전합니다.</p>
+        <p><b>반대로 JSON → YAML에서는 필요한 곳에 따옴표가 자동으로 붙습니다</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>JSON 입력</th><th>YAML 결과</th></tr></thead>
+          <tbody>
+            <tr><td><code>"version": "1.10"</code></td><td><code>version: '1.10'</code></td></tr>
+            <tr><td><code>"zip": "01234"</code></td><td><code>zip: '01234'</code></td></tr>
+            <tr><td><code>"note": "yes"</code></td><td><code>note: 'yes'</code></td></tr>
+            <tr><td><code>"colon": "a: b"</code></td><td><code>colon: 'a: b'</code></td></tr>
+            <tr><td><code>"hash": "#태그"</code></td><td><code>hash: '#태그'</code></td></tr>
+            <tr><td><code>"empty": ""</code></td><td><code>empty: ''</code></td></tr>
+            <tr><td><code>"name": "도구상자"</code></td><td><code>name: 도구상자</code></td></tr>
+          </tbody>
+        </table></div>
+        <p>문자열 "1.10"을 YAML로 옮길 때 따옴표를 빼면 다시 읽을 때 숫자 1.1이 되므로, 변환기가 알아서 따옴표를 남겨 둡니다. 손으로 YAML을 고치다 이 따옴표를 지우면 위 첫 번째 표의 문제가 그대로 생깁니다.</p>
+        <p>오류 메시지도 미리 알아 두면 좋습니다. 들여쓰기에 탭을 쓰면 <code>tab characters must not be used in indentation</code>, 같은 키를 두 번 쓰면 <code>duplicated mapping key</code>가 줄·칸 번호와 함께 표시됩니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>설정 파일 형식 맞추기:</b> 도커 컴포즈, 깃허브 액션, 쿠버네티스 매니페스트는 YAML을 쓰고, 많은 API 응답·패키지 설정은 JSON을 씁니다. 한쪽 형식으로 받은 설정을 다른 도구에 넣어야 할 때 그대로 변환해 옮길 수 있습니다.</li>

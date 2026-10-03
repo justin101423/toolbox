@@ -142,9 +142,4 @@ a:focus-visible,button:focus-visible,.navlink:focus-visible{outline:2px solid va
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}
 
-/* 본문 예시 표 — "숫자로 보는 예시" 섹션(.content 안). 좁은 화면에서는 .ex-wrap이 가로 스크롤 */
-.ex-wrap{overflow-x:auto;margin:10px 0 14px}
-.ex-table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card)}
-.ex-table th,.ex-table td{border:1px solid var(--line);padding:8px 12px;text-align:right;white-space:nowrap}
-.ex-table th{background:var(--panel);color:var(--ink-2);font-weight:700;text-align:center}
-.ex-table td:first-child{text-align:left;color:var(--ink-2);font-weight:600}
+/* 본문 예시 표(.ex-wrap/.ex-table)는 theme.css로 옮김 — tool-page.css를 쓰지 않는 구형 인라인 페이지에도 적용되도록 */

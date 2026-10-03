@@ -213,6 +213,43 @@
         </ul>
         <p>로그 분석, 토큰 만료(exp), API 응답의 시간 필드를 다룰 때 자주 만나게 됩니다. 원리는 <a class="inlink" href="/guide/timestamp-conversion/">유닉스 타임스탬프 가이드</a>에서 더 볼 수 있습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 기억해 둘 만한 타임스탬프</div>
+        <p>아래는 이 변환기의 "타임스탬프 → 날짜"에 초 단위 값을 넣어 얻은 결과입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>타임스탬프(초)</th><th>KST</th><th>UTC</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>1970-01-01 09:00:00</td><td>1970-01-01 00:00:00</td></tr>
+            <tr><td>1,000,000,000</td><td>2001-09-09 10:46:40</td><td>2001-09-09 01:46:40</td></tr>
+            <tr><td>1,700,000,000</td><td>2023-11-15 07:13:20</td><td>2023-11-14 22:13:20</td></tr>
+            <tr><td>1,800,000,000</td><td>2027-01-15 17:00:00</td><td>2027-01-15 08:00:00</td></tr>
+            <tr><td>2,000,000,000</td><td>2033-05-18 12:33:20</td><td>2033-05-18 03:33:20</td></tr>
+            <tr><td>2,147,483,647</td><td>2038-01-19 12:14:07</td><td>2038-01-19 03:14:07</td></tr>
+          </tbody>
+        </table></div>
+        <p>17억은 KST로 11월 15일 아침이지만 UTC로는 아직 11월 14일 밤입니다. 로그의 "날짜"가 하루 어긋나 보일 때는 대개 이 9시간 차이가 원인입니다. 마지막 줄의 2,147,483,647은 32비트 부호 있는 정수가 담을 수 있는 가장 큰 값으로, 한국 시간으로는 2038년 1월 19일 낮 12시 14분 7초입니다.</p>
+        <p><b>단위를 잘못 고르면</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>입력값</th><th>선택한 단위</th><th>KST 결과</th></tr></thead>
+          <tbody>
+            <tr><td>1700000000 (10자리)</td><td>초</td><td>2023-11-15 07:13:20</td></tr>
+            <tr><td>1700000000 (10자리)</td><td>밀리초</td><td>1970-01-21 01:13:20</td></tr>
+            <tr><td>1700000000000 (13자리)</td><td>밀리초</td><td>2023-11-15 07:13:20</td></tr>
+            <tr><td>1700000000000 (13자리)</td><td>초</td><td>55840-11-09 07:13:20</td></tr>
+          </tbody>
+        </table></div>
+        <p>결과가 1970년 1월 근처로 나오면 초 값을 밀리초로 읽은 것이고, 5만 년대처럼 터무니없는 미래가 나오면 밀리초 값을 초로 읽은 것입니다.</p>
+        <p><b>날짜 → 타임스탬프</b> (기기 시간대가 한국일 때)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>입력한 날짜·시각</th><th>타임스탬프(초)</th></tr></thead>
+          <tbody>
+            <tr><td>2000-01-01 00:00:00</td><td>946,652,400</td></tr>
+            <tr><td>2026-10-03 00:00:00</td><td>1,790,953,200</td></tr>
+            <tr><td>2026-10-03 09:00:00</td><td>1,790,985,600</td></tr>
+            <tr><td>2027-01-01 00:00:00</td><td>1,798,729,200</td></tr>
+          </tbody>
+        </table></div>
+        <p>하루는 86,400초, 30일은 2,592,000초, 365일은 31,536,000초입니다. 86,400으로 나누어떨어지는 값은 한국 자정이 아니라 한국 오전 9시(UTC 자정)입니다. 위 표에서도 1,790,985,600만 86,400의 배수입니다. 타임스탬프를 86,400으로 나눠 "날짜별"로 묶으면 UTC 날짜로 묶이므로, 한국 날짜 기준 집계가 필요하면 9시간(32,400초)을 더한 뒤 나눠야 합니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>로그·DB 시간 해석:</b> 서버 로그나 데이터베이스에는 시간이 Unix 타임스탬프로 저장되는 경우가 많습니다. 그 숫자를 붙여넣으면 한국 시간으로 바로 확인할 수 있어, 장애 발생 시각이나 주문 시각을 직관적으로 파악할 수 있습니다.</li>
@@ -255,7 +292,7 @@ const $=id=>document.getElementById(id);
 let unit='s';
 
 function fmt(ms,tz){
-  return new Intl.DateTimeFormat('ko-KR',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date(ms));
+  return new Intl.DateTimeFormat('ko-KR',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).format(new Date(ms));
 }
 
 function updateNow(){
