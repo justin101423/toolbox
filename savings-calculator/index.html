@@ -215,6 +215,39 @@
         </ul>
         <p>그래서 같은 금리라면 '월 100만원 1년 적금'과 '1,200만원 예금'의 이자가 약 2배 차이 납니다. 원리는 <a class="inlink" href="/guide/savings-interest/">적금·예금 이자 계산법 가이드</a>에 자세히 정리했습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 연 4%, 1년</div>
+        <p>아래 숫자는 이 계산기에 <b>연 4% · 12개월 · 단리 · 일반과세(15.4%)</b>를 넣었을 때 나오는 값입니다. 총 납입액이 같은 1,200만 원이어도 적금과 예금의 결과가 얼마나 다른지 비교했습니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th></th><th>적금 (월 100만 원 × 12회)</th><th>예금 (1,200만 원 한 번에)</th></tr></thead>
+          <tbody>
+            <tr><td>원금</td><td>12,000,000원</td><td>12,000,000원</td></tr>
+            <tr><td>세전 이자</td><td>260,000원</td><td>480,000원</td></tr>
+            <tr><td>세금 (15.4%)</td><td>40,040원</td><td>73,920원</td></tr>
+            <tr><td>세후 이자</td><td>219,960원</td><td>406,080원</td></tr>
+            <tr><td>원금 대비 세후 수익</td><td>약 1.83%</td><td>약 3.38%</td></tr>
+          </tbody>
+        </table></div>
+        <p>적금의 세전 이자는 <b>월 납입액 × (연이율 ÷ 12) × n(n+1) ÷ 2</b>로 구합니다(n은 납입 개월 수). 위 예시는 1,000,000 × (0.04 ÷ 12) × 78 = 260,000원입니다. 첫 달 돈은 12개월, 마지막 달 돈은 1개월만 맡겨지므로 12 + 11 + … + 1 = 78개월 치 이자만 붙는 셈입니다. "연 4% 적금"에 넣은 돈이 실제로는 1.83%만 불어나는 이유입니다.</p>
+        <p><b>과세 유형에 따른 차이</b> (위 적금 예시, 세전 이자 260,000원)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>과세 유형</th><th>세금</th><th>세후 이자</th></tr></thead>
+          <tbody>
+            <tr><td>일반과세 15.4%</td><td>40,040원</td><td>219,960원</td></tr>
+            <tr><td>세금우대 9.5%</td><td>24,700원</td><td>235,300원</td></tr>
+            <tr><td>비과세</td><td>0원</td><td>260,000원</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>기간을 늘리면</b> (월 50만 원 · 연 4% · 단리 · 일반과세)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>기간</th><th>원금</th><th>세전 이자</th><th>세후 이자</th></tr></thead>
+          <tbody>
+            <tr><td>12개월</td><td>6,000,000원</td><td>130,000원</td><td>109,980원</td></tr>
+            <tr><td>24개월</td><td>12,000,000원</td><td>500,000원</td><td>423,000원</td></tr>
+            <tr><td>36개월</td><td>18,000,000원</td><td>1,110,000원</td><td>939,060원</td></tr>
+          </tbody>
+        </table></div>
+        <p>기간이 2배가 되면 이자는 약 3.8배, 3배가 되면 약 8.5배가 됩니다. 넣는 돈도 늘고 맡겨 두는 기간도 함께 늘기 때문입니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>표면금리에 속지 마세요:</b> 같은 금리라도 적금은 매달 나눠 넣어 이자가 붙는 기간이 짧아, 같은 총액 예금의 절반 정도 이자가 나옵니다. 적금과 예금을 같은 조건으로 비교해 보세요.</li>
@@ -270,7 +303,7 @@
     if(mode==='install'){
       principal = amt*n;
       if(comp==='simple'){ interest = amt*(r/12)*(n*(n+1)/2); }
-      else { var fv = i===0 ? amt*n : amt*((Math.pow(1+i,n)-1)/i); interest = fv-principal; }
+      else { var fv = i===0 ? amt*n : amt*((Math.pow(1+i,n)-1)/i)*(1+i); interest = fv-principal; } // 매달 초 납입 기준(단리 계산과 같은 가정)
     } else {
       principal = amt;
       if(comp==='simple'){ interest = amt*r*(n/12); }
