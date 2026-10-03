@@ -463,7 +463,7 @@ toolbox/
 | 구글 Search Console | sitemap 125 URL로 축소(2026-10-03) — **Search Console에서 sitemap 재제출 필요** | **`scripts/gsc-index-queue.md` 체크리스트를 하루 10개씩 진행**(색인 대상 125 URL, 요청한 URL은 체크). 색인 추이 주 1회 확인 |
 | **IndexNow (Bing·네이버)** | 키 파일 `/02a6550d208a4969b895c0335b97356b.txt` 배포(2026-07-03), 전체 452 URL 제출 | 새 도구·가이드 추가 시 해당 URL을 api.indexnow.org에 재제출(선택). 키 파일 삭제 금지 |
 | 네이버 서치어드바이저 | 등록 완료 — 소유 확인(홈 head 메타) + sitemap 제출 + 홈·가이드 허브 수집 요청 | 며칠 뒤 "검증 → 사이트 최적화" 리포트 확인 |
-| 본문 글꼴(Pretendard) | **해결(2026-10-03)** — Pretendard CSS `<link>`의 SRI 해시가 실제 파일과 달라 전 페이지에서 차단되던 것을 올바른 해시(`sha384-ei/b2Mz3F…`)로 교체(452개 페이지, 헤드리스 크롬에서 글꼴 로드 확인) | ★`privacy.html` 한 곳만 보호 파일이라 옛 해시 그대로 — 사용자 확인 후 같은 해시로 교체. 새 페이지를 만들 때는 기존 페이지의 Pretendard `<link>`를 그대로 복사할 것 |
+| 본문 글꼴(Pretendard) | **해결(2026-10-03)** — Pretendard CSS `<link>`의 SRI 해시가 실제 파일과 달라 전 페이지에서 차단되던 것을 올바른 해시(`sha384-ei/b2Mz3F…`)로 교체(전 453개 페이지 — `privacy.html`은 사용자 확인 후 같은 날 교체, 헤드리스 크롬에서 글꼴 로드 확인) | 새 페이지를 만들 때는 기존 페이지의 Pretendard `<link>`를 그대로 복사할 것 |
 | GA4 | 활성화됨 — 측정 ID `G-EQH5P4E001`, `/analytics.js` 한 곳에서 관리 | 데이터 1주 쌓이면 인기 콘텐츠 기반으로 다음 방향 결정 |
 
 ## 10. 향후 작업 (보류 중)
