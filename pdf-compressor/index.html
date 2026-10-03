@@ -190,6 +190,34 @@
         </ul>
         <p>압축본은 이미지 기반이라 글자 선택·링크가 사라지므로 원본을 꼭 보관하세요. 용도별 설정은 <a class="inlink" href="/guide/compress-pdf/">PDF 용량 줄이는 법 가이드</a>에 있습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 어떤 PDF는 줄고 어떤 PDF는 커집니다</div>
+        <p>성격이 다른 PDF 두 개를 이 도구에 넣어 설정별로 압축한 실제 결과입니다.</p>
+        <p><b>① 사진 PDF</b> (1920×1200 사진 3쪽, 원본 2.96MB)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>해상도</th><th>이미지 품질</th><th>압축 후</th><th>절감</th></tr></thead>
+          <tbody>
+            <tr><td>낮음</td><td>0.35</td><td>498KB</td><td>84%</td></tr>
+            <tr><td>낮음</td><td>0.5</td><td>682KB</td><td>77%</td></tr>
+            <tr><td>낮음</td><td>0.72</td><td>1,024KB</td><td>66%</td></tr>
+            <tr><td>보통 (기본)</td><td>0.72 (기본)</td><td>1.75MB</td><td>41%</td></tr>
+            <tr><td>높음</td><td>0.72</td><td>2.90MB</td><td>2%</td></tr>
+            <tr><td>보통</td><td>0.9</td><td>3.62MB</td><td>−22% (커짐)</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>② 글자 위주 PDF</b> (A4 3쪽, 원본 224KB)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>해상도</th><th>이미지 품질</th><th>압축 후</th><th>절감</th></tr></thead>
+          <tbody>
+            <tr><td>낮음</td><td>0.72</td><td>147KB</td><td>35%</td></tr>
+            <tr><td>보통 (기본)</td><td>0.5</td><td>176KB</td><td>22%</td></tr>
+            <tr><td>보통 (기본)</td><td>0.72 (기본)</td><td>224KB</td><td>0%</td></tr>
+            <tr><td>높음</td><td>0.72</td><td>334KB</td><td>−49% (커짐)</td></tr>
+            <tr><td>보통</td><td>0.9</td><td>358KB</td><td>−60% (커짐)</td></tr>
+          </tbody>
+        </table></div>
+        <p>사진 PDF는 기본 설정만으로 41%가 줄었고 "낮음"에서는 3분의 1이 되었습니다. 글자 PDF는 기본 설정에서 전혀 줄지 않았고, 조금이라도 높이면 원본보다 커졌습니다. 게다가 압축본은 글자를 선택하거나 검색할 수 없게 됩니다. 글자 위주 문서는 이 도구에 넣지 않는 것이 맞습니다.</p>
+        <p>해상도 설정은 페이지를 몇 배로 그릴지를 뜻합니다. A4 한 쪽이 "낮음"에서는 596 × 842픽셀(72dpi 상당), "보통"에서는 805 × 1137픽셀(약 97dpi), "높음"에서는 1073 × 1516픽셀(약 130dpi)의 그림으로 바뀝니다. 화면으로 읽을 문서는 "보통"으로 충분하지만, 작은 글씨가 많은 스캔본을 "낮음"으로 줄이면 글자가 뭉개질 수 있습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>효과적인 대상:</b> 이 도구는 PDF 페이지를 이미지로 변환해 재저장하는 방식입니다. 스캔 PDF, 사진·이미지 위주 발표자료 PDF에서 용량 감소 효과가 가장 큽니다. 텍스트만 있는 작은 PDF는 오히려 커질 수 있습니다.</li>

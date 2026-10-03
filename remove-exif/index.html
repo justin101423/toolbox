@@ -177,6 +177,19 @@
         </ul>
         <p>SNS·중고거래에 올리기 전 한 번 거치면 안전합니다. 왜 지워야 하는지는 <a class="inlink" href="/guide/remove-photo-location/">사진 위치정보 제거 가이드</a>에 정리했습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 지우기 전과 후</div>
+        <p>GPS 좌표(위도 37.5666, 경도 126.9780)와 기기명·날짜를 넣은 시험용 JPG를 포함해 파일 세 개를 이 도구에 넣은 결과입니다(크롬 기준). 결과 파일은 EXIF 분석기로 다시 읽어 확인했습니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>파일</th><th>분석 표시</th><th>원본 → 결과 용량</th><th>결과 파일의 EXIF</th></tr></thead>
+          <tbody>
+            <tr><td>GPS가 든 JPG (1920×1200)</td><td>GPS 위치 발견 · 날짜 포함 · 카메라 정보</td><td>612KB → 564KB</td><td>없음</td></tr>
+            <tr><td>EXIF가 없는 JPG (1920×1200)</td><td>메타데이터 없음</td><td>1.14MB → 1.15MB</td><td>없음</td></tr>
+            <tr><td>화면 캡처 PNG (1264×705)</td><td>분석 불가</td><td>232KB → 470KB</td><td>없음</td></tr>
+          </tbody>
+        </table></div>
+        <p>세 파일 모두 해상도는 그대로이고, GPS가 들어 있던 파일에서는 좌표·기기명·날짜가 전부 사라졌습니다. 소수 넷째 자리까지 적힌 좌표는 건물 한 채를 가리킬 만큼 정밀하므로, 집에서 찍은 사진이라면 지우고 올리는 것이 안전합니다.</p>
+        <p>용량 변화는 EXIF와 거의 관계가 없습니다. 시험 파일에 들어 있던 EXIF는 210바이트에 불과했습니다. 용량이 달라지는 것은 사진을 품질 0.95로 다시 저장하기 때문이고, 그래서 한 파일은 줄고 다른 파일은 조금 늘었습니다. PNG는 다시 저장하면서 2배로 커졌는데, PNG에는 촬영 위치가 들어가는 경우가 드물고 이 도구도 PNG의 메타데이터는 분석하지 못하므로("분석 불가"), 화면 캡처 같은 PNG는 굳이 이 도구를 거칠 필요가 없습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>SNS·중고거래 게시 전 위치 삭제:</b> 스마트폰으로 촬영한 사진에는 GPS 좌표가 숨겨져 있습니다. 당근마켓, 중고나라, 인스타그램 등에 올리기 전 이 도구로 위치 정보를 제거하면 집 주소나 직장 위치가 제3자에게 노출되는 것을 막을 수 있습니다.</li>
@@ -249,7 +262,7 @@ async function detectExif(file){
     const tags=[];
     if(hasGps)tags.push({cls:'tag-gps',text:'📍 GPS 위치 발견'});
     else tags.push({cls:'tag-ok',text:'✓ 위치 정보 없음'});
-    if(d.DateTimeOriginal||d.DateTime)tags.push({cls:'tag-info',text:'📅 날짜 포함'});
+    if(d.DateTimeOriginal||d.DateTime||d.ModifyDate||d.CreateDate)tags.push({cls:'tag-info',text:'📅 날짜 포함'});
     if(d.Make||d.Model)tags.push({cls:'tag-info',text:'📷 카메라 정보'});
     return{hasGps,hasExif:true,tags};
   }catch(e){

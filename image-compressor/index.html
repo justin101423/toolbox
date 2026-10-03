@@ -186,7 +186,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
       <p class="lede">사진 용량을 줄이고 크기를 조절합니다. 첨부 메일·웹 업로드 전에 가볍게 만들 때 좋아요.</p>
       <div class="box">
         <div class="drop" id="cp-drop"><div class="big">📉</div><b>이미지를 끌어다 놓거나 클릭</b><small>JPG · PNG · WebP</small></div>
-        <input type="file" id="cp-file" accept="image/*" hidden>
+        <input type="file" id="cp-file" accept="image/*" multiple hidden>
         <div class="field" style="margin-top:18px"><label>최대 가로 폭(px) — 비율 유지</label><input type="number" id="cp-w" value="1280" min="50"></div>
         <div class="field"><label>품질 <span id="cp-qv" style="font-family:var(--mono);color:var(--ink-3)">0.75</span></label>
           <input type="range" id="cp-q" min="0.2" max="1" step="0.05" value="0.75" style="accent-color:var(--accent);width:100%">
@@ -205,13 +205,43 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>압축할 이미지(JPG, PNG, WebP)를 드래그 앤 드롭하거나 클릭해 업로드합니다. 여러 파일을 한 번에 선택할 수도 있습니다.</li>
           <li>최대 가로 폭(px)을 설정합니다. 이보다 좁은 이미지는 원본 크기가 그대로 유지됩니다.</li>
           <li>품질 슬라이더(0.2~1.0)로 파일 크기와 화질의 균형을 조절합니다.</li>
-          <li>"압축 시작" 버튼을 누르면 처리 후 파일이 자동으로 다운로드됩니다.</li>
+          <li>"압축 후 다운로드" 버튼을 누르면 처리 후 파일이 자동으로 다운로드됩니다.</li>
           <li>결과 영역에서 원본 대비 절감된 용량과 절감률을 확인합니다.</li>
         </ol>
 
         <div class="sec-label">압축과 리사이즈, 무엇이 먼저일까</div>
         <p>이미지 용량을 줄이는 방법은 크게 두 가지입니다. <b>리사이즈</b>는 가로·세로 픽셀 수 자체를 줄이는 것이고, <b>압축</b>은 픽셀 수는 그대로 둔 채 데이터를 더 효율적으로 저장하는 것입니다. 요즘 스마트폰 사진은 가로 4,000px이 넘는데, 블로그·게시판에서 실제로 보이는 너비는 1,000~1,600px 정도입니다. 즉 대부분의 사진은 <b>필요 이상으로 큰 해상도</b> 탓에 무겁습니다.</p>
         <p>그래서 순서가 중요합니다. 먼저 최대 가로 폭을 용도에 맞게 줄여(리사이즈) 불필요한 픽셀을 덜어내고, 그다음 품질을 조절해 압축하면 화질 손상은 최소화하면서 용량만 크게 떨어뜨릴 수 있습니다. 이 도구는 두 과정을 한 번에 처리합니다. 더 자세한 원리와 용도별 권장값은 <a class="inlink" href="/guide/reduce-image-size/">이미지 용량 줄이기 가이드</a>에서 정리했습니다.</p>
+
+        <div class="sec-label">숫자로 보는 예시 — 품질을 낮출까, 가로 폭을 줄일까</div>
+        <p>아래는 1920×1200 풍경 사진(JPG, 1.14MB)을 이 도구에 넣고 설정을 바꿔 가며 얻은 실제 결과입니다(크롬 기준).</p>
+        <p><b>① 가로 폭은 1920 그대로, 품질만 바꾸면</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>품질</th><th>압축 후</th><th>절감</th></tr></thead>
+          <tbody>
+            <tr><td>1.0</td><td>1.87MB</td><td>0% (원본보다 커짐)</td></tr>
+            <tr><td>0.9</td><td>908KB</td><td>22%</td></tr>
+            <tr><td>0.85</td><td>699KB</td><td>40%</td></tr>
+            <tr><td>0.75</td><td>499KB</td><td>57%</td></tr>
+            <tr><td>0.6</td><td>373KB</td><td>68%</td></tr>
+            <tr><td>0.4</td><td>276KB</td><td>76%</td></tr>
+            <tr><td>0.2</td><td>162KB</td><td>86%</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>② 품질은 0.75 그대로, 가로 폭만 바꾸면</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>최대 가로 폭</th><th>결과 해상도</th><th>압축 후</th><th>절감</th></tr></thead>
+          <tbody>
+            <tr><td>1920</td><td>1920×1200</td><td>499KB</td><td>57%</td></tr>
+            <tr><td>1600</td><td>1600×1000</td><td>324KB</td><td>72%</td></tr>
+            <tr><td>1280</td><td>1280×800</td><td>220KB</td><td>81%</td></tr>
+            <tr><td>1080</td><td>1080×675</td><td>170KB</td><td>85%</td></tr>
+            <tr><td>800</td><td>800×500</td><td>81KB</td><td>93%</td></tr>
+            <tr><td>600</td><td>600×375</td><td>50KB</td><td>96%</td></tr>
+          </tbody>
+        </table></div>
+        <p>품질을 0.75에서 0.4까지 내리면 499KB가 276KB가 되지만, 품질은 그대로 두고 폭만 1280으로 줄여도 220KB가 됩니다. 폭을 3분의 2로 줄이면 픽셀 수가 44%로 줄기 때문입니다. 화질을 깎는 것보다 필요 없는 픽셀을 덜어내는 쪽이 효과가 크고 눈에도 덜 띕니다. 품질 1.0은 이미 압축된 사진을 원본보다 크게 만들 뿐이므로 쓸 이유가 없습니다.</p>
+        <p>같은 방법으로 1264×705 화면 캡처(PNG, 232KB)를 넣으면 품질 0.9에서 80.8KB, 0.75에서 54.9KB가 됩니다. 사진 두 장과 화면 캡처 한 장을 한꺼번에 올려 폭 1280·품질 0.5로 압축했을 때는 합계 1.96MB가 244KB(88% 절감)로 줄었습니다.</p>
 
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
@@ -266,20 +296,27 @@ function hookDrop(drop,input,onFiles){
 }
 function loadImg(file){return new Promise((res,rej)=>{const img=new Image();img.onload=()=>res(img);img.onerror=rej;img.src=URL.createObjectURL(file);});}
 (()=>{let cur=null;
-  hookDrop($('cp-drop'),$('cp-file'),f=>{cur=f[0];$('cp-go').disabled=false;$('cp-drop').querySelector('b').textContent=cur.name;});
+  // 여러 장을 올리면 같은 설정으로 모두 압축한다(파일마다 따로 저장, 통계는 합계)
+  hookDrop($('cp-drop'),$('cp-file'),f=>{cur=f.filter(x=>x.type.startsWith('image/'));if(!cur.length){cur=null;return;}$('cp-go').disabled=false;$('cp-drop').querySelector('b').textContent=cur.length>1?cur[0].name+' 외 '+(cur.length-1)+'장':cur[0].name;});
   $('cp-q').addEventListener('input',e=>$('cp-qv').textContent=e.target.value);
   $('cp-go').addEventListener('click',async()=>{
-    if(!cur)return;const img=await loadImg(cur);
-    let w=parseInt($('cp-w').value)||img.naturalWidth,ratio=Math.min(1,w/img.naturalWidth);
-    const c=document.createElement('canvas');c.width=Math.round(img.naturalWidth*ratio);c.height=Math.round(img.naturalHeight*ratio);
-    c.getContext('2d').drawImage(img,0,0,c.width,c.height);
-    c.toBlob(b=>{
-      dl(b,cur.name.replace(/\.[^.]+$/,'')+'-compressed.jpg');
-      $('cp-stats').style.display='grid';
-      $('cp-before').textContent=fmtBytes(cur.size);$('cp-after').textContent=fmtBytes(b.size);
-      const pct=Math.max(0,Math.round((1-b.size/cur.size)*100));$('cp-save').textContent=pct+'%';
+    if(!cur)return;
+    let before=0,after=0;
+    for(const file of cur){
+      const img=await loadImg(file);
+      let w=parseInt($('cp-w').value)||img.naturalWidth,ratio=Math.min(1,w/img.naturalWidth);
+      const c=document.createElement('canvas');c.width=Math.round(img.naturalWidth*ratio);c.height=Math.round(img.naturalHeight*ratio);
+      const x=c.getContext('2d');
+      x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height); // JPG는 투명을 담지 못하므로 흰 배경을 먼저 깐다(안 깔면 검게 저장됨)
+      x.drawImage(img,0,0,c.width,c.height);
+      const b=await new Promise(r=>c.toBlob(r,'image/jpeg',parseFloat($('cp-q').value)));
+      dl(b,file.name.replace(/\.[^.]+$/,'')+'-compressed.jpg');
+      before+=file.size;after+=b.size;
       $('cp-prev').src=URL.createObjectURL(b);$('cp-prev').style.display='block';
-    },'image/jpeg',parseFloat($('cp-q').value));
+    }
+    $('cp-stats').style.display='grid';
+    $('cp-before').textContent=fmtBytes(before);$('cp-after').textContent=fmtBytes(after);
+    const pct=Math.max(0,Math.round((1-after/before)*100));$('cp-save').textContent=pct+'%';
   });
 })();
 </script>

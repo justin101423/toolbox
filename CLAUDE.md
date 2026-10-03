@@ -370,8 +370,9 @@ toolbox/
   - 완료(2026-10-03, 5차): `timestamp`, `cron-parser`, `hash-generator`, `encoder-decoder`(Base64 디코딩이 URL-safe 형식·줄바꿈 섞인 입력도 받도록 수정), `jwt-decoder`("Bearer " 접두어 자동 제거), `regex-tester`, `json-yaml`, `csv-json`(JSON→CSV에서 첫 객체에 없는 키가 누락되던 오류·객체 하나만 넣으면 빈 결과가 나오던 오류·중첩 값이 [object Object]로 나오던 것 수정, CSV 다운로드에 UTF-8 BOM 추가)
   - 완료(2026-10-03, 6차): `word-counter`, `clean-text`(특수 공백 옵션이 폭 없는 문자를 공백으로 바꾸던 것을 삭제로 수정), `password-generator`, `json-formatter`, `text-diff`, `qr-code`(★라이브러리 교체: qrcodejs 1.0.0은 한글 뒤에 영문·숫자가 오면 내용이 깨지거나 생성 실패 + 한글 내용 앞에 BOM이 붙던 결함 → qrcode-generator 1.4.4로 교체, 캔버스에 직접 그려 흰 여백 4칸 포함 PNG 저장, 사용법 문구를 실제 동작에 맞게 수정), `qr-reader`
   - 완료(2026-10-03, 7차): `color-picker`(RGB·HSL·HEX 칸에 직접 타이핑하면 입력 도중 칸이 덮어써져 값을 끝까지 칠 수 없던 오류 수정), `color-palette`, `gradient-generator`("+ 색 추가"로 넣은 정지점이 100% 뒤에 붙어 화면에 반영되지 않던 오류 — CSS 출력 시 위치순 정렬), `contrast-checker`, `pomodoro`, `signature-maker`, `piano`, `metronome`, `tuner`(센트 계산 내림→반올림)
+  - 완료(2026-10-03, 8차 — 이미지·PDF 15종, 실제 파일을 헤드리스 크롬에서 도구에 넣어 측정): `image-converter`·`image-compressor`(★본문·FAQ가 안내하던 "여러 장 한 번에"가 실제로는 첫 파일만 처리되던 것 수정, 압축기는 투명 PNG가 검은 배경으로 저장되던 것을 흰 배경으로), `image-resizer`, `image-crop`, `bg-remover`, `id-photo`(반명함판 설명이 프리셋 3×4cm와 달랐던 문구 수정), `remove-exif`(수정 날짜만 든 파일도 날짜 배지 표시), `heic-to-jpg`, `image-ocr`, `gif-maker`(프레임이 선택 순서가 아니라 로딩 완료 순서로 들어가던 오류 수정), `pdf-merge`, `pdf-split`, `pdf-compressor`, `image-to-pdf`, `pdf-to-image`
   - ★FAQ 문구 불일치(미수정 — FAQ는 JSON-LD와 함께 고쳐야 하므로 따로 처리): `unit-converter` FAQ의 "전용 84㎡ ≈ 25.7평"은 실제 25.41평(25.7평은 85㎡), `age-calculator` FAQ의 2월 29일생 설명("3월 1일이 아닌")은 실제 동작(평년에는 3월 1일에 한 살 오름)과 다름. `password-generator` FAQ의 "95^16 ≈ 4.4×10^31"은 실제 문자 풀(헷갈리는 글자 제외 70종) 기준 70^16 ≈ 3.3×10^29와 다름.
-  - 남음: 나머지 색인 대상 도구 17개. ★`salary-calculator`는 소득세 근사식이 실제 간이세액표보다 높게 나오는 문제가 있어(월 300만·1인 기준 약 11만 원 vs 표 74,350원), 간이세액표 원본으로 계산을 맞춘 뒤에 예시를 넣을 것.
+  - 남음: 나머지 색인 대상 도구 2개(`lunar-solar-converter`, `salary-calculator`). ★`salary-calculator`는 소득세 근사식이 실제 간이세액표보다 높게 나오는 문제가 있어(월 300만·1인 기준 약 11만 원 vs 표 74,350원), 간이세액표 원본으로 계산을 맞춘 뒤에 예시를 넣을 것.
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 

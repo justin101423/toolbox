@@ -193,6 +193,29 @@
         </ul>
         <p>화질(dpi)과 포맷을 더 자세히 비교하려면 <a class="inlink" href="/guide/pdf-to-image-guide/">PDF→이미지 변환 가이드</a>를 참고하세요.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 해상도·형식별 이미지 크기와 용량</div>
+        <p>A4 크기의 글자 위주 페이지와, 사진이 가득 찬 페이지를 이 도구로 변환한 실제 결과입니다(크롬 기준).</p>
+        <p><b>① 글자 위주 A4 한 쪽</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>해상도</th><th>이미지 크기</th><th>인쇄 해상도 환산</th><th>JPG (품질 0.9)</th><th>PNG</th></tr></thead>
+          <tbody>
+            <tr><td>보통 (1배)</td><td>596 × 842</td><td>72dpi</td><td>81.7KB</td><td>78.0KB</td></tr>
+            <tr><td>선명 (1.5배)</td><td>894 × 1263</td><td>108dpi</td><td>143KB</td><td>126KB</td></tr>
+            <tr><td>고해상도 (2배)</td><td>1192 × 1684</td><td>144dpi</td><td>209KB</td><td>217KB</td></tr>
+          </tbody>
+        </table></div>
+        <p>글자 위주 페이지는 PNG가 JPG와 비슷하거나 오히려 작습니다. PNG는 글자 가장자리가 번지지 않으므로, 문서 페이지는 PNG로 받는 쪽이 용량 손해 없이 더 또렷합니다. JPG 품질 슬라이더의 영향은 큽니다. 같은 "선명" 설정에서 품질 0.7은 89.7KB, 0.9는 143KB, 1.0은 465KB였습니다. 세 쪽 전체를 "선명" · JPG로 변환한 ZIP 파일은 414KB였습니다.</p>
+        <p><b>② 사진이 가득 찬 한 쪽</b> (페이지 크기 1920 × 1200pt)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>해상도</th><th>이미지 크기</th><th>JPG (품질 0.9)</th><th>PNG</th></tr></thead>
+          <tbody>
+            <tr><td>보통 (1배)</td><td>1920 × 1200</td><td>—</td><td>4.55MB</td></tr>
+            <tr><td>고해상도 (2배)</td><td>3840 × 2400</td><td>2.53MB</td><td>6.26MB</td></tr>
+          </tbody>
+        </table></div>
+        <p>사진 페이지는 반대로 PNG가 몇 배씩 큽니다. 사진·그림 위주 페이지는 JPG로 받으세요. 그리고 "고해상도"를 골라도 PDF 안에 든 사진의 원래 화소 수보다 선명해지지는 않습니다. 1920×1200 사진이 든 페이지를 2배로 변환하면 3840×2400 이미지가 나오지만, 늘어난 픽셀은 확대된 것일 뿐입니다.</p>
+        <p>"고해상도"도 인쇄 기준으로는 144dpi 상당입니다. A4를 300dpi로 인쇄하려면 2480 × 3508픽셀이 필요하므로, 이 도구의 결과물은 화면 공유·문서 삽입용으로 보는 것이 맞고, 인쇄가 목적이라면 PDF 자체를 인쇄하는 편이 낫습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>발표자료 카드 뉴스 활용:</b> PPT→PDF로 변환한 발표자료에서 특정 슬라이드만 이미지로 추출해 블로그 삽입 이미지나 SNS 카드 뉴스로 활용할 수 있습니다.</li>

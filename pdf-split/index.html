@@ -196,7 +196,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li>분할할 PDF를 드래그 앤 드롭하거나 클릭해 업로드합니다.</li>
           <li>업로드 후 표시되는 전체 페이지 수를 확인합니다.</li>
           <li>추출할 페이지 범위를 입력합니다. 예: "1-3, 5, 8-10" → 1·2·3·5·8·9·10페이지 추출.</li>
-          <li>"분할 후 다운로드" 버튼을 누르면 지정한 페이지만 담긴 새 PDF가 다운로드됩니다.</li>
+          <li>"추출해서 다운로드" 버튼을 누르면 지정한 페이지만 담긴 새 PDF가 다운로드됩니다.</li>
         </ol>
 
         <div class="sec-label">PDF에서 필요한 페이지만 꺼내기</div>
@@ -207,6 +207,36 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
           <li><b>원본 유지:</b> 원본은 그대로 두고 추출분만 새 파일로 저장됩니다.</li>
         </ul>
         <p>합치기와 함께 쓰면 문서를 자유롭게 재구성할 수 있습니다. 전체 워크플로는 <a class="inlink" href="/guide/merge-split-pdf/">PDF 합치기·나누기 가이드</a>에 정리했습니다.</p>
+
+        <div class="sec-label">숫자로 보는 예시 — 한 쪽만 뽑으면 용량도 3분의 1이 될까</div>
+        <p>글자 위주 PDF(A4 3쪽, 224KB)와 사진 PDF(사진 3쪽, 2.96MB)에서 페이지를 추출한 실제 결과입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>원본</th><th>추출한 페이지</th><th>결과 용량</th><th>원본 대비</th></tr></thead>
+          <tbody>
+            <tr><td>글자 PDF (224KB)</td><td>1</td><td>147KB</td><td>65%</td></tr>
+            <tr><td>글자 PDF</td><td>2</td><td>125KB</td><td>56%</td></tr>
+            <tr><td>글자 PDF</td><td>1-2</td><td>164KB</td><td>73%</td></tr>
+            <tr><td>글자 PDF</td><td>1-3 (전부)</td><td>180KB</td><td>80%</td></tr>
+            <tr><td>사진 PDF (2.96MB)</td><td>1</td><td>1.14MB</td><td>39%</td></tr>
+            <tr><td>사진 PDF</td><td>2</td><td>613KB</td><td>20%</td></tr>
+            <tr><td>사진 PDF</td><td>3</td><td>1.22MB</td><td>41%</td></tr>
+          </tbody>
+        </table></div>
+        <p>글자 PDF는 3쪽 중 1쪽만 뽑아도 용량이 3분의 1이 아니라 65%입니다. 문서 전체가 함께 쓰는 글꼴 데이터가 추출한 파일에도 그대로 따라가기 때문입니다. 한 쪽씩 따로 나누면 1쪽 파일과 2쪽 파일만 더해도 272KB로 원본 224KB를 넘습니다. 반면 사진 PDF는 쪽마다 들어 있는 사진 용량이 그대로 나뉘어, 세 쪽을 더하면 원본과 같습니다.</p>
+        <p><b>범위 입력을 이렇게 해석합니다</b> (3쪽짜리 문서 기준)</p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>입력</th><th>결과</th></tr></thead>
+          <tbody>
+            <tr><td><code>3-1</code></td><td>1·2·3쪽 (거꾸로 적어도 같은 범위)</td></tr>
+            <tr><td><code>1-3, 2, 3</code></td><td>1·2·3쪽 (겹친 번호는 한 번만)</td></tr>
+            <tr><td><code>2, 1</code></td><td>1·2쪽 (입력 순서와 상관없이 앞쪽부터)</td></tr>
+            <tr><td><code>5, 1</code></td><td>1쪽만 (없는 쪽은 조용히 무시)</td></tr>
+            <tr><td><code>1-99</code></td><td>1·2·3쪽 (끝을 넘는 부분은 무시)</td></tr>
+            <tr><td><code>1,,3</code></td><td>1·3쪽</td></tr>
+            <tr><td><code>0</code> · <code>99</code> · <code>abc</code></td><td>"유효한 페이지 범위를 입력하세요 (1~3)"</td></tr>
+          </tbody>
+        </table></div>
+        <p>페이지 순서를 바꿔서 뽑을 수는 없습니다. "2, 1"로 적어도 결과는 1쪽이 먼저 옵니다. 없는 쪽 번호가 섞여 있어도 오류 없이 있는 쪽만 뽑히므로, 완료 메시지의 쪽수가 기대한 것과 같은지 확인하세요.</p>
 
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">

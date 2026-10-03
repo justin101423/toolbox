@@ -184,7 +184,7 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
       <p class="lede">PNG, JPG, WebP 사이를 자유롭게 변환하세요.</p>
       <div class="box">
         <div class="drop" id="ic-drop"><div class="big">🖼</div><b>이미지를 끌어다 놓거나 클릭</b><small>PNG · JPG · WebP · GIF 등</small></div>
-        <input type="file" id="ic-file" accept="image/*" hidden>
+        <input type="file" id="ic-file" accept="image/*" multiple hidden>
         <div class="field" style="margin-top:18px"><label>변환할 형식</label>
           <select id="ic-fmt"><option value="image/png">PNG</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select>
         </div>
@@ -206,6 +206,37 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="sec-label">어떤 이미지 포맷을 고르면 좋을까</div>
         <p><b>JPG</b>는 사진처럼 색이 복잡한 이미지에 적합하고, <b>PNG</b>는 로고·아이콘처럼 선명한 경계와 투명 배경이 필요한 이미지에 적합합니다. <b>WebP</b>는 웹페이지에 올릴 때 용량을 줄이기 좋은 형식으로, 같은 품질에서 JPG보다 가벼운 경우가 많습니다. 다만 제출처가 오래된 시스템이면 JPG나 PNG만 받는 경우가 있으니 업로드 조건을 먼저 확인하세요.</p>
         <p>아이폰 HEIC 사진처럼 호환성 문제가 있는 파일은 JPG로 바꾸면 대부분의 게시판·문서 편집기·관공서 업로드 칸에서 안정적으로 열립니다. HEIC를 다루는 자세한 방법은 <a class="inlink" href="/guide/heic-to-jpg-guide/">아이폰 HEIC → JPG 변환 가이드</a>에 정리되어 있습니다.</p>
+
+        <div class="sec-label">숫자로 보는 예시 — 같은 이미지를 형식만 바꿔 저장하면</div>
+        <p>아래는 이 도구에 실제 파일 두 개를 넣어 변환한 결과입니다(크롬 기준). 하나는 1920×1200 풍경 사진(JPG, 1.14MB), 다른 하나는 1264×705 화면 캡처(PNG, 232KB)입니다. 해상도는 모두 원본 그대로입니다.</p>
+        <p><b>① 풍경 사진 (원본 JPG 1.14MB)</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>변환 형식 · 품질</th><th>결과 용량</th><th>원본 대비</th></tr></thead>
+          <tbody>
+            <tr><td>PNG</td><td>4.57MB</td><td>401%</td></tr>
+            <tr><td>JPG · 1.0</td><td>1.87MB</td><td>164%</td></tr>
+            <tr><td>JPG · 0.9</td><td>908KB</td><td>78%</td></tr>
+            <tr><td>JPG · 0.8</td><td>584KB</td><td>50%</td></tr>
+            <tr><td>JPG · 0.6</td><td>373KB</td><td>32%</td></tr>
+            <tr><td>WebP · 1.0</td><td>2.61MB</td><td>230%</td></tr>
+            <tr><td>WebP · 0.9</td><td>858KB</td><td>74%</td></tr>
+            <tr><td>WebP · 0.8</td><td>562KB</td><td>48%</td></tr>
+            <tr><td>WebP · 0.6</td><td>379KB</td><td>32%</td></tr>
+          </tbody>
+        </table></div>
+        <p>사진을 PNG로 바꾸면 화질은 그대로인데 용량만 4배가 됩니다. 품질 1.0도 함정입니다. 이미 압축된 사진을 최고 품질로 다시 저장하면 원본보다 커집니다. 이 사진에서는 같은 품질 숫자일 때 WebP가 JPG보다 4~6% 작은 정도였고, 품질 0.6에서는 거의 같았습니다.</p>
+        <p><b>② 화면 캡처 (원본 PNG 232KB)</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>변환 형식 · 품질</th><th>결과 용량</th><th>원본 대비</th></tr></thead>
+          <tbody>
+            <tr><td>PNG (다시 저장)</td><td>470KB</td><td>203%</td></tr>
+            <tr><td>JPG · 0.9</td><td>80.8KB</td><td>35%</td></tr>
+            <tr><td>JPG · 0.8</td><td>60.0KB</td><td>26%</td></tr>
+            <tr><td>WebP · 0.9</td><td>39.1KB</td><td>17%</td></tr>
+            <tr><td>WebP · 0.8</td><td>30.0KB</td><td>13%</td></tr>
+          </tbody>
+        </table></div>
+        <p>글자와 단색 면이 많은 화면 캡처에서는 WebP가 같은 품질의 JPG의 절반 수준으로 줄었습니다. WebP의 이점은 사진보다 이런 이미지에서 크게 나타납니다. 한편 잘 압축된 PNG를 PNG로 다시 저장하면 오히려 2배로 커졌는데, 브라우저가 저장할 때 원본만큼 촘촘하게 압축하지 않기 때문입니다. 형식을 바꿀 이유가 없다면 같은 형식으로 다시 저장하지 않는 편이 낫습니다.</p>
 
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
@@ -258,19 +289,23 @@ function hookDrop(drop,input,onFiles){
 }
 function loadImg(file){return new Promise((res,rej)=>{const img=new Image();img.onload=()=>res(img);img.onerror=rej;img.src=URL.createObjectURL(file);});}
 (()=>{let cur=null;
-  hookDrop($('ic-drop'),$('ic-file'),f=>{cur=f[0];$('ic-go').disabled=false;$('ic-drop').querySelector('b').textContent=cur.name;});
+  // 여러 장을 올리면 같은 형식·품질로 모두 변환한다(파일마다 따로 저장)
+  hookDrop($('ic-drop'),$('ic-file'),f=>{cur=f.filter(x=>x.type.startsWith('image/'));if(!cur.length){cur=null;return;}$('ic-go').disabled=false;$('ic-drop').querySelector('b').textContent=cur.length>1?cur[0].name+' 외 '+(cur.length-1)+'장':cur[0].name;});
   $('ic-q').addEventListener('input',e=>$('ic-qv').textContent=e.target.value);
   $('ic-fmt').addEventListener('change',e=>$('ic-qbox').style.display=(e.target.value==='image/png')?'none':'block');
   $('ic-go').addEventListener('click',async()=>{
-    if(!cur)return;const img=await loadImg(cur);
-    const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;
-    const x=c.getContext('2d');
-    if($('ic-fmt').value==='image/jpeg'){x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);}
-    x.drawImage(img,0,0);
-    const fmt=$('ic-fmt').value,q=parseFloat($('ic-q').value);
-    c.toBlob(b=>{const ext=fmt.split('/')[1].replace('jpeg','jpg');
-      dl(b,cur.name.replace(/\.[^.]+$/,'')+'.'+ext);
-      $('ic-prev').src=URL.createObjectURL(b);$('ic-prev').style.display='block';},fmt,q);
+    if(!cur)return;
+    const fmt=$('ic-fmt').value,q=parseFloat($('ic-q').value),ext=fmt.split('/')[1].replace('jpeg','jpg');
+    for(const file of cur){
+      const img=await loadImg(file);
+      const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;
+      const x=c.getContext('2d');
+      if(fmt==='image/jpeg'){x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);}
+      x.drawImage(img,0,0);
+      const b=await new Promise(r=>c.toBlob(r,fmt,q));
+      dl(b,file.name.replace(/\.[^.]+$/,'')+'.'+ext);
+      $('ic-prev').src=URL.createObjectURL(b);$('ic-prev').style.display='block';
+    }
   });
 })();
 </script>
