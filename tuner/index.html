@@ -186,6 +186,48 @@
         </ul>
         <p>줄을 조일 때는 목표보다 약간 낮은 데서 천천히 올려 맞추면 음이 더 잘 유지됩니다. 기타 표준 조율 순서와 줄 이름은 <a class="inlink" href="/guide/guitar-tuning/">기타 튜닝 하는 법</a>에서 확인하세요.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 기타 줄의 목표 주파수와 "맞음" 범위</div>
+        <p>기준 음높이 A4 = 440Hz에서 이 튜너가 계산하는 각 줄의 목표 주파수와, 「맞음」으로 표시되는 ±5센트 범위입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>줄</th><th>음</th><th>목표 주파수</th><th>맞음 범위 (±5센트)</th><th>1Hz 벗어나면</th></tr></thead>
+          <tbody>
+            <tr><td>6번줄 (가장 굵은 줄)</td><td>E2</td><td>82.41Hz</td><td>82.17 ~ 82.65Hz</td><td>약 21센트</td></tr>
+            <tr><td>5번줄</td><td>A2</td><td>110.00Hz</td><td>109.68 ~ 110.32Hz</td><td>약 16센트</td></tr>
+            <tr><td>4번줄</td><td>D3</td><td>146.83Hz</td><td>146.41 ~ 147.26Hz</td><td>약 12센트</td></tr>
+            <tr><td>3번줄</td><td>G3</td><td>196.00Hz</td><td>195.43 ~ 196.56Hz</td><td>약 9센트</td></tr>
+            <tr><td>2번줄</td><td>B3</td><td>246.94Hz</td><td>246.23 ~ 247.66Hz</td><td>약 7센트</td></tr>
+            <tr><td>1번줄 (가장 가는 줄)</td><td>E4</td><td>329.63Hz</td><td>328.68 ~ 330.58Hz</td><td>약 5센트</td></tr>
+          </tbody>
+        </table></div>
+        <p>센트는 비율 단위라 같은 ±5센트라도 낮은 줄일수록 허용 폭이 좁습니다. 6번줄은 0.48Hz, 1번줄은 1.90Hz입니다. 그래서 굵은 줄은 줄감개를 아주 조금만 돌려도 바늘이 크게 움직이고, 1Hz만 어긋나도 6번줄은 21센트나 벗어납니다. 다른 프리셋의 목표는 우쿨렐레 G4 392.00 · C4 261.63 · E4 329.63 · A4 440.00Hz, 바이올린 G3 196.00 · D4 293.66 · A4 440.00 · E5 659.26Hz, 베이스 E1 41.20 · A1 55.00 · D2 73.42 · G2 98.00Hz입니다.</p>
+        <p><b>감지된 주파수별 화면 표시</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>감지된 주파수</th><th>음이름</th><th>센트</th><th>상태</th></tr></thead>
+          <tbody>
+            <tr><td>82.41Hz</td><td>E2</td><td>0</td><td>맞음</td></tr>
+            <tr><td>82.0Hz</td><td>E2</td><td>−9</td><td>낮아요 — 살짝 조이기</td></tr>
+            <tr><td>81.0Hz</td><td>E2</td><td>−30</td><td>낮아요</td></tr>
+            <tr><td>80.0Hz</td><td>D#2</td><td>+49</td><td>높아요 (음이름이 바뀜)</td></tr>
+            <tr><td>83.0Hz</td><td>E2</td><td>+12</td><td>높아요 — 살짝 풀기</td></tr>
+            <tr><td>85.0Hz</td><td>F2</td><td>−46</td><td>낮아요 (음이름이 바뀜)</td></tr>
+            <tr><td>439.0Hz</td><td>A4</td><td>−4</td><td>맞음</td></tr>
+            <tr><td>442.0Hz</td><td>A4</td><td>+8</td><td>높아요</td></tr>
+          </tbody>
+        </table></div>
+        <p>줄이 많이 풀려 80Hz까지 내려가면 튜너는 "E2가 많이 낮다"가 아니라 "D#2가 조금 높다"고 표시합니다. 가장 가까운 음을 기준으로 삼기 때문입니다. 이때 「높아요 — 살짝 풀기」를 따라 줄을 풀면 반음 낮은 D#에 맞춰지므로, 바늘보다 <b>음이름이 목표 음과 같은지</b>를 먼저 확인하세요.</p>
+        <p><b>낮은 음일수록 감지 오차가 커집니다</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>넣은 음</th><th>실제 주파수</th><th>감지된 값</th><th>오차</th></tr></thead>
+          <tbody>
+            <tr><td>A4</td><td>440.00Hz</td><td>440.04Hz</td><td>0.1센트</td></tr>
+            <tr><td>E2 (기타 6번줄)</td><td>82.41Hz</td><td>82.41Hz</td><td>0.0센트</td></tr>
+            <tr><td>D2 (베이스 2번줄)</td><td>73.42Hz</td><td>73.46Hz</td><td>1.1센트</td></tr>
+            <tr><td>A1 (베이스 3번줄)</td><td>55.00Hz</td><td>55.08Hz</td><td>2.6센트</td></tr>
+            <tr><td>E1 (베이스 4번줄)</td><td>41.20Hz</td><td>41.33Hz</td><td>5.3센트</td></tr>
+          </tbody>
+        </table></div>
+        <p>배음이 섞인 깨끗한 합성 파형을 이 튜너의 감지 방식에 넣어 본 결과입니다(샘플링 48kHz). 한 번에 분석하는 구간이 약 43ms인데, 41Hz인 베이스 E1은 이 안에 파형이 두 번도 들어오지 않아 5센트쯤 높게 읽힙니다. 기타와 우쿨렐레 음역에서는 오차가 1센트 안쪽이지만, 베이스의 가장 낮은 줄은 「맞음」이 떠도 기준음을 함께 들으며 확인하는 편이 안전합니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>한 음씩:</b> 한 번에 한 줄(음)만 소리 내야 정확히 감지됩니다. 여러 음이 섞이면 바늘이 흔들립니다.</li>
@@ -236,7 +278,7 @@
     var A4=440;
     function noteFromPitch(f){ return Math.round(12*(Math.log(f/A4)/Math.LN2)+69); }
     function freqFromNote(n){ return A4*Math.pow(2,(n-69)/12); }
-    function centsOff(f,n){ return Math.floor(1200*(Math.log(f/freqFromNote(n))/Math.LN2)); }
+    function centsOff(f,n){ return Math.round(1200*(Math.log(f/freqFromNote(n))/Math.LN2)); } // 반올림(내림이면 정확한 음도 -1로 치우침)
     function noteName(n){ return NOTE_STRINGS[((n%12)+12)%12]+(Math.floor(n/12)-1); }
 
     // ---- 마이크 튜너(네이티브 Web Audio) ----

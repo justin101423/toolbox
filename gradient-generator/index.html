@@ -205,6 +205,38 @@
         </ul>
         <p>이미지가 아니라 코드라 용량이 0이고 어느 해상도에서도 깨지지 않습니다. 문법·배색은 <a class="inlink" href="/guide/css-gradient/">CSS 그라데이션 가이드</a>에 정리했습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 두 색 사이, 가운데는 무슨 색이 될까</div>
+        <p>아래는 이 도구에서 선형 90° 그라데이션을 만든 뒤, 크롬에서 미리보기의 정가운데(50% 지점) 색을 읽은 값입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>시작 색 → 끝 색</th><th>가운데 색</th><th>보이는 느낌</th></tr></thead>
+          <tbody>
+            <tr><td>#DF4324 → #1B1A1E</td><td>#7D2F21</td><td>어두운 적갈색</td></tr>
+            <tr><td>#FFFFFF → #000000</td><td>#7F7F7F</td><td>중간 회색</td></tr>
+            <tr><td>#0000FF → #FFFF00 (파랑 → 노랑)</td><td>#80807F</td><td>회색</td></tr>
+            <tr><td>#FF0000 → #00FFFF (빨강 → 청록)</td><td>#7F8080</td><td>회색</td></tr>
+            <tr><td>#FF0000 → #00FF00 (빨강 → 초록)</td><td>#7F8000</td><td>탁한 올리브색</td></tr>
+          </tbody>
+        </table></div>
+        <p>브라우저는 빨강·초록·파랑 값을 각각 따로 평균해 중간색을 만듭니다. 그래서 파랑과 노랑처럼 서로 보색인 두 색을 이으면 가운데가 초록이 아니라 회색으로 가라앉습니다. 선명한 두 색을 이었는데 중간이 칙칙해 보인다면 이 때문입니다.</p>
+        <p><b>가운데에 색을 하나 더 넣으면</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>정지점</th><th>생성된 CSS</th><th>가운데 색</th></tr></thead>
+          <tbody>
+            <tr><td>파랑 0% · 흰색 50% · 노랑 100%</td><td><code>linear-gradient(90deg, #0000ff 0%, #ffffff 50%, #ffff00 100%)</code></td><td>#FFFFFF</td></tr>
+            <tr><td>빨강 0% · 노랑 50% · 초록 100%</td><td><code>linear-gradient(90deg, #ff0000 0%, #ffff00 50%, #00ff00 100%)</code></td><td>#FFFF00</td></tr>
+          </tbody>
+        </table></div>
+        <p>"+ 색 추가"로 넣은 정지점은 목록에서는 맨 아래에 붙지만, CSS 코드에는 위치(%) 순서로 정렬되어 들어갑니다. 빨강에서 초록으로 갈 때 가운데에 노랑을 넣으면 올리브색 구간 대신 선명한 노랑을 지나게 됩니다.</p>
+        <p><b>위치(%)를 옮기면</b></p>
+        <div class="ex-wrap"><table class="ex-table ex-left">
+          <thead><tr><th>정지점</th><th class="wrap">결과</th></tr></thead>
+          <tbody>
+            <tr><td>#DF4324 0% · #1B1A1E 30%</td><td class="wrap">앞쪽 30% 안에서 색이 다 바뀌고, 가운데(50%)는 이미 끝 색 #1B1A1E</td></tr>
+            <tr><td>빨강 0% · 빨강 50% · 파랑 50% · 파랑 100%</td><td class="wrap">번짐 없이 정확히 절반에서 갈리는 두 색 띠 (25% 지점 #FF0000, 75% 지점 #0000FF)</td></tr>
+          </tbody>
+        </table></div>
+        <p>같은 위치에 서로 다른 색 두 개를 두면 그 지점에서 색이 뚝 끊깁니다. 줄무늬나 진행 막대처럼 경계가 또렷한 배경을 만들 때 쓰는 방법입니다. 원형 그라데이션에서는 0% 색이 한가운데, 100% 색이 가장자리에 옵니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>은은한 배경엔 비슷한 색조:</b> 명도만 살짝 다른 두 색(예: #F3EEE3 → #E2D9C7)으로 그라데이션을 만들면 눈에 거슬리지 않는 고급스러운 섹션 배경이 됩니다. 각도를 135°로 주면 자연광이 비치는 듯한 느낌을 줍니다.</li>
@@ -248,7 +280,8 @@ let type='linear';
 let stops=[{c:'#df4324',p:0},{c:'#1b1a1e',p:100}];
 
 function gradStr(){
-  const list=stops.map(s=>s.c+' '+s.p+'%').join(', ');
+  // 위치 순으로 정렬해서 출력 — CSS는 앞 정지점보다 작은 위치를 무시하므로, 나중에 추가한 50% 색이 100% 뒤에 붙으면 보이지 않는다
+  const list=stops.slice().sort((a,b)=>a.p-b.p).map(s=>s.c+' '+s.p+'%').join(', ');
   return type==='linear'?'linear-gradient('+$('gg-angle').value+'deg, '+list+')':'radial-gradient(circle, '+list+')';
 }
 function renderStops(){

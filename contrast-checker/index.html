@@ -197,6 +197,50 @@
         </ul>
         <p>색 코드를 직접 다룬다면 <a class="inlink" href="/guide/hex-rgb-color-codes/">HEX·RGB 색상 코드 가이드</a>를 함께 보면 색을 미세 조정하기 쉽습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 회색 글자는 어디까지 밝아도 될까</div>
+        <p>아래는 이 도구에 배경 #FFFFFF(흰색)와 여러 회색 글자색을 넣어 얻은 대비비입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>글자색</th><th>대비비</th><th>AA 일반</th><th>AA 큰 텍스트</th><th>AAA 일반</th></tr></thead>
+          <tbody>
+            <tr><td>#333333</td><td>12.63 : 1</td><td>통과</td><td>통과</td><td>통과</td></tr>
+            <tr><td>#595959</td><td>7 : 1</td><td>통과</td><td>통과</td><td>통과</td></tr>
+            <tr><td>#666666</td><td>5.74 : 1</td><td>통과</td><td>통과</td><td>실패</td></tr>
+            <tr><td>#767676</td><td>4.54 : 1</td><td>통과</td><td>통과</td><td>실패</td></tr>
+            <tr><td>#777777</td><td>4.48 : 1</td><td>실패</td><td>통과</td><td>실패</td></tr>
+            <tr><td>#888888</td><td>3.54 : 1</td><td>실패</td><td>통과</td><td>실패</td></tr>
+            <tr><td>#949494</td><td>3.03 : 1</td><td>실패</td><td>통과</td><td>실패</td></tr>
+            <tr><td>#999999</td><td>2.85 : 1</td><td>실패</td><td>실패</td><td>실패</td></tr>
+            <tr><td>#CCCCCC</td><td>1.61 : 1</td><td>실패</td><td>실패</td><td>실패</td></tr>
+          </tbody>
+        </table></div>
+        <p>흔히 쓰는 #777777은 4.48:1로 본문 기준에 0.02 모자라고, 한 단계 어두운 #767676부터 통과합니다. 안내 문구에 자주 쓰는 #999999는 큰 텍스트 기준(3:1)에도 못 미칩니다.</p>
+        <p><b>배경이 달라지면 경계도 달라집니다</b> — 각 기준을 통과하는 한계 회색</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>배경</th><th>3 : 1</th><th>4.5 : 1</th><th>7 : 1</th></tr></thead>
+          <tbody>
+            <tr><td>#FFFFFF (가장 밝은 통과 회색)</td><td>#949494</td><td>#767676</td><td>#595959</td></tr>
+            <tr><td>#F5F5F5</td><td>#8E8E8E</td><td>#707070</td><td>#535353</td></tr>
+            <tr><td>#EEEEEE</td><td>#898989</td><td>#6C6C6C</td><td>#4F4F4F</td></tr>
+            <tr><td>#000000 (가장 어두운 통과 회색)</td><td>#5A5A5A</td><td>#757575</td><td>#959595</td></tr>
+            <tr><td>#121212</td><td>#616161</td><td>#7D7D7D</td><td>#9F9F9F</td></tr>
+          </tbody>
+        </table></div>
+        <p>배경을 흰색에서 연회색 #EEEEEE로 바꾸기만 해도 본문에 쓸 수 있는 가장 밝은 회색이 #767676에서 #6C6C6C로 내려갑니다. 흰 배경에서 통과하던 글자색을 회색 카드 위에 그대로 쓰면 기준 아래로 떨어질 수 있다는 뜻입니다. 다크 모드에서는 방향이 반대라, 검은 배경에서는 #757575보다 밝아야 본문 기준을 넘습니다.</p>
+        <p><b>색 버튼 위의 흰 글자</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>버튼 색</th><th>흰 글자 대비비</th><th>AA 일반</th></tr></thead>
+          <tbody>
+            <tr><td>파랑 #3B82F6</td><td>3.68 : 1</td><td>실패</td></tr>
+            <tr><td>진한 파랑 #2563EB</td><td>5.17 : 1</td><td>통과</td></tr>
+            <tr><td>초록 #22C55E</td><td>2.28 : 1</td><td>실패</td></tr>
+            <tr><td>진한 초록 #15803D</td><td>5.02 : 1</td><td>통과</td></tr>
+            <tr><td>빨강 #EF4444</td><td>3.76 : 1</td><td>실패</td></tr>
+            <tr><td>진한 빨강 #DC2626</td><td>4.83 : 1</td><td>통과</td></tr>
+            <tr><td>주황 #F59E0B</td><td>2.15 : 1</td><td>실패</td></tr>
+          </tbody>
+        </table></div>
+        <p>밝고 선명한 버튼 색은 흰 글자와 대비가 부족한 경우가 많습니다. 같은 계열에서 한두 단계 어두운 색으로 바꾸면 통과합니다. 주황 #F59E0B처럼 원래 밝은 색은 흰 글자 대신 검은 글자를 쓰는 쪽이 낫습니다(검은 글자는 9.78:1). 초록은 특히 밝게 느껴지는 색이라, 순수한 초록 #00FF00은 흰 배경에서 1.37:1밖에 되지 않습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>본문 색은 AA 이상을 목표로:</b> 일반 텍스트는 대비비 4.5:1(AA)을 넘겨야 시력이 약한 사용자도 읽기 편합니다. 회색 본문(#777 등)을 흰 배경에 쓸 때 통과하는지 꼭 확인하세요. 통과하지 못하면 글자를 더 진하게 조정합니다.</li>

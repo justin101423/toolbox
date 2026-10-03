@@ -182,6 +182,45 @@
         </ul>
         <p>이 도구는 한 곳만 바꿔도 세 형식이 동시에 갱신되므로, 시안은 HEX로 받고 코드엔 RGB·HSL로 바꿔 쓰는 식으로 활용할 수 있습니다. 코드의 의미는 <a class="inlink" href="/guide/hex-rgb-color-codes/">색상 코드 읽는 법 가이드</a>에 있습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 같은 색의 세 가지 표기, 그리고 왕복 오차</div>
+        <p>아래는 HEX 칸에 값을 넣었을 때 이 도구가 보여 주는 RGB·HSL 값입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>HEX</th><th>RGB</th><th>HSL</th></tr></thead>
+          <tbody>
+            <tr><td>#DF4324</td><td>rgb(223, 67, 36)</td><td>hsl(10, 75%, 51%)</td></tr>
+            <tr><td>#3B82F6</td><td>rgb(59, 130, 246)</td><td>hsl(217, 91%, 60%)</td></tr>
+            <tr><td>#F3EEE3</td><td>rgb(243, 238, 227)</td><td>hsl(41, 40%, 92%)</td></tr>
+            <tr><td>#1B1A1E</td><td>rgb(27, 26, 30)</td><td>hsl(255, 7%, 11%)</td></tr>
+            <tr><td>#808080</td><td>rgb(128, 128, 128)</td><td>hsl(0, 0%, 50%)</td></tr>
+            <tr><td>#ABC (3자리)</td><td>rgb(170, 187, 204)</td><td>hsl(210, 25%, 73%)</td></tr>
+          </tbody>
+        </table></div>
+        <p>HSL은 정수로 반올림해 보여 주기 때문에 HEX만큼 촘촘하지 않습니다. 정수 HSL로 적을 수 있는 조합은 360 × 101 × 101 = 3,672,360가지인데 HEX는 16,777,216가지입니다. 그래서 #DF4324의 HSL인 <code>hsl(10, 75%, 51%)</code>를 HSL 칸에 다시 넣으면 #DF4324가 아니라 한 단계 옆의 #E04424가 됩니다. 무작위 색 2만 개로 확인해 보니 89.7%가 이런 식으로 원래 값과 달라졌고, 차이는 채널당 최대 4였습니다. 색을 정확히 전달해야 할 때는 HSL이 아니라 HEX나 RGB 값을 넘기세요.</p>
+        <p><b>명도(L)만 바꾸면</b> — hsl(10, 75%, L)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>L</th><th>HEX</th><th>RGB</th></tr></thead>
+          <tbody>
+            <tr><td>20%</td><td>#59190D</td><td>rgb(89, 25, 13)</td></tr>
+            <tr><td>40%</td><td>#B33319</td><td>rgb(179, 51, 25)</td></tr>
+            <tr><td>51%</td><td>#E04424</td><td>rgb(224, 68, 36)</td></tr>
+            <tr><td>70%</td><td>#EC8C79</td><td>rgb(236, 140, 121)</td></tr>
+            <tr><td>90%</td><td>#F9D9D2</td><td>rgb(249, 217, 210)</td></tr>
+          </tbody>
+        </table></div>
+        <p><b>색조(H)·채도(S)만 바꾸면</b> — 기준 hsl(10, 75%, 51%)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>바꾼 값</th><th>HSL</th><th>HEX</th></tr></thead>
+          <tbody>
+            <tr><td>H + 30° (이웃한 색)</td><td>hsl(40, 75%, 51%)</td><td>#E0A124</td></tr>
+            <tr><td>H + 120°</td><td>hsl(130, 75%, 51%)</td><td>#24E044</td></tr>
+            <tr><td>H + 180° (보색)</td><td>hsl(190, 75%, 51%)</td><td>#24C1E0</td></tr>
+            <tr><td>H + 240°</td><td>hsl(250, 75%, 51%)</td><td>#4424E0</td></tr>
+            <tr><td>S를 0%로</td><td>hsl(10, 0%, 51%)</td><td>#828282</td></tr>
+            <tr><td>S를 100%로</td><td>hsl(10, 100%, 51%)</td><td>#FF2F05</td></tr>
+          </tbody>
+        </table></div>
+        <p>색조를 돌리면 RGB의 세 숫자 224·68·36이 자리만 바꿔 가며 다시 나타납니다. 120°를 돌린 #24E044와 240°를 돌린 #4424E0이 그 예입니다. HSL이 "같은 세기의 다른 색"을 만들기 쉬운 이유입니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>HSL로 색을 직관적으로 조정:</b> HEX·RGB는 미세 조정이 어렵지만 HSL은 색조(H)·채도(S)·명도(L)가 분리돼 있어, 같은 색조에서 더 밝거나 연한 변형을 만들기 쉽습니다. 명도(L)만 낮추면 같은 계열의 어두운 색을 바로 얻을 수 있습니다.</li>
@@ -227,18 +266,25 @@ function rgbToHex(r,g,b){return '#'+[r,g,b].map(x=>Math.round(x).toString(16).pa
 function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b);let h,s,l=(mx+mn)/2;if(mx===mn){h=s=0;}else{const d=mx-mn;s=l>0.5?d/(2-mx-mn):d/(mx+mn);switch(mx){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;default:h=(r-g)/d+4;}h/=6;}return[Math.round(h*360),Math.round(s*100),Math.round(l*100)];}
 function hslToRgb(h,s,l){h/=360;s/=100;l/=100;let r,g,b;if(s===0){r=g=b=l;}else{const hue2rgb=(p,q,t)=>{if(t<0)t+=1;if(t>1)t-=1;if(t<1/6)return p+(q-p)*6*t;if(t<1/2)return q;if(t<2/3)return p+(q-p)*(2/3-t)*6;return p;};const q=l<0.5?l*(1+s):l+s-l*s;const p=2*l-q;r=hue2rgb(p,q,h+1/3);g=hue2rgb(p,q,h);b=hue2rgb(p,q,h-1/3);}return[Math.round(r*255),Math.round(g*255),Math.round(b*255)];}
 
-function setFromRgb(r,g,b){
+// skip: 지금 타이핑 중인 칸의 id. 그 칸은 덮어쓰지 않는다(입력 도중 값이 바뀌어 타이핑이 끊기는 문제 방지)
+function setFromRgb(r,g,b,skip){
   const hex=rgbToHex(r,g,b), hsl=rgbToHsl(r,g,b);
-  $('cp-hex').value=hex;
-  $('cp-rgb').value='rgb('+r+', '+g+', '+b+')';
-  $('cp-hsl').value='hsl('+hsl[0]+', '+hsl[1]+'%, '+hsl[2]+'%)';
-  $('cp-pick').value=hex;
+  if(skip!=='cp-hex')$('cp-hex').value=hex;
+  if(skip!=='cp-rgb')$('cp-rgb').value='rgb('+r+', '+g+', '+b+')';
+  if(skip!=='cp-hsl')$('cp-hsl').value='hsl('+hsl[0]+', '+hsl[1]+'%, '+hsl[2]+'%)';
+  $('cp-pick').value=hex.toLowerCase();
   $('cp-preview').style.background=hex;
 }
+function fromHex(skip){const v=$('cp-hex').value.trim();if(/^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(v)){const[r,g,b]=hexToRgb(v);setFromRgb(r,g,b,skip);}}
+function fromRgb(skip){const m=$('cp-rgb').value.match(/(\d+)\D+(\d+)\D+(\d+)/);if(m){let[r,g,b]=[+m[1],+m[2],+m[3]].map(x=>Math.min(255,x));setFromRgb(r,g,b,skip);}}
+function fromHsl(skip){const m=$('cp-hsl').value.match(/(\d+)\D+(\d+)\D+(\d+)/);if(m){const[r,g,b]=hslToRgb(+m[1],Math.min(100,+m[2]),Math.min(100,+m[3]));setFromRgb(r,g,b,skip);}}
 $('cp-pick').addEventListener('input',()=>{const[r,g,b]=hexToRgb($('cp-pick').value);setFromRgb(r,g,b);});
-$('cp-hex').addEventListener('input',()=>{const v=$('cp-hex').value.trim();if(/^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(v)){const[r,g,b]=hexToRgb(v);setFromRgb(r,g,b);}});
-$('cp-rgb').addEventListener('input',()=>{const m=$('cp-rgb').value.match(/(\d+)\D+(\d+)\D+(\d+)/);if(m){let[r,g,b]=[+m[1],+m[2],+m[3]].map(x=>Math.min(255,x));setFromRgb(r,g,b);}});
-$('cp-hsl').addEventListener('input',()=>{const m=$('cp-hsl').value.match(/(\d+)\D+(\d+)\D+(\d+)/);if(m){const[r,g,b]=hslToRgb(+m[1],Math.min(100,+m[2]),Math.min(100,+m[3]));setFromRgb(r,g,b);}});
+$('cp-hex').addEventListener('input',()=>fromHex('cp-hex'));
+$('cp-rgb').addEventListener('input',()=>fromRgb('cp-rgb'));
+$('cp-hsl').addEventListener('input',()=>fromHsl('cp-hsl'));
+// 입력을 마치고 칸을 벗어나면 표준 표기로 정리(HSL 칸은 입력한 값을 그대로 둔다 — 정수 반올림으로 값이 바뀌어 보이지 않게)
+$('cp-hex').addEventListener('change',()=>fromHex());
+$('cp-rgb').addEventListener('change',()=>fromRgb());
 
 document.querySelector('.box').addEventListener('click',e=>{
   const btn=e.target.closest('.cp');if(!btn)return;
