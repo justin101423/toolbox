@@ -29,7 +29,7 @@
   "description": "D-Day, D-1, D+100은 정확히 어떻게 세는 걸까요? 당일을 포함하는지, 100일·1주년은 어떻게 계산하는지, 헷갈리는 디데이 계산을 예시와 함께 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-09",
-  "dateModified": "2026-06-09",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/dday-calculation/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#include">당일을 포함할까, 말까</a></li>
             <li><a href="#anniv">100일·200일 기념일 계산</a></li>
             <li><a href="#year">1주년은 365일이 아니다</a></li>
+            <li><a href="#numbers">2026년 3월 1일에 시작했다면</a></li>
           </ol>
         </div>
 
@@ -159,6 +160,19 @@
 
         <h2 id="year">1주년은 365일이 아니다</h2>
         <p>1주년은 '365일째'가 아니라 <b>달력상 같은 월·일이 돌아오는 날</b>입니다. 중간에 윤년(2월 29일)이 끼면 1주년이 시작일로부터 366일째가 될 수도 있습니다. 그래서 '주년'은 일수가 아니라 같은 날짜로 보는 것이 정확합니다. 반면 '며칠째'를 챙기는 100일·1000일 같은 기념일은 일수로 셉니다.</p>
+
+        <h2 id="numbers">2026년 3월 1일에 시작했다면</h2>
+        <p><a class="inlink" href="/dday-calculator/">D-Day 계산기</a>의 날짜 더하기로 기념일을 구해 본 결과입니다. "며칠째"는 시작일을 1일째로 세므로 n일째는 시작일에 n − 1일을 더한 날입니다.</p>
+        <table>
+        <tr><th>기념일</th><th>더한 일수</th><th>날짜</th></tr>
+        <tr><td>100일째</td><td>+99</td><td>2026-06-08</td></tr>
+        <tr><td>200일째</td><td>+199</td><td>2026-09-16</td></tr>
+        <tr><td>300일째</td><td>+299</td><td>2026-12-25</td></tr>
+        <tr><td>1주년</td><td>같은 날짜</td><td>2027-03-01 (365일 뒤)</td></tr>
+        <tr><td>1000일째</td><td>+999</td><td>2028-11-24</td></tr>
+        <tr><td>2주년</td><td>같은 날짜</td><td>2028-03-01 (첫 1주년에서 366일 뒤)</td></tr>
+        </table>
+        <p>100을 그대로 더하면 6월 9일이 나와 하루 늦습니다. 반면 주년은 일수가 아니라 같은 날짜로 챙깁니다. 첫 1년은 365일이지만 둘째 해에는 2028년 2월 29일이 끼어 366일이므로, "730일째"와 "2주년"은 같은 날이 아닙니다. 남은 날을 세는 D-day는 목표일 자체를 0으로 놓습니다. 2026년 10월 3일에서 11월 19일까지는 D-47입니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

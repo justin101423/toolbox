@@ -29,7 +29,7 @@
   "description": "정규식(정규표현식)이 처음이라면 여기서 시작하세요. 메타문자·수량자·문자 클래스 기초 문법과 이메일·전화번호·숫자 추출 등 실무에서 바로 쓰는 패턴을 예시로 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/regex-basics/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#meta">꼭 아는 메타문자 10개</a></li>
             <li><a href="#quant">수량자 — 몇 번 반복되나</a></li>
             <li><a href="#patterns">바로 쓰는 실무 패턴 모음</a></li>
+            <li><a href="#numbers">패턴이 실제로 잡는 것과 놓치는 것</a></li>
           </ol>
         </div>
 
@@ -176,6 +177,18 @@
           </tbody>
         </table>
         <p>패턴이 생각대로 안 맞으면 <a class="inlink" href="/regex-tester/">정규식 테스터</a>에 샘플 텍스트를 넣고 한 글자씩 고쳐 가며 확인하는 것이 가장 빠릅니다.</p>
+
+        <h2 id="numbers">패턴이 실제로 잡는 것과 놓치는 것</h2>
+        <p><a class="inlink" href="/regex-tester/">정규식 테스터</a>의 예시 패턴을 까다로운 문자열에 대 본 결과입니다.</p>
+        <table>
+        <tr><th>패턴</th><th>테스트 문자열</th><th>매칭 결과</th></tr>
+        <tr><td>날짜 <code>\d{4}-\d{2}-\d{2}</code></td><td>2026-05-31 2026-13-45 2026-5-3</td><td>2개 — 13월 45일도 통과</td></tr>
+        <tr><td>휴대폰 <code>01[0-9]-?\d{3,4}-?\d{4}</code></td><td>010-1234-5678 / 01012345678 / 010 1234 5678</td><td>2개 — 공백으로 띄운 번호는 제외</td></tr>
+        <tr><td>URL <code>https?:\/\/[^\s]+</code></td><td>사이트(https://dogubox.shop/qr-code/)와 http://example.com, 참고.</td><td>2개 — 뒤의 괄호·쉼표까지 포함</td></tr>
+        <tr><td>HEX <code>#[0-9a-fA-F]{6}\b</code></td><td>#FF8800 #fff #abcdef;</td><td>2개 — 3자리 #fff는 제외</td></tr>
+        </table>
+        <p>패턴은 모양만 볼 뿐 값이 맞는지는 판단하지 않습니다. 날짜 패턴은 숫자 자릿수만 맞으면 통과시키므로 실제 날짜인지는 코드에서 따로 확인해야 합니다.</p>
+        <p>플래그와 수량자도 결과를 바꿉니다. <code>&lt;.+&gt;</code>는 <code>&lt;b&gt;굵게&lt;/b&gt;와 &lt;i&gt;기울임&lt;/i&gt;</code>에서 처음부터 끝까지를 1개로 잡지만, 물음표를 붙인 <code>&lt;.+?&gt;</code>는 태그 4개를 따로 잡습니다. <code>^\w+</code>는 세 줄짜리 글에서 g만 켜면 1개, m을 함께 켜면 3개입니다. 그리고 <code>\w</code>는 한글을 포함하지 않아, "도구상자 toolbox 2026"에서 <code>\w+</code>는 toolbox와 2026만 잡습니다. 한글은 <code>[가-힣]+</code>처럼 범위로 적어야 합니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

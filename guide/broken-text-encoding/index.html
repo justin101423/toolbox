@@ -29,7 +29,7 @@
   "description": "ë©ì¶•, ²Æ¼­ 같은 외계어가 보인다면 인코딩 문제입니다. 컴퓨터가 글자를 저장하는 방식(UTF-8·EUC-KR), 깨지는 이유, 메모장·엑셀 CSV·자막 파일 등 상황별 해결법을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-11",
-  "dateModified": "2026-06-11",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/broken-text-encoding/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#patterns">깨진 모양으로 원인 추측하기</a></li>
             <li><a href="#fix">상황별 해결법</a></li>
             <li><a href="#url">%ED%95%9C — URL 인코딩은 깨진 게 아니다</a></li>
+            <li><a href="#numbers">인코딩 전후를 직접 비교해 보면</a></li>
           </ol>
         </div>
 
@@ -157,6 +158,19 @@
           <span class="tc-tx"><b>인코더 · 디코더</b><span>URL·Base64·HTML 엔티티를 양방향 변환</span></span>
           <a class="tc-go" href="/encoder-decoder/">변환하기 →</a>
         </div>
+
+        <h2 id="numbers">인코딩 전후를 직접 비교해 보면</h2>
+        <p><a class="inlink" href="/encoder-decoder/">인코더·디코더</a>에 넣어 본 결과입니다. 깨진 것처럼 보이는 문자열이 실제로는 규칙적인 변환이라는 것을 확인할 수 있습니다.</p>
+        <table>
+        <tr><th>입력</th><th>방식</th><th>결과</th></tr>
+        <tr><td>서울</td><td>URL 인코딩</td><td>%EC%84%9C%EC%9A%B8 (2자 → 18자)</td></tr>
+        <tr><td>a b</td><td>URL 인코딩</td><td>a%20b</td></tr>
+        <tr><td>%20</td><td>URL 인코딩 한 번 더</td><td>%2520</td></tr>
+        <tr><td>%2520</td><td>URL 디코딩</td><td>%20 (한 번만 풀림)</td></tr>
+        <tr><td>도구상자</td><td>Base64 인코딩</td><td>64+E6rWs7IOB7J6Q (4자 → 16자)</td></tr>
+        <tr><td>100%</td><td>URL 디코딩</td><td>오류: URI malformed</td></tr>
+        </table>
+        <p>한글 한 글자는 UTF-8로 3바이트이고, URL 인코딩은 바이트마다 %XX 세 글자를 쓰므로 한 글자가 9글자가 됩니다. 주소에 %25가 보이면 이미 인코딩된 것을 한 번 더 인코딩한 이중 인코딩이고, 디코딩을 두 번 해야 원문이 나옵니다. 반대로 인코딩되지 않은 % 기호가 섞인 문자열은 디코딩 자체가 실패합니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

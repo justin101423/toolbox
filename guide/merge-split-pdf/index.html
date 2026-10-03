@@ -29,7 +29,7 @@
   "description": "여러 PDF를 하나로 합치고, 필요한 페이지만 분리하고, 용량을 줄이는 법. 프로그램 설치나 회원가입 없이 브라우저에서 안전하게 PDF를 다루는 방법을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-09",
-  "dateModified": "2026-06-09",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/merge-split-pdf/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -124,6 +124,7 @@
             <li><a href="#organize">페이지 순서·회전 정리하기</a></li>
             <li><a href="#compress">PDF 용량 줄이기</a></li>
             <li><a href="#safety">왜 브라우저 처리가 안전한가</a></li>
+            <li><a href="#numbers">합치고 나눈 뒤의 용량 변화</a></li>
           </ol>
         </div>
 
@@ -175,6 +176,18 @@
         <h2 id="safety">왜 브라우저 처리가 안전한가</h2>
         <p>계약서·통장 사본·주민등록등본 같은 문서를 아무 변환 사이트에나 올리는 건 위험합니다. 파일이 그 회사 서버에 저장·보관될 수 있기 때문입니다. 도구상자의 PDF 도구는 모든 처리를 <b>이용자의 브라우저 안에서</b> 수행해, 파일이 인터넷으로 전송되지 않습니다. 인터넷 연결을 잠시 끊어도 동작하는 이유가 그래서입니다.</p>
         <div class="callout"><b>참고:</b> 작업이 끝난 PDF는 내려받은 뒤 다운로드 폴더에만 남습니다. 공용 PC라면 사용 후 다운로드 파일을 정리하는 습관을 권합니다.</div>
+
+        <h2 id="numbers">합치고 나눈 뒤의 용량 변화</h2>
+        <p>글자 위주 PDF(A4 3쪽, 224KB)와 사진 PDF(3쪽, 2.96MB)로 <a class="inlink" href="/pdf-merge/">합치기</a>와 <a class="inlink" href="/pdf-split/">분할</a>을 실제로 해 본 결과입니다.</p>
+        <table>
+        <tr><th>작업</th><th>결과</th><th>용량</th></tr>
+        <tr><td>두 PDF 합치기</td><td>6쪽</td><td>3.13MB (합계 3.18MB의 98.6%)</td></tr>
+        <tr><td>사진 PDF 2개 합치기</td><td>6쪽</td><td>5.91MB (합계와 동일)</td></tr>
+        <tr><td>글자 PDF에서 1쪽만 추출</td><td>1쪽</td><td>147KB (원본의 65%)</td></tr>
+        <tr><td>글자 PDF에서 1~2쪽 추출</td><td>2쪽</td><td>164KB (원본의 73%)</td></tr>
+        <tr><td>사진 PDF에서 2쪽만 추출</td><td>1쪽</td><td>613KB (원본의 20%)</td></tr>
+        </table>
+        <p>합친 파일의 용량은 원본을 더한 값과 거의 같습니다. 나눌 때는 문서 성격에 따라 다릅니다. 사진 PDF는 쪽마다 든 사진만큼 정직하게 나뉘지만, 글자 PDF는 3쪽 중 1쪽만 뽑아도 65%가 남습니다. 글꼴 데이터가 함께 따라가기 때문입니다. 용량 제한을 맞추려는 목적이라면 글자 PDF를 쪼개는 것은 효과가 작습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

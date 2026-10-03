@@ -29,7 +29,7 @@
   "description": "이메일 첨부 한도에 걸린 PDF, 어떻게 줄일까요? PDF 용량이 커지는 진짜 원인(스캔본·사진·폰트), 압축의 원리와 화질 트레이드오프, 제출·인쇄 등 용도별 적정 설정과 압축 단계를 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-11",
-  "dateModified": "2026-06-11",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/compress-pdf/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#how">압축의 원리 — 무엇을 포기하나</a></li>
             <li><a href="#settings">용도별 적정 설정</a></li>
             <li><a href="#steps">압축 3단계와 확인 포인트</a></li>
+            <li><a href="#numbers">실제로 압축해 본 두 종류의 PDF</a></li>
           </ol>
         </div>
 
@@ -161,6 +162,17 @@
           <span class="tc-tx"><b>PDF 용량 줄이기</b><span>브라우저 안에서만 처리 — 업로드 없음</span></span>
           <a class="tc-go" href="/pdf-compressor/">압축하기 →</a>
         </div>
+
+        <h2 id="numbers">실제로 압축해 본 두 종류의 PDF</h2>
+        <p>사진 3쪽짜리 PDF(2.96MB)와 글자 위주의 A4 3쪽 PDF(224KB)를 <a class="inlink" href="/pdf-compressor/">PDF 용량 줄이기</a> 도구에 넣은 결과입니다.</p>
+        <table>
+        <tr><th>설정 (해상도 · 품질)</th><th>사진 PDF 2.96MB</th><th>글자 PDF 224KB</th></tr>
+        <tr><td>낮음 · 0.72</td><td>1,024KB (66% 절감)</td><td>147KB (35% 절감)</td></tr>
+        <tr><td>보통 · 0.72 (기본)</td><td>1.75MB (41% 절감)</td><td>224KB (변화 없음)</td></tr>
+        <tr><td>높음 · 0.72</td><td>2.90MB (2% 절감)</td><td>334KB (49% 증가)</td></tr>
+        <tr><td>보통 · 0.9</td><td>3.62MB (22% 증가)</td><td>358KB (60% 증가)</td></tr>
+        </table>
+        <p>같은 설정인데 결과가 정반대입니다. 사진 PDF는 기본 설정으로 41% 줄었지만, 글자 PDF는 줄지 않았고 설정을 높이면 오히려 커졌습니다. 글자 PDF는 원래 글자 정보만 담고 있어 가벼운데, 압축하면 페이지 전체가 그림으로 바뀌기 때문입니다. 압축 전에 내 PDF가 스캔·사진 위주인지 글자 위주인지부터 확인하세요.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

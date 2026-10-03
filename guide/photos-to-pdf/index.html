@@ -29,7 +29,7 @@
   "description": "손글씨 과제, 신분증 사본, 종이 서류 — 사진 여러 장을 PDF 한 파일로 묶어 제출해야 할 때의 정석 순서입니다. 변환 전 사진 정리(회전·순서·밝기), 변환 단계, 용량 줄이기까지 한 번에 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-11",
-  "dateModified": "2026-06-11",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/photos-to-pdf/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#prepare">변환 전 — 사진 정리 3가지</a></li>
             <li><a href="#convert">변환 단계</a></li>
             <li><a href="#size">용량·품질 마무리 점검</a></li>
+            <li><a href="#numbers">실제로 묶어 본 PDF의 용량과 페이지 크기</a></li>
           </ol>
         </div>
 
@@ -161,6 +162,17 @@
           <li><b>민감 정보 확인</b> — 신분증 등 민감한 서류라면 불필요한 정보(주민번호 뒷자리 등)를 가렸는지 제출 전에 확인하세요.</li>
         </ul>
         <div class="callout"><b>체크리스트:</b> 방향 ✔ 순서 ✔ 읽히는 밝기 ✔ 용량 제한 ✔ — 네 가지를 통과하면 제출 준비 끝입니다.</div>
+
+        <h2 id="numbers">실제로 묶어 본 PDF의 용량과 페이지 크기</h2>
+        <p><a class="inlink" href="/image-to-pdf/">이미지 → PDF</a> 도구에 이미지를 넣어 만든 PDF를 측정했습니다.</p>
+        <table>
+        <tr><th>넣은 이미지</th><th>이미지 용량</th><th>PDF 용량</th><th>PDF 페이지 크기</th></tr>
+        <tr><td>JPG 사진 1장 (1920 × 1200)</td><td>1.14MB</td><td>1.14MB</td><td>67.7 × 42.3cm</td></tr>
+        <tr><td>JPG 사진 3장</td><td>2.95MB</td><td>2.96MB</td><td>사진마다 다름</td></tr>
+        <tr><td>PNG 화면 캡처 1장 (1264 × 705)</td><td>232KB</td><td>199KB</td><td>44.6 × 24.9cm</td></tr>
+        <tr><td>WebP 사진 1장 (1920 × 1200)</td><td>562KB</td><td>4.26MB</td><td>67.7 × 42.3cm</td></tr>
+        </table>
+        <p>PDF 용량은 넣은 이미지 용량의 합과 같다고 보면 됩니다. 제출처의 용량 제한이 10MB라면 사진 합계를 10MB 아래로 먼저 맞춰야 합니다. WebP만은 예외로, PDF 안에서 다른 형식으로 바뀌며 8배 가까이 커졌습니다. WebP 사진은 JPG로 바꾼 뒤 묶으세요. 페이지 크기는 사진의 픽셀 수를 따라가므로 A4보다 훨씬 크게 만들어집니다. 화면으로 보는 데는 지장이 없고, 인쇄할 때만 "용지에 맞춤"을 선택하면 됩니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

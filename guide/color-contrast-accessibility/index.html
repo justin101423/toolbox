@@ -29,7 +29,7 @@
   "description": "회색 글씨가 안 읽히는 데는 기준이 있습니다. 명도 대비율(1:1~21:1)의 의미, WCAG AA·AAA 기준(4.5:1, 3:1), 디자인에서 자주 실패하는 사례와 검사 방법을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/color-contrast-accessibility/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#wcag">WCAG 기준 — AA와 AAA</a></li>
             <li><a href="#fail">자주 실패하는 디자인 5가지</a></li>
             <li><a href="#check">검사하고 고치는 법</a></li>
+            <li><a href="#numbers">자주 쓰는 색을 실제로 검사해 보면</a></li>
           </ol>
         </div>
 
@@ -164,6 +165,22 @@
           <span class="tc-tx"><b>색상 대비 검사</b><span>두 색의 대비율과 WCAG 통과 여부를 즉시 확인</span></span>
           <a class="tc-go" href="/contrast-checker/">검사하기 →</a>
         </div>
+
+        <h2 id="numbers">자주 쓰는 색을 실제로 검사해 보면</h2>
+        <p><a class="inlink" href="/contrast-checker/">색상 대비 검사</a> 도구에 넣어 얻은 대비비입니다.</p>
+        <table>
+        <tr><th>글자색 / 배경색</th><th>대비비</th><th>본문 AA (4.5:1)</th></tr>
+        <tr><td>#333333 / 흰색</td><td>12.63 : 1</td><td>통과</td></tr>
+        <tr><td>#767676 / 흰색</td><td>4.54 : 1</td><td>통과</td></tr>
+        <tr><td>#777777 / 흰색</td><td>4.48 : 1</td><td>실패</td></tr>
+        <tr><td>#999999 / 흰색</td><td>2.85 : 1</td><td>실패</td></tr>
+        <tr><td>흰색 / 파랑 #3B82F6</td><td>3.68 : 1</td><td>실패</td></tr>
+        <tr><td>흰색 / 진한 파랑 #2563EB</td><td>5.17 : 1</td><td>통과</td></tr>
+        <tr><td>흰색 / 초록 #22C55E</td><td>2.28 : 1</td><td>실패</td></tr>
+        <tr><td>흰색 / 진한 초록 #15803D</td><td>5.02 : 1</td><td>통과</td></tr>
+        </table>
+        <p>흰 배경에서 본문 기준을 통과하는 가장 밝은 회색은 #767676입니다. 한 단계 밝은 #777777은 4.48:1로 아슬아슬하게 떨어집니다. 배경이 조금만 어두워져도 이 경계는 움직입니다. 배경이 #EEEEEE이면 통과하는 가장 밝은 회색은 #6C6C6C로 내려가므로, 흰 배경용 글자색을 회색 카드 위에 그대로 쓰면 기준 아래가 됩니다.</p>
+        <p>밝고 선명한 버튼 색 위의 흰 글자는 대부분 실패했고, 같은 계열의 한두 단계 어두운 색으로 바꾸면 통과했습니다. 다크 모드는 방향이 반대입니다. 검은 배경에서는 #757575 이상으로 밝은 회색이어야 본문 기준을 넘습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

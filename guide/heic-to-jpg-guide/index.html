@@ -29,7 +29,7 @@
   "description": "아이폰 사진이 HEIC라서 안 열릴 때. HEIC가 뭔지, 아이폰에서 아예 JPG로 찍는 설정, PC·온라인에서 JPG로 변환하는 법까지 단계별로 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-09",
-  "dateModified": "2026-06-09",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/heic-to-jpg-guide/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -124,6 +124,7 @@
             <li><a href="#iphone">방법 2. 아이폰에서 아예 JPG로 찍기</a></li>
             <li><a href="#pc">방법 3. 윈도우·맥에서 변환</a></li>
             <li><a href="#quality">화질과 용량은 어떻게 될까</a></li>
+            <li><a href="#numbers">실제로 변환해 본 용량 변화</a></li>
           </ol>
         </div>
 
@@ -168,6 +169,18 @@
           <span class="tc-tx"><b>이미지 압축·리사이즈</b><span>변환한 JPG의 용량을 더 가볍게</span></span>
           <a class="tc-go" href="/image-compressor/">압축하기 →</a>
         </div>
+
+        <h2 id="numbers">실제로 변환해 본 용량 변화</h2>
+        <p>공개된 HEIC 샘플 사진을 <a class="inlink" href="/heic-to-jpg/">HEIC → JPG 변환</a> 도구에 넣어 품질 설정별로 측정했습니다(1.38MB · 4000 × 3000 사진, 데스크톱 크롬).</p>
+        <table>
+        <tr><th>JPG 품질</th><th>변환 후 용량</th><th>원본 HEIC 대비</th></tr>
+        <tr><td>100%</td><td>7.50MB</td><td>5.45배</td></tr>
+        <tr><td>95%</td><td>2.70MB</td><td>1.96배</td></tr>
+        <tr><td>85% (기본값)</td><td>1.36MB</td><td>0.99배</td></tr>
+        <tr><td>70%</td><td>843KB</td><td>0.60배</td></tr>
+        <tr><td>50%</td><td>520KB</td><td>0.37배</td></tr>
+        </table>
+        <p>기본값에서는 원본과 거의 같은 용량이 나왔고, 다른 1,200만 화소 샘플(2.86MB)도 2.82MB로 비슷했습니다. 용량이 크게 늘어나는 것은 품질을 95% 이상으로 올렸을 때입니다. 해상도는 변환 전후가 같고, 한 장에 2.5~3.7초가 걸렸습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

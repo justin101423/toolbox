@@ -29,7 +29,7 @@
   "description": "QR코드를 무료로 만들고 인쇄·활용하는 법. QR코드 종류, 인쇄할 때 크기·여백·오류복원 설정, 메뉴판·명함·행사 활용 사례까지 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-09",
-  "dateModified": "2026-06-09",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/make-qr-code/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -124,6 +124,7 @@
             <li><a href="#print">인쇄할 때 꼭 지킬 3가지</a></li>
             <li><a href="#static">무료 정적 QR vs 유료 동적 QR</a></li>
             <li><a href="#use">활용 사례</a></li>
+            <li><a href="#numbers">내용 길이에 따라 달라지는 QR의 촘촘함</a></li>
           </ol>
         </div>
 
@@ -173,6 +174,18 @@
           <span class="tc-tx"><b>QR코드 읽기</b><span>이미지·카메라로 QR 내용 확인</span></span>
           <a class="tc-go" href="/qr-reader/">QR 읽기 →</a>
         </div>
+
+        <h2 id="numbers">내용 길이에 따라 달라지는 QR의 촘촘함</h2>
+        <p><a class="inlink" href="/qr-code/">QR코드 생성</a> 도구로 실제 만든 코드의 칸 수입니다. 내용이 길수록 한 변의 칸 수가 늘고, 같은 크기로 인쇄하면 한 칸이 작아집니다.</p>
+        <table>
+        <tr><th>내용</th><th>바이트</th><th>한 변의 칸 수</th><th>3cm로 인쇄 시 1칸</th></tr>
+        <tr><td>https://dogubox.shop</td><td>20</td><td>25칸</td><td>0.91mm</td></tr>
+        <tr><td>https://dogubox.shop/qr-code/</td><td>29</td><td>29칸</td><td>0.81mm</td></tr>
+        <tr><td>추적 파라미터가 붙은 주소 (99자)</td><td>99</td><td>41칸</td><td>0.61mm</td></tr>
+        <tr><td>한글 이름이 든 명함 정보 (125자)</td><td>145</td><td>49칸</td><td>0.53mm</td></tr>
+        <tr><td>한글 100자</td><td>300</td><td>69칸</td><td>0.39mm</td></tr>
+        </table>
+        <p>인쇄 크기는 저장되는 PNG의 흰 여백(둘레 4칸)까지 포함한 한 변 기준입니다. 주소에 추적 파라미터를 붙이면 칸 수가 29에서 41로 늘어, 같은 인식 거리를 유지하려면 인쇄 크기를 약 1.3배 키워야 합니다. 한글은 한 글자가 3바이트라 금방 촘촘해집니다. 이 도구가 담을 수 있는 최대치는 2,331바이트(한글 777자)이지만, 그 정도면 177칸이 되어 실용적으로 스캔하기 어렵습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

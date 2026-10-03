@@ -29,7 +29,7 @@
   "description": "세전 연봉에서 실제 통장에 들어오는 금액까지, 무엇이 얼마나 빠지는지 정리했습니다. 국민연금·건강보험·장기요양·고용보험과 소득세·지방소득세의 공제 구조, 비과세·부양가족이 실수령액에 미치는 영향, 같은 연봉이라도 달라지는 이유를 설명합니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-13",
-  "dateModified": "2026-06-13",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/take-home-pay/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#insurance">4대보험 — 요율과 본인 부담</a></li>
             <li><a href="#tax">소득세 — 왜 사람마다 다를까</a></li>
             <li><a href="#updown">실수령액을 좌우하는 변수</a></li>
+            <li><a href="#numbers">월급 300만 원의 명세서를 계산해 보면</a></li>
           </ol>
         </div>
 
@@ -167,6 +168,22 @@
           <span class="tc-tx"><b>4대보험 계산기</b><span>국민연금·건강·고용보험 공제액을 2026년 요율로</span></span>
           <a class="tc-go" href="/four-insurances/">계산하기 →</a>
         </div>
+
+        <h2 id="numbers">월급 300만 원의 명세서를 계산해 보면</h2>
+        <p><a class="inlink" href="/salary-calculator/">연봉 실수령액 계산기</a>에 월급 300만 원(비과세 없음, 부양가족 본인 1명)을 넣은 결과입니다. 2026년 요율과 근로소득 간이세액표(100% 징수) 기준입니다.</p>
+        <table>
+        <tr><th>항목</th><th>계산</th><th>금액</th></tr>
+        <tr><td>국민연금</td><td>300만 원 × 4.75%</td><td>142,500원</td></tr>
+        <tr><td>건강보험</td><td>300만 원 × 3.595%</td><td>107,850원</td></tr>
+        <tr><td>장기요양보험</td><td>건강보험료 × 13.14%</td><td>14,170원</td></tr>
+        <tr><td>고용보험</td><td>300만 원 × 0.9%</td><td>27,000원</td></tr>
+        <tr><td>소득세</td><td>간이세액표 (월 300만 원 · 1명)</td><td>74,350원</td></tr>
+        <tr><td>지방소득세</td><td>소득세 × 10%</td><td>7,430원</td></tr>
+        <tr><td>공제 합계</td><td></td><td>373,300원</td></tr>
+        <tr><td>실수령액</td><td></td><td>2,626,700원</td></tr>
+        </table>
+        <p>공제의 78%가 4대보험이고 세금은 22%입니다. 이 급여대에서는 세금보다 보험료가 훨씬 큽니다. 같은 급여에서 식대 20만 원이 비과세로 잡히면 실수령액은 2,665,440원으로 38,740원 늘어납니다.</p>
+        <p>부양가족 수의 영향은 연봉이 높을수록 커집니다. 연봉 4,800만 원(월 비과세 20만 원)에서 소득세는 가족 1명일 때 169,260원, 2명 141,400원, 3명 87,680원, 4명 74,560원입니다. 간이세액표가 3명부터 더 큰 공제를 반영하기 때문에 2명에서 3명으로 넘어갈 때 가장 많이 줄어듭니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

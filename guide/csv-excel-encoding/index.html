@@ -29,7 +29,7 @@
   "description": "다운로드한 CSV를 엑셀로 열면 한글이 ㅁㄴㅇㄹ나 鶴 같은 글자로 깨지는 이유 — 인코딩(UTF-8 vs EUC-KR)과 BOM 때문입니다. 데이터 가져오기로 여는 법, BOM 붙여 저장하는 법, 반대로 엑셀에서 내보낸 CSV가 다른 시스템에서 깨질 때 처방까지 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/csv-excel-encoding/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#fix">해결법 3가지</a></li>
             <li><a href="#reverse">반대 상황 — 엑셀 CSV가 다른 곳에서 깨질 때</a></li>
             <li><a href="#numbers">덤 — 010이 10으로 바뀌는 문제</a></li>
+            <li><a href="#measured">변환 도구로 확인한 CSV의 동작</a></li>
           </ol>
         </div>
 
@@ -161,6 +162,21 @@
           <li>해결: 더블클릭 대신 <b>데이터 가져오기</b>로 열면서 해당 열 형식을 <b>"텍스트"</b>로 지정 — 원본 그대로 유지됩니다.</li>
           <li>이미 0이 날아간 파일은 복구할 수 없으므로(데이터 자체가 변형됨) 원본 CSV에서 다시 가져와야 합니다.</li>
         </ul>
+
+        <h2 id="measured">변환 도구로 확인한 CSV의 동작</h2>
+        <p><a class="inlink" href="/csv-json/">CSV ↔ JSON 변환</a> 도구에 아래 CSV를 넣어 본 결과입니다.</p>
+        <code class="ex-code">name,age,zip,memo
+홍길동,30,01234,"서울, 강남"
+이철수,,06236,</code>
+        <table>
+        <tr><th>CSV의 칸</th><th>변환된 값</th><th>의미</th></tr>
+        <tr><td><code>01234</code></td><td><code>"01234"</code></td><td>앞자리 0이 유지됨 (문자열로 읽음)</td></tr>
+        <tr><td><code>30</code></td><td><code>"30"</code></td><td>숫자도 문자열</td></tr>
+        <tr><td><code>"서울, 강남"</code></td><td><code>"서울, 강남"</code></td><td>따옴표 안의 쉼표는 칸을 나누지 않음</td></tr>
+        <tr><td>(빈 칸)</td><td><code>""</code></td><td>빈 문자열</td></tr>
+        </table>
+        <p>CSV 파일 자체에는 "01234"가 그대로 들어 있습니다. 0이 사라지는 것은 파일이 아니라 엑셀이 그 칸을 숫자로 해석하기 때문입니다. 모든 칸을 문자열로 읽는 도구에서는 0이 유지되므로, 0이 사라진 것처럼 보이면 원본 CSV를 메모장이나 이 도구로 열어 값이 남아 있는지 먼저 확인하세요.</p>
+        <p>구분자도 같은 식으로 확인할 수 있습니다. 세미콜론으로 구분된 <code>a;b</code> 파일을 쉼표 설정으로 읽으면 <code>{"a;b":"1;2"}</code>처럼 한 칸으로 뭉쳐 나옵니다. 이 도구에서 JSON을 CSV로 바꿔 내려받는 파일에는 맨 앞에 3바이트짜리 표식(BOM)이 붙어 있어, 엑셀에서 더블클릭으로 열어도 한글이 깨지지 않습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

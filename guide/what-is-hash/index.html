@@ -29,7 +29,7 @@
   "description": "SHA-256 같은 해시 함수는 무엇이고 암호화와 뭐가 다를까요? 해시의 3가지 성질, 파일 무결성 검증과 비밀번호 저장에 쓰이는 이유, MD5를 더 이상 쓰지 않는 이유까지 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/what-is-hash/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#props">해시의 세 가지 성질</a></li>
             <li><a href="#use">어디에 쓰이나 — 무결성·비밀번호</a></li>
             <li><a href="#algo">MD5는 그만 — 알고리즘 선택</a></li>
+            <li><a href="#numbers">한 글자, 공백 하나가 만드는 차이</a></li>
           </ol>
         </div>
 
@@ -165,6 +166,20 @@
         <h2 id="algo">MD5는 그만 — 알고리즘 선택</h2>
         <p>한때 표준이던 <b>MD5와 SHA-1은 충돌 공격이 실제로 가능</b>해져 보안 용도로는 폐기됐습니다. 서로 다른 두 파일이 같은 해시값을 갖도록 만들 수 있다는 뜻이라, 위조 검증에 쓸 수 없습니다.</p>
         <div class="callout"><b>권장:</b> 무결성 검증·서명 등 보안이 걸린 곳에는 <b>SHA-256 이상</b>(SHA-2·SHA-3 계열)을 쓰세요. MD5는 보안과 무관한 간단한 중복 확인 정도에만 제한적으로 사용합니다. 비밀번호 저장에는 SHA-256 단독이 아니라 bcrypt·Argon2 같은 전용 알고리즘이 표준입니다.</div>
+
+        <h2 id="numbers">한 글자, 공백 하나가 만드는 차이</h2>
+        <p><a class="inlink" href="/hash-generator/">Hash 생성기</a>로 구한 SHA-256 값의 앞 16자리입니다(전체는 64자리).</p>
+        <table>
+        <tr><th>입력</th><th>SHA-256 (앞 16자리)</th></tr>
+        <tr><td>abc</td><td><code>ba7816bf8f01cfea…</code></td></tr>
+        <tr><td>Abc</td><td><code>06d90109c8cce34e…</code></td></tr>
+        <tr><td>abc + 끝에 공백 한 칸</td><td><code>5488613c42b0d34d…</code></td></tr>
+        <tr><td>abc + 끝에 줄바꿈</td><td><code>edeaaff3f1774ad2…</code></td></tr>
+        <tr><td>(빈 입력)</td><td><code>e3b0c44298fc1c14…</code></td></tr>
+        <tr><td>a를 1,000번 반복</td><td><code>41edece42d63e8d9…</code></td></tr>
+        </table>
+        <p>abc와 Abc의 해시 전체를 비교하면 64자리 가운데 63자리가 다르고, 비트로는 256비트 중 131비트가 다릅니다. 입력의 한 글자가 바뀌면 출력의 절반가량이 뒤집히는 이 성질 덕분에, 파일이 1바이트만 달라져도 해시로 알아챌 수 있습니다. 입력이 3글자든 1,000글자든 결과 길이는 같습니다.</p>
+        <p>실무에서 해시값이 서로 안 맞을 때는 대개 눈에 보이지 않는 차이가 원인입니다. 끝에 붙은 공백이나 줄바꿈 하나로 완전히 다른 값이 나옵니다. 같은 입력을 다른 알고리즘에 넣으면 길이가 달라집니다. hello는 MD5로 <code>5d41402abc4b2a76b9719d911017c592</code>(32자리), SHA-1로는 40자리, SHA-256으로는 64자리입니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

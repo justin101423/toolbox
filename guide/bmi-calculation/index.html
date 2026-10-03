@@ -29,7 +29,7 @@
   "description": "BMI(체질량지수)는 몸무게(kg)를 키(m)의 제곱으로 나눈 값입니다. 계산 공식과 예시, 한국(대한비만학회) 기준표와 WHO 기준의 차이, BMI가 놓치는 것까지 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/bmi-calculation/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#range">기준표 — 한국 기준 vs WHO 기준</a></li>
             <li><a href="#weight">정상 범위 몸무게 거꾸로 구하기</a></li>
             <li><a href="#limit">BMI가 놓치는 것</a></li>
+            <li><a href="#numbers">키에 따라 달라지는 숫자</a></li>
           </ol>
         </div>
 
@@ -174,6 +175,19 @@
         <h2 id="limit">BMI가 놓치는 것</h2>
         <p>BMI는 키와 몸무게만 보기 때문에 <b>근육과 지방을 구분하지 못합니다</b>. 근육량이 많은 사람은 체지방이 적어도 과체중·비만으로 나올 수 있고, 반대로 마른 비만(체중은 정상인데 체지방이 많은 경우)은 정상으로 나옵니다. 또 복부지방 같은 지방의 위치도 반영하지 못합니다.</p>
         <div class="callout"><b>참고:</b> BMI는 어디까지나 선별용 지표입니다. 허리둘레(남 90cm·여 85cm 이상이면 복부비만)나 체성분 검사를 함께 보고, 건강 판단은 의료진과 상담하세요.</div>
+
+        <h2 id="numbers">키에 따라 달라지는 숫자</h2>
+        <p><a class="inlink" href="/bmi-calculator/">BMI 계산기</a>에 몸무게 68kg을 고정하고 키만 바꿔 넣은 결과입니다.</p>
+        <table>
+        <tr><th>키</th><th>BMI</th><th>구간 (대한비만학회 기준)</th><th>BMI 1에 해당하는 몸무게</th></tr>
+        <tr><td>155cm</td><td>28.3</td><td>1단계 비만</td><td>약 2.40kg</td></tr>
+        <tr><td>160cm</td><td>26.6</td><td>1단계 비만</td><td>약 2.56kg</td></tr>
+        <tr><td>165cm</td><td>25.0</td><td>1단계 비만</td><td>약 2.72kg</td></tr>
+        <tr><td>170cm</td><td>23.5</td><td>비만 전 단계</td><td>약 2.89kg</td></tr>
+        <tr><td>175cm</td><td>22.2</td><td>정상</td><td>약 3.06kg</td></tr>
+        <tr><td>180cm</td><td>21.0</td><td>정상</td><td>약 3.24kg</td></tr>
+        </table>
+        <p>같은 68kg이 키 155cm에서는 1단계 비만, 175cm에서는 정상입니다. 마지막 열은 키(m)의 제곱으로, 그만큼 몸무게가 변해야 BMI가 1 움직입니다. 키가 클수록 같은 감량으로 내려가는 BMI가 작습니다. 구간 경계에 걸린 몸무게도 구해 봤습니다. 170cm라면 53.4kg부터 66.3kg까지가 정상이고 66.4kg부터 비만 전 단계, 72.2kg부터 1단계 비만으로 표시됩니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

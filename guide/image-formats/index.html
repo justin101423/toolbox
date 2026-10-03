@@ -29,7 +29,7 @@
   "description": "사진은 JPG, 스크린샷·로고는 PNG, 웹용은 WebP — 한 줄 결론과 그 이유를 정리했습니다. 손실·무손실 압축의 차이, 투명 배경 지원, 상황별 선택표와 변환할 때 주의점까지 담았습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-11",
-  "dateModified": "2026-06-11",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/image-formats/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#table">상황별 선택표</a></li>
             <li><a href="#caution">변환할 때 주의점</a></li>
             <li><a href="#how">형식 바꾸기 3단계</a></li>
+            <li><a href="#numbers">같은 이미지를 세 형식으로 저장해 본 결과</a></li>
           </ol>
         </div>
 
@@ -168,6 +169,18 @@
           <span class="tc-tx"><b>SVG → PNG 변환</b><span>벡터(SVG)를 원하는 크기의 PNG 이미지로</span></span>
           <a class="tc-go" href="/svg-to-png/">변환하기 →</a>
         </div>
+
+        <h2 id="numbers">같은 이미지를 세 형식으로 저장해 본 결과</h2>
+        <p><a class="inlink" href="/image-converter/">이미지 포맷 변환</a> 도구로 1920 × 1200 풍경 사진(원본 JPG 1.14MB)과 1264 × 705 화면 캡처(원본 PNG 232KB)를 각각 변환했습니다(크롬 기준).</p>
+        <table>
+        <tr><th>저장 형식</th><th>풍경 사진</th><th>화면 캡처</th></tr>
+        <tr><td>PNG</td><td>4.57MB</td><td>470KB</td></tr>
+        <tr><td>JPG · 품질 0.9</td><td>908KB</td><td>80.8KB</td></tr>
+        <tr><td>JPG · 품질 0.8</td><td>584KB</td><td>60.0KB</td></tr>
+        <tr><td>WebP · 품질 0.9</td><td>858KB</td><td>39.1KB</td></tr>
+        <tr><td>WebP · 품질 0.8</td><td>562KB</td><td>30.0KB</td></tr>
+        </table>
+        <p>사진을 PNG로 저장하면 JPG의 5배가 넘습니다. WebP는 사진에서는 같은 품질의 JPG보다 4~6% 작은 정도였지만, 글자와 단색 면이 많은 화면 캡처에서는 절반 수준으로 줄었습니다. 또 하나 눈에 띄는 것은 PNG를 PNG로 다시 저장했을 때 232KB가 470KB로 늘어난 점입니다. 형식을 바꿀 이유가 없다면 다시 저장하지 않는 것이 낫습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

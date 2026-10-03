@@ -29,7 +29,7 @@
   "description": "설치 없이 사진 여러 장으로 움짤(GIF)을 만드는 방법을 단계별로 정리했습니다. 프레임 간격·반복 설정, GIF 용량이 커지는 이유와 줄이는 법, 동영상과의 차이까지.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/make-gif/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#how">사진 여러 장으로 GIF 만들기</a></li>
             <li><a href="#size">용량이 커지는 이유와 줄이는 법</a></li>
             <li><a href="#vs">GIF vs 동영상 — 언제 뭘 쓸까</a></li>
+            <li><a href="#numbers">너비와 장수를 바꿔 만들어 본 용량</a></li>
           </ol>
         </div>
 
@@ -170,6 +171,20 @@
           </tbody>
         </table>
         <p>몇 초짜리 반복 장면을 어디든 간편하게 붙이고 싶다면 GIF, 10초가 넘거나 화질이 중요하면 동영상이 정답입니다.</p>
+
+        <h2 id="numbers">너비와 장수를 바꿔 만들어 본 용량</h2>
+        <p>1920 × 1200 사진으로 <a class="inlink" href="/gif-maker/">GIF 만들기</a> 도구에서 실제로 만들어 본 결과입니다.</p>
+        <table>
+        <tr><th>조건</th><th>GIF 크기</th><th>용량</th></tr>
+        <tr><td>사진 3장 · 너비 320</td><td>320 × 200</td><td>129KB</td></tr>
+        <tr><td>사진 3장 · 너비 480</td><td>480 × 300</td><td>276KB</td></tr>
+        <tr><td>사진 3장 · 너비 640</td><td>640 × 400</td><td>471KB</td></tr>
+        <tr><td>사진 3장 · 원본 크기</td><td>1920 × 1200</td><td>3.93MB</td></tr>
+        <tr><td>연속 장면 5장 · 너비 480</td><td>480 × 300</td><td>869KB</td></tr>
+        <tr><td>연속 장면 10장 · 너비 480</td><td>480 × 300</td><td>1.69MB</td></tr>
+        <tr><td>연속 장면 10장 · 너비 320</td><td>320 × 200</td><td>767KB</td></tr>
+        </table>
+        <p>장수를 두 배로 늘리면 용량도 두 배, 너비를 두 배로 늘리면 약 3.7배가 됩니다. 10장짜리 움짤이 너무 크다면 장수를 줄이기보다 너비를 320으로 낮추는 것만으로 절반 아래로 내려갑니다. 프레임당 시간은 용량에 영향이 없어, 같은 5장을 200ms로 만들든 1,000ms로 만들든 869KB로 같았습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

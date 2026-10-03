@@ -29,7 +29,7 @@
   "description": "메신저로 받은 사진을 확대하면 뭉개지는 이유 — 전송 시 자동으로 리사이즈·압축되기 때문입니다. 일반 전송과 원본 전송의 차이, 화질을 지키는 세 가지 방법(원본 옵션·파일로 보내기·클라우드 링크), 반대로 용량을 일부러 줄여 보내는 요령까지 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/messenger-photo-quality/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#keep">화질 지키는 세 가지 방법</a></li>
             <li><a href="#shrink">반대로 — 일부러 줄여 보내기</a></li>
             <li><a href="#check">받은 사진 화질 확인법</a></li>
+            <li><a href="#numbers">직접 줄여서 보낼 때의 용량</a></li>
           </ol>
         </div>
 
@@ -161,6 +162,17 @@
           <li>용량이 수백 KB로 작다면 압축본일 가능성이 큽니다 — 원본은 보통 수 MB입니다.</li>
           <li>부족하면 원본을 다시 요청하는 것이 정답 — 받은 압축본을 키우는 것은 해결이 아닙니다.</li>
         </ul>
+
+        <h2 id="numbers">직접 줄여서 보낼 때의 용량</h2>
+        <p>앱이 알아서 줄이기 전에 내가 정한 크기로 줄여 보내면 화질과 용량을 직접 고를 수 있습니다. 1920 × 1200 사진(1.14MB)을 <a class="inlink" href="/image-resizer/">이미지 크기 조절</a> 도구에서 품질 0.85로 저장한 결과입니다.</p>
+        <table>
+        <tr><th>가로</th><th>결과 크기</th><th>용량</th><th>300dpi 인화 가능 크기</th></tr>
+        <tr><td>1920 (그대로)</td><td>1920 × 1200</td><td>699KB</td><td>16.3 × 10.2cm</td></tr>
+        <tr><td>1600</td><td>1600 × 1000</td><td>445KB</td><td>13.5 × 8.5cm</td></tr>
+        <tr><td>1200</td><td>1200 × 750</td><td>281KB</td><td>10.2 × 6.4cm</td></tr>
+        <tr><td>800</td><td>800 × 500</td><td>113KB</td><td>6.8 × 4.2cm</td></tr>
+        </table>
+        <p>가로를 절반으로 줄이면 용량은 약 4분의 1이 됩니다. 화면으로만 볼 사진이라면 1200픽셀도 충분하지만, 받는 사람이 인화할 사진이라면 사정이 다릅니다. 4×6 인화(약 10 × 15cm)에는 긴 변 1800픽셀이 필요하므로, 1200픽셀로 줄어든 사진은 인화하면 흐릿합니다. 인화·보관용은 원본으로, 확인용은 줄여서 보내는 식으로 나누세요.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

@@ -29,7 +29,7 @@
   "description": "16:9, 4:3, 21:9 — 비율 표기의 의미와 계산법을 정리했습니다. 가로 1920이면 세로는 몇이어야 16:9인지 구하는 공식, 비율별 대표 해상도 표(FHD·QHD·4K), 유튜브·인스타·릴스 등 플랫폼별 권장 비율까지.",
   "inLanguage": "ko",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/aspect-ratio/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#calc">비율 계산 공식</a></li>
             <li><a href="#table">비율별 대표 해상도 표</a></li>
             <li><a href="#platform">플랫폼별 권장 비율</a></li>
+            <li><a href="#numbers">사진을 비율대로 자르면 얼마나 남을까</a></li>
           </ol>
         </div>
 
@@ -177,6 +178,18 @@
           <span class="tc-tx"><b>이미지 크기 조절</b><span>비율을 정했다면 원하는 정확한 px 크기로 리사이즈</span></span>
           <a class="tc-go" href="/image-resizer/">크기 조절 →</a>
         </div>
+
+        <h2 id="numbers">사진을 비율대로 자르면 얼마나 남을까</h2>
+        <p>비율을 바꾸려면 어딘가를 잘라내야 합니다. 휴대폰 기본 비율인 4:3 사진(4032 × 3024)과 풀HD 화면 캡처(1920 × 1080)에서 각 비율로 얻을 수 있는 가장 큰 영역을 계산했습니다.</p>
+        <table>
+        <tr><th>목표 비율</th><th>4032 × 3024에서</th><th>남는 면적</th><th>1920 × 1080에서</th><th>남는 면적</th></tr>
+        <tr><td>16:9</td><td>4032 × 2268</td><td>75%</td><td>1920 × 1080</td><td>100%</td></tr>
+        <tr><td>3:2</td><td>4032 × 2688</td><td>89%</td><td>1620 × 1080</td><td>84%</td></tr>
+        <tr><td>1:1</td><td>3024 × 3024</td><td>75%</td><td>1080 × 1080</td><td>56%</td></tr>
+        <tr><td>4:5</td><td>2419 × 3024</td><td>60%</td><td>864 × 1080</td><td>45%</td></tr>
+        <tr><td>9:16</td><td>1701 × 3024</td><td>42%</td><td>608 × 1080</td><td>32%</td></tr>
+        </table>
+        <p>가로 사진을 세로 영상 비율(9:16)로 바꾸면 절반 넘게 사라집니다. 세로 콘텐츠용이라면 처음부터 세로로 찍는 편이 화질을 지키는 방법입니다. <a class="inlink" href="/image-crop/">이미지 자르기</a>에서 비율 버튼을 누르면 처음에는 사진의 80% 크기로 선택 영역이 잡히므로, 위 표의 최대 영역을 쓰려면 핸들을 가장자리까지 넓혀야 합니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

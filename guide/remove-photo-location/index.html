@@ -29,7 +29,7 @@
   "description": "사진에는 촬영 위치(GPS)와 기기 정보가 EXIF로 숨어 있습니다. 왜 위험한지, 어떤 정보가 담기는지, 그리고 온라인·아이폰·안드로이드·윈도우에서 EXIF를 제거하는 법을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-09",
-  "dateModified": "2026-06-09",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/remove-photo-location/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -124,6 +124,7 @@
             <li><a href="#online">방법 1. 온라인에서 한 번에 제거</a></li>
             <li><a href="#device">방법 2. 아이폰·안드로이드·윈도우에서 제거</a></li>
             <li><a href="#sns">SNS는 자동으로 지워줄까</a></li>
+            <li><a href="#numbers">실제로 지워 본 결과</a></li>
           </ol>
         </div>
 
@@ -162,6 +163,18 @@
 
         <h2 id="sns">SNS는 자동으로 지워줄까</h2>
         <p>인스타그램·페이스북 같은 일부 대형 SNS는 업로드 과정에서 EXIF를 제거합니다. 하지만 <b>모든 곳이 그런 건 아닙니다.</b> 중고거래 앱, 카페·커뮤니티 게시판, 이메일 첨부, 클라우드 공유 링크, 메신저로 보낸 '원본' 파일 등은 메타데이터를 그대로 전달하는 경우가 많습니다. 어디에 올리든 확실히 하려면 <b>올리기 전에 직접 제거</b>하는 습관이 가장 안전합니다.</p>
+
+        <h2 id="numbers">실제로 지워 본 결과</h2>
+        <p>GPS 좌표(위도 37.5666, 경도 126.9780)와 기기명, 날짜를 넣은 시험용 사진을 <a class="inlink" href="/remove-exif/">EXIF·위치정보 제거</a> 도구에 넣고, 결과 파일을 다시 분석했습니다.</p>
+        <table>
+        <tr><th>항목</th><th>제거 전</th><th>제거 후</th></tr>
+        <tr><td>GPS 좌표</td><td>37.5666, 126.9780</td><td>없음</td></tr>
+        <tr><td>기기명</td><td>Apple iPhone 15</td><td>없음</td></tr>
+        <tr><td>날짜</td><td>2026:10:03 12:34:56</td><td>없음</td></tr>
+        <tr><td>해상도</td><td>1920 × 1200</td><td>1920 × 1200</td></tr>
+        <tr><td>파일 용량</td><td>612KB</td><td>564KB</td></tr>
+        </table>
+        <p>위치·기기·날짜가 모두 사라지고 해상도는 그대로입니다. 소수 넷째 자리까지 적힌 좌표는 약 10m 단위라 건물 하나를 가리킬 수 있습니다. 용량이 달라진 것은 EXIF 때문이 아닙니다. 들어 있던 EXIF는 210바이트뿐이었고, 사진을 품질 0.95로 다시 저장하면서 생긴 차이입니다. 같은 도구에 EXIF가 없는 1.14MB 사진을 넣었을 때는 1.15MB로 오히려 조금 늘었습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

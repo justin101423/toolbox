@@ -29,7 +29,7 @@
   "description": "영수증에 찍히는 부가세 10%는 무엇이고 누가 부담할까요? 공급가액과 부가세, 합계의 관계, 부가세 포함 금액에서 공급가액을 거꾸로 구하는 법(÷1.1), 면세와 영세율의 차이를 예시와 함께 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-13",
-  "dateModified": "2026-06-13",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/what-is-vat/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#calc">공급가·부가세·합계</a></li>
             <li><a href="#reverse">합계에서 거꾸로 구하기</a></li>
             <li><a href="#exempt">면세와 영세율</a></li>
+            <li><a href="#numbers">합계에서 거꾸로 구할 때 생기는 1원</a></li>
           </ol>
         </div>
 
@@ -154,6 +155,19 @@
           <li><b>영세율</b> — 세율 0%(주로 수출). 소비자는 안 내지만 사업자는 매입세액을 환급받을 수 있어 더 유리합니다.</li>
           <li>견적서·세금계산서에서는 공급가액과 부가세를 나눠 적어야 하므로, <a class="inlink" href="/vat-calculator/">계산기</a>로 빠르게 환산하면 편합니다.</li>
         </ul>
+
+        <h2 id="numbers">합계에서 거꾸로 구할 때 생기는 1원</h2>
+        <p><a class="inlink" href="/vat-calculator/">부가가치세 계산기</a>에 합계 금액을 넣어 공급가액과 부가세를 구한 결과입니다.</p>
+        <table>
+        <tr><th>합계 (부가세 포함)</th><th>공급가액</th><th>부가세</th></tr>
+        <tr><td>11,000원</td><td>10,000원</td><td>1,000원</td></tr>
+        <tr><td>33,000원</td><td>30,000원</td><td>3,000원</td></tr>
+        <tr><td>10,000원</td><td>9,091원</td><td>909원</td></tr>
+        <tr><td>100,000원</td><td>90,909원</td><td>9,091원</td></tr>
+        <tr><td>1,000,000원</td><td>909,091원</td><td>90,909원</td></tr>
+        </table>
+        <p>합계가 11의 배수이면 깔끔하게 떨어지지만, 10,000원처럼 딱 떨어지는 가격은 공급가액이 9,090.9…원이 되어 반올림이 필요합니다. 반올림한 공급가액 9,091원에 다시 10%를 곱하면 909원이고 합계가 10,000원으로 맞습니다. 다만 품목이 여러 개인 견적서에서 줄마다 반올림한 뒤 더하면 합계가 1~2원 어긋날 수 있습니다. 이런 문서는 합계 금액을 먼저 확정한 뒤 공급가액과 세액을 나누는 편이 깔끔합니다.</p>
+        <p>흔한 실수는 합계에서 10%를 빼는 것입니다. 10,000원의 10%인 1,000원을 빼면 9,000원이 되지만, 실제 공급가액은 9,091원입니다. 합계에서 부가세를 구할 때는 11로 나눠야 합니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

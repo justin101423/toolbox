@@ -29,7 +29,7 @@
   "description": "계약서 개정본, 과제 수정본, 코드 변경 — 두 텍스트의 달라진 부분을 눈으로 찾는 건 한계가 있습니다. diff 결과 읽는 법과 비교 옵션, 실무 활용 사례를 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/text-comparison/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#read">비교 결과 읽는 법</a></li>
             <li><a href="#options">옵션 활용 — 공백 무시·단위 선택</a></li>
             <li><a href="#cases">실무 활용 사례</a></li>
+            <li><a href="#numbers">같은 수정, 단위에 따라 달라지는 숫자</a></li>
           </ol>
         </div>
 
@@ -159,6 +160,17 @@
           <li><b>과제·보고서 수정 확인:</b> 피드백 반영 전후 버전을 비교해 수정 사항을 정리.</li>
         </ul>
         <div class="callout"><b>팁:</b> 비교 결과는 화면에서 확인하는 용도로 쓰고, 중요한 계약서라면 바뀐 부분을 원본 문서에서 한 번 더 직접 확인하세요. 비교 도구는 차이를 "찾아 주는" 도구이지 법적 검토를 대신하지 않습니다.</div>
+
+        <h2 id="numbers">같은 수정, 단위에 따라 달라지는 숫자</h2>
+        <p><a class="inlink" href="/text-diff/">텍스트 비교</a> 도구에 두 문장을 넣고 비교 단위만 바꿔 본 결과입니다. 원본은 "계약 기간은 12개월로 한다.", 수정본은 "계약 기간은 24개월로 한다."입니다.</p>
+        <table>
+        <tr><th>비교 단위</th><th>추가</th><th>삭제</th></tr>
+        <tr><td>줄</td><td>1줄</td><td>1줄</td></tr>
+        <tr><td>단어</td><td>2자</td><td>2자</td></tr>
+        <tr><td>문자</td><td>1자</td><td>1자</td></tr>
+        </table>
+        <p>숫자 하나만 고쳤는데 줄 단위는 그 줄 전체가 바뀐 것으로 셉니다. 문자 단위는 반대로 너무 잘게 봅니다. 12가 24로 바뀌어 두 자리가 모두 달라졌지만, 양쪽에 공통으로 있는 "2"를 그대로 둔 것으로 계산해 1자 추가·1자 삭제로 표시합니다. 금액이나 날짜처럼 숫자가 중요한 문서는 단어 단위가 읽기 편합니다.</p>
+        <p>무시 옵션의 효과도 재 봤습니다. 코드 세 줄 가운데 한 줄은 들여쓰기만, 다른 한 줄은 대소문자만 다른 경우, 옵션 없이는 2줄 변경, 공백 무시를 켜면 1줄, 대소문자 무시까지 켜면 0줄이었습니다. 반대로 끝에 공백 하나가 붙은 것, 마지막 줄에 줄바꿈이 있고 없는 것도 옵션을 끄면 1줄 차이로 잡힙니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

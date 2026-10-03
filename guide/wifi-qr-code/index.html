@@ -29,7 +29,7 @@
   "description": "\"와이파이 비번 뭐예요?\"에 매번 답하는 대신 QR 한 장 — 카메라로 찍으면 자동으로 연결됩니다. 와이파이 QR의 원리(WIFI: 형식), 만들어 인쇄하는 법, 카페·집들이에서 쓰는 요령과 보안 주의점을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/wifi-qr-code/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#make">만들기 4단계</a></li>
             <li><a href="#print">인쇄·부착 요령</a></li>
             <li><a href="#security">보안 주의점</a></li>
+            <li><a href="#numbers">와이파이 QR의 실제 크기</a></li>
           </ol>
         </div>
 
@@ -164,6 +165,18 @@
           <li>비밀번호를 바꾸면 <b>QR도 새로 만들어 교체</b>하세요. 옛 QR은 "연결 안 되는 QR"이 됩니다.</li>
           <li>가게 밖(유리창 바깥)에서 보이는 위치는 피하세요 — 지나가는 사람도 연결할 수 있습니다.</li>
         </ul>
+
+        <h2 id="numbers">와이파이 QR의 실제 크기</h2>
+        <p>와이파이 QR에 들어가는 문자열은 <code>WIFI:S:</code>, <code>;T:WPA;P:</code>, <code>;;</code> 같은 고정 부분 18바이트에 이름과 비밀번호 길이를 더한 것입니다. <a class="inlink" href="/qr-code/">QR코드 생성</a> 도구 기준으로 길이에 따른 칸 수를 정리했습니다.</p>
+        <table>
+        <tr><th>네트워크 이름 / 비밀번호</th><th>전체 바이트</th><th>한 변의 칸 수</th></tr>
+        <tr><td>영문 10자 / 8자</td><td>36</td><td>29칸</td></tr>
+        <tr><td>영문 10자 / 16자</td><td>44</td><td>33칸</td></tr>
+        <tr><td>영문 10자 / 32자</td><td>60</td><td>33칸</td></tr>
+        <tr><td>영문 10자 / 63자 (최대 길이)</td><td>91</td><td>41칸</td></tr>
+        <tr><td>한글 3자 "우리집" / 8자</td><td>35</td><td>29칸</td></tr>
+        </table>
+        <p>비밀번호를 8자에서 32자로 늘려도 칸 수는 29에서 33으로 한 단계만 올라갑니다. QR 때문에 비밀번호를 짧게 할 이유는 없습니다. 한글 이름은 한 글자가 3바이트로 계산되지만 세 글자 정도면 영문 이름과 차이가 없습니다. 실제로 "우리집"이라는 이름으로 만든 코드를 다시 읽어 원래 문자열과 일치하는 것을 확인했습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

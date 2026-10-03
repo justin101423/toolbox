@@ -29,7 +29,7 @@
   "description": "같은 데이터를 담는 JSON과 YAML, 뭐가 다르고 언제 뭘 쓸까요? 따옴표·들여쓰기·주석의 문법 차이, API는 JSON·설정 파일은 YAML이 된 이유, 변환할 때 빠지기 쉬운 함정(탭 들여쓰기, no의 해석)을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-11",
-  "dateModified": "2026-06-11",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/json-vs-yaml/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#diff">핵심 차이 4가지</a></li>
             <li><a href="#when">언제 뭘 쓰나</a></li>
             <li><a href="#traps">변환할 때 빠지기 쉬운 함정</a></li>
+            <li><a href="#numbers">변환하면서 값이 바뀌는 사례</a></li>
           </ol>
         </div>
 
@@ -167,6 +168,19 @@ tools:
           <span class="tc-tx"><b>JSON ↔ YAML 변환기</b><span>양방향 변환·문법 검사, 브라우저 안에서만</span></span>
           <a class="tc-go" href="/json-yaml/">변환하기 →</a>
         </div>
+
+        <h2 id="numbers">변환하면서 값이 바뀌는 사례</h2>
+        <p><a class="inlink" href="/json-yaml/">JSON ↔ YAML 변환</a> 도구에 YAML을 넣어 JSON으로 바꿔 본 결과입니다. 따옴표 없이 쓴 값은 YAML이 타입을 추측합니다.</p>
+        <table>
+        <tr><th>YAML</th><th>JSON 결과</th><th>무슨 일이</th></tr>
+        <tr><td><code>version: 1.10</code></td><td><code>1.1</code></td><td>숫자로 읽혀 끝의 0이 사라짐</td></tr>
+        <tr><td><code>zip: 01234</code></td><td><code>1234</code></td><td>앞자리 0이 사라짐</td></tr>
+        <tr><td><code>date: 2026-10-03</code></td><td><code>"2026-10-03T00:00:00.000Z"</code></td><td>날짜로 읽혀 시각이 붙음</td></tr>
+        <tr><td><code>hex: 0x1F</code></td><td><code>31</code></td><td>16진수로 해석</td></tr>
+        <tr><td><code>enabled: yes</code></td><td><code>"yes"</code></td><td>문자열로 남음</td></tr>
+        <tr><td><code>quoted: "1.10"</code></td><td><code>"1.10"</code></td><td>따옴표로 감싸면 그대로</td></tr>
+        </table>
+        <p>반대 방향에서는 변환기가 필요한 따옴표를 알아서 붙입니다. JSON의 <code>"version": "1.10"</code>은 <code>version: '1.10'</code>으로, <code>"zip": "01234"</code>는 <code>zip: '01234'</code>로 나옵니다. 이 따옴표를 손으로 지우면 위 표의 문제가 그대로 생깁니다. <code>yes</code>·<code>no</code>는 이 변환기에서는 문자열이지만 true·false로 읽는 도구도 있으므로, 참·거짓은 <code>true</code>·<code>false</code>로 적는 편이 안전합니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

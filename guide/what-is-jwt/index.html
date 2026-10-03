@@ -29,7 +29,7 @@
   "description": "eyJ로 시작하는 긴 문자열, JWT(JSON Web Token)입니다. 헤더·페이로드·서명 3부분 구조, 누구나 디코딩할 수 있는 이유, exp 만료 확인과 보안 주의점까지 쉽게 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/what-is-jwt/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#structure">점 두 개로 나뉘는 3부분 구조</a></li>
             <li><a href="#decode">누구나 디코딩할 수 있다 — 서명의 의미</a></li>
             <li><a href="#debug">exp로 만료 확인 — 401 디버깅</a></li>
+            <li><a href="#numbers">예시 토큰을 직접 뜯어 보면</a></li>
           </ol>
         </div>
 
@@ -158,6 +159,17 @@
           <span class="tc-tx"><b>JWT 디코더</b><span>토큰을 붙여넣으면 헤더·페이로드와 만료 여부를 즉시 표시</span></span>
           <a class="tc-go" href="/jwt-decoder/">디코딩하기 →</a>
         </div>
+
+        <h2 id="numbers">예시 토큰을 직접 뜯어 보면</h2>
+        <p>비밀 키 <code>secret</code>으로 서명한 예시 토큰을 <a class="inlink" href="/jwt-decoder/">JWT 디코더</a>에 넣은 결과입니다. 전체 길이는 199자입니다.</p>
+        <table>
+        <tr><th>부분</th><th>글자 수</th><th>디코딩 결과</th></tr>
+        <tr><td>헤더</td><td>36</td><td><code>{"alg":"HS256","typ":"JWT"}</code></td></tr>
+        <tr><td>페이로드</td><td>118</td><td><code>{"sub":"user-1042","name":"홍길동","role":"member","iat":1790000000,"exp":1790003600}</code></td></tr>
+        <tr><td>서명</td><td>43</td><td>디코딩 대상 아님 (32바이트 값)</td></tr>
+        </table>
+        <p>exp에서 iat을 빼면 3,600초이므로 유효 기간이 1시간인 토큰입니다. iat 1790000000은 한국 시간 2026년 9월 21일 23시 13분 20초, exp는 그로부터 1시간 뒤입니다. 88바이트짜리 페이로드가 118자로 늘어난 것은 Base64URL이 3바이트를 4글자로 바꾸기 때문이며, 클레임을 많이 넣을수록 모든 요청이 그만큼 무거워집니다.</p>
+        <p>이 토큰의 페이로드에서 role을 admin으로 바꾸고 서명은 그대로 둔 채 디코더에 넣어도, 화면에는 role이 admin인 페이로드가 멀쩡하게 표시됩니다. 디코딩은 서명을 확인하지 않기 때문입니다. 서버는 서명을 다시 계산해 이런 토큰을 거부하지만, 디코더에 보인다고 해서 유효한 토큰이라는 뜻은 아닙니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

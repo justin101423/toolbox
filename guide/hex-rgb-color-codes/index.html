@@ -29,7 +29,7 @@
   "description": "#FFFFFF 같은 HEX 코드는 어떻게 읽을까요? HEX·RGB·HSL이 각각 무엇이고 어떻게 변환하는지, 투명도(알파)는 어떻게 표현하는지 디자인·개발 입문자 눈높이로 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-09",
-  "dateModified": "2026-06-09",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/hex-rgb-color-codes/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#hex">HEX — 16진수로 압축한 RGB</a></li>
             <li><a href="#hsl">HSL — 사람이 직관적으로 다루는 색</a></li>
             <li><a href="#alpha">투명도(알파) 표현</a></li>
+            <li><a href="#numbers">같은 색을 세 가지로 적어 보면</a></li>
           </ol>
         </div>
 
@@ -174,6 +175,18 @@
           <li><b>8자리 HEX:</b> <span class="codebox" style="display:inline;padding:1px 5px">#FF000080</span> — 뒤 두 자리가 투명도. 80 ≈ 50%, FF = 불투명, 00 = 완전 투명.</li>
         </ul>
         <div class="callout"><b>팁:</b> 색을 정확히 고르거나 화면의 색을 추출하고 싶다면 컬러 피커를 쓰세요. 클릭만으로 HEX·RGB·HSL 값을 한 번에 얻을 수 있습니다.</div>
+
+        <h2 id="numbers">같은 색을 세 가지로 적어 보면</h2>
+        <p><a class="inlink" href="/color-picker/">컬러 피커</a>에 HEX 값을 넣었을 때 나오는 RGB·HSL 값입니다.</p>
+        <table>
+        <tr><th>HEX</th><th>RGB</th><th>HSL</th></tr>
+        <tr><td>#DF4324</td><td>rgb(223, 67, 36)</td><td>hsl(10, 75%, 51%)</td></tr>
+        <tr><td>#3B82F6</td><td>rgb(59, 130, 246)</td><td>hsl(217, 91%, 60%)</td></tr>
+        <tr><td>#F3EEE3</td><td>rgb(243, 238, 227)</td><td>hsl(41, 40%, 92%)</td></tr>
+        <tr><td>#808080</td><td>rgb(128, 128, 128)</td><td>hsl(0, 0%, 50%)</td></tr>
+        <tr><td>#ABC (3자리)</td><td>rgb(170, 187, 204)</td><td>hsl(210, 25%, 73%)</td></tr>
+        </table>
+        <p>HEX와 RGB는 같은 숫자를 다르게 적은 것이라 서로 완전히 되돌릴 수 있습니다. DF는 223, 43은 67, 24는 36입니다. HSL은 사정이 다릅니다. 보통 정수로 적기 때문에 정수 HSL로 표현할 수 있는 색은 약 367만 가지인데 HEX는 약 1,678만 가지입니다. #DF4324를 hsl(10, 75%, 51%)로 바꿨다가 다시 HEX로 돌리면 #E04424가 나옵니다. 무작위 색 2만 개로 확인해 보니 89.7%가 이렇게 한두 단계씩 어긋났습니다(최대 채널당 4). 정확한 색을 넘겨야 할 때는 HEX나 RGB를 쓰세요.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

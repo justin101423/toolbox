@@ -29,7 +29,7 @@
   "description": "문서 사진·스크린샷의 글자를 타이핑 없이 텍스트로 바꾸는 OCR 사용법을 정리했습니다. 설치 없이 브라우저에서 추출하는 단계와 인식률을 높이는 촬영 요령, OCR의 한계까지.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/extract-text-from-image/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#how">브라우저에서 글자 추출하는 단계</a></li>
             <li><a href="#tips">인식률을 높이는 요령</a></li>
             <li><a href="#limit">OCR의 한계와 후처리</a></li>
+            <li><a href="#numbers">글자 크기와 기울기에 따른 실제 인식률</a></li>
           </ol>
         </div>
 
@@ -160,6 +161,21 @@
         <h2 id="limit">OCR의 한계와 후처리</h2>
         <p>인쇄된 표준 글꼴은 인식률이 높지만, <b>손글씨·흘림체·장식 글꼴·도장이 겹친 글자</b>는 오인식이 많습니다. 숫자 0과 알파벳 O, 한글 '롤'과 '를'처럼 모양이 비슷한 글자도 헷갈립니다.</p>
         <div class="callout"><b>팁:</b> OCR 결과는 항상 원문과 대조하세요. 계약서·계좌번호처럼 한 글자가 중요한 내용은 특히 숫자를 한 번 더 확인해야 합니다. 추출 후 <a class="inlink" href="/clean-text/">공백·줄바꿈 정리</a> 도구로 어긋난 줄바꿈을 정리하면 깔끔합니다.</div>
+
+        <h2 id="numbers">글자 크기와 기울기에 따른 실제 인식률</h2>
+        <p>한글 83자짜리 문단을 이미지로 만들어 <a class="inlink" href="/image-ocr/">이미지 OCR</a> 도구에 넣어 본 결과입니다(맑은 고딕, 흰 바탕에 검은 글자, 한국어 + 영어).</p>
+        <table>
+        <tr><th>조건</th><th>틀린 글자</th><th>정확도</th></tr>
+        <tr><td>글자 높이 8px</td><td>75자</td><td>9.6%</td></tr>
+        <tr><td>글자 높이 10px</td><td>31자</td><td>62.7%</td></tr>
+        <tr><td>글자 높이 12px</td><td>6자</td><td>92.8%</td></tr>
+        <tr><td>글자 높이 16px</td><td>0자</td><td>100%</td></tr>
+        <tr><td>16px · 3° 기울어짐</td><td>3자</td><td>96.4%</td></tr>
+        <tr><td>16px · 10° 기울어짐</td><td>27자</td><td>67.5%</td></tr>
+        <tr><td>16px · 약간 흐림</td><td>13자</td><td>84.3%</td></tr>
+        <tr><td>16px · 연한 회색 글자</td><td>3자</td><td>96.4%</td></tr>
+        </table>
+        <p>인식률을 좌우하는 것은 글자 크기, 기울기, 초점 세 가지였습니다. 글자 높이가 12픽셀 아래로 내려가면 급격히 무너지고, 10도만 기울어도 세 글자 중 하나가 틀립니다. 반면 글자색이 옅거나 JPG로 심하게 압축한 것은 영향이 작았습니다. 작은 글씨는 화면을 확대해서 캡처하고, 종이를 찍은 사진은 수평을 맞춘 뒤 넣으세요.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

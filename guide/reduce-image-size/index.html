@@ -29,7 +29,7 @@
   "description": "사진 용량이 너무 클 때. 해상도와 압축률의 차이, 리사이즈를 먼저 해야 하는 이유, JPG·PNG·WebP 포맷 선택까지. 화질 손상을 최소화하며 이미지 용량을 줄이는 법을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-09",
-  "dateModified": "2026-06-09",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/reduce-image-size/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -124,6 +124,7 @@
             <li><a href="#compress">2단계: 압축 품질 조절하기</a></li>
             <li><a href="#format">포맷 선택 — JPG·PNG·WebP</a></li>
             <li><a href="#usecase">용도별 권장 설정</a></li>
+            <li><a href="#numbers">같은 사진으로 비교한 두 가지 방법</a></li>
           </ol>
         </div>
 
@@ -180,6 +181,18 @@
           <li><b>블로그 본문:</b> 1,200~1,600px, JPG 또는 WebP 80% — 로딩 속도와 화질의 균형이 좋습니다.</li>
           <li><b>중고거래·게시판:</b> 1,080px, JPG 80% — 대부분의 용량 제한을 통과합니다.</li>
         </ul>
+
+        <h2 id="numbers">같은 사진으로 비교한 두 가지 방법</h2>
+        <p>1920 × 1200 풍경 사진(1.14MB)을 <a class="inlink" href="/image-compressor/">이미지 압축</a> 도구에 넣어, 품질만 낮출 때와 크기를 먼저 줄일 때를 비교했습니다(크롬 기준).</p>
+        <table>
+        <tr><th>방법</th><th>설정</th><th>결과 용량</th><th>절감</th></tr>
+        <tr><td>품질만 낮춤</td><td>폭 1920 · 품질 0.75</td><td>499KB</td><td>57%</td></tr>
+        <tr><td>품질을 더 낮춤</td><td>폭 1920 · 품질 0.4</td><td>276KB</td><td>76%</td></tr>
+        <tr><td>크기 먼저 줄임</td><td>폭 1280 · 품질 0.75</td><td>220KB</td><td>81%</td></tr>
+        <tr><td>크기를 더 줄임</td><td>폭 800 · 품질 0.75</td><td>81KB</td><td>93%</td></tr>
+        <tr><td>최고 품질</td><td>폭 1920 · 품질 1.0</td><td>1.87MB</td><td>원본보다 커짐</td></tr>
+        </table>
+        <p>품질을 0.4까지 깎은 것보다 폭을 1280으로 줄이고 품질 0.75를 유지한 쪽이 더 작았습니다. 화질 열화도 덜 보입니다. 품질 1.0은 이미 압축된 사진을 오히려 키우므로 피하세요. 사진 두 장과 화면 캡처 한 장을 한꺼번에 폭 1280 · 품질 0.5로 압축했을 때는 합계 1.96MB가 244KB가 되었습니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

@@ -29,7 +29,7 @@
   "description": "A4는 210×297mm — 픽셀로는 dpi에 따라 달라집니다. 72·150·300dpi별 A4 픽셀 크기 표, A3·A5·B4 등 용지 규격 체계의 원리, 스캔·과제 제출·인쇄용 이미지를 만들 때 적정 해상도 고르는 법을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/a4-paper-size/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#series">A·B 용지 규격의 원리</a></li>
             <li><a href="#choose">용도별 해상도 선택</a></li>
             <li><a href="#submit">사진을 A4 문서로 제출하기</a></li>
+            <li><a href="#numbers">직접 변환해 본 A4 한 쪽의 크기와 용량</a></li>
           </ol>
         </div>
 
@@ -170,6 +171,16 @@
           <span class="tc-tx"><b>이미지 → PDF</b><span>사진 여러 장을 A4 PDF 한 파일로 — 브라우저에서 바로</span></span>
           <a class="tc-go" href="/image-to-pdf/">변환하기 →</a>
         </div>
+
+        <h2 id="numbers">직접 변환해 본 A4 한 쪽의 크기와 용량</h2>
+        <p>글자 위주의 A4 PDF 한 쪽을 <a class="inlink" href="/pdf-to-image/">PDF → 이미지 변환</a> 도구로 실제 변환한 결과입니다. 해상도 설정이 곧 dpi이고, dpi가 픽셀 수와 용량을 함께 끌어올립니다.</p>
+        <table>
+        <tr><th>해상도 설정</th><th>dpi 환산</th><th>이미지 크기</th><th>JPG(품질 0.9)</th><th>PNG</th></tr>
+        <tr><td>보통 (1배)</td><td>72dpi</td><td>596 × 842</td><td>81.7KB</td><td>78.0KB</td></tr>
+        <tr><td>선명 (1.5배)</td><td>108dpi</td><td>894 × 1263</td><td>143KB</td><td>126KB</td></tr>
+        <tr><td>고해상도 (2배)</td><td>144dpi</td><td>1192 × 1684</td><td>209KB</td><td>217KB</td></tr>
+        </table>
+        <p>화면으로 볼 문서는 100dpi 안팎이면 충분하고, 그때 A4 한 쪽은 100~150KB 수준입니다. 반대로 사진을 PDF로 묶을 때는 픽셀 수가 그대로 페이지 크기가 됩니다. 1920 × 1200 사진을 넣으면 67.7 × 42.3cm짜리 페이지가 만들어져 A4(21 × 29.7cm)보다 훨씬 크므로, 인쇄할 때 "용지에 맞춤"을 골라야 합니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

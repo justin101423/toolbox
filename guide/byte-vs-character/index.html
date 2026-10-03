@@ -29,7 +29,7 @@
   "description": "자기소개서 '3,000바이트 이내', 문자 메시지 90바이트 — 글자 수가 아니라 바이트로 제한하는 곳이 아직 많습니다. 한글 1자가 2바이트 또는 3바이트로 계산되는 이유(EUC-KR vs UTF-8), 제한별 실제 글자 수 환산, 초과를 피하는 요령을 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/byte-vs-character/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#table">제한별 환산표</a></li>
             <li><a href="#where">바이트 제한을 쓰는 곳들</a></li>
             <li><a href="#fit">초과를 피하는 요령</a></li>
+            <li><a href="#numbers">직접 세어 본 글자 수와 바이트</a></li>
           </ol>
         </div>
 
@@ -168,6 +169,19 @@
           <span class="tc-tx"><b>글자수 세기</b><span>공백 포함·제외·바이트(UTF-8)를 실시간으로 함께 표시</span></span>
           <a class="tc-go" href="/word-counter/">세어보기 →</a>
         </div>
+
+        <h2 id="numbers">직접 세어 본 글자 수와 바이트</h2>
+        <p><a class="inlink" href="/word-counter/">글자수 세기</a> 도구에 넣어 본 결과입니다. 바이트는 UTF-8 기준입니다.</p>
+        <table>
+        <tr><th>입력</th><th>글자 수</th><th>바이트</th><th>글자당</th></tr>
+        <tr><td>Hello, World!</td><td>13</td><td>13</td><td>1바이트</td></tr>
+        <tr><td>안녕하세요</td><td>5</td><td>15</td><td>3바이트</td></tr>
+        <tr><td>１２３ (전각 숫자)</td><td>3</td><td>9</td><td>3바이트</td></tr>
+        <tr><td>👍</td><td>1</td><td>4</td><td>4바이트</td></tr>
+        <tr><td>👨‍👩‍👧 (가족 이모지)</td><td>5</td><td>18</td><td>조합 문자</td></tr>
+        <tr><td>한글만 1,000자</td><td>1,000</td><td>3,000</td><td>3바이트</td></tr>
+        </table>
+        <p>영문은 글자 수와 바이트가 같고, 한글은 정확히 3배입니다. 띄어쓰기와 숫자가 섞인 실제 문장은 그 사이로, 자기소개서 한 문단(155자)이 385바이트여서 글자당 약 2.5바이트였습니다. "1,000바이트 이내"라는 제한이면 한글 위주 글로 400자 안팎을 쓸 수 있다는 뜻입니다. 화면에 한 글자로 보이는 이모지가 여러 글자·십여 바이트로 세어지는 점도 제한에 걸리는 흔한 원인입니다.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">

@@ -29,7 +29,7 @@
   "description": "1781049600 같은 숫자가 왜 날짜일까요? 유닉스 타임스탬프의 원리(1970년 기준 초), 10자리·13자리 차이, 한국 시간(KST) 변환과 엑셀 변환 공식까지 정리했습니다.",
   "inLanguage": "ko",
   "datePublished": "2026-06-10",
-  "dateModified": "2026-06-10",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://dogubox.shop/guide/timestamp-conversion/",
   "author": { "@type": "Person", "name": "도구상자 지기", "url": "https://dogubox.shop/about.html" },
   "publisher": { "@type": "Organization", "name": "도구상자", "url": "https://dogubox.shop/" }
@@ -123,6 +123,7 @@
             <li><a href="#digits">10자리 vs 13자리 — 초와 밀리초</a></li>
             <li><a href="#kst">UTC와 한국 시간(KST)의 9시간</a></li>
             <li><a href="#practical">엑셀·코드에서 변환하기</a></li>
+            <li><a href="#numbers">기억해 둘 만한 값과 단위 착각의 결과</a></li>
           </ol>
         </div>
 
@@ -162,6 +163,19 @@
           <li><b>Python:</b> <code>datetime.fromtimestamp(1781049600)</code> — 실행 환경의 시간대로 변환됩니다.</li>
         </ul>
         <p>한두 개만 빠르게 확인할 때는 <a class="inlink" href="/timestamp/">타임스탬프 변환기</a>에 붙여넣는 것이 가장 빠릅니다. 현재 시각의 타임스탬프도 바로 복사할 수 있습니다.</p>
+
+        <h2 id="numbers">기억해 둘 만한 값과 단위 착각의 결과</h2>
+        <p><a class="inlink" href="/timestamp/">타임스탬프 변환</a> 도구에 넣어 얻은 값입니다.</p>
+        <table>
+        <tr><th>타임스탬프(초)</th><th>한국 시간(KST)</th><th>UTC</th></tr>
+        <tr><td>0</td><td>1970-01-01 09:00:00</td><td>1970-01-01 00:00:00</td></tr>
+        <tr><td>1,000,000,000</td><td>2001-09-09 10:46:40</td><td>2001-09-09 01:46:40</td></tr>
+        <tr><td>1,700,000,000</td><td>2023-11-15 07:13:20</td><td>2023-11-14 22:13:20</td></tr>
+        <tr><td>2,000,000,000</td><td>2033-05-18 12:33:20</td><td>2033-05-18 03:33:20</td></tr>
+        <tr><td>2,147,483,647</td><td>2038-01-19 12:14:07</td><td>2038-01-19 03:14:07</td></tr>
+        </table>
+        <p>17억은 한국 시간으로는 15일 아침, UTC로는 14일 밤입니다. 로그의 날짜가 하루 어긋나 보이는 흔한 이유입니다. 마지막 값은 32비트 정수의 최댓값입니다.</p>
+        <p>단위를 잘못 고르면 결과가 극단적으로 틀어집니다. 10자리 값 1700000000을 밀리초로 읽으면 1970년 1월 21일이 나오고, 13자리 값 1700000000000을 초로 읽으면 55840년이 나옵니다. 1970년 근처나 터무니없는 미래가 보이면 단위부터 의심하세요. 또 한국 날짜의 자정은 86,400의 배수가 아닙니다. 2026년 10월 3일 0시(KST)는 1,790,953,200이고, 86,400으로 나누어떨어지는 값은 오전 9시인 1,790,985,600입니다. 타임스탬프를 86,400으로 나눠 날짜별로 묶으면 UTC 날짜로 묶인다는 점을 기억하세요.</p>
 
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">
