@@ -169,6 +169,37 @@
         <p>단위 변환은 단순히 숫자를 곱하는 문제처럼 보이지만, 실제로는 기준 단위를 잘못 잡아 생기는 실수가 많습니다. 길이·무게·넓이·부피는 대부분 기준 단위로 바꾼 뒤 다시 환산하면 되지만, 온도는 기준점이 달라 공식이 따로 필요합니다. 그래서 화씨와 섭씨를 바꿀 때는 단순 비율이 아니라 <b>32도 차이</b>가 반영됩니다.</p>
         <p>부동산 면적처럼 한국에서 자주 쓰는 단위는 법정 단위와 생활 단위가 섞여 있습니다. ㎡와 평을 오갈 때는 대략값으로 암산하기보다 환산값을 확인하는 편이 안전합니다. 자세한 예시는 <a class="inlink" href="/guide/unit-conversion/">단위 변환 가이드</a>와 <a class="inlink" href="/guide/pyeong-conversion/">평↔㎡ 변환 가이드</a>에서 따로 정리했습니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 암산 어림셈은 얼마나 틀릴까</div>
+        <p>흔히 쓰는 암산 요령으로 낸 값과, 이 변환기에 같은 값을 넣어 얻은 값을 나란히 놓았습니다. 어림셈을 믿어도 되는 경우와 아닌 경우가 갈립니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>변환</th><th>암산 요령</th><th>어림값</th><th>변환기 값</th><th>오차</th></tr></thead>
+          <tbody>
+            <tr><td>60 mile → km</td><td>× 1.6</td><td>96</td><td>96.56064</td><td>−0.6%</td></tr>
+            <tr><td>150 lb → kg</td><td>× 0.45</td><td>67.5</td><td>68.038856</td><td>−0.8%</td></tr>
+            <tr><td>65 inch → cm</td><td>× 2.5</td><td>162.5</td><td>165.1</td><td>−1.6%</td></tr>
+            <tr><td>6 feet → cm</td><td>× 30</td><td>180</td><td>182.88</td><td>−1.6%</td></tr>
+            <tr><td>68℉ → ℃</td><td>30 빼고 ÷ 2</td><td>19</td><td>20</td><td>−5.0%</td></tr>
+            <tr><td>10 gallon(US) → L</td><td>× 4</td><td>40</td><td>37.854118</td><td>+5.7%</td></tr>
+            <tr><td>350℉ → ℃</td><td>30 빼고 ÷ 2</td><td>160</td><td>176.666667</td><td>−9.4%</td></tr>
+            <tr><td>150 lb → kg</td><td>÷ 2</td><td>75</td><td>68.038856</td><td>+10.2%</td></tr>
+          </tbody>
+        </table></div>
+        <p>마일·인치·피트는 어림셈이 2% 안쪽으로 맞습니다. 다만 65인치 TV 대각선처럼 치수를 맞춰야 하는 경우에는 2.6cm 차이가 그대로 남습니다. 파운드를 "절반"으로 치면 150lb에서 약 7kg이 부풀고, 화씨의 "30 빼고 2로 나누기"는 일상 기온(50℉에서는 정확히 10℃)에서만 쓸 만하며 오븐 온도 영역에서는 16℃ 넘게 낮게 나옵니다.</p>
+        <p><b>오븐 온도 ℉ → ℃</b> (온도 탭)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>화씨</th><th>변환기 값</th><th>오븐에 맞출 값(반올림)</th></tr></thead>
+          <tbody>
+            <tr><td>300℉</td><td>148.888889℃</td><td>149℃</td></tr>
+            <tr><td>325℉</td><td>162.777778℃</td><td>163℃</td></tr>
+            <tr><td>350℉</td><td>176.666667℃</td><td>177℃</td></tr>
+            <tr><td>375℉</td><td>190.555556℃</td><td>191℃</td></tr>
+            <tr><td>400℉</td><td>204.444444℃</td><td>204℃</td></tr>
+            <tr><td>425℉</td><td>218.333333℃</td><td>218℃</td></tr>
+            <tr><td>450℉</td><td>232.222222℃</td><td>232℃</td></tr>
+          </tbody>
+        </table></div>
+        <p>화씨 25도 간격은 섭씨로 약 13.9도 간격입니다. 반대로 국내 레시피의 180℃는 356℉, 200℃는 392℉에 해당합니다. 변환기는 소수 여섯째 자리까지 보여 주므로 필요한 자리에서 끊어 쓰면 됩니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>부동산 평수 계산:</b> 넓이 탭에서 ㎡와 평을 함께 보여줍니다. 84㎡가 몇 평인지(약 25.4평), 반대로 32평이 몇 ㎡인지 바로 확인할 수 있어 아파트·상가 면적을 비교할 때 편리합니다.</li>
@@ -223,6 +254,7 @@ let cur='길이';
 
 function fmtNum(n){
   if(!Number.isFinite(n))return '';
+  if(n!==0&&Math.abs(n)<1e-6)return String(Number(n.toPrecision(6))); // 아주 작은 값이 0으로 뭉개지지 않게(예: 1KB → TB)
   const r=Math.round(n*1e6)/1e6;
   return String(r);
 }

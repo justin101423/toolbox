@@ -181,6 +181,43 @@
         </ul>
         <p>퇴직 직전 3개월에 야근수당·상여가 몰리면 평균임금이 올라 퇴직금이 늘 수 있습니다. 자세한 조건과 사례는 <a class="inlink" href="/guide/severance-pay-guide/">퇴직금 계산법 가이드</a>를 참고하세요.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 월 300만 원을 받던 사람의 퇴직금</div>
+        <p>아래 숫자는 이 계산기에 <b>1개월 평균 임금 300만 원(세전)</b>을 넣고 조건을 하나씩 바꿔 얻은 값입니다. 따로 적지 않은 한 상여금·연차수당은 0원, 퇴사일은 2026년 7월 1일입니다.</p>
+        <p><b>① 재직 기간만 바꾸면</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>입사일</th><th>재직일수</th><th>예상 퇴직금(세전)</th></tr></thead>
+          <tbody>
+            <tr><td>2025-07-01 (1년)</td><td>365일</td><td>2,967,033원</td></tr>
+            <tr><td>2023-07-01 (3년)</td><td>1,096일</td><td>8,909,228원</td></tr>
+            <tr><td>2021-07-01 (5년)</td><td>1,826일</td><td>14,843,294원</td></tr>
+            <tr><td>2016-07-01 (10년)</td><td>3,652일</td><td>29,686,587원</td></tr>
+            <tr><td>2006-07-01 (20년)</td><td>7,305일</td><td>59,381,304원</td></tr>
+          </tbody>
+        </table></div>
+        <p>딱 1년을 채웠을 때 퇴직금은 월급 300만 원보다 32,967원 적습니다. 퇴직금의 단위가 "한 달 월급"이 아니라 <b>1일 평균임금 30일분</b>이기 때문입니다. 이 경우 퇴직 전 3개월(4·5·6월)이 91일이라 1일 평균임금은 900만 원 ÷ 91일 = 98,901원이고, 그 30일분이 1년치 퇴직금이 됩니다.</p>
+        <p><b>② 퇴사하는 달만 바꾸면</b> (각각 정확히 5년 근무 · 재직일수 1,826일)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>퇴사일</th><th>퇴직 전 3개월 일수</th><th>1일 평균임금</th><th>예상 퇴직금(세전)</th></tr></thead>
+          <tbody>
+            <tr><td>2026-05-01</td><td>89일 (2~4월)</td><td>101,124원</td><td>15,176,851원</td></tr>
+            <tr><td>2026-03-01</td><td>90일 (12~2월)</td><td>100,000원</td><td>15,008,219원</td></tr>
+            <tr><td>2026-07-01</td><td>91일 (4~6월)</td><td>98,901원</td><td>14,843,294원</td></tr>
+            <tr><td>2026-09-01</td><td>92일 (6~8월)</td><td>97,826원</td><td>14,681,954원</td></tr>
+          </tbody>
+        </table></div>
+        <p>월급과 재직 기간이 같아도 직전 3개월에 2월이 끼어 있으면 날수가 줄어 1일 평균임금이 올라갑니다. 5월 1일 퇴사와 9월 1일 퇴사의 차이는 494,897원입니다. 다만 평균임금이 통상임금보다 적으면 통상임금을 기준으로 삼는 보정이 있어, 실제 정산에서는 이 차이가 줄어들 수 있습니다.</p>
+        <p><b>③ 상여금·연차수당을 넣으면</b> (5년 근무 · 퇴사일 2026-07-01)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>연간 상여금</th><th>연차수당</th><th>1일 평균임금</th><th>예상 퇴직금(세전)</th></tr></thead>
+          <tbody>
+            <tr><td>0원</td><td>0원</td><td>98,901원</td><td>14,843,294원</td></tr>
+            <tr><td>300만 원</td><td>0원</td><td>107,143원</td><td>16,080,235원</td></tr>
+            <tr><td>600만 원</td><td>0원</td><td>115,385원</td><td>17,317,176원</td></tr>
+            <tr><td>600만 원</td><td>100만 원</td><td>118,132원</td><td>17,729,490원</td></tr>
+          </tbody>
+        </table></div>
+        <p>연간 상여금 600만 원은 그 3/12인 150만 원만 3개월 임금 총액에 더해지지만, 5년치 퇴직금으로는 2,473,882원을 늘립니다. 월급만 넣고 계산하면 그만큼 적게 나오므로, 정기 상여가 있다면 꼭 함께 입력하세요.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>평균임금이 핵심:</b> 퇴직 전 3개월 임금이 많을수록 퇴직금이 커집니다. 야근수당·상여가 몰린 시기에 퇴직하면 평균임금이 올라갈 수 있습니다.</li>
@@ -235,7 +272,9 @@
     var wage=num($('wage').value), bonus=num($('bonus').value), annual=num($('annual').value);
     var days=Math.round((end-start)/DAY);                       // 재직일수
     // 퇴직 전 3개월 일수
-    var p3start=new Date(end); p3start.setMonth(p3start.getMonth()-3);
+    // 3개월 전에 같은 날짜가 없으면(예: 5/31 → 2/31) 그 달 말일로 맞춘다 — setMonth만 쓰면 3월로 넘어가 일수가 줄어듦
+    var p3start=new Date(end), dom=p3start.getDate(); p3start.setDate(1); p3start.setMonth(p3start.getMonth()-3);
+    p3start.setDate(Math.min(dom,new Date(p3start.getFullYear(),p3start.getMonth()+1,0).getDate()));
     var p3days=Math.round((end-p3start)/DAY);
     var wage3 = wage*3;
     var avgDaily = (wage3 + bonus*3/12 + annual*3/12) / p3days; // 1일 평균임금
