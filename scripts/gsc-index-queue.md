@@ -5,19 +5,19 @@
 > **순서(2026-10-03 재정렬)**: Day 1~3 앞쪽 26개는 구글이 6월에 읽고 "크롤링됨 – 현재 색인이 생성되지 않음"으로 둔 페이지입니다(이후 본문을 보강했으므로 다시 읽게 하는 것이 최우선). 그 뒤는 구글이 아직 읽지 않은 페이지입니다(핵심 → 도구 → 가이드).
 
 ## Day 1
-- [ ] https://dogubox.shop/about.html
-- [ ] https://dogubox.shop/guide/
-- [ ] https://dogubox.shop/salary-calculator/
-- [ ] https://dogubox.shop/age-calculator/
-- [ ] https://dogubox.shop/word-counter/
-- [ ] https://dogubox.shop/pyeong-converter/
-- [ ] https://dogubox.shop/bmi-calculator/
-- [ ] https://dogubox.shop/dday-calculator/
-- [ ] https://dogubox.shop/image-compressor/
-- [ ] https://dogubox.shop/image-resizer/
+- [v] https://dogubox.shop/about.html
+- [v] https://dogubox.shop/guide/
+- [v] https://dogubox.shop/salary-calculator/
+- [v] https://dogubox.shop/age-calculator/
+- [v] https://dogubox.shop/word-counter/
+- [v] https://dogubox.shop/pyeong-converter/
+- [v] https://dogubox.shop/bmi-calculator/
+- [v] https://dogubox.shop/dday-calculator/
+- [v] https://dogubox.shop/image-compressor/
+- [v] https://dogubox.shop/image-resizer/
 
 ## Day 2
-- [ ] https://dogubox.shop/heic-to-jpg/
+- [v] https://dogubox.shop/heic-to-jpg/
 - [ ] https://dogubox.shop/bg-remover/
 - [ ] https://dogubox.shop/image-ocr/
 - [ ] https://dogubox.shop/gif-maker/
