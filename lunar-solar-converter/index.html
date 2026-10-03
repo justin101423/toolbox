@@ -120,7 +120,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.3/lunar.js" integrity="sha384-0PDb2HOQCSag8lTvxcPQbSJ5tRQEwCEcE+Lj6BEfdjpE4qzcepoZZXeAhKLWOoLW" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/korean-lunar-calendar@0.3.6/dist/korean-lunar-calendar.min.js" integrity="sha384-j2B3PtxdEJouApN6GZLZXajab489KytFYmY/gDo6Dp3afstT7oZmYu0YvIik1OoV" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/tool-page.css">
 <link rel="stylesheet" href="/theme.css">
 <script id="theme-init">/* FOUC 방지: 저장된 테마를 본문 렌더 전에 선적용 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
@@ -162,13 +162,13 @@
 
         <div class="field" id="ls-solar-field" style="margin-bottom:0">
           <label for="ls-solar">양력 날짜</label>
-          <input type="date" id="ls-solar" min="1900-01-01" max="2100-12-31" value="2025-10-06">
+          <input type="date" id="ls-solar" min="1900-01-31" max="2050-12-31" value="2025-10-06">
         </div>
 
         <div class="field" id="ls-lunar-field" style="margin-bottom:0;display:none">
           <label>음력 날짜</label>
           <div class="lunar-row">
-            <input type="number" id="ls-ly" placeholder="년" min="1900" max="2100" value="2025">
+            <input type="number" id="ls-ly" placeholder="년" min="1900" max="2050" value="2025">
             <input type="number" id="ls-lm" placeholder="월" min="1" max="12" value="1">
             <input type="number" id="ls-ld" placeholder="일" min="1" max="30" value="1">
           </div>
@@ -181,7 +181,7 @@
           <div class="ls-big" id="ls-big"></div>
           <div class="ls-sub" id="ls-sub"></div>
         </div>
-        <div class="hint" style="margin-top:14px">지원 범위: 1900년 ~ 2100년 (양력 기준). 한국천문연구원(KASI) 기준과 일치하도록 검증했습니다.</div>
+        <div class="hint" style="margin-top:14px">지원 범위: 1900년 ~ 2050년. 한국 음력(한국천문연구원 기준) 데이터로 변환합니다.</div>
         <div class="note" id="ls-note"></div>
       </div>
 
@@ -202,6 +202,42 @@
           <li><b>윤달:</b> 차이를 메우려 2~3년에 한 번 같은 달을 한 번 더 넣습니다.</li>
         </ul>
         <p>그래서 음력 생일은 양력으로 매년 며칠씩 움직입니다. 변환 원리는 <a class="inlink" href="/guide/lunar-solar-conversion/">음력 ↔ 양력 변환 가이드</a>에 정리했습니다.</p>
+
+        <div class="sec-label">숫자로 보는 예시 — 설날·추석·음력 생일의 양력 날짜</div>
+        <p>아래는 이 변환기의 "음력 → 양력"에 날짜를 넣어 얻은 결과입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>연도</th><th>설날 (음력 1월 1일)</th><th>추석 (음력 8월 15일)</th><th>그해의 윤달</th></tr></thead>
+          <tbody>
+            <tr><td>2026년</td><td>2월 17일 (화)</td><td>9월 25일 (금)</td><td>없음</td></tr>
+            <tr><td>2027년</td><td>2월 7일 (일)</td><td>9월 15일 (수)</td><td>없음</td></tr>
+            <tr><td>2028년</td><td>1월 27일 (목)</td><td>10월 3일 (화)</td><td>윤5월</td></tr>
+            <tr><td>2029년</td><td>2월 13일 (화)</td><td>9월 22일 (토)</td><td>없음</td></tr>
+            <tr><td>2030년</td><td>2월 3일 (일)</td><td>9월 12일 (목)</td><td>없음</td></tr>
+          </tbody>
+        </table></div>
+        <p>설날은 1월 27일부터 2월 17일까지, 추석은 9월 12일부터 10월 3일까지 3주 폭 안에서 해마다 옮겨 다닙니다. 이 변환기는 한국 음력 데이터를 쓰므로 결과가 한국 달력과 같습니다. 초하루가 자정 무렵에 걸리는 달은 한국과 중국의 음력 날짜가 하루 어긋나는데, 2027년 설날이 그 예입니다(한국 2월 7일, 중국 춘절 2월 6일). 해외에서 만든 달력 앱의 음력 날짜가 하루 다르게 보인다면 이 때문일 수 있습니다.</p>
+        <p><b>음력 5월 5일이 생일이라면</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>연도</th><th>양력 날짜</th><th>전년보다</th></tr></thead>
+          <tbody>
+            <tr><td>2026년</td><td>6월 19일 (금)</td><td>—</td></tr>
+            <tr><td>2027년</td><td>6월 9일 (수)</td><td>10일 빨라짐</td></tr>
+            <tr><td>2028년</td><td>5월 28일 (일)</td><td>12일 빨라짐</td></tr>
+            <tr><td>2029년</td><td>6월 16일 (토)</td><td>19일 늦어짐</td></tr>
+            <tr><td>2030년</td><td>6월 5일 (수)</td><td>11일 빨라짐</td></tr>
+          </tbody>
+        </table></div>
+        <p>해마다 열흘쯤 앞당겨지다가, 윤달이 낀 해(2028년 윤5월)를 지나면 한꺼번에 19일 늦춰집니다. 다섯 해 사이에 5월 28일부터 6월 19일까지 3주 넘게 움직이므로, 음력 생일은 해마다 다시 변환해 달력에 적어 두어야 합니다.</p>
+        <p><b>평달과 윤달은 꼭 30일 차이</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>음력 날짜</th><th>평달로 변환</th><th>윤달로 변환</th></tr></thead>
+          <tbody>
+            <tr><td>2025년 6월 1일</td><td>2025년 6월 25일</td><td>2025년 7월 25일</td></tr>
+            <tr><td>2028년 5월 10일</td><td>2028년 6월 2일</td><td>2028년 7월 2일</td></tr>
+          </tbody>
+        </table></div>
+        <p>윤달 체크 하나로 양력 날짜가 30일 달라집니다. 윤달이 있는 달을 입력했을 때만 윤달 선택칸이 나타나므로, 칸이 보이면 평달인지 윤달인지 꼭 확인하세요.</p>
+        <p>음력 한 달은 29일 아니면 30일입니다. 2026년은 30일짜리 달이 7번, 29일짜리 달이 5번이라 한 해가 355일이고, 윤달이 든 2025년은 열세 달로 384일이었습니다. 29일까지만 있는 달에 30일을 넣으면(예: 2026년 음력 2월 30일) "해당 날짜가 음력에 없습니다"라고 표시됩니다.</p>
 
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
@@ -243,10 +279,15 @@
 <script>
 const $=id=>document.getElementById(id);
 const WEEK=['일','월','화','수','목','금','토'];
-const SX={'鼠':'쥐','牛':'소','虎':'호랑이','兔':'토끼','龍':'용','蛇':'뱀','馬':'말','羊':'양','猴':'원숭이','雞':'닭','狗':'개','豬':'돼지'};
+// 한국 음력 데이터(korean-lunar-calendar)를 사용한다. 이전의 lunar-javascript는 중국 음력 기준이라
+// 초하루가 한국과 하루 어긋나는 달이 있었다(예: 2027년 설날을 2월 6일로 계산 — 한국은 2월 7일).
+const ZOD=['쥐','소','호랑이','토끼','용','뱀','말','양','원숭이','닭','개','돼지']; // (음력 연도-4)%12
+const Y_MIN=1900, Y_MAX=2050;
 function note(m,k){const n=$('ls-note');n.textContent=m||'';n.className='note'+(m?' show':'')+(k?' '+k:'');}
 function dir(){return document.querySelector('input[name=ls-dir]:checked').value;}
-function libReady(){return typeof Solar!=='undefined'&&typeof Lunar!=='undefined'&&typeof LunarYear!=='undefined';}
+function libReady(){return typeof KoreanLunarCalendar!=='undefined';}
+// 그 해의 윤달(없으면 0): 윤달로 지정해 설정했을 때 실제로 윤달로 인정되는 달을 찾는다
+function leapMonthOf(y){const c=new KoreanLunarCalendar();for(let m=1;m<=12;m++){if(c.setLunarDate(y,m,1,true)&&c.getLunarCalendar().intercalation)return m;}return 0;}
 
 function show(big,sub){$('ls-big').textContent=big;$('ls-sub').textContent=sub||'';$('ls-result').style.display='block';}
 
@@ -254,21 +295,21 @@ function s2l(){
   const v=$('ls-solar').value; if(!v)return;
   const [y,m,d]=v.split('-').map(Number);
   try{
-    const lu=Solar.fromYmd(y,m,d).getLunar();
-    const lm=lu.getMonth();
-    const leap=lm<0;
-    const monthStr=(leap?'윤':'')+Math.abs(lm)+'월';
-    const sx=SX[lu.getYearShengXiao()]||lu.getYearShengXiao();
-    show('음력 '+lu.getYear()+'년 '+monthStr+' '+lu.getDay()+'일',
-         lu.getYearInGanZhi()+'년 · '+sx+'띠');
+    const c=new KoreanLunarCalendar();
+    if(!c.setSolarDate(y,m,d))throw new Error('range');
+    const lu=c.getLunarCalendar();
+    const monthStr=(lu.intercalation?'윤':'')+lu.month+'월';
+    const sx=ZOD[((lu.year-4)%12+12)%12];
+    show('음력 '+lu.year+'년 '+monthStr+' '+lu.day+'일',
+         c.getChineseGapja().year.replace('年','')+'년 · '+sx+'띠');
     note('');
-  }catch(e){note('변환할 수 없는 날짜입니다.','err');$('ls-result').style.display='none';}
+  }catch(e){note('변환할 수 없는 날짜입니다. 1900년 1월 31일 ~ 2050년 12월 31일 사이로 입력하세요.','err');$('ls-result').style.display='none';}
 }
 function updateLeapUI(){
   const y=parseInt($('ls-ly').value), m=parseInt($('ls-lm').value);
   const wrap=$('ls-leapwrap');
-  if(libReady()&&y>=1900&&y<=2100&&m>=1&&m<=12){
-    const lp=LunarYear.fromYear(y).getLeapMonth();
+  if(libReady()&&y>=Y_MIN&&y<=Y_MAX&&m>=1&&m<=12){
+    const lp=leapMonthOf(y);
     if(lp===m){ wrap.style.display='block'; $('ls-leaptext').textContent='윤'+m+'월입니다 (윤달로 변환)'; return; }
   }
   wrap.style.display='none'; $('ls-leap').checked=false;
@@ -276,13 +317,16 @@ function updateLeapUI(){
 function l2s(){
   const y=parseInt($('ls-ly').value), m=parseInt($('ls-lm').value), d=parseInt($('ls-ld').value);
   if(!y||!m||!d){$('ls-result').style.display='none';return;}
-  if(y<1900||y>2100){note('1900~2100년 사이로 입력하세요.','err');$('ls-result').style.display='none';return;}
-  const mm=$('ls-leap').checked?-m:m;
+  if(y<Y_MIN||y>Y_MAX){note('1900~2050년 사이로 입력하세요.','err');$('ls-result').style.display='none';return;}
+  const leap=$('ls-leap').checked;
   try{
-    const sol=Lunar.fromYmd(y,mm,d).getSolar();
-    const w=WEEK[sol.getWeek()];
-    const ms=String(sol.getMonth()).padStart(2,'0'), ds=String(sol.getDay()).padStart(2,'0');
-    show('양력 '+sol.getYear()+'-'+ms+'-'+ds, sol.getYear()+'년 '+sol.getMonth()+'월 '+sol.getDay()+'일 ('+w+'요일)');
+    const c=new KoreanLunarCalendar();
+    // 없는 날짜(예: 29일까지인 달의 30일)나 윤달이 아닌 달을 윤달로 지정하면 오류로 처리
+    if(!c.setLunarDate(y,m,d,leap)||(leap&&!c.getLunarCalendar().intercalation))throw new Error('invalid');
+    const sol=c.getSolarCalendar();
+    const w=WEEK[new Date(Date.UTC(sol.year,sol.month-1,sol.day)).getUTCDay()];
+    const ms=String(sol.month).padStart(2,'0'), ds=String(sol.day).padStart(2,'0');
+    show('양력 '+sol.year+'-'+ms+'-'+ds, sol.year+'년 '+sol.month+'월 '+sol.day+'일 ('+w+'요일)');
     note('');
   }catch(e){note('해당 날짜가 음력에 없습니다. 윤달 여부나 일(1~30)을 확인하세요.','err');$('ls-result').style.display='none';}
 }
