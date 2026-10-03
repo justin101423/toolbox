@@ -372,7 +372,7 @@ toolbox/
   - 완료(2026-10-03, 7차): `color-picker`(RGB·HSL·HEX 칸에 직접 타이핑하면 입력 도중 칸이 덮어써져 값을 끝까지 칠 수 없던 오류 수정), `color-palette`, `gradient-generator`("+ 색 추가"로 넣은 정지점이 100% 뒤에 붙어 화면에 반영되지 않던 오류 — CSS 출력 시 위치순 정렬), `contrast-checker`, `pomodoro`, `signature-maker`, `piano`, `metronome`, `tuner`(센트 계산 내림→반올림)
   - 완료(2026-10-03, 8차 — 이미지·PDF 15종, 실제 파일을 헤드리스 크롬에서 도구에 넣어 측정): `image-converter`·`image-compressor`(★본문·FAQ가 안내하던 "여러 장 한 번에"가 실제로는 첫 파일만 처리되던 것 수정, 압축기는 투명 PNG가 검은 배경으로 저장되던 것을 흰 배경으로), `image-resizer`, `image-crop`, `bg-remover`, `id-photo`(반명함판 설명이 프리셋 3×4cm와 달랐던 문구 수정), `remove-exif`(수정 날짜만 든 파일도 날짜 배지 표시), `heic-to-jpg`, `image-ocr`, `gif-maker`(프레임이 선택 순서가 아니라 로딩 완료 순서로 들어가던 오류 수정), `pdf-merge`, `pdf-split`, `pdf-compressor`, `image-to-pdf`, `pdf-to-image`
   - 완료(2026-10-03, 9차): `lunar-solar-converter`(★라이브러리 교체: lunar-javascript는 중국 음력 기준이라 1900~2050년 중 1,978일(3.6%)이 한국 음력과 달랐음 — 예: 2027년 설날을 2월 6일로 계산. korean-lunar-calendar 0.3.6으로 교체, 지원 범위 1900~2050년으로 조정)
-  - ★FAQ 문구 불일치(미수정 — FAQ는 JSON-LD와 함께 고쳐야 하므로 따로 처리): `unit-converter` FAQ의 "전용 84㎡ ≈ 25.7평"은 실제 25.41평(25.7평은 85㎡), `age-calculator` FAQ의 2월 29일생 설명("3월 1일이 아닌")은 실제 동작(평년에는 3월 1일에 한 살 오름)과 다름. `password-generator` FAQ의 "95^16 ≈ 4.4×10^31"은 실제 문자 풀(헷갈리는 글자 제외 70종) 기준 70^16 ≈ 3.3×10^29와 다름.
+  - FAQ 문구 오류 3건 수정(2026-10-03, 본문·JSON-LD 동시): `unit-converter`(84㎡ ≈ 25.7평 → 25.4평), `age-calculator`(2월 29일생은 평년 3월 1일에 한 살 오름), `password-generator`(95^16 → 실제 문자 풀 70종 기준 70^16 ≈ 3.3×10^29)
   - 남음: `salary-calculator` 1개(색인 대상 도구 58개 중 57개 완료). ★`salary-calculator`는 소득세 근사식이 실제 간이세액표보다 높게 나오는 문제가 있어(월 300만·1인 기준 약 11만 원 vs 표 74,350원), 간이세액표 원본으로 계산을 맞춘 뒤에 예시를 넣을 것.
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
@@ -463,7 +463,7 @@ toolbox/
 | 구글 Search Console | sitemap 125 URL로 축소(2026-10-03) — **Search Console에서 sitemap 재제출 필요** | **`scripts/gsc-index-queue.md` 체크리스트를 하루 10개씩 진행**(색인 대상 125 URL, 요청한 URL은 체크). 색인 추이 주 1회 확인 |
 | **IndexNow (Bing·네이버)** | 키 파일 `/02a6550d208a4969b895c0335b97356b.txt` 배포(2026-07-03), 전체 452 URL 제출 | 새 도구·가이드 추가 시 해당 URL을 api.indexnow.org에 재제출(선택). 키 파일 삭제 금지 |
 | 네이버 서치어드바이저 | 등록 완료 — 소유 확인(홈 head 메타) + sitemap 제출 + 홈·가이드 허브 수집 요청 | 며칠 뒤 "검증 → 사이트 최적화" 리포트 확인 |
-| **본문 글꼴(Pretendard) 미적용 — 미해결** | 전 페이지(453개)의 Pretendard CSS `<link>`에 적힌 SRI 해시(`sha384-uGEvnSEp…`)가 실제 파일 해시(`sha384-ei/b2Mz3F5J8nqTvpKS89CkzDCuD7Cc+/F+OsaPUKItzHgLNKnGq3rjtYq/B7RnO`)와 달라 브라우저가 스타일시트를 차단함 → 본문이 대체 글꼴로 표시됨(2026-10-03 헤드리스 크롬 콘솔에서 확인) | 사용자 결정 필요: 전 페이지 해시 일괄 교체(사이트 전체 글꼴이 바뀌는 변경이라 임의로 하지 않음) |
+| 본문 글꼴(Pretendard) | **해결(2026-10-03)** — Pretendard CSS `<link>`의 SRI 해시가 실제 파일과 달라 전 페이지에서 차단되던 것을 올바른 해시(`sha384-ei/b2Mz3F…`)로 교체(452개 페이지, 헤드리스 크롬에서 글꼴 로드 확인) | ★`privacy.html` 한 곳만 보호 파일이라 옛 해시 그대로 — 사용자 확인 후 같은 해시로 교체. 새 페이지를 만들 때는 기존 페이지의 Pretendard `<link>`를 그대로 복사할 것 |
 | GA4 | 활성화됨 — 측정 ID `G-EQH5P4E001`, `/analytics.js` 한 곳에서 관리 | 데이터 1주 쌓이면 인기 콘텐츠 기반으로 다음 방향 결정 |
 
 ## 10. 향후 작업 (보류 중)
