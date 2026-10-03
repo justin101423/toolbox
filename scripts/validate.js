@@ -4,7 +4,8 @@
  * ---------------------------------------------------------------------------
  * 로컬: `node scripts/validate.js`  /  CI: .github/workflows/validate.yml
  * 도구 추가 때 손으로 하던 점검을 자동화한다:
- *   ① 단일 출처(sidebar.js)의 모든 슬러그가 폴더·홈 카드·sitemap에 다 있는지
+ *   ① 단일 출처(sidebar.js)의 모든 슬러그가 폴더·홈 카드에 다 있는지
+ *      + 색인 정책(scripts/indexed.json)과 sitemap·noindex 메타가 일치하는지
  *   ② 사이드바에 없는 "고아" 도구 폴더가 없는지
  *   ③ 보호 파일 존재 + 모든 도구 페이지에 AdSense 스크립트(404.html은 없어야)
  *   ④ 각 도구 페이지의 JSON-LD 가 유효한 JSON 인지
@@ -38,12 +39,30 @@ for (const f of ["CNAME", "ads.txt", "robots.txt", "privacy.html"]) {
 // ── 슬러그별: 폴더·AdSense·JSON-LD·sitemap·홈 카드 ──────────────────────────
 const indexHtml = exists("index.html") ? read("index.html") : "";
 const sitemap = exists("sitemap.xml") ? read("sitemap.xml") : "";
+
+// 색인 정책(scripts/indexed.json): 색인 대상 ⇔ sitemap 포함 ⇔ noindex 메타 없음
+const policy = JSON.parse(read("scripts/indexed.json"));
+const keepTools = new Set(policy.tools);
+const keepGuides = new Set(policy.guides);
+const NOINDEX = '<meta name="robots" content="noindex,follow">';
+function checkIndexPolicy(name, url, html, indexed) {
+  const inSitemap = sitemap.includes(`<loc>${url}</loc>`);
+  const noindex = html.includes(NOINDEX);
+  if (indexed && (!inSitemap || noindex)) fail(`색인 대상인데 sitemap 누락 또는 noindex: ${name}`);
+  if (!indexed && (inSitemap || !noindex)) fail(`색인 제외인데 sitemap 포함 또는 noindex 없음: ${name} (apply-index-policy.js 실행)`);
+}
+for (const g of fs.readdirSync(path.join(ROOT, "guide"), { withFileTypes: true })) {
+  if (!g.isDirectory() || !exists(`guide/${g.name}/index.html`)) continue;
+  checkIndexPolicy(`guide/${g.name}`, `https://dogubox.shop/guide/${g.name}/`, read(`guide/${g.name}/index.html`), keepGuides.has(g.name));
+}
+passed++;
+
 for (const slug of slugs) {
   const page = `${slug}/index.html`;
   if (!exists(page)) { fail(`도구 폴더 누락: ${page}`); continue; }
   const html = read(page);
   if (!html.includes(ADS)) fail(`AdSense 스크립트 없음: ${page}`);
-  if (!sitemap.includes(`https://dogubox.shop/${slug}/`)) fail(`sitemap에 없음: ${slug}`);
+  checkIndexPolicy(slug, `https://dogubox.shop/${slug}/`, html, keepTools.has(slug));
   if (!indexHtml.includes(`href="/${slug}/"`)) fail(`홈 허브 카드 없음: ${slug}`);
   for (const ld of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try { JSON.parse(ld[1]); } catch (e) { fail(`JSON-LD 파싱 실패: ${page}`); break; }

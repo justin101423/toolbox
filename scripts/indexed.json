@@ -1,0 +1,54 @@
+{
+  "_comment": "검색 색인 대상(단일 출처). 여기 없는 도구·가이드는 noindex,follow + sitemap 제외. 변경 후 `node scripts/apply-index-policy.js` 실행.",
+  "tools": [
+    "image-converter", "image-compressor", "image-resizer", "image-crop", "bg-remover",
+    "id-photo", "remove-exif", "heic-to-jpg", "image-ocr", "gif-maker",
+    "pdf-merge", "pdf-split", "pdf-compressor", "image-to-pdf", "pdf-to-image",
+
+    "word-counter", "clean-text", "text-diff", "qr-code", "qr-reader",
+    "password-generator", "json-formatter",
+
+    "calculator", "unit-converter", "pyeong-converter", "age-calculator", "dday-calculator",
+    "lunar-solar-converter", "bmi-calculator",
+
+    "salary-calculator", "wage-calculator", "unemployment-benefit", "severance-pay",
+    "loan-calculator", "savings-calculator", "dsr-calculator", "jeonse-conversion",
+    "compound-interest", "brokerage-fee", "vat-calculator",
+
+    "pomodoro", "annual-leave", "signature-maker",
+
+    "color-picker", "color-palette", "gradient-generator", "contrast-checker",
+
+    "encoder-decoder", "hash-generator", "jwt-decoder", "timestamp", "cron-parser",
+    "regex-tester", "json-yaml", "csv-json",
+
+    "piano", "metronome", "tuner"
+  ],
+  "guides": [
+    "a4-paper-size", "aspect-ratio", "heic-to-jpg-guide", "id-photo-size", "image-formats",
+    "messenger-photo-quality", "photo-print-size", "reduce-image-size", "remove-photo-location",
+    "extract-text-from-image", "make-gif",
+    "compress-pdf", "merge-split-pdf", "photos-to-pdf",
+
+    "byte-vs-character", "self-intro-character-count", "text-comparison", "broken-text-encoding",
+    "make-qr-code", "qr-not-scanning", "wifi-qr-code", "strong-password", "what-is-passkey",
+    "json-basics", "json-vs-yaml",
+
+    "age-calculation", "legal-ages", "dday-calculation", "lunar-solar-conversion",
+    "leap-year-month", "solar-terms-24", "pyeong-conversion", "apartment-area-types",
+    "unit-conversion", "bmi-calculation",
+
+    "take-home-pay", "wage-calculation", "unemployment-benefit-guide", "severance-pay-guide",
+    "loan-repayment-methods", "savings-interest", "compound-effect", "dsr-dti-guide",
+    "jeonse-monthly-conversion", "what-is-vat",
+
+    "pomodoro-technique", "annual-leave-guide", "electronic-signature",
+
+    "hex-rgb-color-codes", "color-scheme-basics", "css-gradient", "color-contrast-accessibility",
+
+    "base64-encoding", "what-is-hash", "what-is-jwt", "timestamp-conversion", "cron-expression",
+    "regex-basics", "csv-excel-encoding",
+
+    "piano-keys", "metronome-practice", "guitar-tuning"
+  ]
+}
