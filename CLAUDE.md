@@ -368,8 +368,9 @@ toolbox/
   - 완료(2026-10-03, 3차): `age-calculator`(총 일수를 내림→반올림으로 수정 — 1954~1961년 출생은 당시 표준시 차이로 하루 적게 나오던 오류), `bmi-calculator`(구간 판정을 화면에 보이는 소수 첫째 자리 값 기준으로 통일 — 23.0인데 '정상'으로 뜨던 불일치), `unit-converter`(1e-6 미만 값이 0으로 표시되던 것을 유효숫자 표기로 수정), `severance-pay`(퇴사일이 29~31일일 때 3개월 전 날짜가 다음 달로 넘어가 일수가 줄던 오류 — 말일로 보정)
   - 완료(2026-10-03, 4차): `dday-calculator`(기본 "오늘"이 UTC 기준이라 오전 9시 전에는 어제로 잡히던 오류·결과 날짜 표시를 시간대와 무관하게 수정), `wage-calculator`, `unemployment-benefit`, `brokerage-fee`, `annual-leave`, `calculator`(-2^2가 4로 나오던 것을 -4로 — 단항 마이너스 우선순위 수정, DEG tan(90) 정의되지 않음 처리, 1e15 이상 큰 수가 Infinity로 표시되던 오류 수정)
   - 완료(2026-10-03, 5차): `timestamp`, `cron-parser`, `hash-generator`, `encoder-decoder`(Base64 디코딩이 URL-safe 형식·줄바꿈 섞인 입력도 받도록 수정), `jwt-decoder`("Bearer " 접두어 자동 제거), `regex-tester`, `json-yaml`, `csv-json`(JSON→CSV에서 첫 객체에 없는 키가 누락되던 오류·객체 하나만 넣으면 빈 결과가 나오던 오류·중첩 값이 [object Object]로 나오던 것 수정, CSV 다운로드에 UTF-8 BOM 추가)
-  - ★FAQ 문구 불일치(미수정 — FAQ는 JSON-LD와 함께 고쳐야 하므로 따로 처리): `unit-converter` FAQ의 "전용 84㎡ ≈ 25.7평"은 실제 25.41평(25.7평은 85㎡), `age-calculator` FAQ의 2월 29일생 설명("3월 1일이 아닌")은 실제 동작(평년에는 3월 1일에 한 살 오름)과 다름.
-  - 남음: 나머지 색인 대상 도구 33개. ★`salary-calculator`는 소득세 근사식이 실제 간이세액표보다 높게 나오는 문제가 있어(월 300만·1인 기준 약 11만 원 vs 표 74,350원), 간이세액표 원본으로 계산을 맞춘 뒤에 예시를 넣을 것.
+  - 완료(2026-10-03, 6차): `word-counter`, `clean-text`(특수 공백 옵션이 폭 없는 문자를 공백으로 바꾸던 것을 삭제로 수정), `password-generator`, `json-formatter`, `text-diff`, `qr-code`(★라이브러리 교체: qrcodejs 1.0.0은 한글 뒤에 영문·숫자가 오면 내용이 깨지거나 생성 실패 + 한글 내용 앞에 BOM이 붙던 결함 → qrcode-generator 1.4.4로 교체, 캔버스에 직접 그려 흰 여백 4칸 포함 PNG 저장, 사용법 문구를 실제 동작에 맞게 수정), `qr-reader`
+  - ★FAQ 문구 불일치(미수정 — FAQ는 JSON-LD와 함께 고쳐야 하므로 따로 처리): `unit-converter` FAQ의 "전용 84㎡ ≈ 25.7평"은 실제 25.41평(25.7평은 85㎡), `age-calculator` FAQ의 2월 29일생 설명("3월 1일이 아닌")은 실제 동작(평년에는 3월 1일에 한 살 오름)과 다름. `password-generator` FAQ의 "95^16 ≈ 4.4×10^31"은 실제 문자 풀(헷갈리는 글자 제외 70종) 기준 70^16 ≈ 3.3×10^29와 다름.
+  - 남음: 나머지 색인 대상 도구 26개. ★`salary-calculator`는 소득세 근사식이 실제 간이세액표보다 높게 나오는 문제가 있어(월 300만·1인 기준 약 11만 원 vs 표 74,350원), 간이세액표 원본으로 계산을 맞춘 뒤에 예시를 넣을 것.
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 
@@ -380,7 +381,7 @@ toolbox/
 - 고유 `<title>` 과 `<meta name="description">` (도구별로 다르게, SEO용)
 - **Google AdSense 스크립트** (`adsbygoogle.js?client=ca-pub-6448118773813567`) — 제거 금지
 - 폰트: Google Fonts(`Bricolage Grotesque`, `JetBrains Mono`) + Pretendard CDN
-- 그 도구에 필요한 외부 라이브러리만 추가 (예: `qr-code`는 qrcodejs, PDF 도구는 pdf-lib 등). 불필요한 라이브러리는 넣지 않음
+- 그 도구에 필요한 외부 라이브러리만 추가 (예: `qr-code`는 qrcode-generator, PDF 도구는 pdf-lib 등). 불필요한 라이브러리는 넣지 않음
 - **스타일**: 두 가지 패턴이 공존합니다 —
   - (최신) 외부 `<link rel="stylesheet" href="/tool-page.css">` 참조 (예: `clean-text`, `word-counter`)
   - (기존) 동일한 CSS를 페이지 내 `<style>`로 인라인 (예: `qr-code`)

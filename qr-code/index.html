@@ -120,7 +120,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" integrity="sha384-uGEvnSEpW2nM9xJFsrxrwakwrk9QdDTQIBJh0hVMu90OaVyMAMpAK1rIn0/Kh1/k" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha384-3zSEDfvllQohrq0PHL1fOXJuC/jSOO34H46t6UQfobFOmxE5BpjjaIJY5F2/bMnU" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" integrity="sha384-mZT2gIty7ZDdOGkxfP6joZcYdMW1Jvj9dRlfpTmaJAKKXTqzygtB22k7FLe+KZC1" crossorigin="anonymous"></script>
 <style>
 :root{--paper:#F3EEE3;--panel:#EBE4D5;--card:#FBF8F1;--ink:#1b1a1e;--ink-2:#54504a;--ink-3:#867f73;--accent:#df4324;--accent-2:#bf3417;--line:rgba(27,26,30,.14);--line-2:rgba(27,26,30,.30);--ok:#2e7d4f;--err:#c0392b;--r:12px;--r-sm:8px;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;--kr:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;--disp:'Bricolage Grotesque',var(--kr);}
 *{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:100%}
@@ -194,15 +194,45 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         <div class="sec-label">사용법</div>
         <ol class="steps-list">
           <li>입력창에 QR코드에 담을 URL, 텍스트, 전화번호 등을 입력합니다.</li>
-          <li>입력 즉시 QR코드 미리보기가 실시간으로 표시됩니다.</li>
-          <li>QR코드 크기나 색상 등 옵션을 조정합니다.</li>
-          <li>"PNG 저장" 버튼을 클릭해 고해상도 QR코드 이미지를 다운로드합니다.</li>
+          <li>"QR 생성" 버튼을 누르거나 Enter 키를 치면 아래에 QR코드가 표시됩니다.</li>
+          <li>내용을 고쳤다면 "QR 생성"을 다시 눌러 새 코드로 바꿉니다.</li>
+          <li>"PNG 다운로드" 버튼을 클릭해 둘레 흰 여백이 포함된 QR코드 이미지를 저장합니다.</li>
           <li>인쇄물, 프레젠테이션, 명함 등에 삽입해 사용합니다.</li>
         </ol>
 
         <div class="sec-label">정적 QR과 동적 QR, 무엇을 쓸까</div>
         <p>이 도구가 만드는 것은 입력한 주소를 코드에 그대로 담는 <b>정적 QR코드</b>입니다. 한 번 만들면 영구히 무료로 쓸 수 있고 스캔 횟수 제한도 없습니다. 반면 일부 업체가 파는 <b>동적 QR코드</b>는 코드는 그대로 두고 연결 링크만 나중에 바꿀 수 있다는 장점이 있지만, 보통 월 구독료가 붙고 업체 서비스가 중단되면 코드가 죽을 위험이 있습니다.</p>
         <p>메뉴판이나 명함처럼 연결 주소가 거의 바뀌지 않는 용도라면 정적 QR로 충분합니다. 링크가 바뀌지 않도록, QR이 가리키는 페이지를 고정 주소로 만들어 두는 것이 핵심입니다. 인쇄·활용 시 주의점은 <a class="inlink" href="/guide/make-qr-code/">QR코드 만들기 가이드</a>에서 더 자세히 다룹니다.</p>
+
+        <div class="sec-label">숫자로 보는 예시 — 내용이 길어지면 칸이 얼마나 촘촘해질까</div>
+        <p>아래는 이 도구로 실제 생성한 QR코드의 크기입니다. QR코드는 내용의 바이트 수에 따라 "버전"이 올라가고, 버전이 오를 때마다 한 변의 칸 수가 4칸씩 늘어납니다. 인쇄 크기는 PNG에 포함된 둘레 흰 여백(4칸씩)까지 합친 한 변 기준입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>내용</th><th>바이트</th><th>버전 (칸 수)</th><th>2cm로 인쇄 시 1칸</th><th>3cm로 인쇄 시 1칸</th></tr></thead>
+          <tbody>
+            <tr><td>https://dogubox.shop</td><td>20</td><td>2 (25×25)</td><td>0.61mm</td><td>0.91mm</td></tr>
+            <tr><td>https://dogubox.shop/qr-code/</td><td>29</td><td>3 (29×29)</td><td>0.54mm</td><td>0.81mm</td></tr>
+            <tr><td>WIFI:S:우리집;T:WPA;P:pass1234;;</td><td>35</td><td>3 (29×29)</td><td>0.54mm</td><td>0.81mm</td></tr>
+            <tr><td>UTM 파라미터 3개가 붙은 주소 (99자)</td><td>99</td><td>6 (41×41)</td><td>0.41mm</td><td>0.61mm</td></tr>
+            <tr><td>한글 이름이 든 명함(vCard, 125자)</td><td>145</td><td>8 (49×49)</td><td>0.35mm</td><td>0.53mm</td></tr>
+            <tr><td>한글 100자</td><td>300</td><td>13 (69×69)</td><td>0.26mm</td><td>0.39mm</td></tr>
+          </tbody>
+        </table></div>
+        <p>같은 주소라도 추적용 파라미터를 붙여 29바이트가 99바이트가 되면 버전이 3에서 6으로 올라가고, 2cm로 인쇄했을 때 한 칸이 0.54mm에서 0.41mm로 작아집니다. 칸이 작을수록 카메라를 더 가까이 대야 읽히므로, 내용이 길면 인쇄 크기도 함께 키워야 합니다. 한 칸 크기를 그대로 유지하려면 버전 3 코드를 2cm로 찍던 것을 버전 6에서는 약 2.6cm로 키워야 합니다.</p>
+        <p><b>바이트 수와 버전의 경계</b> (이 도구가 쓰는 오류 복원 수준 M 기준)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>내용의 바이트 수</th><th>버전</th><th>칸 수</th></tr></thead>
+          <tbody>
+            <tr><td>1 ~ 14</td><td>1</td><td>21×21</td></tr>
+            <tr><td>15 ~ 26</td><td>2</td><td>25×25</td></tr>
+            <tr><td>27 ~ 42</td><td>3</td><td>29×29</td></tr>
+            <tr><td>43 ~ 62</td><td>4</td><td>33×33</td></tr>
+            <tr><td>63 ~ 84</td><td>5</td><td>37×37</td></tr>
+            <tr><td>85 ~ 106</td><td>6</td><td>41×41</td></tr>
+            <tr><td>107 ~ 122</td><td>7</td><td>45×45</td></tr>
+          </tbody>
+        </table></div>
+        <p>영문·숫자·기호는 1글자가 1바이트, 한글은 1글자가 3바이트입니다. 한글 5글자면 벌써 15바이트로 버전 2가 됩니다. 담을 수 있는 최대치는 2,331바이트(영문 2,331자 또는 한글 777자)이고, 이를 넘기면 "내용이 너무 길어 QR코드로 만들 수 없습니다"라고 표시됩니다. 다만 그 정도 길이면 177×177칸이 되어 실제로 스캔하기는 어렵습니다.</p>
+        <p>저장되는 PNG는 한 변이 약 560~640픽셀이며 둘레에 4칸 너비의 흰 여백이 들어 있습니다. 인쇄물에 넣을 때 이 여백을 잘라 내지 마세요.</p>
 
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
@@ -246,15 +276,37 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
 
 <script>
 const $=id=>document.getElementById(id);
-(()=>{let qr=null;
+// 이전 라이브러리(qrcodejs 1.0.0)는 한글 뒤에 영문·숫자가 오면 내용이 깨지거나 생성에 실패해 qrcode-generator로 교체.
+// 한글은 UTF-8 바이트로 넣고, 캔버스에 직접 그려 흰 여백(4칸)까지 PNG에 포함한다.
+(()=>{
+  const QUIET=4;      // 코드 둘레 흰 여백(칸)
+  const TARGET=640;   // 저장 이미지의 대략적인 한 변(px)
+  function makeQr(text){
+    qrcode.stringToBytes=qrcode.stringToBytesFuncs['UTF-8'];
+    const q=qrcode(0,'M'); // 버전 자동, 오류 복원 M
+    q.addData(text,'Byte'); q.make(); return q;
+  }
+  function draw(q){
+    const n=q.getModuleCount(), total=n+QUIET*2, cell=Math.max(2,Math.floor(TARGET/total));
+    const cv=document.createElement('canvas'); cv.width=cv.height=total*cell;
+    const ctx=cv.getContext('2d');
+    ctx.fillStyle='#fff'; ctx.fillRect(0,0,cv.width,cv.height);
+    ctx.fillStyle='#000';
+    for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))ctx.fillRect((c+QUIET)*cell,(r+QUIET)*cell,cell,cell);
+    cv.style.width='220px'; cv.style.height='220px'; cv.style.imageRendering='pixelated';
+    return cv;
+  }
   $('qr-go').onclick=()=>{const v=$('qr-in').value.trim();if(!v)return;
-    if(typeof QRCode==='undefined'){$('qr-out').textContent='QR 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';return;}
-    $('qr-out').innerHTML='';qr=new QRCode($('qr-out'),{text:v,width:200,height:200,correctLevel:QRCode.CorrectLevel.M});
-    setTimeout(()=>$('qr-dl').style.display='inline-flex',150);};
+    const out=$('qr-out');
+    if(typeof qrcode==='undefined'){out.textContent='QR 라이브러리를 불러오지 못했습니다. 네트워크 연결을 확인하고 새로고침해 주세요.';return;}
+    out.innerHTML='';
+    let q;
+    try{q=makeQr(v);}catch(e){out.textContent='내용이 너무 길어 QR코드로 만들 수 없습니다. 내용을 줄여 주세요.';$('qr-dl').style.display='none';return;}
+    out.appendChild(draw(q));
+    $('qr-dl').style.display='inline-flex';};
   $('qr-in').addEventListener('keydown',e=>{if(e.key==='Enter')$('qr-go').click();});
-  $('qr-dl').onclick=()=>{const cv=$('qr-out').querySelector('canvas');const im=$('qr-out').querySelector('img');
-    const src=cv?cv.toDataURL('image/png'):(im?im.src:null);if(!src)return;
-    const a=document.createElement('a');a.href=src;a.download='qrcode.png';a.click();};
+  $('qr-dl').onclick=()=>{const cv=$('qr-out').querySelector('canvas');if(!cv)return;
+    const a=document.createElement('a');a.href=cv.toDataURL('image/png');a.download='qrcode.png';a.click();};
 })();
 </script>
 </html>
