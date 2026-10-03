@@ -366,8 +366,9 @@ toolbox/
   - 완료(2026-10-03): `loan-calculator`, `savings-calculator`(적금 월복리 계산을 매달 초 납입 기준으로 수정 — 이전엔 단리보다 이자가 적게 나오는 오류), `compound-interest`
   - 완료(2026-10-03, 2차): `vat-calculator`, `pyeong-converter`, `jeonse-conversion`, `dsr-calculator`
   - 완료(2026-10-03, 3차): `age-calculator`(총 일수를 내림→반올림으로 수정 — 1954~1961년 출생은 당시 표준시 차이로 하루 적게 나오던 오류), `bmi-calculator`(구간 판정을 화면에 보이는 소수 첫째 자리 값 기준으로 통일 — 23.0인데 '정상'으로 뜨던 불일치), `unit-converter`(1e-6 미만 값이 0으로 표시되던 것을 유효숫자 표기로 수정), `severance-pay`(퇴사일이 29~31일일 때 3개월 전 날짜가 다음 달로 넘어가 일수가 줄던 오류 — 말일로 보정)
+  - 완료(2026-10-03, 4차): `dday-calculator`(기본 "오늘"이 UTC 기준이라 오전 9시 전에는 어제로 잡히던 오류·결과 날짜 표시를 시간대와 무관하게 수정), `wage-calculator`, `unemployment-benefit`, `brokerage-fee`, `annual-leave`, `calculator`(-2^2가 4로 나오던 것을 -4로 — 단항 마이너스 우선순위 수정, DEG tan(90) 정의되지 않음 처리, 1e15 이상 큰 수가 Infinity로 표시되던 오류 수정)
   - ★FAQ 문구 불일치(미수정 — FAQ는 JSON-LD와 함께 고쳐야 하므로 따로 처리): `unit-converter` FAQ의 "전용 84㎡ ≈ 25.7평"은 실제 25.41평(25.7평은 85㎡), `age-calculator` FAQ의 2월 29일생 설명("3월 1일이 아닌")은 실제 동작(평년에는 3월 1일에 한 살 오름)과 다름.
-  - 남음: 나머지 색인 대상 도구 47개. ★`salary-calculator`는 소득세 근사식이 실제 간이세액표보다 높게 나오는 문제가 있어(월 300만·1인 기준 약 11만 원 vs 표 74,350원), 간이세액표 원본으로 계산을 맞춘 뒤에 예시를 넣을 것.
+  - 남음: 나머지 색인 대상 도구 41개. ★`salary-calculator`는 소득세 근사식이 실제 간이세액표보다 높게 나오는 문제가 있어(월 300만·1인 기준 약 11만 원 vs 표 74,350원), 간이세액표 원본으로 계산을 맞춘 뒤에 예시를 넣을 것.
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
 

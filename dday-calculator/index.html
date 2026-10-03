@@ -224,6 +224,48 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
         </ul>
         <p>한편 100일·1주년 같은 기념일은 보통 <b>시작일을 1일째로</b> 세기 때문에 단순 경과 일수와 하루 차이가 납니다. 시작일을 1일로 세는 계산은 기념일 계산기를 쓰는 것이 정확합니다.</p>
 
+        <div class="sec-label">숫자로 보는 예시 — 2026년 10월 3일을 기준 날짜로</div>
+        <p>아래는 이 계산기의 기준 날짜를 <b>2026년 10월 3일</b>로 두고 목표 날짜만 바꿔 얻은 결과입니다.</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>목표 날짜</th><th>결과</th></tr></thead>
+          <tbody>
+            <tr><td>2026-10-31</td><td>D-28</td></tr>
+            <tr><td>2026-12-25</td><td>D-83</td></tr>
+            <tr><td>2026-12-31</td><td>D-89</td></tr>
+            <tr><td>2027-01-01</td><td>D-90</td></tr>
+            <tr><td>2027-10-03 (1년 뒤)</td><td>D-365</td></tr>
+            <tr><td>2028-10-03 (2년 뒤)</td><td>D-731</td></tr>
+            <tr><td>2026-01-01</td><td>D+275</td></tr>
+            <tr><td>2024-10-03 (2년 전)</td><td>D+730</td></tr>
+          </tbody>
+        </table></div>
+        <p>같은 "2년"인데 앞으로는 731일, 뒤로는 730일입니다. 2028년 2월 29일이 앞쪽 구간에만 들어 있기 때문입니다. 연 단위를 일수로 바꿀 때 365를 곱해 어림하면 이렇게 하루씩 어긋납니다.</p>
+        <p><b>"90일 뒤"와 "3개월 뒤"는 같은 날이 아닙니다</b></p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>시작 날짜</th><th>+90일 (날짜 더하기)</th><th>3개월 뒤 같은 날까지 (D-Day 계산)</th></tr></thead>
+          <tbody>
+            <tr><td>2026-12-01</td><td>2027-03-01</td><td>2027-03-01까지 90일</td></tr>
+            <tr><td>2027-03-01</td><td>2027-05-30</td><td>2027-06-01까지 92일</td></tr>
+            <tr><td>2027-06-01</td><td>2027-08-30</td><td>2027-09-01까지 92일</td></tr>
+            <tr><td>2027-12-01</td><td>2028-02-29</td><td>2028-03-01까지 91일</td></tr>
+          </tbody>
+        </table></div>
+        <p>3개월의 길이는 어느 달이 끼느냐에 따라 달라집니다. 2월이 든 구간이 짧고(표의 첫 줄은 90일, 마지막 줄은 2028년이 윤년이라 91일), 2월이 없는 구간은 91~92일입니다. 1월 31일에 30일을 더하면 2월을 건너뛰어 3월 2일이 되는 것도 같은 이유입니다. 계약서나 안내문에 "90일"이라고 적혀 있으면 날짜 더하기로, "3개월"이라고 적혀 있으면 달력의 같은 날짜로 확인하세요.</p>
+        <p><b>날짜 더하기·빼기</b> (시작 날짜 2026-10-03)</p>
+        <div class="ex-wrap"><table class="ex-table">
+          <thead><tr><th>일수</th><th>결과 날짜</th></tr></thead>
+          <tbody>
+            <tr><td>+7</td><td>2026-10-10</td></tr>
+            <tr><td>+14</td><td>2026-10-17</td></tr>
+            <tr><td>+30</td><td>2026-11-02</td></tr>
+            <tr><td>+100</td><td>2027-01-11</td></tr>
+            <tr><td>+180</td><td>2027-04-01</td></tr>
+            <tr><td>+1000</td><td>2029-06-29</td></tr>
+            <tr><td>−100</td><td>2026-06-25</td></tr>
+          </tbody>
+        </table></div>
+        <p>7의 배수를 더하면 요일이 그대로입니다. +7과 +14는 시작일과 같은 토요일이므로, 마감일이 주말에 걸리는지 미리 가늠할 수 있습니다.</p>
+
         <div class="sec-label">활용 팁</div>
         <ul class="tips-list">
           <li><b>시험·공모전 준비:</b> 수능, 공무원 시험, 자격증 접수 마감일을 목표 날짜로 설정하면 매일 남은 일수를 바로 확인할 수 있습니다. 오늘이 D-1이라면 내일이 시험 날임을 잊지 마세요.</li>
@@ -265,12 +307,14 @@ footer .spacer{flex:1}footer a{color:var(--ink-2);border-bottom:1px solid var(--
 
 <script>
 (()=>{
-  const today=()=>{const d=new Date();return d.toISOString().slice(0,10);};
+  function pad(n){return String(n).padStart(2,'0')}
+  // 오늘 날짜는 사용자 현지 기준(toISOString은 UTC라 한국에서 오전 9시 전에는 어제 날짜가 됨)
+  const today=()=>{const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;};
   document.getElementById('dd-from').value=today();
   document.getElementById('da-from').value=today();
 
-  function pad(n){return String(n).padStart(2,'0')}
-  function fmt(d){return `${d.getFullYear()}년 ${pad(d.getMonth()+1)}월 ${pad(d.getDate())}일`}
+  // 입력 날짜는 UTC 자정으로 해석되므로 표시도 UTC 기준으로(시간대와 무관하게 같은 날짜)
+  function fmt(d){return `${d.getUTCFullYear()}년 ${pad(d.getUTCMonth()+1)}월 ${pad(d.getUTCDate())}일`}
   function daysBetween(a,b){return Math.round((b-a)/86400000)}
 
   document.getElementById('dd-calc').onclick=()=>{
