@@ -18,18 +18,18 @@
 
 ## Day 2
 - [v] https://dogubox.shop/heic-to-jpg/
-- [ ] https://dogubox.shop/bg-remover/
-- [ ] https://dogubox.shop/image-ocr/
-- [ ] https://dogubox.shop/gif-maker/
-- [ ] https://dogubox.shop/qr-reader/
-- [ ] https://dogubox.shop/json-formatter/
-- [ ] https://dogubox.shop/json-yaml/
-- [ ] https://dogubox.shop/cron-parser/
-- [ ] https://dogubox.shop/signature-maker/
-- [ ] https://dogubox.shop/pomodoro/
+- [v] https://dogubox.shop/bg-remover/
+- [v] https://dogubox.shop/image-ocr/
+- [v] https://dogubox.shop/gif-maker/
+- [v] https://dogubox.shop/qr-reader/
+- [v] https://dogubox.shop/json-formatter/
+- [v] https://dogubox.shop/json-yaml/
+- [v] https://dogubox.shop/cron-parser/
+- [v] https://dogubox.shop/signature-maker/
+- [v] https://dogubox.shop/pomodoro/
 
 ## Day 3
-- [ ] https://dogubox.shop/piano/
+- [v] https://dogubox.shop/piano/
 - [ ] https://dogubox.shop/metronome/
 - [ ] https://dogubox.shop/tuner/
 - [ ] https://dogubox.shop/guide/strong-password/
