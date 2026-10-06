@@ -30,21 +30,21 @@
 
 ## Day 3
 - [v] https://dogubox.shop/piano/
-- [ ] https://dogubox.shop/metronome/
-- [ ] https://dogubox.shop/tuner/
-- [ ] https://dogubox.shop/guide/strong-password/
-- [ ] https://dogubox.shop/guide/csv-excel-encoding/
-- [ ] https://dogubox.shop/guide/apartment-area-types/
-- [ ] https://dogubox.shop/
-- [ ] https://dogubox.shop/privacy.html
-- [ ] https://dogubox.shop/terms.html
-- [ ] https://dogubox.shop/image-converter/
+- [v] https://dogubox.shop/metronome/
+- [v] https://dogubox.shop/tuner/
+- [v] https://dogubox.shop/guide/strong-password/
+- [v] https://dogubox.shop/guide/csv-excel-encoding/
+- [v] https://dogubox.shop/guide/apartment-area-types/
+- [v] https://dogubox.shop/
+- [v] https://dogubox.shop/privacy.html
+- [v] https://dogubox.shop/terms.html
+- [v] https://dogubox.shop/image-converter/
 
 ## Day 4
-- [ ] https://dogubox.shop/image-crop/
-- [ ] https://dogubox.shop/id-photo/
-- [ ] https://dogubox.shop/remove-exif/
-- [ ] https://dogubox.shop/pdf-merge/
+- [v] https://dogubox.shop/image-crop/
+- [v] https://dogubox.shop/id-photo/
+- [v] https://dogubox.shop/remove-exif/
+- [v] https://dogubox.shop/pdf-merge/
 - [ ] https://dogubox.shop/pdf-split/
 - [ ] https://dogubox.shop/pdf-compressor/
 - [ ] https://dogubox.shop/image-to-pdf/
