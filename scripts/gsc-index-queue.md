@@ -45,19 +45,19 @@
 - [v] https://dogubox.shop/id-photo/
 - [v] https://dogubox.shop/remove-exif/
 - [v] https://dogubox.shop/pdf-merge/
-- [ ] https://dogubox.shop/pdf-split/
-- [ ] https://dogubox.shop/pdf-compressor/
-- [ ] https://dogubox.shop/image-to-pdf/
-- [ ] https://dogubox.shop/pdf-to-image/
-- [ ] https://dogubox.shop/clean-text/
-- [ ] https://dogubox.shop/text-diff/
+- [v] https://dogubox.shop/pdf-split/
+- [v] https://dogubox.shop/pdf-compressor/
+- [v] https://dogubox.shop/image-to-pdf/
+- [v] https://dogubox.shop/pdf-to-image/
+- [v] https://dogubox.shop/clean-text/
+- [v] https://dogubox.shop/text-diff/
 
 ## Day 5
-- [ ] https://dogubox.shop/qr-code/
-- [ ] https://dogubox.shop/password-generator/
-- [ ] https://dogubox.shop/calculator/
-- [ ] https://dogubox.shop/unit-converter/
-- [ ] https://dogubox.shop/lunar-solar-converter/
+- [v] https://dogubox.shop/qr-code/
+- [v] https://dogubox.shop/password-generator/
+- [v] https://dogubox.shop/calculator/
+- [v] https://dogubox.shop/unit-converter/
+- [v] https://dogubox.shop/lunar-solar-converter/
 - [ ] https://dogubox.shop/wage-calculator/
 - [ ] https://dogubox.shop/unemployment-benefit/
 - [ ] https://dogubox.shop/severance-pay/
