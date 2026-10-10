@@ -58,19 +58,19 @@
 - [v] https://dogubox.shop/calculator/
 - [v] https://dogubox.shop/unit-converter/
 - [v] https://dogubox.shop/lunar-solar-converter/
-- [ ] https://dogubox.shop/wage-calculator/
-- [ ] https://dogubox.shop/unemployment-benefit/
-- [ ] https://dogubox.shop/severance-pay/
-- [ ] https://dogubox.shop/loan-calculator/
-- [ ] https://dogubox.shop/savings-calculator/
+- [v] https://dogubox.shop/wage-calculator/
+- [v] https://dogubox.shop/unemployment-benefit/
+- [v] https://dogubox.shop/severance-pay/
+- [v] https://dogubox.shop/loan-calculator/
+- [v] https://dogubox.shop/savings-calculator/
 
 ## Day 6
-- [ ] https://dogubox.shop/dsr-calculator/
-- [ ] https://dogubox.shop/jeonse-conversion/
-- [ ] https://dogubox.shop/compound-interest/
-- [ ] https://dogubox.shop/brokerage-fee/
-- [ ] https://dogubox.shop/vat-calculator/
-- [ ] https://dogubox.shop/annual-leave/
+- [v] https://dogubox.shop/dsr-calculator/
+- [v] https://dogubox.shop/jeonse-conversion/
+- [v] https://dogubox.shop/compound-interest/
+- [v] https://dogubox.shop/brokerage-fee/
+- [v] https://dogubox.shop/vat-calculator/
+- [v] https://dogubox.shop/annual-leave/
 - [ ] https://dogubox.shop/color-picker/
 - [ ] https://dogubox.shop/color-palette/
 - [ ] https://dogubox.shop/gradient-generator/
