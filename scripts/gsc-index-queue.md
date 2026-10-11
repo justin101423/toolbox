@@ -71,7 +71,7 @@
 - [v] https://dogubox.shop/brokerage-fee/
 - [v] https://dogubox.shop/vat-calculator/
 - [v] https://dogubox.shop/annual-leave/
-- [ ] https://dogubox.shop/color-picker/
+- [v] https://dogubox.shop/color-picker/
 - [ ] https://dogubox.shop/color-palette/
 - [ ] https://dogubox.shop/gradient-generator/
 - [ ] https://dogubox.shop/contrast-checker/
