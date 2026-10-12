@@ -72,18 +72,18 @@
 - [v] https://dogubox.shop/vat-calculator/
 - [v] https://dogubox.shop/annual-leave/
 - [v] https://dogubox.shop/color-picker/
-- [ ] https://dogubox.shop/color-palette/
-- [ ] https://dogubox.shop/gradient-generator/
-- [ ] https://dogubox.shop/contrast-checker/
+- [v] https://dogubox.shop/color-palette/
+- [v] https://dogubox.shop/gradient-generator/
+- [v] https://dogubox.shop/contrast-checker/
 
 ## Day 7
-- [ ] https://dogubox.shop/encoder-decoder/
-- [ ] https://dogubox.shop/hash-generator/
-- [ ] https://dogubox.shop/jwt-decoder/
-- [ ] https://dogubox.shop/timestamp/
-- [ ] https://dogubox.shop/regex-tester/
-- [ ] https://dogubox.shop/csv-json/
-- [ ] https://dogubox.shop/guide/a4-paper-size/
+- [v] https://dogubox.shop/encoder-decoder/
+- [v] https://dogubox.shop/hash-generator/
+- [v] https://dogubox.shop/jwt-decoder/
+- [v] https://dogubox.shop/timestamp/
+- [v] https://dogubox.shop/regex-tester/
+- [v] https://dogubox.shop/csv-json/
+- [v] https://dogubox.shop/guide/a4-paper-size/
 - [ ] https://dogubox.shop/guide/aspect-ratio/
 - [ ] https://dogubox.shop/guide/heic-to-jpg-guide/
 - [ ] https://dogubox.shop/guide/id-photo-size/
