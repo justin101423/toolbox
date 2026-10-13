@@ -84,19 +84,19 @@
 - [v] https://dogubox.shop/regex-tester/
 - [v] https://dogubox.shop/csv-json/
 - [v] https://dogubox.shop/guide/a4-paper-size/
-- [ ] https://dogubox.shop/guide/aspect-ratio/
-- [ ] https://dogubox.shop/guide/heic-to-jpg-guide/
-- [ ] https://dogubox.shop/guide/id-photo-size/
+- [v] https://dogubox.shop/guide/aspect-ratio/
+- [v] https://dogubox.shop/guide/heic-to-jpg-guide/
+- [v] https://dogubox.shop/guide/id-photo-size/
 
 ## Day 8
-- [ ] https://dogubox.shop/guide/image-formats/
-- [ ] https://dogubox.shop/guide/messenger-photo-quality/
-- [ ] https://dogubox.shop/guide/photo-print-size/
-- [ ] https://dogubox.shop/guide/reduce-image-size/
-- [ ] https://dogubox.shop/guide/remove-photo-location/
-- [ ] https://dogubox.shop/guide/extract-text-from-image/
-- [ ] https://dogubox.shop/guide/make-gif/
-- [ ] https://dogubox.shop/guide/compress-pdf/
+- [v] https://dogubox.shop/guide/image-formats/
+- [v] https://dogubox.shop/guide/messenger-photo-quality/
+- [v] https://dogubox.shop/guide/photo-print-size/
+- [v] https://dogubox.shop/guide/reduce-image-size/
+- [v] https://dogubox.shop/guide/remove-photo-location/
+- [v] https://dogubox.shop/guide/extract-text-from-image/
+- [v] https://dogubox.shop/guide/make-gif/
+- [v] https://dogubox.shop/guide/compress-pdf/
 - [ ] https://dogubox.shop/guide/merge-split-pdf/
 - [ ] https://dogubox.shop/guide/photos-to-pdf/
 
