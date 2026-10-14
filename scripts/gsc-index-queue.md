@@ -97,7 +97,7 @@
 - [v] https://dogubox.shop/guide/extract-text-from-image/
 - [v] https://dogubox.shop/guide/make-gif/
 - [v] https://dogubox.shop/guide/compress-pdf/
-- [ ] https://dogubox.shop/guide/merge-split-pdf/
+- [v] https://dogubox.shop/guide/merge-split-pdf/
 - [ ] https://dogubox.shop/guide/photos-to-pdf/
 
 ## Day 9
