@@ -98,22 +98,22 @@
 - [v] https://dogubox.shop/guide/make-gif/
 - [v] https://dogubox.shop/guide/compress-pdf/
 - [v] https://dogubox.shop/guide/merge-split-pdf/
-- [ ] https://dogubox.shop/guide/photos-to-pdf/
+- [v] https://dogubox.shop/guide/photos-to-pdf/
 
 ## Day 9
-- [ ] https://dogubox.shop/guide/byte-vs-character/
-- [ ] https://dogubox.shop/guide/self-intro-character-count/
-- [ ] https://dogubox.shop/guide/text-comparison/
-- [ ] https://dogubox.shop/guide/broken-text-encoding/
-- [ ] https://dogubox.shop/guide/make-qr-code/
-- [ ] https://dogubox.shop/guide/qr-not-scanning/
-- [ ] https://dogubox.shop/guide/wifi-qr-code/
-- [ ] https://dogubox.shop/guide/what-is-passkey/
-- [ ] https://dogubox.shop/guide/json-basics/
-- [ ] https://dogubox.shop/guide/json-vs-yaml/
+- [v] https://dogubox.shop/guide/byte-vs-character/
+- [v] https://dogubox.shop/guide/self-intro-character-count/
+- [v] https://dogubox.shop/guide/text-comparison/
+- [v] https://dogubox.shop/guide/broken-text-encoding/
+- [v] https://dogubox.shop/guide/make-qr-code/
+- [v] https://dogubox.shop/guide/qr-not-scanning/
+- [v] https://dogubox.shop/guide/wifi-qr-code/
+- [v] https://dogubox.shop/guide/what-is-passkey/
+- [v] https://dogubox.shop/guide/json-basics/
+- [v] https://dogubox.shop/guide/json-vs-yaml/
 
 ## Day 10
-- [ ] https://dogubox.shop/guide/age-calculation/
+- [v] https://dogubox.shop/guide/age-calculation/
 - [ ] https://dogubox.shop/guide/legal-ages/
 - [ ] https://dogubox.shop/guide/dday-calculation/
 - [ ] https://dogubox.shop/guide/lunar-solar-conversion/
