@@ -114,20 +114,20 @@
 
 ## Day 10
 - [v] https://dogubox.shop/guide/age-calculation/
-- [ ] https://dogubox.shop/guide/legal-ages/
-- [ ] https://dogubox.shop/guide/dday-calculation/
-- [ ] https://dogubox.shop/guide/lunar-solar-conversion/
-- [ ] https://dogubox.shop/guide/leap-year-month/
-- [ ] https://dogubox.shop/guide/solar-terms-24/
-- [ ] https://dogubox.shop/guide/pyeong-conversion/
-- [ ] https://dogubox.shop/guide/unit-conversion/
-- [ ] https://dogubox.shop/guide/bmi-calculation/
-- [ ] https://dogubox.shop/guide/take-home-pay/
+- [v] https://dogubox.shop/guide/legal-ages/
+- [v] https://dogubox.shop/guide/dday-calculation/
+- [v] https://dogubox.shop/guide/lunar-solar-conversion/
+- [v] https://dogubox.shop/guide/leap-year-month/
+- [v] https://dogubox.shop/guide/solar-terms-24/
+- [v] https://dogubox.shop/guide/pyeong-conversion/
+- [v] https://dogubox.shop/guide/unit-conversion/
+- [v] https://dogubox.shop/guide/bmi-calculation/
+- [v] https://dogubox.shop/guide/take-home-pay/
 
 ## Day 11
-- [ ] https://dogubox.shop/guide/wage-calculation/
-- [ ] https://dogubox.shop/guide/unemployment-benefit-guide/
-- [ ] https://dogubox.shop/guide/severance-pay-guide/
+- [v] https://dogubox.shop/guide/wage-calculation/
+- [v] https://dogubox.shop/guide/unemployment-benefit-guide/
+- [v] https://dogubox.shop/guide/severance-pay-guide/
 - [ ] https://dogubox.shop/guide/loan-repayment-methods/
 - [ ] https://dogubox.shop/guide/savings-interest/
 - [ ] https://dogubox.shop/guide/compound-effect/
