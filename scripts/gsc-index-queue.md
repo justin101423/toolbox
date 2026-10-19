@@ -129,19 +129,19 @@
 - [v] https://dogubox.shop/guide/unemployment-benefit-guide/
 - [v] https://dogubox.shop/guide/severance-pay-guide/
 - [v] https://dogubox.shop/guide/loan-repayment-methods/
-- [ ] https://dogubox.shop/guide/savings-interest/
-- [ ] https://dogubox.shop/guide/compound-effect/
-- [ ] https://dogubox.shop/guide/dsr-dti-guide/
-- [ ] https://dogubox.shop/guide/jeonse-monthly-conversion/
-- [ ] https://dogubox.shop/guide/what-is-vat/
-- [ ] https://dogubox.shop/guide/pomodoro-technique/
+- [v] https://dogubox.shop/guide/savings-interest/
+- [v] https://dogubox.shop/guide/compound-effect/
+- [v] https://dogubox.shop/guide/dsr-dti-guide/
+- [v] https://dogubox.shop/guide/jeonse-monthly-conversion/
+- [v] https://dogubox.shop/guide/what-is-vat/
+- [v] https://dogubox.shop/guide/pomodoro-technique/
 
 ## Day 12
-- [ ] https://dogubox.shop/guide/annual-leave-guide/
-- [ ] https://dogubox.shop/guide/electronic-signature/
-- [ ] https://dogubox.shop/guide/hex-rgb-color-codes/
-- [ ] https://dogubox.shop/guide/color-scheme-basics/
-- [ ] https://dogubox.shop/guide/css-gradient/
+- [v] https://dogubox.shop/guide/annual-leave-guide/
+- [v] https://dogubox.shop/guide/electronic-signature/
+- [v] https://dogubox.shop/guide/hex-rgb-color-codes/
+- [v] https://dogubox.shop/guide/color-scheme-basics/
+- [v] https://dogubox.shop/guide/css-gradient/
 - [ ] https://dogubox.shop/guide/color-contrast-accessibility/
 - [ ] https://dogubox.shop/guide/base64-encoding/
 - [ ] https://dogubox.shop/guide/what-is-hash/
