@@ -128,7 +128,7 @@
 - [v] https://dogubox.shop/guide/wage-calculation/
 - [v] https://dogubox.shop/guide/unemployment-benefit-guide/
 - [v] https://dogubox.shop/guide/severance-pay-guide/
-- [ ] https://dogubox.shop/guide/loan-repayment-methods/
+- [v] https://dogubox.shop/guide/loan-repayment-methods/
 - [ ] https://dogubox.shop/guide/savings-interest/
 - [ ] https://dogubox.shop/guide/compound-effect/
 - [ ] https://dogubox.shop/guide/dsr-dti-guide/
