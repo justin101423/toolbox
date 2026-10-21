@@ -142,15 +142,15 @@
 - [v] https://dogubox.shop/guide/hex-rgb-color-codes/
 - [v] https://dogubox.shop/guide/color-scheme-basics/
 - [v] https://dogubox.shop/guide/css-gradient/
-- [ ] https://dogubox.shop/guide/color-contrast-accessibility/
-- [ ] https://dogubox.shop/guide/base64-encoding/
-- [ ] https://dogubox.shop/guide/what-is-hash/
-- [ ] https://dogubox.shop/guide/what-is-jwt/
-- [ ] https://dogubox.shop/guide/timestamp-conversion/
+- [v] https://dogubox.shop/guide/color-contrast-accessibility/
+- [v] https://dogubox.shop/guide/base64-encoding/
+- [v] https://dogubox.shop/guide/what-is-hash/
+- [v] https://dogubox.shop/guide/what-is-jwt/
+- [v] https://dogubox.shop/guide/timestamp-conversion/
 
 ## Day 13
-- [ ] https://dogubox.shop/guide/cron-expression/
-- [ ] https://dogubox.shop/guide/regex-basics/
-- [ ] https://dogubox.shop/guide/piano-keys/
-- [ ] https://dogubox.shop/guide/metronome-practice/
-- [ ] https://dogubox.shop/guide/guitar-tuning/
+- [v] https://dogubox.shop/guide/cron-expression/
+- [v] https://dogubox.shop/guide/regex-basics/
+- [v] https://dogubox.shop/guide/piano-keys/
+- [v] https://dogubox.shop/guide/metronome-practice/
+- [v] https://dogubox.shop/guide/guitar-tuning/
