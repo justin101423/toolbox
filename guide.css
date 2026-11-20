@@ -17,6 +17,8 @@
 /* 본문 리스트(프로즈) — 단, .steps-list/.tips-list는 tool-page.css 스타일(번호 원·마커)을 쓰므로 제외 */
 .content>ul:not(.tips-list),.content>ol:not(.steps-list){margin:12px 0;padding-left:22px}
 .content>ul:not(.tips-list) li,.content>ol:not(.steps-list) li{font-size:15px;color:var(--ink-2);line-height:1.75;margin:7px 0;padding-left:4px}
+/* 코드 블록(pre)은 좁은 화면에서 페이지 대신 블록 안에서 가로 스크롤 */
+.content pre{max-width:100%;overflow-x:auto}
 .content>ul:not(.tips-list) li::marker{color:var(--accent)}
 .content>ul li b,.content>ol li b{color:var(--ink);font-weight:700}
 

@@ -130,7 +130,7 @@
 .ts-seg button{padding:9px 18px;font-size:14px;font-weight:600;color:var(--ink-2);background:transparent;transition:background .15s,color .15s}
 .ts-seg button.active{background:var(--ink);color:var(--paper)}
 .ts-toolbar .spacer{flex:1}
-.ts-sample{font-size:21px;line-height:1.9;letter-spacing:.01em;word-break:keep-all;padding:6px 2px 2px;color:var(--ink-3);user-select:none}
+.ts-sample{white-space:pre-wrap;font-size:21px;line-height:1.9;letter-spacing:.01em;word-break:keep-all;padding:6px 2px 2px;color:var(--ink-3);user-select:none}
 .ts-sample .char{transition:color .05s}
 .ts-sample .char.correct{color:#2e6fdf}
 .ts-sample .char.wrong{color:#df4324;background:rgba(223,67,36,.13);border-radius:3px}
@@ -296,8 +296,8 @@
       var cls="char";
       if(i<input.length){ cls+=(input[i]===ch)?" correct":" wrong"; }
       else if(i===input.length){ cls+=" cur"; }
-      // 공백도 한 칸 보이도록 nbsp 대체(틀린 공백 배경 표시 위해 span 유지)
-      var disp=(ch===" ")?" ":esc(ch);
+      // 공백도 한 칸 보이도록 일반 공백 + .ts-sample의 white-space:pre-wrap 사용(nbsp는 줄바꿈이 안 돼 모바일에서 예문이 화면 밖으로 넘쳤음)(틀린 공백 배경 표시 위해 span 유지)
+      var disp=(ch===" ")?" ":esc(ch);
       html+='<span class="'+cls+'">'+disp+'</span>';
     }
     $('ts-sample').innerHTML=html;

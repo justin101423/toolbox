@@ -229,3 +229,5 @@ html.embed body::before { display:none; }
 .ex-table code,.ex-code{font-family:var(--mono,monospace);font-size:12.5px}
 /* 여러 줄 입력·출력 예시 블록 */
 .ex-code{display:block;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:10px 0 14px;color:var(--ink-2);white-space:pre-wrap;word-break:break-all;line-height:1.6}
+/* 본문 줄글 속 끊김 없는 긴 문자열(URL 인코딩 예시 등)이 좁은 화면에서 가로로 넘치지 않게 */
+.content p,.content li{overflow-wrap:break-word}

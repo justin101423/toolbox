@@ -106,8 +106,9 @@
 <script id="theme-init">/* FOUC 방지 */(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){}})();</script>
 <style>
 .al-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.al-field{min-width:0}
 .al-field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin-bottom:5px}
-.al-field input{width:100%;font-family:var(--mono);font-size:16px;padding:10px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+.al-field input{width:100%;min-width:0;font-family:var(--mono);font-size:16px;padding:10px 13px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
 .al-result{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;text-align:center}
 .al-result .lbl{font-size:13px;color:var(--ink-3);font-weight:600}
 .al-result .big{font-family:var(--mono);font-size:30px;font-weight:800;color:var(--accent);letter-spacing:-.02em;margin-top:4px}
