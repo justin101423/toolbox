@@ -20,11 +20,12 @@ description: 도구상자 가이드 글 신규 작성 — 글 작성부터 허�
 1. 도구 연계 확인 — CTA로 보낼 도구의 슬러그·아이콘을 `sidebar.js`에서 확인.
 2. 글 작성 (위 규칙).
 3. **허브 카드**: `guide/index.html`의 해당 주제 섹션(8섹션 중 알맞은 곳) `.guide-grid` 끝에 카드 추가 (`gi-cat`은 기존 표기 관례 따름).
-4. **sitemap.xml**: privacy.html 항목 직전에 `<url><loc>.../guide/<슬러그>/</loc><lastmod>오늘</lastmod></url>` 추가.
-5. **CLAUDE.md** 4-1: "현재 글(N)" 카운트 +1, 목록 끝에 `슬러그`(짧은 설명) 추가.
+4. **대표 이미지(표지)**: `python scripts/make-guide-covers.py <슬러그>` — `guide/<슬러그>/cover.png` 생성 + Article JSON-LD `image`·og:image·twitter:image를 표지로 설정(허브 카드가 먼저 있어야 카테고리를 읽음).
+5. **색인 정책**: `node scripts/apply-index-policy.js` 실행 — sitemap은 손으로 고치지 않는다(새 글은 기본 noindex, 색인시킬 글만 `scripts/indexed.json`에 추가 — CLAUDE.md 4-2). `sidebar.js`의 `GUIDE_COUNT` +1.
+5-1. **CLAUDE.md** 4-1: "현재 글(N)" 카운트 +1, 목록 끝에 `슬러그`(짧은 설명) 추가.
 6. **README.md**: 가이드 목록 끝에 한 줄 추가.
 7. **도구 역링크**: CTA 대상 도구 페이지의 "함께 보면 좋은 가이드" rel-grid에 새 글 카드 추가 (카드 4개 이하 유지; 이미 많으면 생략 가능).
-8. **검증**: ① 새로 만든/수정한 파일들의 내부 링크가 실존 경로인지, ② FAQ JSON-LD=본문 일치(node로 파싱·비교), ③ canonical=Article url, ④ AdSense 스크립트 존재, ⑤ 허브 카드 수 = 가이드 폴더 수 = sitemap 가이드 URL 수.
+8. **검증**: ① 새로 만든/수정한 파일들의 내부 링크가 실존 경로인지, ② FAQ JSON-LD=본문 일치(node로 파싱·비교), ③ canonical=Article url, ④ AdSense 스크립트 존재, ⑤ 허브 카드 수 = 가이드 폴더 수 = `GUIDE_COUNT`, ⑥ `node scripts/validate.js` 통과.
 9. **보호 파일 점검 후 커밋·푸시**: CNAME·ads.txt·robots.txt·privacy.html 무변경 확인 → `git add -A && git commit -m "가이드 1편 추가(총 N편) — <제목>" && git push origin main`.
 
 여러 편을 연달아 쓸 때는 2편 단위로 커밋한다.
