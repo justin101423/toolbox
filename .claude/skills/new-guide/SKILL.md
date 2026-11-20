@@ -20,7 +20,7 @@ description: 도구상자 가이드 글 신규 작성 — 글 작성부터 허�
 1. 도구 연계 확인 — CTA로 보낼 도구의 슬러그·아이콘을 `sidebar.js`에서 확인.
 2. 글 작성 (위 규칙).
 3. **허브 카드**: `guide/index.html`의 해당 주제 섹션(8섹션 중 알맞은 곳) `.guide-grid` 끝에 카드 추가 (`gi-cat`은 기존 표기 관례 따름).
-4. **대표 이미지(표지)**: `python scripts/make-guide-covers.py <슬러그>` — `guide/<슬러그>/cover.png` 생성 + Article JSON-LD `image`·og:image·twitter:image를 표지로 설정(허브 카드가 먼저 있어야 카테고리를 읽음).
+4. **대표 이미지(표지)**: `python scripts/make-covers.py <슬러그>` — `guide/<슬러그>/cover.png` 생성 + Article JSON-LD `image`·og:image·twitter:image를 표지로 설정(허브 카드가 먼저 있어야 카테고리를 읽음).
 5. **색인 정책**: `node scripts/apply-index-policy.js` 실행 — sitemap은 손으로 고치지 않는다(새 글은 기본 noindex, 색인시킬 글만 `scripts/indexed.json`에 추가 — CLAUDE.md 4-2). `sidebar.js`의 `GUIDE_COUNT` +1.
 5-1. **CLAUDE.md** 4-1: "현재 글(N)" 카운트 +1, 목록 끝에 `슬러그`(짧은 설명) 추가.
 6. **README.md**: 가이드 목록 끝에 한 줄 추가.

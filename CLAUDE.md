@@ -49,7 +49,7 @@ toolbox/
 ├── guide.css           # 가이드(블로그) 전용 스타일 (tool-page.css 위에 얹어 사용 — 아티클 프로즈·표·도구 CTA·허브 그리드)
 ├── guide/index.html    # ★ 가이드 허브(블로그 글 목록) — SEO/AdSense용 읽을거리 콘텐츠
 ├── guide/<슬러그>/index.html # 각 가이드 글 = 독립 페이지(독립 URL)
-├── guide/<슬러그>/cover.png # 가이드 대표 이미지(1200×630, 카테고리 색·h1 제목) — Article JSON-LD `image`·og:image·twitter:image가 가리킴. 손으로 만들지 말고 scripts/make-guide-covers.py로 생성
+├── guide/<슬러그>/cover.png # 가이드 대표 이미지(1200×630, 카테고리 색·h1 제목) — Article JSON-LD `image`·og:image·twitter:image가 가리킴. 손으로 만들지 말고 scripts/make-covers.py로 생성
 ├── .nojekyll           # GitHub Pages의 Jekyll 빌드 생략(배포 속도↑, 닷·밑줄 경로 그대로 서빙)
 ├── .well-known/security.txt # 보안 제보 채널(RFC 9116) — Expires 매년 갱신 필요(현재 2027-06-12)
 ├── theme.css           # 다크모드 스타일 + 전 페이지 공통 보조 스타일(테마 토글, 사이드바 라벨 타이포 — 모든 페이지가 마지막에 로드하므로 구형 인라인 CSS도 덮어씀) + ★작업대 임베드 모드(html.embed) 규칙(?embed=1 로 열린 도구 페이지의 상단바·사이드바·푸터·.crumb·.lede·.content·h1·광고를 숨겨 순수 도구 UI만 남김)
@@ -62,7 +62,8 @@ toolbox/
 ├── instrument-audio.js # "악기" 도구 공통 모듈(DGBInstrument): Tone.js 지연 로드·SRI·오디오 활성화 + 키맵 엔진 + 누름 피드백 (drum-pad·piano가 사용, Tone SRI는 여기 한 곳에서 관리)
 ├── 02a6550d208a4969b895c0335b97356b.txt # ★ IndexNow 인증 키 파일(삭제 금지 — Bing·네이버 색인 제출용, 파일명=키)
 ├── scripts/indexed.json # ★ 색인 정책 단일 출처 — 검색에 색인시킬 도구(58)·가이드(62) 슬러그 목록. 여기 없는 페이지는 noindex,follow + sitemap 제외(→ 섹션 4-2)
-├── scripts/make-guide-covers.py # 가이드 표지(cover.png) 생성 + Article `image`·og/twitter 이미지 반영(멱등). `python scripts/make-guide-covers.py [슬러그...]` — Playwright(Python) + 설치된 Chrome 필요. 제목·카테고리를 바꾸면 해당 슬러그로 재실행
+├── scripts/make-covers.py # 표지(cover.png) 생성 + JSON-LD `image`·og/twitter 이미지 반영(멱등). 대상 = 가이드 전부 + **색인 대상 도구**(indexed.json tools — 도구 표지는 sidebar.js의 카테고리·Lucide 아이콘 사용, og:image:alt도 도구명으로). `python scripts/make-covers.py [슬러그...]` — Playwright(Python) + 설치된 Chrome 필요. 제목·카테고리·아이콘을 바꾸거나 도구를 색인 대상에 올리면 해당 슬러그로 재실행
+├── <슬러그>/cover.png # 색인 대상 도구의 대표 이미지(1200×630) — SoftwareApplication `image`·og:image·twitter:image가 가리킴. 색인 제외 도구는 공통 og-image.png 유지
 ├── scripts/apply-index-policy.js # indexed.json을 실제 페이지(robots 메타)와 sitemap.xml에 반영. indexed.json을 바꾸거나 도구·가이드를 추가한 뒤 `node scripts/apply-index-policy.js` 실행(멱등)
 ├── scripts/gsc-index-queue.md # 구글 Search Console 수동 색인 요청 대기열(하루 10개 체크리스트, 색인 대상 125 URL만)
 ├── scripts/validate.js # ★ 검증 하네스 — 단일 출처(sidebar.js) 슬러그가 폴더·홈 카드·sitemap에 다 있는지, 사이드바에 없는 고아 폴더, 보호 파일, AdSense(404.html 제외), JSON-LD 유효성, 깨진 내부 링크를 점검. **로컬에서 `node scripts/validate.js`로 직접 실행 가능**(도구 추가 후 권장) / CI에서 자동 실행
@@ -347,7 +348,7 @@ toolbox/
 > **목적**: 순수 유틸리티만 있는 사이트는 AdSense·검색에서 "가치 없는 콘텐츠(thin content)"로 평가받기 쉽습니다. 이를 보완하려고 **읽을거리형 editorial 콘텐츠**(도구 활용 가이드)를 `/guide/` 하위에 둡니다. 도구 개수(115)에는 포함하지 않습니다.
 
 - **허브**: `/guide/index.html` — 글 목록을 **주제별 10개 섹션**(`.sec-label` + 섹션별 `.guide-grid`)으로 묶어 표시: 이미지·사진 / PDF·문서 / 텍스트·생성 / 생활·편의 / 금융 / 직장인·생산성 / 색상·디자인 / 개발자 / 재미·운세(`data-cat="fun"`) / 악기·음악(도구 카테고리와 같은 순서). 새 글 카드는 해당 주제 섹션의 `.guide-grid` 안에 추가. 상단에 클라이언트 검색 필터(`#guide-search`, 카드 텍스트로 필터링·빈 섹션 라벨 숨김) 있음. canonical `https://dogubox.shop/guide/`. JSON-LD는 `CollectionPage` + `BreadcrumbList`.
-- **각 글**: `/guide/<슬러그>/index.html` — `tool-page.css` + **`guide.css`** + `theme.css` 참조. 본문은 `<article class="inner">` 안에 `<h1>` 1개 + `<section class="content">`(h2 소제목·표·`.callout`·`.tool-cta`·`.toc`·FAQ·관련 글). JSON-LD는 **Article + FAQPage + BreadcrumbList**(홈>가이드>글). Article에는 `image`(그 글의 `cover.png`)가 있어야 함 — `scripts/make-guide-covers.py`가 생성·반영. FAQPage 질문·답변은 본문 FAQ와 글자 단위로 동일해야 함(단 본문 질문 앞의 `Q. ` 같은 시각적 라벨 접두사는 비교에서 제외 — 질문 텍스트 자체만 일치하면 됨).
+- **각 글**: `/guide/<슬러그>/index.html` — `tool-page.css` + **`guide.css`** + `theme.css` 참조. 본문은 `<article class="inner">` 안에 `<h1>` 1개 + `<section class="content">`(h2 소제목·표·`.callout`·`.tool-cta`·`.toc`·FAQ·관련 글). JSON-LD는 **Article + FAQPage + BreadcrumbList**(홈>가이드>글). Article에는 `image`(그 글의 `cover.png`)가 있어야 함 — `scripts/make-covers.py`가 생성·반영. FAQPage 질문·답변은 본문 FAQ와 글자 단위로 동일해야 함(단 본문 질문 앞의 `Q. ` 같은 시각적 라벨 접두사는 비교에서 제외 — 질문 텍스트 자체만 일치하면 됨).
 - **도구로 연결**: 글마다 관련 도구로 가는 `.tool-cta` 카드(아이콘은 `data-icon`로 두면 `sidebar.js`가 채움)와 본문 내부 링크(`a.inlink`)를 넣습니다.
 - **사이드바 노출**: `sidebar.js`의 `render()`가 즐겨찾기 그룹 다음에 **"가이드 · 사용법"** 링크(book-open 아이콘)를 자동 삽입 → 전 페이지(도구·허브)에서 노출. `/guide` 경로에서 active. (개별 페이지 수정 불필요)
 - **허브(홈) 노출**: `index.html`에 "활용 가이드" 섹션(`.grid.guide-cards`)으로 7개 카드. **이 그리드는 도구 개수 카운트에서 제외**됩니다(홈 스크립트가 `.guide-cards` 부모를 가진 카드를 제외하고 셈). 푸터에도 `/guide/` 링크.
@@ -363,6 +364,7 @@ toolbox/
 - **색인 제외 페이지**(도구 165·가이드 162): `<link rel="canonical">` 다음 줄에 `<meta name="robots" content="noindex,follow">` + sitemap 제외. **페이지는 삭제하지 않습니다** — 사이드바·홈 카드·가이드 허브에서 그대로 쓸 수 있고, indexed.json에 슬러그를 넣고 스크립트를 돌리면 언제든 색인 대상으로 되돌릴 수 있습니다.
 - **반영 방법**: `node scripts/apply-index-policy.js` — robots 메타 삽입/제거 + sitemap 재작성. noindex 메타나 sitemap을 손으로 고치지 않습니다. `scripts/validate.js`가 정책과 실제 상태의 일치를 검사합니다.
 - **새 도구·가이드를 추가하면 기본은 색인 제외**입니다(스크립트 실행 시 noindex가 붙음). 색인시키려면 본문이 고유하고 충분히 깊은지 확인한 뒤 indexed.json에 추가합니다.
+- **색인 대상 도구에 올리면** `python scripts/make-covers.py <슬러그>`로 표지(`/<슬러그>/cover.png`)도 만든다(SoftwareApplication `image`·og/twitter 이미지 반영).
 - **색인 대상으로 올리는 기준**: 실제로 동작하는 실용 도구이고, 본문에 계산 근거·실제 예시·주의점 같은 그 페이지만의 내용이 있을 것. 운세·테스트류, 저작권·정책 위험이 있는 도구(유튜브 썸네일 다운로드 등), 도구 설명을 되풀이하는 가이드는 올리지 않습니다.
 - **본문 보강("숫자로 보는 예시") 진행 현황**: 색인 대상 도구 페이지의 `활용 팁` 앞에 `<div class="sec-label">숫자로 보는 예시 — …</div>` 섹션을 넣습니다. 표는 `theme.css`의 `.ex-wrap > table.ex-table`(글자 위주 표는 `.ex-left`, 줄바꿈 허용 칸은 `td.wrap`, 여러 줄 입력·출력 예시는 `<code class="ex-code">`). ★이 스타일은 tool-page.css가 아니라 theme.css에 있음 — tool-page.css를 참조하지 않는 구형 인라인 페이지에도 적용되어야 해서(2026-10-03 이동). **표의 숫자는 반드시 그 페이지 계산식으로 직접 계산한 값**만 쓰고(어림값·기억에 의존한 수치 금지), 법·제도 수치는 출처를 확인한 것만 씁니다. 하루에 몰아서 넣지 말고 몇 페이지씩 나눠 진행합니다(대량 생성 인상 방지). 페이지를 보강하면 sitemap의 해당 `lastmod`도 갱신합니다.
   - 완료(2026-10-03): `loan-calculator`, `savings-calculator`(적금 월복리 계산을 매달 초 납입 기준으로 수정 — 이전엔 단리보다 이자가 적게 나오는 오류), `compound-interest`
