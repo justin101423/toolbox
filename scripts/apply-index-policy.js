@@ -6,6 +6,7 @@
  *   ① indexed.json에 없는 도구·가이드 페이지 → canonical 다음 줄에
  *      <meta name="robots" content="noindex,follow"> 삽입 (있는 페이지는 제거)
  *   ② sitemap.xml 을 색인 대상 URL만 남기도록 재작성 (기존 lastmod 유지)
+ *   ③ rss.xml 재생성 (scripts/make-rss.js — 색인 대상 도구·가이드만)
  * 페이지 자체는 삭제하지 않는다 — 사이드바·홈·가이드 허브에서 그대로 접근 가능.
  */
 "use strict";
@@ -63,4 +64,7 @@ const xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://ww
   .concat(["</urlset>", ""]).join("\n");
 fs.writeFileSync(smPath, xml);
 
-console.log(`색인 대상: 도구 ${keepTools.size}/${toolSlugs.length} · 가이드 ${keepGuides.size}/${guideSlugs.length} · sitemap ${urls.length} URL · 수정된 페이지 ${changed}`);
+// ── ③ rss.xml 재생성(색인 대상만) ─────────────────────────────────────────
+const rssCount = require("./make-rss.js")();
+
+console.log(`색인 대상: 도구 ${keepTools.size}/${toolSlugs.length} · 가이드 ${keepGuides.size}/${guideSlugs.length} · sitemap ${urls.length} URL · rss ${rssCount}개 · 수정된 페이지 ${changed}`);

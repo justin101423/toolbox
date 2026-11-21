@@ -44,6 +44,7 @@ toolbox/
 ├── ads.txt             # AdSense 게시자 인증 (수정 주의)
 ├── robots.txt          # 크롤러 정책 (수정 주의)
 ├── sitemap.xml         # 사이트맵 — ★색인 대상 URL만(125개). 손으로 고치지 말고 scripts/apply-index-policy.js가 재작성
+├── rss.xml             # RSS 2.0 피드(네이버 서치어드바이저 제출용) — ★색인 대상 도구·가이드만(120개), 최신순. 손으로 고치지 말고 scripts/make-rss.js가 생성(apply-index-policy.js 실행 시 자동 재생성). 홈 head에 `<link rel="alternate" type="application/rss+xml">`
 ├── CNAME               # 커스텀 도메인 dogubox.shop (수정 주의)
 ├── tool-page.css       # 공통 스타일시트 (최신 도구 페이지가 참조)
 ├── guide.css           # 가이드(블로그) 전용 스타일 (tool-page.css 위에 얹어 사용 — 아티클 프로즈·표·도구 CTA·허브 그리드)
@@ -64,7 +65,8 @@ toolbox/
 ├── scripts/indexed.json # ★ 색인 정책 단일 출처 — 검색에 색인시킬 도구(58)·가이드(62) 슬러그 목록. 여기 없는 페이지는 noindex,follow + sitemap 제외(→ 섹션 4-2)
 ├── scripts/make-covers.py # 표지(cover.png) 생성 + JSON-LD `image`·og/twitter 이미지 반영(멱등). 대상 = 가이드 전부 + **색인 대상 도구**(indexed.json tools — 도구 표지는 sidebar.js의 카테고리·Lucide 아이콘 사용, og:image:alt도 도구명으로). `python scripts/make-covers.py [슬러그...]` — Playwright(Python) + 설치된 Chrome 필요. 제목·카테고리·아이콘을 바꾸거나 도구를 색인 대상에 올리면 해당 슬러그로 재실행
 ├── <슬러그>/cover.png # 색인 대상 도구의 대표 이미지(1200×630) — SoftwareApplication `image`·og:image·twitter:image가 가리킴. 색인 제외 도구는 공통 og-image.png 유지
-├── scripts/apply-index-policy.js # indexed.json을 실제 페이지(robots 메타)와 sitemap.xml에 반영. indexed.json을 바꾸거나 도구·가이드를 추가한 뒤 `node scripts/apply-index-policy.js` 실행(멱등)
+├── scripts/make-rss.js # rss.xml 생성 — indexed.json의 tools·guides만. title=<title>의 " | 도구상자" 앞, description=meta description, pubDate=JSON-LD dateModified→datePublished→sitemap lastmod. 단독 실행 `node scripts/make-rss.js`(멱등)
+├── scripts/apply-index-policy.js # indexed.json을 실제 페이지(robots 메타)와 sitemap.xml·rss.xml에 반영. indexed.json을 바꾸거나 도구·가이드를 추가한 뒤 `node scripts/apply-index-policy.js` 실행(멱등)
 ├── scripts/gsc-index-queue.md # 구글 Search Console 수동 색인 요청 대기열(하루 10개 체크리스트, 색인 대상 125 URL만)
 ├── scripts/validate.js # ★ 검증 하네스 — 단일 출처(sidebar.js) 슬러그가 폴더·홈 카드·sitemap에 다 있는지, 사이드바에 없는 고아 폴더, 보호 파일, AdSense(404.html 제외), JSON-LD 유효성, 깨진 내부 링크를 점검. **로컬에서 `node scripts/validate.js`로 직접 실행 가능**(도구 추가 후 권장) / CI에서 자동 실행
 ├── scripts/hardening-check.js # ★ "굳히기" 전용 검증기 — 인자로 받은 슬러그들의 도구 페이지가 골드 스탠다드 기준(설명 sec-label≥5, 본문 FAQ 5개 = JSON-LD FAQPage 5개 **글자단위 일치**, 답변 평문, 깨진 내부 링크 0)을 충족하는지 점검. 사용: `node scripts/hardening-check.js <슬러그> ...`. 도구 굳히기 캠페인(200/200 완료, 2026-06-17)에서 작성·전수 통과
@@ -470,7 +472,7 @@ toolbox/
 | **애드센스** | **2차 거절(2026-07-01) — "가치가 별로 없는 콘텐츠(thin content)"**. 진단: 콘텐츠 양·질은 충분(도구 900~1900단어·가이드 800~1000단어)하나 ①449개 판박이 템플릿=쿠키커터/툴팜 인상 ②홈·허브가 탐색용 화면 ③운영자 정체성(E-E-A-T) 부재 ④색인/트래픽 미축적이 원인으로 추정. **대응 완료**: about.html '만든 사람' 섹션+Organization JSON-LD(ba1dcfc), 홈 인트로 운영주체 문단(ba1dcfc), 가이드 224편 저자 Person('도구상자 지기')+바이라인 E-E-A-T(7776c4e). 이후 3번째 거절 → 2026-10-03 색인 정책 전환(섹션 4-2). 2026-11-20: 가이드 224편·색인 대상 도구 58개 대표 이미지(cover.png) + JSON-LD `image` 반영(39910f8, 4b94f5f), JSON-LD 도구명 h1 일치 4곳·무시되던 CSP meta 제거(2eed82f), 모바일 가로 넘침 7곳 수정(07d2cf9) | **확장(도구·가이드 추가) 중단** — 판박이 비율 악화. **2026-10-03 색인 정책 전환(섹션 4-2)**: 색인 대상을 도구 58·가이드 62로 축소, 나머지 327페이지 noindex + sitemap 제외. 다음은 색인 대상 페이지 본문 보강 → 색인·트래픽 몇 주 쌓고 재신청. 스팸성 즉시 재신청 금지 |
 | 구글 Search Console | sitemap 125 URL 재제출 완료(2026-10-03, 상태 성공·발견된 페이지 125, 잘못 제출돼 있던 `/age-calculator/` 항목 삭제). **재제출 직전 색인 현황: 색인됨 4 / "크롤링됨 – 현재 색인이 생성되지 않음" 88 / 대체 페이지 1** — 구글은 6/17 이후 사이트맵을 다시 읽지 않아 6월 상태로 판단하고 있었음(나머지 약 340개는 크롤링조차 안 됨) | **`scripts/gsc-index-queue.md` 대기열 125/125 요청 완료(Day 13, 2026-10-21 — 42ad57d)**. 색인 추이 주 1회 확인. 색인 대상에 새 URL을 올리면 대기열 끝에 추가 |
 | **IndexNow (Bing·네이버)** | 키 파일 `/02a6550d208a4969b895c0335b97356b.txt` 배포(2026-07-03), 전체 452 URL 제출 | 새 도구·가이드 추가 시 해당 URL을 api.indexnow.org에 재제출(선택). 키 파일 삭제 금지 |
-| 네이버 서치어드바이저 | 등록 완료 — 소유 확인(홈 head 메타) + sitemap 제출 + 홈·가이드 허브 수집 요청 | 며칠 뒤 "검증 → 사이트 최적화" 리포트 확인 |
+| 네이버 서치어드바이저 | 등록 완료 — 소유 확인(홈 head 메타) + sitemap 제출 + 홈·가이드 허브 수집 요청. 2026-11-21: `rss.xml`(색인 대상 120개) 생성·배포 | 서치어드바이저 "요청 → RSS 제출"에 `https://dogubox.shop/rss.xml` 제출(수동). 며칠 뒤 "검증 → 사이트 최적화" 리포트 확인 |
 | 본문 글꼴(Pretendard) | **해결(2026-10-03)** — Pretendard CSS `<link>`의 SRI 해시가 실제 파일과 달라 전 페이지에서 차단되던 것을 올바른 해시(`sha384-ei/b2Mz3F…`)로 교체(전 453개 페이지 — `privacy.html`은 사용자 확인 후 같은 날 교체, 헤드리스 크롬에서 글꼴 로드 확인) | 새 페이지를 만들 때는 기존 페이지의 Pretendard `<link>`를 그대로 복사할 것 |
 | GA4 | 활성화됨 — 측정 ID `G-EQH5P4E001`, `/analytics.js` 한 곳에서 관리 | 데이터 1주 쌓이면 인기 콘텐츠 기반으로 다음 방향 결정 |
 

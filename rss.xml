@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>도구상자</title>
+    <link>https://dogubox.shop/</link>
+    <description>설치 없이 브라우저에서 바로 쓰는 무료 온라인 도구와 활용 가이드</description>
+    <language>ko</language>
+    <lastBuildDate>Sat, 03 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>만 나이 계산기 — 생년월일로 만 나이·생일 계산 무료 도구</title>
+      <link>https://dogubox.shop/age-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/age-calculator/</guid>
+      <description>생년월일을 입력하면 오늘 기준 만 나이를 연·월·일까지 정확히 계산합니다. 태어난 지 며칠 됐는지, 다음 생일까지 남은 날도 확인하세요. 기준일을 바꿔 특정 날짜 기준 나이도 계산할 수 있고 브라우저에서만 처리됩니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>연차 계산기 — 입사일 기준 연차휴가 일수</title>
+      <link>https://dogubox.shop/annual-leave/</link>
+      <guid isPermaLink="true">https://dogubox.shop/annual-leave/</guid>
+      <description>입사일을 입력하면 근로기준법 기준 발생 연차휴가 일수를 계산하는 무료 연차 계산기. 1년 미만 월 단위 연차, 1년 이상 15일, 근속 가산까지 반영합니다. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 배경 제거 (누끼) — AI로 사진 배경 자동 삭제</title>
+      <link>https://dogubox.shop/bg-remover/</link>
+      <guid isPermaLink="true">https://dogubox.shop/bg-remover/</guid>
+      <description>사진 속 인물·사물의 배경을 AI로 자동으로 지워 투명 PNG로 만드는 무료 도구. 배경을 흰색·원하는 색으로 바꿔 저장할 수 있고, 사진은 서버로 전송되지 않고 브라우저 안에서만 처리됩니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>BMI 계산기 — 키·몸무게로 체질량지수와 한국 기준 구간 확인</title>
+      <link>https://dogubox.shop/bmi-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/bmi-calculator/</guid>
+      <description>키와 몸무게를 입력하면 체질량지수(BMI)를 계산하고 대한비만학회 2022 기준 구간을 보여주는 무료 계산기. 모든 계산은 브라우저에서 이뤄지며 입력값은 전송되지 않습니다. BMI는 참고 지표입니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>부동산 중개수수료(복비) 계산기 — 매매·전세·월세</title>
+      <link>https://dogubox.shop/brokerage-fee/</link>
+      <guid isPermaLink="true">https://dogubox.shop/brokerage-fee/</guid>
+      <description>거래금액과 거래유형(매매·전세·월세)만 넣으면 법정 상한요율로 부동산 중개수수료(복비)를 계산하는 무료 계산기. 구간별 상한요율·한도액·부가세까지 반영. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>계산기 — 일반·공학용 (삼각·로그·괄호)</title>
+      <link>https://dogubox.shop/calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/calculator/</guid>
+      <description>사칙연산부터 삼각함수·로그·제곱근·괄호까지 지원하는 무료 공학용 계산기. 키보드 입력과 도(degree)·라디안 전환을 지원합니다. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>공백·줄바꿈 정리 — 텍스트 공백 제거·정규화 무료 온라인 도구</title>
+      <link>https://dogubox.shop/clean-text/</link>
+      <guid isPermaLink="true">https://dogubox.shop/clean-text/</guid>
+      <description>연속 공백, 불필요한 줄바꿈, 특수 공백 문자를 브라우저에서 즉시 정리합니다. 웹에서 복사한 텍스트, 엑셀 데이터, SQL 쿼리를 깔끔하게 정제할 때 활용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>컬러 팔레트 생성 — 조화로운 5색 팔레트 무료 생성</title>
+      <link>https://dogubox.shop/color-palette/</link>
+      <guid isPermaLink="true">https://dogubox.shop/color-palette/</guid>
+      <description>클릭 한 번으로 조화로운 5가지 색상 팔레트를 생성합니다. 마음에 드는 색상을 클릭하면 HEX 코드가 클립보드에 바로 복사됩니다. 디자인 프로젝트 색상 조합 탐색에 활용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>컬러 피커 · 색상 변환 — HEX·RGB·HSL 상호 변환 무료 도구</title>
+      <link>https://dogubox.shop/color-picker/</link>
+      <guid isPermaLink="true">https://dogubox.shop/color-picker/</guid>
+      <description>색상 피커로 색을 고르거나 HEX·RGB·HSL 값을 입력하면 세 형식으로 동시에 변환해 보여주고 각각 복사할 수 있습니다. 큰 미리보기와 HSL 지원으로 색을 미세 조정하기 좋으며 모든 변환은 브라우저에서만 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>복리 계산기 — 복리 효과·미래 자산 계산</title>
+      <link>https://dogubox.shop/compound-interest/</link>
+      <guid isPermaLink="true">https://dogubox.shop/compound-interest/</guid>
+      <description>초기 원금과 매월 적립금, 이자율, 기간, 복리 주기(연·월·일)를 넣으면 복리로 불어난 미래 금액과 원금·이자를 계산하는 무료 복리 계산기. 복리 효과를 한눈에 확인할 수 있습니다. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>색상 대비 검사 — WCAG 명도 대비비·접근성 검사 무료 도구</title>
+      <link>https://dogubox.shop/contrast-checker/</link>
+      <guid isPermaLink="true">https://dogubox.shop/contrast-checker/</guid>
+      <description>전경색과 배경색의 명도 대비비(contrast ratio)를 계산하고 WCAG AA·AAA 기준(일반·큰 텍스트) 통과 여부를 알려줍니다. 실제 텍스트 미리보기로 가독성을 확인하세요. 웹 접근성 점검에 유용하며 브라우저에서만 동작합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>cron 표현식 변환·설명 — 크론 식 해석 + 다음 실행 시각</title>
+      <link>https://dogubox.shop/cron-parser/</link>
+      <guid isPermaLink="true">https://dogubox.shop/cron-parser/</guid>
+      <description>cron(크론) 표현식을 한국어 설명으로 풀어 주고 다음 실행 시각을 계산하는 무료 도구. 분·시·일·월·요일 필드 생성기 포함. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CSV ↔ JSON 변환 — 표 데이터 양방향 변환 무료 온라인 도구</title>
+      <link>https://dogubox.shop/csv-json/</link>
+      <guid isPermaLink="true">https://dogubox.shop/csv-json/</guid>
+      <description>CSV를 JSON으로, JSON을 CSV로 양방향 변환하세요. 쉼표·탭·세미콜론 구분자와 헤더 행 옵션을 지원하며, 결과를 복사하거나 파일로 내려받을 수 있습니다. 모든 변환은 브라우저에서만 처리되어 데이터가 서버로 전송되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>D-Day · 날짜 계산기 — 남은 날짜·경과 날짜·날짜 더하기</title>
+      <link>https://dogubox.shop/dday-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/dday-calculator/</guid>
+      <description>특정 날짜까지 남은 D-Day를 계산하거나, 날짜에 일수를 더하고 빼는 무료 온라인 날짜 계산기입니다. 시험·기념일·계약 만료일 등 다양한 날짜 카운트다운에 활용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DSR·DTI 계산기 — 총부채원리금상환비율</title>
+      <link>https://dogubox.shop/dsr-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/dsr-calculator/</guid>
+      <description>연소득과 대출 연간 상환액을 입력하면 DSR(총부채원리금상환비율)과 DTI(총부채상환비율)를 계산하는 무료 도구. 규제 한도와 비교해 대출 여력을 가늠할 수 있고 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>인코더 · 디코더 — Base64·URL 인코딩·디코딩 무료 온라인 도구</title>
+      <link>https://dogubox.shop/encoder-decoder/</link>
+      <guid isPermaLink="true">https://dogubox.shop/encoder-decoder/</guid>
+      <description>텍스트를 Base64 또는 URL 형식으로 인코딩하거나 디코딩합니다. API 개발, 웹 개발, 데이터 변환에 유용한 온라인 인코더·디코더 도구입니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지로 GIF 만들기 — 사진 여러 장 움직이는 GIF 생성·다운로드</title>
+      <link>https://dogubox.shop/gif-maker/</link>
+      <guid isPermaLink="true">https://dogubox.shop/gif-maker/</guid>
+      <description>여러 장의 이미지를 올려 순서와 재생 속도를 정하면 움직이는 GIF로 만들어 내려받는 무료 도구. 설치 없이 브라우저에서 GIF를 생성하며 사진은 서버로 전송되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>그라데이션 생성기 — CSS linear·radial 그라데이션 코드</title>
+      <link>https://dogubox.shop/gradient-generator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/gradient-generator/</guid>
+      <description>여러 색상과 방향·위치를 조절해 CSS 그라데이션을 실시간 미리보기로 만들고 linear-gradient·radial-gradient 코드를 복사하세요. 색 추가·삭제와 위치(%) 조절을 지원합니다. 웹 배경·버튼 디자인에 바로 쓸 수 있으며 브라우저에서만 동작합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A4 크기는 몇 픽셀? — 용지 규격과 dpi 총정리</title>
+      <link>https://dogubox.shop/guide/a4-paper-size/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/a4-paper-size/</guid>
+      <description>A4는 210×297mm — 픽셀로는 dpi에 따라 달라집니다. 72·150·300dpi별 A4 픽셀 크기 표, A3·A5·B4 등 용지 규격 체계의 원리, 스캔·과제 제출·인쇄용 이미지를 만들 때 적정 해상도 고르는 법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>만 나이 계산법 — 세는 나이·연 나이 차이와 빠른 암산법</title>
+      <link>https://dogubox.shop/guide/age-calculation/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/age-calculation/</guid>
+      <description>만 나이는 어떻게 세는 걸까요? 생일 전·후 계산법과 빠른 암산법, 만 나이·세는 나이·연 나이의 차이, 술·담배·병역에는 어떤 나이가 적용되는지까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>연차 계산법 — 발생 기준과 연차수당</title>
+      <link>https://dogubox.shop/guide/annual-leave-guide/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/annual-leave-guide/</guid>
+      <description>연차유급휴가는 어떻게 생길까요? 1년 미만은 월 1일, 1년 이상은 15일, 근속에 따라 가산되는 발생 원리와 출근율 80% 요건, 회계연도 기준 vs 입사일 기준, 미사용 연차수당과 연차촉진제도까지 한 번에 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>전용면적·공급면적·계약면적 — 아파트 면적, 뭐가 다른가</title>
+      <link>https://dogubox.shop/guide/apartment-area-types/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/apartment-area-types/</guid>
+      <description>같은 아파트인데 전용 84㎡, 공급 112㎡ — 무엇이 진짜 우리 집 크기일까요. 전용·주거공용·공급·계약면적과 서비스면적의 차이, '34평'이 어느 면적 기준인지, 분양 광고를 읽을 때 확인할 것을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>16:9가 뭐길래 — 화면 비율 계산법과 해상도 표</title>
+      <link>https://dogubox.shop/guide/aspect-ratio/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/aspect-ratio/</guid>
+      <description>16:9, 4:3, 21:9 — 비율 표기의 의미와 계산법을 정리했습니다. 가로 1920이면 세로는 몇이어야 16:9인지 구하는 공식, 비율별 대표 해상도 표(FHD·QHD·4K), 유튜브·인스타·릴스 등 플랫폼별 권장 비율까지.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Base64란? — 인코딩 원리와 URL 인코딩과의 차이</title>
+      <link>https://dogubox.shop/guide/base64-encoding/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/base64-encoding/</guid>
+      <description>aGVsbG8= 같은 문자열의 정체, Base64 인코딩입니다. 왜 쓰는지, 암호화와 무엇이 다른지, %EC%95%88 같은 URL 인코딩과의 차이까지 예시로 쉽게 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>BMI 계산법 — 공식·정상 범위(한국 기준)와 한계까지</title>
+      <link>https://dogubox.shop/guide/bmi-calculation/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/bmi-calculation/</guid>
+      <description>BMI(체질량지수)는 몸무게(kg)를 키(m)의 제곱으로 나눈 값입니다. 계산 공식과 예시, 한국(대한비만학회) 기준표와 WHO 기준의 차이, BMI가 놓치는 것까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>글자가 깨져 보일 때 — 인코딩 깨짐의 원인과 해결</title>
+      <link>https://dogubox.shop/guide/broken-text-encoding/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/broken-text-encoding/</guid>
+      <description>ë©ì¶•, ²Æ¼­ 같은 외계어가 보인다면 인코딩 문제입니다. 컴퓨터가 글자를 저장하는 방식(UTF-8·EUC-KR), 깨지는 이유, 메모장·엑셀 CSV·자막 파일 등 상황별 해결법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>글자 수와 바이트는 다르다 — 한글이 2배로 계산되는 이유</title>
+      <link>https://dogubox.shop/guide/byte-vs-character/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/byte-vs-character/</guid>
+      <description>자기소개서 '3,000바이트 이내', 문자 메시지 90바이트 — 글자 수가 아니라 바이트로 제한하는 곳이 아직 많습니다. 한글 1자가 2바이트 또는 3바이트로 계산되는 이유(EUC-KR vs UTF-8), 제한별 실제 글자 수 환산, 초과를 피하는 요령을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>색상 대비와 웹 접근성 — WCAG 4.5:1 기준 쉽게 이해하기</title>
+      <link>https://dogubox.shop/guide/color-contrast-accessibility/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/color-contrast-accessibility/</guid>
+      <description>회색 글씨가 안 읽히는 데는 기준이 있습니다. 명도 대비율(1:1~21:1)의 의미, WCAG AA·AAA 기준(4.5:1, 3:1), 디자인에서 자주 실패하는 사례와 검사 방법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>배색 기초 — 실패 없는 색 조합 규칙과 60-30-10 법칙</title>
+      <link>https://dogubox.shop/guide/color-scheme-basics/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/color-scheme-basics/</guid>
+      <description>색만 바꿨는데 촌스러워지는 이유가 있습니다. 색상환으로 이해하는 보색·유사색 조합, 비율을 정해 주는 60-30-10 법칙, PPT·블로그·인테리어에 바로 쓰는 배색 요령을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>복리의 힘과 72 법칙 — 시간이 만드는 차이</title>
+      <link>https://dogubox.shop/guide/compound-effect/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/compound-effect/</guid>
+      <description>복리는 이자에 다시 이자가 붙어 시간이 갈수록 눈덩이처럼 불어납니다. 단리와 복리가 벌어지는 원리, 원금이 두 배 되는 기간을 암산하는 72 법칙, 일찍 시작하는 것이 왜 중요한지를 예시와 함께 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PDF 용량 줄이는 법 — 왜 큰지, 어디까지 줄여도 되는지</title>
+      <link>https://dogubox.shop/guide/compress-pdf/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/compress-pdf/</guid>
+      <description>이메일 첨부 한도에 걸린 PDF, 어떻게 줄일까요? PDF 용량이 커지는 진짜 원인(스캔본·사진·폰트), 압축의 원리와 화질 트레이드오프, 제출·인쇄 등 용도별 적정 설정과 압축 단계를 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>cron 표현식 읽는 법 — 5칸 구조와 자주 쓰는 예시 모음</title>
+      <link>https://dogubox.shop/guide/cron-expression/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/cron-expression/</guid>
+      <description>0 9 * * 1은 무슨 뜻일까요? cron 표현식의 5칸 구조(분·시·일·월·요일), *·,·-·/ 특수문자의 의미, 매일·매주·매월 자주 쓰는 예시와 헷갈리는 함정까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CSS 그라데이션 만들기 — linear·radial 문법과 자연스러운 배색</title>
+      <link>https://dogubox.shop/guide/css-gradient/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/css-gradient/</guid>
+      <description>배경에 그라데이션을 넣고 싶은데 어색하게 탁해진다면? linear-gradient·radial-gradient 기본 문법, 각도와 정지점(color stop) 읽는 법, 중간이 탁해지지 않는 색 고르기 요령을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>엑셀에서 CSV 한글이 깨질 때 — 원인과 3가지 해결법</title>
+      <link>https://dogubox.shop/guide/csv-excel-encoding/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/csv-excel-encoding/</guid>
+      <description>다운로드한 CSV를 엑셀로 열면 한글이 ㅁㄴㅇㄹ나 鶴 같은 글자로 깨지는 이유 — 인코딩(UTF-8 vs EUC-KR)과 BOM 때문입니다. 데이터 가져오기로 여는 법, BOM 붙여 저장하는 법, 반대로 엑셀에서 내보낸 CSV가 다른 시스템에서 깨질 때 처방까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>D-Day 계산법 — 디데이 세는 법과 당일 포함 여부 정리</title>
+      <link>https://dogubox.shop/guide/dday-calculation/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/dday-calculation/</guid>
+      <description>D-Day, D-1, D+100은 정확히 어떻게 세는 걸까요? 당일을 포함하는지, 100일·1주년은 어떻게 계산하는지, 헷갈리는 디데이 계산을 예시와 함께 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>DSR·DTI란 — 대출 한도를 정하는 규제 이해하기</title>
+      <link>https://dogubox.shop/guide/dsr-dti-guide/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/dsr-dti-guide/</guid>
+      <description>DSR(총부채원리금상환비율)과 DTI(총부채상환비율)는 소득 대비 빚 상환 부담으로 대출 한도를 정하는 규제입니다. 둘의 차이, 계산식 개념, LTV와의 관계, 비율이 높으면 한도가 줄어드는 이유, 한도를 늘리는 일반적 방법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>전자서명 만들기 — 법적 효력과 문서에 깔끔하게 넣는 법</title>
+      <link>https://dogubox.shop/guide/electronic-signature/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/electronic-signature/</guid>
+      <description>계약서·동의서에 쓸 전자서명, 어떻게 만들고 효력은 어디까지일까요? 이미지 서명과 공인 전자서명의 차이, 투명 배경으로 깔끔하게 만드는 법, PDF에 넣는 요령까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>사진 속 글자 추출하기(OCR) — 인식률 높이는 법까지</title>
+      <link>https://dogubox.shop/guide/extract-text-from-image/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/extract-text-from-image/</guid>
+      <description>문서 사진·스크린샷의 글자를 타이핑 없이 텍스트로 바꾸는 OCR 사용법을 정리했습니다. 설치 없이 브라우저에서 추출하는 단계와 인식률을 높이는 촬영 요령, OCR의 한계까지.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>기타 튜닝 하는 법 — 표준 튜닝 EADGBE와 튜너 보는 법</title>
+      <link>https://dogubox.shop/guide/guitar-tuning/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/guitar-tuning/</guid>
+      <description>기타 튜닝, 어느 줄이 무슨 음인지부터 헷갈린다면? 표준 튜닝 EADGBE 외우는 법, 튜너 바늘과 센트 읽는 법, 음을 낮췄다가 올려 맞추는 요령, 튜닝이 자주 틀어지는 이유까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>아이폰 HEIC 사진을 JPG로 바꾸는 법 (PC·아이폰·온라인)</title>
+      <link>https://dogubox.shop/guide/heic-to-jpg-guide/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/heic-to-jpg-guide/</guid>
+      <description>아이폰 사진이 HEIC라서 안 열릴 때. HEIC가 뭔지, 아이폰에서 아예 JPG로 찍는 설정, PC·온라인에서 JPG로 변환하는 법까지 단계별로 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>색상 코드 이해하기 — HEX·RGB·HSL 차이와 변환법</title>
+      <link>https://dogubox.shop/guide/hex-rgb-color-codes/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/hex-rgb-color-codes/</guid>
+      <description>#FFFFFF 같은 HEX 코드는 어떻게 읽을까요? HEX·RGB·HSL이 각각 무엇이고 어떻게 변환하는지, 투명도(알파)는 어떻게 표현하는지 디자인·개발 입문자 눈높이로 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>증명사진 규격 총정리 — 여권·이력서·비자 사이즈 맞추는 법</title>
+      <link>https://dogubox.shop/guide/id-photo-size/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/id-photo-size/</guid>
+      <description>여권·이력서·비자·반명함 증명사진 규격을 한 표로 정리했습니다. 배경·복장·표정 규정과 집에서 스마트폰 사진으로 규격에 맞게 만드는 법까지 알려드립니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JPG·PNG·WebP — 사진 저장 형식, 뭘 골라야 할까</title>
+      <link>https://dogubox.shop/guide/image-formats/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/image-formats/</guid>
+      <description>사진은 JPG, 스크린샷·로고는 PNG, 웹용은 WebP — 한 줄 결론과 그 이유를 정리했습니다. 손실·무손실 압축의 차이, 투명 배경 지원, 상황별 선택표와 변환할 때 주의점까지 담았습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>전월세 전환 계산법 — 보증금과 월세 환산하기</title>
+      <link>https://dogubox.shop/guide/jeonse-monthly-conversion/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/jeonse-monthly-conversion/</guid>
+      <description>전세를 월세로, 월세를 전세로 바꿀 때 쓰는 전월세 전환율의 의미와 계산식(월세 = 전환 보증금 × 전환율 ÷ 12)을 정리했습니다. 전환율이 낮을수록 세입자에게 유리한 이유, 반전세 비교, 보증금을 월세로 돌릴 때 손익을 따지는 법까지 예시로 설명합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JSON이란? 문법·구조와 자주 나는 오류 다루기</title>
+      <link>https://dogubox.shop/guide/json-basics/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/json-basics/</guid>
+      <description>JSON이 무엇이고 왜 이렇게 널리 쓰이는지, 기본 문법(키·값·자료형)과 쉼표·따옴표·주석 같은 자주 나는 오류, 그리고 포맷팅·검증하는 법까지 입문자 눈높이로 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JSON vs YAML — 문법 차이와 변환할 때 주의점</title>
+      <link>https://dogubox.shop/guide/json-vs-yaml/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/json-vs-yaml/</guid>
+      <description>같은 데이터를 담는 JSON과 YAML, 뭐가 다르고 언제 뭘 쓸까요? 따옴표·들여쓰기·주석의 문법 차이, API는 JSON·설정 파일은 YAML이 된 이유, 변환할 때 빠지기 쉬운 함정(탭 들여쓰기, no의 해석)을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>윤년과 윤달은 다르다 — 2월 29일과 음력 윤달의 원리</title>
+      <link>https://dogubox.shop/guide/leap-year-month/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/leap-year-month/</guid>
+      <description>윤년은 양력에 2월 29일이 생기는 해(4년 주기), 윤달은 음력에 한 달이 통째로 추가되는 것(약 2~3년 주기) — 이름만 비슷한 완전히 다른 장치입니다. 윤년 판별 규칙(100년·400년 예외), 윤달이 생기는 이유, 2월 29일생의 생일 문제까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>술은 연 나이, 면허는 만 나이 — 법마다 다른 나이 기준</title>
+      <link>https://dogubox.shop/guide/legal-ages/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/legal-ages/</guid>
+      <description>만 나이 통일법 이후에도 술·담배는 연 나이(태어난 해 기준), 운전면허·투표는 만 나이로 따집니다. 왜 법마다 기준이 다른지, 헷갈리기 쉬운 항목별 기준 표(음주·흡연·면허·투표·알바), 내 나이가 어느 기준으로 몇 살인지 확인하는 법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>원리금균등 vs 원금균등 — 대출 상환 방식 차이</title>
+      <link>https://dogubox.shop/guide/loan-repayment-methods/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/loan-repayment-methods/</guid>
+      <description>대출 상환 방식인 원리금균등·원금균등·만기일시의 차이를 정리했습니다. 매달 갚는 금액과 총이자가 어떻게 달라지는지, 어떤 상황에 무엇이 유리한지, 같은 금액·금리라도 총이자가 벌어지는 이유를 표와 함께 설명합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>음력 ↔ 양력 변환 — 생일·제사 날짜 정확히 계산하는 법</title>
+      <link>https://dogubox.shop/guide/lunar-solar-conversion/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/lunar-solar-conversion/</guid>
+      <description>음력과 양력은 무엇이 다른지, 윤달은 왜 생기는지, 그리고 음력 생일·제사 날짜를 양력으로 정확히 변환하는 법까지 정리했습니다. 매년 양력 날짜가 바뀌는 이유도 함께 설명합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>움짤(GIF) 만들기 — 사진 여러 장으로 만드는 법과 용량 팁</title>
+      <link>https://dogubox.shop/guide/make-gif/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/make-gif/</guid>
+      <description>설치 없이 사진 여러 장으로 움짤(GIF)을 만드는 방법을 단계별로 정리했습니다. 프레임 간격·반복 설정, GIF 용량이 커지는 이유와 줄이는 법, 동영상과의 차이까지.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>QR코드 만들기 — 인쇄·메뉴판까지 제대로 쓰는 법</title>
+      <link>https://dogubox.shop/guide/make-qr-code/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/make-qr-code/</guid>
+      <description>QR코드를 무료로 만들고 인쇄·활용하는 법. QR코드 종류, 인쇄할 때 크기·여백·오류복원 설정, 메뉴판·명함·행사 활용 사례까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PDF 합치기·나누기·용량 줄이기 무료로 하는 법 (설치 없이)</title>
+      <link>https://dogubox.shop/guide/merge-split-pdf/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/merge-split-pdf/</guid>
+      <description>여러 PDF를 하나로 합치고, 필요한 페이지만 분리하고, 용량을 줄이는 법. 프로그램 설치나 회원가입 없이 브라우저에서 안전하게 PDF를 다루는 방법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>카톡으로 보낸 사진이 흐려지는 이유 — 화질 지키며 보내는 법</title>
+      <link>https://dogubox.shop/guide/messenger-photo-quality/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/messenger-photo-quality/</guid>
+      <description>메신저로 받은 사진을 확대하면 뭉개지는 이유 — 전송 시 자동으로 리사이즈·압축되기 때문입니다. 일반 전송과 원본 전송의 차이, 화질을 지키는 세 가지 방법(원본 옵션·파일로 보내기·클라우드 링크), 반대로 용량을 일부러 줄여 보내는 요령까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>메트로놈 연습법 — BPM 읽는 법과 템포 올리는 단계</title>
+      <link>https://dogubox.shop/guide/metronome-practice/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/metronome-practice/</guid>
+      <description>메트로놈, 켜 두기만 하면 효과가 없습니다. BPM과 빠르기말(안단테·알레그로) 읽는 법, 틀리지 않는 템포에서 시작해 5BPM씩 올리는 연습 단계, 탭 템포로 곡의 빠르기를 알아내는 요령을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>사진 인화 사이즈 총정리 — 3×5·4×6은 몇 픽셀이어야 할까</title>
+      <link>https://dogubox.shop/guide/photo-print-size/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/photo-print-size/</guid>
+      <description>3×5, 4×6, 5×7, 8×10 — 사진관 인화 사이즈의 실제 크기(cm)와 선명하게 인화되는 데 필요한 픽셀 수(300dpi 기준)를 표로 정리했습니다. 인화 비율과 사진 비율이 달라 잘리는 문제를 막는 법, 해상도가 부족할 때의 대처까지.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>사진을 PDF로 만들어 제출하기 — 과제·서류 제출의 정석</title>
+      <link>https://dogubox.shop/guide/photos-to-pdf/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/photos-to-pdf/</guid>
+      <description>손글씨 과제, 신분증 사본, 종이 서류 — 사진 여러 장을 PDF 한 파일로 묶어 제출해야 할 때의 정석 순서입니다. 변환 전 사진 정리(회전·순서·밝기), 변환 단계, 용량 줄이기까지 한 번에 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>피아노 건반 익히기 — 도 찾는 법부터 첫 화음까지</title>
+      <link>https://dogubox.shop/guide/piano-keys/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/piano-keys/</guid>
+      <description>피아노 앞에 서면 어느 건반이 '도'인지부터 막막하다면? 검은 건반 2개·3개 묶음으로 도 찾는 법, 계이름과 영문 음이름(CDEFGAB) 대응, 옥타브 개념, 첫 화음(도·미·솔)까지 입문 순서로 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>포모도로 공부법 — 25분 집중이 통하는 이유와 실천법</title>
+      <link>https://dogubox.shop/guide/pomodoro-technique/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/pomodoro-technique/</guid>
+      <description>25분 집중 + 5분 휴식, 포모도로 기법의 원리와 실천 단계를 정리했습니다. 왜 효과가 있는지, 50/10 같은 변형, 자꾸 실패하는 이유와 대처법까지 공부·업무에 바로 적용해 보세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>평 ↔ ㎡ 변환과 평수 계산법 — 아파트 면적 쉽게 이해하기</title>
+      <link>https://dogubox.shop/guide/pyeong-conversion/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/pyeong-conversion/</guid>
+      <description>1평은 몇 ㎡일까? 평과 제곱미터 변환 공식과 빠른 암산법, 그리고 부동산에서 헷갈리는 공급면적·전용면적·분양 평형의 의미까지 쉽게 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>QR코드가 안 찍히는 이유 7가지 — 인쇄·디자인 체크리스트</title>
+      <link>https://dogubox.shop/guide/qr-not-scanning/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/qr-not-scanning/</guid>
+      <description>분명 QR코드를 넣었는데 손님 폰에서 인식이 안 된다면 — 크기, 여백, 색 대비, 반전, 코팅 반사, 너무 긴 내용, 손상까지 흔한 원인 7가지를 체크리스트로 정리했습니다. 인쇄 전 점검 순서와 안전한 제작 설정도 함께.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 용량 줄이기 — 화질 안 깨지게 압축하는 법</title>
+      <link>https://dogubox.shop/guide/reduce-image-size/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/reduce-image-size/</guid>
+      <description>사진 용량이 너무 클 때. 해상도와 압축률의 차이, 리사이즈를 먼저 해야 하는 이유, JPG·PNG·WebP 포맷 선택까지. 화질 손상을 최소화하며 이미지 용량을 줄이는 법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>정규식 입문 — 기초 문법과 자주 쓰는 패턴 모음</title>
+      <link>https://dogubox.shop/guide/regex-basics/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/regex-basics/</guid>
+      <description>정규식(정규표현식)이 처음이라면 여기서 시작하세요. 메타문자·수량자·문자 클래스 기초 문법과 이메일·전화번호·숫자 추출 등 실무에서 바로 쓰는 패턴을 예시로 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>사진 위치정보(EXIF) 지우는 법 — 중고거래·SNS 전 필수</title>
+      <link>https://dogubox.shop/guide/remove-photo-location/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/remove-photo-location/</guid>
+      <description>사진에는 촬영 위치(GPS)와 기기 정보가 EXIF로 숨어 있습니다. 왜 위험한지, 어떤 정보가 담기는지, 그리고 온라인·아이폰·안드로이드·윈도우에서 EXIF를 제거하는 법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>적금 이자가 예금의 절반인 이유 — 이자 계산법</title>
+      <link>https://dogubox.shop/guide/savings-interest/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/savings-interest/</guid>
+      <description>같은 금리인데 왜 적금 이자가 예금보다 적을까요? 적금은 매달 나눠 넣어 이자 붙는 기간이 짧기 때문입니다. 적금·예금 이자가 계산되는 원리, 단리와 복리의 차이, 이자과세 15.4%를 뺀 세후 수령액까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>자기소개서 글자 수 맞추는 법 — 공백 포함·제외 차이 완벽 정리</title>
+      <link>https://dogubox.shop/guide/self-intro-character-count/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/self-intro-character-count/</guid>
+      <description>자기소개서 글자 수, 공백 포함과 공백 제외는 뭐가 다를까? 기업·공기업 기준, 글자 수를 자연스럽게 줄이고 늘리는 법, 자소서 플랫폼별 주의점까지 한 번에 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>퇴직금 계산법과 받는 조건 — 평균임금의 모든 것</title>
+      <link>https://dogubox.shop/guide/severance-pay-guide/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/severance-pay-guide/</guid>
+      <description>퇴직금은 '1일 평균임금 × 30 × 재직일수/365'로 계산합니다. 평균임금이 무엇이고 상여·연차수당이 어떻게 반영되는지, 1년 이상·주 15시간 같은 받을 수 있는 조건, DB형과 DC형의 차이, 퇴직소득세까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>24절기는 음력이 아니다 — 입춘·동지가 매년 같은 날인 이유</title>
+      <link>https://dogubox.shop/guide/solar-terms-24/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/solar-terms-24/</guid>
+      <description>입춘은 왜 매년 2월 4일쯤일까 — 24절기는 태양의 위치로 정하는 사실상 양력입니다. 설날(음력)과 절기(태양력)가 다른 체계인 이유, 계절별 24절기 표와 의미, 동지 팥죽·입춘대길 같은 풍습까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>해킹 안 당하는 비밀번호 만드는 법 — 길이·패스프레이즈·관리</title>
+      <link>https://dogubox.shop/guide/strong-password/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/strong-password/</guid>
+      <description>비밀번호는 복잡함보다 길이가 중요합니다. 안전한 비밀번호의 원칙, 외우기 쉬운 패스프레이즈 방식, 재사용의 위험과 관리법까지. 해킹당하지 않는 비밀번호 만드는 법을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>연봉 실수령액 계산법 — 4대보험·세금 공제 구조</title>
+      <link>https://dogubox.shop/guide/take-home-pay/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/take-home-pay/</guid>
+      <description>세전 연봉에서 실제 통장에 들어오는 금액까지, 무엇이 얼마나 빠지는지 정리했습니다. 국민연금·건강보험·장기요양·고용보험과 소득세·지방소득세의 공제 구조, 비과세·부양가족이 실수령액에 미치는 영향, 같은 연봉이라도 달라지는 이유를 설명합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>텍스트 비교(diff) 활용법 — 두 문서의 차이를 한눈에 찾기</title>
+      <link>https://dogubox.shop/guide/text-comparison/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/text-comparison/</guid>
+      <description>계약서 개정본, 과제 수정본, 코드 변경 — 두 텍스트의 달라진 부분을 눈으로 찾는 건 한계가 있습니다. diff 결과 읽는 법과 비교 옵션, 실무 활용 사례를 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>유닉스 타임스탬프란? — 10자리·13자리 차이와 날짜 변환법</title>
+      <link>https://dogubox.shop/guide/timestamp-conversion/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/timestamp-conversion/</guid>
+      <description>1781049600 같은 숫자가 왜 날짜일까요? 유닉스 타임스탬프의 원리(1970년 기준 초), 10자리·13자리 차이, 한국 시간(KST) 변환과 엑셀 변환 공식까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>실업급여 조건·금액 계산법 — 수급 자격과 지급액</title>
+      <link>https://dogubox.shop/guide/unemployment-benefit-guide/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/unemployment-benefit-guide/</guid>
+      <description>실업급여(구직급여)는 고용보험 가입 기간과 비자발적 이직 같은 요건을 모두 채워야 받습니다. 수급 자격, 이직 전 평균임금으로 지급액을 정하는 원리(상·하한액), 연령·가입기간에 따른 소정급여일수, 신청 절차, 자발적 퇴사 예외까지 한 번에 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>헷갈리는 단위 변환 총정리 — 길이·무게·온도·요리 계량</title>
+      <link>https://dogubox.shop/guide/unit-conversion/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/unit-conversion/</guid>
+      <description>인치·피트·파운드·화씨처럼 해외 단위가 나오면 막막할 때. 길이·무게·온도와 요리 계량(컵·스푼·ml)까지 자주 쓰는 단위 변환을 표와 함께 쉽게 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>시급·주휴수당 계산법 — 최저임금과 주휴수당 조건</title>
+      <link>https://dogubox.shop/guide/wage-calculation/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/wage-calculation/</guid>
+      <description>시급을 일급·월급으로 환산하는 법, 주휴수당이 무엇이고 누가 받는지(주 15시간 이상·소정근로일 개근), 1주 소정근로시간에 비례한 주휴수당 계산법, 최저임금 개념과 4대보험·세금 공제 후 실수령액까지 한눈에 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>해시(SHA-256)란? — 암호화와의 차이, 어디에 쓰이나</title>
+      <link>https://dogubox.shop/guide/what-is-hash/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/what-is-hash/</guid>
+      <description>SHA-256 같은 해시 함수는 무엇이고 암호화와 뭐가 다를까요? 해시의 3가지 성질, 파일 무결성 검증과 비밀번호 저장에 쓰이는 이유, MD5를 더 이상 쓰지 않는 이유까지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JWT란? — 토큰 구조 3부분과 디코딩, 보안 주의점</title>
+      <link>https://dogubox.shop/guide/what-is-jwt/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/what-is-jwt/</guid>
+      <description>eyJ로 시작하는 긴 문자열, JWT(JSON Web Token)입니다. 헤더·페이로드·서명 3부분 구조, 누구나 디코딩할 수 있는 이유, exp 만료 확인과 보안 주의점까지 쉽게 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>패스키(Passkey)란? — 비밀번호 없는 로그인의 원리</title>
+      <link>https://dogubox.shop/guide/what-is-passkey/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/what-is-passkey/</guid>
+      <description>구글·애플이 '비밀번호 대신 패스키를 쓰라'고 권하는 이유 — 패스키는 기기에 저장된 열쇠와 지문·얼굴 인증으로 로그인하는 방식입니다. 피싱이 원천적으로 안 통하는 원리, 기기를 잃어버리면 어떻게 되는지, 비밀번호는 이제 필요 없는지 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>부가가치세란? 10% 계산법과 공급가·합계</title>
+      <link>https://dogubox.shop/guide/what-is-vat/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/what-is-vat/</guid>
+      <description>영수증에 찍히는 부가세 10%는 무엇이고 누가 부담할까요? 공급가액과 부가세, 합계의 관계, 부가세 포함 금액에서 공급가액을 거꾸로 구하는 법(÷1.1), 면세와 영세율의 차이를 예시와 함께 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>와이파이 비밀번호, QR 한 장으로 공유하기</title>
+      <link>https://dogubox.shop/guide/wifi-qr-code/</link>
+      <guid isPermaLink="true">https://dogubox.shop/guide/wifi-qr-code/</guid>
+      <description>“와이파이 비번 뭐예요?”에 매번 답하는 대신 QR 한 장 — 카메라로 찍으면 자동으로 연결됩니다. 와이파이 QR의 원리(WIFI: 형식), 만들어 인쇄하는 법, 카페·집들이에서 쓰는 요령과 보안 주의점을 정리했습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hash 생성기 — MD5·SHA-1·SHA-256·SHA-512 무료 온라인 도구</title>
+      <link>https://dogubox.shop/hash-generator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/hash-generator/</guid>
+      <description>텍스트를 MD5, SHA-1, SHA-256, SHA-512 해시로 즉시 변환합니다. 파일 무결성 확인, 비밀번호 해싱 학습, API 서명 검증에 활용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>HEIC → JPG 변환 — 아이폰 HEIC 사진을 업로드 없이 JPG로</title>
+      <link>https://dogubox.shop/heic-to-jpg/</link>
+      <guid isPermaLink="true">https://dogubox.shop/heic-to-jpg/</guid>
+      <description>아이폰 HEIC/HEIF 사진을 JPG로 변환하는 무료 도구. 파일이 서버로 전송되지 않고 브라우저 안에서만 변환되어 사생활이 안전합니다. 여러 장 일괄 변환과 품질 조절을 지원합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>증명사진 규격 맞추기 — 여권·이력서·비자 사진 무료 온라인 제작</title>
+      <link>https://dogubox.shop/id-photo/</link>
+      <guid isPermaLink="true">https://dogubox.shop/id-photo/</guid>
+      <description>여권(3.5×4.5cm), 이력서 증명사진(3×4cm), 미국 비자(2×2inch) 등 한국 증명사진 규격에 맞는 사진을 브라우저에서 즉시 제작합니다. 300DPI 기준 JPG 저장. 파일은 서버로 전송되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 압축·리사이즈 — 사진 용량 줄이기 무료 온라인 도구</title>
+      <link>https://dogubox.shop/image-compressor/</link>
+      <guid isPermaLink="true">https://dogubox.shop/image-compressor/</guid>
+      <description>JPG·PNG·WebP 이미지를 브라우저에서 무료로 압축하고 크기를 조절합니다. 이메일 첨부나 웹 업로드 전 용량을 줄이기에 최적입니다. 설치 없이 바로 사용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 포맷 변환 — PNG·JPG·WebP 무료 온라인 변환</title>
+      <link>https://dogubox.shop/image-converter/</link>
+      <guid isPermaLink="true">https://dogubox.shop/image-converter/</guid>
+      <description>PNG, JPG, WebP 이미지 형식을 브라우저에서 무료로 변환합니다. 파일이 외부 서버로 전송되지 않고 내 컴퓨터에서만 처리됩니다. 설치 없이 바로 사용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 자르기 — 사진 크롭(자유·1:1·16:9) 무료 온라인 도구</title>
+      <link>https://dogubox.shop/image-crop/</link>
+      <guid isPermaLink="true">https://dogubox.shop/image-crop/</guid>
+      <description>이미지를 올리고 드래그로 원하는 영역을 잘라 다운로드하세요. 자유·1:1·16:9·4:3·3:4 비율 고정과 원본 화질 유지를 지원합니다. 모든 처리는 브라우저에서만 이뤄져 사진이 서버로 전송되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 OCR · 글자 추출 — 사진 속 한글·영문 텍스트 추출</title>
+      <link>https://dogubox.shop/image-ocr/</link>
+      <guid isPermaLink="true">https://dogubox.shop/image-ocr/</guid>
+      <description>이미지 속 글자를 인식해 편집 가능한 텍스트로 추출하는 무료 OCR 도구. 한국어·영어 지원, 결과 복사. 이미지는 업로드 없이 브라우저 안에서 인식됩니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 크기 조절 — 사진 사이즈 변경·리사이즈 무료 온라인 도구</title>
+      <link>https://dogubox.shop/image-resizer/</link>
+      <guid isPermaLink="true">https://dogubox.shop/image-resizer/</guid>
+      <description>JPG·PNG·WebP 이미지를 브라우저에서 원하는 가로·세로 크기로 리사이즈합니다. 파일은 서버로 전송되지 않으며, 비율 유지와 품질 조절을 지원합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 → PDF 변환 — 사진을 PDF로 묶기 무료 온라인 도구</title>
+      <link>https://dogubox.shop/image-to-pdf/</link>
+      <guid isPermaLink="true">https://dogubox.shop/image-to-pdf/</guid>
+      <description>JPG·PNG·WebP 이미지 여러 장을 하나의 PDF 파일로 묶어줍니다. 드래그 앤 드롭으로 파일을 추가하면 페이지 순서가 자동으로 정해집니다. 파일은 브라우저 안에서만 처리됩니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>전월세 전환 계산기 — 전세 ↔ 월세 전환율</title>
+      <link>https://dogubox.shop/jeonse-conversion/</link>
+      <guid isPermaLink="true">https://dogubox.shop/jeonse-conversion/</guid>
+      <description>전월세 전환율로 전세 보증금을 월세로, 또는 월세를 전세로 환산하는 무료 계산기. 보증금 일부를 월세로 돌릴 때의 적정 월세도 계산합니다. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JSON 포매터 — JSON 정렬·압축·검사 무료 온라인 도구</title>
+      <link>https://dogubox.shop/json-formatter/</link>
+      <guid isPermaLink="true">https://dogubox.shop/json-formatter/</guid>
+      <description>엉킨 JSON을 보기 좋게 들여쓰기 정렬하거나, 한 줄로 압축하고, 문법 오류를 즉시 확인합니다. API 개발이나 데이터 분석 시 JSON을 빠르게 검증하는 데 활용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JSON ↔ YAML 변환 — 양방향 변환·복사·다운로드 무료</title>
+      <link>https://dogubox.shop/json-yaml/</link>
+      <guid isPermaLink="true">https://dogubox.shop/json-yaml/</guid>
+      <description>JSON과 YAML을 양방향으로 변환하는 무료 온라인 도구. 한쪽에 붙여넣으면 다른 형식으로 즉시 변환하고 복사·다운로드할 수 있으며, 잘못된 형식은 오류 위치를 안내합니다. 브라우저에서만 처리됩니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JWT 디코더 — JSON Web Token 파싱·분석 무료 온라인 도구</title>
+      <link>https://dogubox.shop/jwt-decoder/</link>
+      <guid isPermaLink="true">https://dogubox.shop/jwt-decoder/</guid>
+      <description>JWT(JSON Web Token)를 붙여넣으면 헤더와 페이로드를 즉시 파싱해 보여줍니다. 서명 검증 없이 토큰 내용을 빠르게 확인할 수 있습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>대출 이자 계산기 — 원리금균등·원금균등 월 상환액</title>
+      <link>https://dogubox.shop/loan-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/loan-calculator/</guid>
+      <description>대출 금액·연 이자율·기간을 입력하면 원리금균등·원금균등·만기일시 상환 방식별 월 상환액과 총이자, 총상환액을 계산하는 무료 대출 계산기. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>음력 ↔ 양력 변환 — 윤달까지 정확한 음양력 날짜 변환 무료</title>
+      <link>https://dogubox.shop/lunar-solar-converter/</link>
+      <guid isPermaLink="true">https://dogubox.shop/lunar-solar-converter/</guid>
+      <description>음력과 양력을 양방향으로 변환하는 무료 도구. 윤달을 정확히 처리하며 생일·제사·명절 날짜를 환산할 수 있습니다. 설치 없이 브라우저에서 계산되고 입력 정보는 전송되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>메트로놈 — BPM·박자·탭템포 온라인 메트로놈</title>
+      <link>https://dogubox.shop/metronome/</link>
+      <guid isPermaLink="true">https://dogubox.shop/metronome/</guid>
+      <description>BPM 40~240과 박자(4/4·3/4·2/4·6/8)를 정해 정확한 박을 들려주는 무료 온라인 메트로놈. 탭템포·첫 박 강세·진자 애니메이션 지원. 모든 소리는 브라우저에서 합성으로 만들어집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>비밀번호 생성 — 무작위 안전한 비밀번호 만들기</title>
+      <link>https://dogubox.shop/password-generator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/password-generator/</guid>
+      <description>대소문자·숫자·특수기호를 조합한 강력한 무작위 비밀번호를 생성합니다. 길이와 포함할 문자 종류를 직접 설정할 수 있으며, 모든 생성은 브라우저 안에서만 이루어집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PDF 용량 줄이기 — 무료 온라인 PDF 압축 도구</title>
+      <link>https://dogubox.shop/pdf-compressor/</link>
+      <guid isPermaLink="true">https://dogubox.shop/pdf-compressor/</guid>
+      <description>PDF 파일을 브라우저에서 이미지 기반으로 다시 저장해 용량을 줄입니다. 파일은 서버로 업로드되지 않으며 품질과 해상도를 직접 조절할 수 있습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PDF 합치기 — 여러 PDF를 하나로 무료 병합</title>
+      <link>https://dogubox.shop/pdf-merge/</link>
+      <guid isPermaLink="true">https://dogubox.shop/pdf-merge/</guid>
+      <description>여러 PDF 파일을 드래그 앤 드롭으로 업로드해 하나의 PDF로 합칩니다. 모든 처리가 브라우저 안에서 이루어져 파일이 서버로 전송되지 않습니다. 설치 없이 무료로 사용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PDF 페이지 분할 — 원하는 페이지만 추출 무료 도구</title>
+      <link>https://dogubox.shop/pdf-split/</link>
+      <guid isPermaLink="true">https://dogubox.shop/pdf-split/</guid>
+      <description>큰 PDF에서 필요한 페이지만 뽑아 새 PDF로 저장합니다. 페이지 범위를 '1-3, 5, 8-10' 형식으로 입력하면 즉시 추출됩니다. 모든 처리가 브라우저에서 완결됩니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>PDF → 이미지 변환 — PDF 페이지를 JPG·PNG로 저장</title>
+      <link>https://dogubox.shop/pdf-to-image/</link>
+      <guid isPermaLink="true">https://dogubox.shop/pdf-to-image/</guid>
+      <description>PDF 페이지를 JPG 또는 PNG 이미지로 변환합니다. 페이지 범위와 해상도를 선택할 수 있으며 모든 처리는 브라우저에서만 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>피아노 — 키보드·터치로 치는 온라인 피아노 건반</title>
+      <link>https://dogubox.shop/piano/</link>
+      <guid isPermaLink="true">https://dogubox.shop/piano/</guid>
+      <description>화면 건반을 클릭·터치하거나 키보드로 치는 무료 온라인 피아노. 약 1.5옥타브 건반과 옥타브 이동, 다성(코드) 연주, 키 재지정 지원. 음원 파일 없이 브라우저에서 합성음으로 동작합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>포모도로 타이머 — 25분 집중·5분 휴식 사이클</title>
+      <link>https://dogubox.shop/pomodoro/</link>
+      <guid isPermaLink="true">https://dogubox.shop/pomodoro/</guid>
+      <description>집중과 휴식을 반복하는 포모도로 기법 타이머. 집중·휴식 시간과 사이클을 설정하고, 단계가 끝나면 알림음으로 알려 줍니다. 설치 없이 브라우저에서 바로 사용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>평 ↔ ㎡ 변환 — 평수·제곱미터 즉시 양방향 계산 무료</title>
+      <link>https://dogubox.shop/pyeong-converter/</link>
+      <guid isPermaLink="true">https://dogubox.shop/pyeong-converter/</guid>
+      <description>평과 제곱미터(㎡)를 즉시 양방향으로 변환하는 무료 계산기. 어느 칸에 입력하든 반대 단위가 실시간으로 계산되며, 부동산 면적(전용·공급) 확인에 바로 쓸 수 있습니다. 설치 없이 브라우저에서 동작합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>QR코드 생성 — URL·텍스트를 QR코드로 무료 변환</title>
+      <link>https://dogubox.shop/qr-code/</link>
+      <guid isPermaLink="true">https://dogubox.shop/qr-code/</guid>
+      <description>URL, 와이파이, 텍스트, 연락처 등 무엇이든 QR코드로 만들 수 있습니다. 생성된 QR코드는 PNG 이미지로 바로 저장할 수 있어 인쇄물·프레젠테이션에 활용하기 좋습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>QR코드 읽기 — 이미지·카메라로 QR 스캔·디코딩 무료</title>
+      <link>https://dogubox.shop/qr-reader/</link>
+      <guid isPermaLink="true">https://dogubox.shop/qr-reader/</guid>
+      <description>QR코드 이미지를 올리거나 카메라로 비추면 안에 담긴 URL·텍스트를 바로 읽어 복사할 수 있는 무료 QR 스캐너. 설치 없이 브라우저에서 처리되며 이미지는 서버로 전송되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>정규식 테스터 — 정규표현식 매칭 실시간 확인 무료 도구</title>
+      <link>https://dogubox.shop/regex-tester/</link>
+      <guid isPermaLink="true">https://dogubox.shop/regex-tester/</guid>
+      <description>정규식 패턴과 테스트 문자열을 입력하면 매칭되는 부분을 실시간으로 하이라이트해 보여줍니다. g·i·m·s 플래그 토글, 매칭 개수와 그룹 표시, 자주 쓰는 예시를 제공합니다. 브라우저 내장 RegExp로 동작해 데이터가 서버로 전송되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>이미지 EXIF·위치정보 제거 — 사진 메타데이터 삭제 무료 온라인 도구</title>
+      <link>https://dogubox.shop/remove-exif/</link>
+      <guid isPermaLink="true">https://dogubox.shop/remove-exif/</guid>
+      <description>사진에 숨겨진 GPS 위치, 촬영 날짜, 카메라 기기 정보 등 EXIF 메타데이터를 브라우저에서 즉시 제거합니다. SNS나 중고거래에 올리기 전 개인정보를 안전하게 삭제하세요. 파일은 서버로 전송되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>연봉 실수령액 계산기 — 4대보험·세금 공제 후 월급</title>
+      <link>https://dogubox.shop/salary-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/salary-calculator/</guid>
+      <description>연봉이나 월급을 입력하면 국민연금·건강보험·장기요양·고용보험과 소득세·지방소득세를 공제한 월 실수령액을 계산하는 무료 계산기. 비과세액·부양가족 수 반영. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>적금·예금 이자 계산기 — 만기 수령액·세후 이자</title>
+      <link>https://dogubox.shop/savings-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/savings-calculator/</guid>
+      <description>적금(매월 적립)과 예금(목돈 거치)의 만기 수령액과 이자를 계산하는 무료 계산기. 단리·복리, 이자과세(일반 15.4%·세금우대 9.5%·비과세)를 반영해 세후 실수령 이자를 보여 줍니다. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>퇴직금 계산기 — 평균임금 기준 예상 퇴직금</title>
+      <link>https://dogubox.shop/severance-pay/</link>
+      <guid isPermaLink="true">https://dogubox.shop/severance-pay/</guid>
+      <description>입사일·퇴사일과 평균임금을 입력하면 법정 퇴직금(1일 평균임금 × 30 × 재직일수/365)을 추정하는 무료 퇴직금 계산기. 연간 상여금·연차수당을 평균임금에 반영합니다. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>서명 만들기 — 마우스·터치로 전자서명 그려 투명 PNG 저장</title>
+      <link>https://dogubox.shop/signature-maker/</link>
+      <guid isPermaLink="true">https://dogubox.shop/signature-maker/</guid>
+      <description>마우스나 터치로 서명을 그려 투명 배경 PNG로 저장하는 무료 전자서명 도구. 펜 색·굵기 선택, 이름으로 원형 전자도장 생성 지원. 가입·업로드 없이 모든 처리가 브라우저 안에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>텍스트 비교 (diff) — 두 글·코드의 차이를 색으로 표시</title>
+      <link>https://dogubox.shop/text-diff/</link>
+      <guid isPermaLink="true">https://dogubox.shop/text-diff/</guid>
+      <description>두 텍스트의 차이를 추가(초록)·삭제(빨강)로 표시하는 무료 diff 도구. 줄·단어·문자 단위, 인라인/나란히 보기, 공백·대소문자 무시 옵션 지원. 모든 비교는 브라우저에서 이뤄지며 입력 내용은 전송·저장되지 않습니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>타임스탬프 변환 — Unix 시간 ↔ 날짜(KST·UTC) 무료 도구</title>
+      <link>https://dogubox.shop/timestamp/</link>
+      <guid isPermaLink="true">https://dogubox.shop/timestamp/</guid>
+      <description>Unix 타임스탬프(초·밀리초)를 사람이 읽는 날짜로, 날짜를 타임스탬프로 양방향 변환하세요. 현재 시각을 실시간으로 표시하고 한국 시간(KST)과 UTC를 함께 보여줍니다. 개발·로그 분석에 유용하며 브라우저에서만 처리됩니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>튜너 — 마이크 크로마틱 조율기 (기타·우쿨렐레 기준음)</title>
+      <link>https://dogubox.shop/tuner/</link>
+      <guid isPermaLink="true">https://dogubox.shop/tuner/</guid>
+      <description>마이크로 음정을 감지해 음이름·주파수·센트 편차를 보여 주는 무료 온라인 크로마틱 튜너. 기준 A=440Hz, ±5센트 맞음 표시. 마이크가 없으면 기타·베이스·우쿨렐레 등 조율 프리셋 기준음 모드로 폴백. 마이크 소리는 브라우저 안에서만 처리됩니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>실업급여 계산기 — 구직급여 1일 수급액·총액</title>
+      <link>https://dogubox.shop/unemployment-benefit/</link>
+      <guid isPermaLink="true">https://dogubox.shop/unemployment-benefit/</guid>
+      <description>평균임금과 나이·고용보험 가입기간을 입력하면 구직급여(실업급여) 1일 수급액과 소정급여일수, 예상 총 수급액을 계산하는 무료 도구. 상·하한액을 직접 조정할 수 있고 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>단위 변환 — 길이·무게·온도·넓이·부피·데이터 변환 무료 도구</title>
+      <link>https://dogubox.shop/unit-converter/</link>
+      <guid isPermaLink="true">https://dogubox.shop/unit-converter/</guid>
+      <description>길이(m·cm·inch·mile), 무게(kg·lb·oz), 온도(℃·℉·K), 넓이(㎡·평), 부피(L·gallon), 데이터(MB·GB) 등을 실시간으로 변환하세요. 한 값을 입력하면 같은 카테고리의 모든 단위가 즉시 채워집니다. 평수 계산·해외 단위 환산에 유용합니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>부가가치세(VAT) 계산기 — 공급가·부가세·합계 변환</title>
+      <link>https://dogubox.shop/vat-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/vat-calculator/</guid>
+      <description>공급가액에서 부가세와 합계를, 또는 부가세 포함 금액에서 공급가액과 부가세를 거꾸로 계산하는 무료 부가가치세(VAT) 계산기. 세율 10% 기본, 양방향 변환. 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>시급·주휴수당 계산기 — 알바비·주급 계산</title>
+      <link>https://dogubox.shop/wage-calculator/</link>
+      <guid isPermaLink="true">https://dogubox.shop/wage-calculator/</guid>
+      <description>시급과 근무시간을 입력하면 주휴수당을 포함한 예상 주급·월급과 주휴 포함 실질 시급을 계산하는 무료 알바비 계산기. 최저임금과 비교할 수 있고 모든 계산은 브라우저에서 이뤄집니다.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>글자수 세기 — 공백 포함·제외·단어·바이트 실시간 카운터</title>
+      <link>https://dogubox.shop/word-counter/</link>
+      <guid isPermaLink="true">https://dogubox.shop/word-counter/</guid>
+      <description>자기소개서·블로그·SNS 글자 제한을 맞출 때 쓰는 무료 글자수 세기 도구. 공백 포함/제외 글자 수, 단어 수, 바이트, 줄 수를 실시간으로 계산합니다. 설치 없이 브라우저에서 바로 사용하세요.</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
