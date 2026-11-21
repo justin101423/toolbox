@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://dogubox.shop/sitemap.xml
+#DaumWebMasterTool:a3991ff805d8c52b71a84d8ce8baf371b2dde5ac2b3facd44e3963cdc6fe9c60:9OXzxfMP1b1VGCOsL/bJCQ==
