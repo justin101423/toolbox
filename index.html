@@ -138,7 +138,7 @@ a.ha-stat:hover{background:var(--panel)}
 .sec-label .cnt{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);border:1px solid var(--line);border-radius:100px;padding:2px 9px;flex:none}
 .sec-label:first-of-type{margin-top:8px}
 
-.home-intro{margin:30px 0 8px;padding:26px 30px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--r);columns:2;column-gap:46px}
+.home-intro{margin:30px 0 8px;padding:26px 30px;background:var(--card);border:1px solid var(--line-2);border-radius:var(--r);columns:2;column-gap:46px}
 .home-intro h2{column-span:all;font-family:var(--disp);font-weight:800;font-size:clamp(19px,2.6vw,23px);letter-spacing:-.02em;margin-bottom:14px}
 .home-intro p{font-size:14.5px;color:var(--ink-2);line-height:1.75;margin-bottom:11px;break-inside:avoid}
 .home-intro p:last-child{margin-bottom:0}
@@ -147,14 +147,15 @@ a.ha-stat:hover{background:var(--panel)}
 .home-intro a{color:var(--accent);font-weight:600;border-bottom:1px solid rgba(223,67,36,.35)}
 .home-intro a:hover{border-bottom-color:var(--accent)}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:14px}
-.card{display:block;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;transition:transform .18s ease,border-color .18s,box-shadow .18s;animation:rise .6s cubic-bezier(.2,.7,.2,1) both;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(244px,1fr));gap:12px}
+.card{display:grid;grid-template-columns:24px 1fr;column-gap:13px;align-items:start;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px 14px;transition:transform .18s ease,border-color .18s,box-shadow .18s;animation:rise .6s cubic-bezier(.2,.7,.2,1) both;}
 .card:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:5px 7px 0 rgba(27,26,30,.08)}
-.card .ic{width:38px;height:38px;border-radius:10px;background:var(--panel-2);color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .18s,color .18s}
+.card .ic{grid-row:1 / span 2;width:24px;height:24px;padding-top:1px;background:none;color:var(--cat,var(--ink));display:flex;align-items:center;justify-content:center;transition:color .18s}
+.card .ic svg{width:22px;height:22px}
 .card .ic svg{transition:transform .2s cubic-bezier(.2,.7,.2,1)}
-.card:hover .ic{background:var(--accent);color:#fff}
+.card:hover .ic{color:var(--accent)}
 .card:hover .ic svg{transform:scale(1.12)}
-.card h3{font-size:15.5px;font-weight:700;margin:11px 0 4px;letter-spacing:-.02em;transition:color .15s}
+.card h3{font-size:15.5px;font-weight:700;margin:0 0 3px;line-height:1.3;letter-spacing:-.02em;transition:color .15s}
 .card:hover h3{color:var(--accent)}
 .card p{font-size:13px;color:var(--ink-2);line-height:1.45}
 
@@ -234,7 +235,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
     <div class="inner">
       <div class="hero-grid">
       <div class="hero">
-        <div class="kick">All-in-one</div>
         <h1>필요한 도구,<br><em>여기 다 있어요.</em></h1>
         <p>이미지·PDF 변환과 압축부터 글자수 세기, QR코드, 비밀번호 생성, 컬러 팔레트까지. 모든 처리는 당신의 브라우저 안에서만 일어나요. 파일은 서버로 전송되지 않습니다.</p>
         <div class="hero-badge">

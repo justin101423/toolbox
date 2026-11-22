@@ -129,7 +129,7 @@ html[data-theme="dark"] {
 
 /* 홈 카드: 평상시 아이콘 글리프 색조, 호버 시 칩이 카테고리 색으로 채워지고 제목도 같은 색 */
 .grid[data-cat] .card .ic { color:var(--cat); }
-.grid[data-cat] .card:hover .ic { background:var(--cat); color:#fff; }
+.grid[data-cat] .card:hover .ic { background:none; color:var(--cat); }
 .grid[data-cat] .card:hover h3 { color:var(--cat); }
 
 html[data-theme="dark"] .topbar {
