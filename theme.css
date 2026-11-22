@@ -104,9 +104,9 @@ html[data-theme="dark"] .box{box-shadow:0 16px 40px -22px rgba(0,0,0,.7)}
    밝게 보정. data-cat → --cat 매핑 후 컴포넌트가 var(--cat)만 참조한다.
    (data-cat은 sidebar.js가 사이드바 .grp에, index.html이 홈 .grid에 부여) */
 :root {
-  --cat-image:#cf4f3e; --cat-text:#b1742a; --cat-life:#4f9a5e; --cat-finance:#2f8f86;
-  --cat-work:#5a78c4; --cat-color:#9a62bd; --cat-dev:#4878a6; --cat-inst:#c1568c;
-  --cat-fun:#d6479b;
+  --cat-image:#ae4234; --cat-text:#8c5c21; --cat-life:#3a7246; --cat-finance:#25716a;
+  --cat-work:#4b64a3; --cat-color:#81529f; --cat-dev:#3f6890; --cat-inst:#a04774;
+  --cat-fun:#ad3a7e;
 }
 html[data-theme="dark"] {
   --cat-image:#e8674f; --cat-text:#d2954a; --cat-life:#6fbb7f; --cat-finance:#49b0a4;
@@ -239,3 +239,7 @@ html.embed body::before { display:none; }
 
 /* 좁은 화면에서 상단바 "메뉴" 버튼 글자가 두 줄로 꺾이지 않게 */
 .menu-btn{white-space:nowrap;flex-shrink:0}
+
+/* 상단바 로고 아래 "FREE ONLINE TOOLS"가 11px 미만(9.5px)이던 것을 전 페이지에서 11px로 */
+.brand span{font-size:11px}
+@media(min-width:400px){.brand span{white-space:nowrap}}
