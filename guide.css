@@ -34,7 +34,7 @@
 .content tbody tr:last-child td{border-bottom:none}
 
 /* 콜아웃(강조 박스) */
-.callout{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--r-sm);padding:14px 16px;margin:20px 0;font-size:14.5px;color:var(--ink-2);line-height:1.7}
+.callout{background:var(--panel);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:14px 16px;margin:20px 0;font-size:14.5px;color:var(--ink-2);line-height:1.7}
 .callout b{color:var(--ink)}
 
 /* 도구 CTA — 글에서 관련 도구로 보내는 카드 */
