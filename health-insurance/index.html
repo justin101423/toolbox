@@ -47,7 +47,7 @@
       "name": "Q. 직장가입자 건강보험료는 어떻게 계산하나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "보수월액에 건강보험료율을 곱해 전체 보험료를 구하고, 직장가입자는 이를 근로자와 사업주가 절반씩 부담합니다. 예를 들어 보험료율이 7.09%라면 근로자는 그 절반인 3.545%를 냅니다. 이 계산기는 전체·근로자·사업주 부담을 나눠서 보여 줍니다."
+        "text": "보수월액에 건강보험료율을 곱해 전체 보험료를 구하고, 직장가입자는 이를 근로자와 사업주가 절반씩 부담합니다. 예를 들어 보험료율이 7.19%라면 근로자는 그 절반인 3.595%를 냅니다. 이 계산기는 전체·근로자·사업주 부담을 나눠서 보여 줍니다."
       }
     },
     {
@@ -142,8 +142,11 @@
       <div class="box">
         <div class="hi-grid">
           <div class="hi-field full"><label>월 보수월액 (원)</label><input type="text" inputmode="numeric" id="salary" value="3,000,000"></div>
-          <div class="hi-field"><label>건강보험료율 (%)</label><input type="text" inputmode="decimal" id="rate" value="7.09"></div>
-          <div class="hi-field"><label>장기요양보험료율 (%)</label><input type="text" inputmode="decimal" id="ltc" value="12.95"></div>
+          <div class="hi-field full"><label>적용 연도 (요율 자동 입력)</label>
+            <select id="yr"><option value="2026">2026년 (7.19% · 13.14%)</option><option value="2027">2027년 (7.19% · 13.90%)</option></select>
+          </div>
+          <div class="hi-field"><label>건강보험료율 (%)</label><input type="text" inputmode="decimal" id="rate" value="7.19"></div>
+          <div class="hi-field"><label>장기요양보험료율 (건보료 대비 %)</label><input type="text" inputmode="decimal" id="ltc" value="13.14"></div>
         </div>
 
         <div class="hi-result">
@@ -180,7 +183,7 @@
         </ul>
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">
-          <div class="qa"><b>Q. 직장가입자 건강보험료는 어떻게 계산하나요?</b><p>보수월액에 건강보험료율을 곱해 전체 보험료를 구하고, 직장가입자는 이를 근로자와 사업주가 절반씩 부담합니다. 예를 들어 보험료율이 7.09%라면 근로자는 그 절반인 3.545%를 냅니다. 이 계산기는 전체·근로자·사업주 부담을 나눠서 보여 줍니다.</p></div>
+          <div class="qa"><b>Q. 직장가입자 건강보험료는 어떻게 계산하나요?</b><p>보수월액에 건강보험료율을 곱해 전체 보험료를 구하고, 직장가입자는 이를 근로자와 사업주가 절반씩 부담합니다. 예를 들어 보험료율이 7.19%라면 근로자는 그 절반인 3.595%를 냅니다. 이 계산기는 전체·근로자·사업주 부담을 나눠서 보여 줍니다.</p></div>
           <div class="qa"><b>Q. 장기요양보험료는 무엇인가요?</b><p>노인장기요양보험을 위한 보험료로, 건강보험료에 장기요양보험료율을 곱해 산정합니다. 보수월액이 아니라 '건강보험료'를 기준으로 계산하는 점이 특징입니다. 이것도 근로자와 사업주가 절반씩 부담하며, 건강보험료와 함께 매월 납부합니다.</p></div>
           <div class="qa"><b>Q. 지역가입자도 이 계산기로 되나요?</b><p>아니요. 이 계산기는 직장가입자 기준입니다. 지역가입자는 소득뿐 아니라 재산·자동차 등을 점수로 환산해 보험료를 매기는 방식이라 계산이 다릅니다. 또 보험료율은 매년 바뀌므로, 이 계산기의 요율은 참고용이며 정확한 금액은 건강보험공단에서 확인하세요.</p></div>
           <div class="qa"><b>Q. 보너스(상여금)에도 건강보험료가 붙나요?</b><p>네. 상여금·성과급 등 과세 대상 보수에는 건강보험료가 부과됩니다. 다만 매달 떼는 보험료는 보수월액 기준이고, 연말정산 때 상여를 포함한 연간 보수 총액으로 정산해 차액을 더 내거나 돌려받습니다.</p></div>
@@ -233,6 +236,10 @@
     if(id==='salary'){ var c=num(this.value); this.value=this.value.trim()===''?'':Math.round(c).toLocaleString('ko-KR'); }
     calc();
   }); });
+  // 건강보험료율 7.19%(2026·2027 동결), 장기요양 = 건강보험료 × 13.14%(2026) / 13.90%(2027)
+  var LTC={2026:'13.14',2027:'13.90'};
+  $('yr').addEventListener('change',function(){ $('rate').value='7.19'; $('ltc').value=LTC[this.value]; calc(); });
+  if(new Date().getFullYear()>=2027){ $('yr').value='2027'; $('ltc').value=LTC[2027]; }
   calc();
 })();
 </script>

@@ -47,7 +47,7 @@
       "name": "Q. 실제 받는 금액과 왜 차이가 나나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "이 계산기는 2026년 4대보험 요율과 근로소득 간이세액표(100% 징수 기준)를 적용한 예상치입니다. 실제 소득세는 회사 설정에 따라 80%·120%로 징수될 수 있으며, 연말정산·비과세 항목 구성·월 중 입퇴사 여부에 따라 달라집니다. 정확한 금액은 급여명세서나 홈택스를 확인하세요."
+        "text": "이 계산기는 2026·2027년 4대보험 요율(선택)과 근로소득 간이세액표(100% 징수 기준)를 적용한 예상치입니다. 실제 소득세는 회사 설정에 따라 80%·120%로 징수될 수 있으며, 연말정산·비과세 항목 구성·월 중 입퇴사 여부에 따라 달라집니다. 정확한 금액은 급여명세서나 홈택스를 확인하세요."
       }
     },
     {
@@ -143,9 +143,13 @@
     <div class="inner" style="animation:rise .45s cubic-bezier(.2,.7,.2,1) both">
       <a class="crumb" href="/">← 모든 도구</a>
       <h1>연봉 실수령액 계산기</h1>
-      <p class="lede">연봉이나 월급을 입력하면 4대보험과 세금을 뺀 <b>월 실수령액</b>을 바로 계산합니다. 2026년 요율 기준의 예상치입니다.</p>
+      <p class="lede">연봉이나 월급을 입력하면 4대보험과 세금을 뺀 <b>월 실수령액</b>을 바로 계산합니다. 2026·2027년 요율 중에서 고를 수 있는 예상치입니다(기본값은 올해 기준).</p>
 
       <div class="box">
+        <div class="sc-seg" id="yseg" style="margin-bottom:10px">
+          <button type="button" data-year="2026">2026년 기준</button>
+          <button type="button" data-year="2027">2027년 기준</button>
+        </div>
         <div class="sc-seg" id="seg">
           <button type="button" data-mode="year" class="on">연봉 기준</button>
           <button type="button" data-mode="month">월급 기준</button>
@@ -195,7 +199,7 @@
         <div class="sec-label">실수령액은 왜 연봉보다 적을까</div>
         <p>세전 연봉(또는 월급)에서 매달 빠져나가는 공제는 크게 <b>4대보험</b>과 <b>세금</b> 두 갈래입니다. 같은 연봉이라도 비과세액·부양가족 수에 따라 실수령액이 달라지는 이유가 여기에 있습니다.</p>
         <ul class="tips-list">
-          <li><b>4대보험(2026년 기준):</b> 국민연금 4.75%, 건강보험 3.595%, 장기요양(건강보험료의 13.14%), 고용보험 0.9%가 과세 급여에서 공제됩니다. 산재보험은 전액 회사 부담이라 본인 급여에서는 빠지지 않습니다.</li>
+          <li><b>4대보험(2026년 → 2027년):</b> 국민연금 4.75% → 5.0%, 건강보험 3.595%(동결), 장기요양(건강보험료의 13.14% → 13.90%), 고용보험 0.9%가 과세 급여에서 공제됩니다. 산재보험은 전액 회사 부담이라 본인 급여에서는 빠지지 않습니다.</li>
           <li><b>소득세·지방소득세:</b> 근로소득 간이세액표에 따라 매달 소득세를 원천징수하고, 지방소득세는 그 소득세의 10%입니다. 부양가족이 많을수록, 비과세가 클수록 줄어듭니다.</li>
           <li><b>비과세는 공제 대상이 아님:</b> 식대 월 20만원 등 비과세 항목에는 보험료·세금을 매기지 않으므로, 비과세가 클수록 실수령액이 늘어납니다.</li>
         </ul>
@@ -249,7 +253,7 @@
         </ul>
         <div class="sec-label">자주 묻는 질문</div>
         <div class="faq-list">
-          <div class="qa"><b>Q. 실제 받는 금액과 왜 차이가 나나요?</b><p>이 계산기는 2026년 4대보험 요율과 근로소득 간이세액표(100% 징수 기준)를 적용한 예상치입니다. 실제 소득세는 회사 설정에 따라 80%·120%로 징수될 수 있으며, 연말정산·비과세 항목 구성·월 중 입퇴사 여부에 따라 달라집니다. 정확한 금액은 급여명세서나 홈택스를 확인하세요.</p></div>
+          <div class="qa"><b>Q. 실제 받는 금액과 왜 차이가 나나요?</b><p>이 계산기는 2026·2027년 4대보험 요율(선택)과 근로소득 간이세액표(100% 징수 기준)를 적용한 예상치입니다. 실제 소득세는 회사 설정에 따라 80%·120%로 징수될 수 있으며, 연말정산·비과세 항목 구성·월 중 입퇴사 여부에 따라 달라집니다. 정확한 금액은 급여명세서나 홈택스를 확인하세요.</p></div>
           <div class="qa"><b>Q. 비과세액은 무엇을 넣나요?</b><p>세금과 보험료가 매겨지지 않는 급여 항목입니다. 가장 흔한 것은 식대로 월 20만원까지 비과세이며, 그 밖에 자가운전보조금(월 20만원), 출산·보육수당(월 20만원) 등이 있습니다. 비과세액이 클수록 공제가 줄어 실수령액이 늘어납니다. 명세서의 비과세 합계를 월 기준으로 입력하세요.</p></div>
           <div class="qa"><b>Q. 부양가족 수는 어떻게 세나요?</b><p>소득세 계산에 쓰는 공제대상 가족 수로, 본인을 포함해 셉니다. 소득이 없는 배우자와 부양가족(자녀·부모 등)을 더하면 됩니다. 예를 들어 배우자와 자녀 1명을 부양하면 본인 포함 3명입니다. 가족 수가 많을수록 소득세가 줄어 실수령액이 늘어납니다.</p></div>
           <div class="qa"><b>Q. 연봉에 퇴직금도 포함된 금액인가요?</b><p>회사마다 다릅니다. 계약서에 '퇴직금 포함'이면 연봉을 13으로 나눈 한 달치가 퇴직금 적립분이라 실제 월 급여가 그만큼 줄고, '퇴직금 별도'면 연봉을 12로 나눈 금액이 월 급여가 됩니다. 같은 연봉이라도 어느 쪽이냐에 따라 매달 받는 돈이 달라지므로 계약서의 '퇴직금 포함/별도' 문구를 꼭 확인하세요.</p></div>
@@ -284,8 +288,15 @@
   var $=function(id){return document.getElementById(id);};
   var mode="year";
 
-  // 2026년 기준 요율 (국민연금 상·하한은 2026.7~2027.6 적용분)
-  var R={ pension:0.0475, pensionCap:6590000, pensionFloor:410000, health:0.03595, care:0.1314, emp:0.009 };
+  // 연도별 요율. 국민연금 상·하한은 2026.7~2027.6 적용분(2027.7 이후는 7월에 다시 고시).
+  // 2027: 국민연금 근로자 5.0%(연금개혁 매년 +0.5%p 총 10%), 건강보험 7.19% 동결(근로자 3.595%), 장기요양 건보료의 13.90%,
+  // 고용보험 0.9% — 2027 인상안(실업급여 1.8→2.0%)은 입법 전이라 반영하지 않음.
+  var RATES={
+    2026:{ pension:0.0475, pensionCap:6590000, pensionFloor:410000, health:0.03595, care:0.1314, emp:0.009 },
+    2027:{ pension:0.05,   pensionCap:6590000, pensionFloor:410000, health:0.03595, care:0.1390, emp:0.009 }
+  };
+  var year=new Date().getFullYear()>=2027?2027:2026;
+  var R=RATES[year];
 
   function won(n){ return Math.round(n).toLocaleString('ko-KR'); }
   function floor10(n){ return Math.floor((n+1e-6)/10)*10; } // 1e-6: 3,000,000×0.009=26,999.99…처럼 부동소수 오차로 10원 덜 나오는 것 방지
@@ -393,16 +404,22 @@
     $('net').textContent = won(net)+'원';
     $('netYear').textContent = '연 환산 약 '+won(net*12)+'원 · 월 세전 '+won(grossM)+'원';
     $('breakdown').innerHTML =
-      row('국민연금 (4.75%)',pension)+row('건강보험 (3.595%)',health)+row('장기요양 (건보의 13.14%)',care)+
+      row('국민연금 ('+(R.pension*100)+'%)',pension)+row('건강보험 (3.595%)',health)+row('장기요양 (건보의 '+(R.care*100).toFixed(2)+'%)',care)+
       row('고용보험 (0.9%)',emp)+row('소득세 (간이세액표)',incomeTaxM)+row('지방소득세 (소득세의 10%)',localTaxM)+
       '<tr class="sum"><td>공제 합계</td><td>-'+won(deduct)+'원</td></tr>';
-    $('note').textContent = '※ 2026년 4대보험 요율과 근로소득 간이세액표(소득세법 시행령 별표 2, 100% 징수 기준)를 적용한 예상치입니다. 회사의 소득세 징수 비율(80·120%), 비과세 구성, 월 중 입·퇴사 등에 따라 실제 금액과 차이가 날 수 있습니다.';
+    $('note').textContent = '※ '+year+'년 4대보험 요율과 근로소득 간이세액표(소득세법 시행령 별표 2, 100% 징수 기준)를 적용한 예상치입니다. 회사의 소득세 징수 비율(80·120%), 비과세 구성, 월 중 입·퇴사 등에 따라 실제 금액과 차이가 날 수 있습니다.';
   }
   function row(k,v){ return '<tr><td>'+k+'</td><td>-'+won(v)+'원</td></tr>'; }
 
   // 금액 입력 콤마 포맷
   function formatAmt(el){ var c=num(el.value); el.value = c? c.toLocaleString('ko-KR') : ''; }
   ['amt','nontax'].forEach(function(id){ $(id).addEventListener('input',function(){ var p=this.selectionStart, before=this.value.length; formatAmt(this); var after=this.value.length; this.selectionStart=this.selectionEnd=Math.max(0,p+(after-before)); calc(); }); });
+  function setYear(y){
+    year=y; R=RATES[y];
+    [].forEach.call($('yseg').querySelectorAll('button'),function(x){ x.classList.toggle('on', +x.dataset.year===y); });
+    calc();
+  }
+  $('yseg').addEventListener('click',function(e){ var b=e.target.closest('button[data-year]'); if(b) setYear(+b.dataset.year); });
   $('family').addEventListener('input',calc);
   $('kids').addEventListener('input',calc);
   $('seg').addEventListener('click',function(e){
@@ -413,7 +430,7 @@
     $('amt').value = mode==="year" ? '40,000,000' : '3,000,000';
     calc();
   });
-  calc();
+  setYear(year);
 })();
 </script>
 </html>

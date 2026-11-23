@@ -145,7 +145,7 @@
           <div class="wg-field"><label>시급 (원)</label><input type="text" inputmode="numeric" id="wage" value="10,320"></div>
           <div class="wg-field"><label>하루 근무시간 (시간)</label><input type="text" inputmode="decimal" id="hours" value="8"></div>
           <div class="wg-field"><label>주 근무일수 (일)</label><input type="text" inputmode="numeric" id="days" value="5"></div>
-          <div class="wg-field"><label>최저임금 비교 (원, 참고)</label><input type="text" inputmode="numeric" id="minwage" value="10,320"></div>
+          <div class="wg-field"><label>최저임금 비교 (원 · 2026년 10,320 / 2027년 10,700)</label><input type="text" inputmode="numeric" id="minwage" value="10,320"></div>
         </div>
 
         <div class="wg-result">
@@ -189,7 +189,7 @@
           </tbody>
         </table></div>
         <p>주 14시간과 15시간은 근무가 한 시간 차이지만 주급은 41,280원, 월 환산으로는 179,371원 벌어집니다. 한 시간 일한 값(10,320원)보다 주휴수당(30,960원)이 새로 생기는 효과가 훨씬 큽니다. 주 15~40시간 구간에서는 실질 시급이 12,384원으로 같고, 이는 표시 시급의 정확히 1.2배입니다. 주 48시간은 주휴수당이 8시간분에서 더 늘지 않아 실질 시급이 12,040원으로 내려가는데, 이 계산기는 연장근로 가산수당을 넣지 않으므로 실제 지급액은 더 많을 수 있습니다.</p>
-        <p>주 40시간의 월 환산 2,152,457원은 고용노동부가 고시한 2026년 최저임금 월 환산액 2,156,880원보다 4,423원 적습니다. 고시는 한 달을 209시간으로 올림해 계산하고, 이 계산기는 올림하지 않은 약 208.57시간(48시간 × 4.345주)을 쓰기 때문입니다. 근로계약서의 월급이 최저임금 이상인지 볼 때는 209시간 기준인 고시 금액과 비교하세요.</p>
+        <p>주 40시간의 월 환산 2,152,457원은 고용노동부가 고시한 2026년 최저임금 월 환산액 2,156,880원보다 4,423원 적습니다. 고시는 한 달을 209시간으로 올림해 계산하고, 이 계산기는 올림하지 않은 약 208.57시간(48시간 × 4.345주)을 쓰기 때문입니다. 근로계약서의 월급이 최저임금 이상인지 볼 때는 209시간 기준인 고시 금액과 비교하세요. 2027년 최저임금은 시급 10,700원(3.7% 인상)이며, 209시간 기준 월 환산액은 2,236,300원입니다.</p>
         <p><b>시급만 바꾸면</b> (주 40시간)</p>
         <div class="ex-wrap"><table class="ex-table">
           <thead><tr><th>시급</th><th>주급 합계</th><th>월 환산</th><th>실질 시급</th></tr></thead>
@@ -272,6 +272,8 @@
     if(id==='wage'||id==='minwage'){ var c=num(this.value); this.value=this.value.trim()===''?'':Math.round(c).toLocaleString('ko-KR'); }
     calc();
   }); });
+  // 2027년 최저임금 10,700원(2027.1.1. 적용) — 2027년이 되면 기본값을 새 최저임금으로
+  if(new Date().getFullYear()>=2027){ $('wage').value='10,700'; $('minwage').value='10,700'; }
   calc();
 })();
 </script>

@@ -153,6 +153,9 @@
               <option value="4">10년 이상</option>
             </select>
           </div>
+          <div class="ub-field full"><label>적용 연도 (상·하한액 자동 입력)</label>
+            <select id="yr"><option value="2026">2026년 (상한 68,100 · 하한 66,048)</option><option value="2027">2027년 (상한 68,100 · 하한 68,480)</option></select>
+          </div>
           <div class="ub-field"><label>1일 상한액 (원, 참고)</label><input type="text" inputmode="numeric" id="cap" value="68,100"></div>
           <div class="ub-field"><label>1일 하한액 (원, 참고)</label><input type="text" inputmode="numeric" id="floor" value="66,048"></div>
         </div>
@@ -182,6 +185,7 @@
           <li><b>지급액:</b> 퇴직 전 평균임금의 60%(상·하한 적용)를 1일 구직급여로, 가입기간·나이에 따른 소정급여일수(120~270일)만큼.</li>
           <li><b>신청 기한:</b> 퇴직 다음 날부터 12개월 안에 받아야 하므로 미루지 말고 신청하세요.</li>
         </ul>
+<p>2027년 하한액은 최저시급 10,700원의 80%에 8시간을 곱한 <b>68,480원</b>으로 올라 현행 상한액(68,100원)보다 높아집니다. 정부는 2026년 9월 고용보험위원회에서 상한액을 하한액의 103%로 연동하고 구직급여를 주 6일 기준으로 지급하는 개편안을 밝혔지만 아직 법령이 확정되지 않아 이 계산기에는 반영하지 않았습니다.</p>
         <p>상·하한액과 일수는 해마다 바뀌므로 최신 값을 확인해 입력하세요. 자세한 자격·절차는 <a class="inlink" href="/guide/unemployment-benefit-guide/">실업급여 가이드</a>에 정리했습니다.</p>
 
         <div class="sec-label">숫자로 보는 예시 — 2026년 상·하한액 사이는 2,052원</div>
@@ -261,13 +265,14 @@
     var ageIdx=$('age').value==='over'?1:0, p=parseInt($('period').value,10);
     var avgDaily=salary/30;
     var daily=avgDaily*0.6;
-    var capped=Math.min(Math.max(daily,floor),cap);
+    var capped=Math.max(Math.min(daily,cap),floor);   // 하한액 우선: 상한이 하한보다 낮게 입력돼도 하한 밑으로는 내려가지 않음
     var days=DAYS[p][ageIdx];
     var total=capped*days;
     $('total').textContent=won(total)+'원';
     $('sub').textContent='1일 '+won(capped)+'원 × '+days+'일';
     var note='';
     if(daily<floor) note=' (하한 적용)'; else if(daily>cap) note=' (상한 적용)';
+    if(cap<floor) note=' (하한 적용 — 상한이 하한보다 낮음)';
     $('breakdown').innerHTML=
       '<tr><td>1일 평균임금 (월급÷30)</td><td>'+won(avgDaily)+'원</td></tr>'+
       '<tr><td>평균임금의 60%</td><td>'+won(daily)+'원</td></tr>'+
@@ -277,9 +282,14 @@
     $('note').textContent='※ 1일 평균임금을 월급÷30으로 근사한 참고용 추정치입니다. 상·하한액과 소정급여일수 기준은 매년 바뀌고, 실제 수급액·자격은 고용센터(고용보험 홈페이지)에서 확인해야 합니다.';
   }
   ['salary','cap','floor'].forEach(function(id){ $(id).addEventListener('input',function(){ var c=num(this.value); this.value=this.value.trim()===''?'':Math.round(c).toLocaleString('ko-KR'); calc(); }); });
+  // 2027: 하한 = 최저임금 10,700원 × 80% × 8시간 = 68,480원. 상한은 현행 시행령 68,100원 그대로(하한보다 낮아 역전 —
+  // 2026.9.1. 고용보험위원회 개편안은 상한을 하한의 103%로 연동하지만 입법 전이라 미반영).
+  var YR={2026:['68,100','66,048'],2027:['68,100','68,480']};
+  function setYear(y){ $('yr').value=y; $('cap').value=YR[y][0]; $('floor').value=YR[y][1]; calc(); }
+  $('yr').addEventListener('change',function(){ setYear(this.value); });
   $('age').addEventListener('change',calc);
   $('period').addEventListener('change',calc);
-  calc();
+  if(new Date().getFullYear()>=2027) setYear('2027'); else calc();
 })();
 </script>
 </html>
