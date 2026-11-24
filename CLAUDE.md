@@ -384,6 +384,7 @@ toolbox/
   - **색인 대상 도구 58개 전부 보강 완료(2026-10-03).**
   - **색인 대상 가이드 62편 전부 보강 완료(2026-10-03).** 가이드는 형식이 도구와 다릅니다 — FAQ(`<div class="sec-label">자주 묻는 질문</div>`) 바로 앞에 `<h2 id="numbers">소제목</h2>` + 도입 문단 + 일반 `<table>`(guide.css가 스타일) + 해설 문단을 넣고, `.toc` 목록 끝에 `#numbers` 항목을 추가하며, Article JSON-LD의 `dateModified`와 sitemap `lastmod`를 갱신합니다(`csv-excel-encoding`만 기존에 `id="numbers"` 절이 있어 `id="measured"` 사용). 숫자는 짝이 되는 도구 페이지의 계산식·실제 동작으로 구한 값만 씁니다. 가이드 본문에서 `<pre>`·`<blockquote>`는 스타일이 없으므로 쓰지 말고 `code.ex-code`·`.callout`을 씁니다.
   - 이후 과제는 색인·트래픽 추이 확인.
+  - 2026-11-24(추가 보강): 가이드 `what-is-vat`(사업자 납부세액 = 매출세액 − 매입세액 절·단계별 표·불공제·신고 시기 + FAQ 4번째 문항, 본문·JSON-LD 동시), `compound-effect`(일찍 시작 vs 늦게 시작 적립 비교표 — compound-interest 계산식으로 산출)
   - 2026-11-20: 대표 이미지(표지) — 가이드 224편 + 색인 대상 도구 58개에 `cover.png`(1200×630) 생성, Article·SoftwareApplication JSON-LD `image`와 og/twitter 이미지 반영(39910f8, 4b94f5f). 같은 날 JSON-LD `name`을 h1과 일치(4곳, 2eed82f), 모바일 가로 넘침 7곳 수정(07d2cf9).
 
 ## 5. 모든 도구 페이지가 공유하는 공통 구조
