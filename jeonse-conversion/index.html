@@ -257,13 +257,17 @@
       var monthly=conv*rate/12;
       $('resLbl').textContent='환산 월세';
       $('result').textContent=won(monthly)+'원';
-      $('sub').textContent='보증금 '+won(keep)+'원 + 월세 '+won(monthly)+'원 (전환액 '+won(conv)+'원)';
+      $('sub').textContent = keep>dep
+        ? '남길 보증금이 전세 보증금보다 커서 월세로 돌릴 금액이 없습니다.'
+        : '보증금 '+won(keep)+'원 + 월세 '+won(monthly)+'원 (전환액 '+won(conv)+'원)';
     } else {
       var mdep=num($('mDeposit').value), rent=num($('rent').value);
       var jeonse = rate>0 ? mdep + (rent*12/rate) : mdep;
       $('resLbl').textContent='환산 전세 보증금';
       $('result').textContent=won(jeonse)+'원';
-      $('sub').textContent='보증금 '+won(mdep)+'원 + 월세 환산 '+won(rent*12/(rate||1))+'원';
+      $('sub').textContent = rate>0
+        ? '보증금 '+won(mdep)+'원 + 월세 환산 '+won(rent*12/rate)+'원'
+        : '전환율을 입력하면 월세를 보증금으로 환산합니다. (지금은 보증금만 표시)';
     }
     $('note').textContent='※ 전세→월세: (보증금−남길보증금)×전환율÷12. 월세→전세: 보증금+(월세×12÷전환율). 전환율 법정 상한은 시기에 따라 바뀌니 최신 기준을 확인하세요.';
   }
@@ -276,7 +280,7 @@
     calc();
   });
   ['deposit','keep','mDeposit','rent','rate'].forEach(function(id){ $(id).addEventListener('input',function(){
-    if(id!=='rate'){ var c=num(this.value); this.value=this.value.trim()===''?'':Math.round(c).toLocaleString('ko-KR'); }
+    if(id!=='rate'){ var pos=this.selectionStart, before=this.value.length, c=num(this.value); this.value=this.value.trim()===''?'':Math.round(c).toLocaleString('ko-KR'); try{ this.selectionStart=this.selectionEnd=Math.max(0,pos+(this.value.length-before)); }catch(err){} }
     calc();
   }); });
   calc();
